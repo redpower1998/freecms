@@ -6,6 +6,6 @@
 
 == FreeTeam ==
 
-== FreeCMS ==
+== [FreeCMS] ==
 
 == [FAQ 常见问题解答] ==
