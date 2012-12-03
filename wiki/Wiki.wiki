@@ -1,7 +1,7 @@
-#summary 维基[http://code.google.com/p/freecms/w/list 列表].
+#summary 维基.
 #labels 维基,Wiki
 
-= 维基 =
+= 维基 [http://code.google.com/p/freecms/w/list 列表]=
 
 == FreeTeam ==
 
