@@ -4,8 +4,8 @@
 = 维基 =
 [http://code.google.com/p/freecms/w/list 维基列表]
 
-=== FreeTeam ===
+== FreeTeam ==
 
-=== [FreeCMS] ===
+== [FreeCMS] ==
 
-=== [FAQ 常见问题解答] ===
+== [FAQ 常见问题解答] ==
