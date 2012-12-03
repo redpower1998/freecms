@@ -5,3 +5,6 @@
 
 == FreeCMS公开所有源码么? ==
 FreeCMS遵守Apache License 2.0开源协议，并公开所有源码，您可以随意下载并传播源码，并可根据自己的需求进行二次开发，但FreeTeam保留对FreeCMS的所有权。
+
+== FreeCMS可以免费商用么? ==
+免费是FreeCMS的宗旨，您可以使用FreeCMS建设自己的个人站点，也可以应用于商业项目而无需商业授权。
