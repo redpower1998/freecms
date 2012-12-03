@@ -1,4 +1,4 @@
-#summary 维基.
+#summary 维基[http://code.google.com/p/freecms/w/list 列表].
 #labels 维基,Wiki
 
 = 维基 =
