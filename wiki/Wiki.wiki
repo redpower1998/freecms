@@ -7,8 +7,3 @@
 == FreeTeam ==
 
 == [FAQ 常见问题解答] ==
-
-*[FreeTeam]
- *[FreeTeam]
- *[FreeTeam]
-*[FreeTeam]
