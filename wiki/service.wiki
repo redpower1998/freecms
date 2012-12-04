@@ -13,6 +13,6 @@ FreeTeam提供两种服务支持方式，一种是免费支持，一种是赞助
   * 产品升级：针对[FreeCMS]的新版本，提供终生免费升级并通过[http://code.google.com/p/freecms/issues/list 讨论区]提供程序升级问题解答。
   * BUG清除：清除[FreeCMS]中出现的任何BUG。
   * 安全预警：当程序有重大安全隐患时，通过[http://code.google.com/p/freecms/issues/list 讨论区]进行预警通知，并提供解决方案。
-  * 帮助教程：提供[FreeCMS]的Wiki教程、操作手册以及二次开发文档等相关帮助。
+  * 帮助教程：使用[Wiki]提供[FreeCMS]的教程、操作手册以及二次开发文档等相关帮助。
 
 == 赞助支持 ==
