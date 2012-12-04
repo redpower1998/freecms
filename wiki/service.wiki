@@ -9,7 +9,7 @@ FreeTeam提供两种服务支持方式，一种是免费支持，一种是赞助
 == 免费支持 ==
 
 免费支持面向所有用户，您可以通过以下方式获取免费支持:
-  * 讨论支持：您可以直接在[http://code.google.com/p/freecms/issues/list 讨论区]发布您遇到的问题，FreeTeam将尽快处理您所提出的问题。
+  * 讨论支持：您可以直接在[http://code.google.com/p/freecms/issues/list 讨论区]发布您遇到的问题或解答别人的问题，FreeTeam将尽快处理您所提出的问题。
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
 
