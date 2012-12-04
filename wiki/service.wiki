@@ -11,6 +11,6 @@ FreeTeam提供两种服务支持方式，一种是免费支持，一种是赞助
 免费支持面向所有用户，您可以通过以下方式获取免费支持:
   * 讨论支持：您可以直接在[http://code.google.com/p/freecms/issues/list 讨论区]发布您遇到的问题或解答别人的问题，FreeTeam将尽快处理您所提出的问题。
   * 产品升级：针对[FreeCMS]的新版本，提供终生免费升级并通过[http://code.google.com/p/freecms/issues/list 讨论区]提供程序升级问题解答。
-  * Automatic links to other wiki pages
+  * BUG清除：清除[FreeCMS]中出现的任何BUG。
 
 == 赞助支持 ==
