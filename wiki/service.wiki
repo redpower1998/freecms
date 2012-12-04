@@ -8,7 +8,7 @@ FreeTeam提供两种服务支持方式，一种是免费支持，一种是赞助
 
 == 免费支持 ==
 
-Add your content here.  Format your content with:
+免费支持面向所有用户，您可以通过以下方式获取免费支持:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
