@@ -2,12 +2,7 @@
 
 = 解决方案 =
 
-Add your content here.
 
+== 政府部门网站解决方案 ==
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+政府部门网站解决方案倡导“安全、共享、协同、应用”的理念，遵循国家电子政务标准实施中“统一组织领导。统一规划实施、统一标准规范、同一网络平台、统一安全管理”的基本原则，充分发挥政府网站有效服务社会的应用职能，有效推进政府信息群架构进程。
