@@ -9,6 +9,8 @@
 
 Bug 是期望之外的瑕疵，错误，缺陷，或[FreeCMS]的不完美之处。FreeTeam希望知道[FreeCMS]在使用中拥有哪些问题。
 
+您可以发送标题如"Bug报告:XXXXXX"格式的邮件至freeteam@foxmail.com。
+
 要使报告的信息有用，bug 报告需要尽可能详细。在提交报告或考虑报告 bug 时请根据如下指示说明：
 
   * 1.确保您在使用[FreeCMS]最新版本。
