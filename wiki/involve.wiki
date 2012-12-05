@@ -33,7 +33,7 @@ Add your content here.  Format your content with:
 
 [FreeCMS]目前使用SVN来控制程序版本，如果您想加入FreeTeam，最好先弄明白SVN的使用方法。[FreeCMS]托管在google code上，google code把开发人员分成项目所有者和项目成员两种身份，他们都可以向SVN提交代码。因此如果您想向[FreeCMS]的SVN提交代码必须具备以下条件 
 
-  * 1.必要的职业技能水平，不一定是程序员，我们也需要前端工程师和设计师，以及文档撰写者。
+  * 1.必要的职业技能水平，不一定是程序员，FreeTeam也需要前端工程师和设计师，以及文档撰写者。
   * 2.热衷于开源软件事业
   * 3.一个google的帐号:)
 如果您觉得自己具备了这些条件，又迫不及待地想加入到FreeTeam之中，请立即向freeteam@foxmail.com提交您的请求，FreeTeam将尽快组织人员对您的请求给予答复。邮件请按以下格式撰写: 
