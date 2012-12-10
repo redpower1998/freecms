@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="FreeCMS"
+  id="myeclipse.1326937889750"
+  context-root="/freecms"
+  j2ee-spec="5.0"
+  archive="FreeCMS.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
