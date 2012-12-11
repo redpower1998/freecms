@@ -8,7 +8,132 @@ Add your content here.
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+<p>
+	<strong>mysql的下载地址：<a href="http://dev.mysql.com/downloads/mysql/5.1.html" target="_blank"><span style="color: #3fa7cb">http://dev.mysql.com/downloads/mysql/5.1.html</span></a>。</strong></p>
+<p>
+	<strong>一、MySQL5.1安装</strong></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;打开下载的安装文件，出现如下界面：</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="371" src="http://a.hiphotos.baidu.com/album/pic/item/1ad5ad6eddc451da09466907b6fd5266d11632ad.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="478" /></p>
+<p>
+	mysql安装向导启动，点击&ldquo;next&rdquo;继续</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="370" src="http://d.hiphotos.baidu.com/album/pic/item/9825bc315c6034a8151bdc6dcb13495408237664.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择安装类型，有&ldquo;Typical（默认）&rdquo;、&ldquo;Complete（完全）&rdquo;、&ldquo;Custom（用户自定义）&rdquo;三个选项，我们选择&ldquo;Custom&rdquo;，有更多的选项，也方便熟悉安装过程。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="369" src="http://c.hiphotos.baidu.com/album/pic/item/48540923dd54564ec09c80d5b3de9c82d0584f64.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="478" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在&ldquo;MySQL&nbsp;Server（MySQL服务器）&rdquo;上左键单击，选择&ldquo;This&nbsp;feature,&nbsp;and&nbsp;all&nbsp;subfeatures,&nbsp;will&nbsp;be<br />
+	installed&nbsp;on&nbsp;local&nbsp;hard&nbsp;drive.&rdquo;，即&ldquo;此部分，及下属子部分内容，全部安装在本地硬盘上&rdquo;。点选&ldquo;Change...&rdquo;，手动指定安装目录。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="369" src="http://c.hiphotos.baidu.com/album/pic/item/94cad1c8a786c91715fa36d5c93d70cf3ac75764.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;填上安装目录，例如&ldquo;F:MySQL&rdquo;，也建议不要放在与操作系统同一分区，这样可以防止系统备份还原的时候，数据被清空。按&ldquo;OK&rdquo;继续。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="370" src="http://a.hiphotos.baidu.com/album/pic/item/728da9773912b31b08b0a9c58618367adbb4e17a.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" />确认一下先前的设置，如果有误，按&ldquo;Back&rdquo;返回重做。按&ldquo;Install&rdquo;开始安装。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="370" src="http://h.hiphotos.baidu.com/album/pic/item/377adab44aed2e733435e2c08701a18b86d6fa7a.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	正在安装中，请稍候，直到出现下面的界面。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="373" src="http://b.hiphotos.baidu.com/album/pic/item/9f2f070828381f3020c5e945a9014c086f06f07a.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	点击&ldquo;next&rdquo;继续，出现如下界面。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="370" src="http://b.hiphotos.baidu.com/album/pic/item/42a98226cffc1e173b0fe9dd4a90f603728de9ae.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在软件安装完成了，出现上面的界面，这里有一个很好的功能，mysql&nbsp;配置向导，不用向以前一样，<br />
+	自己手动乱七八糟的配置my.ini&nbsp;了，将&ldquo;Configure&nbsp;the&nbsp;Mysql&nbsp;Server&nbsp;now&rdquo;前面的勾打上，点&ldquo;Finish&rdquo;结束<br />
+	软件的安装并启动mysql配置向导。</p>
+<p>
+	<strong>二、配置MySQL&nbsp;Server</strong></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点击&ldquo;Finsh&rdquo;，出现如下界面，MySQL&nbsp;Server配置向导启动。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="372" src="http://e.hiphotos.baidu.com/album/pic/item/242dd42a2834349b078b0b69c9ea15ce37d3be48.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	点击&ldquo;next&rdquo;出现如下界面，</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="374" src="http://f.hiphotos.baidu.com/album/pic/item/58ee3d6d55fbb2fba6f73cfe4f4a20a44723dc7a.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择配置方式，&ldquo;Detailed&nbsp;Configuration（手动精确配置）&rdquo;、&ldquo;Standard&nbsp;Configuration（标准配置）&rdquo;，<br />
+	我们选择&ldquo;Detailed&nbsp;Configuration&rdquo;，方便熟悉配置过程。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="373" src="http://h.hiphotos.baidu.com/album/pic/item/8718367adab44aed91fedb08b31c8701a08bfbae.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择服务器类型，&ldquo;Developer&nbsp;Machine（开发测试类，mysql&nbsp;占用很少资源）&rdquo;、&ldquo;Server&nbsp;Machine（服<br />
+	务器类型，mysql占用较多资源）&rdquo;、&ldquo;Dedicated&nbsp;MySQL&nbsp;Server&nbsp;Machine（专门的数据库服务器，mysql<br />
+	占用所有可用资源）&rdquo;，大家根据自己的类型选择了，一般选&ldquo;Server&nbsp;Machine&rdquo;，不会太少，也不会占满。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="371" src="http://g.hiphotos.baidu.com/album/pic/item/5d6034a85edf8db185a319880923dd54574e7448.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择mysql数据库的大致用途，&ldquo;Multifunctional&nbsp;Database（通用多功能型，好）&rdquo;、&ldquo;Transactional<br />
+	Database&nbsp;Only（服务器类型，专注于事务处理，一般）&rdquo;、&ldquo;Non-Transactional&nbsp;Database&nbsp;Only（非事务处<br />
+	理型，较简单，主要做一些监控、记数用，对MyISAM数据类型的支持仅限于non-transactional），随自<br />
+	己的用途而选择了，我这里选择&ldquo;Transactional&nbsp;Database&nbsp;Only&rdquo;，按&ldquo;Next&rdquo;继续。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="368" src="http://g.hiphotos.baidu.com/album/pic/item/4b90f603738da9778ff0e2c7b051f8198718e37b.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对InnoDB&nbsp;Tablespace进行配置，就是为InnoDB&nbsp;数据库文件选择一个存储空间，如果修改了，要记<br />
+	住位置，重装的时候要选择一样的地方，否则可能会造成数据库损坏，当然，对数据库做个备份就没问题<br />
+	了，这里不详述。我这里没有修改，使用默认位置，直接按&ldquo;Next&rdquo;继续。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="374" src="http://d.hiphotos.baidu.com/album/pic/item/d50735fae6cd7b890d945e6f0f2442a7d8330e65.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择您的网站的一般mysql&nbsp;访问量，同时连接的数目，&ldquo;Decision&nbsp;Support(DSS)/OLAP（20个左右）&rdquo;、<br />
+	&ldquo;Online&nbsp;Transaction&nbsp;Processing(OLTP)（500个左右）&rdquo;、&ldquo;Manual&nbsp;Setting（手动设置，自己输一个数）&rdquo;，<br />
+	我这里选&ldquo;Online&nbsp;Transaction&nbsp;Processing(OLTP)&rdquo;，自己的服务器，应该够用了，按&ldquo;Next&rdquo;继续。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="370" src="http://f.hiphotos.baidu.com/album/pic/item/91ef76c6a7efce1ba098ad26af51f3deb58f65ae.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是否启用TCP/IP连接，设定端口，如果不启用，就只能在自己的机器上访问mysql&nbsp;数据库了，我这<br />
+	里启用，把前面的勾打上，Port&nbsp;Number：3306，在这个页面上，您还可以选择&ldquo;启用标准模式&rdquo;（Enable&nbsp;Strict<br />
+	Mode），这样MySQL就不会允许细小的语法错误。如果您还是个新手，我建议您取消标准模式以减少麻<br />
+	烦。但熟悉MySQL以后，尽量使用标准模式，因为它可以降低有害数据进入数据库的可能性。还有一个关于防火墙的设置&ldquo;Add&nbsp;firewall&nbsp;exception&nbsp;&hellip;&hellip;&rdquo;需要选中，将MYSQL服务的监听端口加为windows防火墙例外，避免防火墙阻断。按&ldquo;Next&rdquo;继续。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="370" src="http://f.hiphotos.baidu.com/album/pic/item/38dbb6fd5266d0168494fbc4972bd40734fa3548.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：如果要用原来数据库的数据，最好能确定原来数据库用的是什么编码，如果这里设置的编码和原来数据库数据的编码不一致，在使用的时候可能会出现乱码。</p>
+<p>
+	这个比较重要，就是对mysql默认数据库语言编码进行设置，第一个是西文编码，第二个是多字节的<br />
+	通用utf8编码，都不是我们通用的编码，这里选择第三个，然后在Character&nbsp;Set&nbsp;那里选择或填入&ldquo;gbk&rdquo;，<br />
+	当然也可以用&ldquo;gb2312&rdquo;，区别就是gbk的字库容量大，包括了gb2312的所有汉字，并且加上了繁体字、<br />
+	和其它乱七八糟的字&mdash;&mdash;使用mysql&nbsp;的时候，在执行数据操作命令之前运行一次&ldquo;SET&nbsp;NAMES&nbsp;GBK;&rdquo;（运<br />
+	行一次就行了，GBK可以替换为其它值，视这里的设置而定），就可以正常的使用汉字（或其它文字）了，<br />
+	否则不能正常显示汉字。按&ldquo;Next&rdquo;继续。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="370" src="http://d.hiphotos.baidu.com/album/pic/item/a8ec8a13632762d02cc6c053a0ec08fa503dc666.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择是否将mysql&nbsp;安装为windows服务，还可以指定Service&nbsp;Name（服务标识名称），是否将mysql<br />
+	的bin目录加入到Windows&nbsp;PATH（加入后，就可以直接使用bin下的文件，而不用指出目录名，比如连<br />
+	接，&ldquo;mysql.exe&nbsp;-uusername&nbsp;-ppassword;&rdquo;就可以了，不用指出mysql.exe的完整地址，很方便），我这里<br />
+	全部打上了勾，Service&nbsp;Name不变。按&ldquo;Next&rdquo;继续。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="368" src="http://f.hiphotos.baidu.com/album/pic/item/58ee3d6d55fbb2fba6d33cfe4f4a20a44723dc66.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="478" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这一步询问是否要修改默认root&nbsp;用户（超级管理）的密码（默认为空），&ldquo;New&nbsp;root&nbsp;password&rdquo;如果要<br />
+	修改，就在此填入新密码（如果是重装，并且之前已经设置了密码，在这里更改密码可能会出错，请留空，<br />
+	并将&ldquo;Modify&nbsp;Security&nbsp;Settings&rdquo;前面的勾去掉，安装配置完成后另行修改密码），&ldquo;Confirm（再输一遍）&rdquo;<br />
+	内再填一次，防止输错。&ldquo;Enable&nbsp;root&nbsp;access&nbsp;from&nbsp;remotemachines（是否允许root&nbsp;用户在其它的机器上<br />
+	登陆，如果要安全，就不要勾上，如果要方便，就勾上它）&rdquo;。最后&ldquo;Create&nbsp;An&nbsp;Anonymous&nbsp;Account（新建<br />
+	一个匿名用户，匿名用户可以连接数据库，不能操作数据，包括查询）&rdquo;，一般就不用勾了，设置完毕，按<br />
+	&ldquo;Next&rdquo;继续。</p>
+<p>
+	<img alt="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" height="368" src="http://e.hiphotos.baidu.com/album/pic/item/8ad4b31c8701a18b435877a39e2f07082938feaf.jpg" title="MySQL5.1安装配置图解 - 阿文 - 陈文秀 的博客" width="479" /></p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;确认设置无误，如果有误，按&ldquo;Back&rdquo;返回检查。按&ldquo;Execute&rdquo;使设置生效。</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设置完毕，按&ldquo;Finish&rdquo;结束mysql的安装与配置&mdash;&mdash;这里有一个比较常见的错误，就是不能&ldquo;Start<br />
+	service&rdquo;，一般出现在以前有安装mysql&nbsp;的服务器上，解决的办法，先保证以前安装的mysql&nbsp;服务器彻底<br />
+	卸载掉了；不行的话，检查是否按上面一步所说，之前的密码是否有修改，照上面的操作；如果依然不行，<br />
+	将mysql&nbsp;安装目录下的data文件夹备份，然后删除，在安装完成后，将安装生成的data文件夹删除，备<br />
+	份的data文件夹移回来，再重启mysql&nbsp;服务就可以了，这种情况下，可能需要将数据库检查一下，然后修<br />
+	复一次，防止数据出错。</p>
+<p>
+	三、说明</p>
+<p>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本文所涉及内容均可以在MySQL参考手册第二章&ldquo;安装MySQL&rdquo;中找到。MySQL参考手册地址</p>
+<p>
+	<a href="http://dev.mysql.com/doc/refman/5.1/zh/index.html" target="_blank"><span style="color: #3fa7cb">http://dev.mysql.com/doc/refman/5.1/zh/index.html</span></a>。</p>
