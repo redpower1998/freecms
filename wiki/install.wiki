@@ -2,7 +2,7 @@
 #labels install,安装手册
 
 = 安装手册 =
-
+&nbsp;
 <h1>
 <span style="font-family:宋体;">前提条件</span> 
 </h1>
@@ -237,20 +237,20 @@
 <span style="font-family:宋体;">运行</span><span>Tomcat</span><span style="font-family:宋体;">目录</span><span>\bin\ startup.bat</span><span style="font-family:宋体;">文件。</span> 
 </p>
 <p>
-&nbsp;<img alt="" src="http://static.oschina.net/uploads/space/2012/1211/135451_1CsP_916014.gif" /> 
+<img alt="" src="http://static.oschina.net/uploads/space/2012/1211/135451_1CsP_916014.gif" /> 
 </p>
 <p>
 <span></span>
 </p>
 <p>
-<b><span><span>5.<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></b><b><span style="font-family:宋体;">测试页面</span><span></span></b> 
+<b><span><span>5.<span> </span></span></span></b><b><span style="font-family:宋体;">测试页面</span><span></span></b> 
 </p>
 <p>
 <span style="font-family:宋体;">打开浏览器，输入</span><span><a href="http://localhost:8080/login.jsp">http://localhost:8080/login.jsp</a></span><span style="font-family:宋体;">。</span> 
 </p>
 <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/135513_95ae_916014.gif" /> 
 <p>
-&nbsp;
+
 </p>
 <p>
 <span></span>
@@ -260,7 +260,7 @@
 </p>
 <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/135538_vw54_916014.gif" /> 
 <p>
-&nbsp;
+
 </p>
 <p>
 <span></span>
