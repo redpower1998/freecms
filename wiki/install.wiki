@@ -2,7 +2,7 @@
 #labels install,安装手册
 
 = 安装手册 =
-&nbsp;
+
 <h1>
 <span style="font-family:宋体;">前提条件</span> 
 </h1>
@@ -10,10 +10,10 @@
 <span style="font-family:宋体;">在安装</span><span>FreeCMS</span><span style="font-family:宋体;">前，您需要安装以下软件。</span> 
 </p>
 <p>
-<span><span>1.<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><b><span>java</span></b><b><span style="font-family:宋体;">环境</span></b><span style="font-family:宋体;">：</span><span>FreeCMS</span><span style="font-family:宋体;">采用</span><span>java</span><span style="font-family:宋体;">语言开发，所以</span><span>java</span><span style="font-family:宋体;">环境是必须的，</span><span>FreeCMS</span><span style="font-family:宋体;">要求</span><span>java</span><span style="font-family:宋体;">版本在</span><span>1.5</span><span style="font-family:宋体;">以上。安装方法参见</span><span><a href="http://my.oschina.net/u/916014/blog/95074">http://my.oschina.net/u/916014/blog/95074</a></span><span style="font-family:宋体;">。</span> 
+<span><span>1.<span> </span></span></span><b><span>java</span></b><b><span style="font-family:宋体;">环境</span></b><span style="font-family:宋体;">：</span><span>FreeCMS</span><span style="font-family:宋体;">采用</span><span>java</span><span style="font-family:宋体;">语言开发，所以</span><span>java</span><span style="font-family:宋体;">环境是必须的，</span><span>FreeCMS</span><span style="font-family:宋体;">要求</span><span>java</span><span style="font-family:宋体;">版本在</span><span>1.5</span><span style="font-family:宋体;">以上。安装方法参见</span><span><a href="http://my.oschina.net/u/916014/blog/95074">http://my.oschina.net/u/916014/blog/95074</a></span><span style="font-family:宋体;">。</span> 
 </p>
 <p>
-<span><span>2.<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><b><span style="font-family:宋体;">数据库软件</span></b><span>:FreeCMS</span><span style="font-family:宋体;">支持两种数据库：</span><span>Mysql</span><span style="font-family:宋体;">和</span><span>Mssql</span><span style="font-family:宋体;">。请根据您的需要进行安装。</span> 
+<span><span>2.<span> </span></span></span><b><span style="font-family:宋体;">数据库软件</span></b><span>:FreeCMS</span><span style="font-family:宋体;">支持两种数据库：</span><span>Mysql</span><span style="font-family:宋体;">和</span><span>Mssql</span><span style="font-family:宋体;">。请根据您的需要进行安装。</span> 
 </p>
 <p>
 <b><span>Mysql</span></b><span style="font-family:宋体;">推荐版本在</span><span>5.1</span><span style="font-family:宋体;">以上，安装方法参见</span> 
@@ -34,13 +34,13 @@
 <b><span style="font-family:宋体;color:red;">注意</span></b><span style="font-family:宋体;">：</span><span>sql server 2000 </span><span style="font-family:宋体;">需要安装</span><span>SQL2KSP4</span><span style="font-family:宋体;">补丁。</span> 
 </p>
 <p>
-<span><span>3.<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><b><span style="font-family:宋体;">服务器中间件</span></b><span style="font-family:宋体;">：</span><span>FreeCMS</span><span style="font-family:宋体;">属于</span><span>J2EE</span><span style="font-family:宋体;">项目，需要服务器中间件来运行，</span><span>FreeCMS</span><span style="font-family:宋体;">可以在</span><span>Tomcat/Jboss/WAS/WebLogic</span><span style="font-family:宋体;">等主流服务器上面运行，本手册以</span><span>Tomcat</span><span style="font-family:宋体;">为例，</span><span>Tomcat</span><span style="font-family:宋体;">推荐版本在</span><span>5.0</span><span style="font-family:宋体;">以上，</span><span>Tomcat</span><span style="font-family:宋体;">安装方法参见</span><span><a href="http://my.oschina.net/u/916014/blog/95085">http://my.oschina.net/u/916014/blog/95085</a></span><span style="font-family:宋体;">。</span> 
+<span><span>3.<span> </span></span></span><b><span style="font-family:宋体;">服务器中间件</span></b><span style="font-family:宋体;">：</span><span>FreeCMS</span><span style="font-family:宋体;">属于</span><span>J2EE</span><span style="font-family:宋体;">项目，需要服务器中间件来运行，</span><span>FreeCMS</span><span style="font-family:宋体;">可以在</span><span>Tomcat/Jboss/WAS/WebLogic</span><span style="font-family:宋体;">等主流服务器上面运行，本手册以</span><span>Tomcat</span><span style="font-family:宋体;">为例，</span><span>Tomcat</span><span style="font-family:宋体;">推荐版本在</span><span>5.0</span><span style="font-family:宋体;">以上，</span><span>Tomcat</span><span style="font-family:宋体;">安装方法参见</span><span><a href="http://my.oschina.net/u/916014/blog/95085">http://my.oschina.net/u/916014/blog/95085</a></span><span style="font-family:宋体;">。</span> 
 </p>
 <h1>
 <span style="font-family:宋体;">安装</span><span>FreeCMS</span> 
 </h1>
 <p>
-<span><span>1.<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><b><span style="font-family:宋体;">安装数据库</span></b> 
+<span><span>1.<span> </span></span></span><b><span style="font-family:宋体;">安装数据库</span></b> 
 </p>
 <p>
 <span>FreeCMS</span><span style="font-family:宋体;">支持两种数据库：</span><span>Mysql</span><span style="font-family:宋体;">和</span><span>Mssql</span><span style="font-family:宋体;">。请根据您的需要进行安装。</span> 
@@ -97,17 +97,17 @@
 <span style="font-family:宋体;">打开企业管理</span> 
 </p>
 <p>
-<span><span>&nbsp;&nbsp; <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/134838_cDgh_916014.gif" /></span></span> 
+<span><span> <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/134838_cDgh_916014.gif" /></span></span> 
 </p>
 <p>
-<span><span></span></span>&nbsp;
+<span><span></span></span>
 </p>
 <p>
 <b><span style="font-family:宋体;">数据库还原</span></b><span>: </span><span style="font-family:宋体;">点击数据库》所有任务》还原数据库</span> 
 </p>
 <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/134902_7eXD_916014.gif" /> 
 <p>
-&nbsp;
+
 </p>
 <p>
 <span></span>
@@ -117,7 +117,7 @@
 </p>
 <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/134929_4cTL_916014.gif" /> 
 <p>
-&nbsp;
+
 </p>
 <p>
 <span></span>
@@ -127,7 +127,7 @@
 </p>
 <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/134959_f8qf_916014.gif" /> 
 <p>
-&nbsp;
+
 </p>
 <p>
 <span></span>
@@ -137,7 +137,7 @@
 </p>
 <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/135029_uo8X_916014.gif" /> 
 <p>
-&nbsp;
+
 </p>
 <p>
 <span></span>
@@ -147,7 +147,7 @@
 </p>
 <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/135050_9fOb_916014.gif" /> 
 <p>
-&nbsp;
+
 </p>
 <p>
 <span></span>
@@ -157,7 +157,7 @@
 </p>
 <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/135112_LNML_916014.gif" /> 
 <p>
-&nbsp;
+
 </p>
 <p>
 <span></span>
@@ -167,7 +167,7 @@
 </p>
 <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/135137_KJZu_916014.gif" /> 
 <p>
-&nbsp;
+
 </p>
 <p>
 <span></span>
@@ -177,7 +177,7 @@
 </p>
 <img alt="" src="http://static.oschina.net/uploads/space/2012/1211/135201_Xzig_916014.gif" /> 
 <p>
-&nbsp;
+
 </p>
 <p>
 <span></span>
@@ -186,13 +186,13 @@
 <span></span>
 </p>
 <p>
-<span><span>2.<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><b><span style="font-family:宋体;">部署到</span><span>Tomcat</span></b> 
+<span><span>2.<span> </span></span></span><b><span style="font-family:宋体;">部署到</span><span>Tomcat</span></b> 
 </p>
 <p>
 <span style="font-family:宋体;">复制安装包中</span><span>ROOT</span><span style="font-family:宋体;">文件夹至</span><span>Tomcat</span><span style="font-family:宋体;">目录下</span><span>webapps</span><span style="font-family:宋体;">文件夹下。可删除原来的</span><span>ROOT</span><span style="font-family:宋体;">文件夹。</span><span>FreeCMS</span><span style="font-family:宋体;">同时支持虚拟目录部署，如果您不想让</span><span>FreeCMS</span><span style="font-family:宋体;">作为</span><span>ROOT</span><span style="font-family:宋体;">部署，可以把</span><span>ROOT</span><span style="font-family:宋体;">文件夹名称改为</span><span>freecms</span><span style="font-family:宋体;">或您想要的名称。</span> 
 </p>
 <p>
-<b><span><span>3.<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></b><b><span style="font-family:宋体;">配置</span><span>FreeCMS</span></b> 
+<b><span><span>3.<span> </span></span></span></b><b><span style="font-family:宋体;">配置</span><span>FreeCMS</span></b> 
 </p>
 <p>
 <span style="font-family:宋体;">打开</span><span>ROOT\WEB-INF\classes\db.properties</span><span style="font-family:宋体;">文件。</span> 
@@ -204,34 +204,34 @@
 <b><span>Mysql</span></b><b><span style="font-family:宋体;">数据库配置</span></b><span style="font-family:宋体;">：</span> 
 </p>
 <p>
-<span>mysql.driver=org.gjt.mm.mysql.Driver<span>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-family:宋体;">使用的数据库驱动程序</span> 
+<span>mysql.driver=org.gjt.mm.mysql.Driver<span> </span></span><span style="font-family:宋体;">使用的数据库驱动程序</span> 
 </p>
 <p>
-<span>mysql.url=jdbc:mysql://localhost:3306/freecms<span>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-family:宋体;">数据库</span><span>ip</span><span style="font-family:宋体;">地址和数据库名称</span> 
+<span>mysql.url=jdbc:mysql://localhost:3306/freecms<span> </span></span><span style="font-family:宋体;">数据库</span><span>ip</span><span style="font-family:宋体;">地址和数据库名称</span> 
 </p>
 <p>
-<span>mysql.username=root<span>&nbsp;&nbsp;&nbsp; </span></span><span style="font-family:宋体;">数据库用户名</span> 
+<span>mysql.username=root<span> </span></span><span style="font-family:宋体;">数据库用户名</span> 
 </p>
 <p>
-<span>mysql.password=root<span>&nbsp;&nbsp;&nbsp; </span></span><span style="font-family:宋体;">数据库密码</span> 
+<span>mysql.password=root<span> </span></span><span style="font-family:宋体;">数据库密码</span> 
 </p>
 <p>
 <b><span>Mssql</span></b><b><span style="font-family:宋体;">数据库配置</span></b><span style="font-family:宋体;">：</span> 
 </p>
 <p>
-<span>mssql.driver=net.sourceforge.jtds.jdbc.Driver<span>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-family:宋体;">使用的数据库驱动程序</span> 
+<span>mssql.driver=net.sourceforge.jtds.jdbc.Driver<span> </span></span><span style="font-family:宋体;">使用的数据库驱动程序</span> 
 </p>
 <p>
-<span>mssql.url=jdbc\:jtds\:sqlserver\://localhost\:1433/FreeCMS;SelectMethod\=cursor<span>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style="font-family:宋体;">数据库</span><span>ip</span><span style="font-family:宋体;">地址和数据库名称</span> 
+<span>mssql.url=jdbc\:jtds\:sqlserver\://localhost\:1433/FreeCMS;SelectMethod\=cursor<span> </span></span><span style="font-family:宋体;">数据库</span><span>ip</span><span style="font-family:宋体;">地址和数据库名称</span> 
 </p>
 <p>
-<span>mssql.username=sa<span>&nbsp;&nbsp; </span></span><span style="font-family:宋体;">数据库用户名</span> 
+<span>mssql.username=sa<span> </span></span><span style="font-family:宋体;">数据库用户名</span> 
 </p>
 <p>
-<span>mssql.password=sa<span>&nbsp;&nbsp; </span></span><span style="font-family:宋体;">数据库密码</span> 
+<span>mssql.password=sa<span> </span></span><span style="font-family:宋体;">数据库密码</span> 
 </p>
 <p>
-<b><span><span>4.<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></b><b><span style="font-family:宋体;">启动</span><span>Tomcat</span></b> 
+<b><span><span>4.<span> </span></span></span></b><b><span style="font-family:宋体;">启动</span><span>Tomcat</span></b> 
 </p>
 <p>
 <span style="font-family:宋体;">运行</span><span>Tomcat</span><span style="font-family:宋体;">目录</span><span>\bin\ startup.bat</span><span style="font-family:宋体;">文件。</span> 
