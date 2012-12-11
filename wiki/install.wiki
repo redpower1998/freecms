@@ -3,7 +3,6 @@
 
 = 安装手册 =
 
-&nbsp;
 <h1>
 <span style="font-family:宋体;">前提条件</span> 
 </h1>
