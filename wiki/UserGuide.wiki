@@ -1,4 +1,4 @@
-#summary 用户指南.
+#summary 用户手册.
 
 = Introduction =
 
