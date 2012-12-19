@@ -4,12 +4,9 @@
 
 = 技术架构 =
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+<p>
+	<span style="font-family:宋体;">FreeCMS</span><span style="font-family:宋体;">采用<span>J2EE</span>技术进行开发，技术架构图如下。</span> 
+</p>
+<p>
+	<span style="font-family:宋体;"><span></span><a href="http://static.oschina.net/uploads/space/2012/1219/132149_6fAa_916014.gif" target="_blank"><img style="cursor:pointer;" alt="" src="http://static.oschina.net/uploads/space/2012/1219/132149_6fAa_916014.gif" /></a></span>
+</p>
