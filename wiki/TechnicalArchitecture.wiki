@@ -1,5 +1,6 @@
 #summary 技术架构.
 #labels TechnicalArchitecture,技术架构
+= [UserGuide 用户手册] =
 
 = 技术架构 =
 
