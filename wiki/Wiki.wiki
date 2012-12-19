@@ -12,6 +12,8 @@
 
 == [install 安装手册] ==
 
+== [UserGuide 用户手册] ==
+
 == [service 服务支持] ==
 
 == [Solution 解决方案] ==
