@@ -5,9 +5,6 @@
 
 您可以在这里找到关于FreeCMS的使用帮助。
 
-= Details =
+= 手册目录 =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== 技术架构 ==
