@@ -1,9 +1,9 @@
 #summary 用户手册.
+#labels free,cms,freecms,opensource,userguide
 
-= Introduction =
+= 用户手册 =
 
-Add your content here.
-
+您可以在这里找到关于FreeCMS的使用帮助。
 
 = Details =
 
