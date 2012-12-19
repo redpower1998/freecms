@@ -7,4 +7,4 @@
 
 = 手册目录 =
 
-== 技术架构 ==
+== [TechnicalArchitecture 技术架构] ==
