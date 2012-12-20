@@ -3,8 +3,6 @@
 
 = 菜单管理 =
 
-<h3>
-	<span style="font-family: 宋体">菜单管理</span></h3>
 <p>
 	<span style="font-family: 宋体">FreeCMS</span><span style="font-family: 宋体">在设计时定位于面向二次开发友好，所以<span>FreeCMS</span>提供了菜单管理功能，二次开发人员可以自由增加新的功能菜单到<span>FreeCMS</span>。</span></p>
 <p>
