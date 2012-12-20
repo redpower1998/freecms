@@ -144,9 +144,9 @@
 <p>
 	<span style="font-family: 宋体"><%@taglib prefix="fs" uri="/fs-tags" %></span><span style="font-family: 宋体">启用<span>fs</span>标签库（<span>freecms</span>标签库）。</span></p>
 <p>
-	1）	<fs:operButtons />：自动按顺序提取显示有效按钮。</p>
+	1)<fs:operButtons />：自动按顺序提取显示有效按钮。</p>
 <p>
-	2）	<fs:operButton buttonName="保 存" />：提取显示指定名字的操作按钮。</p>
+	2)<fs:operButton buttonName="保 存" />：提取显示指定名字的操作按钮。</p>
 <p>
 	<b><span style="font-family: 宋体"><span>5.<span>  </span></span></span></b><b><span style="font-family: 宋体">删除菜单</span></b></p>
 <p>
