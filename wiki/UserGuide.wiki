@@ -8,3 +8,5 @@
 = 手册目录 =
 
 == [TechnicalArchitecture 技术架构] ==
+
+== [FuncStruct 功能结构] ==
