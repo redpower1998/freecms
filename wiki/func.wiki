@@ -142,11 +142,11 @@
 <p>
 	<b><span style="font-family: 宋体">提示</span></b><span style="font-family: 宋体">：在管理页面中，可以使用以下两种方法进行调用，但首先您需要添加</span></p>
 <p>
-	<span style="font-family: 宋体">&lt;%@taglib prefix=&quot;fs&quot; uri=&quot;/fs-tags&quot; %&gt;</span><span style="font-family: 宋体">启用<span>fs</span>标签库（<span>freecms</span>标签库）。</span></p>
+	<span style="font-family: 宋体"><%@taglib prefix="fs" uri="/fs-tags" %></span><span style="font-family: 宋体">启用<span>fs</span>标签库（<span>freecms</span>标签库）。</span></p>
 <p>
-	<span><span>1）<span> </span></span></span><span>&lt;fs:operButtons /&gt;</span><span style="font-family: 宋体">：自动按顺序提取显示有效按钮。</span></p>
+	<span><span>1）<span> </span></span></span><span><fs:operButtons /></span><span style="font-family: 宋体">：自动按顺序提取显示有效按钮。</span></p>
 <p>
-	<span><span>2）<span> </span></span></span><span>&lt;fs:operButton buttonName=&quot;</span><span style="font-family: 宋体">保</span><span> </span><span style="font-family: 宋体">存</span><span>&quot; /&gt;</span><span style="font-family: 宋体">：提取显示指定名字的操作按钮。</span></p>
+	<span><span>2）<span> </span></span></span><span><fs:operButton buttonName="</span><span style="font-family: 宋体">保</span><span> </span><span style="font-family: 宋体">存</span><span>" /></span><span style="font-family: 宋体">：提取显示指定名字的操作按钮。</span></p>
 <p>
 	<b><span style="font-family: 宋体"><span>5.<span>  </span></span></span></b><b><span style="font-family: 宋体">删除菜单</span></b></p>
 <p>
