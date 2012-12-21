@@ -8,6 +8,8 @@
 
 == [FreeCMS] ==
 
+== [http://code.google.com/p/freecms/downloads/list 下载] ==
+
 == [FAQ 常见问题解答] ==
 
 == [install 安装手册] ==
