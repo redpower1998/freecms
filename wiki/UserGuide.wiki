@@ -1,5 +1,5 @@
 #summary 用户手册.
-#labels free,cms,freecms,opensource,userguide
+#labels free,cms,freecms,opensource,userguide,用户指南,用户手册
 
 = 用户手册 =
 
