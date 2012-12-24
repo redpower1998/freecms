@@ -68,7 +68,7 @@
 <p>
 	<span style="font-family: 宋体">点击"改变所属站点"</span></p>
 <p>
-	<a href="http://static.oschina.net/uploads/space/2012/1224/193144_iKFZ_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1224/193144_iKFZ_916014.png" style="cursor: pointer" /></a></p>
+	<a href="http://static.oschina.net/uploads/space/2012/1224/201956_C6QJ_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1224/201956_C6QJ_916014.png" style="cursor: pointer" /></a></p>
 <p>
 	 </p>
 <p>
@@ -80,7 +80,9 @@
 <p>
 	 </p>
 <p>
-	<b><span style="font-family: 宋体">注意</span></b><span style="font-family: 宋体">：在改变所属站点时，此站点的子站点不会改变。</span></p>
+	<b><span style="font-family: 宋体">注意</span></b><span style="font-family: 宋体">：
+	* 如果选择“站点管理”，则此站点会变为一级站点。
+	* 在改变所属站点时，此站点的子站点不会改变。</span></p>
 <p>
 	<b><span style="font-family: 宋体"><span>4.<span>  </span></span></span></b><b><span style="font-family: 宋体">删除站点</span></b></p>
 <p>
