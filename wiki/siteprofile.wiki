@@ -1,0 +1,136 @@
+#summary 站点设置.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统
+
+= 站点设置 =
+<p>
+	<span style="font-family: 宋体">设置当前站点的属性。</span></p>
+<p>
+	<span style="font-family: 宋体">从左侧管理菜单点击站点设置进入。</span></p>
+<p>
+	<span style="font-family: 宋体"><a href="http://static.oschina.net/uploads/space/2012/1225/132757_gsix_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/132757_gsix_916014.gif" style="cursor: pointer" /></a></span></p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">属性</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">名称</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">站点名称</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">源文件目录名</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">英文，用于存放站点文件，如<span>FreeCMS</span>的源文件目录名为<span>"FreeCMS",</span>则会在根目录<span>/site/FreeCMS/</span>目录下存放<span>FreeCMS</span>站点使用的文件。</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">域名</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">网站域名，在网站群模式下可以给各站点设置不同的域名，输入域名可直接进入到指定站点。</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">排序号</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">显示顺序</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">有效</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">有效性</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">外部链接</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">如果想让此站点直接链接到其它页面可以在这里设置。</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">LOGO</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">站点<span>LOGO</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">版权</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">版权信息</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">备案号</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">备案信息</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">页面模板</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">FreeCMS</span><span style="font-family: 宋体">的站点显示需要使用模板文件，模板文件是以<span>freemarker</span>为基础的，<span>FreeCMS</span>同时根据系统的需要提供了<span>FreeCMS</span>的标签库。</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">同步资源文件</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">此操作将会把页面模板里面的<span>resources</span>文件夹的内容复制并覆盖到此站点，主要用于模板里面的<span>resources</span>文件夹内容改变时使用。</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
