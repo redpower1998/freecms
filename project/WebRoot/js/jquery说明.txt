@@ -1,3 +1,0 @@
-jqueryÐÞ¸Ä¹ý
-1.contentType:application/x-www-form-urlencoded; charset=UTF-8
-
