@@ -1,0 +1,263 @@
+#summary 信息管理.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统,信息管理
+
+= 信息管理 =
+
+<p>
+	<b><span style="font-family: 宋体"><span>1.<span>    </span></span></span></b><b><span style="font-family: 宋体">快速添加</span></b></p>
+<p>
+	<span style="font-family: 宋体">从左侧管理菜单点击快速添加进入。</span></p>
+<p>
+	<span style="font-family: 宋体"><a href="http://static.oschina.net/uploads/space/2012/1226/135754_JkCD_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/135754_JkCD_916014.gif" style="cursor: pointer" /></a></span></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/135902_Y0X6_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/135902_Y0X6_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: 宋体">输入相关属性后添加"保存"按钮即可。</span></p>
+<p>
+	<b><span style="font-family: 宋体"><span>2.<span>    </span></span></span></b><b><span style="font-family: 宋体">添加信息</span></b></p>
+<p>
+	<span style="font-family: 宋体">从左侧管理菜单点击信息管理进入信息管理页面。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/135945_F2Rc_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/135945_F2Rc_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">进入指定栏目，点击"添加"按钮</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/140040_q3aq_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/140040_q3aq_916014.gif" style="cursor: pointer" /></a> <a href="http://static.oschina.net/uploads/space/2012/1226/140113_2wfL_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/140113_2wfL_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">输入相关属性后添加"保存"按钮即可。</span></p>
+<p>
+	<b><span style="font-family: 宋体">提示</span></b><span style="font-family: 宋体">：使用此处的添加信息，栏目会默认设置为当前栏目。</span></p>
+<p>
+	<b><span style="font-family: 宋体"><span>3.<span>    </span></span></span></b><b><span style="font-family: 宋体">编辑信息</span></b></p>
+<p>
+	<span style="font-family: 宋体">进入指定栏目，选择需要编辑的信息，点击"编辑"按钮。</span></p>
+<p>
+	<b><span style="font-family: 宋体">注意</span></b><span style="font-family: 宋体">：同时只能对一条信息进行编辑操作。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/140154_COm0_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/140154_COm0_916014.gif" style="cursor: pointer" /></a> <a href="http://static.oschina.net/uploads/space/2012/1226/140220_CRrE_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/140220_CRrE_916014.gif" style="cursor: pointer" /></a> <a href="http://static.oschina.net/uploads/space/2012/1226/140241_ldVP_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/140241_ldVP_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">输入相关属性后添加"保存"按钮即可。</span></p>
+<p>
+	<b><span style="font-family: 宋体"><span>4.<span>    </span></span></span></b><b><span style="font-family: 宋体">删除信息</span></b></p>
+<p>
+	<span style="font-family: 宋体">进入指定栏目，选择需要删除的信息，点击"删除"按钮。</span></p>
+<p>
+	<b><span style="font-family: 宋体">提示</span></b><span style="font-family: 宋体">：同时可以选择多条信息进行删除操作。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/140301_WGVx_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/140301_WGVx_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">为防止用户误操作，系统会提示用户确认，点击"确定"按钮即可。</span></p>
+<p>
+	<b><span style="font-family: 宋体"><span>5.<span>    </span></span></span></b><b><span style="font-family: 宋体">信息属性说明</span></b></p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">属性</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">所属栏目名称</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">标题</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息标题</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">短标题</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">如果标题比较长列表显示不完时可以设置短标题，信息列表会显示短标题</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息模板</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">选择此信息静态化时使用的模板文件，默认为"信息页面<span>.html</span>"</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">标题颜色</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">标题显示的颜色</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">标题是否加粗</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">标题是否加粗显示</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">来源</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息来源</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">作者</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息作者</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">摘要</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息摘要内容</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息内容</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息完整内容</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">是否固顶</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">是否显示在列表顶部</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">Tag</span><span style="font-family: 宋体">标签</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">多个之间用<span>,</span>分隔</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">外部链接</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">如果想让此信息直接链接到其它页面可以在这里设置。</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息图片</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">此信息在图片列表显示时的图片，只能上传一个。</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">附件</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">可上传多个</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">添加时间</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">默认不填写是当前时间，如果选择时间则设置此信息添加时间。</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
