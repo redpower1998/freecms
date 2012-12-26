@@ -1,0 +1,56 @@
+#summary 静态化管理.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统,静态化管理
+
+= 静态化管理 =
+<p>
+	 FreeCMS<span style="font-family: 宋体">采用的站点模板概念，所以经过静态化后站点先能显示。</span></p>
+<p>
+	<b><span style="font-family: 宋体"><span>1.<span>  </span></span></span></b><b><span style="font-family: 宋体">首页静态化</span></b></p>
+<p>
+	<span style="font-family: 宋体">从左侧管理菜单点击首页静态化进入。</span></p>
+<p>
+	<span style="font-family: 宋体"><a href="http://static.oschina.net/uploads/space/2012/1226/191631_kxlL_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/191631_kxlL_916014.png" style="cursor: pointer" /></a></span></p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">系统会直接提示您是否对当前站点进行首页静态化处理，点击"确定"按钮。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/191657_AQCg_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/191657_AQCg_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">系统会在此站点目录下生成</span><span>index.html</span><span style="font-family: 宋体">文件作为站点首页。</span></p>
+<p>
+	<b><span style="font-family: 宋体"><span>2.<span>  </span></span></span></b><b><span style="font-family: 宋体">栏目页静态化</span></b></p>
+<p>
+	<span style="font-family: 宋体">从左侧管理菜单点击栏目页静态化进入。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/191739_nJli_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/191739_nJli_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">您可以选择需要生成的栏目，然后点击"生成所选栏目页"进行栏目页静态化。</span></p>
+<p>
+	<span style="font-family: 宋体">如果您是此站点的总管理员，您也可以点击"生成此站点所有栏目页"完成对此站点所有栏目的静态化。</span></p>
+<p>
+	<span style="font-family: 宋体">系统会在此站点目录下创建一个以栏目</span><span>id</span><span style="font-family: 宋体">为名字的文件夹用于存放此栏目的静态化页面。</span></p>
+<p>
+	<b><span style="font-family: 宋体"><span>3.<span>  </span></span></span></b><b><span style="font-family: 宋体">信息页静态化</span></b></p>
+<p>
+	<span style="font-family: 宋体">从左侧管理菜单点击信息页静态化进入。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/191823_Y27t_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/191823_Y27t_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">您可以选择需要生成的栏目，然后点击"生成信息页面"进行信息页静态化。</span></p>
+<p>
+	<span style="font-family: 宋体">如果您是此站点的总管理员，您也可以把"是否所有栏目"属性选择为是，点击"生成信息页面"完成对此站点所有栏目的信息页静态化。</span></p>
+<p>
+	<span style="font-family: 宋体">系统会在此站点目录</span><span>/</span><span style="font-family: 宋体">栏目</span><span>id/info/YYYY/</span><span style="font-family: 宋体">目录下生成以信息</span><span>id</span><span style="font-family: 宋体">为名字的</span><span>.html</span><span style="font-family: 宋体">静态页面。</span></p>
