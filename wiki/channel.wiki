@@ -1,0 +1,260 @@
+#summary 栏目管理.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统
+
+= 栏目管理 =
+<p>
+	<span style="font-family: 宋体">栏目是系统频道某一类内容的集合体。</span></p>
+<p>
+	<span style="font-family: 宋体">您可以在频道中设置多个一级栏目，在一级栏目中添加多个二级栏目......。<span>FreeCMS</span>的栏目设置具有无级分类功能。</span></p>
+<p>
+	<b><span style="font-family: 宋体"><span>1.<span>    </span></span></span></b><b><span style="font-family: 宋体">添加一级栏目</span></b></p>
+<p>
+	<span style="font-family: 宋体">从左侧管理菜单点击栏目管理进入。</span></p>
+<p sizcache01420715723275514="7" sizset="3">
+	<span sizcache01420715723275514="7" sizset="3" style="font-family: 宋体"><a href="http://static.oschina.net/uploads/space/2012/1226/123159_Os6C_916014.gif" sizcache01420715723275514="7" sizset="3" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123159_Os6C_916014.gif" style="cursor: pointer" /></a></span></p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">点击"添加一级栏目"</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/123241_kRke_916014.gif" sizcache01420715723275514="7" sizset="4" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123241_kRke_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">输入相关属性点击"保存"即可。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/123258_xtuY_916014.gif" sizcache01420715723275514="7" sizset="5" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123258_xtuY_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体"><span>2.<span>    </span></span></span></b><b><span style="font-family: 宋体">添加下级栏目</span></b></p>
+<p>
+	<span style="font-family: 宋体">点击需要添加下级栏目的栏目，如"一级栏目"</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/123318_oyV0_916014.gif" sizcache01420715723275514="7" sizset="6" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123318_oyV0_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">点击"添加下级栏目"</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/123336_UqYx_916014.gif" sizcache01420715723275514="7" sizset="7" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123336_UqYx_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">填写相关属性后点击"保存"即可。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/123354_HsGb_916014.gif" sizcache01420715723275514="7" sizset="8" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123354_HsGb_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体"><span>3.<span>    </span></span></span></b><b><span style="font-family: 宋体">改变所属栏目</span></b></p>
+<p>
+	<span style="font-family: 宋体">为了方便用户使用，<span>FreeCMS</span>提供了改变栏目结构的简便方法，使您在想对栏目结构作出调整时不需要删除重建栏目。</span></p>
+<p>
+	<span style="font-family: 宋体">选择需要改变所属栏目的栏目，如"一级栏目"</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/123422_oD0f_916014.gif" sizcache01420715723275514="7" sizset="9" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123422_oD0f_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">点击"改变所属栏目"</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/123441_RFpW_916014.gif" sizcache01420715723275514="7" sizset="10" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123441_RFpW_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">选择需要调整的位置，如"要点"，直接点击即可。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/123500_1IXs_916014.gif" sizcache01420715723275514="7" sizset="11" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123500_1IXs_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体">注意</span></b><span style="font-family: 宋体">：</span></p>
+<p>
+	<span><span>1）<span> </span></span></span><span style="font-family: 宋体">如果选择站点名称，如"</span><span>FreeCMS</span><span style="font-family: 宋体">"，则此栏目会变为一级栏目。</span></p>
+<p>
+	<span><span>2）<span> </span></span></span><span style="font-family: 宋体">在改变所属栏目时，此栏目的子栏目不会改变。</span></p>
+<p>
+	<b><span style="font-family: 宋体"><span>4.<span>    </span></span></span></b><b><span style="font-family: 宋体">删除栏目</span></b></p>
+<p>
+	<span style="font-family: 宋体">删除栏目功能将删除指定栏目及子栏目，此操作不可恢复，请慎重操作。</span></p>
+<p>
+	<span style="font-family: 宋体">选择需要删除的栏目，如"一级栏目"</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/123540_wJj3_916014.gif" sizcache01420715723275514="7" sizset="12" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123540_wJj3_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">点击"删除"按钮</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/123557_qzhv_916014.gif" sizcache01420715723275514="7" sizset="13" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123557_qzhv_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<span style="font-family: 宋体">为会防止用户误操作，系统会提示用户确认，点击"确定"按钮即可。</span></p>
+<p>
+	<b><span style="font-family: 宋体"><span>5.<span>    </span></span></span></b><b><span style="font-family: 宋体">栏目属性说明</span></b></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1226/123617_Hj0a_916014.gif" sizcache01420715723275514="7" sizset="14" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1226/123617_Hj0a_916014.gif" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">属性</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">站点名称</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目所属站点名称，不能修改</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目<span>id</span></span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">此栏目数据<span>id</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目名称</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目名称</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">页面标识</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">在制作模板时，用于获取此栏目的标识</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">有效</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">有效性</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">导航</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">在提取栏目列表时，可根据此参数只提取导航的栏目。</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">序号</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">显示顺序</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">链接地址</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">如果想让此栏目直接链接到其它页面可以在这里设置。</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目模板</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">选择此栏目静态化时使用的模板文件，默认为"栏目页面<span>.html</span>"</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息模板</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">选择此栏目下信息静态化时使用的模板文件，默认为"信息页面<span>.html</span>"</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目图片</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">此栏目的图片</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目描述</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">此栏目的描述信息。</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
