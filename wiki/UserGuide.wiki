@@ -26,3 +26,4 @@
 ==== [selectsite 选择管理站点] ====
 ==== [siteprofile 站点设置] ====
 ==== [templet 模板管理] ====
+==== [channel 栏目管理] ====
