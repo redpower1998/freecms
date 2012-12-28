@@ -1,0 +1,164 @@
+#summary channel.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统
+
+= channel =
+<p>
+	<span style="font-family: 宋体">在栏目页静态化时<span>,</span>系统会自动向模板文件传递<span>channel</span>对象，此对象存储当前栏目信息。在使用栏目相关标签时，标签会封装<span>channel</span>供页面调用。</span></p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">属性</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">id</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">id</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">name</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">名称</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">templet</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目模板文件</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">contentTemplet</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">此栏目下信息使用的模板文件</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">img</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">图片</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">parId</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">父栏目<span>id</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">site</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">所属站点<span>id</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">url</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">外部链接</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">state</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">有效性：<span>1</span>有效<span>0</span>无效</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">navigation</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">是否导航<span>:1</span>是<span> 0</span>否</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">pagemark</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">页面标识</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">orderNum</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">显示顺序</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">clickNum</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">点击量</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">Description</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">描述</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
