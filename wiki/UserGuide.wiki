@@ -34,3 +34,4 @@
 == [taglib 模板标签] ==
 ==== 数据对象 ====
 ===== [beanSite site] =====
+===== [beanChannel channel] =====
