@@ -36,3 +36,4 @@
 ===== [beanSite site] =====
 ===== [beanChannel channel] =====
 ===== [beanInfo info] =====
+===== [beanLinkClass linkClass] =====
