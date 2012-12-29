@@ -35,3 +35,4 @@
 ==== 数据对象 ====
 ===== [beanSite site] =====
 ===== [beanChannel channel] =====
+===== [beanInfo info] =====
