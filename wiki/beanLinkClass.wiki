@@ -1,0 +1,104 @@
+#summary linkClass.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统
+
+= linkClass =
+<p>
+	<span style="font-family: 宋体">在使用链接分类相关标签时，标签会封装<span>linkClass</span>供页面调用。</span></p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">属性</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">id</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">id</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">site</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">所属站点<span>id</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">name</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">分类名称</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">url</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">外部链接</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">isok</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">有效性<span>:1</span>有效<span> 0</span>无效</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">ordernum</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">顺序</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">type</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">类型：<span>1</span>下拉<span> 2</span>图片<span> 3</span>文字 </span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">pagemark</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">页面标识</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
