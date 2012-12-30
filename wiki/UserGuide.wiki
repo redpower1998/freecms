@@ -43,3 +43,7 @@
 ===== [htmlIndex 首页静态化参数] =====
 ===== [htmlChannel 栏目页静态化参数] =====
 ===== [htmlInfo 信息页静态化参数] =====
+
+
+==== 标签 ====
+===== [taglibChannel channel] =====
