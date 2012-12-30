@@ -132,20 +132,17 @@
 <p>
 	<span style="font-family: 宋体">根据站点<span>id</span>和<span>parid</span>递归提取栏目。</span></p>
 <p>
-	<span style="font-family: 宋体"><@channelList siteid="${site.id}" parid="par" ;channel> </span></p>
-<p>
-	${channel.name}</p>
-<p>
-<p>
-	<span style="font-family: 宋体"><@channelList siteid="${site.id}" parid="${channel.id}" ;sonChannel> </span></p>
-<p>
-	<span style="font-family: 宋体"><A href="${sonChannel.pageurl}">${sonChannel.name}</A> </span></p>
-<p>
-	<span style="font-family: 宋体"></@channelList></span></p>
-<p>
-<p>
-	<span style="font-family: 宋体"></@channelList></span></p>
-<p>
+	{{{
+	<@channelList siteid="${site.id}" parid="par" ;channel> 
+    <H1 >${channel.name}</H1>
+    <UL>
+    <@channelList siteid="${site.id}" parid="${channel.id}" ;sonChannel> 
+        <LI><A href="${sonChannel.pageurl}">${sonChannel.name}</A> 
+    </@channelList>
+    </UL>
+</@channelList>
+
+	}}}
 	 </p>
 <p>
 	 <a href="http://static.oschina.net/uploads/space/2012/1230/190158_zP8D_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1230/190158_zP8D_916014.png" style="cursor: pointer" /></a></p>
