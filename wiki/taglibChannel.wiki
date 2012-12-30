@@ -1,0 +1,102 @@
+#summary channel.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统,channel
+
+= channel=
+<p>
+	<span style="font-family: 宋体">根据参数提取栏目对象。</span></p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">参数</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">id</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目<span>id</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">siteid</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目所属站点<span>id</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">pagemark</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目页面标识</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">返回值</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">channel</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目对象，类型为数据对象<span>channel</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体">示例<span>1</span></span></b></p>
+<p>
+	<span style="font-family: 宋体">根据栏目<span>id</span>提取栏目。</span></p>
+<p>
+	<span style="font-family: 宋体">&lt;<a class="referer" href="http://my.oschina.net/u/876213" target="_blank"><font color="#4466bb">@channel</font></a> id=&quot;d8aa15d1-710c-4931-8c3b-b0b2d3db3d56&quot; ;channel&gt;</span></p>
+<p>
+	<span style="font-family: 宋体">${channel.name}</span></p>
+<p>
+	<span style="font-family: 宋体">&lt;/@channel&gt;</span></p>
+<p>
+	<b><span style="font-family: 宋体">示例</span></b><b><span>2</span></b></p>
+<p>
+	<span style="font-family: 宋体">根据站点<span>id</span>和栏目页面标识提取栏目。</span></p>
+<p>
+	<span style="font-family: 宋体">&lt;<a class="referer" href="http://my.oschina.net/u/876213" target="_blank"><font color="#4466bb">@channel</font></a> siteid=&quot;${site.id}&quot; pagemark=&quot;bug&quot; ;channel&gt;</span></p>
+<p>
+	<span style="font-family: 宋体">${channel.name}</span></p>
+<p>
+	<span style="font-family: 宋体">&lt;/@channel&gt;</span></p>
