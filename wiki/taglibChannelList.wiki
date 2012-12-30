@@ -1,0 +1,153 @@
+#summary channelList.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统,channelList
+
+= channelList=
+
+<p>
+	<span style="font-family: 宋体">根据参数提取栏目对象列表。</span></p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">参数</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">id</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目<span>id</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">siteid</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目所属站点<span>id</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">parid</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">空字符<span>:</span>查询所有栏目<span>;</span></span></p>
+				<p>
+					<span style="font-family: 宋体">"par":</span><span style="font-family: 宋体">查询一级栏目<span>;</span></span></p>
+				<p>
+					<span style="font-family: 宋体">"parid":</span><span style="font-family: 宋体">查询此<span>id</span>下栏目<span>;</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">返回值</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">channel</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目对象，类型为数据对象<span>channel</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体">示例<span>1</span></span></b></p>
+<p>
+	<span style="font-family: 宋体">根据站点<span>id</span>提取所有栏目。</span></p>
+<p>
+	<span style="font-family: 宋体"><@channelList siteid="${site.id}" parid="" ;channel> </span></p>
+<p>
+	<span style="font-family: 宋体"><span>    </span>${channel.name}</span></p>
+<p>
+	<span style="font-family: 宋体"><<a rel="nofollow"><font color="#4466bb">/@channelList</font></a>></span></p>
+<p>
+	 </p>
+<p>
+	<b><a href="http://static.oschina.net/uploads/space/2012/1230/190011_A0Hy_916014.jpg" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1230/190011_A0Hy_916014.jpg" style="cursor: pointer" /></a></b></p>
+<p>
+	<b><span style="font-family: 宋体">示例</span></b><b><span>2</span></b></p>
+<p>
+	<span style="font-family: 宋体">根据站点<span>id</span>提取所有一级栏目。</span></p>
+<p>
+	<span style="font-family: 宋体"><@channelList siteid="${site.id}" parid="par" ;channel> </span></p>
+<p>
+	<span style="font-family: 宋体"><span>    </span>${channel.name}</span></p>
+<p>
+	<span style="font-family: 宋体"><<a rel="nofollow"><font color="#4466bb">/@channelList</font></a>></span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1230/190101_Wq9N_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1230/190101_Wq9N_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体">示例</span></b><b><span>3</span></b></p>
+<p>
+	<span style="font-family: 宋体">根据站点<span>id</span>和<span>parid</span>提取指定栏目的下级栏目。</span></p>
+<p>
+	<span style="font-family: 宋体"><@channelList siteid="${site.id}" parid="c60bebab-cf84-4ba9-8c79-3dff5c2dc427" ;channel> </span></p>
+<p>
+	<span style="font-family: 宋体"><span>    </span>${channel.name}</span></p>
+<p>
+	<span style="font-family: 宋体"><<a rel="nofollow"><font color="#4466bb">/@channelList</font></a>></span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1230/190137_g37l_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1230/190137_g37l_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体">示例</span></b><b><span>4</span></b></p>
+<p>
+	<span style="font-family: 宋体">根据站点<span>id</span>和<span>parid</span>递归提取栏目。</span></p>
+<p>
+	<span style="font-family: 宋体"><@channelList siteid="${site.id}" parid="par" ;channel> </span></p>
+<p>
+	<span style="font-family: 宋体">${channel.name}</p>
+<p>
+	<span style="font-family: 宋体"><span>    </span><UL></span></p>
+<p>
+	<span style="font-family: 宋体"><span>    </span><@channelList siteid="${site.id}" parid="${channel.id}" ;sonChannel> </span></p>
+<p>
+	<span style="font-family: 宋体"><span>        </span><LI><A href="${sonChannel.pageurl}">${sonChannel.name}</A> </span></p>
+<p>
+	<span style="font-family: 宋体"><span>    </span></@channelList></span></p>
+<p>
+	<span style="font-family: 宋体"><span>    </span></UL></span></p>
+<p>
+	<span style="font-family: 宋体"></@channelList></span></p>
+<p>
+	 </p>
+<p>
+	 <a href="http://static.oschina.net/uploads/space/2012/1230/190158_zP8D_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1230/190158_zP8D_916014.png" style="cursor: pointer" /></a></p>
