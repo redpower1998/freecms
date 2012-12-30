@@ -79,6 +79,33 @@
 				<p>
 					<span style="font-family: 宋体">标题颜色</span></p>
 			</td>
+		</tr><tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">showtitle</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">标签根据标题长度处理后的显示标题</span></p>
+			</td>
+		</tr><tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">sitepath</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息所属站点路径</span></p>
+			</td>
+		</tr><tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">pageurl</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">此信息的链接地址</span></p>
+			</td>
 		</tr>
 		<tr>
 			<td>
@@ -178,6 +205,16 @@
 			<td>
 				<p>
 					<span style="font-family: 宋体">添加时间</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">addtimeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">格式化后的添加时间</span></p>
 			</td>
 		</tr>
 		<tr>
