@@ -85,18 +85,18 @@
 <p>
 	<span style="font-family: 宋体">根据栏目<span>id</span>提取栏目。</span></p>
 <p>
-	<span style="font-family: 宋体">&lt;<a class="referer" href="http://my.oschina.net/u/876213" target="_blank"><font color="#4466bb">@channel</font></a> id=&quot;d8aa15d1-710c-4931-8c3b-b0b2d3db3d56&quot; ;channel&gt;</span></p>
+	<span style="font-family: 宋体"><<a class="referer" href="http://my.oschina.net/u/876213" target="_blank"><font color="#4466bb">@channel</font></a> id="d8aa15d1-710c-4931-8c3b-b0b2d3db3d56" ;channel></span></p>
 <p>
 	<span style="font-family: 宋体">${channel.name}</span></p>
 <p>
-	<span style="font-family: 宋体">&lt;/@channel&gt;</span></p>
+	<span style="font-family: 宋体"></@channel></span></p>
 <p>
 	<b><span style="font-family: 宋体">示例</span></b><b><span>2</span></b></p>
 <p>
 	<span style="font-family: 宋体">根据站点<span>id</span>和栏目页面标识提取栏目。</span></p>
 <p>
-	<span style="font-family: 宋体">&lt;<a class="referer" href="http://my.oschina.net/u/876213" target="_blank"><font color="#4466bb">@channel</font></a> siteid=&quot;${site.id}&quot; pagemark=&quot;bug&quot; ;channel&gt;</span></p>
+	<span style="font-family: 宋体"><<a class="referer" href="http://my.oschina.net/u/876213" target="_blank"><font color="#4466bb">@channel</font></a> siteid="${site.id}" pagemark="bug" ;channel></span></p>
 <p>
 	<span style="font-family: 宋体">${channel.name}</span></p>
 <p>
-	<span style="font-family: 宋体">&lt;/@channel&gt;</span></p>
+	<span style="font-family: 宋体"></@channel></span></p>
