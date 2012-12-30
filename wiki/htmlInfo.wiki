@@ -1,0 +1,64 @@
+#summary 信息页静态化参数.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统,信息页静态化参数
+
+= 信息页静态化参数 =
+<p>
+	<span style="font-family: 宋体">在信息页静态化时<span>,</span>系统会使用此信息指定的模板文件<span>(</span>如未指定，默认为站点所选模板中的"信息页面<span>.html</span>"文件<span>)</span>生成信息页并传递以下参数。</span></p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">参数</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">contextPath</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">系统根路径</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">site</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">当前站点对象，类型为数据对象<span>site</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">currChannel</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">当前栏目对象，类型为数据对象<span>channel</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">currInfo</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">当前信息对象，类型为数据对象<span>info</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
