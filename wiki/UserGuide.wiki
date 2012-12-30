@@ -38,3 +38,6 @@
 ===== [beanInfo info] =====
 ===== [beanLinkClass linkClass] =====
 ===== [beanLink link] =====
+
+==== 静态化参数 ====
+===== [htmlIndex 首页静态化参数] =====
