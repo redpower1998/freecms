@@ -1,0 +1,44 @@
+#summary 首页静态化参数.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统,首页静态化参数
+
+= 首页静态化参数=
+<p>
+	<span style="font-family: 宋体">在首页静态化时<span>,</span>系统会使用站点所选模板中的"首页<span>.html</span>"文件生成站点首页并传递以下参数。</span></p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">参数</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">contextPath</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">系统根路径</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">site</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">当前站点对象，类型为数据对象<span>site</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
