@@ -1,0 +1,230 @@
+#summary infoList.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统,infoList
+
+= infoList=
+<p>
+	<span style="font-family: 宋体">根据参数提取信息对象列表。</span></p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">参数</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">siteid</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息所属站点<span>id</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">channelid</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息所属栏目<span>id</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">num</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">提取数量</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">order</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">排序类型<span><span>  </span></span></span></p>
+				<p>
+					<span style="font-family: 宋体">1 </span><span style="font-family: 宋体">固顶有效并降序<span>,</span>发布时间降序<span>(</span>默认<span>)</span></span></p>
+				<p>
+					<span style="font-family: 宋体">2 </span><span style="font-family: 宋体">固顶有效并降序<span>,</span>发布时间升序</span></p>
+				<p>
+					<span style="font-family: 宋体">3 </span><span style="font-family: 宋体">发布时间降序</span></p>
+				<p>
+					<span style="font-family: 宋体">4 </span><span style="font-family: 宋体">发布时间升序</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">titleLen</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">标题显示长度</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">hot</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">是否按点击热度倒序，<span>1</span>是</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">dateFormat</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">日期格式</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">channelPagemark</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">栏目页面标识</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">img</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">是否只提取带图片的新闻<span><span>  </span>1</span>是</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">返回值</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">info</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息对象，类型为数据对象<span>info</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">index</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">索引</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体">示例<span>1</span></span></b></p>
+<p>
+	<span style="font-family: 宋体">根据站点<span>id</span>和栏目<span>id</span>提取信息。</span></p>
+<p>
+{{{
+
+<@infoList siteid="${site.id}" channelid="6555dd8b-7acc-4e57-a19a-cc70dd4f7135" num="2" titleLen="15"; info>
+   <H1 > <a href="${info.pageurl}" target="_blank">${info.showtitle}</a></H1>
+</@infoList>
+
+}}}
+</p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1230/194341_pKRG_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1230/194341_pKRG_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体">示例<span>2</span></span></b></p>
+<p>
+	<span style="font-family: 宋体">根据站点<span>id</span>和栏目页面标识提取信息。</span></p>
+<p>
+{{{
+<@infoList siteid="${site.id}" channelPagemark="动态" num="2" titleLen="15"; info,index>
+   <H1 > ${index+1} . <a href="${info.pageurl}" target="_blank">${info.showtitle}</a></H1>
+</@infoList>
+
+
+}}}
+</p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1230/194406_0t94_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1230/194406_0t94_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体">示例<span>3</span></span></b></p>
+<p>
+	<span style="font-family: 宋体">根据站点<span>id</span>和栏目页面标识提取图片信息。</span></p>
+<p>
+{{{
+<@infoList siteid="${site.id}" channelPagemark="动态" num="2" titleLen="15" img="1"; info,index>
+   <li > <a href="${info.pageurl}" target="_blank"><img src="${info.img}">${info.showtitle}</a></li>
+</@infoList>
+
+}}}
+</p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1230/194432_thhA_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1230/194432_thhA_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	 </p>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体">示例<span>4</span></span></b></p>
+<p>
+	<span style="font-family: 宋体">根据站点<span>id</span>和栏目页面标识提取信息，并设置其它参数。</span></p>
+<p>
+{{{
+<@infoList siteid="${site.id}" channelPagemark="动态" num="2" titleLen="15" order="2" hot="1" dateFormat="yyyy-MM-dd"; info,index>
+   <li> ${index+1} . <a href="${info.pageurl}" target="_blank">${info.showtitle}</a>[${info.addtimeStr}]</li>
+</@infoList>
+
+}}}
+</p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2012/1230/194459_B03E_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1230/194459_B03E_916014.png" style="cursor: pointer" /></a></p>
