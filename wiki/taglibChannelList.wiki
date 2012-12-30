@@ -134,7 +134,7 @@
 <p>
 	<span style="font-family: 宋体"><@channelList siteid="${site.id}" parid="par" ;channel> </span></p>
 <p>
-	<span style="font-family: 宋体">${channel.name}</p>
+	${channel.name}</p>
 <p>
 <p>
 	<span style="font-family: 宋体"><@channelList siteid="${site.id}" parid="${channel.id}" ;sonChannel> </span></p>
