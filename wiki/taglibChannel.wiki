@@ -85,7 +85,7 @@
 <p>
 	<span style="font-family: 宋体">根据栏目<span>id</span>提取栏目。</span></p>
 <p>
-	<span style="font-family: 宋体"><<a class="referer" href="http://my.oschina.net/u/876213" target="_blank"><font color="#4466bb">@channel</font></a> id="d8aa15d1-710c-4931-8c3b-b0b2d3db3d56" ;channel></span></p>
+	<span style="font-family: 宋体"><@channel id="d8aa15d1-710c-4931-8c3b-b0b2d3db3d56" ;channel></span></p>
 <p>
 	<span style="font-family: 宋体">${channel.name}</span></p>
 <p>
@@ -95,7 +95,7 @@
 <p>
 	<span style="font-family: 宋体">根据站点<span>id</span>和栏目页面标识提取栏目。</span></p>
 <p>
-	<span style="font-family: 宋体"><<a class="referer" href="http://my.oschina.net/u/876213" target="_blank"><font color="#4466bb">@channel</font></a> siteid="${site.id}" pagemark="bug" ;channel></span></p>
+	<span style="font-family: 宋体"><@channel siteid="${site.id}" pagemark="bug" ;channel></span></p>
 <p>
 	<span style="font-family: 宋体">${channel.name}</span></p>
 <p>
