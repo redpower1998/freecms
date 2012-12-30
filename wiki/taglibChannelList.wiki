@@ -90,11 +90,14 @@
 <p>
 	<span style="font-family: 宋体">根据站点<span>id</span>提取所有栏目。</span></p>
 <p>
-	<span style="font-family: 宋体"><@channelList siteid="${site.id}" parid="" ;channel> </span></p>
-<p>
-	<span style="font-family: 宋体"><span>    </span>${channel.name}</span></p>
-<p>
-	<span style="font-family: 宋体"><<a rel="nofollow"><font color="#4466bb">/@channelList</font></a>></span></p>
+{{{
+
+<@channelList siteid="${site.id}" parid="" ;channel> 
+    <H1 >${channel.name}</H1>
+</@channelList>
+
+}}}
+</p>
 <p>
 	 </p>
 <p>
@@ -104,11 +107,14 @@
 <p>
 	<span style="font-family: 宋体">根据站点<span>id</span>提取所有一级栏目。</span></p>
 <p>
-	<span style="font-family: 宋体"><@channelList siteid="${site.id}" parid="par" ;channel> </span></p>
-<p>
-	<span style="font-family: 宋体"><span>    </span>${channel.name}</span></p>
-<p>
-	<span style="font-family: 宋体"><<a rel="nofollow"><font color="#4466bb">/@channelList</font></a>></span></p>
+{{{
+<@channelList siteid="${site.id}" parid="par" ;channel> 
+    <H1 >${channel.name}</H1>
+</@channelList> 
+
+
+}}}
+</p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1230/190101_Wq9N_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1230/190101_Wq9N_916014.png" style="cursor: pointer" /></a></p>
 <p>
@@ -118,11 +124,14 @@
 <p>
 	<span style="font-family: 宋体">根据站点<span>id</span>和<span>parid</span>提取指定栏目的下级栏目。</span></p>
 <p>
-	<span style="font-family: 宋体"><@channelList siteid="${site.id}" parid="c60bebab-cf84-4ba9-8c79-3dff5c2dc427" ;channel> </span></p>
-<p>
-	<span style="font-family: 宋体"><span>    </span>${channel.name}</span></p>
-<p>
-	<span style="font-family: 宋体"><<a rel="nofollow"><font color="#4466bb">/@channelList</font></a>></span></p>
+{{{
+<@channelList siteid="${site.id}" parid="c60bebab-cf84-4ba9-8c79-3dff5c2dc427" ;channel> 
+    <H1 >${channel.name}</H1>
+</@channelList>
+
+}}}
+
+</p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1230/190137_g37l_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1230/190137_g37l_916014.png" style="cursor: pointer" /></a></p>
 <p>
@@ -133,7 +142,7 @@
 	<span style="font-family: 宋体">根据站点<span>id</span>和<span>parid</span>递归提取栏目。</span></p>
 <p>
 	{{{
-	<@channelList siteid="${site.id}" parid="par" ;channel> 
+<@channelList siteid="${site.id}" parid="par" ;channel> 
     <H1 >${channel.name}</H1>
     <UL>
     <@channelList siteid="${site.id}" parid="${channel.id}" ;sonChannel> 
