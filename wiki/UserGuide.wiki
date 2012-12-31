@@ -49,3 +49,4 @@
 ===== [taglibChannel channel] =====
 ===== [taglibChannelList channelList] =====
 ===== [taglibInfoList infoList] =====
+===== [taglibInfoPage infoPage] =====
