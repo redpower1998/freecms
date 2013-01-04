@@ -52,3 +52,4 @@
 ===== [taglibInfoPage infoPage] =====
 ===== [taglibInfoAttchs infoAttchs] =====
 ===== [taglibInfoSearch infoSearch] =====
+===== [taglibLinkClass linkClass] =====
