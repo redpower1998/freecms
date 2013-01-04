@@ -53,3 +53,4 @@
 ===== [taglibInfoAttchs infoAttchs] =====
 ===== [taglibInfoSearch infoSearch] =====
 ===== [taglibLinkClass linkClass] =====
+===== [taglibLink link] =====
