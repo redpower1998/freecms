@@ -1,0 +1,89 @@
+#summary infoAttchs.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统,infoAttchs
+
+= infoAttchs =
+<p>
+	<span style="font-family: 宋体">根据附件字符串<span>(</span>多个之间用<span>;</span>分隔<span>)</span>提取附件对象。</span></p>
+<p>
+	&nbsp;</p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">参数</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">attchStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">附件字符串<span>(</span>多个之间用<span>;</span>分隔<span>)</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">返回值</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">attchUrl</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">附件地址</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">attchName</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">附件名称</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体">示例<span>1</span></span></b></p>
+<p>
+	<span style="font-family: 宋体">提取信息附件</span></p>
+<p>
+{{{
+<@infoAttchs attchStr="${currInfo.attchs}";attchUrl,attchName>
+<a href="${attchUrl}" target="_blank">${attchName}</a><br/>
+</@infoAttchs>
+
+}}}
+
+</p>
+<p>
+	 </p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0104/131424_EaHt_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0104/131424_EaHt_916014.gif" style="cursor: pointer" /></a></p>
