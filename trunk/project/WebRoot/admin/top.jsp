@@ -19,7 +19,7 @@ function link(url){
   <TBODY>
 	<TR>
 	  <TD rowspan="2" align="center" style="HEIGHT: 57px; width:200px;">&nbsp;&nbsp;&nbsp;<img width="180" src="../img/logo.png" />&nbsp;</TD>
-	  <TD colspan="2" style="PADDING-RIGHT: 10px; MARGIN-TOP: 0px; line-height:28px; height:28px; text-align:right;">&nbsp;您好:${loginAdmin.name }，欢迎使用 FreeCMS 1.0 &nbsp;&nbsp;&nbsp;
+	  <TD colspan="2" style="PADDING-RIGHT: 10px; MARGIN-TOP: 0px; line-height:28px; height:28px; text-align:right;">&nbsp;您好:${loginAdmin.name }，欢迎使用 FreeCMS 1.1 &nbsp;&nbsp;&nbsp;
       
        </TD>
 	</TR>
