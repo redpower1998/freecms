@@ -12,6 +12,7 @@ import cn.freeteam.base.BaseDirective;
 import freemarker.core.Environment;
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.ext.beans.StringModel;
+import freemarker.template.SimpleNumber;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
@@ -27,6 +28,7 @@ import freemarker.template.TemplateModel;
  * 返回值
  * attchUrl 	附件地址
  * attchName	附件名称
+ * index        索引
  * 
  * <p>Date: May 22, 2012</p>
  * 
@@ -66,6 +68,9 @@ public class InfoAttchsDirective extends BaseDirective implements TemplateDirect
 							loopVars[0]=new StringModel(attchs[i],new BeansWrapper());  
 							if (loopVars.length>1) {
 								loopVars[1]=new StringModel(URLDecoder.decode(attchs[i].substring(attchs[i].lastIndexOf("/")+1),"utf-8"),new BeansWrapper());  
+							}
+							if(loopVars.length>2){
+								loopVars[2]=new SimpleNumber(i);
 							}
 							body.render(env.getOut()); 
 						}
