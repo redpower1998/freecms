@@ -1,0 +1,86 @@
+#summary ajaxInfoClick.
+#labels free,cms,freecms,freeteam,开源,免费,内容管理系统,ajaxInfoClick
+
+= ajaxInfoClick=
+<p>
+	<span style="font-family: 宋体">根据参数通过<span>ajax</span>更新信息点击量。</span></p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">参数</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">infoid</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">信息<span>id</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">spanArr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">此标签会生成<span>span</span>标签，此属性用于设置<span>span</span>标签的属性</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
+<p>
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">返回值</span></b></p>
+			</td>
+			<td>
+				<p>
+					<b><span style="font-family: 宋体">说明</span></b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">ajaxInfoClickHtml</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">生成的内容</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
+<p>
+	<b><span style="font-family: 宋体">示例<span>1</span></span></b></p>
+<p>
+	<span style="font-family: 宋体">信息页面更新并显示点击量。</span></p>
+<p>
+{{{
+<@ajaxInfoClick infoid="${currInfo.id}" spanAttr="class='hongsz1'";ajaxInfoClickHtml>
+${ajaxInfoClickHtml}
+</@ajaxInfoClick>
+
+}}}
+</p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0106/192236_CNic_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0106/192236_CNic_916014.png" style="cursor: pointer" /></a></p>
