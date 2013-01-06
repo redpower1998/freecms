@@ -54,3 +54,4 @@
 ===== [taglibInfoSearch infoSearch] =====
 ===== [taglibLinkClass linkClass] =====
 ===== [taglibLink link] =====
+===== [taglibAjaxInfoClick ajaxInfoClick] =====
