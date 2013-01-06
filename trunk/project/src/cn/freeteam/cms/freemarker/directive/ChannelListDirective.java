@@ -34,6 +34,7 @@ import freemarker.template.TemplateModel;
  * 
  * 返回值
  * channel	栏目对象
+ * index		索引
  * 
  * 使用示例
  * 
@@ -94,6 +95,9 @@ public class ChannelListDirective extends BaseDirective implements TemplateDirec
 									+"site/"+site.getSourcepath()+"/");
 						}
 						loopVars[0]=new BeanModel(channelList.get(i),new BeansWrapper());  
+						if(loopVars.length>1){
+							loopVars[1]=new SimpleNumber(i);
+						}
 						body.render(env.getOut());  
 					}
 				}
