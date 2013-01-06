@@ -45,7 +45,7 @@ import freemarker.template.TemplateModel;
  * channelPagemark	栏目页面标识
  * img			是否只提取带图片的新闻	1是
  * 
- * 变量
+ * 返回值
  * info			信息对象
  * index		索引
  * 
