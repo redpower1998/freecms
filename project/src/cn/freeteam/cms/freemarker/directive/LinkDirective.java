@@ -14,6 +14,7 @@ import cn.freeteam.cms.service.LinkService;
 import freemarker.core.Environment;
 import freemarker.ext.beans.BeanModel;
 import freemarker.ext.beans.BeansWrapper;
+import freemarker.template.SimpleNumber;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
@@ -36,6 +37,7 @@ import freemarker.template.TemplateModel;
  * 
  * 返回值
  * link			链接对象
+ * index        索引
  *
  * 
  * </p>
@@ -91,7 +93,10 @@ private LinkService linkService;
 				List<Link> linkList=linkService.findAll(link, " ordernum ");
 				if (linkList!=null && linkList.size()>0) {
 					for (int i = 0; i < linkList.size(); i++) {
-						loopVars[0]=new BeanModel(linkList.get(i),new BeansWrapper());  
+						loopVars[0]=new BeanModel(linkList.get(i),new BeansWrapper());   
+						if(loopVars.length>1){
+							loopVars[1]=new SimpleNumber(i);
+						}
 						body.render(env.getOut());  
 					}
 				}
