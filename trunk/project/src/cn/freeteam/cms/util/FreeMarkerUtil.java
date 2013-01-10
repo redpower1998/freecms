@@ -11,6 +11,7 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 
 import cn.freeteam.cms.freemarker.directive.AjaxInfoClickDirective;
+import cn.freeteam.cms.freemarker.directive.AjaxLoadDirective;
 import cn.freeteam.cms.freemarker.directive.ChannelDirective;
 import cn.freeteam.cms.freemarker.directive.ChannelListDirective;
 import cn.freeteam.cms.freemarker.directive.InfoAttchsDirective;
@@ -146,6 +147,7 @@ public class FreeMarkerUtil {
 			freemarkerCfg.setSharedVariable("link", new LinkDirective());
 			//Ajax类
 			freemarkerCfg.setSharedVariable("ajaxInfoClick", new AjaxInfoClickDirective());
+			freemarkerCfg.setSharedVariable("ajaxLoad", new AjaxLoadDirective());
 		}
 		return freemarkerCfg;
 	}
