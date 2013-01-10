@@ -471,6 +471,7 @@ public class SiteAction extends BaseAction{
 					String ext=FileUtil.getExt(logoFileName).toLowerCase();
 					if (!".jpg".equals(ext) && !".jpeg".equals(ext) && !".gif".equals(ext) && !".png".equals(ext)) {
 						write("<script>alert('logo只能上传jpg,jpeg,gif,png格式的图片!');history.back();</script>", "GBK");
+						return null;
 					}
 					String id=UUID.randomUUID().toString();
 					File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
@@ -515,6 +516,7 @@ public class SiteAction extends BaseAction{
 					String ext=FileUtil.getExt(logoFileName).toLowerCase();
 					if (!".jpg".equals(ext) && !".jpeg".equals(ext) && !".gif".equals(ext) && !".png".equals(ext)) {
 						write("<script>alert('logo只能上传jpg,jpeg,gif,png格式的图片!');history.back();</script>", "GBK");
+						return null;
 					}
 					String id=UUID.randomUUID().toString();
 					File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
@@ -600,6 +602,7 @@ public class SiteAction extends BaseAction{
 					String ext=FileUtil.getExt(logoFileName).toLowerCase();
 					if (!".jpg".equals(ext) && !".jpeg".equals(ext) && !".gif".equals(ext) && !".png".equals(ext)) {
 						write("<script>alert('logo只能上传jpg,jpeg,gif,png格式的图片!');history.back();</script>", "GBK");
+						return null;
 					}
 					String id=UUID.randomUUID().toString();
 					File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
