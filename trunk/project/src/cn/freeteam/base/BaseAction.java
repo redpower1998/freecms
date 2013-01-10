@@ -64,6 +64,7 @@ public class BaseAction extends BaseService{
 	}
 	public void write(String content,String charset){
 		getHttpResponse().setCharacterEncoding(charset);
+		getHttpResponse().setContentType("text/html;charset="+charset);
 		try {
 			getHttpResponse().getWriter().print(content);
 		} catch (IOException e) {
