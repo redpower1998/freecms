@@ -30,9 +30,11 @@ import freemarker.template.TemplateModel;
  * code		生成的ajax代码
  * 
  * 示例
- <@ajaxLoad targetid="ajaxLoadDiv" url="/test.jsp" param="id:'1',name:'姓名'" method="post";code>
+ <div id="ajaxLoadDiv">
+ <@ajaxLoad targetid="ajaxLoadDiv" url="${contextPath}/test.jsp" param="id:'1',name:'姓名'" method="post";code>
  ${code}
  </@ajaxLoad>
+ </div>
  * 
  * <p>Date: Jan 10, 2013</p>
  * 
