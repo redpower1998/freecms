@@ -93,4 +93,5 @@ public interface ConfigMapper {
      * @mbggenerated Mon Jan 14 20:20:20 CST 2013
      */
     int updateByPrimaryKey(Config record);
+    int updateByCode(Config record);
 }

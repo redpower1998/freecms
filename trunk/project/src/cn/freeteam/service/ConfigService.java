@@ -48,6 +48,18 @@ public class ConfigService extends BaseService{
 		return configMapper.selectByExample(example);
 	}
 
+	/**
+	 * 更新配置项
+	 * @param code
+	 * @param configvalue
+	 */
+	public void update(String code,String configvalue){
+		Config config=new Config();
+		config.setCode(code);
+		config.setConfigvalue(configvalue);
+		configMapper.updateByCode(config);
+		DBCommit();
+	}
 	public ConfigMapper getConfigMapper() {
 		return configMapper;
 	}

@@ -1,5 +1,6 @@
 package cn.freeteam.action;
 
+import java.util.Enumeration;
 import java.util.List;
 
 import cn.freeteam.base.BaseAction;
@@ -34,7 +35,8 @@ public class ConfigAction extends BaseAction{
 	private ConfigService configService;
 	
 	private List<Config> configList;
-	
+	private String msg;
+	private String pageFuncId;
 	public ConfigAction() {
 		init("configService");
 	}
@@ -46,6 +48,19 @@ public class ConfigAction extends BaseAction{
 		//提取所有系统配置项目
 		configList=configService.find();
 		return "config";
+	}
+	/**
+	 * 配置处理
+	 * @return
+	 */
+	public String configDo(){
+		Enumeration<String> paramNames = getHttpRequest().getParameterNames();
+		while (paramNames.hasMoreElements()) {
+			String paramName = (String) paramNames.nextElement();
+			configService.update(paramName, getHttpRequest().getParameter(paramName));
+		}
+		msg="<script>alert('操作成功');location.href='config_config.do?pageFuncId="+pageFuncId+"';</script>";
+		return "msg";
 	}
 
 	public ConfigService getConfigService() {
@@ -60,5 +75,17 @@ public class ConfigAction extends BaseAction{
 	}
 	public void setConfigList(List<Config> configList) {
 		this.configList = configList;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	public String getPageFuncId() {
+		return pageFuncId;
+	}
+	public void setPageFuncId(String pageFuncId) {
+		this.pageFuncId = pageFuncId;
 	}
 }
