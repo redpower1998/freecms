@@ -43,5 +43,8 @@
 		<action name="operLog_*" method="{1}" class="cn.freeteam.action.OperLogAction">
 			<result name="list" >/admin/operLog.jsp</result>
 		</action>
+		<action name="config_*" method="{1}" class="cn.freeteam.action.ConfigAction">
+			<result name="config" >/admin/config.jsp</result>
+		</action>
 	</package>
 </struts>
