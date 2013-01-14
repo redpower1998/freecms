@@ -8,6 +8,11 @@
 		<LINK rel=stylesheet type=text/css href="../img/style.css">
 		<LINK rel=stylesheet type=text/css href="../img/style3.css">
 		<script type="text/javascript" src="../js/jquery-1.5.1.min.js"></script>
+		<script>
+		function save(){
+			MyForm.submit();
+		}
+		</script>
 	</HEAD>
 	<BODY>
 <%@include file="../util/checkParentFrame.jsp" %>
@@ -40,7 +45,8 @@
 							<TD align="left">
 								<textarea onblur="this.className='colorblur';"  
 									class=colorblur onfocus="this.className='colorfocus';" 
-									maxLength=50 type=text id='<s:property value="code"/>' name='<s:property value="code"/>' cols="40" rows="3"></textarea>
+									maxLength=50 type=text id='<s:property value="code"/>' name='<s:property value="code"/>' 
+									cols="40" rows="3"><s:property value="configvalue"/></textarea>
 							</TD>
 						</TR>
 						</s:iterator>
