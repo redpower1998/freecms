@@ -2,7 +2,9 @@ package cn.freeteam.base;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +15,11 @@ import javax.servlet.jsp.PageContext;
 import org.apache.struts2.ServletActionContext;
 
 import cn.freeteam.cms.model.Site;
+import cn.freeteam.model.Config;
 import cn.freeteam.model.Roles;
 import cn.freeteam.model.Unit;
 import cn.freeteam.model.Users;
+import cn.freeteam.service.ConfigService;
 import cn.freeteam.service.RoleService;
 import cn.freeteam.service.UnitService;
 
@@ -30,6 +34,7 @@ public class BaseAction extends BaseService{
 
 	public UnitService baseUnitService;
 	public RoleService baseRoleService;
+	public ConfigService baseConfigService;
 	public int pageSize=10;
 	public int currPage=1;
 	public int totalCount=0;
@@ -61,6 +66,37 @@ public class BaseAction extends BaseService{
 	}
 	public ServletContext getServletContext(){
 		return ServletActionContext.getServletContext();
+	}
+	public Map<String, Object> getApplication(){
+		return ServletActionContext.getContext().getApplication();
+	}
+	/**
+	 * 获取配置
+	 * @return
+	 */
+	public Map<String, Object> getConfig(){
+		if (getApplication().get("config")!=null) {
+			return (Map<String, Object>)getApplication().get("config");
+		}else {
+			//重新生成
+			return setConfig();
+		}
+	}
+	/**
+	 * 设置配置
+	 * @return
+	 */
+	public Map<String, Object> setConfig(){
+		init("baseConfigService");
+		List<Config> configList=baseConfigService.find();
+		Map<String, Object> config=new HashMap<String, Object>();
+		if (configList!=null && configList.size()>0) {
+			for (int i = 0; i < configList.size(); i++) {
+				config.put(configList.get(i).getCode(), configList.get(i).getConfigvalue());
+			}
+		}
+		getApplication().put("config", config);
+		return config;
 	}
 	public void write(String content,String charset){
 		getHttpResponse().setCharacterEncoding(charset);
@@ -220,5 +256,11 @@ public class BaseAction extends BaseService{
 	}
 	public void setBaseRoleService(RoleService baseRoleService) {
 		this.baseRoleService = baseRoleService;
+	}
+	public ConfigService getBaseConfigService() {
+		return baseConfigService;
+	}
+	public void setBaseConfigService(ConfigService baseConfigService) {
+		this.baseConfigService = baseConfigService;
 	}
 }

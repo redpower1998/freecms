@@ -57,8 +57,11 @@ public class ConfigAction extends BaseAction{
 		Enumeration<String> paramNames = getHttpRequest().getParameterNames();
 		while (paramNames.hasMoreElements()) {
 			String paramName = (String) paramNames.nextElement();
+			//更新配置项
 			configService.update(paramName, getHttpRequest().getParameter(paramName));
 		}
+		//更新application中的配置
+		setConfig();
 		msg="<script>alert('操作成功');location.href='config_config.do?pageFuncId="+pageFuncId+"';</script>";
 		return "msg";
 	}
