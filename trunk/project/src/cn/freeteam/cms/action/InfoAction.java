@@ -66,6 +66,7 @@ public class InfoAction extends BaseAction{
 	private String ids;
 	private String logContent;
 	private String type;
+	private String[] signusers;
 	
 	public InfoAction(){
 		init("siteService","channelService","infoService",
@@ -191,6 +192,13 @@ public class InfoAction extends BaseAction{
 					info.setClicknum(0);
 					infoService.insert(info);
 					OperLogUtil.log(getLoginName(), oper+"信息("+info.getTitle()+")成功", getHttpRequest());
+				}
+				//处理签收用户
+				if (signusers!=null && signusers.length>0) {
+					//检查那些删除了，并删除
+					//检查那些新增加，并增加
+					for (int i = 0; i < signusers.length; i++) {
+					}
 				}
 				//生成静态页面
 				infoService.html(info.getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
@@ -351,5 +359,11 @@ public class InfoAction extends BaseAction{
 	}
 	public void setUserService(UserService userService) {
 		this.userService = userService;
+	}
+	public String[] getSignusers() {
+		return signusers;
+	}
+	public void setSignusers(String[] signusers) {
+		this.signusers = signusers;
 	}
 }
