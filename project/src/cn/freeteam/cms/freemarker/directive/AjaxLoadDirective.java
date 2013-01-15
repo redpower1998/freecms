@@ -25,10 +25,13 @@ import freemarker.template.TemplateModel;
  * url		页面地址
  * param	参数，使用json数据
  * method	获取方法，get(默认)或post
+ * loadjs  		是否加载依赖的js
  * 
  * 返回值
  * code		生成的ajax代码
  * 
+ * 此标签依赖的文件
+<script type="text/javascript" src="/js/jquery-1.5.1.min.js"></script>
  * 示例
  <div id="ajaxLoadDiv">
  <@ajaxLoad targetid="ajaxLoadDiv" url="${contextPath}/test.jsp" param="id:'1',name:'姓名'" method="post";code>
@@ -68,6 +71,8 @@ public class AjaxLoadDirective extends BaseDirective implements TemplateDirectiv
 		String param=getParam(params, "param");
 		//获取方法，get(默认)或post
 		String method=getParam(params, "method","get");
+		//是否加载引用的js
+		String loadjs=getParam(params, "loadjs");
 		
 		Writer out =env.getOut();
 		if (body!=null) {
@@ -75,8 +80,10 @@ public class AjaxLoadDirective extends BaseDirective implements TemplateDirectiv
 			if (loopVars!=null && loopVars.length>0 && targetid.trim().length()>0 && url.trim().length()>0) {
 				String contextPath=env.getDataModel().get("contextPath").toString();
 				StringBuilder sb=new StringBuilder();
-				//导入js
-				sb.append("<script src='"+contextPath+"js/jquery-1.5.1.min.js'></script>");
+				if ("true".equals(loadjs)) {
+					//导入js
+					sb.append("<script src='"+contextPath+"js/jquery-1.5.1.min.js'></script>");
+				}
 				//生成唯一标识
 				String uuid=UUID.randomUUID().toString().replace("-", "");
 				//生成显示点击量的span,默认显示loading

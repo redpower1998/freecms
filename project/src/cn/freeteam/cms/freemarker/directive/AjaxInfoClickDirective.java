@@ -23,10 +23,13 @@ import freemarker.template.TemplateModel;
  * 参数 
  * infoid		信息id
  * spanAttr		点击量显示span的属性
+ * loadjs  		是否加载依赖的js
  * 
  * 返回值
  * ajaxInfoClickHtml 生成的内容
  * 
+ * 此标签依赖的文件
+<script type="text/javascript" src="/js/jquery-1.5.1.min.js"></script>
  * <p>Date: May 22, 2012</p>
  * 
  * <p>Time: 8:11:13 PM</p>
@@ -55,6 +58,8 @@ public class AjaxInfoClickDirective extends BaseDirective implements TemplateDir
 		String infoid=getParam(params, "infoid");
 		//点击量显示span的属性
 		String spanAttr=getParam(params, "spanAttr");
+		//是否加载引用的js
+		String loadjs=getParam(params, "loadjs");
 		
 		Writer out =env.getOut();
 		if (body!=null) {
@@ -62,8 +67,11 @@ public class AjaxInfoClickDirective extends BaseDirective implements TemplateDir
 			if (loopVars!=null && loopVars.length>0 && infoid.trim().length()>0) {
 				String contextPath=env.getDataModel().get("contextPath").toString();
 				StringBuilder sb=new StringBuilder();
-				//导入js
-				sb.append("<script src='"+contextPath+"js/jquery-1.5.1.min.js'></script>");
+
+				if ("true".equals(loadjs)) {
+					//导入js
+					sb.append("<script src='"+contextPath+"js/jquery-1.5.1.min.js'></script>");
+				}
 				//生成唯一标识
 				String uuid=UUID.randomUUID().toString().replace("-", "");
 				//生成显示点击量的span,默认显示loading
