@@ -122,3 +122,11 @@ function issign(issign){
 		$("#signtr").fadeOut("slow"); 
 	}
 }
+function checkallsign(checked){
+	var objs=document.getElementsByName("signusers");
+	if(objs!=null && objs.length>0){
+		for(var i=0;i<objs.length;i++){
+			objs[i].checked=checked;
+		}
+	}
+}
