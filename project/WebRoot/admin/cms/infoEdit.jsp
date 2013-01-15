@@ -249,6 +249,37 @@
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择是否签收
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>是否签收：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								<input type="radio" id="issign1" onclick="issign(1)" name="info.issign" value="1" <s:if test="info.issign==1">checked="checked"</s:if>>是
+								<input type="radio" id="issign0"  onclick="issign(0)" name="info.issign" value="0" <s:if test="info==null || info.issign==null || info.issign==0">checked="checked"</s:if> >否
+							
+							</TD>
+						</TR>
+						<TR style="display:${"1"==info.issign?"block":"none" }" id="signtr">
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择签收用户
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>签收用户：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
 											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请输入Tag标签，用,分隔
 											src="../../img/help.gif">
 									<NOBR>
@@ -292,7 +323,7 @@
 								</LABEL>
 							</TD>
 							<TD align="left"> 
-							<input type="hidden" name="info.img" id="img" value="<%=checkParentPath %>${info.img }"/>
+							<input type="hidden" name="info.img" id="img" value="${info.img }"/>
 							<span id="imgSpan">
 							<s:if test='%{info.img!=null && info.img != "" && info.img != "null"}'>
 							<a href="<%=checkParentPath %>${info.img }?date=<%=UUID.randomUUID() %>" target="_blank">

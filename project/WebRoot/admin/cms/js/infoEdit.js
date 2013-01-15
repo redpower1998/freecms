@@ -115,3 +115,10 @@ function selectTempletFile(inputid){
 function closeWeebox(){
 	templetFileWeeboxs.close();
 }
+function issign(issign){
+	if(1==issign){
+		$("#signtr").fadeIn("slow"); 
+	}else{
+		$("#signtr").fadeOut("slow"); 
+	}
+}
