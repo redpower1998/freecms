@@ -29,16 +29,26 @@
 			<DIV class=column>
 				<TABLE cellSpacing=4 cellPadding=4 width="90%" >
 					<TBODY>
+					<TR>
+							<TD align="left">
+								<b>配置编码</b>
+							</TD>
+							<TD align="left">
+								<b>配置名称</b>
+							</TD>
+							<TD align="left">
+								<b>配置值</b>
+							</TD>
+						</TR>
 					<s:iterator value="configList" status="bean">
 					<TR>
-							<TD width="30%" align="left">
+							<TD align="left">
+								<s:property value="code"/>
+							</TD>
+							<TD align="left">
 								<LABEL id=ctl02_ctl00_label>
-									<IMG
-											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl02_ctl00_imgHelp tabIndex=-1 
-											src="../img/help.gif"/>
 									<NOBR>
-										<SPAN id=ctl02_ctl00_lblLabel><s:property value="name"/>：</SPAN>
+										<SPAN id=ctl02_ctl00_lblLabel><s:property value="name"/></SPAN>
 									</NOBR>
 								</LABEL>
 							</TD>
@@ -51,7 +61,7 @@
 						</TR>
 						</s:iterator>
 						<TR>
-							<TD height=30 colSpan=2 align=middle>
+							<TD height=30 colSpan=3 align=middle>
 									<fs:operButtons />
 							</TD>
 						</TR>
