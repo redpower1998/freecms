@@ -276,8 +276,13 @@
 							<TD width="70%" align="left">
 							<input type="checkbox" onclick="checkallsign(this.checked)">全部<br/>
 							<table><tr>
-							<s:iterator value="userList" status="bean">
-							<td><input name="signusers"  type="checkbox" value="<s:property value="id"/>"><s:property value="loginname"/></td>
+							<s:iterator value="userList" id="obj" status="bean">
+							<td><input name="signusers" 
+							
+								<s:iterator value="infosignList" id="infosign" >
+								${obj.id == infosign.userid ?"checked":"" }
+								</s:iterator>
+							 type="checkbox" value="<s:property value="id"/>"><s:property value="loginname"/></td>
 							${(bean.index+1)%6==0?"</tr><tr>":""  }							
 							</s:iterator>
 							</tr></table>
