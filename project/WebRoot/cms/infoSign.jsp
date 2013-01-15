@@ -1,0 +1,77 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<%@ taglib prefix="s" uri="/struts-tags"%> 
+		<link rel="stylesheet" href="<%=basePath %>img/style.css" type="text/css" />
+		<script type="text/javascript" src="<%=basePath %>js/jquery-1.5.1.min.js"></script>
+		<script>
+		function infosign(){
+			if($("#loginname").val()==""){
+				alert("请输入用户名");
+				$("#loginname").focus();
+				return false;
+			}
+			if($("#pwd").val()==""){
+				alert("请输入密码");
+				$("#pwd").focus();
+				return false;
+			}
+			$.post("info_signDo.do","info.id=${info.id}&loginname="+$("#loginname").val()+"&pwd="+$("#pwd").val(),infoSignComplete);
+		}
+		function infoSignComplete(data){
+			if("succ"==data){
+				alert("操作成功");
+			}else{
+				alert(data);
+			}
+		}
+		</script>
+<table id="MyDataList" cellspacing="1" cellpadding="1"
+					Align="center" border="0" border="0"
+					style="width: 100%; word-break: break-all">
+					<TR class="summary-title" style="HEIGHT: 25px" align="center">
+						
+						<TD><b>用户名</b>
+						<INPUT onblur="this.className='inputblur';" id=loginname
+									class=inputblur onfocus="this.className='inputfocus';" 
+									maxLength=50 size="10" type=text name=loginname value=""/></TD>
+						<TD><b>密码</b>
+						<INPUT onblur="this.className='inputblur';" id=pwd
+									class=inputblur onfocus="this.className='inputfocus';" 
+									maxLength=50 size="10" type=password name=pwd value=""/></TD>
+						<TD><input type="button" onclick="infosign()" value="签 收"  class="button"  /></TD>
+					</TR>
+				</table>
+				<table id="MyDataList" cellspacing="1" cellpadding="1"
+					Align="center" border="0" border="0"
+					style="width: 100%; word-break: break-all">
+					<TR class="summary-title" style="HEIGHT: 25px" align="center">
+						
+						<TD><b>签收用户</b></TD>
+						<TD><b>是否签收</b></TD>
+						<TD><b>签收时间</b></TD>
+						<TD><b>签收IP</b></TD>
+					</TR>
+					
+					
+					<s:iterator value="infosignList" id="bean">
+					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  i
+						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
+						
+						<TD style="WIDTH: 120px" align="left" >
+							<s:property value="loginname"/>
+						</TD>
+						<TD style="WIDTH: 120px" align="left" id="issign<s:property value="userid"/>">
+							${not empty bean.signtime?"是":"否" }
+						</TD>
+						<TD style="WIDTH: 120px" align="left" id="signtime<s:property value="userid"/>">
+							<s:date name="signtime" format="yyyy-MM-dd" />
+						</TD>
+						<TD style="WIDTH: 120px" align="left" id="ip<s:property value="userid"/>">
+							<s:property value="ip"/>
+						</TD>
+					</TR>
+					</s:iterator>
+				</table>
