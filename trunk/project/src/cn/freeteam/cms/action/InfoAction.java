@@ -7,9 +7,11 @@ import java.util.List;
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Channel;
 import cn.freeteam.cms.model.Info;
+import cn.freeteam.cms.model.InfoSign;
 import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.service.ChannelService;
 import cn.freeteam.cms.service.InfoService;
+import cn.freeteam.cms.service.InfoSignService;
 import cn.freeteam.cms.service.RoleChannelService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.model.Roles;
@@ -50,11 +52,13 @@ public class InfoAction extends BaseAction{
 	private InfoService infoService;
 	private RoleChannelService roleChannelService;
 	private UserService userService;
+	private InfoSignService infoSignService;
 	
 	private List<Site> siteList;
 	private List<Channel> channelList;
 	private List<Info> infoList;
 	private List<Users> userList;
+	private List<InfoSign> infosignList;
 	
 	
 	private Info info;
@@ -138,6 +142,9 @@ public class InfoAction extends BaseAction{
 			if (info!=null && info.getId()!=null && info.getId().trim().length()>0) {
 				info=infoService.findById(info.getId());
 				channel=channelService.findById(info.getChannel());
+				init("infoSignService");
+				//查询签收用户
+				infosignList=infoSignService.findByInfo(info.getId());
 			}
 			//添加,传递参数channel.id
 			if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
@@ -194,12 +201,8 @@ public class InfoAction extends BaseAction{
 					OperLogUtil.log(getLoginName(), oper+"信息("+info.getTitle()+")成功", getHttpRequest());
 				}
 				//处理签收用户
-				if (signusers!=null && signusers.length>0) {
-					//检查那些删除了，并删除
-					//检查那些新增加，并增加
-					for (int i = 0; i < signusers.length; i++) {
-					}
-				}
+				init("infoSignService");
+				infoSignService.infoedit(info.getId(), signusers);
 				//生成静态页面
 				infoService.html(info.getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
 				if ("channel".equals(type)) {
@@ -365,5 +368,17 @@ public class InfoAction extends BaseAction{
 	}
 	public void setSignusers(String[] signusers) {
 		this.signusers = signusers;
+	}
+	public InfoSignService getInfoSignService() {
+		return infoSignService;
+	}
+	public void setInfoSignService(InfoSignService infoSignService) {
+		this.infoSignService = infoSignService;
+	}
+	public List<InfoSign> getInfosignList() {
+		return infosignList;
+	}
+	public void setInfosignList(List<InfoSign> infosignList) {
+		this.infosignList = infosignList;
 	}
 }
