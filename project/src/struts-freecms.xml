@@ -57,6 +57,7 @@
 	
 	<package name="cmsWeb" extends="struts-default" namespace="/">
 		<action name="info_*" method="{1}" class="cn.freeteam.cms.action.web.InfoAction">
+			<result name="sign" >/cms/infoSign.jsp</result>
 		</action>
 		<action name="templet_*" method="{1}" class="cn.freeteam.cms.action.web.TempletAction">
 		</action>

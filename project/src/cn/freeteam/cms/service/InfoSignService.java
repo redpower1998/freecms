@@ -109,6 +109,17 @@ public class InfoSignService extends BaseService{
 		criteria.andInfoidEqualTo(infoid);
 		return infoSignMapper.selectByExample(example);
 	}
+	/**
+	 * 根据信息id查询签收情况
+	 * @param infoid
+	 * @return
+	 */
+	public List<InfoSign> findSignByInfo(String infoid){
+		InfoSignExample example=new InfoSignExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andInfoidEqualTo(infoid);
+		return infoSignMapper.selectSignByExample(example);
+	}
 	public InfoSignMapper getInfoSignMapper() {
 		return infoSignMapper;
 	}
