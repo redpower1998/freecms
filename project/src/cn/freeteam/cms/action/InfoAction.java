@@ -57,7 +57,7 @@ public class InfoAction extends BaseAction{
 	private Site site;
 	private Channel channel;
 	
-	private String order;
+	private String order=" addtime desc ";
 	private String listPageFuncId;
 	private String ids;
 	private String logContent;
@@ -171,6 +171,7 @@ public class InfoAction extends BaseAction{
 						oldInfo.setTitlecolor(info.getTitlecolor());
 						oldInfo.setTopendtime(info.getTopendtime());
 						oldInfo.setUrl(info.getUrl());
+						oldInfo.setIssign(info.getIssign());
 						infoService.update(oldInfo);
 						OperLogUtil.log(getLoginName(), oper+"信息("+oldInfo.getTitle()+")成功", getHttpRequest());
 					}
