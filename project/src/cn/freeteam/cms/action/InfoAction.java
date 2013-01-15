@@ -13,6 +13,8 @@ import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.RoleChannelService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.model.Roles;
+import cn.freeteam.model.Users;
+import cn.freeteam.service.UserService;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 
@@ -47,10 +49,12 @@ public class InfoAction extends BaseAction{
 	private ChannelService channelService;
 	private InfoService infoService;
 	private RoleChannelService roleChannelService;
+	private UserService userService;
 	
 	private List<Site> siteList;
 	private List<Channel> channelList;
 	private List<Info> infoList;
+	private List<Users> userList;
 	
 	
 	private Info info;
@@ -64,7 +68,8 @@ public class InfoAction extends BaseAction{
 	private String type;
 	
 	public InfoAction(){
-		init("siteService","channelService","infoService","roleChannelService");
+		init("siteService","channelService","infoService",
+				"roleChannelService","userService");
 	}
 	/**
 	 * 信息列表
@@ -137,6 +142,8 @@ public class InfoAction extends BaseAction{
 			if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
 				channel=channelService.findById(channel.getId());
 			}
+			//查询所有用户，签收时使用
+			userList=userService.findAll();
 		}
 		return "edit";
 	}
@@ -332,5 +339,17 @@ public class InfoAction extends BaseAction{
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public List<Users> getUserList() {
+		return userList;
+	}
+	public void setUserList(List<Users> userList) {
+		this.userList = userList;
+	}
+	public UserService getUserService() {
+		return userService;
+	}
+	public void setUserService(UserService userService) {
+		this.userService = userService;
 	}
 }
