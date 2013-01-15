@@ -67,6 +67,15 @@ public class UserService extends BaseService{
 		return null;
 	}
 	/**
+	 * 查询所有用户
+	 * @return
+	 */
+	public List<Users> findAll(){
+		UsersExample example=new UsersExample();
+		example.setOrderByClause(" loginName ");
+		return usersMapper.selectByExample(example);
+	}
+	/**
 	 * 根据id查询
 	 * @param id
 	 * @return
