@@ -21,6 +21,7 @@ import cn.freeteam.cms.freemarker.directive.InfoSearchDirective;
 import cn.freeteam.cms.freemarker.directive.InfoSignDirective;
 import cn.freeteam.cms.freemarker.directive.LinkClassDirective;
 import cn.freeteam.cms.freemarker.directive.LinkDirective;
+import cn.freeteam.cms.freemarker.directive.VideoDirective;
 
 
 import freemarker.template.Configuration;
@@ -150,6 +151,8 @@ public class FreeMarkerUtil {
 			//Ajax类
 			freemarkerCfg.setSharedVariable("ajaxInfoClick", new AjaxInfoClickDirective());
 			freemarkerCfg.setSharedVariable("ajaxLoad", new AjaxLoadDirective());
+			
+			freemarkerCfg.setSharedVariable("video", new VideoDirective());
 		}
 		return freemarkerCfg;
 	}

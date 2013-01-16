@@ -29,7 +29,7 @@ import freemarker.template.TemplateModel;
  * ajaxInfoClickHtml 生成的内容
  * 
  * 此标签依赖的文件
-<script type="text/javascript" src="/js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="${contextPath}/js/jquery-1.5.1.min.js"></script>
  * <p>Date: May 22, 2012</p>
  * 
  * <p>Time: 8:11:13 PM</p>
