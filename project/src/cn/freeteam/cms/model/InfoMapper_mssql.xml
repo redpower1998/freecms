@@ -29,6 +29,7 @@
     <result column="addUser" jdbcType="VARCHAR" property="adduser" />
     <result column="state" jdbcType="VARCHAR" property="state" />
     <result column="issign" jdbcType="VARCHAR" property="issign" />
+    <result column="video" jdbcType="VARCHAR" property="video" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.freeteam.cms.model.Info">
     <!--
@@ -113,7 +114,7 @@
       This element was generated on Wed Feb 01 16:28:18 CST 2012.
     -->
     id, site, channel, title, shortTitle, titleColor, titleBlod, source, author, description, 
-    tags, img, url, attchs, addtime, templet, isTop, topEndTime, clickNum, addUser,state,issign
+    tags, img, url, attchs, addtime, templet, isTop, topEndTime, clickNum, addUser,state,issign,video
   </sql>
   <sql id="Blob_Column_List">
     <!--
@@ -203,6 +204,12 @@
     from freecms_info
     where id = #{id,jdbcType=VARCHAR}
   </select>
+  <select id="selectClickByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    id,clicknum
+    from freecms_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     <!--
       WARNING - @mbggenerated
@@ -235,7 +242,7 @@
       description, tags, img, 
       url, attchs, addtime, 
       templet, isTop, topEndTime, 
-      clickNum, addUser,state,issign, content
+      clickNum, addUser,state,issign,video, content
       )
     values (#{id,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, 
       #{title,jdbcType=VARCHAR}, #{shorttitle,jdbcType=VARCHAR}, #{titlecolor,jdbcType=VARCHAR}, 
@@ -243,7 +250,8 @@
       #{description,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
       #{url,jdbcType=VARCHAR}, #{attchs,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
       #{templet,jdbcType=VARCHAR}, #{istop,jdbcType=VARCHAR}, #{topendtime,jdbcType=TIMESTAMP}, 
-      #{clicknum,jdbcType=INTEGER}, #{adduser,jdbcType=VARCHAR},#{state,jdbcType=VARCHAR},#{issign,jdbcType=VARCHAR}, #{content,jdbcType=CLOB}
+      #{clicknum,jdbcType=INTEGER}, #{adduser,jdbcType=VARCHAR},#{state,jdbcType=VARCHAR},
+      #{issign,jdbcType=VARCHAR},#{video,jdbcType=VARCHAR}, #{content,jdbcType=CLOB}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.freeteam.cms.model.Info">
@@ -320,6 +328,9 @@
       <if test="issign != null">
         issign,
       </if>
+      <if test="video != null">
+        video,
+      </if>
       <if test="content != null">
         content,
       </if>
@@ -390,6 +401,9 @@
       </if>
       <if test="issign != null">
         #{issign,jdbcType=VARCHAR},
+      </if>
+      <if test="video != null">
+        #{video,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         #{content,jdbcType=CLOB},
@@ -481,6 +495,9 @@
       <if test="record.issign != null">
         issign = #{record.issign,jdbcType=VARCHAR},
       </if>
+      <if test="record.video != null">
+        video = #{record.video,jdbcType=VARCHAR},
+      </if>
       <if test="record.content != null">
         content = #{record.content,jdbcType=CLOB},
       </if>
@@ -518,6 +535,7 @@
       addUser = #{record.adduser,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=VARCHAR},
       issign = #{record.issign,jdbcType=VARCHAR},
+      video = #{record.video,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=CLOB}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -551,7 +569,8 @@
       clickNum = #{record.clicknum,jdbcType=INTEGER},
       addUser = #{record.adduser,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=VARCHAR},
-      issign = #{record.issign,jdbcType=VARCHAR}
+      issign = #{record.issign,jdbcType=VARCHAR},
+      video = #{record.video,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -598,6 +617,7 @@
       addUser = #{adduser,jdbcType=VARCHAR},
       state = #{state,jdbcType=VARCHAR},
       issign = #{issign,jdbcType=VARCHAR},
+      video = #{video,jdbcType=VARCHAR},
       content = #{content,jdbcType=CLOB}
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -628,7 +648,8 @@
       clickNum = #{clicknum,jdbcType=INTEGER},
       addUser = #{adduser,jdbcType=VARCHAR},
       state = #{state,jdbcType=VARCHAR},
-      issign = #{issign,jdbcType=VARCHAR}
+      issign = #{issign,jdbcType=VARCHAR},
+      video = #{video,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
