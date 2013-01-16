@@ -1,13 +1,18 @@
 package cn.freeteam.cms.action.web;
 
 
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Info;
 import cn.freeteam.cms.model.InfoSign;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.InfoSignService;
+import cn.freeteam.model.Users;
+import cn.freeteam.service.UserService;
 
 
 /** 
@@ -37,8 +42,10 @@ public class InfoAction extends BaseAction{
 
 	private InfoService infoService;
 	private InfoSignService infoSignService;
+	private UserService userService;
 	
 	private Info info;
+	private Users user;
 	private List<InfoSign> infosignList;
 	
 	public InfoAction(){
@@ -76,6 +83,42 @@ public class InfoAction extends BaseAction{
 		}
 		return "sign";
 	}
+	/**
+	 * 签收处理
+	 * @return
+	 */
+	public String signDo(){
+		if (info!=null && info.getId()!=null && info.getId().trim().length()>0) {
+			info=infoService.findById(info.getId());
+			if (info!=null) {
+				//判断用户信息是否正确
+				init("userService");
+				String msg=userService.checkLogin(getHttpSession(), user);
+				if (msg!=null && msg.trim().length()>0) {
+					write(msg, "UTF-8");
+					return null;
+				}
+			    HttpSession session =getHttpSession();
+			    user=(Users)session.getAttribute("loginAdmin");
+				//判断是否需要此用户签收
+				init("infoSignService");
+				InfoSign infoSign=infoSignService.findByUserInfo(user.getId(), info.getId());
+				if (infoSign!=null) {
+					if (infoSign.getSigntime()!=null) {
+						write("您已签收", "UTF-8");
+					}else {
+						infoSign.setIp(getHttpRequest().getRemoteAddr());
+						infoSign.setSigntime(new Date());
+						infoSignService.update(infoSign);
+						write("操作成功"+user.getId(), "UTF-8");
+					}
+				}else {
+					write("您不能指定的签收用户", "UTF-8");
+				}
+			}
+		}
+		return null;
+	}
 	public InfoService getInfoService() {
 		return infoService;
 	}
@@ -106,5 +149,22 @@ public class InfoAction extends BaseAction{
 
 	public void setInfosignList(List<InfoSign> infosignList) {
 		this.infosignList = infosignList;
+	}
+
+
+	public UserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
 	}
 }

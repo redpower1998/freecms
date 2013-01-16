@@ -12,6 +12,7 @@ import cn.freeteam.dao.UsersMapper;
 import cn.freeteam.model.Users;
 import cn.freeteam.model.UsersExample;
 import cn.freeteam.model.UsersExample.Criteria;
+import cn.freeteam.service.UserService;
 import cn.freeteam.util.EscapeUnescape;
 import cn.freeteam.util.MD5;
 import cn.freeteam.util.MybatisSessionFactory;
@@ -33,7 +34,11 @@ public class LoginAction extends BaseAction{
 	private String ValidateCode;
 	private String RememberMe;
 	private String msg;
-	private UsersMapper usersMapper;
+	private UserService userService;
+	
+	public LoginAction() {
+		init("userService");
+	}
 	
 	public String getMsg() {
 		return msg;
@@ -51,32 +56,7 @@ public class LoginAction extends BaseAction{
 			}
 		    HttpSession session =getHttpSession();
 			if (ValidateCode!=null && ValidateCode.equals(session.getAttribute("rand"))) {
-				UsersExample usersExample=new UsersExample();
-				Criteria criteria= usersExample.createCriteria();
-				criteria.andLoginnameEqualTo(user.getLoginname());
-				criteria.andPwdEqualTo(MD5.MD5(user.getPwd()));
-				usersMapper=MybatisSessionFactory.getSession().getMapper(UsersMapper.class) ;
-				List list=usersMapper.selectByExample(usersExample);
-				if (list!=null && list.size()>0) {
-					user=(Users)list.get(0);
-					//是否为无效
-					if ("1".equals(user.getIsok())) {
-						
-						//修改上次登录时间
-						user.setLastlogintime(user.getLastestlogintime());
-						user.setLastestlogintime(new Date());
-						usersMapper.updateLastLoginTime(user);
-						MybatisSessionFactory.getSession().commit();
-						session.setAttribute("loginAdmin", user);
-						//设置cdfinder文件目录
-						session.setAttribute("currentFolder", "/"+user.getLoginname()+"/");
-						return "admin";
-					}else{
-						msg="此用户已禁用!";
-					}
-				}else{
-					msg="用户名或密码错误!";
-				}
+				msg=userService.checkLogin(getHttpSession(), user);
 			}else {
 				msg="验证码错误!";
 			}
@@ -130,5 +110,11 @@ public class LoginAction extends BaseAction{
 	}
 	public void setRememberMe(String rememberMe) {
 		RememberMe = rememberMe;
+	}
+	public UserService getUserService() {
+		return userService;
+	}
+	public void setUserService(UserService userService) {
+		this.userService = userService;
 	}
 }

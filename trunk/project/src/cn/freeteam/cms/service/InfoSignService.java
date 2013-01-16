@@ -120,6 +120,35 @@ public class InfoSignService extends BaseService{
 		criteria.andInfoidEqualTo(infoid);
 		return infoSignMapper.selectSignByExample(example);
 	}
+	/**
+	 * 判断指定信息是否有指定签收用户
+	 * @param userid
+	 * @param infoid
+	 * @return
+	 */
+	public InfoSign findByUserInfo(String userid,String infoid){
+		InfoSignExample example=new InfoSignExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andInfoidEqualTo(infoid);
+		criteria.andUseridEqualTo(userid);
+		List<InfoSign> list=infoSignMapper.selectByExample(example);
+		if (list!=null && list.size()>0) {
+			return list.get(0);
+		}
+		return null;
+	}
+	/**
+	 * 编辑
+	 * @param infoid
+	 * @param userid
+	 * @param request
+	 */
+	public void update(InfoSign infoSign){
+		if (infoSign!=null) {
+			infoSignMapper.updateByPrimaryKey(infoSign);
+			DBCommit();
+		}
+	}
 	public InfoSignMapper getInfoSignMapper() {
 		return infoSignMapper;
 	}
