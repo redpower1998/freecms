@@ -62,7 +62,7 @@ public class InfoAction extends BaseAction{
 	public String ajaxClick(){
 		int clicknum=0;
 		if (info!=null && info.getId()!=null && info.getId().trim().length()>0) {
-			info=infoService.findById(info.getId());
+			info=infoService.findClickById(info.getId());
 			if (info!=null) {
 				info.setClicknum((info.getClicknum()!=null?info.getClicknum():0)+1);
 				infoService.click(info);

@@ -250,6 +250,16 @@ public class InfoService extends BaseService{
 	public Info findById(String id){
 		return infoMapper.selectByPrimaryKey(id);
 	}
+
+	/**
+	 * 根据id查询
+	 * @param id
+	 * @return
+	 */
+	public Info findClickById(String id){
+		return infoMapper.selectClickByPrimaryKey(id);
+	}
+	
 	public void del(String id){
 		infoMapper.deleteByPrimaryKey(id);
 		DBCommit();
