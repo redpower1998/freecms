@@ -5,7 +5,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <%@ taglib prefix="s" uri="/struts-tags"%> 
 		<link rel="stylesheet" href="<%=basePath %>img/style.css" type="text/css" />
-		<script type="text/javascript" src="<%=basePath %>js/jquery-1.5.1.min.js"></script>
 		<script>
 		function infosign(){
 			if($("#loginname").val()==""){
@@ -18,11 +17,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				$("#pwd").focus();
 				return false;
 			}
-			$.post("info_signDo.do","info.id=${info.id}&loginname="+$("#loginname").val()+"&pwd="+$("#pwd").val(),infoSignComplete);
+			$.post("info_signDo.do","info.id=${info.id}&user.loginname="+$("#loginname").val()+"&user.pwd="+$("#pwd").val(),infoSignComplete);
 		}
 		function infoSignComplete(data){
-			if("succ"==data){
+			if(data.indexOf("操作成功")>-1){
 				alert("操作成功");
+				var id=data.replace("操作成功","");
+				$("#issign"+id).html("是");
+				var date=new Date();
+				$("#signtime"+id).html(date.getYear()+"-"+(date.getMonth() + 1)+"-"+date.getDate());
+				$("#ip"+id).html("<%=request.getRemoteAddr()%>");
 			}else{
 				alert(data);
 			}
