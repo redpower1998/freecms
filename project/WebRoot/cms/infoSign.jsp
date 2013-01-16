@@ -5,8 +5,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <%@ taglib prefix="s" uri="/struts-tags"%> 
 		<link rel="stylesheet" href="<%=basePath %>img/style.css" type="text/css" />
+		<script src="<%=basePath %>js/cookie.js"></script>
+		<s:if test='%{"false" != #request.cansign }'>
 		
-		<s:if test='%{"false" != #cansign }'>
+<table id="MyDataList" cellspacing="1" cellpadding="1"
+					Align="center" border="0" border="0"
+					style="width: 100%; word-break: break-all">
+					<TR class="summary-title" style="HEIGHT: 25px" align="center">
+						
+						<TD><b>用户名</b>
+						<INPUT onblur="this.className='inputblur';" id=loginname
+									class=inputblur onfocus="this.className='inputfocus';" 
+									maxLength=50 size="10" type=text name=loginname value=""/></TD>
+						<TD><b>密码</b>
+						<INPUT onblur="this.className='inputblur';" id=pwd
+									class=inputblur onfocus="this.className='inputfocus';" 
+									maxLength=50 size="10" type=password name=pwd value=""/></TD>
+						<TD><input type="button" onclick="infosign()" value="签 收"  class="button"  /></TD>
+					</TR>
+				</table>
+				
 		<script>
 		function infosign(){
 			if($("#loginname").val()==""){
@@ -33,24 +51,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				alert(data);
 			}
 		}
+        if(GetCookie("FreeCMS_infosignLoginName")!=null)
+        {
+        	$("#loginname").val(GetCookie("FreeCMS_infosignLoginName"));alert(GetCookie("FreeCMS_infosignLoginName"));
+        }
+        if(GetCookie("FreeCMS_infosignPwd")!=null){
+        	$("#pwd").val(GetCookie("FreeCMS_infosignPwd"));
+        }
 		</script>
-		
-<table id="MyDataList" cellspacing="1" cellpadding="1"
-					Align="center" border="0" border="0"
-					style="width: 100%; word-break: break-all">
-					<TR class="summary-title" style="HEIGHT: 25px" align="center">
-						
-						<TD><b>用户名</b>
-						<INPUT onblur="this.className='inputblur';" id=loginname
-									class=inputblur onfocus="this.className='inputfocus';" 
-									maxLength=50 size="10" type=text name=loginname value=""/></TD>
-						<TD><b>密码</b>
-						<INPUT onblur="this.className='inputblur';" id=pwd
-									class=inputblur onfocus="this.className='inputfocus';" 
-									maxLength=50 size="10" type=password name=pwd value=""/></TD>
-						<TD><input type="button" onclick="infosign()" value="签 收"  class="button"  /></TD>
-					</TR>
-				</table></s:if>
+				</s:if>
 				<table id="MyDataList" cellspacing="1" cellpadding="1"
 					Align="center" border="0" border="0"
 					style="width: 100%; word-break: break-all">
