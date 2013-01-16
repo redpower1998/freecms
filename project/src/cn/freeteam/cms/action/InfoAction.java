@@ -1,7 +1,9 @@
 package cn.freeteam.cms.action;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 
 import cn.freeteam.base.BaseAction;
@@ -17,6 +19,7 @@ import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.model.Roles;
 import cn.freeteam.model.Users;
 import cn.freeteam.service.UserService;
+import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 
@@ -64,6 +67,8 @@ public class InfoAction extends BaseAction{
 	private Info info;
 	private Site site;
 	private Channel channel;
+	private File videoUpload;
+	private String videoUploadFileName;
 	
 	private String order=" addtime desc ";
 	private String listPageFuncId;
@@ -71,6 +76,7 @@ public class InfoAction extends BaseAction{
 	private String logContent;
 	private String type;
 	private String[] signusers;
+	private String msg;
 	
 	public InfoAction(){
 		init("siteService","channelService","infoService",
@@ -160,9 +166,33 @@ public class InfoAction extends BaseAction{
 	 * @return
 	 */
 	public String editDo(){
+		site=getManageSite();
 		if (info!=null) {
 			String oper="添加";
 			try {
+				if (videoUpload!=null) {
+					//生成目标文件
+					String root=getHttpRequest().getRealPath("/");
+					String ext=FileUtil.getExt(videoUploadFileName).toLowerCase();
+					if (!".flv".equals(ext)) {
+						msg="<script>alert('只能上传flv格式的视频!');history.back();</script>";
+						return "msg";
+					}
+					String id=UUID.randomUUID().toString();
+					File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
+					File folder=new File(root+"\\upload\\"+site.getId()+"\\");
+					if (!folder.exists()) {
+						folder.mkdirs();
+					}
+					if (!targetFile.exists()) {
+						targetFile.createNewFile();
+					}
+					//复制到目标文件
+					FileUtil.copy(videoUpload, targetFile);
+
+					//生成访问地址
+					info.setVideo("/upload/"+site.getId()+"/"+id+ext);
+				}
 				if (info.getId()!=null && info.getId().trim().length()>0) {
 					//更新
 					oper="更新";
@@ -187,6 +217,7 @@ public class InfoAction extends BaseAction{
 						oldInfo.setTopendtime(info.getTopendtime());
 						oldInfo.setUrl(info.getUrl());
 						oldInfo.setIssign(info.getIssign());
+						oldInfo.setVideo(info.getVideo());
 						infoService.update(oldInfo);
 						OperLogUtil.log(getLoginName(), oper+"信息("+oldInfo.getTitle()+")成功", getHttpRequest());
 					}
@@ -380,5 +411,23 @@ public class InfoAction extends BaseAction{
 	}
 	public void setInfosignList(List<InfoSign> infosignList) {
 		this.infosignList = infosignList;
+	}
+	public File getVideoUpload() {
+		return videoUpload;
+	}
+	public void setVideoUpload(File videoUpload) {
+		this.videoUpload = videoUpload;
+	}
+	public String getVideoUploadFileName() {
+		return videoUploadFileName;
+	}
+	public void setVideoUploadFileName(String videoUploadFileName) {
+		this.videoUploadFileName = videoUploadFileName;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 }

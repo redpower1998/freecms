@@ -5,6 +5,9 @@
 
 <struts>
 	<package name="cmsAdmin" extends="struts-default" namespace="/admin/cms">
+		<global-results>
+			<result name="msg" >/admin/msg.jsp</result>
+		</global-results>
 		<action name="site_*" method="{1}" class="cn.freeteam.cms.action.SiteAction">
 			<result name="site" >/admin/cms/site.jsp</result>
 			<result name="edit" >/admin/cms/siteEdit.jsp</result>
@@ -24,7 +27,12 @@
 			<result name="channelSelect" >/admin/cms/channelSelect.jsp</result>
 			<result name="auth" >/admin/cms/channelAuth.jsp</result>
 		</action>
-		<action name="info_*" method="{1}" class="cn.freeteam.cms.action.InfoAction">
+		<action name="info_*" method="{1}" class="cn.freeteam.cms.action.InfoAction">            
+			<interceptor-ref name="fileUpload">
+                <param name="maximumSize">2048000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+		
 			<result name="edit" >/admin/cms/infoEdit.jsp</result>
 			<result name="info" >/admin/cms/info.jsp</result>
 			<result name="list" >/admin/cms/infoList.jsp</result>

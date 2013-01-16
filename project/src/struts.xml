@@ -19,7 +19,8 @@
     <constant name="struts.devMode" value="true" />
      <!-- 默认的视图主题 -->
     <constant name="struts.ui.theme" value="simple" />
-
+	<constant name="struts.multipart.saveDir"  value ="/temp" />
+	<constant name="struts.multipart.maxSize"  value ="9000000000" />
 
     <include file="struts-*.xml"></include>
 
