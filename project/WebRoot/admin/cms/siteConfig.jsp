@@ -169,7 +169,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</span>
 							<br/>
 							</s:if>
-									<input type="file" name="logo" id="logo">
+									<input type="file" onblur="this.className='inputblur';" 
+									class=inputblur onfocus="this.className='inputfocus';"  name="logo" id="logo">
 							</TD>
 						</TR>
 						<TR>
