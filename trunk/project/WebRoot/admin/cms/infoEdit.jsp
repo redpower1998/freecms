@@ -324,6 +324,26 @@
 						</TR>
 						<TR>
 							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请输入视频地址或上传视频文件
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>视频：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								视频地址:<INPUT onblur="this.className='inputblur';" id=video
+									class=inputblur onfocus="this.className='inputfocus';" 
+									maxLength=250 size="45" type=text name=info.video value="${info.video }"><br>
+								视频上传:<INPUT onblur="this.className='inputblur';" id=videoUpload
+									class=inputblur onfocus="this.className='inputfocus';" 
+									maxLength=250 size="45" type=file name=videoUpload value="">
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
 								<LABEL id=ctl02_ctl00_label>
 									<IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
