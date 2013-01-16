@@ -46,6 +46,7 @@ public class InfoAction extends BaseAction{
 	
 	private Info info;
 	private Users user;
+	private String cansign;
 	private List<InfoSign> infosignList;
 	
 	public InfoAction(){
@@ -166,5 +167,13 @@ public class InfoAction extends BaseAction{
 
 	public void setUser(Users user) {
 		this.user = user;
+	}
+
+	public String getCansign() {
+		return cansign;
+	}
+
+	public void setCansign(String cansign) {
+		this.cansign = cansign;
 	}
 }
