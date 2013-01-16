@@ -4,6 +4,7 @@ package cn.freeteam.cms.action.web;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 import cn.freeteam.base.BaseAction;
@@ -13,6 +14,7 @@ import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.InfoSignService;
 import cn.freeteam.model.Users;
 import cn.freeteam.service.UserService;
+import cn.freeteam.util.EscapeUnescape;
 
 
 /** 
@@ -89,6 +91,14 @@ public class InfoAction extends BaseAction{
 	 * @return
 	 */
 	public String signDo(){
+		//记住用户名
+		Cookie cookie=new Cookie("FreeCMS_infosignLoginName",EscapeUnescape.escape(user.getLoginname()));
+		cookie.setMaxAge(1000*60*60*24*365);//有效时间为一年
+		getHttpResponse().addCookie(cookie);
+		//记住密码
+		Cookie cookiePwd=new Cookie("FreeCMS_infosignPwd",EscapeUnescape.escape(user.getPwd()));
+		cookiePwd.setMaxAge(1000*60*60*24*365);//有效时间为一年
+		getHttpResponse().addCookie(cookiePwd);
 		if (info!=null && info.getId()!=null && info.getId().trim().length()>0) {
 			info=infoService.findById(info.getId());
 			if (info!=null) {

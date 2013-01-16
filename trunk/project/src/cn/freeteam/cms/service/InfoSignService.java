@@ -118,6 +118,7 @@ public class InfoSignService extends BaseService{
 		InfoSignExample example=new InfoSignExample();
 		Criteria criteria=example.createCriteria();
 		criteria.andInfoidEqualTo(infoid);
+		example.setOrderByClause(" users.loginname ");
 		return infoSignMapper.selectSignByExample(example);
 	}
 	/**
