@@ -1,6 +1,9 @@
 package cn.freeteam.service;
 
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 
 import cn.freeteam.base.BaseService;
@@ -8,6 +11,8 @@ import cn.freeteam.dao.UsersMapper;
 import cn.freeteam.model.Users;
 import cn.freeteam.model.UsersExample;
 import cn.freeteam.model.UsersExample.Criteria;
+import cn.freeteam.util.MD5;
+import cn.freeteam.util.MybatisSessionFactory;
 
 
 /**
@@ -102,7 +107,40 @@ public class UserService extends BaseService{
 		usersMapper.updateByPrimaryKey(users);
 		DBCommit();
 	}
-	
+	/**
+	 * 检查登录信息是否正确
+	 * @param loginname
+	 * @param pwd
+	 * @return
+	 */
+	public String checkLogin(HttpSession session,Users user){
+		UsersExample usersExample=new UsersExample();
+		Criteria criteria= usersExample.createCriteria();
+		criteria.andLoginnameEqualTo(user.getLoginname());
+		criteria.andPwdEqualTo(MD5.MD5(user.getPwd()));
+		List list=usersMapper.selectByExample(usersExample);
+		String msg="";
+		if (list!=null && list.size()>0) {
+			user=(Users)list.get(0);
+			//是否为无效
+			if ("1".equals(user.getIsok())) {
+				
+				//修改上次登录时间
+				user.setLastlogintime(user.getLastestlogintime());
+				user.setLastestlogintime(new Date());
+				usersMapper.updateLastLoginTime(user);
+				MybatisSessionFactory.getSession().commit();
+				session.setAttribute("loginAdmin", user);
+				//设置cdfinder文件目录
+				session.setAttribute("currentFolder", "/"+user.getLoginname()+"/");
+			}else{
+				msg="此用户已禁用!";
+			}
+		}else{
+			msg="用户名或密码错误!";
+		}
+		return msg;
+	}
 	//setter and getter
 
 	public UsersMapper getUsersMapper() {

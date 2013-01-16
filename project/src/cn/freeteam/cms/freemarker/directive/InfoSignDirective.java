@@ -111,7 +111,7 @@ public class InfoSignDirective extends BaseDirective implements TemplateDirectiv
 					sb.append("<script>");
 					//签收函数
 					sb.append("function infosignFunc"+uuid+"(){");
-					sb.append("$.weeboxs.open('"+contextPath+"info_sign.do?info.id="+infoid+"', {title:'信息签收', contentType:'ajax',height:420,width:450});");
+					sb.append("$.weeboxs.open('"+contextPath+"info_sign.do?info.id="+infoid+"&date='+new Date(), {title:'信息签收', contentType:'ajax',height:420,width:450});");
 					sb.append("}");
 					sb.append("</script>");
 					//生成显示内容
