@@ -89,13 +89,17 @@
 							<INPUT onClick="checkAll(this.checked)" type="checkbox" />
 						</TD>
 						
-						<TD width="90%">
+						<TD width="85%">
 							
 							<fs:order colName="信息标题" col="title"/>
 						</TD>
+						<TD width="5%">
+							
+							<fs:order colName="签收" col="issign"/>
+						</TD>
 					</TR>
 					
-					<s:iterator value="infoList" status="bean">
+					<s:iterator value="infoList" id="obj" status="bean">
 					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						<TD align="center">
@@ -103,6 +107,14 @@
 						
 						<TD  align="left" id="title<s:property value="id"/>">
 							<a title="点击打开信息页面" href="<%=basePath %>site/${manageSite.sourcepath }/<s:property value="pageurl"/>" target="_blank"><s:property value="title"/></a>
+						</TD>
+						<TD  align="left" id="issign<s:property value="id"/>">
+							<s:if test='%{"1" == #obj.issign }'>
+							<a href='#' onclick='infosign("${obj.id }")' title="点击查看签收统计">是</a>
+							</s:if>
+							<s:if test='%{"1" != #obj.issign }'>
+							否
+							</s:if>
 						</TD>
 					</TR>
 					</s:iterator>
