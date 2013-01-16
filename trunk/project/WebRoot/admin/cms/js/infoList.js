@@ -30,3 +30,7 @@ function delComplete(data){
 		}
 	}
 }
+function infosign(infoid){
+	$.weeboxs.open('../../info_sign.do?cansign=false&info.id='+infoid+'&date='+new Date(), 
+	{title:'信息签收', contentType:'ajax',height:420,width:450});
+}
