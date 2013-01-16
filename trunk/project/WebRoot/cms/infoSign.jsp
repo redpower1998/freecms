@@ -5,6 +5,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <%@ taglib prefix="s" uri="/struts-tags"%> 
 		<link rel="stylesheet" href="<%=basePath %>img/style.css" type="text/css" />
+		
+		<s:if test='%{"false" != #cansign }'>
 		<script>
 		function infosign(){
 			if($("#loginname").val()==""){
@@ -32,6 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		}
 		</script>
+		
 <table id="MyDataList" cellspacing="1" cellpadding="1"
 					Align="center" border="0" border="0"
 					style="width: 100%; word-break: break-all">
@@ -47,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									maxLength=50 size="10" type=password name=pwd value=""/></TD>
 						<TD><input type="button" onclick="infosign()" value="签 收"  class="button"  /></TD>
 					</TR>
-				</table>
+				</table></s:if>
 				<table id="MyDataList" cellspacing="1" cellpadding="1"
 					Align="center" border="0" border="0"
 					style="width: 100%; word-break: break-all">
