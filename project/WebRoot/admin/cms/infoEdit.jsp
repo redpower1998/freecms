@@ -32,7 +32,7 @@
 	</HEAD>
 	<BODY>
 		<FORM id=MyForm 
-			method=post name=MyForm action=info_editDo.do>
+			method=post name=MyForm action=info_editDo.do enctype="multipart/form-data">
 			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${pageFuncId }"/>
 			<input type="hidden" name="info.id" value="${info.id }"/>
 			<input type="hidden" name="type" value="<%=((request.getParameter("channel.id")!=null || request.getParameter("info.id")!=null)?"channel":"quick") %>"/>
@@ -339,7 +339,8 @@
 									maxLength=250 size="45" type=text name=info.video value="${info.video }"><br>
 								视频上传:<INPUT onblur="this.className='inputblur';" id=videoUpload
 									class=inputblur onfocus="this.className='inputfocus';" 
-									maxLength=250 size="45" type=file name=videoUpload value="">
+									 size="45" type=file name=videoUpload value="">
+									<br/>(请上传格式为flv的视频文件,最大支持1G)
 							</TD>
 						</TR>
 						<TR>
