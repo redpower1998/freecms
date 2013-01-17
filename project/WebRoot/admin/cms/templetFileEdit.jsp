@@ -76,7 +76,7 @@
 							<TD width="80%" align="left">
 								<textarea onblur="this.className='colorblur';"  
 									class=colorblur onfocus="this.className='colorfocus';" 
-									maxLength=50 type=text id=fileContent name=fileContent cols="115" rows="25">${fileContent }</textarea>
+									 type=text id=fileContent name=fileContent style="width:100%;height:380px">${fileContent }</textarea>
 							</TD>
 						</TR>
 						
