@@ -29,7 +29,7 @@ import freemarker.template.TemplateModelException;
  * 
  * <p>Company: freeteam</p>
  * 
- * @author 王浩强
+ * @author freeteam
  * @version 1.0
  * 
  * <p>============================================</p>
