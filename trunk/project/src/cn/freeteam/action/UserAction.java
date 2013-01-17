@@ -422,6 +422,7 @@ public class UserAction extends BaseAction{
 				if (obj!=null) {
 					obj.setName(user.getName());
 					obj.setSex(user.getSex());
+					obj.setIsmail(user.getIsmail());
 					obj.setBirthday(user.getBirthday());
 					obj.setTel(user.getTel());
 					obj.setMobilephone(user.getMobilephone());
