@@ -320,6 +320,23 @@
 							</TD>
 						</TR>
 						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl02_ctl00_label>
+									<IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=请选择是否接收互动信件
+											src="../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl02_ctl00_lblLabel>是否接收互动信件：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD align="left">
+								<input type="radio" name="user.ismail" value="1" >是
+								<input type="radio" name="user.ismail" value="0" checked="checked">否
+							</TD>
+						</TR>
+						<TR>
 							<TD height=30 colSpan=2 align=middle>
 									<fs:operButtons />
 							</TD>

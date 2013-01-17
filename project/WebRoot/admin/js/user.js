@@ -99,8 +99,12 @@ function edit(){
 				if(document.getElementById("usersex0").checked){
 					sex="0";
 				}
+				var mail="0";
+				if(document.getElementById("mail1").checked){
+					mail="1";
+				}
 				//成功
-				$.post("user_ajaxEditDo.do","user.id="+getCheckOneValue()+"&user.loginname="+$("#loginname").val()+"&user.name="+$("#name").val()+"&user.sex="+sex
+				$.post("user_ajaxEditDo.do","user.id="+getCheckOneValue()+"&user.loginname="+$("#loginname").val()+"&user.name="+$("#name").val()+"&user.sex="+sex+"&user.ismail="+mail
 				+"&user.birthday="+$("#birthday").val()+"&user.tel="+$("#tel").val()+"&user.mobilephone="+$("#mobilephone").val()+"&user.email="+$("#email").val()+"&user.defaultapp="
 				+$("#defaultapp").val()+"&user.question="+$("#question").val()+"&user.answer="+$("#answer").val()+"&unitid="+$("#unitid").val()+"&user.unitNames="+$("#unitname").val(),editComplete);
 			}
