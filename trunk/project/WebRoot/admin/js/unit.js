@@ -18,6 +18,7 @@ function findComplete(data){
 			if(attr[2]!=null){$("#show"+attr[2]).attr("checked",true);}
 			if(attr[3]!=null){$("#unitOrder").val(attr[3]);}
 			if(attr[4]!=null){$("#parid").val(attr[4]);}
+			if(attr[5]!=null){$("#mail"+attr[5]).attr("checked",true);}
 			
 			document.getElementById("downButton").style.display="block";
 			document.getElementById("delButton").style.display="block";
@@ -37,6 +38,7 @@ function addOne(){
 	$("#unitName").val("");
 	$("#unitOrder").val("");
 	$("#show1").attr("checked",true);
+	$("#mail0").attr("checked",true);
 }
 function addSon(){
 	$("#one").fadeOut("slow"); 
@@ -47,6 +49,7 @@ function addSon(){
 	$("#unitName").val("");
 	$("#unitOrder").val("");
 	$("#show1").attr("checked",true);
+	$("#mail0").attr("checked",true);
 }
 function save(){
 	if($.trim($("#unitName").val())==""){
@@ -58,13 +61,15 @@ function save(){
 	$("#console").html(new Date().toLocaleString()+" 正在保存单位 "+$("#unitName").val()+" ...<br/>"+html);
 	var isok="1";
 	if($("#show0").attr("checked")==true){isok="0";}
+	var ismail="0";
+	if($("#mail1").attr("checked")==true){ismail="1";}
 	//单双引号替换
 	$("#unitName").val(replaceAll(replaceAll($("#unitName").val(),"'","‘"),"\"","“"));
 	//顺序不填写则设置为0
 	if($.trim($("#unitOrder").val())==""){$("#unitOrder").val("0");}
 	var data="pageContentNoFilter=1&unit.parid="+$("#parid").val()+"&unit.id="+$("#id").val()
 	+"&unit.name="+$.trim(replaceAll($("#unitName").val(),"&","<参数>"))
-	+"&unit.ordernum="+$.trim($("#unitOrder").val())+"&unit.isok="+isok;
+	+"&unit.ordernum="+$.trim($("#unitOrder").val())+"&unit.isok="+isok+"&unit.ismail="+ismail;
 	$.post("unit_save.do",data,saveComplete);
 }
 function saveComplete(data){
@@ -140,6 +145,7 @@ function delComplete(data){
 		$("#unitName").val("");
 		$("#unitOrder").val("");
 		$("#show1").attr("checked",true);
+		$("#mail0").attr("checked",true);
 	}else{
 		//失败
 		$("#console").html(new Date().toLocaleString()+" <font color='red'>"+msg+"</font><br/>"+html);
@@ -206,6 +212,7 @@ function parComplete(data){
 		$("#unitName").val("");
 		$("#unitOrder").val("");
 		$("#show1").attr("checked",true);
+		$("#mail0").attr("checked",true);
 	}else{
 		//失败
 		$("#console").html(new Date().toLocaleString()+" <font color='red'>"+msg+"</font><br/>"+html);
