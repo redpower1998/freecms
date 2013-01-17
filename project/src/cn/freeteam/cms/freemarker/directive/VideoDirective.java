@@ -29,6 +29,11 @@ import freemarker.template.TemplateModel;
  * 
  * 返回值
  * html   生成的html
+ * 
+ * 示例
+<@video video="${currInfo.video}" ;html>
+${html}											
+</@video>
  * <p>Date: Jan 16, 2013</p>
  * 
  * <p>Time: 8:36:43 PM</p>
