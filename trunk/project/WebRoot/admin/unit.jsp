@@ -59,8 +59,15 @@
           		<td height="25" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:7px">
           		单位名称:
           		</td>
-          		<td height="25" colspan="3" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:7px">
+          		<td height="25"  align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:7px">
           		<input type="text" id="unitName" name="unitName" MAXLENGTH="50" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
+          		</td>
+          		<td height="25" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:7px">
+          		是否有效:
+          		</td>
+          		<td height="25" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:7px">
+          		<input type="radio" name="unitShow" value="1" checked id="show1">是
+          		<input type="radio" name="unitShow" value="0" id="show0">否
           		</td>
           		</tr>
           		<tr>
@@ -71,11 +78,11 @@
           		<input type="text" id="unitOrder" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
           		</td>
           		<td height="25" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:7px">
-          		是否有效:
+          		是否接收互动信件:
           		</td>
           		<td height="25" align="left" valign="middle" bgcolor="#FFFFFF" style="padding-left:7px">
-          		<input type="radio" name="unitShow" value="1" checked id="show1">是
-          		<input type="radio" name="unitShow" value="0" id="show0">否
+          		<input type="radio" name="unitMail" value="1" id="mail1">是
+          		<input type="radio" name="unitMail" value="0" checked id="mail0">否
           		</td>
           		</tr>
      		 </table>
