@@ -131,6 +131,8 @@ public class UnitAction extends BaseAction{
 					sb.append(currUnit.getOrdernum()!=null?currUnit.getOrdernum():"");
 					sb.append("<属性>");
 					sb.append(currUnit.getParid());
+					sb.append("<属性>");
+					sb.append(currUnit.getIsmail());
 					result="1";
 				}
 			}
