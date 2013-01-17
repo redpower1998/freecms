@@ -24,15 +24,11 @@ import freemarker.template.TemplateModel;
  * 参数 
  * video		视频地址
  * img			视频截图地址
- * loadjs  		是否加载依赖的js
  * width		视频播放窗口宽度,默认300
  * height		视频播放窗口高度,默认200
- * targetid	    把页面加载到指定id元素下
  * 
  * 返回值
- * js   生成的js
- * 此标签依赖的文件
-<script type="text/javascript" src="${contextPath}/js/jwplayer/jwplayer.min.js"></script>
+ * html   生成的html
  * <p>Date: Jan 16, 2013</p>
  * 
  * <p>Time: 8:36:43 PM</p>
@@ -59,50 +55,27 @@ public class VideoDirective extends BaseDirective implements TemplateDirectiveMo
 		//获取参数
 		//视频字符串
 		String video=getParam(params, "video");
-		//是否加载引用的js
-		String loadjs=getParam(params, "loadjs");
 		//视频播放窗口宽度
 		String width=getParam(params, "width","300");
 		//视频播放窗口高度
 		String height=getParam(params, "height","200");
 		//视频截图地址
 		String img=getParam(params, "img");
-		//把页面加载到指定id元素下
-		String targetid=getParam(params, "targetid");
 		
-		Writer out =env.getOut();
 		if (body!=null) {
 			//设置循环变量
 			if (loopVars!=null && loopVars.length>0 && video.trim().length()>0) {
 				String contextPath=env.getDataModel().get("contextPath").toString();
 				StringBuilder sb=new StringBuilder();
-				if ("true".equals(loadjs)) {
-					//导入js
-					sb.append("<script src='"+contextPath+"js/jwplayer/jwplayer.min.js'></script>");
-				}
-				//生成唯一标识
-				String uuid=UUID.randomUUID().toString().replace("-", "");
-				//播放脚本
-				sb.append("<script>");
-				sb.append("jwplayer('"+targetid+"').setup({");
-				sb.append("type:'http',");
-				sb.append("id: 'playerID"+uuid+"',"); 
-				sb.append("width: '"+width+"',");
-				sb.append("height: '"+height+"',");
-				sb.append("file:'"+(!video.startsWith("http:")&&!video.startsWith("https:")?contextPath:"")+video+"',");  //视频地址
-				sb.append("image:'"+(!img.startsWith("http:")&&!img.startsWith("https:")?contextPath:"")+img+"',");  // 视频的图片
-				sb.append("type:'http',");
-				sb.append("controlbar: 'bottom',");
-				sb.append("autostart:false,");
-				sb.append("allowscriptaccess:'always',");
-				sb.append("allowfullscreen:true,");
-				sb.append("modes: [");
-				sb.append("  { 'type': 'flash', 'src': '"+contextPath+"js/jwplayer/player.swf' },");
-				sb.append("  { 'type': 'html5'},");
-				sb.append("  { 'type': 'download' }");
-				sb.append("]");
-				sb.append("}); ");
-				sb.append("</script>");
+				//播放代码
+				sb.append("<object type='application/x-shockwave-flash' data='"+contextPath+"js/player_flv_maxi.swf' width='"+width+"' height='"+height+"'>");
+				sb.append("<param name='movie' value='"+contextPath+"js/player_flv_maxi.swf' /> ");
+				sb.append("<param name='allowFullScreen' value='true' /> ");
+				sb.append("<param name='FlashVars' value='" +
+						"flv="+(!video.startsWith("http:")&&!video.startsWith("https:")?contextPath:"")+video+"&amp;" +
+						"startimage="+(!img.startsWith("http:")&&!img.startsWith("https:")?contextPath:"")+img+"&amp;" +
+						"showstop=1&amp;showvolume=1&amp;showtime=1&amp;showplayer=always&amp;showloading=always&amp;showfullscreen=1' />"); 
+				sb.append("</object>");
 				loopVars[0]=new StringModel(sb.toString(),new BeansWrapper());  
 				body.render(env.getOut()); 
 			}
