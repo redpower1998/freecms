@@ -359,8 +359,8 @@
 							<input type="hidden" name="info.img" id="img" value="${info.img }"/>
 							<span id="imgSpan">
 							<s:if test='%{info.img!=null && info.img != "" && info.img != "null"}'>
-							<a href="<%=checkParentPath %>${info.img }?date=<%=UUID.randomUUID() %>" target="_blank">
-							<img src="<%=checkParentPath %>${info.img }?date=<%=UUID.randomUUID() %>" width="100" height="100" title="点击查看大图"/>
+							<a href="${info.img }?date=<%=UUID.randomUUID() %>" target="_blank">
+							<img src="${info.img }?date=<%=UUID.randomUUID() %>" width="100" height="100" title="点击查看大图"/>
 							</a>
 							</s:if>
 							</span>
