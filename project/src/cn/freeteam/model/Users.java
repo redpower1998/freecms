@@ -11,6 +11,7 @@ public class Users {
      * @mbggenerated Tue Mar 01 20:39:43 CST 2011
      */
     private String id;
+    private String ismail;
 
 
     /**
@@ -462,5 +463,13 @@ public class Users {
 
 	public void setMobilephone(String mobilephone) {
 		this.mobilephone = mobilephone;
+	}
+
+	public String getIsmail() {
+		return ismail;
+	}
+
+	public void setIsmail(String ismail) {
+		this.ismail = ismail;
 	}
 }
