@@ -77,8 +77,8 @@ public class VideoDirective extends BaseDirective implements TemplateDirectiveMo
 				sb.append("<param name='movie' value='"+contextPath+"js/player_flv_maxi.swf' /> ");
 				sb.append("<param name='allowFullScreen' value='true' /> ");
 				sb.append("<param name='FlashVars' value='" +
-						"flv="+(!video.startsWith("http:")&&!video.startsWith("https:")?contextPath:"")+video+"&amp;" +
-						"startimage="+(!img.startsWith("http:")&&!img.startsWith("https:")?contextPath:"")+img+"&amp;" +
+						"flv="+(!video.startsWith("http:")&&!video.startsWith("https:")&&!video.startsWith(contextPath)?contextPath:"")+video+"&amp;" +
+						"startimage="+(!img.startsWith("http:")&&!img.startsWith("https:")&&!img.startsWith(contextPath)?contextPath:"")+img+"&amp;" +
 						"showstop=1&amp;showvolume=1&amp;showtime=1&amp;showplayer=always&amp;showloading=always&amp;showfullscreen=1' />"); 
 				sb.append("</object>");
 				loopVars[0]=new StringModel(sb.toString(),new BeansWrapper());  
