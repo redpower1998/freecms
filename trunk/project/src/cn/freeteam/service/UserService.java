@@ -81,6 +81,19 @@ public class UserService extends BaseService{
 		return usersMapper.selectByExample(example);
 	}
 	/**
+	 * 根据参数查询
+	 * @return
+	 */
+	public List<Users> find(Users user){
+		UsersExample example=new UsersExample();
+		Criteria criteria=example.createCriteria();
+		if (user.getIsmail()!=null && user.getIsmail().trim().length()>0) {
+			criteria.andIsmailEqualTo(user.getIsmail().trim());
+		}
+		example.setOrderByClause(" loginName ");
+		return usersMapper.selectByExample(example);
+	}
+	/**
 	 * 根据id查询
 	 * @param id
 	 * @return

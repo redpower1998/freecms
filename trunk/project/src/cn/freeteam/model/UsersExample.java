@@ -369,6 +369,10 @@ public class UsersExample extends BaseExample{
             addCriterion("loginName =", value, "loginname");
             return (Criteria) this;
         }
+        public Criteria andIsmailEqualTo(String value) {
+            addCriterion("ismail =", value, "ismail");
+            return (Criteria) this;
+        }
 
         public Criteria andLoginnameNotEqualTo(String value) {
             addCriterion("loginName <>", value, "loginname");
