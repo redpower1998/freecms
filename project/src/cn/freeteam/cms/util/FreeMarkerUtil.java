@@ -24,6 +24,7 @@ import cn.freeteam.cms.freemarker.directive.LinkDirective;
 import cn.freeteam.cms.freemarker.directive.URLDecoderDirective;
 import cn.freeteam.cms.freemarker.directive.URLEncoderDirective;
 import cn.freeteam.cms.freemarker.directive.UnitListDirective;
+import cn.freeteam.cms.freemarker.directive.UserListDirective;
 import cn.freeteam.cms.freemarker.directive.VideoDirective;
 
 
@@ -156,6 +157,8 @@ public class FreeMarkerUtil {
 			freemarkerCfg.setSharedVariable("ajaxLoad", new AjaxLoadDirective());
 			//单位类
 			freemarkerCfg.setSharedVariable("unitList", new UnitListDirective());
+			//用户类
+			freemarkerCfg.setSharedVariable("userList", new UserListDirective());
 			//其它
 			freemarkerCfg.setSharedVariable("video", new VideoDirective());
 			freemarkerCfg.setSharedVariable("URLEncoder", new URLEncoderDirective());
