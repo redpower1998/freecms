@@ -14,6 +14,7 @@ import cn.freeteam.cms.freemarker.directive.AjaxInfoClickDirective;
 import cn.freeteam.cms.freemarker.directive.AjaxLoadDirective;
 import cn.freeteam.cms.freemarker.directive.ChannelDirective;
 import cn.freeteam.cms.freemarker.directive.ChannelListDirective;
+import cn.freeteam.cms.freemarker.directive.ConfigDirective;
 import cn.freeteam.cms.freemarker.directive.InfoAttchsDirective;
 import cn.freeteam.cms.freemarker.directive.InfoListDirective;
 import cn.freeteam.cms.freemarker.directive.InfoPageDirective;
@@ -159,6 +160,8 @@ public class FreeMarkerUtil {
 			freemarkerCfg.setSharedVariable("unitList", new UnitListDirective());
 			//用户类
 			freemarkerCfg.setSharedVariable("userList", new UserListDirective());
+			//系统配置
+			freemarkerCfg.setSharedVariable("config", new ConfigDirective());
 			//其它
 			freemarkerCfg.setSharedVariable("video", new VideoDirective());
 			freemarkerCfg.setSharedVariable("URLEncoder", new URLEncoderDirective());
