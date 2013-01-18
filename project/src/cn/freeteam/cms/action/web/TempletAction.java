@@ -69,6 +69,7 @@ public class TempletAction extends BaseAction{
 				//传递site参数
 				data.put("site", site);
 				data.put("contextPath", getContextPath());
+				data.put("request_remoteAddr", getHttpRequest().getRemoteAddr());
 				//获取参数并放入data
 				Enumeration<String> paramNames=getHttpRequest().getParameterNames();
 				if (paramNames!=null && paramNames.hasMoreElements()) {
@@ -79,6 +80,18 @@ public class TempletAction extends BaseAction{
 								!name.equals("site") &&
 								!name.equals("contextPath")) {
 							data.put(name, getHttpRequest().getParameter(name));
+						}
+					}
+				}
+				//获取seesion中存放的变量
+				Enumeration<String> sessionNames=getHttpSession().getAttributeNames();
+				if (sessionNames!=null && sessionNames.hasMoreElements()) {
+					String name;
+					while (sessionNames.hasMoreElements()) {
+						name=sessionNames.nextElement();
+						if (name!=null) {
+							//session变量名称改为session_变量名，避免重名
+							data.put("session_"+name, getHttpSession().getAttribute(name));
 						}
 					}
 				}
