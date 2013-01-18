@@ -1,0 +1,93 @@
+<form name="mailForm" method="post" 
+action="${contextPath}templet_pro.do?siteid=${site.id}&templetPath=<@URLEncoder str="信件提交处理.html";content>${content}</@URLEncoder>" 
+onsubmit="return validata(this);">
+<TABLE width="98%" border=0 align=center cellPadding=1 cellspacing="1" bgcolor="#FFFFFF" >
+  <tr>
+	<td width="15%" height=25 align="center"  bgcolor="#FFFFFF">
+	<span  style="letter-spacing:6px; padding-left:6px">收信人</span></td>
+	<td width="38%" height="25" align="left">&nbsp;&nbsp;
+	
+	<select id="addressee2" name="addressee2">
+<option value=''>请选择</option>
+<option title="王树山" value="ff8080812c29c55e012c3009ccbf3cee">王树山</option>
+<option title="王建武" value="ff8080812c29c55e012c3009ccbf3cee">王建武</option>
+<option title="庞汉英（女）" value="ff8080812c29c55e012c3009ccbf3cee">庞汉英（女）</option>
+<option title="谷来勋" value="ff8080812c29c55e012c3009ccbf3cee">谷来勋</option>
+<option title="郭永平" value="ff8080812c29c55e012c3009ccbf3cee">郭永平</option>
+<option title="王新伟" value="ff8080812c29c55e012c3009ccbf3cee">王新伟</option>
+<option title="王国栋" value="ff8080812c29c55e012c3009ccbf3cee">王国栋</option>
+<option title="崔　军" value="ff8080812c29c55e012c3009ccbf3cee">崔　军</option>
+<option title="燕国铭" value="ff8080812c29c55e012c3009ccbf3cee">燕国铭</option>
+<option title="申季维" value="ff8080812c29c55e012c3009ccbf3cee">申季维</option>
+<option title="郭　良" value="ff8080812c29c55e012c3009ccbf3cee">郭　良</option>
+</select>
+
+	</td>
+	<td width="11%" height="25" align="center">信件类型</td>
+	<td width="36%" height="25" align="left">&nbsp;&nbsp;
+		
+		
+		<select name="mailtype" id="mailtype">
+		<option value="">请选择类型</option>
+		  <option value="1">咨询</option>
+<option value="2">建议</option>
+<option value="3">投诉</option>
+<option value="4">指南</option>
+<option value="5">举报</option>
+<option value="6">其他</option></select>
+		<font color="#FF0000"> * </font> </td>
+  </tr>
+  <tr>
+	<td width="15%" height="25" align="center"> 信件标题 </td>
+	<td height="25" colspan="3" align="left" style="padding-left:17px">
+	<input name="title"  id="title" size=30 maxlength="50"    onKeyPress="if (this.value.length==50) alert('不能多于50个字符！');">
+	  <font color="#FF0000"> * </font> </td>
+  </tr>
+  <tr>
+	<td height="25" align="center">写信人姓名</td>
+	<td height="25" align="left" >&nbsp;&nbsp;
+		<input name=writer  id=writer size=20 maxlength="16"  onKeyPress="if (this.value.length==16) alert('不能多于16个字符！');">
+	  <font color="#FF0000"> * </font> </td>
+	<td height="25" align="center">联系电话</td>
+	<td height="25" align="left">&nbsp;&nbsp;
+		<input name=tel  id=tel size=24 maxlength="24"  onKeyPress="if (this.value.length==24) alert('不能多于24个字符！');"></td>
+  </tr>
+  <tr>
+	<td height="25" align="center">联系地址</td>
+	<td height="25" align="left">&nbsp;&nbsp;
+		<input name=address  id=address size=30 maxlength="50"   onKeyPress="if (this.value.length==50) alert('不能多于50个字符！');">
+	  <font color="#FF0000"> * </font> </td>
+	<td height="25" align="center">电子信箱</td>
+	<td height="25" align="left">&nbsp;&nbsp;
+		<input name=email  id=email size=20 maxlength="30"  onKeyPress="if (this.value.length==30) alert('不能多于30个字符！');">
+	</td>
+  </tr>
+  <tr>
+	<td height="25" align="center">是否公开</td>
+	<td height="25" colspan="3" align="left" bgcolor="#FFFFFF">&nbsp;
+		<input name="isopen" type="radio" value="1" checked>
+	  公开
+	  <input type="radio" name="isopen" value="0">
+	  不公开 </td>
+  </tr>
+  <tr>
+	<td align="center">信件内容</td>
+	<td height="80" colspan="3" align="left">&nbsp;&nbsp;
+		<textarea name="content" cols="65" rows="6" id="content"  ></textarea>
+	  <font color="#FF0000"> * </font></td>
+  </tr>
+  <tr >
+	<td height="25" align="center"><span  style="letter-spacing:6px">验证码</span></td>
+	<td height="25" align="left" colspan="3">&nbsp;&nbsp;
+		<input type="text" id="num" name="num"  size=10 maxlength="4" >
+	  &nbsp;&nbsp; <font color="#000000"> <img src="${contextPath}image.jsp"/> 
+		
+	  </font> </td>
+  </tr>
+  <tr>
+	<td height="45" colspan="4" align="center" valign="bottom"><input type="submit"  value="提 交"  style="font-size:14px;width:66px;height:26px;TEXT-ALIGN: center;padding-top:3px">
+	  &nbsp;&nbsp;&nbsp;&nbsp;
+	  <input type="reset"  value="重 置"  style="font-size:14px;width:66px;height:26px;TEXT-ALIGN: center;padding-top:3px"></td>
+  </tr>
+</TABLE>
+</form>
