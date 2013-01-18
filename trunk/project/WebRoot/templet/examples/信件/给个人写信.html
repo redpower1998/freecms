@@ -43,12 +43,12 @@ onsubmit="return validata(this);">
 	<span  style="letter-spacing:6px; padding-left:6px">收信人</span></td>
 	<td width="38%" height="25" align="left">&nbsp;&nbsp;
 	
-	<select  name="unitid">
+	<select  name="userid">
 <option value=''>请选择</option>
-<@unitList parid="" filter="mail";unit,index>
+<@userList  filter="mail";user,index>
 
-<option  value="${unit.id}">${unit.name}</option>
-</@unitList>
+<option  value="${user.id}">${user.name}</option>
+</@userList>
 </select>
 
 	</td>
