@@ -426,6 +426,10 @@ public class UnitExample {
             addCriterion("isOk =", value, "isok");
             return (Criteria) this;
         }
+        public Criteria andIsmailEqualTo(String value) {
+            addCriterion("ismail =", value, "ismail");
+            return (Criteria) this;
+        }
 
         public Criteria andIsokNotEqualTo(String value) {
             addCriterion("isOk <>", value, "isok");
