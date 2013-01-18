@@ -489,4 +489,26 @@
       proflow = #{proflow,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <select id="selectPageByExample" parameterType="cn.freeteam.cms.model.MailExample" resultMap="BaseResultMap">
+    SELECT TOP ${pageSize} <include refid="Base_Column_List" />  
+    FROM freecms_mail    
+    WHERE (ID NOT IN  
+          (SELECT TOP ${skip} id   
+         FROM freecms_mail   
+	    <if test="_parameter != null">
+	      <include refid="Example_Where_Clause" />
+	    </if>
+         
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>))   
+         
+	    <if test="_parameter != null">
+	       <include refid="Example_Clause" />
+	    </if>
+    
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if> 
+  </select>
 </mapper>
