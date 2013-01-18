@@ -119,6 +119,29 @@ public class UnitService extends BaseService{
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * 根据父id查询
+	 * @param parid
+	 * @return
+	 */
+	public List<Unit> findByPar(String parid,String isok,String ismail){
+		UnitExample example=new UnitExample();
+		Criteria criteria=example.createCriteria();
+		if (parid!=null && parid.trim().length()>0 && !"par".equals(parid)) {
+			criteria.andParidEqualTo(parid.trim());
+		}
+		if ("par".equals(parid)) {
+			criteria.andSql(" (parid is null or parid = '') ");
+		}
+		if (isok!=null && isok.trim().length()>0) {
+			criteria.andIsokEqualTo(isok.trim());
+		}
+		if (ismail!=null && ismail.trim().length()>0) {
+			criteria.andIsmailEqualTo(ismail.trim());
+		}
+		example.setOrderByClause(" orderNum ");
+		return mapper.selectByExample(example);
+	}
 	public UnitMapper getMapper() {
 		return mapper;
 	}
