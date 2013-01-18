@@ -47,6 +47,20 @@ public class ConfigService extends BaseService{
 		example.setOrderByClause(" orderNum ");
 		return configMapper.selectByExample(example);
 	}
+	/**
+	 * 查询指定编码配置
+	 * @return
+	 */
+	public Config findByCode(String code){
+		ConfigExample example=new ConfigExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andCodeEqualTo(code);
+		List<Config> list=configMapper.selectByExample(example);
+		if (list!=null && list.size()>0) {
+			return list.get(0);
+		}
+		return null;
+	}
 
 	/**
 	 * 更新配置项
