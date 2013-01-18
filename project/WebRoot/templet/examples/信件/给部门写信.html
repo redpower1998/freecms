@@ -28,14 +28,13 @@ onsubmit="return validata(this);">
 		
 		
 		<select name="mailtype" id="mailtype">
+
 		<option value="">请选择类型</option>
-		  <option value="1">咨询</option>
-<option value="2">建议</option>
-<option value="3">投诉</option>
-<option value="4">指南</option>
-<option value="5">举报</option>
-<option value="6">其他</option></select>
-		<font color="#FF0000"> * </font> </td>
+	<@config code="mailType" split=",";configvalue,index>
+<option value="${configvalue}">${configvalue}</option>
+
+</@config>	
+		  </select>		<font color="#FF0000"> * </font> </td>
   </tr>
   <tr>
 	<td width="15%" height="25" align="center"> 信件标题 </td>
