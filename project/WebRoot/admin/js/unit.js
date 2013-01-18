@@ -13,6 +13,8 @@ function findComplete(data){
 		var attrStr=data.substr(1,data.length-1);
 		var attr=attrStr.split("<属性>");
 		if(attr!=null && attr.length>0){
+			$("#show1").attr("checked",true);
+			$("#mail0").attr("checked",true);
 			$("#id").val(attr[0]);
 			if(attr[1]!=null){$("#unitName").val(attr[1]);}
 			if(attr[2]!=null){$("#show"+attr[2]).attr("checked",true);}
