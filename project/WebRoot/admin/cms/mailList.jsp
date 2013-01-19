@@ -21,6 +21,7 @@
 	</HEAD>
 	<BODY style="padding:0;margin:0">
 		<input type="hidden" id="type" value="${mail.type }"/>
+		<input type="hidden" id="pageFuncId" value="${param.pageFuncId }"/>
 		<form name="myForm" method="post" action="mail_list.do?pageFuncId=${param.pageFuncId }&mail.type=${mail.type }" id="myForm"
 			style="margin: 0px">
 			<DIV class="column" style="width:99%">
