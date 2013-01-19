@@ -45,6 +45,14 @@ public class MailService extends BaseService{
 		return mailMapper.selectPageByExample(example);
 	}
 	/**
+	 * 根据id查询
+	 * @param id
+	 * @return
+	 */
+	public Mail findById(String id){
+		return mailMapper.selectByPrimaryKey(id);
+	}
+	/**
 	 * 统计
 	 * @param info
 	 * @return

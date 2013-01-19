@@ -115,18 +115,49 @@ public class MailAction extends BaseAction{
 	 * @return
 	 */
 	public String forwardDo(){
-		Mail updateMail=new Mail();
-		updateMail.setId(mail.getId());
-		if ("unit".equals(forwardtype)) {
-			updateMail.setUnitid(mail.getUnitid());
-			updateMail.setUserid("");
-		}else {
-			updateMail.setUnitid("");
-			updateMail.setUserid(mail.getUserid());
+		if (mail!=null && mail.getId()!=null && mail.getId().trim().length()>0) {
+			Mail updateMail=new Mail();
+			updateMail.setId(mail.getId());
+			//设置流转流程
+			Mail oldmail=mailService.findById(mail.getId());
+			String proflow="";
+			if (oldmail.getProflow()==null || oldmail.getProflow().trim().length()==0) {
+				if (oldmail.getUnitid()!=null && oldmail.getUnitid().trim().length()>0) {
+					proflow=oldmail.getUnitname();
+				}
+				else if (oldmail.getUserid()!=null && oldmail.getUserid().trim().length()>0) {
+					proflow=oldmail.getUsername();
+				}else {
+					proflow="其他";
+				}
+			}else {
+				proflow=oldmail.getProflow();
+			}
+			proflow+=" --> ";
+			if ("unit".equals(forwardtype)) {
+				updateMail.setUnitid(mail.getUnitid());
+				updateMail.setUserid("");
+				proflow+=mail.getUnitname();
+			}else {
+				updateMail.setUnitid("");
+				updateMail.setUserid(mail.getUserid());
+				proflow+=mail.getUsername();
+			}
+			updateMail.setProflow(proflow);
+			mailService.update(updateMail);
+			msg="<script>alert('转交成功');location.href='mail_list.do?mail.type="+mail.getType()+"&pageFuncId="+pageFuncId+"';</script>";
 		}
-		mailService.update(updateMail);
-		msg="<script>alert('转交成功');location.href='mail_list.do?mail.type="+mail.getType()+"&pageFuncId="+pageFuncId+"';</script>";
 		return "msg";
+	}
+	/**
+	 * 处理页面
+	 * @return
+	 */
+	private String pro(){
+		if (mail!=null && mail.getId()!=null && mail.getId().trim().length()>0) {
+			mail=mailService.findById(mail.getId());
+		}
+		return "pro";
 	}
 	public MailService getMailService() {
 		return mailService;
