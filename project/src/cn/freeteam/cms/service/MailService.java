@@ -100,6 +100,14 @@ public class MailService extends BaseService{
 			
 		}
 	}
+	/**
+	 * 更新
+	 * @param templet
+	 */
+	public void update(Mail mail){
+		mailMapper.updateByPrimaryKeySelective(mail);
+		DBCommit();
+	}
 	public MailMapper getMailMapper() {
 		return mailMapper;
 	}
