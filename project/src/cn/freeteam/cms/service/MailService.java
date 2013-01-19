@@ -80,6 +80,9 @@ public class MailService extends BaseService{
 				//其他信件
 				criteria.andSql(" ((unitid is null or unitid = '') and (userid is null or userid = '')) ");
 			}
+			if (mail.getQuerycode()!=null && mail.getQuerycode().trim().length()>0) {
+				criteria.andQuerycodeLike("%"+mail.getQuerycode().trim()+"%");
+			}
 			if (mail.getTitle()!=null && mail.getTitle().trim().length()>0) {
 				criteria.andTitleLike("%"+mail.getTitle().trim()+"%");
 			}
