@@ -64,6 +64,11 @@ public class MailAction extends BaseAction{
 	 * @return
 	 */
 	public String list(){
+		init("unitService","userService");
+		unitList=unitService.findByPar("", "1", "1");
+		user=new Users();
+		user.setIsmail("1");
+		userList=userService.find(user);
 		mailtypes=getConfig().get("mailType").toString().split(",");
 		if (mail==null ){
 			mail=new Mail();
@@ -79,7 +84,6 @@ public class MailAction extends BaseAction{
 				mail.setUserid(getLoginAdmin().getId());
 			}
 		}
-		pageSize=1;
 		mailList=mailService.find(mail, order, currPage, pageSize);
 		totalCount=mailService.count(mail);
 		Pager pager=new Pager(getHttpRequest());
