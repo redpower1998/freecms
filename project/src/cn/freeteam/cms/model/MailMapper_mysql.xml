@@ -490,8 +490,8 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <select id="selectPageByExample" parameterType="cn.freeteam.cms.model.MailExample" resultMap="BaseResultMap">
-    SELECT <include refid="Base_Column_List" />  
-    FROM freecms_mail
+    SELECT m.* ,unit.name unitname,users.name username 
+    FROM freecms_mail m left join freecms_unit unit on m.unitid=unit.id left join freecms_users users on m.userid=users.id
     <if test="_parameter != null">
        <include refid="Example_Where_Clause" />
     </if>
