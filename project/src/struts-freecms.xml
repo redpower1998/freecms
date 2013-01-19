@@ -64,6 +64,7 @@
 		<action name="mail_*" method="{1}" class="cn.freeteam.cms.action.MailAction">
 			<result name="list" >/admin/cms/mailList.jsp</result>
 			<result name="forward" >/admin/cms/mailForward.jsp</result>
+			<result name="pro" >/admin/cms/mailPro.jsp</result>
 		</action>
 	</package>
 	
