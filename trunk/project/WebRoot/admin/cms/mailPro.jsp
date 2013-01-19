@@ -10,10 +10,19 @@
 		<link rel="stylesheet" href="../../img/style3.css" type="text/css" />
 		<script type="text/javascript" src="../../js/jquery-1.5.1.min.js"></script>
 		<script type="text/javascript" src="js/mailPro.js"></script>
-
+		<script>
+		function checkform(){
+			if($.trim($("#recontent").val())==""){
+				alert("请输入办理结果");
+				$("#recontent").focus();
+				return false;
+			}
+			return true;
+		}
+		</script>
 	</HEAD>
 	<BODY>
-		<FORM id=MyForm 
+		<FORM id=MyForm onsubmit="return checkform()"
 			method=post name=MyForm action=mail_proDo.do >
 			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
 			<input type="hidden" name="mail.id" value="${mail.id }"/>
@@ -31,10 +40,10 @@
 						
 						
 						<TR>
-							<TD  align="right">
-								收信人
-							</TD>
 							<TD  align="left">
+								<b>收信人</b>
+							</TD>
+							<TD  align="left">${param.mail.type }
 							<s:if test="%{'unit' == mail.type}">
 							${mail.unitname }
 							</s:if>
@@ -42,8 +51,8 @@
 							${mail.username }
 							</s:if>
 							</TD>
-							<TD  align="right">
-								信件类型
+							<TD  align="left">
+								<b>信件类型</b>
 							</TD>
 							<TD  align="left">
 								${mail.mailtype }
@@ -51,8 +60,8 @@
 						</TR>
 						
 						<TR>
-							<TD  align="right">
-								信件标题
+							<TD  align="left">
+								<b>信件标题</b>
 							</TD>
 							<TD  align="left" colspan="3">
 							${mail.title }
@@ -60,14 +69,14 @@
 						</TR>
 						
 						<TR>
-							<TD  align="right">
-								写信人姓名
+							<TD  align="left">
+								<b>写信人姓名</b>
 							</TD>
 							<TD  align="left">
 							${mail.writer }
 							</TD>
-							<TD  align="right">
-								联系电话
+							<TD  align="left">
+								<b>联系电话</b>
 							</TD>
 							<TD  align="left">
 								${mail.tel }
@@ -75,35 +84,86 @@
 						</TR>
 						
 						<TR>
-							<TD  align="right">
-								联系地址
+							<TD  align="left">
+								<b>联系地址</b>
 							</TD>
 							<TD  align="left">
 							${mail.address }
 							</TD>
-							<TD  align="right">
-								电子信箱
+							<TD  align="left">
+								<b>电子信箱</b>
 							</TD>
 							<TD  align="left">
 								${mail.email }
 							</TD>
 						</TR>
 						<TR>
-							<TD  align="right">
-								是否公开
+							<TD  align="left">
+								<b>是否公开</b>
 							</TD>
 							<TD  align="left" colspan="3">
 							${"1"==mail.isopen?"是":"否" }
 							</TD>
 						</TR>
 						<TR>
-							<TD  align="right">
-								信件内容
+							<TD  align="left">
+								<b>信件内容</b>
 							</TD>
 							<TD  align="left" colspan="3">
 							${mail.content }
 							</TD>
 						</TR>
+						<TR>
+							<TD  align="left">
+								<b>添加时间</b>
+							</TD>
+							<TD  align="left">
+							<s:date name="mail.addtime" format="yyyy-MM-dd" />
+							</TD>
+							<TD  align="left">
+								<b>IP</b>
+							</TD>
+							<TD  align="left">
+								${mail.ip }
+							</TD>
+						</TR>
+						<TR>
+							<TD  align="left">
+								<b>办理状态</b>
+							</TD>
+							<TD  align="left" colspan="3">
+							${"1"==mail.state?"已办结":"办理中" }
+							</TD>
+						</TR>
+						<TR>
+							<TD  align="left">
+								<b>转办流程</b>
+							</TD>
+							<TD  align="left" colspan="3">
+								${mail.proflow }
+							</TD>
+						</TR>
+						<TR>
+							<TD  align="left">
+								<b>办理结果</b>
+							</TD>
+							<TD  align="left" colspan="3">
+								
+								<textarea onblur="this.className='colorblur';"  
+									class=colorblur onfocus="this.className='colorfocus';" 
+									 type=text id=recontent name=mail.recontent style="width:100%;height:100px">${mail.recontent }</textarea>
+							</TD>
+						</TR>
+						<s:if test="%{mail.retime != null}">
+						<TR>
+							<TD  align="left">
+								<b>办理时间</b>
+							</TD>
+							<TD  align="left" colspan="3">
+							<s:date name="mail.retime" format="yyyy-MM-dd" />
+							</TD>
+						</TR>
+						</s:if>
 						<TR>
 							<TD  align="center" colspan="10">
 							<input type="submit" value="办 结"  class="button"  />
