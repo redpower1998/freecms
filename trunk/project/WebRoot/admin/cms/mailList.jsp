@@ -50,6 +50,12 @@
 								<input name="mail.writer" type="text" maxlength="500"
 									class="colorblur" onfocus="this.className='colorfocus';"
 									onblur="this.className='colorblur';"  />
+								办理状态：
+								<select name="mail.state">
+								<option value="">全部
+								<option value="0">办理中
+								<option value="1">已办结
+								</select>
 								每页显示条数：
 								<select name="pageSize"
 									id="pageSize">
@@ -109,9 +115,13 @@
 							
 							<fs:order colName="写信时间" col="addtime"/>
 						</TD>
+						<TD>
+							
+							<fs:order colName="办理状态" col="state"/>
+						</TD>
 					</TR>
 					
-					<s:iterator value="mailList" status="bean">
+					<s:iterator value="mailList" id="bean">
 					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						<TD align="center">
@@ -128,6 +138,9 @@
 						</TD>
 						<TD  align="left" id="addtime<s:property value="id"/>">
 							<s:date name="addtime" format="yyyy-MM-dd" />
+						</TD>
+						<TD  align="left" id="state<s:property value="id"/>">
+							${"1"==bean.state?"已办结":"办理中" }
 						</TD>
 					</TR>
 					</s:iterator>
