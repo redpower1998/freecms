@@ -54,6 +54,17 @@ public class MailAction extends BaseAction{
 		if (mail==null ){
 			mail=new Mail();
 		}
+		if (!isAdminLogin()) {
+			//不是admin,只能查看自己所属单位或个人的
+			if ("unit".equals(mail.getType())) {
+				mail.setUnitids(getLoginUnitIdsSql());
+				if (mail.getUnitids().trim().length()==0) {
+					mail.setUnitids("'no'");
+				}
+			}else if ("user".equals(mail.getType())) {
+				mail.setUserid(getLoginAdmin().getId());
+			}
+		}
 		mailList=mailService.find(mail, order, currPage, pageSize);
 		totalCount=mailService.count(mail);
 		Pager pager=new Pager(getHttpRequest());

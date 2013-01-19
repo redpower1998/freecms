@@ -101,11 +101,14 @@ public class SiteService extends BaseService{
 	 * @return
 	 */
 	public List<Site> selectByRoles(String roles){
-		SiteExample example=new SiteExample();
-		Criteria criteria=example.createCriteria();
-		criteria.andSql(" id in (select siteid from freecms_role_site where roleid in ("+roles+" ))");
-		example.setOrderByClause("ordernum");
-		return siteMapper.selectByExample(example);
+		if (roles!=null && roles.trim().length()>0) {
+			SiteExample example=new SiteExample();
+			Criteria criteria=example.createCriteria();
+			criteria.andSql(" id in (select siteid from freecms_role_site where roleid in ("+roles+" ))");
+			example.setOrderByClause("ordernum");
+			return siteMapper.selectByExample(example);
+		}
+		return null;
 	}
 	/**
 	 * 查询用户第一个可管理站点
@@ -113,15 +116,17 @@ public class SiteService extends BaseService{
 	 * @return
 	 */
 	public Site selectFirstByRoles(String roles){
-		SiteExample example=new SiteExample();
-		Criteria criteria=example.createCriteria();
-		criteria.andSql(" id in (select siteid from freecms_role_site where roleid in ("+roles+" ))");
-		example.setOrderByClause("ordernum");
-		example.setCurrPage(1);
-		example.setPageSize(1);
-		List<Site> list = siteMapper.selectPageByExample(example);
-		if (list!=null && list.size()>0) {
-			return list.get(0);
+		if (roles!=null && roles.trim().length()>0) {
+			SiteExample example=new SiteExample();
+			Criteria criteria=example.createCriteria();
+			criteria.andSql(" id in (select siteid from freecms_role_site where roleid in ("+roles+" ))");
+			example.setOrderByClause("ordernum");
+			example.setCurrPage(1);
+			example.setPageSize(1);
+			List<Site> list = siteMapper.selectPageByExample(example);
+			if (list!=null && list.size()>0) {
+				return list.get(0);
+			}
 		}
 		return null;
 	}
