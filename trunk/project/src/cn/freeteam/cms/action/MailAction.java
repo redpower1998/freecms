@@ -89,6 +89,13 @@ public class MailAction extends BaseAction{
 		totalCount=mailService.count(mail);
 		Pager pager=new Pager(getHttpRequest());
 		pager.appendParam("mail.type");
+		pager.appendParam("mail.querycode");
+		pager.appendParam("mail.mailtype");
+		pager.appendParam("mail.title");
+		pager.appendParam("mail.writer");
+		pager.appendParam("mail.state");
+		pager.appendParam("mail.unitid");
+		pager.appendParam("mail.userid");
 		pager.appendParam("order");
 		pager.appendParam("pageSize");
 		pager.appendParam("pageFuncId");
