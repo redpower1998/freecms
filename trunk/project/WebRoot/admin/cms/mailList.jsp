@@ -102,6 +102,9 @@
 							<INPUT onClick="checkAll(this.checked)" type="checkbox" />
 						</TD>
 						<TD>
+							<fs:order colName="部门" col="unitid"/>
+						</TD>
+						<TD>
 							<fs:order colName="信件类型" col="mailtype"/>
 						</TD>
 						<TD>
@@ -127,6 +130,9 @@
 						<TD align="center">
 							<INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 						
+						<TD  align="left" id="unit<s:property value="id"/>">
+							<s:property value="unitname"/>
+						</TD>
 						<TD  align="left" id="mailtype<s:property value="id"/>">
 							<s:property value="mailtype"/>
 						</TD>
