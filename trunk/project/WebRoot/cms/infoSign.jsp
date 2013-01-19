@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
         if(GetCookie("FreeCMS_infosignLoginName")!=null)
         {
-        	$("#loginname").val(GetCookie("FreeCMS_infosignLoginName"));alert(GetCookie("FreeCMS_infosignLoginName"));
+        	$("#loginname").val(GetCookie("FreeCMS_infosignLoginName"));
         }
         if(GetCookie("FreeCMS_infosignPwd")!=null){
         	$("#pwd").val(GetCookie("FreeCMS_infosignPwd"));
