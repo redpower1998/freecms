@@ -1,5 +1,6 @@
 package cn.freeteam.cms.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Mail {
@@ -21,6 +22,10 @@ public class Mail {
     private String unitids;//查询属性
     private String unitname;
     private String username;
+    
+    private SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+    private String addtimeStr;
+    private String retimeStr;
 
     private String type;//查询属性
     /**
@@ -613,5 +618,27 @@ public class Mail {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getAddtimeStr() {
+		if (addtime!=null) {
+			addtimeStr=sdf.format(addtime);
+		}
+		return addtimeStr;
+	}
+
+	public void setAddtimeStr(String addtimeStr) {
+		this.addtimeStr = addtimeStr;
+	}
+
+	public String getRetimeStr() {
+		if (retime!=null) {
+			retimeStr=sdf.format(retime);
+		}
+		return retimeStr;
+	}
+
+	public void setRetimeStr(String retimeStr) {
+		this.retimeStr = retimeStr;
 	}
 }

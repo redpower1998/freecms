@@ -127,6 +127,11 @@
     FROM freecms_mail m left join freecms_unit unit on m.unitid=unit.id left join freecms_users users on m.userid=users.id
     where m.id = #{id,jdbcType=VARCHAR}
   </select>
+  <select id="selectByQuerycode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT m.* ,unit.name unitname,users.name username 
+    FROM freecms_mail m left join freecms_unit unit on m.unitid=unit.id left join freecms_users users on m.userid=users.id
+    where m.querycode = #{querycode,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     <!--
       WARNING - @mbggenerated

@@ -53,6 +53,14 @@ public class MailService extends BaseService{
 		return mailMapper.selectByPrimaryKey(id);
 	}
 	/**
+	 * 根据querycode查询
+	 * @param id
+	 * @return
+	 */
+	public Mail findByQuerycode(String querycode){
+		return mailMapper.selectByQuerycode(querycode);
+	}
+	/**
 	 * 统计
 	 * @param info
 	 * @return
