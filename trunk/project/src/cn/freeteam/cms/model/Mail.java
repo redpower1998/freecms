@@ -19,6 +19,8 @@ public class Mail {
      */
     private String unitid;
     private String unitids;//查询属性
+    private String unitname;
+    private String username;
 
     private String type;//查询属性
     /**
@@ -595,5 +597,21 @@ public class Mail {
 
 	public void setUnitids(String unitids) {
 		this.unitids = unitids;
+	}
+
+	public String getUnitname() {
+		return unitname;
+	}
+
+	public void setUnitname(String unitname) {
+		this.unitname = unitname;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

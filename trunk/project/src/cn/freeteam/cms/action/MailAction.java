@@ -79,6 +79,7 @@ public class MailAction extends BaseAction{
 				mail.setUserid(getLoginAdmin().getId());
 			}
 		}
+		pageSize=1;
 		mailList=mailService.find(mail, order, currPage, pageSize);
 		totalCount=mailService.count(mail);
 		Pager pager=new Pager(getHttpRequest());
