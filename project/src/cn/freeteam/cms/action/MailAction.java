@@ -1,5 +1,6 @@
 package cn.freeteam.cms.action;
 
+import java.util.Date;
 import java.util.List;
 
 import cn.freeteam.base.BaseAction;
@@ -153,11 +154,28 @@ public class MailAction extends BaseAction{
 	 * 处理页面
 	 * @return
 	 */
-	private String pro(){
+	public String pro(){
+		String type=mail.getType();
 		if (mail!=null && mail.getId()!=null && mail.getId().trim().length()>0) {
 			mail=mailService.findById(mail.getId());
+			mail.setType(type);
 		}
 		return "pro";
+	}
+	/**
+	 * 办结处理
+	 * @return
+	 */
+	public String proDo(){
+		if (mail!=null && mail.getId()!=null && mail.getId().trim().length()>0) {
+			Mail updateMail=new Mail();
+			updateMail.setId(mail.getId());
+			updateMail.setRecontent(mail.getRecontent());
+			updateMail.setRetime(new Date());
+			mailService.update(updateMail);
+			msg="<script>alert('办结成功');location.href='mail_list.do?mail.type="+mail.getType()+"&pageFuncId="+pageFuncId+"';</script>";
+		}
+		return "msg";
 	}
 	public MailService getMailService() {
 		return mailService;
