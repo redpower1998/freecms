@@ -4,7 +4,6 @@
 <%@taglib prefix="fs" uri="/fs-tags" %>
 <%@include file="../../util/loading.jsp"%>
 <%@include file="../../util/checkParentFrame.jsp"%>
-<%@include file="checkSelectSite.jsp" %>
 
 <HTML>
 	<HEAD>
