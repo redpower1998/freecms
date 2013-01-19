@@ -282,7 +282,7 @@
 								<s:iterator value="infosignList" id="infosign" >
 								${obj.id == infosign.userid ?"checked":"" }
 								</s:iterator>
-							 type="checkbox" value="<s:property value="id"/>"><s:property value="loginname"/></td>
+							 type="checkbox" value="<s:property value="id"/>"><s:property value="name"/></td>
 							${(bean.index+1)%6==0?"</tr><tr>":""  }							
 							</s:iterator>
 							</tr></table>
