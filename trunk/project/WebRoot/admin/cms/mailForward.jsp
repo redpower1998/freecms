@@ -82,6 +82,7 @@
 						<TR>
 							<TD  align="center" colspan="10">
 							<input type="submit" value="转 交"  class="button"  />
+							<input type="button" value="返 回"  class="button" onclick="history.back(-1);" />
 							</TD>
 						</TR>
 					</TBODY>

@@ -33,6 +33,22 @@
 					<TBODY>
 						<TR class=summary-title>
 							<TD height="30" align=left style="padding-left: 10px;">
+							查询码:
+								
+								<input name="mail.querycode" type="text" maxlength="500"
+									class="colorblur" onfocus="this.className='colorfocus';"
+									onblur="this.className='colorblur';"  />
+								标题:
+								
+								<input name="mail.title" type="text" maxlength="500"
+									class="colorblur" onfocus="this.className='colorfocus';"
+									onblur="this.className='colorblur';"  />
+								写信人:
+								
+								<input name="mail.writer" type="text" maxlength="500"
+									class="colorblur" onfocus="this.className='colorfocus';"
+									onblur="this.className='colorblur';"  />
+									<br/>
 							<s:if test="%{#session.loginAdmin.loginname == 'admin' and 'unit' == mail.type}">
 							部门:<select id="unitid" name="mail.unitid" >
 											<s:iterator value="unitList" id="bean">
@@ -54,16 +70,7 @@
 								<option value="${bean }">${bean }
 								</s:iterator>
 								</select>
-								标题:
 								
-								<input name="mail.title" type="text" maxlength="500"
-									class="colorblur" onfocus="this.className='colorfocus';"
-									onblur="this.className='colorblur';"  />
-								写信人:
-								
-								<input name="mail.writer" type="text" maxlength="500"
-									class="colorblur" onfocus="this.className='colorfocus';"
-									onblur="this.className='colorblur';"  />
 								办理状态:
 								<select name="mail.state">
 								<option value="">全部
@@ -126,7 +133,10 @@
 						</TD>
 						</s:if>
 						<TD>
-							<fs:order colName="信件类型" col="mailtype"/>
+							<fs:order colName="类型" col="mailtype"/>
+						</TD>
+						<TD>
+							<fs:order colName="查询码" col="querycode"/>
 						</TD>
 						<TD>
 							<fs:order colName="信件标题" col="title"/>
@@ -163,6 +173,9 @@
 						</s:if>
 						<TD  align="left" id="mailtype<s:property value="id"/>">
 							<s:property value="mailtype"/>
+						</TD>
+						<TD  align="left" id="querycode<s:property value="id"/>">
+							<s:property value="querycode"/>
 						</TD>
 						<TD  align="left" id="title<s:property value="id"/>">
 							<s:property value="title"/>
