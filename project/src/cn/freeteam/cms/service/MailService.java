@@ -81,6 +81,15 @@ public class MailService extends BaseService{
 			if (mail.getMailtype()!=null && mail.getMailtype().trim().length()>0) {
 				criteria.andMailtypeEqualTo(mail.getMailtype().trim());
 			}
+			if (mail.getUserid()!=null && mail.getUserid().trim().length()>0) {
+				criteria.andUseridEqualTo(mail.getUserid().trim());
+			}
+			if (mail.getUnitid()!=null && mail.getUnitid().trim().length()>0) {
+				criteria.andUnitidEqualTo(mail.getUnitid().trim());
+			}
+			if (mail.getUnitids()!=null && mail.getUnitids().trim().length()>0) {
+				criteria.andSql(" unitid in ("+mail.getUnitids()+") ");
+			}
 			if (mail.getState()!=null && mail.getState().trim().length()>0) {
 				if ("1".equals(mail.getState())) {
 					criteria.andStateEqualTo("1");
@@ -88,6 +97,7 @@ public class MailService extends BaseService{
 					criteria.andSql(" (state is null or state='0') ");
 				}
 			}
+			
 		}
 	}
 	public MailMapper getMailMapper() {

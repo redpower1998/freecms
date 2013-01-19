@@ -18,6 +18,7 @@ public class Mail {
      * @mbggenerated Thu Jan 17 20:30:48 CST 2013
      */
     private String unitid;
+    private String unitids;//查询属性
 
     private String type;//查询属性
     /**
@@ -586,5 +587,13 @@ public class Mail {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getUnitids() {
+		return unitids;
+	}
+
+	public void setUnitids(String unitids) {
+		this.unitids = unitids;
 	}
 }
