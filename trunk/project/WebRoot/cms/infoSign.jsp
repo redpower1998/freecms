@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						
 						<TD style="WIDTH: 120px" align="left" >
-							<s:property value="loginname"/>
+							<s:property value="name"/>
 						</TD>
 						<TD style="WIDTH: 120px" align="left" id="issign<s:property value="userid"/>">
 							${not empty bean.signtime?"是":"否" }
