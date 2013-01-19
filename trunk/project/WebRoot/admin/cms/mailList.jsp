@@ -33,30 +33,44 @@
 					<TBODY>
 						<TR class=summary-title>
 							<TD height="30" align=left style="padding-left: 10px;">
-								类型：
+							<s:if test="%{#session.loginAdmin.loginname == 'admin' and 'unit' == mail.type}">
+							部门:<select id="unitid" name="mail.unitid" >
+											<s:iterator value="unitList" id="bean">
+												<option value="${bean.id }">${bean.name }
+											</s:iterator>
+										</select>
+							</s:if>
+							<s:if test="%{#session.loginAdmin.loginname == 'admin' and 'user' == mail.type}">
+							收信人:<select id="userid" name="mail.userid" >
+											<s:iterator value="userList" id="bean">
+												<option value="${bean.id }">${bean.name }
+											</s:iterator>
+										</select>
+							</s:if>
+								类型:
 								<select name="mail.mailtype">
 								<option value="">全部
 								<s:iterator value="mailtypes" id="bean">
 								<option value="${bean }">${bean }
 								</s:iterator>
 								</select>
-								标题：
+								标题:
 								
 								<input name="mail.title" type="text" maxlength="500"
 									class="colorblur" onfocus="this.className='colorfocus';"
 									onblur="this.className='colorblur';"  />
-								写信人：
+								写信人:
 								
 								<input name="mail.writer" type="text" maxlength="500"
 									class="colorblur" onfocus="this.className='colorfocus';"
 									onblur="this.className='colorblur';"  />
-								办理状态：
+								办理状态:
 								<select name="mail.state">
 								<option value="">全部
 								<option value="0">办理中
 								<option value="1">已办结
 								</select>
-								每页显示条数：
+								每页显示条数:
 								<select name="pageSize"
 									id="pageSize">
 									<option selected="selected" value="10">
@@ -101,9 +115,16 @@
 						<TD>
 							<INPUT onClick="checkAll(this.checked)" type="checkbox" />
 						</TD>
+						<s:if test="%{#session.loginAdmin.loginname == 'admin' and 'unit' == mail.type}">
 						<TD>
 							<fs:order colName="部门" col="unitid"/>
 						</TD>
+						</s:if>
+						<s:if test="%{#session.loginAdmin.loginname == 'admin' and 'user' == mail.type}">
+						<TD>
+							<fs:order colName="收信人" col="userid"/>
+						</TD>
+						</s:if>
 						<TD>
 							<fs:order colName="信件类型" col="mailtype"/>
 						</TD>
@@ -130,9 +151,16 @@
 						<TD align="center">
 							<INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 						
+						<s:if test="%{#session.loginAdmin.loginname == 'admin' and 'unit' == mail.type}">
 						<TD  align="left" id="unit<s:property value="id"/>">
 							<s:property value="unitname"/>
 						</TD>
+						</s:if>
+						<s:if test="%{#session.loginAdmin.loginname == 'admin' and 'user' == mail.type}">
+						<TD  align="left" id="user<s:property value="id"/>">
+							<s:property value="username"/>
+						</TD>
+						</s:if>
 						<TD  align="left" id="mailtype<s:property value="id"/>">
 							<s:property value="mailtype"/>
 						</TD>
