@@ -52,12 +52,22 @@
 								<LABEL id=ctl01_ctl00_label>
 										<SPAN id=ctl01_ctl00_lblLabel>
 										<table><tr><td>
-										<select id="unitid" name="mail.unitid" style="display:${"user" != mail.type ?"block":"none"}">
+										<s:iterator value="unitList" id="bean" status="st">
+												<s:if test='%{0==#st.index}'>
+										<input type="hidden" name="mail.unitname" id="unitname" value="${bean.name }"/>
+												</s:if>
+										</s:iterator>
+										<select id="unitid" name="mail.unitid" onchange="$('#unitname').val(this.options[this.selectedIndex].text);" style="display:${"user" != mail.type ?"block":"none"}">
 											<s:iterator value="unitList" id="bean">
 												<option value="${bean.id }">${bean.name }
 											</s:iterator>
 										</select></td><td>
-										<select id="userid" name="mail.userid" style="display:${"user" == mail.type ?"block":"none"}">
+										<s:iterator value="userList" id="bean" status="st">
+												<s:if test='%{0==#st.index}'>
+										<input type="hidden" name="mail.username" id="username" value="${bean.name }"/>
+												</s:if>
+										</s:iterator>
+										<select id="userid" name="mail.userid" onchange="$('#username').val(this.options[this.selectedIndex].text);" style="display:${"user" == mail.type ?"block":"none"}">
 											<s:iterator value="userList" id="bean">
 												<option value="${bean.id }">${bean.name }
 											</s:iterator>
