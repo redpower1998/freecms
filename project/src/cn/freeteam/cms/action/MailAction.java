@@ -96,6 +96,7 @@ public class MailAction extends BaseAction{
 		pager.appendParam("mail.state");
 		pager.appendParam("mail.unitid");
 		pager.appendParam("mail.userid");
+		pager.appendParam("mail.isopen");
 		pager.appendParam("order");
 		pager.appendParam("pageSize");
 		pager.appendParam("pageFuncId");

@@ -116,6 +116,13 @@ public class MailService extends BaseService{
 					criteria.andSql(" (state is null or state='0') ");
 				}
 			}
+			if (mail.getIsopen()!=null && mail.getIsopen().trim().length()>0) {
+				if ("1".equals(mail.getIsopen())) {
+					criteria.andIsopenEqualTo("1");
+				}else if ("0".equals(mail.getIsopen())) {
+					criteria.andSql(" (isopen is null or isopen='0') ");
+				}
+			}
 			
 		}
 	}
