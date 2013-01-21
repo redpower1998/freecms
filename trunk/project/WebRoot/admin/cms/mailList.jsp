@@ -51,6 +51,7 @@
 									<br/>
 							<s:if test="%{#session.loginAdmin.loginname == 'admin' and 'unit' == mail.type}">
 							部门:<select id="unitid" name="mail.unitid" >
+												<option value="">请选择
 											<s:iterator value="unitList" id="bean">
 												<option value="${bean.id }">${bean.name }
 											</s:iterator>
@@ -58,6 +59,7 @@
 							</s:if>
 							<s:if test="%{#session.loginAdmin.loginname == 'admin' and 'user' == mail.type}">
 							收信人:<select id="userid" name="mail.userid" >
+												<option value="">请选择
 											<s:iterator value="userList" id="bean">
 												<option value="${bean.id }">${bean.name }
 											</s:iterator>
