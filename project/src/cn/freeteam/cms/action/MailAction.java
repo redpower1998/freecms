@@ -86,7 +86,7 @@ public class MailAction extends BaseAction{
 			}
 		}
 		mailList=mailService.find(mail, order, currPage, pageSize,false);
-		totalCount=mailService.count(mail);
+		totalCount=mailService.count(mail,false);
 		Pager pager=new Pager(getHttpRequest());
 		pager.appendParam("mail.type");
 		pager.appendParam("mail.querycode");
