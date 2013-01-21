@@ -218,7 +218,7 @@ public class FreemarkerPager {
 			currPage = totalPage>0&&currPage>totalPage?totalPage:currPage;
 			
 			StringBuffer sb=new StringBuffer();
-			sb.append("<form name='pageForm' method='get' action=\""+action+"\" onkeydown=\"if(event.keyCode==13){return false;}\">");
+			sb.append("<form name='pageForm' method='post' action=\""+action+"\" onkeydown=\"if(event.keyCode==13){return false;}\">");
 			
 			sb.append("<input type='hidden' name='page' value=''>");
 			if(params!=null && params.size()>0){

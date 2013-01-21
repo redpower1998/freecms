@@ -73,11 +73,15 @@ public class MailService extends BaseService{
 	 * @param info
 	 * @return
 	 */
-	public int count(Mail mail){
+	public int count(Mail mail,boolean cache){
 		MailExample example=new MailExample();
 		Criteria criteria=example.createCriteria();
 		proSearchParam(mail, criteria);
-		return mailMapper.countByExample(example);
+		if (cache) {
+			return mailMapper.countByExampleCache(example);
+		}else {
+			return mailMapper.countByExample(example);
+		}
 	}
 	/**
 	 * 处理查询条件
