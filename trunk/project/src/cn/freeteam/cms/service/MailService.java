@@ -33,7 +33,7 @@ public class MailService extends BaseService{
 	/**
 	 * 分页查询
 	 */
-	public List<Mail> find(Mail mail,String order,int currPage,int pageSize){
+	public List<Mail> find(Mail mail,String order,int currPage,int pageSize,boolean cache){
 		MailExample example=new MailExample();
 		Criteria criteria=example.createCriteria();
 		proSearchParam(mail, criteria);
@@ -42,7 +42,11 @@ public class MailService extends BaseService{
 		}
 		example.setCurrPage(currPage);
 		example.setPageSize(pageSize);
-		return mailMapper.selectPageByExample(example);
+		if (cache) {
+			return mailMapper.selectPageByExampleCache(example);
+		}else {
+			return mailMapper.selectPageByExample(example);
+		}
 	}
 	/**
 	 * 根据id查询
@@ -57,8 +61,12 @@ public class MailService extends BaseService{
 	 * @param id
 	 * @return
 	 */
-	public Mail findByQuerycode(String querycode){
-		return mailMapper.selectByQuerycode(querycode);
+	public Mail findByQuerycode(String querycode,boolean cache){
+		if (cache) {
+			return mailMapper.selectByQuerycodeCache(querycode);
+		}else {
+			return mailMapper.selectByQuerycode(querycode);
+		}
 	}
 	/**
 	 * 统计

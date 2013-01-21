@@ -22,6 +22,7 @@ import cn.freeteam.cms.freemarker.directive.InfoSearchDirective;
 import cn.freeteam.cms.freemarker.directive.InfoSignDirective;
 import cn.freeteam.cms.freemarker.directive.LinkClassDirective;
 import cn.freeteam.cms.freemarker.directive.LinkDirective;
+import cn.freeteam.cms.freemarker.directive.MailListDirective;
 import cn.freeteam.cms.freemarker.directive.MailQueryDirective;
 import cn.freeteam.cms.freemarker.directive.MailSaveDirective;
 import cn.freeteam.cms.freemarker.directive.URLDecoderDirective;
@@ -167,6 +168,7 @@ public class FreeMarkerUtil {
 			//信件
 			freemarkerCfg.setSharedVariable("mailSave", new MailSaveDirective());
 			freemarkerCfg.setSharedVariable("mailQuery", new MailQueryDirective());
+			freemarkerCfg.setSharedVariable("mailList", new MailListDirective());
 			//其它
 			freemarkerCfg.setSharedVariable("video", new VideoDirective());
 			freemarkerCfg.setSharedVariable("URLEncoder", new URLEncoderDirective());
