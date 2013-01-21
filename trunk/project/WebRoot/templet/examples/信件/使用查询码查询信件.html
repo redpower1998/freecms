@@ -1,5 +1,5 @@
 <META content="text/html; charset=utf-8" http-equiv=Content-Type>
-<@mailQuery querycode="20130118224726881";mail>
+<@mailQuery querycode="20130121193344312";mail>
 <TABLE width="98%" border=0 align=center cellPadding=1 cellspacing="1" bgcolor="#FFFFFF" >
   <tr>
 	<td width="15%" height=25 align="center"  bgcolor="#FFFFFF">
@@ -55,13 +55,13 @@
 								添加时间
 							</TD>
 							<TD  align="left">
-							${mail.addtimeStr}
+							${mail.addtimeStr!""}
 							</TD>
 							<TD  align="left">
 								IP
 							</TD>
 							<TD  align="left">
-								${mail.ip }
+								${mail.ip!"" }
 							</TD>
 						</TR>
 						<TR>
@@ -78,7 +78,7 @@
 								转办流程
 							</TD>
 							<TD  align="left" colspan="3">
-								${mail.proflow }
+								${mail.proflow!"" }
 							</TD>
 						</TR>
 						<TR>
@@ -86,7 +86,7 @@
 								办理结果
 							</TD>
 							<TD  align="left" colspan="3">
-								${mail.recontent }
+								${mail.recontent!"" }
 							</TD>
 						</TR>
 						<TR>
@@ -94,7 +94,7 @@
 								办理时间
 							</TD>
 							<TD  align="left" colspan="3">
-							${mail.retimeStr}
+							${mail.retimeStr!""}
 							</TD>
 						</TR>
 </TABLE>
