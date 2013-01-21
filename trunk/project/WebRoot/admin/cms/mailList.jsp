@@ -79,6 +79,12 @@
 								<option value="0">办理中
 								<option value="1">已办结
 								</select>
+								公开:
+								<select name="mail.isopen">
+								<option value="">全部
+								<option value="1">是
+								<option value="0">否
+								</select>
 								每页显示条数:
 								<select name="pageSize"
 									id="pageSize">
@@ -153,6 +159,10 @@
 						</TD>
 						<TD>
 							
+							<fs:order colName="公开" col="isopen"/>
+						</TD>
+						<TD>
+							
 							<fs:order colName="办理状态" col="state"/>
 						</TD>
 					</TR>
@@ -187,6 +197,9 @@
 						</TD>
 						<TD  align="left" id="addtime<s:property value="id"/>">
 							<s:date name="addtime" format="yyyy-MM-dd" />
+						</TD>
+						<TD  align="left" id="isopen<s:property value="id"/>">
+							${"1"==bean.isopen?"是":"否" }
 						</TD>
 						<TD  align="left" id="state<s:property value="id"/>">
 							${"1"==bean.state?"已办结":"办理中" }
