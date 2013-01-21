@@ -491,7 +491,7 @@
   <select id="selectPageByExample" parameterType="cn.freeteam.cms.model.MailExample" resultMap="BaseResultMap">
     SELECT TOP ${pageSize} m.* ,unit.name unitname,users.name username 
     FROM freecms_mail m left join freecms_unit unit on m.unitid=unit.id left join freecms_users users on m.userid=users.id
-    WHERE (ID NOT IN  
+    WHERE (m.ID NOT IN  
           (SELECT TOP ${skip} id   
          FROM freecms_mail   
 	    <if test="_parameter != null">
