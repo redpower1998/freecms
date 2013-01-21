@@ -25,6 +25,7 @@ import freemarker.template.TemplateModel;
  * <p>Description: 根据查询码查询信件处理</p>
  * 参数
  * querycode 查询码
+ * cache		是否使用缓存，默认为false
  * 
  * 返回值
  * mal	mail对象
@@ -67,7 +68,12 @@ public class MailQueryDirective extends BaseDirective implements TemplateDirecti
 			if (body!=null) {
 				//设置循环变量
 				if (loopVars!=null && loopVars.length>0) {
-					loopVars[0]=new BeanModel(mailService.findByQuerycode(querycode),new BeansWrapper());  
+					Mail mail=mailService.findByQuerycode(querycode,"true".equals(getParam(params, "cache"))?true:false);
+					if (mail!=null) {
+						loopVars[0]=new BeanModel(mail,new BeansWrapper());  
+					}else {
+						loopVars[0]=new BeanModel(new Mail(),new BeansWrapper());  
+					}
 					body.render(env.getOut());  
 				}
 			}

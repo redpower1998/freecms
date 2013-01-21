@@ -85,7 +85,7 @@ public class MailAction extends BaseAction{
 				mail.setUserid(getLoginAdmin().getId());
 			}
 		}
-		mailList=mailService.find(mail, order, currPage, pageSize);
+		mailList=mailService.find(mail, order, currPage, pageSize,false);
 		totalCount=mailService.count(mail);
 		Pager pager=new Pager(getHttpRequest());
 		pager.appendParam("mail.type");
@@ -180,6 +180,7 @@ public class MailAction extends BaseAction{
 			updateMail.setId(mail.getId());
 			updateMail.setRecontent(mail.getRecontent());
 			updateMail.setRetime(new Date());
+			updateMail.setState("1");
 			mailService.update(updateMail);
 			msg="<script>alert('办结成功');location.href='mail_list.do?mail.type="+mail.getType()+"&pageFuncId="+pageFuncId+"';</script>";
 		}

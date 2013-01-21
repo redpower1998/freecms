@@ -128,10 +128,16 @@
     FROM freecms_mail m left join freecms_unit unit on m.unitid=unit.id left join freecms_users users on m.userid=users.id
     where m.id = #{id,jdbcType=VARCHAR}
   </select>
-  <select useCache="false"  id="selectByQuerycode" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    SELECT m.* ,unit.name unitname,users.name username 
+  <sql id="selectByQuerycodeSql">
+   SELECT m.* ,unit.name unitname,users.name username 
     FROM freecms_mail m left join freecms_unit unit on m.unitid=unit.id left join freecms_users users on m.userid=users.id
     where m.querycode = #{querycode,jdbcType=VARCHAR}
+  </sql>
+  <select useCache="false"  id="selectByQuerycode" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    <include refid="selectByQuerycodeSql" />
+  </select>
+  <select useCache="true"  id="selectByQuerycodeCache" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    <include refid="selectByQuerycodeSql" />
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     <!--
@@ -489,8 +495,8 @@
       proflow = #{proflow,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <select useCache="false"  id="selectPageByExample" parameterType="cn.freeteam.cms.model.MailExample" resultMap="BaseResultMap">
-    SELECT m.* ,unit.name unitname,users.name username 
+  <sql id="selectPageByExampleSql">
+  SELECT m.* ,unit.name unitname,users.name username 
     FROM freecms_mail m left join freecms_unit unit on m.unitid=unit.id left join freecms_users users on m.userid=users.id
     <if test="_parameter != null">
        <include refid="Example_Where_Clause" />
@@ -500,5 +506,11 @@
       order by ${orderByClause}
     </if> 
     limit ${skip},${pageSize}
+  </sql>
+  <select useCache="false"  id="selectPageByExample" parameterType="cn.freeteam.cms.model.MailExample" resultMap="BaseResultMap">
+    <include refid="selectPageByExampleSql" />
+  </select>
+  <select useCache="true"  id="selectPageByExampleCache" parameterType="cn.freeteam.cms.model.MailExample" resultMap="BaseResultMap">
+    <include refid="selectPageByExampleSql" />
   </select>
 </mapper>
