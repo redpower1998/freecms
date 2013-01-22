@@ -62,5 +62,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="cn/freeteam/cms/model/RoleSiteMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/RoleChannelMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/MailMapper.xml"/>
+		<mapper resource="cn/freeteam/cms/model/QuestionMapper.xml"/>
+		<mapper resource="cn/freeteam/cms/model/AnswerMapper.xml"/>
 	</mappers>	
 </configuration>
