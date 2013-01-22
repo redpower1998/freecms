@@ -84,3 +84,6 @@ function delComplete(data){
 		}
 	}
 }
+function answer(){
+	$.weeboxs.open('answer.jsp?id='+getCheckOneValue(), {title:'设置选项', contentType:'ajax',height:400,width:672,showOk:false,showButton:false,showOk:false,showCancel:false});
+}
