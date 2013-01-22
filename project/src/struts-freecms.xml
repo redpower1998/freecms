@@ -65,6 +65,9 @@
 			<result name="forward" >/admin/cms/mailForward.jsp</result>
 			<result name="pro" >/admin/cms/mailPro.jsp</result>
 		</action>
+		<action name="question_*" method="{1}" class="cn.freeteam.cms.action.QuestionAction">
+			<result name="list" >/admin/cms/questionList.jsp</result>
+		</action>
 	</package>
 	
 	<package name="cmsWeb" extends="struts-default" namespace="/">
