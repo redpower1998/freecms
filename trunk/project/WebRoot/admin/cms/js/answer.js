@@ -1,19 +1,18 @@
 
-function addOperbutton(funcid){
+function addAnswer(questionid){
 	if($.trim($("#name").val())==""){
-		alert("请输入按钮名称!");
+		alert("请输入选项名称!");
 		$("#name").focus();
 		return false;
 	}
 	$("#state").fadeIn("slow"); 
 	var isok="1";
 	if($("#isok0").attr("checked")==true){isok="0";}
-	var data="pageContentNoFilter=1&operbutton.func="+funcid+"&operbutton.name="+$.trim(replaceAll($("#name").val(),"&","<参数>"))
-	+"&operbutton.code="+$.trim(replaceAll($("#code").val(),"&","<参数>"))
-	+"&operbutton.ordernum="+$.trim($("#order").val())+"&operbutton.isok="+isok;
-	$.post("operButton_add.do",data,saveOperbuttonComplete);
+	var data="pageContentNoFilter=1&answer.questionid="+questionid+"&answer.name="+$.trim(replaceAll($("#name").val(),"&","<参数>"))
+	+"&answer.ordernum="+$.trim($("#order").val())+"&answer.isok="+isok;
+	$.post("answer_add.do",data,saveAnswerComplete);
 }
-function saveOperbuttonComplete(data){
+function saveAnswerComplete(data){
 	var msg=data.substr(1,data.length-1);
 	if(startsWith(data,"1")){
 		//成功则添加一行
@@ -21,7 +20,7 @@ function saveOperbuttonComplete(data){
 		if(attr!=null && attr.length>1){
 			var str="<tr id=\"tr"+attr[1]+"\">"
 		      +"<td >"
-		     +"<input type=\"text\" value=\""+$("#name").val()+"\" size=\"8\" id=\"name"+attr[1]+"\" name=\"name"+attr[1]+"\" MAXLENGTH=\"50\" class=\"colorblur\" onfocus=\"this.className='colorfocus';\" onblur=\"this.className='colorblur';\">"
+		     +"<input type=\"text\" value=\""+$("#name").val()+"\" size=\"30\" id=\"name"+attr[1]+"\" name=\"name"+attr[1]+"\" MAXLENGTH=\"50\" class=\"colorblur\" onfocus=\"this.className='colorfocus';\" onblur=\"this.className='colorblur';\">"
 		      +"</td>"
 		      +"<td >"
 		     +"<input type=\"radio\" id=\"isok"+attr[1]+"1\" name=\"isok"+attr[1]+"\" value=\"1\" checked=\"checked\"/>是"
@@ -31,11 +30,11 @@ function saveOperbuttonComplete(data){
 		   +"<input type=\"text\" size=\"1\" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')  value=\""+$.trim($("#order").val())+"\" id=\"order"+attr[1]+"\" name=\"order"+attr[1]+"\" MAXLENGTH=\"4\" size=\"2\" class=\"colorblur\" onfocus=\"this.className='colorfocus';\" onblur=\"this.className='colorblur';\">"
 		    +"  </td>"
 		   +"   <td >"
-		   +" <input type=\"text\" size=\"40\" value=\""+$("#code").val()+"\" id=\"code"+attr[1]+"\" name=\"code"+attr[1]+"\" MAXLENGTH=\"500\" class=\"colorblur\" onfocus=\"this.className='colorfocus';\" onblur=\"this.className='colorblur';\">"
+		   +" 0 "
 		   +"   </td>"
 		   +"   <td >"
-		   +" <input type=\"button\" value=\"修改\" onclick=\"updateOperbutton('"+attr[1]+"')\" class=\"button\">"
-		   +" <input type=\"button\" value=\"删除\" onclick=\"delOperbutton('"+attr[1]+"')\" class=\"button\">"
+		   +" <input type=\"button\" value=\"修改\" onclick=\"updateAnswer('"+attr[1]+"')\" class=\"button\">"
+		   +" <input type=\"button\" value=\"删除\" onclick=\"delAnswer('"+attr[1]+"')\" class=\"button\">"
 		  +"    </td>"
 		  +"  </tr>";
 		  $("#rows").append(str);
@@ -45,43 +44,41 @@ function saveOperbuttonComplete(data){
 		$("#name").val("");
 		$("#isok1").attr("checked","true");
 		$("#order").val("");
-		$("#code").val("");
 	}
 	$("#state").fadeOut("slow"); 
 	alert(msg);
 }
 
-function updateOperbutton(id){
+function updateAnswer(id){
 	if($.trim($("#name"+id).val())==""){
-		alert("请输入按钮名称!");
+		alert("请输入选项名称!");
 		$("#name"+id).focus();
 		return false;
 	}
 	$("#state").fadeIn("slow"); 
 	var isok="1";
 	if($("#isok"+id+"0").attr("checked")==true){isok="0";}
-	var data="pageContentNoFilter=1&operbutton.id="+id+"&operbutton.name="+$.trim(replaceAll($("#name"+id).val(),"&","<参数>"))
-	+"&operbutton.code="+$.trim(replaceAll($("#code"+id).val(),"&","<参数>"))
-	+"&operbutton.ordernum="+$.trim($("#order"+id).val())+"&operbutton.isok="+isok;
-	$.post("operButton_update.do",data,updateOperbuttonComplete);
+	var data="pageContentNoFilter=1&answer.id="+id+"&answer.name="+$.trim(replaceAll($("#name"+id).val(),"&","<参数>"))
+	+"&answer.ordernum="+$.trim($("#order"+id).val())+"&answer.isok="+isok;
+	$.post("answer_update.do",data,updateAnswerComplete);
 }
 
-function updateOperbuttonComplete(data){
+function updateAnswerComplete(data){
 	var msg=data.substr(1,data.length-1);
 	$("#state").fadeOut("slow"); 
 	alert(msg);
 }
 
 
-function delOperbutton(id){
-	if(confirm("确定删除操作按钮么?")){
+function delAnswer(id){
+	if(confirm("确定删除么?")){
 		$("#state").fadeIn("slow"); 
-		var data="pageContentNoFilter=1&operbutton.id="+id+"&operbutton.name="+$.trim(replaceAll($("#name"+id).val(),"&","<参数>"));
-		$.post("operButton_del.do",data,delOperbuttonComplete);
+		var data="pageContentNoFilter=1&answer.id="+id+"&answer.name="+$.trim(replaceAll($("#name"+id).val(),"&","<参数>"));
+		$.post("answer_del.do",data,delAnswerComplete);
 	}
 }
 
-function delOperbuttonComplete(data){
+function delAnswerComplete(data){
 	var msg=data.substr(1,data.length-1);
 	if(startsWith(data,"1")){
 		//成功则删除一行
