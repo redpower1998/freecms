@@ -69,6 +69,8 @@
 			<result name="list" >/admin/cms/questionList.jsp</result>
 			<result name="edit" >/admin/cms/questionEdit.jsp</result>
 		</action>
+		<action name="answer_*" method="{1}" class="cn.freeteam.cms.action.AnswerAction">
+		</action>
 	</package>
 	
 	<package name="cmsWeb" extends="struts-default" namespace="/">

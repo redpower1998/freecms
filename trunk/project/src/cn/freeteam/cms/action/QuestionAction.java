@@ -58,9 +58,7 @@ public class QuestionAction extends BaseAction{
 		if (question==null ){
 			question=new Question();
 		}
-		if (!isAdminLogin() && !isSiteAdmin()) {
-			question.setSiteid(getManageSite().getId());
-		}
+		question.setSiteid(getManageSite().getId());
 		questionList=questionService.find(question, order, currPage, pageSize,false);
 		totalCount=questionService.count(question,false);
 		Pager pager=new Pager(getHttpRequest());
@@ -108,6 +106,7 @@ public class QuestionAction extends BaseAction{
 				question.setAdduser(getLoginAdmin().getId());
 				question.setAddtime(new Date());
 				question.setAdduser(getLoginAdmin().getId());
+				question.setSiteid(getManageSite().getId());
 				questionService.add(question);
 			}
 			logContent=oper+"网上调查("+question.getName()+")成功!";
