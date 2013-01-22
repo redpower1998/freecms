@@ -418,6 +418,10 @@ public class AnswerExample {
             addCriterion("isok =", value, "isok");
             return (Criteria) this;
         }
+        public Criteria andSql(String value) {
+            addCriterion( value);
+            return (Criteria) this;
+        }
 
         public Criteria andIsokNotEqualTo(String value) {
             addCriterion("isok <>", value, "isok");
