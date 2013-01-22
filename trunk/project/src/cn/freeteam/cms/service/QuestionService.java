@@ -86,6 +86,9 @@ public class QuestionService extends BaseService{
 			if (question.getSiteid()!=null && question.getSiteid().trim().length()>0) {
 				criteria.andSiteidEqualTo(question.getSiteid());
 			}
+			if (question.getAdduser()!=null && question.getAdduser().trim().length()>0) {
+				criteria.andAdduserEqualTo(question.getAdduser());
+			}
 			if (question.getSelecttype()!=null && question.getSelecttype().trim().length()>0) {
 				if ("1".equals(question.getSelecttype())) {
 					criteria.andSelecttypeEqualTo("1");
