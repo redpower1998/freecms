@@ -18,7 +18,6 @@
 			<result name="siteCheck" >/admin/cms/siteCheck.jsp</result>
 			<result name="auth" >/admin/cms/siteAuth.jsp</result>
 			<result name="authPage" >/admin/cms/siteAuthPage.jsp</result>
-			<result name="siteUserAuth" >/admin/cms/siteUserAuth.jsp</result>
 		</action>
 		<action name="channel_*" method="{1}" class="cn.freeteam.cms.action.ChannelAction">
 		 	<interceptor-ref name ="fileUploadStack" /> 
