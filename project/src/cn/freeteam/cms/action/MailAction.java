@@ -11,6 +11,7 @@ import cn.freeteam.model.Users;
 import cn.freeteam.service.ConfigService;
 import cn.freeteam.service.UnitService;
 import cn.freeteam.service.UserService;
+import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 
 /**
@@ -54,6 +55,7 @@ public class MailAction extends BaseAction{
 	private String msg;
 	private String pageFuncId;
 	private String forwardtype;
+	private String logContent;
 	
 
 	public MailAction() {
@@ -143,18 +145,29 @@ public class MailAction extends BaseAction{
 				proflow=oldmail.getProflow();
 			}
 			proflow+=" --> ";
+			String toname="";
 			if ("unit".equals(forwardtype)) {
 				updateMail.setUnitid(mail.getUnitid());
 				updateMail.setUserid("");
 				proflow+=mail.getUnitname();
+				toname=mail.getUnitname();
 			}else {
 				updateMail.setUnitid("");
 				updateMail.setUserid(mail.getUserid());
 				proflow+=mail.getUsername();
+				toname=mail.getUsername();
 			}
 			updateMail.setProflow(proflow);
-			mailService.update(updateMail);
-			msg="<script>alert('转交成功');location.href='mail_list.do?mail.type="+mail.getType()+"&pageFuncId="+pageFuncId+"';</script>";
+			try {
+				mailService.update(updateMail);
+				msg="<script>alert('转交成功');location.href='mail_list.do?mail.type="+mail.getType()+"&pageFuncId="+pageFuncId+"';</script>";
+				logContent=oldmail.getTitle()+" 信件转交给 "+toname;
+			} catch (Exception e) {
+				msg="<script>alert('转交失败:"+e.getMessage()+"');location.href='mail_list.do?mail.type="+mail.getType()+"&pageFuncId="+pageFuncId+"';</script>";
+				logContent=oldmail.getTitle()+" 信件转交给 "+toname+" 时失败:"+e.getMessage();
+			}finally{
+				OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+			}
 		}
 		return "msg";
 	}
@@ -181,8 +194,17 @@ public class MailAction extends BaseAction{
 			updateMail.setRecontent(mail.getRecontent());
 			updateMail.setRetime(new Date());
 			updateMail.setState("1");
-			mailService.update(updateMail);
-			msg="<script>alert('办结成功');location.href='mail_list.do?mail.type="+mail.getType()+"&pageFuncId="+pageFuncId+"';</script>";
+			Mail oldmail=mailService.findById(mail.getId());
+			try {
+				mailService.update(updateMail);
+				msg="<script>alert('办结成功');location.href='mail_list.do?mail.type="+mail.getType()+"&pageFuncId="+pageFuncId+"';</script>";
+				logContent=oldmail.getTitle()+" 信件办结 ";
+			} catch (Exception e) {
+				msg="<script>alert('办结失败:"+e.getMessage()+"');location.href='mail_list.do?mail.type="+mail.getType()+"&pageFuncId="+pageFuncId+"';</script>";
+				logContent=oldmail.getTitle()+" 信件办结时失败:"+e.getMessage();
+			}finally{
+				OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+			}
 		}
 		return "msg";
 	}
@@ -295,5 +317,13 @@ public class MailAction extends BaseAction{
 
 	public void setForwardtype(String forwardtype) {
 		this.forwardtype = forwardtype;
+	}
+
+	public String getLogContent() {
+		return logContent;
+	}
+
+	public void setLogContent(String logContent) {
+		this.logContent = logContent;
 	}
 }

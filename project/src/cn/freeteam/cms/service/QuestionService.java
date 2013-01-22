@@ -1,6 +1,7 @@
 package cn.freeteam.cms.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.QuestionMapper;
@@ -98,7 +99,46 @@ public class QuestionService extends BaseService{
 			}
 		}
 	}
-
+	/**
+	 * 根据id查询
+	 * @param id
+	 * @param cache
+	 * @return
+	 */
+	public Question findById(String id,boolean cache){
+		if (cache) {
+			return questionMapper.selectByPrimaryKeyCache(id);
+		}else {
+			return questionMapper.selectByPrimaryKey(id);
+		}
+	}
+	/**
+	 * 更新
+	 * @param question
+	 */
+	public void update(Question question){
+		questionMapper.updateByPrimaryKey(question);
+		DBCommit();
+	}
+	/**
+	 * 添加
+	 * @param question
+	 * @return
+	 */
+	public String add(Question question){
+		question.setId(UUID.randomUUID().toString());
+		questionMapper.insert(question);
+		DBCommit();
+		return question.getId();
+	}
+	/**
+	 * 删除 
+	 * @param id
+	 */
+	public void del(String id){
+		questionMapper.deleteByPrimaryKey(id);
+		DBCommit();
+	}
 	public QuestionMapper getQuestionMapper() {
 		return questionMapper;
 	}
