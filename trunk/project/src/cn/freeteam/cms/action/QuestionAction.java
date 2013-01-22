@@ -1,10 +1,14 @@
 package cn.freeteam.cms.action;
 
+import java.util.Date;
 import java.util.List;
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Question;
+import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.service.QuestionService;
+import cn.freeteam.util.FileUtil;
+import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 
 /**
@@ -39,6 +43,8 @@ public class QuestionAction extends BaseAction{
 	private List<Question> questionList;
 	private Question question;
 	private String order;
+	private String logContent;
+	private String ids;
 	
 	public QuestionAction() {
 		init("questionService");
@@ -58,15 +64,9 @@ public class QuestionAction extends BaseAction{
 		questionList=questionService.find(question, order, currPage, pageSize,false);
 		totalCount=questionService.count(question,false);
 		Pager pager=new Pager(getHttpRequest());
-		pager.appendParam("mail.type");
-		pager.appendParam("mail.querycode");
-		pager.appendParam("mail.mailtype");
-		pager.appendParam("mail.title");
-		pager.appendParam("mail.writer");
-		pager.appendParam("mail.state");
-		pager.appendParam("mail.unitid");
-		pager.appendParam("mail.userid");
-		pager.appendParam("mail.isopen");
+		pager.appendParam("question.name");
+		pager.appendParam("question.selecttype");
+		pager.appendParam("question.isok");
 		pager.appendParam("order");
 		pager.appendParam("pageSize");
 		pager.appendParam("pageFuncId");
@@ -77,7 +77,79 @@ public class QuestionAction extends BaseAction{
 		pageStr=pager.getOutStr();
 		return "list";
 	}
-	
+	/**
+	 * 编辑页面
+	 * @return
+	 */
+	public String edit(){
+		if (question!=null && question.getId()!=null && question.getId().trim().length()>0) {
+			question=questionService.findById(question.getId(),false);
+		}
+		return "edit";
+	}
+	/**
+	 * 编辑处理
+	 * @return
+	 */
+	public String editDo(){
+		String oper="添加";
+		try {
+			if (question!=null && question.getId()!=null) {
+				Question  oldQuestion=questionService.findById(question.getId(),false);
+				if (oldQuestion!=null) {
+					oldQuestion.setName(question.getName());
+					oldQuestion.setSelecttype(question.getSelecttype());
+					oldQuestion.setIsok(question.getIsok());
+					oper="修改";
+					questionService.update(oldQuestion);
+				}
+			}else {
+				//添加
+				question.setAdduser(getLoginAdmin().getId());
+				question.setAddtime(new Date());
+				question.setAdduser(getLoginAdmin().getId());
+				questionService.add(question);
+			}
+			logContent=oper+"网上调查("+question.getName()+")成功!";
+			write("succ", "GBK");
+		} catch (Exception e) {
+			DBProException(e);
+			logContent=oper+"网上调查("+question.getName()+")失败:"+e.toString()+"!";
+		}
+		OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+		return null;
+	}
+
+	/**
+	 * 删除
+	 * @return
+	 */
+	public String del(){
+		if (ids!=null && ids.trim().length()>0) {
+			StringBuilder sb=new StringBuilder();
+			String[] idArr=ids.split(";");
+			if (idArr!=null && idArr.length>0) {
+				for (int i = 0; i < idArr.length; i++) {
+					if (idArr[i].trim().length()>0) {
+						try {
+							question=questionService.findById(idArr[i],false);
+							if (question!=null) {
+								questionService.del(question.getId());
+								sb.append(idArr[i]+";");
+								logContent="删除网上调查("+question.getName()+")成功!";
+							}
+						} catch (Exception e) {
+							DBProException(e);
+							logContent="删除网上调查("+question.getName()+")失败:"+e.toString()+"!";
+						}
+						OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+					}
+				}
+			}
+			write(sb.toString(), "UTF-8");
+		}
+		return null;
+	}
 	public String getMsg() {
 		return msg;
 	}
@@ -124,6 +196,22 @@ public class QuestionAction extends BaseAction{
 
 	public void setOrder(String order) {
 		this.order = order;
+	}
+
+	public String getLogContent() {
+		return logContent;
+	}
+
+	public void setLogContent(String logContent) {
+		this.logContent = logContent;
+	}
+
+	public String getIds() {
+		return ids;
+	}
+
+	public void setIds(String ids) {
+		this.ids = ids;
 	}
 
 }
