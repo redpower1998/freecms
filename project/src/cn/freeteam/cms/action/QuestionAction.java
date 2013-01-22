@@ -58,6 +58,9 @@ public class QuestionAction extends BaseAction{
 		if (question==null ){
 			question=new Question();
 		}
+		if (!isAdminLogin() && !isSiteAdmin()) {
+			question.setAdduser(getLoginAdmin().getId());
+		}
 		question.setSiteid(getManageSite().getId());
 		questionList=questionService.find(question, order, currPage, pageSize,false);
 		totalCount=questionService.count(question,false);
