@@ -121,7 +121,7 @@ img {border:0}
 			</div>
 			<div class="input_pwd">验证码:	
 						<input id="ValidateCode" name="ValidateCode" class="colorblur" tabindex="2" accesskey="p" type="text" value="" size="5" maxlength="4" autocomplete="off"/>
-                   <img src="image.jsp"/>
+                   <img src="image.jsp" title="点击重新获取验证码" style="cursor:hand" onclick="this.src='image.jsp?date='+new Date();"/>
                    <span id="ctl02" style="color:Red;">*</span>
 			</div>
             
