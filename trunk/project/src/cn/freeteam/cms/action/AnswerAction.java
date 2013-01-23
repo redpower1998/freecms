@@ -76,6 +76,7 @@ public class AnswerAction extends BaseAction{
 			Answer old=answerService.findById(answer.getId(),false);
 			if (old!=null) {
 				old.setIsok(answer.getIsok());
+				old.setIsselect(answer.getIsselect());
 				old.setName(answer.getName());
 				old.setOrdernum(answer.getOrdernum());
 				answerService.update(old);

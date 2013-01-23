@@ -85,6 +85,14 @@ public class AnswerService extends BaseService{
 		DBCommit();
 	}
 	/**
+	 * 选择
+	 * @param id
+	 */
+	public void selectnum(String id){
+		answerMapper.selectnum(id);
+		DBCommit();
+	}
+	/**
 	 * 添加
 	 * @param answer
 	 * @return
@@ -102,6 +110,31 @@ public class AnswerService extends BaseService{
 	public void del(String id){
 		answerMapper.deleteByPrimaryKey(id);
 		DBCommit();
+	}
+	/**
+	 * 统计选择次数
+	 * @param questidid
+	 * @param isok
+	 * @param cache
+	 * @return
+	 */
+	public int countSelectnum(String questidid,String isok,boolean cache){
+		AnswerExample example=new AnswerExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andQuestionidEqualTo(questidid);
+		if (isok!=null && isok.trim().length()>0) {
+			if ("1".equals(isok)) {
+				criteria.andIsokEqualTo("1");
+			}else if ("0".equals(isok)) {
+				criteria.andSql(" (isok is null or isok='0') ");
+			}
+		}
+		example.setOrderByClause(" ordernum ");
+		if (cache) {
+			return answerMapper.countSelectnumByExample(example);
+		}else {
+			return answerMapper.countSelectnumByExampleCache(example);
+		}
 	}
 	public AnswerMapper getAnswerMapper() {
 		return answerMapper;

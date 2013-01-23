@@ -79,5 +79,7 @@
 		</action>
 		<action name="templet_*" method="{1}" class="cn.freeteam.cms.action.web.TempletAction">
 		</action>
+		<action name="question_*" method="{1}" class="cn.freeteam.cms.action.web.QuestionAction">
+		</action>
 	</package>
 </struts>
