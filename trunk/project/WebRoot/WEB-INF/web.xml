@@ -109,6 +109,11 @@
      	 </url-pattern>
 	</filter-mapping>
     
+	<servlet>
+		<servlet-name>QuartzInitializer</servlet-name>
+		<servlet-class>cn.freeteam.cms.util.QuartzInitializer</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
     <error-page>
 	<error-code>404</error-code>
 	<location>/error.jsp</location>
