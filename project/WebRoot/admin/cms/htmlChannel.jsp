@@ -71,6 +71,13 @@
     </tr>
     <tr>
     <td align="left" valign="top" id="buttonTable">
+    	生成前<INPUT onblur="this.className='colorblur';" id=pagenum size="4"
+									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									maxLength=50 type=text name=pagenum value="">页(不填生成所有)
+    </td>
+    </tr>
+    <tr>
+    <td align="left" valign="top" id="buttonTable">
     	<table border="0" ><tr><td>
 		<fs:operButton buttonName="生成所选栏目页"/></td>
 		<td style='display:${siteAdmin?"block":"none"}'>
