@@ -39,9 +39,9 @@ import freemarker.template.TemplateModel;
  * index			索引
  * 
  * 示例
-<@questionOne ;msg>
-${msg}
-</@mailSave>
+<@questionList ;question,index>
+${index} : ${question.name}<br>
+</@questionList>
  * 
  * <p>Date: Jan 18, 2013</p>
  * 
