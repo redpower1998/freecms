@@ -282,7 +282,7 @@ public class ChannelService extends BaseService{
 	 * 栏目页静态化
 	 * @throws TemplateModelException 
 	 */
-	public void html(Site site,Channel channel,ServletContext context,HttpServletRequest request,String operuser) throws TemplateModelException{
+	public void html(Site site,Channel channel,ServletContext context,HttpServletRequest request,String operuser,int pagenum) throws TemplateModelException{
 		if (site!=null && channel!=null
 				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
 			//生成模板位置
@@ -295,7 +295,7 @@ public class ChannelService extends BaseService{
 			channel.setSitepath(request.getContextPath()+"/site/"+site.getSourcepath()+"/");
 			if (templetFile.exists()) {
 				//先生成第一页
-				htmlPage(site, channel, context, request, templetPath, 1, operuser);
+				htmlPage(site, channel, context, request, templetPath, 1, operuser,pagenum);
 			}
 		}
 	}
@@ -303,15 +303,17 @@ public class ChannelService extends BaseService{
 	 * 栏目页静态化每一页
 	 * @throws TemplateModelException 
 	 */
-	public void htmlPage(Site site,Channel channel,ServletContext context,HttpServletRequest request,String templetPath,int page,String operuser) throws TemplateModelException{
+	public void htmlPage(Site site,Channel channel,ServletContext context,HttpServletRequest request,String templetPath,int page,String operuser,int pagenum) throws TemplateModelException{
 		if (site!=null && channel!=null
-				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
+				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0
+				&&(pagenum==0 || (pagenum>0 && pagenum>=page))) {
 			//生成静态页面
 			Map<String,Object> data=new HashMap<String,Object>();
 			//传递site参数
 			data.put("site", site);
 			data.put("currChannel", channel);
 			data.put("page", page);
+			data.put("pagenum", pagenum);
 			data.put("contextPath", request.getContextPath()+"/");
 			String rootPath=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getId()+"/";
 			//判断栏目文件夹是否存在
@@ -326,7 +328,7 @@ public class ChannelService extends BaseService{
 			String content = FileUtil.readFile(rootPath+"index"+(page>1?"_"+(page-1):"")+".html");
 			//如果内容里有<!--hasNextPage-->字符串则需要生成下一页
 			if (content.indexOf(hasNextPage)>-1) {
-				htmlPage(site, channel, context, request, templetPath, page+1, operuser);
+				htmlPage(site, channel, context, request, templetPath, page+1, operuser,pagenum);
 			}
 		}
 	}

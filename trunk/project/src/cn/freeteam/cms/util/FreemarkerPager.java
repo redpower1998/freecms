@@ -56,16 +56,21 @@ public class FreemarkerPager {
 		this.currPage = currPage;
 	}
 	public int getTotalCount() {
+		if (getTotalPage()*pageSize<totalCount) {
+			totalCount=getTotalPage()*pageSize;
+		}
 		return totalCount;
 	}
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
 	}
 	public int getTotalPage() {
-		if(totalCount%pageSize==0){
-			totalPage = totalCount/pageSize;
-		}else{
-			totalPage = totalCount/pageSize+1;
+		if (totalPage==0) {
+			if(totalCount%pageSize==0){
+				totalPage = totalCount/pageSize;
+			}else{
+				totalPage = totalCount/pageSize+1;
+			}
 		}
 		return totalPage;
 	}
@@ -87,7 +92,7 @@ public class FreemarkerPager {
 		sb.append("		<tr>");
 		sb.append("       <td height=\"40\" align=\"center\" valign=\"middle\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">");
 		sb.append("       <tr>");
-		sb.append("       <td width=\"100\" height=\"40\" align=\"center\" valign=\"middle\">共&nbsp;<b>"+totalCount+"</b>&nbsp;条</td>");
+		sb.append("       <td width=\"100\" height=\"40\" align=\"center\" valign=\"middle\">共&nbsp;<b>"+getTotalCount()+"</b>&nbsp;条</td>");
 		if(currPage-1>=1){
 			sb.append("       <td width=\"50\" height=\"40\" align=\"center\" valign=\"middle\"><a href=\"javascript:location.href='"+url+".html'\">首页</a></td>");
 			sb.append("       <td width=\"50\" height=\"40\" align=\"center\" valign=\"middle\"><a href=\"javascript:location.href='"+url+((currPage-1)>1?"_"+(currPage-2):"")+".html';\">上一页</a></td>");
@@ -128,11 +133,7 @@ public class FreemarkerPager {
 	public String getFormTablePageStr() {
 
 		try {
-			if(totalCount%pageSize==0){
-				totalPage = totalCount/pageSize;
-			}else{
-				totalPage = totalCount/pageSize+1;
-			}
+			totalPage=getTotalPage();
 			currPage = currPage<1?1:currPage;
 			currPage = totalPage>0&&currPage>totalPage?totalPage:currPage;
 			
@@ -154,7 +155,7 @@ public class FreemarkerPager {
 			sb.append("		<tr>");
 			sb.append("       <td height=\"40\" align=\"center\" valign=\"middle\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">");
 			sb.append("       <tr>");
-			sb.append("       <td width=\"100\" height=\"40\" align=\"center\" valign=\"middle\">共&nbsp;<b>"+totalCount+"</b>&nbsp;条</td>");
+			sb.append("       <td width=\"100\" height=\"40\" align=\"center\" valign=\"middle\">共&nbsp;<b>"+getTotalCount()+"</b>&nbsp;条</td>");
 			if(currPage-1>=1){
 				sb.append("       <td width=\"50\" height=\"40\" align=\"center\" valign=\"middle\"><a href=\"javascript:pageForm.page.value=1;pageForm.submit();\">首页</a></td>");
 				sb.append("       <td width=\"50\" height=\"40\" align=\"center\" valign=\"middle\"><a href=\"javascript:pageForm.page.value="+(currPage-1)+";pageForm.submit();\">上一页</a></td>");
@@ -209,11 +210,7 @@ public class FreemarkerPager {
 	public String getFormPageStr() {
 
 		try {
-			if(totalCount%pageSize==0){
-				totalPage = totalCount/pageSize;
-			}else{
-				totalPage = totalCount/pageSize+1;
-			}
+			totalPage=getTotalPage();
 			currPage = currPage<1?1:currPage;
 			currPage = totalPage>0&&currPage>totalPage?totalPage:currPage;
 			
@@ -229,7 +226,7 @@ public class FreemarkerPager {
 						sb.append("<input type='hidden' name='"+name+"' value='"+params.get(name)+"'>");
 					}
 			}
-			sb.append("共&nbsp;<b>"+totalCount+"</b>&nbsp;条&nbsp;&nbsp;&nbsp;");
+			sb.append("共&nbsp;<b>"+getTotalCount()+"</b>&nbsp;条&nbsp;&nbsp;&nbsp;");
 			if(currPage-1>=1){
 				sb.append("<a href=\"javascript:pageForm.page.value=1;pageForm.submit();\">首页</a>&nbsp;");
 				sb.append("<a href=\"javascript:pageForm.page.value="+(currPage-1)+";pageForm.submit();\">上一页</a>&nbsp;");
@@ -263,7 +260,7 @@ public class FreemarkerPager {
 	public String getPageStr() {
 
 		StringBuffer sb=new StringBuffer();
-		sb.append("共&nbsp;<b>"+totalCount+"</b>&nbsp;条&nbsp;");
+		sb.append("共&nbsp;<b>"+getTotalCount()+"</b>&nbsp;条&nbsp;");
 		if(currPage-1>=1){
 			sb.append("<a href=\"javascript:location.href='"+url+".html'\">首页</a>&nbsp;");
 			sb.append("<a href=\"javascript:location.href='"+url+((currPage-1)>1?"_"+(currPage-2):"")+".html';\">上一页</a>&nbsp;");
