@@ -332,6 +332,58 @@ public class ChannelService extends BaseService{
 			}
 		}
 	}
+
+	/**
+	 * 栏目页静态化
+	 * @throws TemplateModelException 
+	 */
+	public void html(Site site,Channel channel,ServletContext context) throws TemplateModelException{
+		if (site!=null && channel!=null
+				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
+			//生成模板位置
+			String templetPath="templet/"+site.getIndextemplet().trim()+"/栏目页面.html";
+			if (channel.getTemplet()!=null && channel.getTemplet().trim().length()>0) {
+				templetPath="templet/"+site.getIndextemplet().trim()+"/"+channel.getTemplet().trim();
+			}
+			//判断模板文件是否存在
+			File templetFile=new File(context.getRealPath("/")+templetPath);
+			channel.setSitepath(context.getContextPath()+"/site/"+site.getSourcepath()+"/");
+			if (templetFile.exists()) {
+				//先生成第一页
+				htmlPage(site, channel, context,  templetPath, 1);
+			}
+		}
+	}
+	/**
+	 * 栏目页静态化每一页
+	 * @throws TemplateModelException 
+	 */
+	public void htmlPage(Site site,Channel channel,ServletContext context,String templetPath,int page) throws TemplateModelException{
+		if (site!=null && channel!=null
+				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
+			//生成静态页面
+			Map<String,Object> data=new HashMap<String,Object>();
+			//传递site参数
+			data.put("site", site);
+			data.put("currChannel", channel);
+			data.put("page", page);
+			data.put("contextPath", context.getContextPath()+"/");
+			String rootPath=context.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getId()+"/";
+			//判断栏目文件夹是否存在
+			File channelFolder=new File(rootPath);
+			if (!channelFolder.exists()) {
+				channelFolder.mkdirs();
+			}
+			FreeMarkerUtil.createHTML(context, data, 
+					templetPath, 
+					rootPath+"index"+(page>1?"_"+(page-1):"")+".html");
+			String content = FileUtil.readFile(rootPath+"index"+(page>1?"_"+(page-1):"")+".html");
+			//如果内容里有<!--hasNextPage-->字符串则需要生成下一页
+			if (content.indexOf(hasNextPage)>-1) {
+				htmlPage(site, channel, context, templetPath, page+1);
+			}
+		}
+	}
 	/**
 	 * 递归生成静态树
 	 * @param content

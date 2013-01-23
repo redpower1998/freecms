@@ -160,6 +160,26 @@ public class SiteService extends BaseService{
 		}
 	}
 	/**
+	 * 生成首页
+	 * @param id
+	 * @throws TemplateModelException 
+	 */
+	public void html(String id,ServletContext context) throws TemplateModelException{
+		//查询站点
+		Site site=findById(id);
+		if (site!=null && site.getIndextemplet()!=null 
+				&& site.getIndextemplet().trim().length()>0) {
+			//生成静态页面
+			Map<String,Object> data=new HashMap<String,Object>();
+			//传递site参数
+			data.put("site", site);
+			data.put("contextPath", context.getContextPath());
+			FreeMarkerUtil.createHTML(context, data, 
+					"templet/"+site.getIndextemplet().trim()+"/首页.html", 
+					context.getRealPath("/")+"/site/"+site.getSourcepath()+"/index.html");
+		}
+	}
+	/**
 	 * 查询是否有此目录
 	 * @param path
 	 * @return
