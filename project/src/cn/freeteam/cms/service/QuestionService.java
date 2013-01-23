@@ -80,6 +80,9 @@ public class QuestionService extends BaseService{
 	 */
 	public void proSearchParam(Question question,Criteria criteria){
 		if (question!=null ) {
+			if (question.getId()!=null && question.getId().trim().length()>0) {
+				criteria.andIdLike("%"+question.getId().trim()+"%");
+			}
 			if (question.getName()!=null && question.getName().trim().length()>0) {
 				criteria.andNameLike("%"+question.getName().trim()+"%");
 			}
