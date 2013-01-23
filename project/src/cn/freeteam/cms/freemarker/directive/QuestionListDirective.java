@@ -13,37 +13,35 @@ import freemarker.core.Environment;
 import freemarker.ext.beans.ArrayModel;
 import freemarker.ext.beans.BeanModel;
 import freemarker.ext.beans.BeansWrapper;
+import freemarker.template.SimpleNumber;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
 
-
 /**
  * 
- * <p>Title: QuestionOneDirective.java</p>
+ * <p>Title: QuestionListDirective.java</p>
  * 
- * <p>Description: 提取指定id的网上调查</p>
+ * <p>Description: 网上调查列表</p>
  * 参数
- * id	网上调查id
+ * id			网上调查id
+ * name			名称
+ * selecttype	选择类型 空字符串表示所有(默认) 0单选 1多选
+ * isok			有效 空字符串表示所有(默认) 0无效 1有效
  * cache		是否使用缓存，默认为false
+ * order		排序 1时间倒序(默认) 2时间正序
+ * num			数量
  * 
  * 
  * 返回值
- * question		网上调查对象
- * answerList	选项对象列表
+ * questionList		网上调查对象列表
+ * index			索引
  * 
  * 示例
-<@questionOne id="03d86aaa-0b64-44a4-a1ff-e154591a8379" ; question,answerList>
-${question.name!""}
-<table>
-<tr><td>选项</td><td>选择次数</td><td>占比</td></tr>
-	<#list answerList as answer>
-	<tr><td>${answer.name!""}</td><td>${answer.selectnum!0}</td><td>${((answer.selectnum!0)/(question.selectnum!1))?string.percent}</td>
-	</tr>
-	</#list>
-</table>
-</@questionOne>
+<@questionOne ;msg>
+${msg}
+</@mailSave>
  * 
  * <p>Date: Jan 18, 2013</p>
  * 
@@ -63,13 +61,12 @@ ${question.name!""}
  * <p>Reason: </p>
  * <p>============================================</p>
  */
-public class QuestionOneDirective extends BaseDirective implements TemplateDirectiveModel{
+public class QuestionListDirective extends BaseDirective implements TemplateDirectiveModel{
 
 	private QuestionService questionService;
-	private AnswerService answerService;
 	
-	public QuestionOneDirective() {
-		init("questionService","answerService");
+	public QuestionListDirective() {
+		init("questionService");
 	}
 	
 	public void execute(Environment env, Map params, TemplateModel[] loopVars, 
@@ -79,21 +76,27 @@ public class QuestionOneDirective extends BaseDirective implements TemplateDirec
 			if (loopVars!=null && loopVars.length>0) {
 				//查询网上调查
 				String id=getParam(params, "id");
-				boolean cache="true".equals(getParam(params, "cache"))?true:false;
-				Question question=questionService.findById(id, cache);
-				if (question!=null) {
-					//设置总选择次数
-					question.setSelectnum(answerService.countSelectnum(id, "1", cache));
-					loopVars[0]=new BeanModel(question,new BeansWrapper());  
-					//查询选项
-					List<Answer> answerList=answerService.findByQuestion(id, "1", cache);
-					if(loopVars.length>1){
-						loopVars[1]=new ArrayModel(answerList.toArray(),new BeansWrapper()); 
-					}
-				}else {
-					loopVars[0]=new BeanModel(new Question(),new BeansWrapper());  
+				String order=getParam(params, "order");
+				String orderSql=" addtime desc ";
+				if ("1".equals(order)) {
+					orderSql=" addtime ";
 				}
-				body.render(env.getOut());  
+				boolean cache="true".equals(getParam(params, "cache"))?true:false;
+				Question question=new Question();
+				question.setId(id);
+				question.setName(getParam(params, "name"));
+				question.setSelecttype(getParam(params, "selecttype"));
+				question.setIsok(getParam(params, "isok"));
+				List<Question> questionList=questionService.find(question, orderSql, 1, getParamInt(params, "num", 1), cache);
+				if (questionList!=null && questionList.size()>0) {
+					for (int i = 0; i < questionList.size(); i++) {
+						loopVars[0]=new BeanModel(questionList.get(i),new BeansWrapper());  
+						if(loopVars.length>1){
+							loopVars[1]=new SimpleNumber(i);
+						}
+						body.render(env.getOut());  
+					}
+				}
 			}
 		}
 	}
@@ -106,12 +109,5 @@ public class QuestionOneDirective extends BaseDirective implements TemplateDirec
 		this.questionService = questionService;
 	}
 
-	public AnswerService getAnswerService() {
-		return answerService;
-	}
-
-	public void setAnswerService(AnswerService answerService) {
-		this.answerService = answerService;
-	}
 
 }
