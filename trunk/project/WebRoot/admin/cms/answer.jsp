@@ -40,6 +40,10 @@ if(id!=null && id.trim().length()>0){
      		
       </td>
       <td >
+  <b> 默认选中</b>
+     		
+      </td>
+      <td >
   <b> 顺序</b>
      		
       </td>
@@ -60,7 +64,10 @@ if(id!=null && id.trim().length()>0){
      <input type="radio" id="isok1" name="isok" value="1" checked="checked"/>是
      <input type="radio" id="isok0" name="isok" value="0" />否
       </td>
-      
+      <td >
+     <input type="radio" id="isselect1" name="isselect" value="1" />是
+     <input type="radio" id="isselect0" name="isselect" value="0" checked="checked"/>否
+      </td>
       <td >
      
     <input type="text"  id="order"  onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')  name="order" MAXLENGTH="4" size="1" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
@@ -87,6 +94,9 @@ if(id!=null && id.trim().length()>0){
       <td >
      <input type="radio"  id="isok<%=answer.getId() %>1" name="isok<%=answer.getId() %>" value="1" checked="checked"/>是
      <input type="radio" id="isok<%=answer.getId() %>0" name="isok<%=answer.getId() %>"  value="0" <%=(!"1".equals(answer.getIsok()))?"checked":"" %>/>否
+      </td><td >
+     <input type="radio"  id="isselect<%=answer.getId() %>1" name="isselect<%=answer.getId() %>" value="1" checked="checked"/>是
+     <input type="radio" id="isselect<%=answer.getId() %>0" name="isselect<%=answer.getId() %>"  value="0" <%=(!"1".equals(answer.getIsselect()))?"checked":"" %>/>否
       </td>
       <td >
      

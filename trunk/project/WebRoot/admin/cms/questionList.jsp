@@ -33,6 +33,10 @@
 					<TBODY>
 						<TR class=summary-title>
 							<TD height="30" align=left style="padding-left: 10px;">
+								ID:
+								<input name="question.id" type="text" maxlength="500"
+									class="colorblur" onfocus="this.className='colorfocus';"
+									onblur="this.className='colorblur';"  />
 							名称:
 								
 								<input name="question.name" type="text" maxlength="500"
@@ -98,6 +102,9 @@
 						</TD>
 						
 						<TD>
+							<fs:order colName="ID" col="id"/>
+						</TD>
+						<TD>
 							<fs:order colName="名称" col="name"/>
 						</TD>
 						<TD>
@@ -115,6 +122,9 @@
 							<INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 						
 						
+						<TD  align="left" id="id<s:property value="id"/>">
+							<s:property value="id"/>
+						</TD>
 						<TD  align="left" id="name<s:property value="id"/>">
 							<s:property value="name"/>
 						</TD>
