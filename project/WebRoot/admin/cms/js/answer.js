@@ -8,8 +8,10 @@ function addAnswer(questionid){
 	$("#state").fadeIn("slow"); 
 	var isok="1";
 	if($("#isok0").attr("checked")==true){isok="0";}
+	var isselect="0";
+	if($("#isselect1").attr("checked")==true){isselect="1";}
 	var data="pageContentNoFilter=1&answer.questionid="+questionid+"&answer.name="+$.trim(replaceAll($("#name").val(),"&","<参数>"))
-	+"&answer.ordernum="+$.trim($("#order").val())+"&answer.isok="+isok;
+	+"&answer.ordernum="+$.trim($("#order").val())+"&answer.isok="+isok+"&answer.isselect="+isselect;
 	$.post("answer_add.do",data,saveAnswerComplete);
 }
 function saveAnswerComplete(data){
@@ -24,7 +26,11 @@ function saveAnswerComplete(data){
 		      +"</td>"
 		      +"<td >"
 		     +"<input type=\"radio\" id=\"isok"+attr[1]+"1\" name=\"isok"+attr[1]+"\" value=\"1\" checked=\"checked\"/>是"
-		     +"<input type=\"radio\" id=\"isok"+attr[1]+"0\" name=\"isok"+attr[1]+"\" value=\"1\" "+($("#isok0").attr("checked")==true?"checked":"")+"/>否"
+		     +"<input type=\"radio\" id=\"isok"+attr[1]+"0\" name=\"isok"+attr[1]+"\" value=\"0\" "+($("#isok0").attr("checked")==true?"checked":"")+"/>否"
+		    +"  </td>"
+		      +"<td >"
+		     +"<input type=\"radio\" id=\"isselect"+attr[1]+"1\" name=\"isselect"+attr[1]+"\" value=\"1\" checked=\"checked\"/>是"
+		     +"<input type=\"radio\" id=\"isselect"+attr[1]+"0\" name=\"isselect"+attr[1]+"\" value=\"0\" "+($("#isselect0").attr("checked")==true?"checked":"")+"/>否"
 		    +"  </td>"
 		    +"  <td >"
 		   +"<input type=\"text\" size=\"1\" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')  value=\""+$.trim($("#order").val())+"\" id=\"order"+attr[1]+"\" name=\"order"+attr[1]+"\" MAXLENGTH=\"4\" size=\"2\" class=\"colorblur\" onfocus=\"this.className='colorfocus';\" onblur=\"this.className='colorblur';\">"
@@ -43,6 +49,7 @@ function saveAnswerComplete(data){
 		//清空添加那一行
 		$("#name").val("");
 		$("#isok1").attr("checked","true");
+		$("#isselect0").attr("checked","true");
 		$("#order").val("");
 	}
 	$("#state").fadeOut("slow"); 
@@ -58,8 +65,10 @@ function updateAnswer(id){
 	$("#state").fadeIn("slow"); 
 	var isok="1";
 	if($("#isok"+id+"0").attr("checked")==true){isok="0";}
+	var isselect="0";
+	if($("#isselect"+id+"1").attr("checked")==true){isselect="1";}
 	var data="pageContentNoFilter=1&answer.id="+id+"&answer.name="+$.trim(replaceAll($("#name"+id).val(),"&","<参数>"))
-	+"&answer.ordernum="+$.trim($("#order"+id).val())+"&answer.isok="+isok;
+	+"&answer.ordernum="+$.trim($("#order"+id).val())+"&answer.isok="+isok+"&answer.isselect="+isselect;
 	$.post("answer_update.do",data,updateAnswerComplete);
 }
 
