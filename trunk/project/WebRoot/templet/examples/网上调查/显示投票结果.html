@@ -1,0 +1,11 @@
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<@questionOne id="03d86aaa-0b64-44a4-a1ff-e154591a8379" ; question,answerList>
+${question.name!""}
+<table>
+<tr><td>选项</td><td>选择次数</td><td>占比</td></tr>
+	<#list answerList as answer>
+	<tr><td>${answer.name!""}</td><td>${answer.selectnum!0}</td><td>${((answer.selectnum!0)/(question.selectnum!1))?string.percent}</td>
+	</tr>
+	</#list>
+</table>
+</@questionOne>
