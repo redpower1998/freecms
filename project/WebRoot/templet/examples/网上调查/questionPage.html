@@ -1,0 +1,14 @@
+
+<html><META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<@questionPage  num='1' page='${page!1}' action='${contextPath}templet_pro.do?siteid=${site.id}&templetPath=question.html';questionList,pager>
+
+<ul>
+	<#list questionList as question>
+	<li>
+		${question.name}
+	</li>
+	</#list>
+</ul>
+${pager.formPageStr}
+</@questionPage>
+</html>
