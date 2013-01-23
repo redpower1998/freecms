@@ -1,6 +1,6 @@
 <META content="text/html; charset=utf-8" http-equiv=Content-Type>
 
-<@mailPage  num='1' page='${page}' action='${contextPath}templet_pro.do?siteid=${site.id}&templetPath=mailPage.html';mailList,pager>
+<@mailPage  num='1' page='${page!1}' action='${contextPath}templet_pro.do?siteid=${site.id}&templetPath=mailPage.html';mailList,pager>
 
 <ul>
 	<#list mailList as mail>
