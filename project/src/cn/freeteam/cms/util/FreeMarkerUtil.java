@@ -28,6 +28,7 @@ import cn.freeteam.cms.freemarker.directive.MailQueryDirective;
 import cn.freeteam.cms.freemarker.directive.MailSaveDirective;
 import cn.freeteam.cms.freemarker.directive.QuestionListDirective;
 import cn.freeteam.cms.freemarker.directive.QuestionOneDirective;
+import cn.freeteam.cms.freemarker.directive.QuestionPageDirective;
 import cn.freeteam.cms.freemarker.directive.URLDecoderDirective;
 import cn.freeteam.cms.freemarker.directive.URLEncoderDirective;
 import cn.freeteam.cms.freemarker.directive.UnitListDirective;
@@ -176,6 +177,7 @@ public class FreeMarkerUtil {
 			//网上调查
 			freemarkerCfg.setSharedVariable("questionOne", new QuestionOneDirective());
 			freemarkerCfg.setSharedVariable("questionList", new QuestionListDirective());
+			freemarkerCfg.setSharedVariable("questionPage", new QuestionPageDirective());
 			//其它
 			freemarkerCfg.setSharedVariable("video", new VideoDirective());
 			freemarkerCfg.setSharedVariable("URLEncoder", new URLEncoderDirective());

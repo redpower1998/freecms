@@ -5,15 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import cn.freeteam.base.BaseDirective;
-import cn.freeteam.cms.model.Answer;
 import cn.freeteam.cms.model.Question;
-import cn.freeteam.cms.service.AnswerService;
 import cn.freeteam.cms.service.QuestionService;
+import cn.freeteam.cms.util.FreemarkerPager;
 import freemarker.core.Environment;
 import freemarker.ext.beans.ArrayModel;
 import freemarker.ext.beans.BeanModel;
 import freemarker.ext.beans.BeansWrapper;
-import freemarker.template.SimpleNumber;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
@@ -21,7 +19,7 @@ import freemarker.template.TemplateModel;
 
 /**
  * 
- * <p>Title: QuestionListDirective.java</p>
+ * <p>Title: QuestionPageDirective.java</p>
  * 
  * <p>Description: 网上调查列表</p>
  * 参数
@@ -32,26 +30,27 @@ import freemarker.template.TemplateModel;
  * cache		是否使用缓存，默认为false
  * order		排序 1时间倒序(默认) 2时间正序
  * num			数量
+ * page			当前第几页，默认1		
+ * action		分页跳转页面
  * 
  * 
  * 返回值
- * question			网上调查对象
- * index			索引
+ * questionList		网上调查对象列表
+ * pager			分页对象
  * 
  * 示例
 <@questionList ;question,index>
 ${index} : ${question.name}<br>
 </@questionList>
+ * <p>Date: Jan 23, 2013</p>
  * 
- * <p>Date: Jan 18, 2013</p>
- * 
- * <p>Time: 7:23:23 PM</p>
+ * <p>Time: 6:53:26 PM</p>
  * 
  * <p>Copyright: 2013</p>
  * 
- * <p>Company: freeteam</p>
+ * <p>Company: bfsoft</p>
  * 
- * @author freeteam
+ * @author 王浩强
  * @version 1.0
  * 
  * <p>============================================</p>
@@ -61,11 +60,11 @@ ${index} : ${question.name}<br>
  * <p>Reason: </p>
  * <p>============================================</p>
  */
-public class QuestionListDirective extends BaseDirective implements TemplateDirectiveModel{
+public class QuestionPageDirective extends BaseDirective implements TemplateDirectiveModel{
 
 	private QuestionService questionService;
 	
-	public QuestionListDirective() {
+	public QuestionPageDirective() {
 		init("questionService");
 	}
 	
@@ -75,6 +74,10 @@ public class QuestionListDirective extends BaseDirective implements TemplateDire
 			//设置循环变量
 			if (loopVars!=null && loopVars.length>0) {
 				//查询网上调查
+				//显示数量
+				int num=getParamInt(params, "num", 10);
+				//当前第几页
+				int page=getParamInt(params, "page", 1);
 				String id=getParam(params, "id");
 				String order=getParam(params, "order");
 				String orderSql=" addtime desc ";
@@ -87,16 +90,18 @@ public class QuestionListDirective extends BaseDirective implements TemplateDire
 				question.setName(getParam(params, "name"));
 				question.setSelecttype(getParam(params, "selecttype"));
 				question.setIsok(getParam(params, "isok"));
-				List<Question> questionList=questionService.find(question, orderSql, 1, getParamInt(params, "num", 1), cache);
-				if (questionList!=null && questionList.size()>0) {
-					for (int i = 0; i < questionList.size(); i++) {
-						loopVars[0]=new BeanModel(questionList.get(i),new BeansWrapper());  
-						if(loopVars.length>1){
-							loopVars[1]=new SimpleNumber(i);
-						}
-						body.render(env.getOut());  
-					}
+				List<Question> questionList=questionService.find(question, orderSql, page, num, cache);
+				int count=questionService.count(question, cache);
+				FreemarkerPager pager=new FreemarkerPager();
+				pager.setCurrPage(page);
+				pager.setTotalCount(count);
+				pager.setPageSize(num);
+				pager.setAction(getParam(params, "action"));
+				loopVars[0]=new ArrayModel(questionList.toArray(),new BeansWrapper()); 
+				if(loopVars.length>1){
+					loopVars[1]=new BeanModel(pager,new BeansWrapper()); 
 				}
+				body.render(env.getOut());  
 			}
 		}
 	}
