@@ -47,6 +47,7 @@ import freemarker.template.TemplateModel;
  * channelPagemark	栏目页面标识
  * img			是否只提取带图片的新闻	1是
  * page			当前第几页，默认1			
+ * pagenum		最多显示页数
  * 
  * 返回值
  * infoList		信息对象列表
@@ -107,6 +108,8 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 		String img=getParam(params, "img");
 		//当前第几页
 		int page=getParamInt(params, "page", 1);
+		//最多显示页数
+		int pagenum=getParamInt(params, "pagenum", 0);
 		
 		
 		Writer out =env.getOut();
@@ -155,6 +158,10 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 				pager.setTotalCount(count);
 				pager.setPageSize(num);
 				pager.setUrl("index");
+				//如果总页数大于最多显示页数，则设置总页数为最多显示页数
+				if (pagenum>0 && pagenum<pager.getTotalPage()) {
+					pager.setTotalPage(pagenum);
+				}
 				List<Info> infoList=infoService.find(info, orderSql, page, num);
 				Site site=siteService.findById(siteid);
 				if (infoList!=null && infoList.size()>0) {
@@ -173,7 +180,7 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 					}
 				}
 				//如果有下一页，则输入下一页标识
-				if (pager.getTotalPage()>page) {
+				if (pager.getTotalPage()>page ) {
 					env.getOut().write(ChannelService.hasNextPage);
 				}
 				loopVars[0]=new ArrayModel(infoList.toArray(),new BeansWrapper()); 

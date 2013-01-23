@@ -43,6 +43,7 @@ public class HtmlAction extends BaseAction{
 	private String starttime;
 	private String endtime;
 	private Info info;
+	private String pagenum;
 	
 	public HtmlAction(){
 		init("siteService","channelService","infoService","roleChannelService");
@@ -152,6 +153,12 @@ public class HtmlAction extends BaseAction{
 	public String channelDo(){
 		try {
 			site=getManageSite();
+			int page=0;
+			try {
+				page=Integer.parseInt(pagenum);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 			if ("channels".equals(createType)) {
 				//生成所选栏目
 				if (channels!=null && channels.length>0) {
@@ -159,7 +166,7 @@ public class HtmlAction extends BaseAction{
 						Channel channel=channelService.findById(channels[i]);
 						if (channel!=null) {
 							//生成栏目页
-							channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName());
+							channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(),page);
 						}
 					}
 				}
@@ -175,7 +182,7 @@ public class HtmlAction extends BaseAction{
 						Channel channel=channelList.get(i);
 						if (channel!=null) {
 							//生成栏目页
-							channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName());
+							channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(),page);
 						}
 					}
 				}
@@ -387,5 +394,11 @@ public class HtmlAction extends BaseAction{
 	}
 	public void setRoleChannelService(RoleChannelService roleChannelService) {
 		this.roleChannelService = roleChannelService;
+	}
+	public String getPagenum() {
+		return pagenum;
+	}
+	public void setPagenum(String pagenum) {
+		this.pagenum = pagenum;
 	}
 }
