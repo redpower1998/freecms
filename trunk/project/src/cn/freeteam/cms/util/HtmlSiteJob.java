@@ -41,6 +41,7 @@ public class HtmlSiteJob extends Base implements Job{
 		init("siteService");
 	}
     public   void  execute(JobExecutionContext cntxt)  throws  JobExecutionException   {
+    	System.out.println("站点首页静态化调度任务");
     	if (cntxt.getJobDetail().getJobDataMap().get("siteid")!=null 
     			&& cntxt.getJobDetail().getJobDataMap().get("servletContext")!=null) {
     		try {

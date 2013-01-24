@@ -47,11 +47,9 @@ public class QuartzInitializer extends HttpServlet{
 		List<Htmlquartz> htmlquartzList=htmlquartzService.findAll();
 		if (htmlquartzList!=null && htmlquartzList.size()>0) {
 			Htmlquartz htmlquartz;
-			//创建调度工厂
-			schedFact = new StdSchedulerFactory();
 			try {
-				sched = schedFact.getScheduler();
-				sched.start();
+				sched = QuartzUtil.getScheduler();
+				QuartzUtil.startScheduler();
 				for (int i = 0; i < htmlquartzList.size(); i++) {
 					htmlquartz=htmlquartzList.get(i);
 					
@@ -72,24 +70,7 @@ public class QuartzInitializer extends HttpServlet{
 						jobDetail.getJobDataMap().put("channelid", htmlquartz.getChannelid());
 						jobDetail.getJobDataMap().put("servletContext", config.getServletContext());
 						//设置触发器
-						String triggerStr="";
-						if (Htmlquartz.TYPE_EXETIME.equals(htmlquartz.getType()) && 
-								(htmlquartz.getExetimehour()>0 || htmlquartz.getExetimemin()>0)) {
-							//定时执行
-							triggerStr="0 "+htmlquartz.getExetimemin()+" "+htmlquartz.getExetimehour()+" * * ? ";
-						}else if (Htmlquartz.TYPE_INTERVAL.equals(htmlquartz.getType())) {
-							//间隔重复执行
-							//每小时
-							if (Htmlquartz.INTERVALTYPE_HOUR.equals(htmlquartz.getIntervaltype()) 
-									&& htmlquartz.getIntervalhour()>0) {
-								triggerStr="0 0 0/"+htmlquartz.getIntervalhour()+" * * ? ";
-							}
-							//每分钟
-							else if (Htmlquartz.INTERVALTYPE_MIN.equals(htmlquartz.getIntervaltype()) 
-									&& htmlquartz.getIntervalmin()>0) {
-								triggerStr="0 0/"+htmlquartz.getIntervalmin()+" * * * ? ";
-							}
-						}
+						String triggerStr=QuartzUtil.getTriggerStr(htmlquartz);
 						if (triggerStr.trim().length()>0) {
 							trigger.setCronExpression(triggerStr); 
 							//添加到调度对列
