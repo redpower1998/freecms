@@ -123,6 +123,16 @@ public class HtmlquartzService extends BaseService{
 		htmlquartzMapper.deleteByExample(example);
 		DBCommit();
 	}
+	/**
+	 * 查询所有有效调度
+	 * @return
+	 */
+	public List<Htmlquartz> findAll(){
+		HtmlquartzExample example=new HtmlquartzExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andTypeNotEqualTo("");
+		return htmlquartzMapper.selectByExample(example);
+	}
 	public HtmlquartzMapper getHtmlquartzMapper() {
 		return htmlquartzMapper;
 	}

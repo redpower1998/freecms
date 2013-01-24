@@ -174,7 +174,7 @@ public class SiteService extends BaseService{
 			Map<String,Object> data=new HashMap<String,Object>();
 			//传递site参数
 			data.put("site", site);
-			data.put("contextPath", context.getContextPath());
+			data.put("contextPath", context.getContextPath()+"/");
 			FreeMarkerUtil.createHTML(context, data, 
 					"templet/"+site.getIndextemplet().trim()+"/首页.html", 
 					context.getRealPath("/")+"/site/"+site.getSourcepath()+"/index.html");

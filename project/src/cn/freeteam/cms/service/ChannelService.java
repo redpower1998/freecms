@@ -58,6 +58,7 @@ public class ChannelService extends BaseService{
 	private ChannelMapper channelMapper;
 	private RoleChannelService roleChannelService;
 	private HtmlquartzService htmlquartzService;
+	private SiteService siteService;
 	
 	public ChannelService(){
 		initMapper("channelMapper");
@@ -340,7 +341,10 @@ public class ChannelService extends BaseService{
 	 * 栏目页静态化
 	 * @throws TemplateModelException 
 	 */
-	public void html(Site site,Channel channel,ServletContext context) throws TemplateModelException{
+	public void html(String siteid,String channelid,ServletContext context) throws TemplateModelException{
+		init("siteService");
+		Site site=siteService.findById(siteid);
+		Channel channel=findById(channelid);
 		if (site!=null && channel!=null
 				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
 			//生成模板位置
@@ -437,5 +441,11 @@ public class ChannelService extends BaseService{
 	}
 	public void setHtmlquartzService(HtmlquartzService htmlquartzService) {
 		this.htmlquartzService = htmlquartzService;
+	}
+	public SiteService getSiteService() {
+		return siteService;
+	}
+	public void setSiteService(SiteService siteService) {
+		this.siteService = siteService;
 	}
 }
