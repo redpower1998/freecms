@@ -96,6 +96,33 @@ public class HtmlquartzService extends BaseService{
 		htmlquartzMapper.deleteByExample(example);
 		DBCommit();
 	}
+	/**
+	 * 根据channelid查询
+	 * @param id
+	 * @return
+	 */
+	public Htmlquartz findByChannelid(String channelid){
+		HtmlquartzExample example=new HtmlquartzExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andChannelidEqualTo(channelid);
+		List<Htmlquartz> list=htmlquartzMapper.selectByExample(example);
+		if (list!=null && list.size()>0) {
+			return list.get(0);
+		}
+		return null;
+	}
+	/**
+	 * 根据channelid删除
+	 * @param id
+	 * @return
+	 */
+	public void delByChannelid(String channelid){
+		HtmlquartzExample example=new HtmlquartzExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andChannelidEqualTo(channelid);
+		htmlquartzMapper.deleteByExample(example);
+		DBCommit();
+	}
 	public HtmlquartzMapper getHtmlquartzMapper() {
 		return htmlquartzMapper;
 	}
