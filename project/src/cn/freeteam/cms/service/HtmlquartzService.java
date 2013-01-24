@@ -1,7 +1,13 @@
 package cn.freeteam.cms.service;
 
+import java.util.List;
+import java.util.UUID;
+
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.HtmlquartzMapper;
+import cn.freeteam.cms.model.Htmlquartz;
+import cn.freeteam.cms.model.HtmlquartzExample;
+import cn.freeteam.cms.model.HtmlquartzExample.Criteria;
 
 /**
  * 
@@ -35,6 +41,61 @@ public class HtmlquartzService extends BaseService{
 		initMapper("htmlquartzMapper");
 	}
 
+
+	/**
+	 * 更新
+	 * @param site
+	 */
+	public void update(Htmlquartz htmlquartz){
+		htmlquartzMapper.updateByPrimaryKeySelective(htmlquartz);
+		DBCommit();
+	}
+	/**
+	 * 添加
+	 * @param site
+	 * @return
+	 */
+	public String insert(Htmlquartz htmlquartz){
+		htmlquartz.setId(UUID.randomUUID().toString());
+		htmlquartzMapper.insert(htmlquartz);
+		DBCommit();
+		return htmlquartz.getId();
+	}
+	/**
+	 * 根据id查询
+	 * @param id
+	 * @return
+	 */
+	public Htmlquartz findById(String id){
+		return htmlquartzMapper.selectByPrimaryKey(id);
+	}
+	/**
+	 * 根据siteid查询
+	 * @param id
+	 * @return
+	 */
+	public Htmlquartz findBySiteid(String siteid){
+		HtmlquartzExample example=new HtmlquartzExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andSiteidEqualTo(siteid);
+		List<Htmlquartz> list=htmlquartzMapper.selectByExample(example);
+		if (list!=null && list.size()>0) {
+			return list.get(0);
+		}
+		return null;
+	}
+	/**
+	 * 根据siteid删除
+	 * @param id
+	 * @return
+	 */
+	public void delBySiteid(String siteid){
+		HtmlquartzExample example=new HtmlquartzExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andSiteidEqualTo(siteid);
+		htmlquartzMapper.deleteByExample(example);
+		DBCommit();
+	}
 	public HtmlquartzMapper getHtmlquartzMapper() {
 		return htmlquartzMapper;
 	}

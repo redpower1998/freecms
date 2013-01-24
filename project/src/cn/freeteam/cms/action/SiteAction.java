@@ -2,16 +2,19 @@ package cn.freeteam.cms.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Channel;
+import cn.freeteam.cms.model.Htmlquartz;
 import cn.freeteam.cms.model.RoleSite;
 import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.service.ChannelService;
+import cn.freeteam.cms.service.HtmlquartzService;
 import cn.freeteam.cms.service.RoleChannelService;
 import cn.freeteam.cms.service.RoleSiteService;
 import cn.freeteam.cms.service.SiteService;
@@ -57,6 +60,7 @@ public class SiteAction extends BaseAction{
 	private TempletService templetService;
 	private RoleSiteService roleSiteService;
 	private RoleChannelService roleChannelService;
+	private HtmlquartzService htmlquartzService;
 	
 	private List<Site> siteList;
 	public List<Channel> channelList;
@@ -70,6 +74,8 @@ public class SiteAction extends BaseAction{
 	private String oldLogo;
 	private String type;
 	StringBuffer channelTreeContent;
+	private List<Integer> hours;
+	private List<Integer> mins;
 	
 	private String wasUser;
 	private String operUser;
@@ -80,6 +86,7 @@ public class SiteAction extends BaseAction{
 	private String logContent;
 	private String sites;
 	private Roles role;
+	private Htmlquartz htmlquartz;
 	private String manageSiteChecked;
 	private String[] channelTree;
 	private boolean haveSiteRole;
@@ -442,6 +449,8 @@ public class SiteAction extends BaseAction{
 					site.setIndextempletName(templet.getName());
 				}
 			}
+			init("htmlquartzService");
+			htmlquartz=htmlquartzService.findBySiteid(site.getId());
 		}
 		return "edit";
 	}
@@ -503,6 +512,9 @@ public class SiteAction extends BaseAction{
 					}
 				}
 				siteService.update(site);
+				//处理静态化调度
+				init("htmlquartzService");
+				htmlquartzService.update(htmlquartz);
 				OperLogUtil.log(getLoginName(), "更新站点 "+site.getName(), getHttpRequest());
 			}else {
 				//添加
@@ -549,6 +561,10 @@ public class SiteAction extends BaseAction{
 					}
 				}
 				siteService.insert(site);
+				//处理静态化调度
+				init("htmlquartzService");
+				htmlquartz.setSiteid(site.getId());
+				htmlquartzService.insert(htmlquartz);
 				OperLogUtil.log(getLoginName(), "添加站点 "+site.getName(), getHttpRequest());
 			}
 			write("<script>alert('操作成功');location.href='site_edit.do?site.id="+site.getId()+"';</script>", "GBK");
@@ -573,6 +589,8 @@ public class SiteAction extends BaseAction{
 					site.setIndextempletName(templet.getName());
 				}
 			}
+			init("htmlquartzService");
+			htmlquartz=htmlquartzService.findBySiteid(site.getId());
 		}
 		return "config";
 	}
@@ -634,6 +652,14 @@ public class SiteAction extends BaseAction{
 					}
 				}
 				siteService.update(site);
+				//处理静态化调度
+				init("htmlquartzService");
+				if (htmlquartzService.findBySiteid(site.getId())!=null) {
+					htmlquartzService.update(htmlquartz);
+				}else {
+					htmlquartz.setSiteid(site.getId());
+					htmlquartzService.insert(htmlquartz);
+				}
 				getHttpSession().setAttribute("manageSite", site);
 				OperLogUtil.log(getLoginName(), "站点设置 "+site.getName(), getHttpRequest());
 			}
@@ -900,6 +926,38 @@ public class SiteAction extends BaseAction{
 	}
 	public void setManageSiteChecked(String manageSiteChecked) {
 		this.manageSiteChecked = manageSiteChecked;
+	}
+	public HtmlquartzService getHtmlquartzService() {
+		return htmlquartzService;
+	}
+	public void setHtmlquartzService(HtmlquartzService htmlquartzService) {
+		this.htmlquartzService = htmlquartzService;
+	}
+	public Htmlquartz getHtmlquartz() {
+		return htmlquartz;
+	}
+	public void setHtmlquartz(Htmlquartz htmlquartz) {
+		this.htmlquartz = htmlquartz;
+	}
+	public List<Integer> getHours() {
+		hours=new ArrayList<Integer>();
+		for (int i = 0; i < 24; i++) {
+			hours.add(i);
+		}
+		return hours;
+	}
+	public void setHours(List<Integer> hours) {
+		this.hours = hours;
+	}
+	public List<Integer> getMins() {
+		mins=new ArrayList<Integer>();
+		for (int i = 0; i < 60; i++) {
+			mins.add(i);
+		}
+		return mins;
+	}
+	public void setMins(List<Integer> mins) {
+		this.mins = mins;
 	}
 
 }
