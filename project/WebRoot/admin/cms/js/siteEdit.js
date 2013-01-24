@@ -74,3 +74,15 @@ function htmlquartzTypeChange(obj){
 		$("#intervalTd").fadeIn("slow"); 
 	}
 }
+function intervalTypeChange(obj){
+	if(""==obj.value){
+		$("#intervalhourTd").fadeOut("slow"); 
+		$("#intervalminTd").fadeOut("slow"); 
+	}else if("0"==obj.value){
+		$("#intervalhourTd").fadeIn("slow"); 
+		$("#intervalminTd").fadeOut("slow"); 
+	}else if("1"==obj.value){
+		$("#intervalhourTd").fadeOut("slow"); 
+		$("#intervalminTd").fadeIn("slow"); 
+	}
+}

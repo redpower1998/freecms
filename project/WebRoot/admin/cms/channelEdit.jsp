@@ -265,17 +265,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</select>分
 							</td>
 							<td id="intervalTd" style="display:${"1" == htmlquartz.type ?"block":"none" }">
-							间隔时间:
-							<select id="intervalhour" name="htmlquartz.intervalhour">
-							<s:iterator value="hours" id="obj" >
-							<option value="${obj }" ${obj == htmlquartz.intervalhour ?"selected":"" }>${obj }</option>
-							</s:iterator>
-							</select>时
-							<select id="intervalmin" name="htmlquartz.intervalmin">
-							<s:iterator value="mins" id="obj" >
-							<option value="${obj }" ${obj == htmlquartz.intervalmin ?"selected":"" }>${obj }</option>
-							</s:iterator>
-							</select>分
+								<table><tr><td>
+								间隔单位:
+								<select id="intervalType" name="htmlquartz.intervaltype" onchange="intervalTypeChange(this)">
+								<option value="0" ${"0" == htmlquartz.intervaltype ?"selected":"" }>小时</option>
+								<option value="1" ${"1" == htmlquartz.intervaltype ?"selected":"" }>分钟</option>
+								</select>
+								</td><td id="intervalhourTd" style="display:${"1" != htmlquartz.intervaltype ?"block":"none" }">
+								<select id="intervalhour" name="htmlquartz.intervalhour">
+								<s:iterator value="hours" id="obj" >
+								<option value="${obj }" ${obj == htmlquartz.intervalhour ?"selected":"" }>${obj }</option>
+								</s:iterator>
+								</select>时
+								</td><td id="intervalminTd" style="display:${"1" == htmlquartz.intervaltype ?"block":"none" }">
+								<select id="intervalmin" name="htmlquartz.intervalmin">
+								<s:iterator value="mins" id="obj" >
+								<option value="${obj }" ${obj == htmlquartz.intervalmin ?"selected":"" }>${obj }</option>
+								</s:iterator>
+								</select>分
+								</td></tr></table>
 							</td>
 							</tr></table>
 							</TD>
