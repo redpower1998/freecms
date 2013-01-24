@@ -227,6 +227,54 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 						</TR>
 						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请设置静态化调度
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>静态化调度：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+							<input type="hidden" name="htmlquartz.id" value="${htmlquartz.id }"/>
+							<table><tr><td>
+							<select id="htmlquartzType" name="htmlquartz.type" onchange="htmlquartzTypeChange(this)">
+							<option value="">无</option>
+							<option value="0" ${"0" == htmlquartz.type ?"selected":"" }>定时生成首页</option>
+							<option value="1" ${"1" == htmlquartz.type ?"selected":"" }>间隔重复生成首页</option>
+							</select>
+							</td>
+							<td id="exetimeTd" style="display:${"0" == htmlquartz.type ?"block":"none" }">
+							<select id="exetimehour" name="htmlquartz.exetimehour">
+							<s:iterator value="hours" id="obj" >
+							<option value="${obj }"  ${obj == htmlquartz.exetimehour ?"selected":"" }>${obj }</option>
+							</s:iterator>
+							</select>时
+							<select id="exetimemin" name="htmlquartz.exetimemin">
+							<s:iterator value="mins" id="obj" >
+							<option value="${obj }"  ${obj == htmlquartz.exetimemin ?"selected":"" }>${obj }</option>
+							</s:iterator>
+							</select>分
+							</td>
+							<td id="intervalTd" style="display:${"1" == htmlquartz.type ?"block":"none" }">
+							间隔时间:
+							<select id="intervalhour" name="htmlquartz.intervalhour">
+							<s:iterator value="hours" id="obj" >
+							<option value="${obj }" ${obj == htmlquartz.intervalhour ?"selected":"" }>${obj }</option>
+							</s:iterator>
+							</select>时
+							<select id="intervalmin" name="htmlquartz.intervalmin">
+							<s:iterator value="mins" id="obj" >
+							<option value="${obj }" ${obj == htmlquartz.intervalmin ?"selected":"" }>${obj }</option>
+							</s:iterator>
+							</select>分
+							</td>
+							</tr></table>
+							</TD>
+						</TR>
+						<TR>
 							<TD  align="center" colspan="10">
 							<input type="hidden" id="siteIndex" value="<%=basePath %>site/${site.sourcepath }/index.html"/>
 								<fs:operButtons />
