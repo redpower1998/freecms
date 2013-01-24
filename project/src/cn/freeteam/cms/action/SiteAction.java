@@ -520,6 +520,7 @@ public class SiteAction extends BaseAction{
 					htmlquartz.setSiteid(site.getId());
 					htmlquartzService.insert(htmlquartz);
 				}
+				siteService.updateHtmlSiteJob(getServletContext(), site, htmlquartz);
 				OperLogUtil.log(getLoginName(), "更新站点 "+site.getName(), getHttpRequest());
 			}else {
 				//添加
@@ -570,6 +571,7 @@ public class SiteAction extends BaseAction{
 				init("htmlquartzService");
 				htmlquartz.setSiteid(site.getId());
 				htmlquartzService.insert(htmlquartz);
+				siteService.updateHtmlSiteJob(getServletContext(), site, htmlquartz);
 				OperLogUtil.log(getLoginName(), "添加站点 "+site.getName(), getHttpRequest());
 			}
 			write("<script>alert('操作成功');location.href='site_edit.do?site.id="+site.getId()+"';</script>", "GBK");
@@ -665,6 +667,7 @@ public class SiteAction extends BaseAction{
 					htmlquartz.setSiteid(site.getId());
 					htmlquartzService.insert(htmlquartz);
 				}
+				siteService.updateHtmlSiteJob(getServletContext(), site, htmlquartz);
 				getHttpSession().setAttribute("manageSite", site);
 				OperLogUtil.log(getLoginName(), "站点设置 "+site.getName(), getHttpRequest());
 			}
