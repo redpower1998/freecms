@@ -230,6 +230,9 @@ public class Question {
     }
 
 	public int getSelectnum() {
+		if (selectnum==0) {
+			selectnum=1;
+		}
 		return selectnum;
 	}
 
