@@ -57,6 +57,7 @@ public class ChannelService extends BaseService{
 
 	private ChannelMapper channelMapper;
 	private RoleChannelService roleChannelService;
+	private HtmlquartzService htmlquartzService;
 	
 	public ChannelService(){
 		initMapper("channelMapper");
@@ -258,6 +259,7 @@ public class ChannelService extends BaseService{
 	 * @param siteId
 	 */
 	public void del(String siteId){
+		init("htmlquartzService");
 		delPar(siteId);
 		channelMapper.deleteByPrimaryKey(siteId);
 		DBCommit();
@@ -276,6 +278,7 @@ public class ChannelService extends BaseService{
 				delPar(channelList.get(i).getId());
 			}
 		}
+		htmlquartzService.delByChannelid(parId);
 		channelMapper.deleteByPrimaryKey(parId);
 	}
 	/**
@@ -428,5 +431,11 @@ public class ChannelService extends BaseService{
 	}
 	public void setRoleChannelService(RoleChannelService roleChannelService) {
 		this.roleChannelService = roleChannelService;
+	}
+	public HtmlquartzService getHtmlquartzService() {
+		return htmlquartzService;
+	}
+	public void setHtmlquartzService(HtmlquartzService htmlquartzService) {
+		this.htmlquartzService = htmlquartzService;
 	}
 }

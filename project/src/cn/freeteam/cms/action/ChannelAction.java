@@ -1,14 +1,17 @@
 package cn.freeteam.cms.action;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Channel;
+import cn.freeteam.cms.model.Htmlquartz;
 import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.service.ChannelService;
+import cn.freeteam.cms.service.HtmlquartzService;
 import cn.freeteam.cms.service.RoleChannelService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.model.Users;
@@ -48,14 +51,18 @@ public class ChannelAction extends BaseAction{
 	private ChannelService channelService;
 	private UserService userService;
 	private RoleChannelService roleChannelService;
+	private HtmlquartzService htmlquartzService;
 	
 	private Site site;
 	private Channel channel;
+	private Htmlquartz htmlquartz;
 	private File img;
 	private String imgFileName;
 	private String oldImg;
 	private String root;
 	private String onclick;
+	private List<Integer> hours;
+	private List<Integer> mins;
 
 	private String wasUser;
 	private String operUser;
@@ -131,6 +138,8 @@ public class ChannelAction extends BaseAction{
 		}
 		if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
 			channel=channelService.findById(channel.getId());
+			init("htmlquartzService");
+			htmlquartz=htmlquartzService.findByChannelid(channel.getId());
 			site=siteService.findById(channel.getSite());
 		}
 		return "edit";
@@ -201,6 +210,15 @@ public class ChannelAction extends BaseAction{
 					channel.setImg("/upload/"+site.getId()+"/"+id+ext);
 				}
 				channelService.update(channel);
+				//处理静态化调度
+				init("htmlquartzService");
+				if (htmlquartzService.findByChannelid(channel.getId())!=null) {
+					htmlquartzService.update(htmlquartz);
+				}else {
+					htmlquartz.setSiteid(site.getId());
+					htmlquartz.setChannelid(channel.getId());
+					htmlquartzService.insert(htmlquartz);
+				}
 				OperLogUtil.log(getLoginName(), "更新栏目 "+channel.getName(), getHttpRequest());
 			}else {
 				//添加
@@ -233,6 +251,11 @@ public class ChannelAction extends BaseAction{
 					channel.setImg("/upload/"+site.getId()+"/"+id+ext);
 				}
 				channelService.insert(channel);
+				//处理静态化调度
+				init("htmlquartzService");
+				htmlquartz.setSiteid(site.getId());
+				htmlquartz.setChannelid(channel.getId());
+				htmlquartzService.insert(htmlquartz);
 				OperLogUtil.log(getLoginName(), "添加栏目 "+channel.getName(), getHttpRequest());
 			}
 			write("<script>alert('操作成功');location.href='channel_edit.do?channel.id="+channel.getId()+"';</script>", "GBK");
@@ -573,4 +596,40 @@ public class ChannelAction extends BaseAction{
 		this.noShowSite = noShowSite;
 	}
 
+	public HtmlquartzService getHtmlquartzService() {
+		return htmlquartzService;
+	}
+
+	public void setHtmlquartzService(HtmlquartzService htmlquartzService) {
+		this.htmlquartzService = htmlquartzService;
+	}
+
+	public Htmlquartz getHtmlquartz() {
+		return htmlquartz;
+	}
+
+	public void setHtmlquartz(Htmlquartz htmlquartz) {
+		this.htmlquartz = htmlquartz;
+	}
+
+	public List<Integer> getHours() {
+		hours=new ArrayList<Integer>();
+		for (int i = 0; i < 24; i++) {
+			hours.add(i);
+		}
+		return hours;
+	}
+	public void setHours(List<Integer> hours) {
+		this.hours = hours;
+	}
+	public List<Integer> getMins() {
+		mins=new ArrayList<Integer>();
+		for (int i = 0; i < 60; i++) {
+			mins.add(i);
+		}
+		return mins;
+	}
+	public void setMins(List<Integer> mins) {
+		this.mins = mins;
+	}
 }

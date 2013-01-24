@@ -514,7 +514,12 @@ public class SiteAction extends BaseAction{
 				siteService.update(site);
 				//处理静态化调度
 				init("htmlquartzService");
-				htmlquartzService.update(htmlquartz);
+				if (htmlquartzService.findBySiteid(site.getId())!=null) {
+					htmlquartzService.update(htmlquartz);
+				}else {
+					htmlquartz.setSiteid(site.getId());
+					htmlquartzService.insert(htmlquartz);
+				}
 				OperLogUtil.log(getLoginName(), "更新站点 "+site.getName(), getHttpRequest());
 			}else {
 				//添加
