@@ -47,6 +47,7 @@ import freemarker.template.TemplateModelException;
 public class SiteService extends BaseService{
 
 	private SiteMapper siteMapper;
+	private HtmlquartzService htmlquartzService;
 	
 	
 	public SiteService(){
@@ -215,6 +216,7 @@ public class SiteService extends BaseService{
 	 * @param siteId
 	 */
 	public void del(String siteId){
+		init("htmlquartzService");
 		delPar(siteId);
 		siteMapper.deleteByPrimaryKey(siteId);
 		DBCommit();
@@ -233,6 +235,8 @@ public class SiteService extends BaseService{
 				delPar(siteList.get(i).getId());
 			}
 		}
+		//删除静态化调度数据
+		htmlquartzService.delBySiteid(parId);
 		siteMapper.deleteByPrimaryKey(parId);
 	}
 	public SiteMapper getSiteMapper() {
@@ -241,5 +245,15 @@ public class SiteService extends BaseService{
 
 	public void setSiteMapper(SiteMapper siteMapper) {
 		this.siteMapper = siteMapper;
+	}
+
+
+	public HtmlquartzService getHtmlquartzService() {
+		return htmlquartzService;
+	}
+
+
+	public void setHtmlquartzService(HtmlquartzService htmlquartzService) {
+		this.htmlquartzService = htmlquartzService;
 	}
 }
