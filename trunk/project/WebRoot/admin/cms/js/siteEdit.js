@@ -62,3 +62,15 @@ function syncRes(){
 function syncResComplete(data){
 	alert(data);
 }
+function htmlquartzTypeChange(obj){
+	if(""==obj.value){
+		$("#exetimeTd").fadeOut("slow"); 
+		$("#intervalTd").fadeOut("slow"); 
+	}else if("0"==obj.value){
+		$("#exetimeTd").fadeIn("slow"); 
+		$("#intervalTd").fadeOut("slow"); 
+	}else if("1"==obj.value){
+		$("#exetimeTd").fadeOut("slow"); 
+		$("#intervalTd").fadeIn("slow"); 
+	}
+}
