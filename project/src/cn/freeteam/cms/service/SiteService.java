@@ -259,41 +259,30 @@ public class SiteService extends BaseService{
 		if (site!=null) {
 			 Trigger trigger = QuartzUtil.getScheduler().getTrigger("HtmlSiteTrigger"+site.getId(),"HtmlSiteTrigger");  
 			 if(trigger != null){  
-				 CronTrigger ct = (CronTrigger)trigger;  
-				 String triggerStr=QuartzUtil.getTriggerStr(htmlquartz);
-				 if (triggerStr.trim().length()>0) {
-					 //修改时间   
-					 ct.setCronExpression(triggerStr);  
-					 //重启触发器   
-					 QuartzUtil.getScheduler().resumeTrigger("HtmlSiteTrigger"+site.getId(),"HtmlSiteTrigger"); 
-				 } else {
-					//停止触发器
-					 QuartzUtil.getScheduler().pauseTrigger("HtmlSiteTrigger"+site.getId(),"HtmlSiteTrigger");
-					//移除触发器
-					 QuartzUtil.getScheduler().unscheduleJob("HtmlSiteTrigger"+site.getId(),"HtmlSiteTrigger"); 
-					//删除任务 
-					 QuartzUtil.getScheduler().deleteJob("HtmlSiteJob"+site.getId(),"HtmlSiteJob");
+				//停止触发器
+				 QuartzUtil.getScheduler().pauseTrigger("HtmlSiteTrigger"+site.getId(),"HtmlSiteTrigger");
+				//移除触发器
+				 QuartzUtil.getScheduler().unscheduleJob("HtmlSiteTrigger"+site.getId(),"HtmlSiteTrigger"); 
+				//删除任务 
+				 QuartzUtil.getScheduler().deleteJob("HtmlSiteJob"+site.getId(),"HtmlSiteJob");
+			 }
+			 //创建任务
+			JobDetail jobDetail = null;
+			//站点静态化调度
+			jobDetail = new JobDetail("HtmlSiteJob"+site.getId(), "HtmlSiteJob",HtmlSiteJob.class);
+			trigger = new CronTrigger("HtmlSiteTrigger"+site.getId(), "HtmlSiteTrigger");
+			if (jobDetail!=null && trigger!=null) {
+				//设置参数
+				jobDetail.getJobDataMap().put("siteid", site.getId());
+				jobDetail.getJobDataMap().put("servletContext", servletContext);
+				//设置触发器
+				String triggerStr=QuartzUtil.getTriggerStr(htmlquartz);
+				if (triggerStr.trim().length()>0) {
+					((CronTrigger) trigger).setCronExpression(triggerStr); 
+					//添加到调度对列
+					QuartzUtil.getScheduler().scheduleJob(jobDetail, trigger);
 				}
-			 }else {
-				 //创建任务
-					JobDetail jobDetail = null;
-					//站点静态化调度
-					jobDetail = new JobDetail("HtmlSiteJob"+htmlquartz.getSiteid(), "HtmlSiteJob",HtmlSiteJob.class);
-					trigger = new CronTrigger("HtmlSiteTrigger"+htmlquartz.getSiteid(), "HtmlSiteTrigger");
-					if (jobDetail!=null && trigger!=null) {
-						//设置参数
-						jobDetail.getJobDataMap().put("siteid", htmlquartz.getSiteid());
-						jobDetail.getJobDataMap().put("channelid", htmlquartz.getChannelid());
-						jobDetail.getJobDataMap().put("servletContext", servletContext);
-						//设置触发器
-						String triggerStr=QuartzUtil.getTriggerStr(htmlquartz);
-						if (triggerStr.trim().length()>0) {
-							((CronTrigger) trigger).setCronExpression(triggerStr); 
-							//添加到调度对列
-							QuartzUtil.getScheduler().scheduleJob(jobDetail, trigger);
-						}
-					}
-			} 
+			}
 		}
 	}
 	public SiteMapper getSiteMapper() {

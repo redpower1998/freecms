@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import org.quartz.CronTrigger;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
 
@@ -42,14 +43,18 @@ public class QuartzInitializer extends HttpServlet{
 	public static SchedulerFactory schedFact ;
 	public static Scheduler sched;
 	public void init(ServletConfig config) throws ServletException { 
+		try {
+			sched = QuartzUtil.getScheduler();
+			QuartzUtil.startScheduler();
+		} catch (SchedulerException e1) {
+			e1.printStackTrace();
+		}
 		HtmlquartzService htmlquartzService=new HtmlquartzService();
 		//查询所有调度
 		List<Htmlquartz> htmlquartzList=htmlquartzService.findAll();
 		if (htmlquartzList!=null && htmlquartzList.size()>0) {
 			Htmlquartz htmlquartz;
 			try {
-				sched = QuartzUtil.getScheduler();
-				QuartzUtil.startScheduler();
 				for (int i = 0; i < htmlquartzList.size(); i++) {
 					htmlquartz=htmlquartzList.get(i);
 					
