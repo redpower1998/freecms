@@ -39,6 +39,8 @@ import cn.freeteam.cms.service.HtmlquartzService;
  * <p>============================================</p>
  */
 public class QuartzInitializer extends HttpServlet{
+	public static SchedulerFactory schedFact ;
+	public static Scheduler sched;
 	public void init(ServletConfig config) throws ServletException { 
 		HtmlquartzService htmlquartzService=new HtmlquartzService();
 		//查询所有调度
@@ -46,8 +48,7 @@ public class QuartzInitializer extends HttpServlet{
 		if (htmlquartzList!=null && htmlquartzList.size()>0) {
 			Htmlquartz htmlquartz;
 			//创建调度工厂
-			SchedulerFactory schedFact = new StdSchedulerFactory();
-			Scheduler sched;
+			schedFact = new StdSchedulerFactory();
 			try {
 				sched = schedFact.getScheduler();
 				sched.start();
