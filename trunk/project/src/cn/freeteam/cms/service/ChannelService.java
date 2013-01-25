@@ -1,6 +1,7 @@
 package cn.freeteam.cms.service;
 
 import java.io.File;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,18 +10,21 @@ import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.quartz.CronTrigger;
+import org.quartz.JobDetail;
+import org.quartz.SchedulerException;
+import org.quartz.Trigger;
 
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.ChannelMapper;
 import cn.freeteam.cms.model.Channel;
 import cn.freeteam.cms.model.ChannelExample;
+import cn.freeteam.cms.model.Htmlquartz;
 import cn.freeteam.cms.model.Site;
-import cn.freeteam.cms.model.SiteExample;
 import cn.freeteam.cms.model.ChannelExample.Criteria;
-import cn.freeteam.cms.util.DOMUtil;
 import cn.freeteam.cms.util.FreeMarkerUtil;
+import cn.freeteam.cms.util.HtmlChannelJob;
+import cn.freeteam.cms.util.QuartzUtil;
 import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.OperLogUtil;
 
@@ -279,6 +283,15 @@ public class ChannelService extends BaseService{
 				delPar(channelList.get(i).getId());
 			}
 		}
+		try {
+			delHtmlChannelJob(parId);
+		} catch (SchedulerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		htmlquartzService.delByChannelid(parId);
 		channelMapper.deleteByPrimaryKey(parId);
 	}
@@ -421,6 +434,62 @@ public class ChannelService extends BaseService{
 				content.append("</li>");
 			}
 			content.append("</ul>");
+		}
+	}
+	/**
+	 * 更新栏目页静态化调度任务
+	 * @param site
+	 * @throws SchedulerException 
+	 * @throws ParseException 
+	 */
+	public void updateHtmlChannelJob(ServletContext servletContext,Site site,Channel channel,Htmlquartz htmlquartz) throws SchedulerException, ParseException{
+		if (channel!=null) {
+			 Trigger trigger = QuartzUtil.getScheduler().getTrigger("HtmlChannelTrigger"+channel.getId(),"HtmlChannelTrigger");  
+			 if(trigger != null){  
+				//停止触发器
+				 QuartzUtil.getScheduler().pauseTrigger("HtmlChannelTrigger"+channel.getId(),"HtmlChannelTrigger");
+				//移除触发器
+				 QuartzUtil.getScheduler().unscheduleJob("HtmlChannelTrigger"+channel.getId(),"HtmlChannelTrigger"); 
+				//删除任务 
+				 QuartzUtil.getScheduler().deleteJob("HtmlChannelJob"+channel.getId(),"HtmlChannelJob");
+			 }
+			 //创建任务
+			JobDetail jobDetail = null;
+			//站点静态化调度
+			jobDetail = new JobDetail("HtmlChannelJob"+channel.getId(), "HtmlChannelJob",HtmlChannelJob.class);
+			trigger = new CronTrigger("HtmlChannelTrigger"+channel.getId(), "HtmlChannelTrigger");
+			if (jobDetail!=null && trigger!=null) {
+				//设置参数
+				jobDetail.getJobDataMap().put("siteid", site.getId());
+				jobDetail.getJobDataMap().put("channelid", channel.getId());
+				jobDetail.getJobDataMap().put("servletContext", servletContext);
+				//设置触发器
+				String triggerStr=QuartzUtil.getTriggerStr(htmlquartz);
+				if (triggerStr.trim().length()>0) {
+					((CronTrigger) trigger).setCronExpression(triggerStr); 
+					//添加到调度对列
+					QuartzUtil.getScheduler().scheduleJob(jobDetail, trigger);
+				}
+			}
+		}
+	}
+	/**
+	 * 更新栏目页静态化调度任务
+	 * @param site
+	 * @throws SchedulerException 
+	 * @throws ParseException 
+	 */
+	public void delHtmlChannelJob(String channelid) throws SchedulerException, ParseException{
+		if (channelid!=null) {
+			 Trigger trigger = QuartzUtil.getScheduler().getTrigger("HtmlChannelTrigger"+channelid,"HtmlChannelTrigger");  
+			 if(trigger != null){  
+				//停止触发器
+				 QuartzUtil.getScheduler().pauseTrigger("HtmlChannelTrigger"+channelid,"HtmlChannelTrigger");
+				//移除触发器
+				 QuartzUtil.getScheduler().unscheduleJob("HtmlChannelTrigger"+channelid,"HtmlChannelTrigger"); 
+				//删除任务 
+				 QuartzUtil.getScheduler().deleteJob("HtmlChannelJob"+channelid,"HtmlChannelJob");
+			 }
 		}
 	}
 	public ChannelMapper getChannelMapper() {

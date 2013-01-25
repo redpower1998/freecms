@@ -219,6 +219,7 @@ public class ChannelAction extends BaseAction{
 					htmlquartz.setChannelid(channel.getId());
 					htmlquartzService.insert(htmlquartz);
 				}
+				channelService.updateHtmlChannelJob(getServletContext(), site, channel, htmlquartz);
 				OperLogUtil.log(getLoginName(), "更新栏目 "+channel.getName(), getHttpRequest());
 			}else {
 				//添加
@@ -256,6 +257,7 @@ public class ChannelAction extends BaseAction{
 				htmlquartz.setSiteid(site.getId());
 				htmlquartz.setChannelid(channel.getId());
 				htmlquartzService.insert(htmlquartz);
+				channelService.updateHtmlChannelJob(getServletContext(), site, channel, htmlquartz);
 				OperLogUtil.log(getLoginName(), "添加栏目 "+channel.getName(), getHttpRequest());
 			}
 			write("<script>alert('操作成功');location.href='channel_edit.do?channel.id="+channel.getId()+"';</script>", "GBK");

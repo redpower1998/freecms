@@ -245,6 +245,16 @@ public class SiteService extends BaseService{
 				delPar(siteList.get(i).getId());
 			}
 		}
+		//删除静态化调度任务
+		try {
+			delHtmlSiteJob(parId);
+		} catch (SchedulerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//删除静态化调度数据
 		htmlquartzService.delBySiteid(parId);
 		siteMapper.deleteByPrimaryKey(parId);
@@ -283,6 +293,25 @@ public class SiteService extends BaseService{
 					QuartzUtil.getScheduler().scheduleJob(jobDetail, trigger);
 				}
 			}
+		}
+	}
+	/**
+	 * 删除首页静态化调度任务
+	 * @param site
+	 * @throws SchedulerException 
+	 * @throws ParseException 
+	 */
+	public void delHtmlSiteJob(String siteid) throws SchedulerException, ParseException{
+		if (siteid!=null) {
+			 Trigger trigger = QuartzUtil.getScheduler().getTrigger("HtmlSiteTrigger"+siteid,"HtmlSiteTrigger");  
+			 if(trigger != null){  
+				//停止触发器
+				 QuartzUtil.getScheduler().pauseTrigger("HtmlSiteTrigger"+siteid,"HtmlSiteTrigger");
+				//移除触发器
+				 QuartzUtil.getScheduler().unscheduleJob("HtmlSiteTrigger"+siteid,"HtmlSiteTrigger"); 
+				//删除任务 
+				 QuartzUtil.getScheduler().deleteJob("HtmlSiteJob"+siteid,"HtmlSiteJob");
+			 }
 		}
 	}
 	public SiteMapper getSiteMapper() {
