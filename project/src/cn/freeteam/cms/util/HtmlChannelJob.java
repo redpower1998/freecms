@@ -43,6 +43,7 @@ public class HtmlChannelJob extends Base implements Job{
 	}
 
     public   void  execute(JobExecutionContext cntxt)  throws  JobExecutionException   {
+    	System.out.println("站点栏目页静态化调度任务");
     	if (cntxt.getJobDetail().getJobDataMap().get("siteid")!=null 
     			&& cntxt.getJobDetail().getJobDataMap().get("channelid")!=null 
     			&& cntxt.getJobDetail().getJobDataMap().get("servletContext")!=null) {
