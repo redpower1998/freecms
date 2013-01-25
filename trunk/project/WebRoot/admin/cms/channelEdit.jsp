@@ -248,8 +248,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<table><tr><td>
 							<select id="htmlquartzType" name="htmlquartz.type" onchange="htmlquartzTypeChange(this)">
 							<option value="">无</option>
-							<option value="0" ${"0" == htmlquartz.type ?"selected":"" }>定时生成首页</option>
-							<option value="1" ${"1" == htmlquartz.type ?"selected":"" }>间隔重复生成首页</option>
+							<option value="0" ${"0" == htmlquartz.type ?"selected":"" }>定时生成栏目页</option>
+							<option value="1" ${"1" == htmlquartz.type ?"selected":"" }>间隔重复生成栏目页</option>
 							</select>
 							</td>
 							<td id="exetimeTd" style="display:${"0" == htmlquartz.type ?"block":"none" }">
