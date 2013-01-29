@@ -55,6 +55,7 @@ public interface UnitMapper {
      * @mbggenerated Tue Mar 01 20:39:43 CST 2011
      */
     List<Unit> selectByExample(UnitExample example);
+    List<Unit> selectByExampleCache(UnitExample example);
     List<Unit> findByUser(UnitExample example);
 
     /**

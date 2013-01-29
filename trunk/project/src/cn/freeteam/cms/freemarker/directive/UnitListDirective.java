@@ -25,12 +25,13 @@ import freemarker.template.TemplateModel;
  * 参数
  * parid    空字符:所有;"par":一级单位;"parid":此id下单位;
  * filter	空字符:所有;"mail":可以接收互动信件的单位
+ * cache		是否使用缓存，默认为false
  * 
  * 返回值
  * unit			单位对象
  * index		索引
  *
-<@unitList parid="" filter="mail";unit,index>
+<@unitList parid="" filter="mail" cache="true";unit,index>
 ${index+1} ${unit.name}
 </@unitList>
  * 
@@ -76,8 +77,9 @@ public class UnitListDirective extends BaseDirective implements TemplateDirectiv
 				if ("mail".equals(filter)) {
 					ismail="1";
 				}
+				boolean cache="true".equals(getParam(params, "cache"))?true:false;
 				List<Unit> unitList=unitService.findByPar(
-						 parid,"1",ismail);
+						 parid,"1",ismail,cache);
 				if (unitList!=null && unitList.size()>0) {
 					for (int i = 0; i < unitList.size(); i++) {
 						loopVars[0]=new BeanModel(unitList.get(i),new BeansWrapper());  
