@@ -71,7 +71,7 @@ public class MailAction extends BaseAction{
 		unitList=unitService.findByPar("", "1", "1",false);
 		user=new Users();
 		user.setIsmail("1");
-		userList=userService.find(user);
+		userList=userService.find(user,false);
 		mailtypes=getConfig().get("mailType").toString().split(",");
 		if (mail==null ){
 			mail=new Mail();
@@ -118,7 +118,7 @@ public class MailAction extends BaseAction{
 		unitList=unitService.findByPar("", "1", "1",false);
 		user=new Users();
 		user.setIsmail("1");
-		userList=userService.find(user);
+		userList=userService.find(user,false);
 		return "forward";
 	}
 	/**
