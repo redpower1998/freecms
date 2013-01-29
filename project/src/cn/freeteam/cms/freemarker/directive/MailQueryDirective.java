@@ -22,7 +22,7 @@ import freemarker.template.TemplateModel;
  * 
  * <p>Title: MailQueryDirective.java</p>
  * 
- * <p>Description: 根据查询码查询信件处理</p>
+ * <p>Description: 根据查询码查询信件处理结果</p>
  * 参数
  * querycode 查询码
  * cache		是否使用缓存，默认为false
