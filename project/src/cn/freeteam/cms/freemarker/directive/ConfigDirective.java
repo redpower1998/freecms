@@ -27,7 +27,7 @@ import freemarker.template.TemplateModel;
  * <p>Description: 系统配置标签
  * 参数
  * code		系统配置编码
- * split	配置值分隔符，如果设置则以分隔符以数组形式处理配置值
+ * split	配置值分隔符，如果设置则则用分隔符分隔以数组形式处理配置值
  * 
  * 返回值
  * value		配置值
