@@ -23,12 +23,13 @@ import freemarker.template.TemplateModel;
  * <p>Description: 用户列表标签
  * 参数
  * filter	空字符:所有;"mail":可以接收互动信件的用户
+ * cache		是否使用缓存，默认为false
  * 
  * 返回值
  * user			用户对象
  * index		索引
  *
-<@userList filter="mail";user,index>
+<@userList filter="mail" cache="true";user,index>
 ${index+1} ${user.name}
 </@userList>
  * 
@@ -75,7 +76,8 @@ public class UserListDirective extends BaseDirective implements TemplateDirectiv
 				}
 				Users user=new Users();
 				user.setIsmail(ismail);
-				List<Users> userList=userService.find(user);
+				boolean cache="true".equals(getParam(params, "cache"))?true:false;
+				List<Users> userList=userService.find(user,cache);
 				if (userList!=null && userList.size()>0) {
 					for (int i = 0; i < userList.size(); i++) {
 						loopVars[0]=new BeanModel(userList.get(i),new BeansWrapper());  

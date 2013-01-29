@@ -84,14 +84,18 @@ public class UserService extends BaseService{
 	 * 根据参数查询
 	 * @return
 	 */
-	public List<Users> find(Users user){
+	public List<Users> find(Users user,boolean cache){
 		UsersExample example=new UsersExample();
 		Criteria criteria=example.createCriteria();
 		if (user.getIsmail()!=null && user.getIsmail().trim().length()>0) {
 			criteria.andIsmailEqualTo(user.getIsmail().trim());
 		}
 		example.setOrderByClause(" loginName ");
-		return usersMapper.selectByExample(example);
+		if (cache) {
+			return usersMapper.selectByExampleCache(example);
+		}else {
+			return usersMapper.selectByExample(example);
+		}
 	}
 	/**
 	 * 根据id查询
