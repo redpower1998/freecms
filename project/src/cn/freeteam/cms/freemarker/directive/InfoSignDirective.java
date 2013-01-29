@@ -30,7 +30,7 @@ import freemarker.template.TemplateModel;
  * <p>Description: 显示信息签收代码</p>
  * 参数 
  * infoid		信息id
- * show			显示签收内容，默认为签收
+ * show			显示签收内容，默认为"签收"
  * aAttr		签收链接显示a标签的属性
  * loadjs  		是否加载依赖的js
  * 
