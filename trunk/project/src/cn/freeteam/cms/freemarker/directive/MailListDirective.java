@@ -39,10 +39,11 @@ import freemarker.template.TemplateModel;
  * 				3.回复时间降序
  * 				4.回复时间升序
  * cache		是否使用缓存，默认为false
+ * titleLen		标题显示长度
  * 				
  * 
  * 返回值
- * mal	mail对象
+ * mail	mail对象
  * index 索引
  * 
  * 示例
@@ -84,6 +85,8 @@ public class MailListDirective extends BaseDirective implements TemplateDirectiv
 			if (loopVars!=null && loopVars.length>0) {
 				//显示数量
 				int num=getParamInt(params, "num", 10);
+				//标题长度
+				int titleLen=getParamInt(params, "titleLen",0);
 				//排序
 				String order=getParam(params, "order","1");
 				Mail mail=new Mail();
@@ -116,6 +119,10 @@ public class MailListDirective extends BaseDirective implements TemplateDirectiv
 				List<Mail> list=mailService.find(mail, orderSql, 1, num,"true".equals(getParam(params, "cache"))?true:false);
 				if (list!=null && list.size()>0) {
 					for (int i = 0; i < list.size(); i++) {
+						if (titleLen>0 && list.get(i).getTitle().length()>titleLen) {
+							//判断标题长度
+							list.get(i).setTitle(list.get(i).getTitle().substring(0, titleLen));
+						}
 						loopVars[0]=new BeanModel(list.get(i),new BeansWrapper());  
 						if(loopVars.length>1){
 							loopVars[1]=new SimpleNumber(i);

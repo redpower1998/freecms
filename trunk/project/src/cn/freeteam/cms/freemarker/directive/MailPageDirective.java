@@ -43,6 +43,7 @@ import freemarker.template.TemplateModel;
  * cache		是否使用缓存，默认为false
  * page			当前第几页，默认1		
  * action		分页跳转页面
+ * titleLen		标题显示长度
  * 				
  * 
  * 返回值
@@ -95,6 +96,8 @@ public class MailPageDirective extends BaseDirective implements TemplateDirectiv
 			if (loopVars!=null && loopVars.length>0) {
 				//显示数量
 				int num=getParamInt(params, "num", 10);
+				//标题长度
+				int titleLen=getParamInt(params, "titleLen",0);
 				//当前第几页
 				int page=getParamInt(params, "page", 1);
 				//排序
@@ -134,6 +137,14 @@ public class MailPageDirective extends BaseDirective implements TemplateDirectiv
 				pager.setPageSize(num);
 				pager.setAction(getParam(params, "action"));
 				List<Mail> list=mailService.find(mail, orderSql, page, num,cache);
+				if (list!=null && list.size()>0) {
+					for (int i = 0; i < list.size(); i++) {
+						if (titleLen>0 && list.get(i).getTitle().length()>titleLen) {
+							//判断标题长度
+							list.get(i).setTitle(list.get(i).getTitle().substring(0, titleLen));
+						}
+					}
+				}
 				loopVars[0]=new ArrayModel(list.toArray(),new BeansWrapper()); 
 				if(loopVars.length>1){
 					loopVars[1]=new BeanModel(pager,new BeansWrapper()); 
