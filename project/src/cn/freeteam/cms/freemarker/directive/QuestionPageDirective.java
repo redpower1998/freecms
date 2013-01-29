@@ -39,9 +39,17 @@ import freemarker.template.TemplateModel;
  * pager			分页对象
  * 
  * 示例
-<@questionList ;question,index>
-${index} : ${question.name}<br>
-</@questionList>
+<@questionPage  num='1' page='${page!1}' action='${contextPath}templet_pro.do?siteid=${site.id}&templetPath=question.html';questionList,pager>
+
+<ul>
+	<#list questionList as question>
+	<li>
+		${question.name}
+	</li>
+	</#list>
+</ul>
+${pager.formPageStr}
+</@questionPage>
  * <p>Date: Jan 23, 2013</p>
  * 
  * <p>Time: 6:53:26 PM</p>
