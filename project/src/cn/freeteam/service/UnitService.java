@@ -124,7 +124,7 @@ public class UnitService extends BaseService{
 	 * @param parid
 	 * @return
 	 */
-	public List<Unit> findByPar(String parid,String isok,String ismail){
+	public List<Unit> findByPar(String parid,String isok,String ismail,boolean cache){
 		UnitExample example=new UnitExample();
 		Criteria criteria=example.createCriteria();
 		if (parid!=null && parid.trim().length()>0 && !"par".equals(parid)) {
@@ -140,7 +140,11 @@ public class UnitService extends BaseService{
 			criteria.andIsmailEqualTo(ismail.trim());
 		}
 		example.setOrderByClause(" orderNum ");
-		return mapper.selectByExample(example);
+		if (cache) {
+			return mapper.selectByExampleCache(example);
+		}else {
+			return mapper.selectByExample(example);
+		}
 	}
 	public UnitMapper getMapper() {
 		return mapper;
