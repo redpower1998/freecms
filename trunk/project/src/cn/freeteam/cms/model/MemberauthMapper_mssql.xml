@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.freeteam.cms.dao.FreecmsMemberauthMapper" >
+<mapper namespace="cn.freeteam.cms.dao.MemberauthMapper" >
   <resultMap id="BaseResultMap" type="cn.freeteam.cms.model.Memberauth" >
     <!--
       WARNING - @mbggenerated
@@ -106,6 +106,31 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+  </select>
+  <sql id="selectPageByExampleSql">
+  SELECT TOP ${pageSize} *
+    FROM freecms_memberAuth
+    WHERE (ID NOT IN  
+          (SELECT TOP ${skip} id   
+         FROM freecms_memberAuth   
+	    <if test="_parameter != null">
+	      <include refid="Example_Where_Clause" />
+	    </if>
+         
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>))   
+         
+	    <if test="_parameter != null">
+	       <include refid="Example_Clause" />
+	    </if>
+    
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if> 
+  </sql>
+  <select  id="selectPageByExample" parameterType="cn.freeteam.cms.model.MemberauthExample" resultMap="BaseResultMap">
+     <include refid="selectPageByExampleSql" />
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     <!--
