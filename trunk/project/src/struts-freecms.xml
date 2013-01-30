@@ -71,6 +71,10 @@
 		</action>
 		<action name="answer_*" method="{1}" class="cn.freeteam.cms.action.AnswerAction">
 		</action>
+		<action name="memberauth_*" method="{1}" class="cn.freeteam.cms.action.MemberauthAction">
+			<result name="list" >/admin/cms/memberauthList.jsp</result>
+			<result name="edit" >/admin/cms/memberauthEdit.jsp</result>
+		</action>
 	</package>
 	
 	<package name="cmsWeb" extends="struts-default" namespace="/">
