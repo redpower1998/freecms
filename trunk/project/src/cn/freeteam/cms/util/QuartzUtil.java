@@ -39,7 +39,6 @@ public class QuartzUtil {
 	public static SchedulerFactory getSchedulerFactory(){
 		if (QuartzInitializer.schedFact==null) {
 			QuartzInitializer.schedFact = new StdSchedulerFactory();
-			System.out.println("getSchedulerFactory");
 		}
 		return QuartzInitializer.schedFact;
 	}
@@ -51,7 +50,6 @@ public class QuartzUtil {
 	public static Scheduler getScheduler() throws SchedulerException{
 		if (QuartzInitializer.sched==null) {
 			QuartzInitializer.sched = getSchedulerFactory().getScheduler();
-			System.out.println("getScheduler");
 		}
 		return QuartzInitializer.sched;
 	}
@@ -62,7 +60,6 @@ public class QuartzUtil {
 	public static void startScheduler() throws SchedulerException{
 		if (!getScheduler().isStarted()) {
 			getScheduler().start();
-			System.out.println("startScheduler");
 		}
 	}
 	/**
