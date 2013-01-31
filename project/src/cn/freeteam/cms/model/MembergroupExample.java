@@ -454,123 +454,123 @@ public class MembergroupExample {
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditIsNull() {
-            addCriterion("beginCredit is null");
+        public Criteria andBeginexperienceIsNull() {
+            addCriterion("beginexperience is null");
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditIsNotNull() {
-            addCriterion("beginCredit is not null");
+        public Criteria andBeginexperienceIsNotNull() {
+            addCriterion("beginexperience is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditEqualTo(Integer value) {
-            addCriterion("beginCredit =", value, "begincredit");
+        public Criteria andBeginexperienceEqualTo(Integer value) {
+            addCriterion("beginexperience =", value, "beginexperience");
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditNotEqualTo(Integer value) {
-            addCriterion("beginCredit <>", value, "begincredit");
+        public Criteria andBeginexperienceNotEqualTo(Integer value) {
+            addCriterion("beginexperience <>", value, "beginexperience");
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditGreaterThan(Integer value) {
-            addCriterion("beginCredit >", value, "begincredit");
+        public Criteria andBeginexperienceGreaterThan(Integer value) {
+            addCriterion("beginexperience >", value, "beginexperience");
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditGreaterThanOrEqualTo(Integer value) {
-            addCriterion("beginCredit >=", value, "begincredit");
+        public Criteria andBeginexperienceGreaterThanOrEqualTo(Integer value) {
+            addCriterion("beginexperience >=", value, "beginexperience");
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditLessThan(Integer value) {
-            addCriterion("beginCredit <", value, "begincredit");
+        public Criteria andBeginexperienceLessThan(Integer value) {
+            addCriterion("beginexperience <", value, "beginexperience");
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditLessThanOrEqualTo(Integer value) {
-            addCriterion("beginCredit <=", value, "begincredit");
+        public Criteria andBeginexperienceLessThanOrEqualTo(Integer value) {
+            addCriterion("beginexperience <=", value, "beginexperience");
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditIn(List<Integer> values) {
-            addCriterion("beginCredit in", values, "begincredit");
+        public Criteria andBeginexperienceIn(List<Integer> values) {
+            addCriterion("beginexperience in", values, "beginexperience");
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditNotIn(List<Integer> values) {
-            addCriterion("beginCredit not in", values, "begincredit");
+        public Criteria andBeginexperienceNotIn(List<Integer> values) {
+            addCriterion("beginexperience not in", values, "beginexperience");
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditBetween(Integer value1, Integer value2) {
-            addCriterion("beginCredit between", value1, value2, "begincredit");
+        public Criteria andBeginexperienceBetween(Integer value1, Integer value2) {
+            addCriterion("beginexperience between", value1, value2, "beginexperience");
             return (Criteria) this;
         }
 
-        public Criteria andBegincreditNotBetween(Integer value1, Integer value2) {
-            addCriterion("beginCredit not between", value1, value2, "begincredit");
+        public Criteria andBeginexperienceNotBetween(Integer value1, Integer value2) {
+            addCriterion("beginexperience not between", value1, value2, "beginexperience");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditIsNull() {
-            addCriterion("endCredit is null");
+        public Criteria andEndexperienceIsNull() {
+            addCriterion("endexperience is null");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditIsNotNull() {
-            addCriterion("endCredit is not null");
+        public Criteria andEndexperienceIsNotNull() {
+            addCriterion("endexperience is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditEqualTo(Integer value) {
-            addCriterion("endCredit =", value, "endcredit");
+        public Criteria andEndexperienceEqualTo(Integer value) {
+            addCriterion("endexperience =", value, "endexperience");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditNotEqualTo(Integer value) {
-            addCriterion("endCredit <>", value, "endcredit");
+        public Criteria andEndexperienceNotEqualTo(Integer value) {
+            addCriterion("endexperience <>", value, "endexperience");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditGreaterThan(Integer value) {
-            addCriterion("endCredit >", value, "endcredit");
+        public Criteria andEndexperienceGreaterThan(Integer value) {
+            addCriterion("endexperience >", value, "endexperience");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditGreaterThanOrEqualTo(Integer value) {
-            addCriterion("endCredit >=", value, "endcredit");
+        public Criteria andEndexperienceGreaterThanOrEqualTo(Integer value) {
+            addCriterion("endexperience >=", value, "endexperience");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditLessThan(Integer value) {
-            addCriterion("endCredit <", value, "endcredit");
+        public Criteria andEndexperienceLessThan(Integer value) {
+            addCriterion("endexperience <", value, "endexperience");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditLessThanOrEqualTo(Integer value) {
-            addCriterion("endCredit <=", value, "endcredit");
+        public Criteria andEndexperienceLessThanOrEqualTo(Integer value) {
+            addCriterion("endexperience <=", value, "endexperience");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditIn(List<Integer> values) {
-            addCriterion("endCredit in", values, "endcredit");
+        public Criteria andEndexperienceIn(List<Integer> values) {
+            addCriterion("endexperience in", values, "endexperience");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditNotIn(List<Integer> values) {
-            addCriterion("endCredit not in", values, "endcredit");
+        public Criteria andEndexperienceNotIn(List<Integer> values) {
+            addCriterion("endexperience not in", values, "endexperience");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditBetween(Integer value1, Integer value2) {
-            addCriterion("endCredit between", value1, value2, "endcredit");
+        public Criteria andEndexperienceBetween(Integer value1, Integer value2) {
+            addCriterion("endexperience between", value1, value2, "endexperience");
             return (Criteria) this;
         }
 
-        public Criteria andEndcreditNotBetween(Integer value1, Integer value2) {
-            addCriterion("endCredit not between", value1, value2, "endcredit");
+        public Criteria andEndexperienceNotBetween(Integer value1, Integer value2) {
+            addCriterion("endexperience not between", value1, value2, "endexperience");
             return (Criteria) this;
         }
 
