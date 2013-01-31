@@ -75,6 +75,10 @@
 			<result name="list" >/admin/cms/memberauthList.jsp</result>
 			<result name="edit" >/admin/cms/memberauthEdit.jsp</result>
 		</action>
+		<action name="membergroup_*" method="{1}" class="cn.freeteam.cms.action.MembergroupAction">
+			<result name="list" >/admin/cms/membergroupList.jsp</result>
+			<result name="edit" >/admin/cms/membergroupEdit.jsp</result>
+		</action>
 	</package>
 	
 	<package name="cmsWeb" extends="struts-default" namespace="/">
