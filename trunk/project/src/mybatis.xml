@@ -67,5 +67,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="cn/freeteam/cms/model/HtmlquartzMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/MemberauthMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/MembergroupMapper.xml"/>
+		<mapper resource="cn/freeteam/cms/model/MembergroupAuthMapper.xml"/>
 	</mappers>	
 </configuration>
