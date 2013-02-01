@@ -1,8 +1,8 @@
 function typeChange(type){
 	if(1==type){
-		$("#beginexperienceTr").fadeOut("slow"); 
+		$("#groupidTd").fadeIn("slow"); 
 	}else{
-		$("#beginexperienceTr").fadeIn("slow"); 
+		$("#groupidTd").fadeOut("slow"); 
 	}
 }
 

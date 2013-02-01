@@ -13,8 +13,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="../../img/common.css" type="text/css" />
 		<link rel="stylesheet" href="../../img/style.css" type="text/css" />
 		<link rel="stylesheet" href="../../img/style3.css" type="text/css" />
+		<script language="javascript" type="text/javascript" src="../../My97DatePicker/WdatePicker.js" defer="defer"></script>
 		<script type="text/javascript" src="../../js/jquery-1.5.1.min.js"></script>
-		<script type="text/javascript" src="../../js/jscolor/jscolor.js"></script>
+		<script type="text/javascript" src="../../js/checkLoginName.js"></script>
 		<script type="text/javascript" src="js/memberEdit.js"></script>
 
 	</HEAD>
@@ -45,8 +46,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<input type="radio" id="type0" onclick="typeChange(0)" name="member.type" value="0" <s:if test="member==null || member.type==null || member.type==0">checked="checked"</s:if> >积分会员
-								<input type="radio" id="type1" onclick="typeChange(1)" name="member.type" value="1" <s:if test="member.type==1">checked="checked"</s:if>>特殊会员
+								<table ><tr><td>
+								<input type="radio" id="type0" onclick="typeChange(0)" name="member.grouptype" value="0" <s:if test="member==null || member.grouptype==null || member.grouptype==0">checked="checked"</s:if> >经验会员
+								${membergroup.name }
+								</td><td>
+								<input type="radio" id="type1" onclick="typeChange(1)" name="member.grouptype" value="1" <s:if test="member.grouptype==1">checked="checked"</s:if>>特殊会员
+								</td>
+								<td id="groupidTd" style="display:${1==member.grouptype?"block":"none" }">
+								<select name="member.groupid">
+									<s:iterator value="membergroupList" id="bean">
+									<option value="<s:property value="id"/>" ${bean.id == member.groupid ?"selected":"" }><s:property value="name"/>
+									</s:iterator>
+								</select>
+								</td><td>
+								<SPAN  id=ctl03>*</SPAN>
+								</td></tr></table>
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label>
+									<IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=会员登录系统使用的登录名
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>登录名：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								<INPUT onblur="this.className='colorblur';" id=loginname
+									class=colorblur onfocus="this.className='colorfocus';" 
+									maxLength=50 type=text name=member.loginname value="" onpropertychange="checkLoginName(this)">
 								<SPAN  id=ctl03>*</SPAN>
 							</TD>
 						</TR>
@@ -68,39 +100,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<SPAN  id=ctl03>*</SPAN>
 							</TD>
 						</TR>
+						
 						<TR>
 							<TD width="30%" align="left">
-								<LABEL id=ctl01_ctl00_label><IMG
+								<LABEL id=ctl01_ctl00_label>
+									<IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请输入排列顺序
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=会员登录系统使用的密码
 											src="../../img/help.gif">
 									<NOBR>
-										<SPAN id=ctl01_ctl00_lblLabel>序号：</SPAN>
+										<SPAN id=ctl01_ctl00_lblLabel>密码：</SPAN>
 									</NOBR>
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<INPUT onblur="this.className='inputblur';" id=ordernum
-									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
-									maxLength=50 type=text  name=member.ordernum value="${member.ordernum }">
+								<INPUT onblur="this.className='colorblur';" id=pwd type="password"
+									class=colorblur onfocus="this.className='colorfocus';" 
+									maxLength=50 type=text name=member.pwd value="">
+								<SPAN  id=ctl03>*</SPAN>
 							</TD>
 						</TR>
-						<TR id="beginexperienceTr">
+						<TR>
 							<TD width="30%" align="left">
-								<LABEL id=ctl01_ctl00_label><IMG
+								<LABEL id=ctl01_ctl00_label>
+									<IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请输入开始经验值
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=再输入一次会员登录系统使用的密码
 											src="../../img/help.gif">
 									<NOBR>
-										<SPAN id=ctl01_ctl00_lblLabel>开始经验值：</SPAN>
+										<SPAN id=ctl01_ctl00_lblLabel>确认登录密码：</SPAN>
 									</NOBR>
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<INPUT onblur="this.className='inputblur';" id=beginexperience
-									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
-									maxLength=50 type=text  name=member.beginexperience value="${member.beginexperience }">
-									<SPAN  id=ctl03>*</SPAN>
+								<INPUT onblur="this.className='colorblur';" id=repwd type="password"
+									class=colorblur onfocus="this.className='colorfocus';" 
+									maxLength=50 type=text  value="">
+								<SPAN  id=ctl03>*</SPAN>
 							</TD>
 						</TR>
 						<TR>
@@ -108,10 +144,96 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<LABEL id=ctl02_ctl00_label>
 									<IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=请上传图标
+											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=请选择性别
 											src="../../img/help.gif">
 									<NOBR>
-										<SPAN id=ctl02_ctl00_lblLabel>图标：</SPAN>
+										<SPAN id=ctl02_ctl00_lblLabel>性别：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD align="left">
+								<input type="radio" name="member.sex" value="1" checked="checked">男
+								<input type="radio" name="member.sex" value="0" >女
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl02_ctl00_label>
+									<IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=输入出生日期
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl02_ctl00_lblLabel>出生日期：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD align="left">
+		  <input name="member.birthday" id="birthday" class="Wdate"  type="text" size="14" value=""  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d'})"/>
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl02_ctl00_label>
+									<IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=输入联系电话
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl02_ctl00_lblLabel>联系电话：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD align="left">
+								<INPUT onblur="this.className='colorblur';" 
+									class=colorblur onfocus="this.className='colorfocus';" 
+									maxLength=50 type=text name=member.tel value="">
+							</TD>
+						</TR><TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl02_ctl00_label>
+									<IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=输入手机
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl02_ctl00_lblLabel>手机：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD align="left">
+								<INPUT onblur="this.className='colorblur';" 
+									class=colorblur onfocus="this.className='colorfocus';" 
+									maxLength=50 type=text name=member.mobilephone value="">
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl02_ctl00_label>
+									<IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=请输入正确的电子邮箱，密码找回时需要此邮箱地址！
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl02_ctl00_lblLabel>电子邮箱：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD align="left">
+								<INPUT onblur="this.className='colorblur';" id="email"
+									class=colorblur onfocus="this.className='colorfocus';" 
+									maxLength=50 type=text name=member.email value="">
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl02_ctl00_label>
+									<IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=请上传头像
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl02_ctl00_lblLabel>头像：</SPAN>
 									</NOBR>
 								</LABEL>
 							</TD>
@@ -130,91 +252,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									class=inputblur onfocus="this.className='inputfocus';" id="img">
 							</TD>
 						</TR>
-						<TR>
+						
+						<TR id="beginexperienceTr">
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择颜色
+											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请输入经验值
 											src="../../img/help.gif">
 									<NOBR>
-										<SPAN id=ctl01_ctl00_lblLabel>颜色：</SPAN>
+										<SPAN id=ctl01_ctl00_lblLabel>经验值：</SPAN>
 									</NOBR>
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<INPUT  id=color
-									class="color"
-									maxLength=50 type=text name=member.color value="${member.color }<s:if test="member==null || member.color == null || member.color ==''">000000</s:if>">
+								<INPUT onblur="this.className='inputblur';" id=experience
+									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									maxLength=50 type=text  name=member.experience value="${member.experience }">
 							</TD>
 						</TR>
 						<TR id="beginexperienceTr">
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请设置附件最大大小
+											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请输入积分值
 											src="../../img/help.gif">
 									<NOBR>
-										<SPAN id=ctl01_ctl00_lblLabel>附件最大大小：</SPAN>
+										<SPAN id=ctl01_ctl00_lblLabel>积分值：</SPAN>
 									</NOBR>
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<INPUT onblur="this.className='inputblur';" id=maxattchsize
+								<INPUT onblur="this.className='inputblur';" id=credit
 									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
-									maxLength=50 type=text  name=member.maxattchsize value="${member.maxattchsize }">
-									(MB)
-							</TD>
-						</TR>
-						<TR id="beginexperienceTr">
-							<TD width="30%" align="left">
-								<LABEL id=ctl01_ctl00_label><IMG
-											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请设置最大好友数
-											src="../../img/help.gif">
-									<NOBR>
-										<SPAN id=ctl01_ctl00_lblLabel>最大好友数：</SPAN>
-									</NOBR>
-								</LABEL>
-							</TD>
-							<TD width="70%" align="left">
-								<INPUT onblur="this.className='inputblur';" id=maxfriendnum
-									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
-									maxLength=50 type=text  name=member.maxfriendnum value="${member.maxfriendnum }">
-									
+									maxLength=50 type=text  name=member.credit value="${member.credit }">
 							</TD>
 						</TR>
 						<TR>
 							<TD width="30%" align="left">
-								<LABEL id=ctl01_ctl00_label><IMG
+								<LABEL id=ctl02_ctl00_label>
+									<IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择评论是否需要审核
-											src="../../img/help.gif">
+											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=请输入简介(200字以内)
+											src="../../img/help.gif"/>
 									<NOBR>
-										<SPAN id=ctl01_ctl00_lblLabel>评论是否需要审核：</SPAN>
+										<SPAN id=ctl02_ctl00_lblLabel>简介：</SPAN>
 									</NOBR>
 								</LABEL>
 							</TD>
-							<TD width="70%" align="left">
-								<input type="radio" id="commentneedcheck1"  name="member.commentneedcheck" value="1" <s:if test="member==null || member.commentneedcheck==null || member.commentneedcheck==1">checked="checked"</s:if>>是
-								<input type="radio" id="commentneedcheck0"  name="member.commentneedcheck" value="0" <s:if test="member.commentneedcheck==0">checked="checked"</s:if> >否
-								<SPAN  id=ctl03>*</SPAN>
-							</TD>
-						</TR>
-						<TR>
-							<TD width="30%" align="left">
-								<LABEL id=ctl01_ctl00_label><IMG
-											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择评论是否需要验证码
-											src="../../img/help.gif">
-									<NOBR>
-										<SPAN id=ctl01_ctl00_lblLabel>评论是否需要验证码：</SPAN>
-									</NOBR>
-								</LABEL>
-							</TD>
-							<TD width="70%" align="left">
-								<input type="radio" id="commentneedcaptcha1"  name="member.commentneedcaptcha" value="1" <s:if test="member==null || member.commentneedcaptcha==null || member.commentneedcaptcha==1">checked="checked"</s:if>>是
-								<input type="radio" id="commentneedcaptcha0"  name="member.commentneedcaptcha" value="0" <s:if test="member.commentneedcaptcha==0">checked="checked"</s:if> >否
-								<SPAN  id=ctl03>*</SPAN>
+							<TD align="left">
+								<textarea onblur="this.className='colorblur';"   
+									class=colorblur onfocus="this.className='colorfocus';" 
+									maxLength=50 type=text id=rolename name=member.intro cols="40" rows="3"></textarea>
+									(200字以内)
 							</TD>
 						</TR>
 						<TR>
