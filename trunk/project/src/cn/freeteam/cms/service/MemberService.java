@@ -84,8 +84,14 @@ public class MemberService extends BaseService{
 	 * @param info
 	 * @param criteria
 	 */
-	public void proSearchParam(Member Member,Criteria criteria){
-		if (Member!=null ) {
+	public void proSearchParam(Member member,Criteria criteria){
+		if (member!=null ) {
+			if (member.getLoginname()!=null && member.getLoginname().trim().length()>0) {
+				criteria.andLoginnameLike("%"+member.getLoginname().trim()+"%");
+			}
+			if (member.getName()!=null && member.getName().trim().length()>0) {
+				criteria.andNameLike("%"+member.getName().trim()+"%");
+			}
 		}
 	}
 
