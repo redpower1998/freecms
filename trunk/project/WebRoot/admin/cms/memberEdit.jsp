@@ -15,6 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="../../img/style3.css" type="text/css" />
 		<script language="javascript" type="text/javascript" src="../../My97DatePicker/WdatePicker.js" defer="defer"></script>
 		<script type="text/javascript" src="../../js/jquery-1.5.1.min.js"></script>
+		<script type="text/javascript" src="../../js/check.js"></script>
 		<script type="text/javascript" src="../../js/checkLoginName.js"></script>
 		<script type="text/javascript" src="js/memberEdit.js"></script>
 
@@ -109,7 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=会员登录系统使用的密码
 											src="../../img/help.gif">
 									<NOBR>
-										<SPAN id=ctl01_ctl00_lblLabel>密码：</SPAN>
+										<SPAN id=ctl01_ctl00_lblLabel>登录密码：</SPAN>
 									</NOBR>
 								</LABEL>
 							</TD>
@@ -302,7 +303,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<TD align="left">
 								<textarea onblur="this.className='colorblur';"   
 									class=colorblur onfocus="this.className='colorfocus';" 
-									maxLength=50 type=text id=rolename name=member.intro cols="40" rows="3"></textarea>
+									maxLength=50 type=text id=intro name=member.intro cols="40" rows="3"></textarea>
 									(200字以内)
 							</TD>
 						</TR>
