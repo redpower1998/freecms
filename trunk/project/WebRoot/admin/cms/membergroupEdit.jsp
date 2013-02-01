@@ -92,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请输入开始经验值
 											src="../../img/help.gif">
 									<NOBR>
-										<SPAN id=ctl01_ctl00_lblLabel>开始经验值：</SPAN>
+										<SPAN id=ctl01_ctl00_lblLabel>经验值大于：</SPAN>
 									</NOBR>
 								</LABEL>
 							</TD>
