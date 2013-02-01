@@ -158,6 +158,36 @@ public class MembergroupAction extends BaseAction{
 		
 		return null;
 	}
+	/**
+	 * 删除
+	 * @return
+	 */
+	public String del(){
+		if (ids!=null && ids.trim().length()>0) {
+			StringBuilder sb=new StringBuilder();
+			String[] idArr=ids.split(";");
+			if (idArr!=null && idArr.length>0) {
+				for (int i = 0; i < idArr.length; i++) {
+					if (idArr[i].trim().length()>0) {
+						try {
+							membergroup=membergroupService.findById(idArr[i]);
+							if (membergroup!=null) {
+								membergroupService.del(membergroup.getId());
+								sb.append(idArr[i]+";");
+								logContent="删除会员组("+membergroup.getName()+")成功!";
+							}
+						} catch (Exception e) {
+							DBProException(e);
+							logContent="删除会员组("+membergroup.getName()+")失败:"+e.toString()+"!";
+						}
+						OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+					}
+				}
+			}
+			write(sb.toString(), "UTF-8");
+		}
+		return null;
+	}
 	public String getMsg() {
 		return msg;
 	}

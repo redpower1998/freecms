@@ -93,6 +93,14 @@ public class MembergroupService extends BaseService{
 		DBCommit();
 		return membergroup.getId();
 	}
+	/**
+	 * 删除 
+	 * @param id
+	 */
+	public void del(String id){
+		membergroupMapper.deleteByPrimaryKey(id);
+		DBCommit();
+	}
 	public MembergroupMapper getMembergroupMapper() {
 		return membergroupMapper;
 	}
