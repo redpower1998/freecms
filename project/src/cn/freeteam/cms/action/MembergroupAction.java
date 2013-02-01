@@ -6,9 +6,14 @@ import java.util.List;
 import java.util.UUID;
 
 import cn.freeteam.base.BaseAction;
+import cn.freeteam.cms.model.Memberauth;
 import cn.freeteam.cms.model.Membergroup;
+import cn.freeteam.cms.model.MembergroupAuth;
 import cn.freeteam.cms.model.Site;
+import cn.freeteam.cms.service.MemberauthService;
+import cn.freeteam.cms.service.MembergroupAuthService;
 import cn.freeteam.cms.service.MembergroupService;
+import cn.freeteam.model.Users;
 import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.OperLogUtil;
 /**
@@ -41,14 +46,19 @@ public class MembergroupAction extends BaseAction{
 	private String order=" ordernum ";
 	private String logContent;
 	private String ids;
+	private String names;
 	
 	private Membergroup membergroup;
 	private List<Membergroup> membergroupList;
+	private List<Memberauth> memberauthList;
+	private List<MembergroupAuth> membergroupAuthList;
 	private File img;
 	private String imgFileName;
 	private String oldImg;
 
 	private MembergroupService membergroupService;
+	private MemberauthService memberauthService;
+	private MembergroupAuthService membergroupAuthService;
 	
 	public MembergroupAction() {
 		init("membergroupService");
@@ -158,6 +168,66 @@ public class MembergroupAction extends BaseAction{
 		
 		return null;
 	}
+	/**
+	 * 授权页面
+	 * @return
+	 */
+	public String auth(){
+		if (membergroup!=null && membergroup.getId()!=null && membergroup.getId().trim().length()>0) {
+			//查询所有会员权限，并设置当前会员组是否有权限
+			init("memberauthService","membergroupAuthService");
+			memberauthList=memberauthService.find(null, " ordernum ");
+			membergroupAuthList =membergroupAuthService.findByGroup(membergroup.getId());			
+			if (memberauthList!=null && memberauthList.size()>0) {
+				for (int i = 0; i < memberauthList.size(); i++) {
+					if (membergroupAuthList!=null && membergroupAuthList.size()>0) {
+						for (int j = 0; j < membergroupAuthList.size(); j++) {
+							if (memberauthList.get(i).getId().equals(membergroupAuthList.get(j).getAuthid())) {
+								memberauthList.get(i).setHave(true);
+								continue;
+							}
+						}
+					}
+				}
+			}
+		}
+		return "auth";
+	}
+	/**
+	 * 授权处理
+	 * @return
+	 */
+	public String authDo(){
+		if (membergroup!=null && membergroup.getId()!=null && membergroup.getId().trim().length()>0
+				&& ids!=null ) {
+			String[] authids=ids.split(";");
+			membergroup=membergroupService.findById(membergroup.getId());
+			if (membergroup!=null) {
+				try {
+					init("memberauthService","membergroupAuthService");
+					//先删除原来的权限
+					membergroupAuthService.delByGroup(membergroup.getId());
+					//添加新的权限
+					if (authids!=null && authids.length>0) {
+						for (int i = 0; i < authids.length; i++) {
+							MembergroupAuth membergroupAuth=new MembergroupAuth();
+							membergroupAuth.setAuthid(authids[i]);
+							membergroupAuth.setGroupid(membergroup.getId());
+							membergroupAuthService.add(membergroupAuth);
+						}
+					}
+					OperLogUtil.log(getLoginName(), "会员组授权("+membergroup.getName()+" "+names+")", getHttpRequest());
+					write("1", "UTF-8");
+				} catch (Exception e) {
+					OperLogUtil.log(getLoginName(), "会员组授权失败("+membergroup.getName()+" "+names+"):"+e.getMessage(), getHttpRequest());
+					DBProException(e);
+					write("fail", "UTF-8");
+				}
+			}
+		}
+		return null;
+	}
+
 	/**
 	 * 删除
 	 * @return
@@ -282,5 +352,56 @@ public class MembergroupAction extends BaseAction{
 
 	public void setOldImg(String oldImg) {
 		this.oldImg = oldImg;
+	}
+
+
+	public List<Memberauth> getMemberauthList() {
+		return memberauthList;
+	}
+
+
+	public void setMemberauthList(List<Memberauth> memberauthList) {
+		this.memberauthList = memberauthList;
+	}
+
+
+	public MemberauthService getMemberauthService() {
+		return memberauthService;
+	}
+
+
+	public void setMemberauthService(MemberauthService memberauthService) {
+		this.memberauthService = memberauthService;
+	}
+
+
+	public MembergroupAuthService getMembergroupAuthService() {
+		return membergroupAuthService;
+	}
+
+
+	public void setMembergroupAuthService(
+			MembergroupAuthService membergroupAuthService) {
+		this.membergroupAuthService = membergroupAuthService;
+	}
+
+
+	public List<MembergroupAuth> getMembergroupAuthList() {
+		return membergroupAuthList;
+	}
+
+
+	public void setMembergroupAuthList(List<MembergroupAuth> membergroupAuthList) {
+		this.membergroupAuthList = membergroupAuthList;
+	}
+
+
+	public String getNames() {
+		return names;
+	}
+
+
+	public void setNames(String names) {
+		this.names = names;
 	}
 }
