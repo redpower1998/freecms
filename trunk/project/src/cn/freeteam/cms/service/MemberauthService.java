@@ -56,6 +56,18 @@ public class MemberauthService extends BaseService{
 		return memberauthMapper.selectPageByExample(example);
 	}
 	/**
+	 * 查询
+	 */
+	public List<Memberauth> find(Memberauth memberauth,String order){
+		MemberauthExample example=new MemberauthExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(memberauth, criteria);
+		if (order!=null && order.trim().length()>0) {
+			example.setOrderByClause(order);
+		}
+		return memberauthMapper.selectByExample(example);
+	}
+	/**
 	 * 统计
 	 * @param info
 	 * @return

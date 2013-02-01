@@ -78,6 +78,7 @@
 		<action name="membergroup_*" method="{1}" class="cn.freeteam.cms.action.MembergroupAction">
 			<result name="list" >/admin/cms/membergroupList.jsp</result>
 			<result name="edit" >/admin/cms/membergroupEdit.jsp</result>
+			<result name="auth" >/admin/cms/membergroupAuth.jsp</result>
 		</action>
 	</package>
 	

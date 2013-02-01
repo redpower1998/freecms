@@ -1,7 +1,13 @@
 package cn.freeteam.cms.service;
 
+import java.util.List;
+import java.util.UUID;
+
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.MembergroupAuthMapper;
+import cn.freeteam.cms.model.MembergroupAuth;
+import cn.freeteam.cms.model.MembergroupAuthExample;
+import cn.freeteam.cms.model.MembergroupAuthExample.Criteria;
 
 /**
  * 
@@ -35,6 +41,40 @@ public class MembergroupAuthService extends BaseService{
 		initMapper("membergroupAuthMapper");
 	}
 
+	/**
+	 * 查询会员组下授权
+	 * @param groupid
+	 * @return
+	 */
+	public List<MembergroupAuth> findByGroup(String groupid){
+		MembergroupAuthExample example=new MembergroupAuthExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andGroupidEqualTo(groupid);
+		return membergroupAuthMapper.selectByExample(example);
+	}
+	/**
+	 * 删除会员组下授权
+	 * @param groupid
+	 * @return
+	 */
+	public void delByGroup(String groupid){
+		MembergroupAuthExample example=new MembergroupAuthExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andGroupidEqualTo(groupid);
+		membergroupAuthMapper.deleteByExample(example);
+		DBCommit();
+	}
+	/**
+	 * 添加
+	 * @param question
+	 * @return
+	 */
+	public String add(MembergroupAuth membergroupAuth){
+		membergroupAuth.setId(UUID.randomUUID().toString());
+		membergroupAuthMapper.insert(membergroupAuth);
+		DBCommit();
+		return membergroupAuth.getId();
+	}
 	public MembergroupAuthMapper getMembergroupAuthMapper() {
 		return membergroupAuthMapper;
 	}
