@@ -6,6 +6,14 @@ function checkAll(checked){
 		}
 	}
 }
+function checkAll(checked,checkname){
+	var objs=document.getElementsByName(checkname);
+	if(objs!=null && objs.length>0){
+		for(var i=0;i<objs.length;i++){
+			objs[i].checked=checked;
+		}
+	}
+}
 function getCheckValue(){
 	var checkValue="";
 	var objs=document.getElementsByName("ids");
