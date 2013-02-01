@@ -189,8 +189,7 @@
 <span><span>2.<span> </span></span></span><b><span style="font-family:宋体;">部署到</span><span>Tomcat</span></b> 
 </p>
 <p>
-<span style="font-family:宋体;">复制安装包中</span><span>ROOT</span><span style="font-family:宋体;">文件夹至</span><span>Tomcat</span><span style="font-family:宋体;">目录下</span><span>webapps</span><span style="font-family:宋体;">文件夹下。可删除原来的</span><span>ROOT</span><span style="font-family:宋体;">文件夹。</span><span>FreeCMS</span><span style="font-family:宋体;">同时支持虚拟目录部署，如果您不想让</span><span>FreeCMS</span><span style="font-family:宋体;">作为</span><span>ROOT</span><span style="font-family:宋体;">部署，可以把</span><span>ROOT</span><span style="font-family:宋体;">文件夹名称改为</span><span>freecms</span><span style="font-family:宋体;">或您想要的名称。<br>注意:tomcat需要设置URIEncoding=”UTF-8”。</span> 
-</p>
+<span style="font-family:宋体;">复制安装包中</span><span>ROOT</span><span style="font-family:宋体;">文件夹至</span><span>Tomcat</span><span style="font-family:宋体;">目录下</span><span>webapps</span><span style="font-family:宋体;">文件夹下。可删除原来的</span><span>ROOT</span><span style="font-family:宋体;">文件夹。</span><span>FreeCMS</span><span style="font-family:宋体;">同时支持虚拟目录部署，如果您不想让</span><span>FreeCMS</span><span style="font-family:宋体;">作为</span><span>ROOT</span><span style="font-family:宋体;">部署，可以把</span><span>ROOT</span><span style="font-family:宋体;">文件夹名称改为</span><span>freecms</span><span style="font-family:宋体;">或您想要的名称。<br>注意:tomcat需要设置URIEncoding=”UTF-8”。
 <p>
 <b><span><span>3.<span> </span></span></span></b><b><span style="font-family:宋体;">配置</span><span>FreeCMS</span></b> 
 </p>
