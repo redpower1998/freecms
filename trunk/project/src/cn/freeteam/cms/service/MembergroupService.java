@@ -104,6 +104,21 @@ public class MembergroupService extends BaseService{
 		membergroupMapper.deleteByPrimaryKey(id);
 		DBCommit();
 	}
+	/**
+	 * 根据经验查询所处经验会员组
+	 * @param experience
+	 * @return
+	 */
+	public Membergroup findByExperience(int experience){
+		MembergroupExample example=new MembergroupExample();
+		Criteria criteria=example.createCriteria();
+		example.setOrderByClause(" beginexperience DESC ");
+		List<Membergroup> list = membergroupMapper.selectPageByExample(example);
+		if (list!=null && list.size()>0) {
+			return list.get(0);
+		}
+		return null;
+	}
 	public MembergroupMapper getMembergroupMapper() {
 		return membergroupMapper;
 	}

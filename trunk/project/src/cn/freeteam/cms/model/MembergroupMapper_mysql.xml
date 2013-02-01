@@ -115,6 +115,21 @@
       order by ${orderByClause}
     </if>
   </select>
+  <sql id="selectPageByExampleSql">
+  SELECT * 
+    FROM freecms_memberGroup
+    <if test="_parameter != null">
+       <include refid="Example_Where_Clause" />
+    </if>
+    
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if> 
+    limit ${skip},${pageSize}
+  </sql>
+  <select  id="selectPageByExample" parameterType="cn.freeteam.cms.model.MembergroupExample" resultMap="BaseResultMap">
+    <include refid="selectPageByExampleSql" />
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     <!--
       WARNING - @mbggenerated
