@@ -1,6 +1,7 @@
 package cn.freeteam.cms.action;
 
 import java.io.File;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -170,6 +171,8 @@ public class MemberAction extends BaseAction{
 					//生成访问地址
 					member.setImg("/upload/member/"+id+ext);
 				}
+				member.setAddtime(new Date());
+				member.setIsok("1");
 				memberService.add(member);
 				OperLogUtil.log(getLoginName(), "添加会员 "+member.getName(), getHttpRequest());
 			}
