@@ -122,7 +122,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<a href="<%=basePath %>${membergroup.img }?date=<%=UUID.randomUUID() %>" target="_blank">
 							<img src="<%=basePath %>${membergroup.img }?date=<%=UUID.randomUUID() %>" width="180" height="42" title="点击查看大图"/>
 							</a>
-							<a href="javascript:delLogo()">删除</a>
+							<a href="javascript:delImg()">删除</a>
 							</span>
 							<br/>
 							</s:if>

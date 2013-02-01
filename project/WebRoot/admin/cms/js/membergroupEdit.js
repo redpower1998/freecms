@@ -20,3 +20,7 @@ function save(){
 	}
 	$("#MyForm").submit();
 }
+function delImg(){
+	$("#oldImgSpan").fadeOut("slow"); 
+	$("#oldImg").val("");
+}

@@ -24,7 +24,7 @@
 		
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					积分会员组<font size="2">(用户级别随着其经验值的变化而自动升级或者降级)</font>
+					经验会员组<font size="2">(用户级别随着其经验值的变化而自动升级或者降级)</font>
 				</div>
 
 				<table id="MyDataList" cellspacing="1" cellpadding="1"
@@ -32,7 +32,7 @@
 					style="width: 100%; word-break: break-all">
 					<TR class="summary-title" style="HEIGHT: 25px" align="center">
 						<TD>
-							<INPUT onClick="checkAll(this.checked)" type="checkbox" />
+							<INPUT onClick="checkAllGroup(this.checked,'type0group')" type="checkbox" />
 						</TD>
 						
 						<TD>
@@ -59,10 +59,11 @@
 					</TR>
 					
 					<s:iterator value="membergroupList" id="bean">
+					<s:if test='%{"0" == #bean.type}'>
 					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						<TD align="center">
-							<INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
+							<INPUT name="ids" id="type0group<s:property value="id"/>" type="checkbox" value="<s:property value="id"/>"/></TD>
 						<TD  align="left" id="name<s:property value="id"/>">
 							<s:if test='%{#bean.img!=null }'>
 							<img id="img<s:property value="id"/>" src="<%=basePath %><s:property value="img"/>" width="30" height="30"/>
@@ -88,23 +89,90 @@
 							<s:property value="maxfriendnum"/>
 						</TD>
 						<TD  align="left" id="commentneedcheck<s:property value="id"/>">
-							<s:property value="commentneedcheck"/>
+							<s:property value="commentneedcheckStr"/>
 						</TD>
 						<TD  align="left" id="commentneedcaptcha<s:property value="id"/>">
-							<s:property value="commentneedcaptcha"/>
+							<s:property value="commentneedcaptchaStr"/>
 						</TD>
 					</TR>
+					</s:if>
 					</s:iterator>
-					<TR class="tdbg" 
-						style="HEIGHT: 25px" >
-						<TD  align="center" colspan="10">
-							${pageStr }
-						</TD>
-					</TR>
 				</table>
 
 			</DIV>
 
+<DIV class="column" style="width:99%">
+				<div class="columntitle">
+					特殊会员组<font size="2">(用户级别不受经验值的影响，始终保持不变)</font>
+				</div>
+
+				<table id="MyDataList" cellspacing="1" cellpadding="1"
+					Align="center" border="0" border="0"
+					style="width: 100%; word-break: break-all">
+					<TR class="summary-title" style="HEIGHT: 25px" align="center">
+						<TD>
+							<INPUT onClick="checkAllGroup(this.checked,'type1group')" type="checkbox" />
+						</TD>
+						
+						<TD>
+							<fs:order colName="名称" col="name"/>
+						</TD>
+						<TD>
+							<fs:order colName="排序号" col="ordernum"/>
+						</TD>
+						<TD>
+							<fs:order colName="附件最大大小(MB)" col="maxattchsize"/>
+						</TD>
+						<TD>
+							<fs:order colName="最大好友数" col="maxfriendnum"/>
+						</TD>
+						<TD>
+							<fs:order colName="评论是否需要审核" col="commentneedcheck"/>
+						</TD>
+						<TD>
+							<fs:order colName="评论是否需要验证码" col="commentneedcaptcha"/>
+						</TD>
+					</TR>
+					
+					<s:iterator value="membergroupList" id="bean">
+					<s:if test='%{"1" == #bean.type}'>
+					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
+						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
+						<TD align="center">
+							<INPUT name="ids" id="type1group<s:property value="id"/>" type="checkbox" value="<s:property value="id"/>"/></TD>
+						<TD  align="left" id="name<s:property value="id"/>">
+							<s:if test='%{#bean.img!=null }'>
+							<img id="img<s:property value="id"/>" src="<%=basePath %><s:property value="img"/>" width="30" height="30"/>
+							</s:if>
+							<s:if test='%{#bean.color!=null }'>
+							<font color="<s:property value="color"/>">
+							</s:if>
+							<s:property value="name"/>
+							<s:if test='%{#bean.color!=null }'>
+							</font>
+							</s:if>
+						</TD>
+						<TD  align="left" id="ordernum<s:property value="id"/>">
+							<s:property value="ordernum"/>
+						</TD>
+						<TD  align="left" id="maxattchsize<s:property value="id"/>">
+							<s:property value="maxattchsize"/>
+						</TD>
+						<TD  align="left" id="maxfriendnum<s:property value="id"/>">
+							<s:property value="maxfriendnum"/>
+						</TD>
+						<TD  align="left" id="commentneedcheck<s:property value="id"/>">
+							<s:property value="commentneedcheckStr"/>
+						</TD>
+						<TD  align="left" id="commentneedcaptcha<s:property value="id"/>">
+							<s:property value="commentneedcaptchaStr"/>
+						</TD>
+					</TR>
+					</s:if>
+					</s:iterator>
+				</table>
+
+			</DIV>
 			<table width="95%" align="center">
 				<tr>
 					<td align="right">
