@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<input type="radio" id="type0" onclick="typeChange(0)" name="membergroup.type" value="0" <s:if test="membergroup==null || membergroup.type==null || membergroup.type==0">checked="checked"</s:if> >积分会员组
+								<input type="radio" id="type0" onclick="typeChange(0)" name="membergroup.type" value="0" <s:if test="membergroup==null || membergroup.type==null || membergroup.type==0">checked="checked"</s:if> >经验会员组
 								<input type="radio" id="type1" onclick="typeChange(1)" name="membergroup.type" value="1" <s:if test="membergroup.type==1">checked="checked"</s:if>>特殊会员组
 								<SPAN  id=ctl03>*</SPAN>
 							</TD>
