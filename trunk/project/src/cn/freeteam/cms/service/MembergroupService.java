@@ -113,6 +113,8 @@ public class MembergroupService extends BaseService{
 		MembergroupExample example=new MembergroupExample();
 		Criteria criteria=example.createCriteria();
 		example.setOrderByClause(" beginexperience DESC ");
+		example.setCurrPage(1);
+		example.setPageSize(1);
 		List<Membergroup> list = membergroupMapper.selectPageByExample(example);
 		if (list!=null && list.size()>0) {
 			return list.get(0);
