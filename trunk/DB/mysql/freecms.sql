@@ -374,6 +374,7 @@ CREATE TABLE `freecms_membergroup` (
 /*Data for the table `freecms_membergroup` */
 
 insert  into `freecms_membergroup`(`id`,`type`,`name`,`orderNum`,`beginExperience`,`img`,`color`,`maxAttchSize`,`maxFriendNum`,`commentNeedCheck`,`commentNeedCaptcha`) values ('2751da4b-4a05-40ac-b7e2-eec21c33aa4b',0,'新手上路',NULL,0,NULL,'#3414FF',NULL,NULL,1,1);
+insert  into `freecms_membergroup`(`id`,`type`,`name`,`orderNum`,`beginExperience`,`img`,`color`,`maxAttchSize`,`maxFriendNum`,`commentNeedCheck`,`commentNeedCaptcha`) values ('e14fa93d-e07e-4599-8058-2c1893affd8d',1,'管理员',NULL,NULL,NULL,'#000000',NULL,NULL,1,1);
 
 /*Table structure for table `freecms_membergroup_auth` */
 
@@ -541,6 +542,7 @@ insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) valu
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('077739f0-3c17-461d-8b2f-2cdade8e779a','admin','2013-01-06 22:01:36','首页静态化:FreeCMS','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('07abfbb0-f5a6-4948-80e9-9d7aedbd9f8d','admin','2013-01-06 22:11:20','栏目静态化:下载 第1页','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('07df4a18-17c8-4253-8e16-1a7b2822139a','admin','2013-01-17 19:55:14','修改单位 信件 成功','127.0.0.1');
+insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('07e083c0-5aa2-48d4-af56-527583e05a57','admin','2013-02-01 21:15:08','添加会员组 管理员','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('08749e74-7f7d-4acb-b581-bd766397c288','admin','2013-01-16 19:32:52','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('08dc98dc-40a2-4fab-a511-7dd3460c7194','admin','2013-01-28 21:38:40','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('09345146-9240-4012-b6ac-da78cf707b7f','admin','2013-01-30 21:48:41','登录系统','127.0.0.1');
@@ -572,6 +574,7 @@ insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) valu
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('11695df5-ed9d-4641-9786-24dd7c8b6256','admin','2013-01-31 22:09:37','添加会员组 原梓菲','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('117066c0-6766-4ee7-b5cb-d415789fbc96','admin','2013-01-17 21:47:08','修改模板文件(templet\\freecms\\首页.html)成功!','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('1173f94c-b908-4b2e-b473-57b152bb5ab7','admin','2013-01-28 20:28:17','添加栏目 一级栏目','127.0.0.1');
+insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('11bad94d-a06b-4abf-b50e-91f6bb95538d','admin','2013-02-01 20:54:41','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('11c11827-a2a3-4a77-a0c4-58bcfb2204e9','admin','2013-01-06 22:11:21','栏目静态化:关于 第1页','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('122b6fbc-f2a2-419e-be2e-7df468ee3ec0','admin','2013-01-17 21:46:07','修改模板文件(templet\\freecms\\首页.html)成功!','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('12a8615e-9dc0-41e6-a227-ea6f0091287c','admin','2012-12-25 20:02:14','修改模板文件(templet\\f392cd10-13b6-4208-a5a9-77c7fd30bcf5\\test.html)成功!','127.0.0.1');
@@ -636,6 +639,7 @@ insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) valu
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('271badcb-cba9-4f79-ba86-36193edc8b54','admin','2013-01-31 22:12:33','添加会员组 xc','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('2737fe0e-a1fb-4936-9a0c-1b4726510507','admin','2013-01-16 20:20:32','信息页静态化:地','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('27486644-33b3-454a-809a-bd82eae9a946','admin','2013-01-24 22:53:15','站点设置 FreeCMS','127.0.0.1');
+insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('2804b25c-814f-465f-93ba-f598eed44210','admin','2013-02-01 21:11:35','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('2823a45f-15e7-463f-af78-ea953c066e03','admin','2013-01-22 13:53:41','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('29235ce1-de02-4497-9bdb-971f47c6a3f5','admin','2012-12-30 17:40:48','修改模板文件(templet\\freecms\\首页.html)成功!','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('29c3db6b-382f-4a68-9379-87e94a8d7136','admin','2013-01-06 20:24:04','修改模板文件(templet\\freecms\\inc\\头部.html)成功!','127.0.0.1');
@@ -734,6 +738,7 @@ insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) valu
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('43a3d1a8-c21d-4468-ab04-bfb76f297b17','admin','2013-01-17 21:40:49','修改模板文件(templet\\freecms\\信件.html)成功!','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('43f78ad0-acca-42c1-b285-df6b26c96953','admin','2013-01-19 12:46:50','添加角色菜单权限(管理员-其他信件)成功!','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('440fd115-e0c7-4e29-b8f4-aa40061ee17f','mail','2013-01-19 12:45:24','登录系统','127.0.0.1');
+insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('441f6b4a-1a0d-4e90-beb5-13324a0339ed','admin','2013-02-01 21:13:28','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('4469f720-2b53-44b9-847c-c53c7e613f86','admin','2013-01-16 22:04:14','信息页静态化:地','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('4472cd95-95d8-4b8a-99c9-fb22c2537821','admin','2012-12-30 17:53:45','修改模板文件(templet\\freecms\\首页.html)成功!','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('44c3be98-b1d8-4883-b78d-eee19314c0ee','admin','2013-01-17 21:41:24','修改模板文件(templet\\freecms\\首页.html)成功!','127.0.0.1');
@@ -796,6 +801,7 @@ insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) valu
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('5419a42c-990d-4d61-ab3c-a097473baf41','admin','2013-01-30 21:49:57','添加操作按钮 编 辑 成功','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('546bfa7e-f4d9-443c-b412-44020955943a','admin','2013-01-16 20:19:43','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('547abc60-910c-468a-895e-3814388da66e','admin','2013-01-30 22:08:25','修改会员权限(发表评论)成功!','127.0.0.1');
+insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('549c619b-8456-4986-b8c7-37533a2a2748','admin','2013-02-01 20:53:24','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('54a6dd4e-9b28-44b4-b2bd-de83c1753650','admin','2013-01-18 20:57:31','修改菜单 个人信件 成功','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('54b7ded6-4332-410e-995a-ba5617b9c883','admin','2013-01-16 20:13:19','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('54fdd5c7-2401-4468-883b-f0601b1f6fb9','admin','2013-01-16 22:05:10','信息页静态化:sign','127.0.0.1');
@@ -899,6 +905,7 @@ insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) valu
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('7b2bec5e-7a64-4d83-a34a-22392a5ae963','admin','2013-01-31 19:28:05','添加操作按钮 删 除 成功','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('7bbecb3e-ba7e-4851-853a-24ae70276aed','admin','2013-01-16 22:13:04','信息页静态化:sign','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('7d2d3d16-893b-4c5d-a710-7994a3e23a81','admin','2013-01-06 22:11:22','栏目静态化:要点 第1页','127.0.0.1');
+insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('7dd7ff3e-04a9-490c-8423-cf6026f53d2e','admin','2013-02-01 21:10:24','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('7e11d393-3b47-4b55-97ef-c28c7ba57dd7','admin','2013-01-19 14:38:34','添加操作按钮 转 交 成功','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('7e219f0a-7d0c-4618-9723-930b1f28d4a0','admin','2013-01-23 19:46:19','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('7fc56e20-56ee-47e7-8a1a-2a7258418014','admin','2013-01-16 22:04:05','修改模板文件(templet\\freecms\\信息页面.html)成功!','127.0.0.1');
@@ -926,6 +933,7 @@ insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) valu
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('86d35c52-eadb-4a2c-8f10-3d8aa681140f','admin','2012-12-25 20:08:44','重命名模板文件夹(templet\\f392cd10-13b6-4208-a5a9-77c7fd30bcf5\\test)成功!','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('86dde417-eba1-4084-a9db-722dbcd8afb2','admin','2013-01-16 22:12:13','信息页静态化:ds','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('87384b66-eb1c-4bd8-a6d8-931d01ddd0b7','admin','2012-12-30 17:47:05','首页静态化:FreeCMS','127.0.0.1');
+insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('87deced4-cef0-4684-8a13-ecf96d631887','admin','2013-02-01 21:12:46','登录系统','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('87e1fbdc-0808-4e1e-aadb-765c1283b529','admin','2013-01-06 21:59:11','首页静态化:FreeCMS','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('87e298fb-f663-4f4c-9f41-9646336d2d95','admin','2013-01-18 20:42:05','首页静态化:FreeCMS','127.0.0.1');
 insert  into `freecms_operlogs`(`id`,`loginName`,`operTime`,`content`,`ip`) values ('87e97702-1538-491a-810c-a7412cc8874d','mail','2013-01-19 12:43:18','登录系统','127.0.0.1');
@@ -1528,7 +1536,7 @@ CREATE TABLE `freecms_users` (
 
 /*Data for the table `freecms_users` */
 
-insert  into `freecms_users`(`id`,`loginName`,`roleNames`,`name`,`pwd`,`sex`,`birthday`,`tel`,`mobilephone`,`email`,`isOk`,`lastLoginTime`,`lastestLoginTime`,`loginFailNum`,`loginNum`,`addTime`,`unitNames`,`unitIds`,`ismail`) values ('02debc9f-53cd-4bc9-887b-49ffc4e925f2','admin','管理员;','管理员','523af537946b79c4f8369ed39ba78605','1',NULL,'','','freeteam@foxmail.com','1','2013-02-01 16:55:47','2013-02-01 19:18:55',0,0,NULL,NULL,NULL,NULL);
+insert  into `freecms_users`(`id`,`loginName`,`roleNames`,`name`,`pwd`,`sex`,`birthday`,`tel`,`mobilephone`,`email`,`isOk`,`lastLoginTime`,`lastestLoginTime`,`loginFailNum`,`loginNum`,`addTime`,`unitNames`,`unitIds`,`ismail`) values ('02debc9f-53cd-4bc9-887b-49ffc4e925f2','admin','管理员;','管理员','523af537946b79c4f8369ed39ba78605','1',NULL,'','','freeteam@foxmail.com','1','2013-02-01 21:12:46','2013-02-01 21:13:28',0,0,NULL,NULL,NULL,NULL);
 insert  into `freecms_users`(`id`,`loginName`,`roleNames`,`name`,`pwd`,`sex`,`birthday`,`tel`,`mobilephone`,`email`,`isOk`,`lastLoginTime`,`lastestLoginTime`,`loginFailNum`,`loginNum`,`addTime`,`unitNames`,`unitIds`,`ismail`) values ('44291cbf-696d-4c2e-b9d5-4238d986d479','mail','管理员;','信件user','b83a886a5c437ccd9ac15473fd6f1788','1','2013-01-17 00:00:00','','','','1','2013-01-19 12:47:04','2013-01-19 12:49:29',0,0,'2013-01-17 20:03:55','','','1');
 insert  into `freecms_users`(`id`,`loginName`,`roleNames`,`name`,`pwd`,`sex`,`birthday`,`tel`,`mobilephone`,`email`,`isOk`,`lastLoginTime`,`lastestLoginTime`,`loginFailNum`,`loginNum`,`addTime`,`unitNames`,`unitIds`,`ismail`) values ('95f488a0-cade-41dc-bffc-d302455c4e11','ddd','','dd','1aabac6d068eef6a7bad3fdf50a05cc8','1','2013-01-17 20:11:39','','','','1','2010-01-01 00:00:00','2010-01-01 00:00:00',0,0,'2013-01-17 20:11:39','','','1');
 insert  into `freecms_users`(`id`,`loginName`,`roleNames`,`name`,`pwd`,`sex`,`birthday`,`tel`,`mobilephone`,`email`,`isOk`,`lastLoginTime`,`lastestLoginTime`,`loginFailNum`,`loginNum`,`addTime`,`unitNames`,`unitIds`,`ismail`) values ('fdc995ef-e96f-4c00-9746-4b5a9b365caa','freecms','站点管理员;','freecms','523af537946b79c4f8369ed39ba78605','1','2012-11-06 00:00:00','','','','1','2013-01-16 19:02:41','2013-01-22 21:02:18',0,0,'2012-11-28 20:25:41','freeteam;','freeteam;',NULL);
