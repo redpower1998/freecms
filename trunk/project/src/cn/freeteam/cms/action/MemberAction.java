@@ -9,6 +9,7 @@ import cn.freeteam.cms.model.Member;
 import cn.freeteam.cms.model.Memberauth;
 import cn.freeteam.cms.model.Membergroup;
 import cn.freeteam.cms.service.MemberService;
+import cn.freeteam.cms.service.MembergroupService;
 import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
@@ -48,8 +49,11 @@ public class MemberAction extends BaseAction{
 	
 	private Member member;
 	private List<Member> memberList;
+	private List<Membergroup> membergroupList;
+	private Membergroup membergroup;
 
 	private MemberService memberService;
+	private MembergroupService membergroupService;
 	
 	public MemberAction() {
 		init("memberService");
@@ -85,8 +89,17 @@ public class MemberAction extends BaseAction{
 	 * @return
 	 */
 	public String edit(){
+		//提取特殊会员组
+		init("membergroupService");
+		membergroup=new Membergroup();
+		membergroup.setType(1);
+		membergroupList=membergroupService.find(membergroup, " ordernum ");
 		if (member!=null && member.getId()!=null && member.getId().trim().length()>0) {
 			member=memberService.findById(member.getId());
+			if (0==member.getGrouptype() && member.getGroupid()!=null && member.getGroupid().trim().length()>0) {
+				//提取当前会员所属组
+				membergroup=membergroupService.findById(member.getGroupid());
+			}
 		}
 		return "edit";
 	}
@@ -260,5 +273,35 @@ public class MemberAction extends BaseAction{
 
 	public void setOldImg(String oldImg) {
 		this.oldImg = oldImg;
+	}
+
+
+	public List<Membergroup> getMembergroupList() {
+		return membergroupList;
+	}
+
+
+	public void setMembergroupList(List<Membergroup> membergroupList) {
+		this.membergroupList = membergroupList;
+	}
+
+
+	public Membergroup getMembergroup() {
+		return membergroup;
+	}
+
+
+	public void setMembergroup(Membergroup membergroup) {
+		this.membergroup = membergroup;
+	}
+
+
+	public MembergroupService getMembergroupService() {
+		return membergroupService;
+	}
+
+
+	public void setMembergroupService(MembergroupService membergroupService) {
+		this.membergroupService = membergroupService;
 	}
 }

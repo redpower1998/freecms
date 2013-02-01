@@ -61,6 +61,9 @@ public class MembergroupService extends BaseService{
 	 */
 	public void proSearchParam(Membergroup membergroup,Criteria criteria){
 		if (membergroup!=null ) {
+			if (membergroup.getType()!=null) {
+				criteria.andTypeEqualTo(membergroup.getType());
+			}
 		}
 	}
 
