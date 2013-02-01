@@ -111,6 +111,7 @@ public class MemberAction extends BaseAction{
 	 */
 	public String editDo(){
 		try {
+			init("membergroupService");
 			if (member.getId()!=null && member.getId().trim().length()>0) {
 				//更新
 				Member oldmember=memberService.findById(member.getId());
@@ -173,6 +174,19 @@ public class MemberAction extends BaseAction{
 				}
 				member.setAddtime(new Date());
 				member.setIsok("1");
+				//如果是经验会员则处理所属会员组
+				if (0==member.getGrouptype()) {
+					if (member.getExperience()!=null) {
+						membergroup=membergroupService.findByExperience(member.getExperience());
+						if (membergroup!=null) {
+							member.setGroupid(membergroup.getId());
+						}else {
+							member.setGroupid("");
+						}
+					}else {
+						member.setGroupid("");
+					}
+				}
 				memberService.add(member);
 				OperLogUtil.log(getLoginName(), "添加会员 "+member.getName(), getHttpRequest());
 			}

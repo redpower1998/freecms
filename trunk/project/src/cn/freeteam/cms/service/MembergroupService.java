@@ -112,6 +112,8 @@ public class MembergroupService extends BaseService{
 	public Membergroup findByExperience(int experience){
 		MembergroupExample example=new MembergroupExample();
 		Criteria criteria=example.createCriteria();
+		criteria.andBeginexperienceLessThanOrEqualTo(experience);
+		criteria.andTypeEqualTo(0);
 		example.setOrderByClause(" beginexperience DESC ");
 		example.setCurrPage(1);
 		example.setPageSize(1);
