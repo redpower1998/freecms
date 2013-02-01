@@ -1,11 +1,16 @@
 package cn.freeteam.cms.action;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Member;
 import cn.freeteam.cms.model.Memberauth;
+import cn.freeteam.cms.model.Membergroup;
 import cn.freeteam.cms.service.MemberService;
+import cn.freeteam.util.FileUtil;
+import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 /**
  * 
@@ -34,9 +39,12 @@ import cn.freeteam.util.Pager;
 public class MemberAction extends BaseAction{
 	private String msg;
 	private String pageFuncId;
-	private String order=" ordernum ";
+	private String order=" addtime desc ";
 	private String logContent;
 	private String ids;
+	private File img;
+	private String imgFileName;
+	private String oldImg;
 	
 	private Member member;
 	private List<Member> memberList;
@@ -60,7 +68,7 @@ public class MemberAction extends BaseAction{
 		totalCount=memberService.count(member);
 		Pager pager=new Pager(getHttpRequest());
 		pager.appendParam("member.name");
-		pager.appendParam("member.code");
+		pager.appendParam("member.loginname");
 		pager.appendParam("order");
 		pager.appendParam("pageSize");
 		pager.appendParam("pageFuncId");
@@ -70,6 +78,95 @@ public class MemberAction extends BaseAction{
 		pager.setOutStr("member_list.do");
 		pageStr=pager.getOutStr();
 		return "list";
+	}
+
+	/**
+	 * 编辑页面
+	 * @return
+	 */
+	public String edit(){
+		if (member!=null && member.getId()!=null && member.getId().trim().length()>0) {
+			member=memberService.findById(member.getId());
+		}
+		return "edit";
+	}
+
+	/**
+	 * 编辑处理
+	 * @return
+	 */
+	public String editDo(){
+		try {
+			if (member.getId()!=null && member.getId().trim().length()>0) {
+				//更新
+				Member oldmember=memberService.findById(member.getId());
+				//如果原来有和现在的logo不同则删除原来的logo文件 
+				if (!oldImg.equals(oldmember.getImg())) {
+					if(oldmember.getImg()!=null &&  oldmember.getImg().trim().length()>0){
+						FileUtil.del(getHttpRequest().getRealPath("/")+oldmember.getImg().trim().replaceAll("/", "\\\\"));
+					}
+				}else {
+					member.setImg(oldImg);
+				}
+				if (img!=null) {
+					//生成目标文件
+					String root=getHttpRequest().getRealPath("/");
+					String ext=FileUtil.getExt(imgFileName).toLowerCase();
+					if (!".jpg".equals(ext) && !".jpeg".equals(ext) && !".gif".equals(ext) && !".png".equals(ext)) {
+						write("<script>alert('头像只能上传jpg,jpeg,gif,png格式的图片!');history.back();</script>", "UTF-8");
+						return null;
+					}
+					String id=UUID.randomUUID().toString();
+					File targetFile=new File(root+"\\upload\\member\\"+id+ext);
+					File folder=new File(root+"\\upload\\member\\");
+					if (!folder.exists()) {
+						folder.mkdirs();
+					}
+					if (!targetFile.exists()) {
+						targetFile.createNewFile();
+					}
+					//复制到目标文件
+					FileUtil.copy(img, targetFile);
+
+					//生成访问地址
+					member.setImg("/upload/member/"+id+ext);
+				}
+				memberService.update(member);
+				OperLogUtil.log(getLoginName(), "更新会员 "+member.getName(), getHttpRequest());
+			}else {
+				//添加
+				if (img!=null) {
+					//生成目标文件
+					String root=getHttpRequest().getRealPath("/");
+					String ext=FileUtil.getExt(imgFileName).toLowerCase();
+					if (!".jpg".equals(ext) && !".jpeg".equals(ext) && !".gif".equals(ext) && !".png".equals(ext)) {
+						write("<script>alert('头像只能上传jpg,jpeg,gif,png格式的图片!');history.back();</script>", "UTF-8");
+						return null;
+					}
+					String id=UUID.randomUUID().toString();
+					File targetFile=new File(root+"\\upload\\member\\"+id+ext);
+					File folder=new File(root+"\\upload\\member\\");
+					if (!folder.exists()) {
+						folder.mkdirs();
+					}
+					if (!targetFile.exists()) {
+						targetFile.createNewFile();
+					}
+					//复制到目标文件
+					FileUtil.copy(img, targetFile);
+					//生成访问地址
+					member.setImg("/upload/member/"+id+ext);
+				}
+				memberService.add(member);
+				OperLogUtil.log(getLoginName(), "添加会员 "+member.getName(), getHttpRequest());
+			}
+			write("<script>alert('操作成功');location.href='member_list.do?pageFuncId="+pageFuncId+"';</script>", "UTF-8");
+		} catch (Exception e) {
+			DBProException(e);
+			write(e.toString(), "GBK");
+		}
+		
+		return null;
 	}
 	public MemberService getMemberService() {
 		return memberService;
@@ -133,5 +230,35 @@ public class MemberAction extends BaseAction{
 
 	public void setMemberList(List<Member> memberList) {
 		this.memberList = memberList;
+	}
+
+
+	public File getImg() {
+		return img;
+	}
+
+
+	public void setImg(File img) {
+		this.img = img;
+	}
+
+
+	public String getImgFileName() {
+		return imgFileName;
+	}
+
+
+	public void setImgFileName(String imgFileName) {
+		this.imgFileName = imgFileName;
+	}
+
+
+	public String getOldImg() {
+		return oldImg;
+	}
+
+
+	public void setOldImg(String oldImg) {
+		this.oldImg = oldImg;
 	}
 }
