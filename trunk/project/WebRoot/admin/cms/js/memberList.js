@@ -31,3 +31,29 @@ function delComplete(data){
 		}
 	}
 }
+
+var isokval="1";
+function isok(s){
+	isokval=s;
+	if(isCheck()){
+		$.post("member_isok.do","ids="+getCheckValue()+"&isok="+isokval,isokComplete);
+	}else{
+		alert("请选择数据!");
+	}
+}
+function isokComplete(data){
+	if(data=="1"){
+		var ids=getCheckValueArr();
+		if(ids!=null && ids.length>0){
+			for(var i=0;i<ids.length;i++){
+				if(ids[i]!=""){
+					document.getElementById("isok"+ids[i]).innerHTML=(isokval=="1"?"是":"否");
+				}
+			}
+		}
+		alert("操作成功!");
+	}else{
+		alert(data);
+	}
+}
+

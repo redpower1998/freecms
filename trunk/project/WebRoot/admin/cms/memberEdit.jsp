@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<FORM id=MyForm 
 			method=post name=MyForm action=member_editDo.do enctype="multipart/form-data">
 			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${pageFuncId }"/>
-			<input type="hidden" name="member.id" value="${member.id }"/>
+			<input type="hidden" name="member.id" id="id" value="${member.id }"/>
 			<DIV class=tab>
 				<DIV class=tabOn >
 					会员编辑
@@ -78,8 +78,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='colorblur';" id=loginname
-									class=colorblur onfocus="this.className='colorfocus';" 
-									maxLength=50 type=text name=member.loginname value="" onpropertychange="checkLoginName(this)">
+									class=colorblur onfocus="this.className='colorfocus';" ${not empty member.id ?"readonly='readonly'":"" }
+									maxLength=50 type=text name=member.loginname value="${member.loginname }" onpropertychange="checkLoginName(this)">
 								<SPAN  id=ctl03>*</SPAN>
 							</TD>
 						</TR>
@@ -102,7 +102,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 						</TR>
 						
-						<TR>
+						<TR style="display:${not empty member.id ?"block":"none" }">
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择是否修改密码
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>修改密码：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								<input type="checkbox" id="editpwd" name="editpwd" value="1" onclick="iseditpwd(this.checked)">我要修改密码
+							</TD>
+						</TR>
+						<TR id="pwdTr" style="display:${not empty member.id ?"none":"block" }">
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label>
 									<IMG
@@ -121,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<SPAN  id=ctl03>*</SPAN>
 							</TD>
 						</TR>
-						<TR>
+						<TR id="repwdTr" style="display:${not empty member.id ?"none":"block" }">
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label>
 									<IMG
@@ -154,7 +169,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 							<TD align="left">
 								<input type="radio" name="member.sex" value="1" checked="checked">男
-								<input type="radio" name="member.sex" value="0" >女
+								<input type="radio" name="member.sex" value="0" <s:if test='%{member.sex == "0"}'>checked="checked"</s:if>>女
 							</TD>
 						</TR>
 						<TR>
@@ -170,7 +185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</LABEL>
 							</TD>
 							<TD align="left">
-		  <input name="member.birthday" id="birthday" class="Wdate"  type="text" size="14" value=""  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d'})"/>
+		  <input name="member.birthday" id="birthday" class="Wdate"  type="text" size="14" value="${member.birthdayStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d'})"/>
 							</TD>
 						</TR>
 						<TR>
@@ -188,7 +203,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<TD align="left">
 								<INPUT onblur="this.className='colorblur';" 
 									class=colorblur onfocus="this.className='colorfocus';" 
-									maxLength=50 type=text name=member.tel value="">
+									maxLength=50 type=text name=member.tel value="${member.tel }">
 							</TD>
 						</TR><TR>
 							<TD width="30%" align="left">
@@ -205,7 +220,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<TD align="left">
 								<INPUT onblur="this.className='colorblur';" 
 									class=colorblur onfocus="this.className='colorfocus';" 
-									maxLength=50 type=text name=member.mobilephone value="">
+									maxLength=50 type=text name=member.mobilephone value="${member.mobilephone }">
 							</TD>
 						</TR>
 						<TR>
@@ -223,7 +238,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<TD align="left">
 								<INPUT onblur="this.className='colorblur';" id="email"
 									class=colorblur onfocus="this.className='colorfocus';" 
-									maxLength=50 type=text name=member.email value="">
+									maxLength=50 type=text name=member.email value="${member.email }">
 							</TD>
 						</TR>
 						<TR>
@@ -303,7 +318,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<TD align="left">
 								<textarea onblur="this.className='colorblur';"   
 									class=colorblur onfocus="this.className='colorfocus';" 
-									maxLength=50 type=text id=intro name=member.intro cols="40" rows="3"></textarea>
+									maxLength=50 type=text id=intro name=member.intro cols="40" rows="3">${member.intro }</textarea>
 									(200字以内)
 							</TD>
 						</TR>
