@@ -41,7 +41,19 @@
 								<input name="member.name" type="text" maxlength="500"
 									class="colorblur" onfocus="this.className='colorfocus';"
 									onblur="this.className='colorblur';"  />
-								
+								会员组:
+								<select name="member.groupid">
+									<option value="" >全部
+									<s:iterator value="membergroupList" id="bean">
+									<option value="<s:property value="id"/>" ><s:property value="name"/>
+									</s:iterator>
+								</select>
+								有效:
+								<select name="member.isok">
+									<option value="" >全部
+									<option value="1" >是
+									<option value="0" >否
+								</select>
 								每页显示条数:
 								<select name="pageSize"
 									id="pageSize">
@@ -94,6 +106,21 @@
 						<TD>
 							<fs:order colName="名称" col="name"/>
 						</TD>
+						<TD>
+							<fs:order colName="会员组" col="groupid"/>
+						</TD>
+						<TD>
+							<fs:order colName="经验" col="experience"/>
+						</TD>
+						<TD>
+							<fs:order colName="积分" col="credit"/>
+						</TD>
+						<TD>
+							<fs:order colName="有效" col="isok"/>
+						</TD>
+						<TD>
+							<fs:order colName="上次登录时间" col="lastlogintime"/>
+						</TD>
 					</TR>
 					
 					<s:iterator value="memberList" id="bean">
@@ -108,6 +135,21 @@
 						</TD>
 						<TD  align="left" id="name<s:property value="id"/>">
 							<s:property value="name"/>
+						</TD>
+						<TD  align="left" id="groupid<s:property value="id"/>">
+							<s:property value="groupname"/>
+						</TD>
+						<TD  align="left" id="experience<s:property value="id"/>">
+							<s:property value="experience"/>
+						</TD>
+						<TD  align="left" id="credit<s:property value="id"/>">
+							<s:property value="credit"/>
+						</TD>
+						<TD  align="left" id="isok<s:property value="id"/>">
+							<s:property value="isokStr"/>
+						</TD>
+						<TD  align="left" id="lastlogintime<s:property value="id"/>">
+							<s:property value="lastlogintimeStr"/>
 						</TD>
 					</TR>
 					</s:iterator>

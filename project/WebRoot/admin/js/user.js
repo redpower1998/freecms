@@ -130,6 +130,7 @@ function editComplete(data){
 var stateval="1";
 function state(s){
 	stateval=s;
+	var names="";
 	var checkValue="";
 	var objs=document.getElementsByName("ids");
 	if(objs!=null && objs.length>0){
