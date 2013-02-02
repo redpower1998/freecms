@@ -50,6 +50,7 @@ public class MemberAction extends BaseAction{
 	private String oldImg;
 	private String editpwd;
 	private String isok;
+	private String names;
 	
 	private Member member;
 	private List<Member> memberList;
@@ -259,7 +260,7 @@ public class MemberAction extends BaseAction{
 					initMapper();
 					for (int i = 0; i < idArr.length; i++) {
 						if (idArr[i].trim().length()>0) {
-							usersMapper.updateById(idArr[i].trim(), isok);
+							memberService.isok(idArr[i].trim(), isok);
 						}
 					}
 					
@@ -418,5 +419,15 @@ public class MemberAction extends BaseAction{
 
 	public void setIsok(String isok) {
 		this.isok = isok;
+	}
+
+
+	public String getNames() {
+		return names;
+	}
+
+
+	public void setNames(String names) {
+		this.names = names;
 	}
 }
