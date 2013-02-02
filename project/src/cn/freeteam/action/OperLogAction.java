@@ -52,6 +52,9 @@ public class OperLogAction extends BaseAction{
 	 * @return
 	 */
 	public String list(){
+		if (order.trim().length()==0) {
+			order=" opertime desc ";
+		}
 		OperlogsExample example=new OperlogsExample();
 		Criteria criteria=example.createCriteria();
 		if (operlog!=null && operlog.getLoginname()!=null && operlog.getLoginname().trim().length()>0) {
