@@ -149,6 +149,18 @@ public class MemberService extends BaseService{
 		criteria.andLoginnameEqualTo(member.getLoginname().trim());
 		return memberMapper.countByExample(example)>0;
 	}
+	/**
+	 * 启用/禁用
+	 * @param id
+	 * @param isok
+	 */
+	public void isok(String id,String isok){
+		Member member=new Member();
+		member.setId(id);
+		member.setIsok(isok);
+		memberMapper.updateByPrimaryKeySelective(member);
+		DBCommit();
+	}
 	public MemberMapper getMemberMapper() {
 		return memberMapper;
 	}
