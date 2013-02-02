@@ -287,6 +287,9 @@ public class LinkAction extends BaseAction{
 			//只有选择站点才查询
 			if (link!=null && link.getSite()!=null && link.getSite().trim().length()>0) {
 				link.setIsClass("1");
+				if (order.trim().length()==0) {
+					order=" ordernum ";
+				}
 				linkList=linkService.find(link, order, currPage, pageSize);
 				totalCount=linkService.count(link);
 				Pager pager=new Pager(getHttpRequest());
@@ -321,6 +324,9 @@ public class LinkAction extends BaseAction{
 			}
 			//只有选择站点才查询
 			if (link!=null && link.getSite()!=null && link.getSite().trim().length()>0) {
+				if (order.trim().length()==0) {
+					order=" ordernum ";
+				}
 				linkList=linkService.find(link, order, currPage, pageSize);
 				totalCount=linkService.count(link);
 				Pager pager=new Pager(getHttpRequest());

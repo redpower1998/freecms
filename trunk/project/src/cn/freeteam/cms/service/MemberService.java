@@ -90,7 +90,13 @@ public class MemberService extends BaseService{
 				criteria.andLoginnameLike("%"+member.getLoginname().trim()+"%");
 			}
 			if (member.getName()!=null && member.getName().trim().length()>0) {
-				criteria.andNameLike("%"+member.getName().trim()+"%");
+				criteria.andMNameLike("%"+member.getName().trim()+"%");
+			}
+			if (member.getGroupid()!=null && member.getGroupid().trim().length()>0) {
+				criteria.andGroupidEqualTo(member.getGroupid().trim());
+			}
+			if (member.getIsok()!=null && member.getIsok().trim().length()>0) {
+				criteria.andIsokEqualTo(member.getIsok().trim());
 			}
 		}
 	}
@@ -109,7 +115,7 @@ public class MemberService extends BaseService{
 	 * @param question
 	 */
 	public void update(Member member){
-		memberMapper.updateByPrimaryKey(member);
+		memberMapper.updateByPrimaryKeySelective(member);
 		DBCommit();
 	}
 	/**
@@ -132,6 +138,17 @@ public class MemberService extends BaseService{
 		DBCommit();
 	}
 
+	/**
+	 * 判断会员是否存在
+	 * @param member
+	 * @return
+	 */
+	public boolean have(Member member){
+		MemberExample example=new MemberExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andLoginnameEqualTo(member.getLoginname().trim());
+		return memberMapper.countByExample(example)>0;
+	}
 	public MemberMapper getMemberMapper() {
 		return memberMapper;
 	}

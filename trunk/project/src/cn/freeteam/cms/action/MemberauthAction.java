@@ -55,6 +55,9 @@ public class MemberauthAction extends BaseAction{
 		if (memberauth==null ){
 			memberauth=new Memberauth();
 		}
+		if (order.trim().length()==0) {
+			order=" ordernum ";
+		}
 		memberauthList=memberauthService.find(memberauth, order, currPage, pageSize);
 		totalCount=memberauthService.count(memberauth);
 		Pager pager=new Pager(getHttpRequest());

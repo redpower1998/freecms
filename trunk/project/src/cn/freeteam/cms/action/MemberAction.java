@@ -12,6 +12,7 @@ import cn.freeteam.cms.model.Membergroup;
 import cn.freeteam.cms.service.MemberService;
 import cn.freeteam.cms.service.MembergroupService;
 import cn.freeteam.util.FileUtil;
+import cn.freeteam.util.MD5;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 /**
@@ -47,6 +48,8 @@ public class MemberAction extends BaseAction{
 	private File img;
 	private String imgFileName;
 	private String oldImg;
+	private String editpwd;
+	private String isok;
 	
 	private Member member;
 	private List<Member> memberList;
@@ -66,8 +69,14 @@ public class MemberAction extends BaseAction{
 	 * @return
 	 */
 	public String list(){
+		init("membergroupService");
+		membergroup=new Membergroup();
+		membergroupList=membergroupService.find(membergroup, " ordernum ");
 		if (member==null ){
 			member=new Member();
+		}
+		if (order.trim().length()==0) {
+			order=" addtime desc ";
 		}
 		memberList=memberService.find(member, order, currPage, pageSize);
 		totalCount=memberService.count(member);
@@ -146,9 +155,19 @@ public class MemberAction extends BaseAction{
 					//生成访问地址
 					member.setImg("/upload/member/"+id+ext);
 				}
+				if ("1".equals(editpwd)) {
+					member.setPwd(MD5.MD5(member.getPwd()));
+				}else {
+					member.setPwd(null);
+				}
 				memberService.update(member);
 				OperLogUtil.log(getLoginName(), "更新会员 "+member.getName(), getHttpRequest());
 			}else {
+				//判断用户是否存在
+				if (memberService.have(member)) {
+					write("<script>alert('此会员名已存在!');history.back();</script>", "GBK");
+					return null;
+				}
 				//添加
 				if (img!=null) {
 					//生成目标文件
@@ -172,6 +191,7 @@ public class MemberAction extends BaseAction{
 					//生成访问地址
 					member.setImg("/upload/member/"+id+ext);
 				}
+				member.setPwd(MD5.MD5(member.getPwd()));
 				member.setAddtime(new Date());
 				member.setIsok("1");
 				//如果是经验会员则处理所属会员组
@@ -196,6 +216,64 @@ public class MemberAction extends BaseAction{
 			write(e.toString(), "GBK");
 		}
 		
+		return null;
+	}
+	/**
+	 * 删除
+	 * @return
+	 */
+	public String del(){
+		if (ids!=null && ids.trim().length()>0) {
+			StringBuilder sb=new StringBuilder();
+			String[] idArr=ids.split(";");
+			if (idArr!=null && idArr.length>0) {
+				for (int i = 0; i < idArr.length; i++) {
+					if (idArr[i].trim().length()>0) {
+						try {
+							member=memberService.findById(idArr[i]);
+							if (member!=null) {
+								memberService.del(member.getId());
+								sb.append(idArr[i]+";");
+								logContent="删除会员("+member.getName()+")成功!";
+							}
+						} catch (Exception e) {
+							DBProException(e);
+							logContent="删除会员("+member.getName()+")失败:"+e.toString()+"!";
+						}
+						OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+					}
+				}
+			}
+			write(sb.toString(), "UTF-8");
+		}
+		return null;
+	}
+
+	//启用/禁用
+	public String isok(){
+		if (ids!=null && ids.trim().length()>0) {
+			String[] idArr=ids.split(";");
+			if (idArr!=null && idArr.length>0) {
+				String oper="1".equals(isok)?"启用":"禁用";
+				try {
+					initMapper();
+					for (int i = 0; i < idArr.length; i++) {
+						if (idArr[i].trim().length()>0) {
+							usersMapper.updateById(idArr[i].trim(), isok);
+						}
+					}
+					
+					msg="1";
+					logContent=""+oper+"会员("+names+")成功!";
+				} catch (Exception e) {
+					DBProException(e);
+					msg=oper+"会员失败!";
+					logContent=""+oper+"会员("+names+")失败:"+e.toString()+"!";
+				}
+			}
+		}
+		OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+		write(msg, "UTF-8");
 		return null;
 	}
 	public MemberService getMemberService() {
@@ -320,5 +398,25 @@ public class MemberAction extends BaseAction{
 
 	public void setMembergroupService(MembergroupService membergroupService) {
 		this.membergroupService = membergroupService;
+	}
+
+
+	public String getEditpwd() {
+		return editpwd;
+	}
+
+
+	public void setEditpwd(String editpwd) {
+		this.editpwd = editpwd;
+	}
+
+
+	public String getIsok() {
+		return isok;
+	}
+
+
+	public void setIsok(String isok) {
+		this.isok = isok;
 	}
 }

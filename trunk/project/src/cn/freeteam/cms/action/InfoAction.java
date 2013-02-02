@@ -90,6 +90,9 @@ public class InfoAction extends BaseAction{
 		if (info==null) {
 			info=new Info();
 		}
+		if (order.trim().length()==0) {
+			order=" addtime desc ";
+		}
 		if (info.getChannel()!=null && info.getChannel().length()>0) {
 			channel=channelService.findById(info.getChannel());
 		}

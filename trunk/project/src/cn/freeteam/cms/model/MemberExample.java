@@ -511,6 +511,10 @@ public class MemberExample extends BaseExample{
             addCriterion("name like", value, "name");
             return (Criteria) this;
         }
+        public Criteria andMNameLike(String value) {
+            addCriterion("m.name like", value, "name");
+            return (Criteria) this;
+        }
 
         public Criteria andNameNotLike(String value) {
             addCriterion("name not like", value, "name");
