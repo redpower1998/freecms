@@ -137,11 +137,12 @@ function state(s){
 		for(var i=0;i<objs.length;i++){
 			if(objs[i].checked){
 				checkValue+=objs[i].value+";";
+				names+=objs[i].show+";";
 			}
 		}
 	}
 	if(checkValue!=""){
-		$.post("user_state.do","ids="+checkValue+"&state="+stateval,stateComplete);
+		$.post("user_state.do","ids="+checkValue+"&state="+stateval+"&names="+names,stateComplete);
 	}else{
 		alert("请选择数据!");
 	}

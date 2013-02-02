@@ -127,7 +127,7 @@
 					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						<TD align="center">
-							<INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
+							<INPUT name="ids" type="checkbox" value="<s:property value="id"/>" show="<s:property value="loginname"/>"/></TD>
 						
 						
 						<TD  align="left" id="loginname<s:property value="id"/>">
