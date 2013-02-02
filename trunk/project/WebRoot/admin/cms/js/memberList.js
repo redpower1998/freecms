@@ -35,8 +35,17 @@ function delComplete(data){
 var isokval="1";
 function isok(s){
 	isokval=s;
+	var names="";
+	var objs=document.getElementsByName("ids");
+	if(objs!=null && objs.length>0){
+		for(var i=0;i<objs.length;i++){
+			if(objs[i].checked){
+				names+=objs[i].show+";";
+			}
+		}
+	}
 	if(isCheck()){
-		$.post("member_isok.do","ids="+getCheckValue()+"&isok="+isokval,isokComplete);
+		$.post("member_isok.do","ids="+getCheckValue()+"&isok="+isokval+"&names="+names,isokComplete);
 	}else{
 		alert("请选择数据!");
 	}
