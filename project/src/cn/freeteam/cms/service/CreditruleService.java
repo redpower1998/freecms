@@ -91,6 +91,12 @@ public class CreditruleService extends BaseService{
 			if (Creditrule.getName()!=null && Creditrule.getName().trim().length()>0) {
 				criteria.andNameLike("%"+Creditrule.getName().trim()+"%");
 			}
+			if (Creditrule.getRewardtype()!=null ) {
+				criteria.andRewardtypeEqualTo(Creditrule.getRewardtype());
+			}
+			if (Creditrule.getCycletype()!=null ) {
+				criteria.andCycletypeEqualTo(Creditrule.getCycletype());
+			}
 		}
 	}
 
