@@ -16,16 +16,16 @@
 		<script type="text/javascript" src="../../js/weebox0.4/weebox.js"></script>
 		<link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox_css.jsp" />
 
-		<script type="text/javascript" src="js/memberauthList.js"></script>
+		<script type="text/javascript" src="js/creditruleList.js"></script>
 		<META content=text/html;charset=gb2312 http-equiv=content-type>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
 		<input type="hidden" id="pageFuncId" value="${param.pageFuncId }"/>
-		<form name="myForm" method="post" action="memberauth_list.do?pageFuncId=${param.pageFuncId }" id="myForm"
+		<form name="myForm" method="post" action="creditrule_list.do?pageFuncId=${param.pageFuncId }" id="myForm"
 			style="margin: 0px">
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					会员权限搜索
+					积分规则搜索
 				</div>
 				<TABLE width="100%" border=0 align=center cellpadding="2"
 					cellspacing="0">
@@ -33,12 +33,12 @@
 						<TR class=summary-title>
 							<TD height="30" align=left style="padding-left: 10px;">
 								编码:
-								<input name="memberauth.code" type="text" maxlength="500"
+								<input name="creditrule.code" type="text" maxlength="500"
 									class="colorblur" onfocus="this.className='colorfocus';"
 									onblur="this.className='colorblur';"  />
 							名称:
 								
-								<input name="memberauth.name" type="text" maxlength="500"
+								<input name="creditrule.name" type="text" maxlength="500"
 									class="colorblur" onfocus="this.className='colorfocus';"
 									onblur="this.className='colorblur';"  />
 								
@@ -77,7 +77,7 @@
 </form>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					会员权限列表
+					积分规则列表
 				</div>
 
 				<table id="MyDataList" cellspacing="1" cellpadding="1"
@@ -95,11 +95,29 @@
 							<fs:order colName="名称" col="name"/>
 						</TD>
 						<TD>
+							<fs:order colName="类型" col="rewardtype"/>
+						</TD>
+						<TD>
+							<fs:order colName="周期" col="cycletype"/>
+						</TD>
+						<TD>
+							<fs:order colName="间隔时间(分)" col="cycletime"/>
+						</TD>
+						<TD>
+							<fs:order colName="奖励次数" col="rewardnum"/>
+						</TD>
+						<TD>
+							<fs:order colName="积分" col="credit"/>
+						</TD>
+						<TD>
+							<fs:order colName="经验" col="experience"/>
+						</TD>
+						<TD>
 							<fs:order colName="排序号" col="ordernum"/>
 						</TD>
 					</TR>
 					
-					<s:iterator value="memberauthList" id="bean">
+					<s:iterator value="creditruleList" id="bean">
 					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						<TD align="center">
@@ -111,6 +129,24 @@
 						</TD>
 						<TD  align="left" id="name<s:property value="id"/>">
 							<s:property value="name"/>
+						</TD>
+						<TD  align="left" id="rewardtype<s:property value="id"/>">
+							<s:property value="rewardtypeStr"/>
+						</TD>
+						<TD  align="left" id="cycletype<s:property value="id"/>">
+							<s:property value="cycletypeStr"/>
+						</TD>
+						<TD  align="left" id="cycletime<s:property value="id"/>">
+							<s:property value="cycletime"/>
+						</TD>
+						<TD  align="left" id="rewardnum<s:property value="id"/>">
+							<s:property value="rewardnum"/>
+						</TD>
+						<TD  align="left" id="credit<s:property value="id"/>">
+							<s:property value="credit"/>
+						</TD>
+						<TD  align="left" id="experience<s:property value="id"/>">
+							<s:property value="experience"/>
 						</TD>
 						<TD  align="left" id="ordernum<s:property value="id"/>">
 							<s:property value="ordernum"/>

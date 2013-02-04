@@ -1,6 +1,6 @@
 //添加
 function add(){
-	$.weeboxs.open('memberauth_edit.do', {title:'添加会员权限', contentType:'ajax',height:130,width:450,
+	$.weeboxs.open('creditrule_edit.do', {title:'添加积分规则', contentType:'ajax',height:330,width:450,
 		onok:function(){
 			if($.trim($("#code").val())==""){
 				alert("请输入编码!");
@@ -13,9 +13,17 @@ function add(){
 				return false;
 			}
 			//成功
-			$.post("memberauth_editDo.do","memberauth.name="+$("#name").val()
-			+"&memberauth.code="+$("#code").val()
-			+"&memberauth.ordernum="+$("#ordernum").val()
+			var rewardtype="1";
+			if(document.getElementById("rewardtype0").checked){rewardtype="0";}
+			$.post("creditrule_editDo.do","creditrule.name="+$("#name").val()
+			+"&creditrule.code="+$("#code").val()
+			+"&creditrule.ordernum="+$("#ordernum").val()
+			+"&creditrule.rewardtype="+rewardtype
+			+"&creditrule.cycletype="+document.getElementById("cycletype").value
+			+"&creditrule.cycletime="+$("#cycletime").val()
+			+"&creditrule.rewardnum="+$("#rewardnum").val()
+			+"&creditrule.credit="+$("#credit").val()
+			+"&creditrule.experience="+$("#experience").val()
 			,addComplete);
 		}
 	});
@@ -23,7 +31,7 @@ function add(){
 //编辑
 function edit(){
 	if(isCheckOne()){
-		$.weeboxs.open('memberauth_edit.do?memberauth.id='+getCheckOneValue(), {title:'编辑会员权限', contentType:'ajax',height:130,width:450,
+		$.weeboxs.open('creditrule_edit.do?creditrule.id='+getCheckOneValue(), {title:'编辑积分规则', contentType:'ajax',height:330,width:450,
 			onok:function(){
 				if($.trim($("#code").val())==""){
 					alert("请输入编码!");
@@ -36,10 +44,18 @@ function edit(){
 					return false;
 				}
 				//成功
-				$.post("memberauth_editDo.do","memberauth.id="+getCheckOneValue()
-				+"&memberauth.name="+$("#name").val()
-				+"&memberauth.code="+$("#code").val()
-				+"&memberauth.ordernum="+$("#ordernum").val()
+				var rewardtype="1";
+				if(document.getElementById("rewardtype0").checked){rewardtype="0";}
+				$.post("creditrule_editDo.do","creditrule.id="+getCheckOneValue()
+				+"&creditrule.name="+$("#name").val()
+				+"&creditrule.code="+$("#code").val()
+				+"&creditrule.ordernum="+$("#ordernum").val()
+				+"&creditrule.rewardtype="+rewardtype
+				+"&creditrule.cycletype="+document.getElementById("cycletype").value
+				+"&creditrule.cycletime="+$("#cycletime").val()
+				+"&creditrule.rewardnum="+$("#rewardnum").val()
+				+"&creditrule.credit="+$("#credit").val()
+				+"&creditrule.experience="+$("#experience").val()
 				,editComplete);
 			}
 		});
@@ -61,6 +77,25 @@ function editComplete(data){
 		document.getElementById("name"+id).innerHTML=$("#name").val();
 		document.getElementById("code"+id).innerHTML=$("#code").val();
 		document.getElementById("ordernum"+id).innerHTML=$("#ordernum").val();
+		var rewardtype="奖励";
+		if(document.getElementById("rewardtype0").checked){rewardtype="惩罚";}
+		document.getElementById("rewardtype"+id).innerHTML=rewardtype;
+		if(0==document.getElementById("cycletype").value){
+			document.getElementById("cycletype"+id).innerHTML="一次性";
+		}
+		else if(1==document.getElementById("cycletype").value){
+			document.getElementById("cycletype"+id).innerHTML="每天一次";
+		}
+		else if(2==document.getElementById("cycletype").value){
+			document.getElementById("cycletype"+id).innerHTML="按间隔时间";
+		}
+		else if(3==document.getElementById("cycletype").value){
+			document.getElementById("cycletype"+id).innerHTML="不限制";
+		}
+		document.getElementById("cycletime"+id).innerHTML=$("#cycletime").val();
+		document.getElementById("rewardnum"+id).innerHTML=$("#rewardnum").val();
+		document.getElementById("credit"+id).innerHTML=$("#credit").val();
+		document.getElementById("experience"+id).innerHTML=$("#experience").val();
 		$.weeboxs.close();//增加事件方法后需手动关闭弹窗
 	}else{
 		alert("操作失败，请重试!");
@@ -69,7 +104,7 @@ function editComplete(data){
 function del(){
 	if(isCheck()){
 		if(confirm("确定删除操作么?此操作无法回退!")){
-			$.post("memberauth_del.do","ids="+getCheckValue(),delComplete);
+			$.post("creditrule_del.do","ids="+getCheckValue(),delComplete);
 		}
 	}else{
 		alert("请选择要操作的记录!");
@@ -85,5 +120,12 @@ function delComplete(data){
 				}
 			}
 		}
+	}
+}
+function cycletypeChange(type){
+	if(2==type.value){
+		$("#cycletimeTr").fadeIn("slow"); 
+	}else{
+		$("#cycletimeTr").fadeOut("slow"); 
 	}
 }
