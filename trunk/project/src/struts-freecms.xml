@@ -94,5 +94,8 @@
 		</action>
 		<action name="question_*" method="{1}" class="cn.freeteam.cms.action.web.QuestionAction">
 		</action>
+		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.web.MemberAction">
+			<result name="succ" >/registerSucc.jsp</result>
+		</action>
 	</package>
 </struts>
