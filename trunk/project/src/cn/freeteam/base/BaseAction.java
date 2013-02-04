@@ -40,6 +40,21 @@ public class BaseAction extends BaseService{
 	public int totalCount=0;
 	public String pageStr;
 	public String pageFuncId;
+	public String showMessage;
+	public String forwardUrl;
+	public int forwardSeconds;
+	public String getForwardUrl() {
+		return forwardUrl;
+	}
+	public void setForwardUrl(String forwardUrl) {
+		this.forwardUrl = forwardUrl;
+	}
+	public int getForwardSeconds() {
+		return forwardSeconds;
+	}
+	public void setForwardSeconds(int forwardSeconds) {
+		this.forwardSeconds = forwardSeconds;
+	}
 	public int getPageSize() {
 		return pageSize;
 	}
@@ -104,7 +119,6 @@ public class BaseAction extends BaseService{
 		try {
 			getHttpResponse().getWriter().print(content);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -224,6 +238,19 @@ public class BaseAction extends BaseService{
 		}
 		return sb.toString();
 	}
+	/**
+	 * 返回到通用信息提示页面
+	 * @param msg
+	 * @param url
+	 * @param seconds
+	 * @return
+	 */
+	public String showMessage(String showMessage,String forwardUrl,int forwardSeconds){
+		this.showMessage=showMessage;
+		this.forwardUrl=forwardUrl;
+		this.forwardSeconds=forwardSeconds;
+		return "showMessage";
+	}
 	public String getContextPath(){
 		return getHttpRequest().getContextPath()+"/";
 	}
@@ -262,5 +289,11 @@ public class BaseAction extends BaseService{
 	}
 	public void setBaseConfigService(ConfigService baseConfigService) {
 		this.baseConfigService = baseConfigService;
+	}
+	public String getShowMessage() {
+		return showMessage;
+	}
+	public void setShowMessage(String showMessage) {
+		this.showMessage = showMessage;
 	}
 }
