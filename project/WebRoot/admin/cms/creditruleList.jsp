@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@page import="cn.freeteam.cms.model.Creditrule"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="fs" uri="/fs-tags" %>
@@ -41,7 +42,20 @@
 								<input name="creditrule.name" type="text" maxlength="500"
 									class="colorblur" onfocus="this.className='colorfocus';"
 									onblur="this.className='colorblur';"  />
-								
+								类型:
+							<select name="creditrule.rewardtype" >
+								<option value="" >全部</option>
+								<option value="1" >奖励</option>
+								<option value="0" >惩罚</option>
+							</select>
+							周期:
+							<select name="creditrule.cycletype" >
+								<option value="" >全部</option>
+								<option value="<%=Creditrule.CYCLETYPE_ONCE %>" >一次性</option>
+								<option value="<%=Creditrule.CYCLETYPE_EVERYDAY %>" >每天一次</option>
+								<option value="<%=Creditrule.CYCLETYPE_INTERVAL %>" >按间隔时间</option>
+								<option value="<%=Creditrule.CYCLETYPE_UNLIMIT %>" >不限制</option>
+							</select>
 								每页显示条数:
 								<select name="pageSize"
 									id="pageSize">
