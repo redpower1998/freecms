@@ -5,18 +5,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
  
  
- 
- 
- 
- 
- 
- 
- 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>FreeCMS-登录</title>
+<title>FreeCMS-会员登录</title>
 <script src="js/jquery-1.5.1.min.js"></script>
 <script src="js/cookie.js"></script>
 <script language="JavaScript"> 
@@ -72,7 +65,7 @@ img {border:0}
 #Right .color {margin-top:170px;width:12px;height:16px;background:#D4ECFF;border-top:2px solid #fff;}
 </style>
 <body >
-<form id="fm1" class="fm-v clearfix" action="login_login.do" method="post" onsubmit="return submitForm()">
+<form id="fm1" class="fm-v clearfix" action="member_login.do" method="post" onsubmit="return submitForm()">
 <div id="Logo">
 	<div style="float:left"><div class="lg"><img width="165" src="img/logo.png" border="0" /></div><br/></div>
 	<div class="nav"></div>
@@ -100,7 +93,7 @@ img {border:0}
 </div>
  
  
-			<div class="lg_title"><b class="txt">管理员登录</b></div>
+			<div class="lg_title"><b class="txt">会员登录</b></div>
 			<div class="lg_title2"><span id="MessageLabel" style="display:inline-block;width:100%;font-size:12px;text-align:center">
 			<font color="red"><b></b></font>
 			</span><br /></div>
@@ -110,13 +103,13 @@ img {border:0}
 						
 						
 						
-						<input id="username" name="user.loginname" class="colorblur" tabindex="1" accesskey="n" type="text" value="" size="25" autocomplete="false"/>
+						<input id="username" name="member.loginname" class="colorblur" tabindex="1" accesskey="n" type="text" value="" size="25" autocomplete="false"/>
 						
 			<span id="RequiredFieldValidator1" style="color:Red;">*</span>
 			<span id="ctl01" style="color:Red;display:none;">*</span></div>
             
 			<div class="input_pwd">密　码:	
-						<input id="password" name="user.pwd" class="colorblur" tabindex="2" accesskey="p" type="password" value="" size="25" autocomplete="off"/>
+						<input id="password" name="member.pwd" class="colorblur" tabindex="2" accesskey="p" type="password" value="" size="25" autocomplete="off"/>
                    <span id="ctl02" style="color:Red;">*</span>
 			</div>
 			<div class="input_pwd">验证码:	
@@ -126,23 +119,20 @@ img {border:0}
 			</div>
             
 			<div class="input_post">
-						<input type="hidden" name="lt" value="_c3F041F78-53B9-69A5-3B3C-01BAB6E90925_k37408022-0986-F9AF-9DBB-8FBEC82968E9" />
-						<input type="hidden" name="_eventId" value="submit" />
- 
                         <input class="button"   name="submit" accesskey="l" value="登 录" tabindex="4" type="submit" />
                    
 			</div>
 			<div class="input_fpwd"><input id="RememberMe" type="checkbox" name="RememberMe" onclick="RememberMeClick()"/><label for="RememberMe">在此计算机上保留登录帐号</label></div>
             
         	 <script>
-            if(GetCookie("FreeCMS_loginName")!=null&&GetCookie("FreeCMS_loginName")!=""){
+            if(GetCookie("FreeCMS_memberLoginName")!=null&&GetCookie("FreeCMS_memberLoginName")!=""){
             	document.getElementById("RememberMe").checked=true;
             }
-            if(GetCookie("FreeCMS_loginName")!=null)document.getElementById("username").value=GetCookie("FreeCMS_loginName");
+            if(GetCookie("FreeCMS_memberLoginName")!=null)document.getElementById("username").value=GetCookie("FreeCMS_memberLoginName");
             function RememberMeClick(){
             	if(document.getElementById("RememberMe").checked==false){
             		//删除cookie
-            		DelCookie("FreeCMS_loginName");
+            		DelCookie("FreeCMS_memberLoginName");
             	}
             }
             function submitForm(){
@@ -164,7 +154,7 @@ img {border:0}
 				}
             	if(document.getElementById("RememberMe").checked==true){
             		//设置cookie
-            		SetCookie("FreeCMS_loginName",document.getElementById("username").value,60*60*24*365);
+            		SetCookie("FreeCMS_memberLoginName",document.getElementById("username").value,60*60*24*365);
             	}
             	return true;
             }
