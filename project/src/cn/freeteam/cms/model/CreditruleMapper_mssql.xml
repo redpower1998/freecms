@@ -113,6 +113,32 @@
       order by ${orderByClause}
     </if>
   </select>
+  
+  <sql id="selectPageByExampleSql">
+  SELECT TOP ${pageSize} *
+    FROM freecms_creditrule
+    WHERE (ID NOT IN  
+          (SELECT TOP ${skip} id   
+         FROM freecms_creditrule   
+	    <if test="_parameter != null">
+	      <include refid="Example_Where_Clause" />
+	    </if>
+         
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>))   
+         
+	    <if test="_parameter != null">
+	       <include refid="Example_Clause" />
+	    </if>
+    
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if> 
+  </sql>
+  <select  id="selectPageByExample" parameterType="cn.freeteam.cms.model.CreditruleExample" resultMap="BaseResultMap">
+     <include refid="selectPageByExampleSql" />
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     <!--
       WARNING - @mbggenerated
