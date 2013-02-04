@@ -4,6 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
+<%@ taglib prefix="s" uri="/struts-tags"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -39,9 +40,16 @@ img {border:0}
 				<div class="index_banner"><img src="<%=basePath %>img/login.gif"/></div>
 		
 		<div class="index_bg">
-公开源码、免费使用<br/>
-代码通俗易懂、注释详细、面向二次开发友好<br/>
-致力于打造更好的中国开源免费CMS<br/>
+${showMessage }
+<br/>
+<s:set name="forwardUrl" value="#request.forwardUrl" />
+<s:if test='%{#request.forwardUrl!=""}'>
+<script>setTimeout("window.location.href ='${forwardUrl}';", 1000*${forwardSeconds});</script></p>
+<a href="${forwardUrl}">页面跳转中...</a>
+</s:if>
+<br/>
+<a href="javascript:history.go(-1);">返回上一页</a> | <a href="<%=basePath %>">返回首页</a>
+
 	  </div>
 		
 	</div>
