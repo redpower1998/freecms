@@ -10,6 +10,7 @@ import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.MemberMapper;
 import cn.freeteam.cms.model.Member;
 import cn.freeteam.cms.model.MemberExample;
+import cn.freeteam.cms.model.Membergroup;
 import cn.freeteam.cms.model.MemberExample.Criteria;
 import cn.freeteam.util.MD5;
 import cn.freeteam.util.MybatisSessionFactory;
@@ -41,6 +42,8 @@ import cn.freeteam.util.MybatisSessionFactory;
 public class MemberService extends BaseService{
 
 	private MemberMapper memberMapper;
+	
+	private MembergroupService membergroupService;
 	
 	public MemberService() {
 		initMapper("memberMapper");
@@ -201,6 +204,20 @@ public class MemberService extends BaseService{
 			if ("1".equals(member.getIsok())) {
 				//修改上次登录时间
 				member.setLastlogintime(new Date());
+				//如果是经验会员则处理所属会员组
+				if (0==member.getGrouptype()) {
+					if (member.getExperience()!=null) {
+						init("membergroupService");
+						Membergroup membergroup=membergroupService.findByExperience(member.getExperience());
+						if (membergroup!=null) {
+							member.setGroupid(membergroup.getId());
+						}else {
+							member.setGroupid("");
+						}
+					}else {
+						member.setGroupid("");
+					}
+				}
 				update(member);
 				session.setAttribute("loginMember", member);
 			}else{
@@ -217,5 +234,13 @@ public class MemberService extends BaseService{
 
 	public void setMemberMapper(MemberMapper memberMapper) {
 		this.memberMapper = memberMapper;
+	}
+
+	public MembergroupService getMembergroupService() {
+		return membergroupService;
+	}
+
+	public void setMembergroupService(MembergroupService membergroupService) {
+		this.membergroupService = membergroupService;
 	}
 }
