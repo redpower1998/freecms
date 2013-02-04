@@ -137,8 +137,18 @@ img {border:0}
 					$("#username").focus();
 					return false;
 				}
+				if($.trim($("#username").val()).length<5){
+					alert("会员名最少5位!");
+					$("#username").focus();
+					return false;
+				}
 				if($.trim($("#password").val())==""){
 					alert("请输入密码!");
+					$("#password").focus();
+					return false;
+				}
+				if($.trim($("#password").val()).length<6){
+					alert("密码最少6位!");
 					$("#password").focus();
 					return false;
 				}
