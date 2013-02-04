@@ -11,6 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>FreeCMS-会员注册</title>
 <script src="js/jquery-1.5.1.min.js"></script>
 <script type="text/javascript" src="js/check.js"></script>
+		<script type="text/javascript" src="js/checkLoginName.js"></script>
 <script language="JavaScript"> 
 if (window.top != self){
 	window.top.location = self.location;
@@ -97,8 +98,10 @@ img {border:0}
 			<font color="red"><b></b></font>
 			</span><br /></div>
 			
-			<div class="input_pwd">用&nbsp;户&nbsp;名&nbsp;:
-						<input id="username" name="member.loginname" class="colorblur" tabindex="1" accesskey="n" type="text" value="" size="23" autocomplete="false"/>
+			<div  id="msg">
+			</div>
+			<div class="input_pwd">会&nbsp;员&nbsp;名&nbsp;:
+						<input id="username" name="member.loginname" onblur="checkSameLoginname()" onpropertychange="checkLoginName(this)" class="colorblur" tabindex="1" accesskey="n" type="text" value="" size="23" autocomplete="false"/>
 						
 			<span id="RequiredFieldValidator1" style="color:Red;">*</span>
 			<span id="ctl01" style="color:Red;display:none;">*</span></div>
@@ -130,7 +133,7 @@ img {border:0}
             function submitForm(){
             	
 				if($.trim($("#username").val())==""){
-					alert("请输入用户名!");
+					alert("请输入会员名!");
 					$("#username").focus();
 					return false;
 				}
@@ -161,6 +164,18 @@ img {border:0}
 					return false;
 				}
             	return true;
+            }
+            //检查登录名是否重复
+            function checkSameLoginname(){
+				if($.trim($("#username").val())!=""){
+					$.post("member_checkLoginname.do","member.loginname="+$("#username").val(),checkSameLoginnameComplete);
+				}        		
+            }
+            function checkSameLoginnameComplete(data){
+            	msg.innerHTML="<font color='red'>"+data+"</font>";
+            	if(data!=""){
+            		alert(data);
+            	}
             }
             $("#username").focus();
             </script>
