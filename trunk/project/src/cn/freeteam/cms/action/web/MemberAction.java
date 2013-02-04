@@ -90,8 +90,7 @@ public class MemberAction extends BaseAction{
 			DBProException(e);
 			write(e.toString(), "GBK");
 		}
-		
-		return "succ";
+		return showMessage("恭喜您，注册成功了!<br>正在跳转到会员中心!", "login.jsp", 5);
 	}
 
 	/**

@@ -41,8 +41,8 @@ public class BaseAction extends BaseService{
 	public String pageStr;
 	public String pageFuncId;
 	public String showMessage;
-	public String forwardUrl;
-	public int forwardSeconds;
+	public String forwardUrl="";
+	public int forwardSeconds=0;
 	public String getForwardUrl() {
 		return forwardUrl;
 	}
