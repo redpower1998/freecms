@@ -16,6 +16,7 @@ import cn.freeteam.model.Users;
 import cn.freeteam.util.EscapeUnescape;
 import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.MD5;
+import cn.freeteam.util.Mail;
 import cn.freeteam.util.MybatisSessionFactory;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.ResponseUtil;
@@ -96,7 +97,7 @@ public class MemberAction extends BaseAction{
 			DBProException(e);
 			write(e.toString(), "GBK");
 		}
-		return showMessage("恭喜您，注册成功了!<br>正在跳转到会员中心!", "login.jsp", 5);
+		return showMessage("恭喜您，注册成功了!<br>正在跳转到会员中心!", "mlogin.jsp", 5);
 	}
 
 	/**
@@ -150,6 +151,26 @@ public class MemberAction extends BaseAction{
 		}
 	    session.removeAttribute("loginMember");
 	    return showMessage("您已安全退出系统!", forwardUrl, forwardSeconds);
+	}
+	/**
+	 * 找回密码
+	 * @return
+	 */
+	public String findPwd(){
+		//判断用户是否存在
+		member=memberService.findByLoginname(member);
+		if (member!=null) {
+			String newPwd=UUID.randomUUID().toString().substring(0, 8);
+			member.setPwd(MD5.MD5(newPwd));
+			memberService.update(member);
+			//发送邮件
+			Mail mail=new Mail(getConfig());
+			mail.sendMessage(member.getEmail(), "FreeCMS:"+member.getLoginname()+"找回密码邮件", 
+					"您的新密码为"+newPwd+",请使用新密码登录，原密码已不可用。<br><a href='"+getBasePath()+"/mlogin.jsp'>"+getBasePath()+"/mlogin.jsp</a>");
+		    return showMessage("已发送新密码到您的邮箱，请查收，并使用新密码登录!", forwardUrl, forwardSeconds);
+		}else {
+		    return showMessage("此会员不存在!", forwardUrl, forwardSeconds);
+		}
 	}
 	public MemberService getMemberService() {
 		return memberService;
