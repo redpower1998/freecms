@@ -161,6 +161,19 @@ public class MemberAction extends BaseAction{
 				}else {
 					member.setPwd(null);
 				}
+				//如果是经验会员则处理所属会员组
+				if (0==member.getGrouptype()) {
+					if (member.getExperience()!=null) {
+						membergroup=membergroupService.findByExperience(member.getExperience());
+						if (membergroup!=null) {
+							member.setGroupid(membergroup.getId());
+						}else {
+							member.setGroupid("");
+						}
+					}else {
+						member.setGroupid("");
+					}
+				}
 				memberService.update(member);
 				OperLogUtil.log(getLoginName(), "更新会员 "+member.getName(), getHttpRequest());
 			}else {
