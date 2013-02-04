@@ -94,6 +94,18 @@ public class MemberAction extends BaseAction{
 		return "succ";
 	}
 
+	/**
+	 * 检查登录名是否重复
+	 * @return
+	 */
+	public String checkLoginname(){
+		//判断用户是否存在
+		if (memberService.have(member)) {
+			write("此会员名已存在!", "UTF-8");
+			return null;
+		}
+		return null;
+	}
 	public MemberService getMemberService() {
 		return memberService;
 	}
