@@ -3,15 +3,15 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+ 
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>FreeCMS-会员注册</title>
+<title>FreeCMS-会员找回密码</title>
 <script src="js/jquery-1.5.1.min.js"></script>
-<script type="text/javascript" src="js/check.js"></script>
-		<script type="text/javascript" src="js/checkLoginName.js"></script>
+<script src="js/cookie.js"></script>
 <script language="JavaScript"> 
 if (window.top != self){
 	window.top.location = self.location;
@@ -65,7 +65,7 @@ img {border:0}
 #Right .color {margin-top:170px;width:12px;height:16px;background:#D4ECFF;border-top:2px solid #fff;}
 </style>
 <body >
-<form id="fm1" class="fm-v clearfix" action="member_register.do" method="post" onsubmit="return submitForm()">
+<form id="fm1" class="fm-v clearfix" action="member_findPwd.do" method="post" onsubmit="return submitForm()">
 <div id="Logo">
 	<div style="float:left"><div class="lg"><img width="165" src="img/logo.png" border="0" /></div><br/></div>
 	<div class="nav"></div>
@@ -84,39 +84,32 @@ img {border:0}
 </div>
  
  
-			<div class="lg_title"><b class="txt">会员注册</b></div>
+			<div class="lg_title"><b class="txt">会员找回密码</b></div>
 			<div class="lg_title2"><span id="MessageLabel" style="display:inline-block;width:100%;font-size:12px;text-align:center">
 			<font color="red"><b></b></font>
 			</span><br /></div>
 			
-			<div  id="msg">
+			<div class="input_pwd">
+			系统将发送新密码到您的注册邮箱，原密码将不可使用。
 			</div>
-			<div class="input_pwd">会&nbsp;员&nbsp;名&nbsp;:
-						<input id="username" name="member.loginname" onblur="checkSameLoginname()" onpropertychange="checkLoginName(this)" class="colorblur" tabindex="1" accesskey="n" type="text" value="" size="23" autocomplete="false"/>
+			<div class="input_pwd">用户名:
+			
+						
+						
+						
+						<input id="username" name="member.loginname" class="colorblur" tabindex="1" accesskey="n" type="text" value="" size="25" autocomplete="false"/>
 						
 			<span id="RequiredFieldValidator1" style="color:Red;">*</span>
 			<span id="ctl01" style="color:Red;display:none;">*</span></div>
             
-			<div class="input_pwd">密　&nbsp;&nbsp;&nbsp;码:	
-						<input id="password" name="member.pwd" class="colorblur" tabindex="2" accesskey="p" type="password" value="" size="23" autocomplete="off"/>
-                   <span id="ctl02" style="color:Red;">*</span>
-			</div>
-			<div class="input_pwd">确认密码:	
-						<input id="repassword" name="repwd" class="colorblur" tabindex="3" accesskey="r" type="password" value="" size="23" autocomplete="off"/>
-                   <span id="ctl02" style="color:Red;">*</span>
-			</div>
-			<div class="input_pwd" title="请输入正确的Email,找回密码和发送系统信息时使用.">Email  &nbsp;&nbsp;&nbsp;&nbsp;:	
-						<input id="email" name="member.email" class="colorblur" tabindex="4" accesskey="e" type="text" value="" size="23" autocomplete="off"/>
-                   <span id="ctl02" style="color:Red;">*</span>
-			</div>
-			<div class="input_pwd">验&nbsp;证&nbsp;码&nbsp;:	
-						<input id="ValidateCode" name="ValidateCode" class="colorblur" tabindex="5" accesskey="v" type="text" value="" size="5" maxlength="4" autocomplete="off"/>
-                   <img src="image.jsp"/>
+			<div class="input_pwd">验证码:	
+						<input id="ValidateCode" name="ValidateCode" class="colorblur" tabindex="2" accesskey="p" type="text" value="" size="5" maxlength="4" autocomplete="off"/>
+                   <img src="image.jsp" title="点击重新获取验证码" style="cursor:hand" onclick="this.src='image.jsp?date='+new Date();"/>
                    <span id="ctl02" style="color:Red;">*</span>
 			</div>
             
 			<div class="input_post">
-                        <input class="button"   name="submit" accesskey="l" value="注 册" tabindex="6" type="submit" />
+                        <input class="button"   name="submit" accesskey="l" value="找回密码" tabindex="4" type="submit" />
                    
 			</div>
             
@@ -124,39 +117,8 @@ img {border:0}
             function submitForm(){
             	
 				if($.trim($("#username").val())==""){
-					alert("请输入会员名!");
+					alert("请输入用户名!");
 					$("#username").focus();
-					return false;
-				}
-				if($.trim($("#username").val()).length<5){
-					alert("会员名最少5位!");
-					$("#username").focus();
-					return false;
-				}
-				if($.trim($("#password").val())==""){
-					alert("请输入密码!");
-					$("#password").focus();
-					return false;
-				}
-				if($.trim($("#password").val()).length<6){
-					alert("密码最少6位!");
-					$("#password").focus();
-					return false;
-				}
-				if($("#repassword").val()==""){
-					alert("请输入确认密码!");
-					$("#repassword").focus();
-					return false;
-				}
-				if($("#repassword").val()!=$("#password").val()){
-					alert("确认密码与密码不一致，请重新输入!");
-					$("#repassword").focus();
-					return false;
-				}
-				if($.trim($("#email").val())==""  
-					|| !isEmail($("#email").val())){
-					alert("请输入正确的电子邮箱！");
-					$("#email").focus();
 					return false;
 				}
 				if($.trim($("#ValidateCode").val())==""){
@@ -165,18 +127,6 @@ img {border:0}
 					return false;
 				}
             	return true;
-            }
-            //检查登录名是否重复
-            function checkSameLoginname(){
-				if($.trim($("#username").val())!=""){
-					$.post("member_checkLoginname.do","member.loginname="+$("#username").val(),checkSameLoginnameComplete);
-				}        		
-            }
-            function checkSameLoginnameComplete(data){
-            	msg.innerHTML="<font color='red'>"+data+"</font>";
-            	if(data!=""){
-            		alert(data);
-            	}
             }
             $("#username").focus();
             </script>
