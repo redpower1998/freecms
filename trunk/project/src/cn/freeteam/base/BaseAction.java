@@ -85,6 +85,11 @@ public class BaseAction extends BaseService{
 	public Map<String, Object> getApplication(){
 		return ServletActionContext.getContext().getApplication();
 	}
+	public String getBasePath(){
+		String path = getHttpRequest().getContextPath();
+		String basePath = getHttpRequest().getScheme()+"://"+getHttpRequest().getServerName()+":"+getHttpRequest().getServerPort()+path+"/";
+		return basePath;
+	}
 	/**
 	 * 获取配置
 	 * @return
