@@ -7,6 +7,7 @@
 	<package name="cmsAdmin" extends="struts-default" namespace="/admin/cms">
 		<global-results>
 			<result name="msg" >/admin/msg.jsp</result>
+			<result name="showMessage" >/showMessage.jsp</result>
 		</global-results>
 		<action name="site_*" method="{1}" class="cn.freeteam.cms.action.SiteAction">
 			<result name="site" >/admin/cms/site.jsp</result>
@@ -87,6 +88,9 @@
 	</package>
 	
 	<package name="cmsWeb" extends="struts-default" namespace="/">
+		<global-results>
+			<result name="showMessage" >/showMessage.jsp</result>
+		</global-results>
 		<action name="info_*" method="{1}" class="cn.freeteam.cms.action.web.InfoAction">
 			<result name="sign" >/cms/infoSign.jsp</result>
 		</action>
