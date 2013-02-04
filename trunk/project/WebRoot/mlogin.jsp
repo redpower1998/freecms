@@ -72,17 +72,8 @@ img {border:0}
     <div style="clear:both"></div>
 </div>
 <div id="Main">
-	<div id="Banner">
-				<div class="index_banner"><img src="img/login.gif"/></div>
-		
-		<div class="index_bg">
-公开源码、免费使用<br/>
-代码通俗易懂、注释详细、面向二次开发友好<br/>
-致力于打造更好的中国开源免费CMS<br/>
-	  </div>
-		
-		<div style="margin-top:6px;text-align:left;">&nbsp;&nbsp;&nbsp;</div>
-	</div>
+	
+  <jsp:include page="inc/banner.jsp"></jsp:include>
 	<div id="Login">
 		<div class="top">
 			<div class="left"><img src="img/login_conn_left.gif" width="4" height="4" /></div>
@@ -120,6 +111,7 @@ img {border:0}
             
 			<div class="input_post">
                         <input class="button"   name="submit" accesskey="l" value="登 录" tabindex="4" type="submit" />
+                        <a href="findPwd.jsp">忘记密码?</a>
                    
 			</div>
 			<div class="input_fpwd"><input id="RememberMe" type="checkbox" name="RememberMe" onclick="RememberMeClick()"/><label for="RememberMe">在此计算机上保留登录帐号</label></div>
