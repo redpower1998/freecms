@@ -1,13 +1,18 @@
 package cn.freeteam.cms.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+
+import javax.servlet.http.HttpSession;
 
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.MemberMapper;
 import cn.freeteam.cms.model.Member;
 import cn.freeteam.cms.model.MemberExample;
 import cn.freeteam.cms.model.MemberExample.Criteria;
+import cn.freeteam.util.MD5;
+import cn.freeteam.util.MybatisSessionFactory;
 
 /**
  * 
@@ -160,6 +165,36 @@ public class MemberService extends BaseService{
 		member.setIsok(isok);
 		memberMapper.updateByPrimaryKeySelective(member);
 		DBCommit();
+	}
+
+	/**
+	 * 检查登录信息是否正确
+	 * @param loginname
+	 * @param pwd
+	 * @return
+	 */
+	public String checkLogin(HttpSession session,Member member){
+		MemberExample example=new MemberExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andLoginnameEqualTo(member.getLoginname());
+		criteria.andPwdEqualTo(MD5.MD5(member.getPwd()));
+		List list=memberMapper.selectByExample(example);
+		String msg="";
+		if (list!=null && list.size()>0) {
+			member=(Member)list.get(0);
+			//是否为无效
+			if ("1".equals(member.getIsok())) {
+				//修改上次登录时间
+				member.setLastlogintime(new Date());
+				update(member);
+				session.setAttribute("loginMember", member);
+			}else{
+				msg="此用户已禁用!";
+			}
+		}else{
+			msg="用户名或密码错误!";
+		}
+		return msg;
 	}
 	public MemberMapper getMemberMapper() {
 		return memberMapper;

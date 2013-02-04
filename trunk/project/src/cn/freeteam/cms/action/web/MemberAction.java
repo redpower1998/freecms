@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 import cn.freeteam.base.BaseAction;
@@ -11,9 +12,13 @@ import cn.freeteam.cms.model.Member;
 import cn.freeteam.cms.model.Membergroup;
 import cn.freeteam.cms.service.MemberService;
 import cn.freeteam.cms.service.MembergroupService;
+import cn.freeteam.model.Users;
+import cn.freeteam.util.EscapeUnescape;
 import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.MD5;
+import cn.freeteam.util.MybatisSessionFactory;
 import cn.freeteam.util.OperLogUtil;
+import cn.freeteam.util.ResponseUtil;
 
 /**
  * 
@@ -46,6 +51,7 @@ public class MemberAction extends BaseAction{
 	private Member member;
 	private Membergroup membergroup;
 	private String ValidateCode;
+	private String RememberMe;
 	public MemberAction() {
 		init("memberService");
 	}
@@ -105,6 +111,46 @@ public class MemberAction extends BaseAction{
 		}
 		return null;
 	}
+	/**
+	 * 会员登录
+	 * @return
+	 */
+	public String login(){
+		try {
+			//记住用户名
+			if("on".equals(RememberMe)){
+				Cookie cookie=new Cookie("FreeCMS_memberLoginName",EscapeUnescape.escape(member.getLoginname()));
+				cookie.setMaxAge(1000*60*60*24*365);//有效时间为一年
+				getHttpResponse().addCookie(cookie);
+			}
+		    HttpSession session =getHttpSession();
+			if (ValidateCode!=null && ValidateCode.equals(session.getAttribute("rand"))) {
+				showMessage=memberService.checkLogin(getHttpSession(), member);
+			}else {
+				showMessage="验证码错误!";
+			}
+			if (showMessage==null || "".equals(showMessage)) {
+				OperLogUtil.log(member.getLoginname(), "会员登录", getHttpRequest());
+				return "member";
+			}else {
+				return showMessage(showMessage, forwardUrl, forwardSeconds);
+			}
+		} catch (Exception e) {
+			DBProException(e);
+			OperLogUtil.log(member.getLoginname(), "会员登录失败:"+e.toString(), getHttpRequest());
+			return showMessage("出现错误:"+e.toString()+"", forwardUrl, forwardSeconds);
+		}
+	}
+	//退出
+	public String out(){
+	    HttpSession session =getHttpSession();
+	    member=(Member)session.getAttribute("loginMember");
+	    if (member!=null) {
+			OperLogUtil.log(member.getLoginname(), "会员退出", getHttpRequest());
+		}
+	    session.removeAttribute("loginMember");
+	    return showMessage("您已安全退出系统!", forwardUrl, forwardSeconds);
+	}
 	public MemberService getMemberService() {
 		return memberService;
 	}
@@ -143,5 +189,13 @@ public class MemberAction extends BaseAction{
 
 	public void setValidateCode(String validateCode) {
 		ValidateCode = validateCode;
+	}
+
+	public String getRememberMe() {
+		return RememberMe;
+	}
+
+	public void setRememberMe(String rememberMe) {
+		RememberMe = rememberMe;
 	}
 }
