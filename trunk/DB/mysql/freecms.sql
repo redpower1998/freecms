@@ -111,6 +111,27 @@ insert  into `freecms_config`(`code`,`name`,`configValue`,`orderNum`) values ('m
 insert  into `freecms_config`(`code`,`name`,`configValue`,`orderNum`) values ('mailUsername','邮件 用户名','test',7);
 insert  into `freecms_config`(`code`,`name`,`configValue`,`orderNum`) values ('memberLimitName','会员禁用登录名(多个用,号分隔)','admin,freecms',2);
 
+/*Table structure for table `freecms_creditlog` */
+
+DROP TABLE IF EXISTS `freecms_creditlog`;
+
+CREATE TABLE `freecms_creditlog` (
+  `id` varchar(50) NOT NULL,
+  `memberid` varchar(50) default NULL,
+  `creditruleid` varchar(50) default NULL,
+  `rewardtype` int(11) default NULL,
+  `credit` int(11) default NULL,
+  `experience` int(11) default NULL,
+  `credittime` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `FK_creditlog_rule` (`creditruleid`),
+  KEY `FK_creditlog_member` (`memberid`),
+  CONSTRAINT `FK_creditlog_member` FOREIGN KEY (`memberid`) REFERENCES `freecms_member` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_creditlog_rule` FOREIGN KEY (`creditruleid`) REFERENCES `freecms_creditrule` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='积分记录';
+
+/*Data for the table `freecms_creditlog` */
+
 /*Table structure for table `freecms_creditrule` */
 
 DROP TABLE IF EXISTS `freecms_creditrule`;
