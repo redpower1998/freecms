@@ -53,6 +53,7 @@ public interface CreditruleMapper {
      * @mbggenerated Mon Feb 04 19:47:47 CST 2013
      */
     List<Creditrule> selectByExample(CreditruleExample example);
+    List<Creditrule> selectByExampleCache(CreditruleExample example);
     List<Creditrule> selectPageByExample(CreditruleExample example);
 
     /**
