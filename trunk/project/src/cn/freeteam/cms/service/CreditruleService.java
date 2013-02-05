@@ -1,13 +1,19 @@
 package cn.freeteam.cms.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import org.omg.PortableServer.POA;
+
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.CreditruleMapper;
+import cn.freeteam.cms.model.Creditlog;
 import cn.freeteam.cms.model.Creditrule;
 import cn.freeteam.cms.model.CreditruleExample;
+import cn.freeteam.cms.model.Member;
 import cn.freeteam.cms.model.CreditruleExample.Criteria;
+import cn.freeteam.util.DateUtil;
 /**
  * 
  * <p>Title: CreditruleService.java</p>
@@ -36,6 +42,9 @@ public class CreditruleService extends BaseService{
 
 	private CreditruleMapper creditruleMapper;
 	
+	private MemberService memberService;
+	private CreditlogService creditlogService;
+	
 	public CreditruleService() {
 		initMapper("creditruleMapper");
 	}
@@ -57,12 +66,15 @@ public class CreditruleService extends BaseService{
 	/**
 	 * 查询
 	 */
-	public List<Creditrule> find(Creditrule Creditrule,String order){
+	public List<Creditrule> find(Creditrule Creditrule,String order,boolean cache){
 		CreditruleExample example=new CreditruleExample();
 		Criteria criteria=example.createCriteria();
 		proSearchParam(Creditrule, criteria);
 		if (order!=null && order.trim().length()>0) {
 			example.setOrderByClause(order);
+		}
+		if (cache) {
+			return creditruleMapper.selectByExampleCache(example);
 		}
 		return creditruleMapper.selectByExample(example);
 	}
@@ -96,6 +108,9 @@ public class CreditruleService extends BaseService{
 			}
 			if (Creditrule.getCycletype()!=null ) {
 				criteria.andCycletypeEqualTo(Creditrule.getCycletype());
+			}
+			if (Creditrule.getCode()!=null && Creditrule.getCode().trim().length()>0) {
+				criteria.andCodeEqualTo(Creditrule.getCode().trim());
 			}
 		}
 	}
@@ -136,11 +151,118 @@ public class CreditruleService extends BaseService{
 		creditruleMapper.deleteByPrimaryKey(id);
 		DBCommit();
 	}
+	/**
+	 * 积分经验处理
+	 * @param member
+	 * @param rulecode
+	 */
+	public Member credit(Member member,String rulecode){
+		if (member!=null && rulecode!=null && rulecode.trim().length()>0) {
+			Creditrule creditrule=findByCode(rulecode);
+			if (creditrule!=null) {
+				boolean pro=true;
+				Creditlog creditlog=new Creditlog();
+				creditlog.setCreditruleid(creditrule.getId());
+				creditlog.setMemberid(member.getId());
+				//判断是否需要处理
+				if (Creditrule.CYCLETYPE_ONCE==creditrule.getCycletype()) {
+					//一次性
+					//判断是否已经处理过
+					if (creditlogService.count(creditlog)>0) {
+						pro=false;
+					}
+				}
+				else if (Creditrule.CYCLETYPE_EVERYDAY==creditrule.getCycletype()) {
+					//每天一次
+					creditlog.setCredittimeToday(new Date());
+					//判断是否已经处理过
+					if (creditlogService.count(creditlog)>0) {
+						pro=false;
+					}
+					//清空条件 
+					creditlog.setCredittime(null);
+				}
+				else if (Creditrule.CYCLETYPE_INTERVAL==creditrule.getCycletype()) {
+					//按间隔时间
+					creditlog.setCredittimeGreater(new Date());
+					//判断是否已经处理过
+					List<Creditlog> list=creditlogService.find(creditlog, " credittime desc ", 1, 1);
+					if (list!=null && list.size()>0) {
+						Creditlog creditlog2=list.get(0);
+						if (creditlog2!=null && 
+								( DateUtil.format(creditlog2.getCredittime(), "yyyy-MM-dd")
+										.equals(DateUtil.format(creditlog.getCredittimeGreater(), "yyyy-MM-dd")) )) {
+							pro=false;
+						}
+					}
+					//清空条件 
+					creditlog.setCredittimeGreater(null);
+				}
+				//判断是否有最多处理次数限制
+				if (Creditrule.CYCLETYPE_UNLIMIT!=creditrule.getCycletype() 
+						&& creditrule.getRewardnum()>0 
+						&& creditlogService.count(creditlog)>=creditrule.getRewardnum()) {
+					pro=false;
+				}
+				if (pro) {
+					if (1==creditrule.getRewardtype()) {
+						//奖励
+						member.setCredit(member.getCredit()+creditrule.getCredit());
+						member.setExperience(member.getExperience()+creditrule.getExperience());
+					}else {
+						//惩罚
+						member.setCredit(member.getCredit()-creditrule.getCredit());
+						if (member.getCredit()<0) {
+							member.setCredit(0);
+						}
+						member.setExperience(member.getExperience()-creditrule.getExperience());
+						if (member.getExperience()<0) {
+							member.setExperience(0);
+						}
+					}
+					//更新
+					init("memberService");
+					memberService.update(member);
+				}
+			}
+		}
+		return member;
+	}
+	/**
+	 * 查询指定编码规则
+	 * @param rulecode
+	 * @return
+	 */
+	public Creditrule findByCode(String rulecode){
+		Creditrule creditrule=new Creditrule();
+		creditrule.setCode(rulecode);
+		List<Creditrule> list=find(creditrule, "", true);
+		if (list!=null && list.size()>0) {
+			return list.get(0);
+		}
+		return null;
+	}
 	public CreditruleMapper getCreditruleMapper() {
 		return creditruleMapper;
 	}
 
 	public void setCreditruleMapper(CreditruleMapper creditruleMapper) {
 		this.creditruleMapper = creditruleMapper;
+	}
+
+	public MemberService getMemberService() {
+		return memberService;
+	}
+
+	public void setMemberService(MemberService memberService) {
+		this.memberService = memberService;
+	}
+
+	public CreditlogService getCreditlogService() {
+		return creditlogService;
+	}
+
+	public void setCreditlogService(CreditlogService creditlogService) {
+		this.creditlogService = creditlogService;
 	}
 }

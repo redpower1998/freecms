@@ -44,6 +44,7 @@ public class MemberService extends BaseService{
 	private MemberMapper memberMapper;
 	
 	private MembergroupService membergroupService;
+	private CreditruleService creditruleService;
 	
 	public MemberService() {
 		initMapper("memberMapper");
@@ -218,6 +219,9 @@ public class MemberService extends BaseService{
 						member.setGroupid("");
 					}
 				}
+				//处理积分经验
+				init("creditruleService");
+				member=creditruleService.credit(member, "login");
 				update(member);
 				session.setAttribute("loginMember", member);
 			}else{
@@ -242,5 +246,13 @@ public class MemberService extends BaseService{
 
 	public void setMembergroupService(MembergroupService membergroupService) {
 		this.membergroupService = membergroupService;
+	}
+
+	public CreditruleService getCreditruleService() {
+		return creditruleService;
+	}
+
+	public void setCreditruleService(CreditruleService creditruleService) {
+		this.creditruleService = creditruleService;
 	}
 }

@@ -1,5 +1,6 @@
 package cn.freeteam.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -11,5 +12,16 @@ public class DateUtil {
 			return sdf.format(date);
 		}
 		return "";
+	}
+	public static Date parse(String date,String format){
+		SimpleDateFormat sdf=new SimpleDateFormat(format);
+		if (date!=null) {
+			try {
+				return sdf.parse(date);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
 	}
 }
