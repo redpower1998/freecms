@@ -14,6 +14,11 @@ public class Info implements Serializable{
     private String id;
     private String state;
     private String issign;
+    private String iscomment;
+    private String iscommentStr;
+    public static String ISCOMMENT_NO="0";//不允许评论
+    public static String ISCOMMENT_MEMBER="1";//会员评论
+    public static String ISCOMMENT_ALL="2";//会员和匿名评论
     private String video;
 
     /**
@@ -850,5 +855,30 @@ public class Info implements Serializable{
 
 	public void setVideo(String video) {
 		this.video = video;
+	}
+
+	public String getIscomment() {
+		return iscomment;
+	}
+
+	public void setIscomment(String iscomment) {
+		this.iscomment = iscomment;
+	}
+
+	public String getIscommentStr() {
+		if (ISCOMMENT_NO.equals(iscomment)) {
+			iscommentStr="否";
+		}
+		else if (ISCOMMENT_MEMBER.equals(iscomment)) {
+			iscommentStr="会员评论";
+		}
+		else if (ISCOMMENT_ALL.equals(iscomment)) {
+			iscommentStr="会员和匿名评论";
+		}
+		return iscommentStr;
+	}
+
+	public void setIscommentStr(String iscommentStr) {
+		this.iscommentStr = iscommentStr;
 	}
 }

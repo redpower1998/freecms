@@ -100,6 +100,8 @@ public class InfoAction extends BaseAction{
 		totalCount=infoService.count(info);
 		Pager pager=new Pager(getHttpRequest());
 		pager.appendParam("info.channel");
+		pager.appendParam("info.issign");
+		pager.appendParam("info.iscomment");
 		pager.appendParam("order");
 		pager.appendParam("pageSize");
 		pager.appendParam("pageFuncId");
@@ -220,6 +222,7 @@ public class InfoAction extends BaseAction{
 						oldInfo.setTopendtime(info.getTopendtime());
 						oldInfo.setUrl(info.getUrl());
 						oldInfo.setIssign(info.getIssign());
+						oldInfo.setIscomment(info.getIscomment());
 						oldInfo.setVideo(info.getVideo());
 						infoService.update(oldInfo);
 						OperLogUtil.log(getLoginName(), oper+"信息("+oldInfo.getTitle()+")成功", getHttpRequest());

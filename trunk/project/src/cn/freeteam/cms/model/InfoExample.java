@@ -1327,6 +1327,14 @@ public class InfoExample extends BaseExample{
             return (Criteria) this;
         }
 
+        public Criteria andIssignEqualTo(String value) {
+            addCriterion("issign =", value, "issign");
+            return (Criteria) this;
+        }
+        public Criteria andIscommentEqualTo(String value) {
+            addCriterion("iscomment =", value, "iscomment");
+            return (Criteria) this;
+        }
         public Criteria andIstopNotEqualTo(String value) {
             addCriterion("isTop <>", value, "istop");
             return (Criteria) this;

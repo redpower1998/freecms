@@ -71,5 +71,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="cn/freeteam/cms/model/MemberMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/CreditruleMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/CreditlogMapper.xml"/>
+		<mapper resource="cn/freeteam/cms/model/CommentMapper.xml"/>
 	</mappers>	
 </configuration>

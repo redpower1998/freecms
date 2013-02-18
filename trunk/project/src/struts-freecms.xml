@@ -89,6 +89,9 @@
 			<result name="list" >/admin/cms/creditruleList.jsp</result>
 			<result name="edit" >/admin/cms/creditruleEdit.jsp</result>
 		</action>
+		<action name="comment_*" method="{1}" class="cn.freeteam.cms.action.CommentAction">
+			<result name="list" >/admin/cms/commentList.jsp</result>
+		</action>
 	</package>
 	
 	<package name="cmsWeb" extends="struts-default" namespace="/">
