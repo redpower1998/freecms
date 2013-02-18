@@ -6,7 +6,7 @@
 <struts>
 	<package name="cmsAdmin" extends="struts-default" namespace="/admin/cms">
 		<global-results>
-			<result name="msg" >/admin/msg.jsp</result>
+			<result name="msg" >/msg.jsp</result>
 			<result name="showMessage" >/showMessage.jsp</result>
 		</global-results>
 		<action name="site_*" method="{1}" class="cn.freeteam.cms.action.SiteAction">
@@ -53,7 +53,7 @@
 			<result name="indexConfirm" >/admin/cms/htmlIndexConfirm.jsp</result>
 			<result name="channel" >/admin/cms/htmlChannel.jsp</result>
 			<result name="info" >/admin/cms/htmlInfo.jsp</result>
-			<result name="msg" >/admin/msg.jsp</result>
+			<result name="msg" >/msg.jsp</result>
 		</action>
 		<action name="link_*" method="{1}" class="cn.freeteam.cms.action.LinkAction">
 			<result name="class" >/admin/cms/linkClass.jsp</result>
@@ -97,6 +97,7 @@
 	<package name="cmsWeb" extends="struts-default" namespace="/">
 		<global-results>
 			<result name="showMessage" >/showMessage.jsp</result>
+			<result name="msg" >/msg.jsp</result>
 		</global-results>
 		<action name="info_*" method="{1}" class="cn.freeteam.cms.action.web.InfoAction">
 			<result name="sign" >/cms/infoSign.jsp</result>
@@ -111,9 +112,11 @@
 	<package name="cmsMember" extends="struts-default" namespace="/member">
 		<global-results>
 			<result name="showMessage" >/showMessage.jsp</result>
+			<result name="msg" >/msg.jsp</result>
 		</global-results>
-		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.web.MemberAction">
+		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.member.MemberAction">
 			<result name="index" >/member/index.jsp</result>
+			<result name="left" >/member/left.jsp</result>
 		</action>
 	</package>
 </struts>

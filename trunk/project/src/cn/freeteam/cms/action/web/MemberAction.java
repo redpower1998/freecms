@@ -53,6 +53,7 @@ public class MemberAction extends BaseAction{
 	private Membergroup membergroup;
 	private String ValidateCode;
 	private String RememberMe;
+	private String msg;
 	public MemberAction() {
 		init("memberService");
 	}
@@ -132,7 +133,8 @@ public class MemberAction extends BaseAction{
 			}
 			if (showMessage==null || "".equals(showMessage)) {
 				OperLogUtil.log(member.getLoginname(), "会员登录", getHttpRequest());
-				return "member";
+				getHttpResponse().sendRedirect("member/member_index.do");
+				return null;
 			}else {
 				return showMessage(showMessage, forwardUrl, forwardSeconds);
 			}
@@ -150,7 +152,8 @@ public class MemberAction extends BaseAction{
 			OperLogUtil.log(member.getLoginname(), "会员退出", getHttpRequest());
 		}
 	    session.removeAttribute("loginMember");
-	    return showMessage("您已安全退出系统!", forwardUrl, forwardSeconds);
+	    msg="<script>parent.location.href=parent.location.href;</script>";
+	    return "msg";
 	}
 	/**
 	 * 找回密码
@@ -218,5 +221,13 @@ public class MemberAction extends BaseAction{
 
 	public void setRememberMe(String rememberMe) {
 		RememberMe = rememberMe;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 }
