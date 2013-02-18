@@ -103,7 +103,14 @@
 		<action name="question_*" method="{1}" class="cn.freeteam.cms.action.web.QuestionAction">
 		</action>
 		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.web.MemberAction">
-			<result name="member" >/member.jsp</result>
+		</action>
+	</package>
+	<package name="cmsMember" extends="struts-default" namespace="/member">
+		<global-results>
+			<result name="showMessage" >/showMessage.jsp</result>
+		</global-results>
+		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.web.MemberAction">
+			<result name="member" >/member/index.jsp</result>
 		</action>
 	</package>
 </struts>
