@@ -176,6 +176,12 @@ public class InfoService extends BaseService{
 			if (info.getIstop()!=null && info.getIstop().trim().length()>0) {
 				criteria.andIstopEqualTo(info.getIstop());
 			}
+			if (info.getIssign()!=null && info.getIssign().trim().length()>0) {
+				criteria.andIssignEqualTo(info.getIssign());
+			}
+			if (info.getIscomment()!=null && info.getIscomment().trim().length()>0) {
+				criteria.andIscommentEqualTo(info.getIscomment());
+			}
 			if (info.getTopendtime()!=null) {
 				SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				criteria.andSql(" (topendtime>='"+sdf.format(info.getTopendtime())+"' or topendtime is null) ");

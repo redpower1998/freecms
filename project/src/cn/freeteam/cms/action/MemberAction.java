@@ -84,6 +84,8 @@ public class MemberAction extends BaseAction{
 		Pager pager=new Pager(getHttpRequest());
 		pager.appendParam("member.name");
 		pager.appendParam("member.loginname");
+		pager.appendParam("member.groupid");
+		pager.appendParam("member.isok");
 		pager.appendParam("order");
 		pager.appendParam("pageSize");
 		pager.appendParam("pageFuncId");
