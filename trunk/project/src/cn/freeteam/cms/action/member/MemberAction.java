@@ -1,6 +1,10 @@
 package cn.freeteam.cms.action.member;
 
 import cn.freeteam.base.BaseAction;
+import cn.freeteam.cms.model.Member;
+import cn.freeteam.cms.model.Membergroup;
+import cn.freeteam.cms.service.MemberService;
+import cn.freeteam.cms.service.MembergroupService;
 /**
  * 
  * <p>Title: MemberAction.java</p>
@@ -27,4 +31,40 @@ import cn.freeteam.base.BaseAction;
  */
 public class MemberAction extends BaseAction{
 
+	private MemberService memberService;
+	private MembergroupService membergroupService;
+	private Member member;
+	private Membergroup membergroup;
+	public MemberAction() {
+		init("memberService");
+	}
+	
+	
+	
+	
+
+	public MemberService getMemberService() {
+		return memberService;
+	}
+	public void setMemberService(MemberService memberService) {
+		this.memberService = memberService;
+	}
+	public MembergroupService getMembergroupService() {
+		return membergroupService;
+	}
+	public void setMembergroupService(MembergroupService membergroupService) {
+		this.membergroupService = membergroupService;
+	}
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
+	public Membergroup getMembergroup() {
+		return membergroup;
+	}
+	public void setMembergroup(Membergroup membergroup) {
+		this.membergroup = membergroup;
+	}
 }
