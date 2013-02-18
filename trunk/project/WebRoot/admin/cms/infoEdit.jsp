@@ -249,6 +249,23 @@
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择是否评论
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>是否评论：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								<input type="radio" id="iscomment0"  name="info.iscomment" value="0" <s:if test="info==null || info.iscomment==null || info.iscomment==0">checked="checked"</s:if>>否
+								<input type="radio" id="iscomment1"   name="info.iscomment" value="1" <s:if test="info.iscomment==1">checked="checked"</s:if> >会员评论
+								<input type="radio" id="iscomment2"   name="info.iscomment" value="2" <s:if test="info.iscomment==2">checked="checked"</s:if> >会员和匿名评论
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
 											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择是否签收
 											src="../../img/help.gif">
 									<NOBR>
