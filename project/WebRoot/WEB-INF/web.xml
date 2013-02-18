@@ -28,6 +28,14 @@
 		<url-pattern>/admin/cms/*</url-pattern>
 	</filter-mapping>
 	<filter>
+		<filter-name>memberLoginFilter</filter-name>
+		<filter-class>cn.freeteam.filter.MemberLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>memberLoginFilter</filter-name>
+		<url-pattern>/member/*</url-pattern>
+	</filter-mapping>
+	<filter>
 		<filter-name>setCharacterEncodingFilter</filter-name>
 		<filter-class>
 			cn.freeteam.filter.CharacterEncodingFilter
