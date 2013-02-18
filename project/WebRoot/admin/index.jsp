@@ -17,7 +17,7 @@ function changeDisplayMode(){
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
 </HEAD>
 
-<frameset id="mainframes" framespacing="0" border="false" rows="58,*" frameborder="0" scrolling="yes">
+<frameset id="mainframes" framespacing="0" border="false" rows="62,*" frameborder="0" scrolling="yes">
 <frame name="top" scrolling="no" src="top.jsp">
 	
 <frameset id="bottomframes" framespacing="0" border="false" cols="180,7,*" frameborder="0" scrolling="yes">
