@@ -161,18 +161,19 @@ public class CreditruleService extends BaseService{
 			Creditrule creditrule=findByCode(rulecode);
 			if (creditrule!=null) {
 				boolean pro=true;
+				init("creditlogService");
 				Creditlog creditlog=new Creditlog();
 				creditlog.setCreditruleid(creditrule.getId());
 				creditlog.setMemberid(member.getId());
 				//判断是否需要处理
-				if (Creditrule.CYCLETYPE_ONCE==creditrule.getCycletype()) {
+				if (Creditrule.CYCLETYPE_ONCE.equals(creditrule.getCycletype())) {
 					//一次性
 					//判断是否已经处理过
 					if (creditlogService.count(creditlog)>0) {
 						pro=false;
 					}
 				}
-				else if (Creditrule.CYCLETYPE_EVERYDAY==creditrule.getCycletype()) {
+				else if (Creditrule.CYCLETYPE_EVERYDAY.equals(creditrule.getCycletype())) {
 					//每天一次
 					creditlog.setCredittimeToday(new Date());
 					//判断是否已经处理过
@@ -180,27 +181,23 @@ public class CreditruleService extends BaseService{
 						pro=false;
 					}
 					//清空条件 
-					creditlog.setCredittime(null);
+					creditlog.setCredittimeToday(null);
 				}
-				else if (Creditrule.CYCLETYPE_INTERVAL==creditrule.getCycletype()) {
-					//按间隔时间
-					creditlog.setCredittimeGreater(new Date());
+				else if (Creditrule.CYCLETYPE_INTERVAL.equals(creditrule.getCycletype())) {
 					//判断是否已经处理过
 					List<Creditlog> list=creditlogService.find(creditlog, " credittime desc ", 1, 1);
 					if (list!=null && list.size()>0) {
 						Creditlog creditlog2=list.get(0);
 						if (creditlog2!=null && 
-								( DateUtil.format(creditlog2.getCredittime(), "yyyy-MM-dd")
-										.equals(DateUtil.format(creditlog.getCredittimeGreater(), "yyyy-MM-dd")) )) {
+								( DateUtil.differ(creditlog2.getCredittime(), new Date())/(1000*60)
+										<creditrule.getCycletime() )) {
 							pro=false;
 						}
 					}
-					//清空条件 
-					creditlog.setCredittimeGreater(null);
 				}
 				//判断是否有最多处理次数限制
-				if (Creditrule.CYCLETYPE_UNLIMIT!=creditrule.getCycletype() 
-						&& creditrule.getRewardnum()>0 
+				if (!Creditrule.CYCLETYPE_UNLIMIT.equals(creditrule.getCycletype()) 
+						&& creditrule.getRewardnum()!=null && creditrule.getRewardnum()>0 
 						&& creditlogService.count(creditlog)>=creditrule.getRewardnum()) {
 					pro=false;
 				}
@@ -223,6 +220,12 @@ public class CreditruleService extends BaseService{
 					//更新
 					init("memberService");
 					memberService.update(member);
+					//添加积分记录
+					creditlog.setRewardtype(creditrule.getRewardtype());
+					creditlog.setCredit(creditrule.getCredit());
+					creditlog.setExperience(creditrule.getExperience());
+					creditlog.setCredittime(new Date());
+					creditlogService.add(creditlog);
 				}
 			}
 		}

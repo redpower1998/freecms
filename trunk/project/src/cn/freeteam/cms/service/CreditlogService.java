@@ -40,7 +40,7 @@ public class CreditlogService extends BaseService{
 	private CreditlogMapper creditlogMapper;
 	
 	public CreditlogService() {
-		init("creditlogMapper");
+		initMapper("creditlogMapper");
 	}
 
 	/**
@@ -74,10 +74,10 @@ public class CreditlogService extends BaseService{
 	 * @param info
 	 * @return
 	 */
-	public int count(Creditlog Creditlog){
+	public int count(Creditlog creditlog){
 		CreditlogExample example=new CreditlogExample();
 		Criteria criteria=example.createCriteria();
-		proSearchParam(Creditlog, criteria);
+		proSearchParam(creditlog, criteria);
 		return creditlogMapper.countByExample(example);
 	}
 
