@@ -38,8 +38,13 @@ public class MemberAction extends BaseAction{
 	public MemberAction() {
 		init("memberService");
 	}
-	
-	
+	/**
+	 * 会员中心首页
+	 * @return
+	 */
+	public String index(){
+		return "index";
+	}
 	
 	
 

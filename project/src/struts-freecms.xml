@@ -110,7 +110,7 @@
 			<result name="showMessage" >/showMessage.jsp</result>
 		</global-results>
 		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.web.MemberAction">
-			<result name="member" >/member/index.jsp</result>
+			<result name="index" >/member/index.jsp</result>
 		</action>
 	</package>
 </struts>
