@@ -45,7 +45,14 @@ public class MemberAction extends BaseAction{
 	public String index(){
 		return "index";
 	}
-	
+
+	/**
+	 * 会员中心左侧页面
+	 * @return
+	 */
+	public String left(){
+		return "left";
+	}
 	
 
 	public MemberService getMemberService() {
