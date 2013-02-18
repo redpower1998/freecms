@@ -14,6 +14,7 @@ import javax.servlet.jsp.PageContext;
 
 import org.apache.struts2.ServletActionContext;
 
+import cn.freeteam.cms.model.Member;
 import cn.freeteam.cms.model.Site;
 import cn.freeteam.model.Config;
 import cn.freeteam.model.Roles;
@@ -170,6 +171,16 @@ public class BaseAction extends BaseService{
 	public Users getLoginAdmin(){
 		if (getHttpSession().getAttribute("loginAdmin")!=null) {
 			return (Users)getHttpSession().getAttribute("loginAdmin");
+		}
+		return null;
+	}
+	/**
+	 * 获取session中的当有登录会员
+	 * @return
+	 */
+	public Member getLoginMember(){
+		if (getHttpSession().getAttribute("loginMember")!=null) {
+			return (Member)getHttpSession().getAttribute("loginMember");
 		}
 		return null;
 	}
