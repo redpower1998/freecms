@@ -85,9 +85,6 @@
 					Align="center" border="0" border="0"
 					style="width: 100%; word-break: break-all">
 					<TR class="summary-title" style="HEIGHT: 25px" align="center">
-						<TD>
-							<INPUT onClick="checkAll(this.checked)" type="checkbox" />
-						</TD>
 						
 						<TD>
 							<fs:order colName="会员" col="membername"/>
@@ -112,8 +109,6 @@
 					<s:iterator value="creditlogList" id="bean">
 					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
-						<TD align="center">
-							<INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 						
 						
 						<TD  align="left" id="membername<s:property value="id"/>">
