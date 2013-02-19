@@ -155,7 +155,7 @@ public class BaseAction extends BaseService{
 		return null;
 	}
 	/**
-	 * 获取session中的当有登录用户名
+	 * 获取session中的当前登录用户名
 	 * @return
 	 */
 	public String getLoginName(){
@@ -165,7 +165,7 @@ public class BaseAction extends BaseService{
 		return "";
 	}
 	/**
-	 * 获取session中的当有登录用户
+	 * 获取session中的当前登录用户
 	 * @return
 	 */
 	public Users getLoginAdmin(){
@@ -175,7 +175,7 @@ public class BaseAction extends BaseService{
 		return null;
 	}
 	/**
-	 * 获取session中的当有登录会员
+	 * 获取session中的当前登录会员
 	 * @return
 	 */
 	public Member getLoginMember(){
@@ -183,6 +183,16 @@ public class BaseAction extends BaseService{
 			return (Member)getHttpSession().getAttribute("loginMember");
 		}
 		return null;
+	}
+	/**
+	 * 获取session中的当前会员登录用户名
+	 * @return
+	 */
+	public String getLoginMemberName(){
+		if (getLoginMember()!=null) {
+			return getLoginMember().getLoginname();
+		}
+		return "";
 	}
 	/**
 	 * 获取登录用户所属单位

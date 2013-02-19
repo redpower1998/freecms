@@ -131,6 +131,7 @@ public class MemberAction extends BaseAction{
 				if (!oldImg.equals(oldmember.getImg())) {
 					if(oldmember.getImg()!=null &&  oldmember.getImg().trim().length()>0){
 						FileUtil.del(getHttpRequest().getRealPath("/")+oldmember.getImg().trim().replaceAll("/", "\\\\"));
+						member.setImg("");
 					}
 				}else {
 					member.setImg(oldImg);

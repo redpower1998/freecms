@@ -111,7 +111,7 @@
 	</package>
 	<package name="cmsMember" extends="struts-default" namespace="/member">
 		<global-results>
-			<result name="showMessage" >/showMessage.jsp</result>
+			<result name="showMessage" >/member/showMessage.jsp</result>
 			<result name="msg" >/msg.jsp</result>
 		</global-results>
 		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.member.MemberAction">
