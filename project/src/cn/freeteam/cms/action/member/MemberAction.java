@@ -4,11 +4,14 @@ import java.io.File;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Member;
 import cn.freeteam.cms.model.Membergroup;
 import cn.freeteam.cms.service.MemberService;
 import cn.freeteam.cms.service.MembergroupService;
+import cn.freeteam.model.Users;
 import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.MD5;
 import cn.freeteam.util.OperLogUtil;
@@ -45,6 +48,8 @@ public class MemberAction extends BaseAction{
 	private File img;
 	private String imgFileName;
 	private String oldImg;
+	private String CurrentPassword="";
+	private String NewPassword="";
 	public MemberAction() {
 		init("memberService");
 	}
@@ -117,6 +122,31 @@ public class MemberAction extends BaseAction{
 		}
 	}
 
+
+	//修改密码
+	public String pwd(){
+		member=getLoginMember();
+		try {
+			//先判断原密码是否正确
+			if (!MD5.MD5(CurrentPassword).equals(member.getPwd())) {
+				showMessage="当前密码不正确!";
+			}
+			//如果新密码不等于旧密码时才修改，减少数据库操作
+			else {
+				if (!CurrentPassword.equals(NewPassword)) {
+					member.setPwd(MD5.MD5(NewPassword));
+					memberService.update(member);
+					getHttpSession().setAttribute("loginMember", member);
+				}
+				showMessage="密码更新成功!";
+			}
+		} catch (Exception e) {
+			DBProException(e);
+			showMessage="密码更新失败:"+e.toString()+"!";
+		}
+		OperLogUtil.log(member.getLoginname(), showMessage, getHttpRequest());
+		return showMessage(showMessage, "pwd.jsp", 3);
+	}
 	public MemberService getMemberService() {
 		return memberService;
 	}
@@ -158,5 +188,17 @@ public class MemberAction extends BaseAction{
 	}
 	public void setOldImg(String oldImg) {
 		this.oldImg = oldImg;
+	}
+	public String getCurrentPassword() {
+		return CurrentPassword;
+	}
+	public void setCurrentPassword(String currentPassword) {
+		CurrentPassword = currentPassword;
+	}
+	public String getNewPassword() {
+		return NewPassword;
+	}
+	public void setNewPassword(String newPassword) {
+		NewPassword = newPassword;
 	}
 }
