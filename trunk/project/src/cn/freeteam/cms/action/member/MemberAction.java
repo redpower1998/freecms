@@ -1,10 +1,17 @@
 package cn.freeteam.cms.action.member;
 
+import java.io.File;
+import java.util.Date;
+import java.util.UUID;
+
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Member;
 import cn.freeteam.cms.model.Membergroup;
 import cn.freeteam.cms.service.MemberService;
 import cn.freeteam.cms.service.MembergroupService;
+import cn.freeteam.util.FileUtil;
+import cn.freeteam.util.MD5;
+import cn.freeteam.util.OperLogUtil;
 /**
  * 
  * <p>Title: MemberAction.java</p>
@@ -35,6 +42,9 @@ public class MemberAction extends BaseAction{
 	private MembergroupService membergroupService;
 	private Member member;
 	private Membergroup membergroup;
+	private File img;
+	private String imgFileName;
+	private String oldImg;
 	public MemberAction() {
 		init("memberService");
 	}
@@ -53,7 +63,59 @@ public class MemberAction extends BaseAction{
 	public String left(){
 		return "left";
 	}
-	
+	/**
+	 * 个人资料修改
+	 * @return
+	 */
+	public String profile(){
+		try {
+			if (getLoginMember()!=null) {
+				//更新
+				Member oldmember=getLoginMember();
+				//如果原来有和现在的logo不同则删除原来的logo文件 
+				if (!oldImg.equals(oldmember.getImg())) {
+					if(oldmember.getImg()!=null &&  oldmember.getImg().trim().length()>0){
+						FileUtil.del(getHttpRequest().getRealPath("/")+oldmember.getImg().trim().replaceAll("/", "\\\\"));
+						member.setImg("");
+					}
+				}else {
+					member.setImg(oldImg);
+				}
+				if (img!=null) {
+					//生成目标文件
+					String root=getHttpRequest().getRealPath("/");
+					String ext=FileUtil.getExt(imgFileName).toLowerCase();
+					if (!".jpg".equals(ext) && !".jpeg".equals(ext) && !".gif".equals(ext) && !".png".equals(ext)) {
+						write("<script>alert('头像只能上传jpg,jpeg,gif,png格式的图片!');history.back();</script>", "UTF-8");
+						return null;
+					}
+					String id=UUID.randomUUID().toString();
+					File targetFile=new File(root+"\\upload\\member\\"+id+ext);
+					File folder=new File(root+"\\upload\\member\\");
+					if (!folder.exists()) {
+						folder.mkdirs();
+					}
+					if (!targetFile.exists()) {
+						targetFile.createNewFile();
+					}
+					//复制到目标文件
+					FileUtil.copy(img, targetFile);
+
+					//生成访问地址
+					member.setImg("/upload/member/"+id+ext);
+				}
+				member.setId(getLoginMember().getId());
+				memberService.update(member);
+				getHttpSession().setAttribute("loginMember", memberService.findByLoginname(getLoginMember()));
+				OperLogUtil.log(getLoginMemberName(), "更新个人资料", getHttpRequest());
+			}
+			return showMessage("更新个人资料成功", "profile.jsp", 3);
+		} catch (Exception e) {
+			OperLogUtil.log(getLoginMemberName(), "更新个人资料失败:"+e.toString(), getHttpRequest());
+			DBProException(e);
+			return showMessage("更新个人资料失败:"+e.toString(), "", 0);
+		}
+	}
 
 	public MemberService getMemberService() {
 		return memberService;
@@ -78,5 +140,23 @@ public class MemberAction extends BaseAction{
 	}
 	public void setMembergroup(Membergroup membergroup) {
 		this.membergroup = membergroup;
+	}
+	public File getImg() {
+		return img;
+	}
+	public void setImg(File img) {
+		this.img = img;
+	}
+	public String getImgFileName() {
+		return imgFileName;
+	}
+	public void setImgFileName(String imgFileName) {
+		this.imgFileName = imgFileName;
+	}
+	public String getOldImg() {
+		return oldImg;
+	}
+	public void setOldImg(String oldImg) {
+		this.oldImg = oldImg;
 	}
 }
