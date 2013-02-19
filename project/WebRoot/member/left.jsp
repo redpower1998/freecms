@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr class="tr1"><td><a href="profile.jsp" target="right">个人资料</a></td></tr>
 <tr class="tr1"><td><a href="pwd.jsp" target="right">密码设置</a></td></tr>
-<tr class="tre"><td><a href="profile.php" target="_blank">个人帐户管理</a></td></tr>
+<tr class="tre"><td><a href="creditlog_list.do" target="right">积分记录</a></td></tr>
   </table>
 </div>
 </td>
