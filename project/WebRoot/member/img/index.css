@@ -278,3 +278,12 @@ UNKNOWN {
 #footer SPAN {
 	COLOR: #999; MARGIN-RIGHT: 10px
 }
+.colorfocus {
+	border: 1px #86a1ba double;
+	background-color: #fff8e6;
+}
+.colorblur {
+	border: 1px #86a1ba double;
+	background-color: #ffffff;
+}
+.button{border:1px #93b9dc solid;background:url(button_bg.gif) repeat;cursor:hand}
