@@ -311,6 +311,10 @@ public class CreditlogExample extends BaseExample {
             addCriterion("memberid like", value, "memberid");
             return (Criteria) this;
         }
+        public Criteria andMembernameLike(String value) {
+            addCriterion("membername like", value, "membername");
+            return (Criteria) this;
+        }
 
         public Criteria andMemberidNotLike(String value) {
             addCriterion("memberid not like", value, "memberid");
@@ -407,18 +411,18 @@ public class CreditlogExample extends BaseExample {
             return (Criteria) this;
         }
 
-        public Criteria andRewardtypeIsNull() {
-            addCriterion("rewardtype is null");
+        public Criteria andTypeIsNull() {
+            addCriterion("type is null");
             return (Criteria) this;
         }
 
-        public Criteria andRewardtypeIsNotNull() {
-            addCriterion("rewardtype is not null");
+        public Criteria andTypeIsNotNull() {
+            addCriterion("type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRewardtypeEqualTo(Integer value) {
-            addCriterion("rewardtype =", value, "rewardtype");
+        public Criteria andTypeEqualTo(Integer value) {
+            addCriterion("type =", value, "type");
             return (Criteria) this;
         }
 
@@ -426,48 +430,48 @@ public class CreditlogExample extends BaseExample {
             addCriterion( value);
             return (Criteria) this;
         }
-        public Criteria andRewardtypeNotEqualTo(Integer value) {
-            addCriterion("rewardtype <>", value, "rewardtype");
+        public Criteria andTypeNotEqualTo(Integer value) {
+            addCriterion("type <>", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andRewardtypeGreaterThan(Integer value) {
-            addCriterion("rewardtype >", value, "rewardtype");
+        public Criteria andTypeGreaterThan(Integer value) {
+            addCriterion("type >", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andRewardtypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("rewardtype >=", value, "rewardtype");
+        public Criteria andTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("type >=", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andRewardtypeLessThan(Integer value) {
-            addCriterion("rewardtype <", value, "rewardtype");
+        public Criteria andTypeLessThan(Integer value) {
+            addCriterion("type <", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andRewardtypeLessThanOrEqualTo(Integer value) {
-            addCriterion("rewardtype <=", value, "rewardtype");
+        public Criteria andTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("type <=", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andRewardtypeIn(List<Integer> values) {
-            addCriterion("rewardtype in", values, "rewardtype");
+        public Criteria andTypeIn(List<Integer> values) {
+            addCriterion("type in", values, "type");
             return (Criteria) this;
         }
 
-        public Criteria andRewardtypeNotIn(List<Integer> values) {
-            addCriterion("rewardtype not in", values, "rewardtype");
+        public Criteria andTypeNotIn(List<Integer> values) {
+            addCriterion("type not in", values, "type");
             return (Criteria) this;
         }
 
-        public Criteria andRewardtypeBetween(Integer value1, Integer value2) {
-            addCriterion("rewardtype between", value1, value2, "rewardtype");
+        public Criteria andTypeBetween(Integer value1, Integer value2) {
+            addCriterion("type between", value1, value2, "type");
             return (Criteria) this;
         }
 
-        public Criteria andRewardtypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("rewardtype not between", value1, value2, "rewardtype");
+        public Criteria andTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("type not between", value1, value2, "type");
             return (Criteria) this;
         }
 
