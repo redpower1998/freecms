@@ -29,7 +29,6 @@ img {border:0}
 
 </style>
 <body >
-<form id="fm1" class="fm-v clearfix" action="member_register.do" method="post" onsubmit="return submitForm()">
 <div id="Logo">
 	<div style="float:left"><div class="lg"><img width="165" src="<%=basePath %>img/logo.png" border="0" /></div><br/></div>
 	<div class="nav"></div>
@@ -57,7 +56,6 @@ ${showMessage }
 </div>
   <jsp:include page="inc/foot.jsp"></jsp:include>
 </body>
-        	</form>
 </html>
  
  
