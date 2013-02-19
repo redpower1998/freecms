@@ -121,5 +121,8 @@
 			<result name="index" >/member/index.jsp</result>
 			<result name="left" >/member/left.jsp</result>
 		</action>
+		<action name="creditlog_*" method="{1}" class="cn.freeteam.cms.action.member.CreditlogAction">
+			<result name="list" >/member/creditlogList.jsp</result>
+		</action>
 	</package>
 </struts>

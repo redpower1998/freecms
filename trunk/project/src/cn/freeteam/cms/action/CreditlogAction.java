@@ -64,9 +64,9 @@ public class CreditlogAction extends BaseAction{
 		creditlogList=creditlogService.find(creditlog, order, currPage, pageSize);
 		totalCount=creditlogService.count(creditlog);
 		Pager pager=new Pager(getHttpRequest());
-		pager.appendParam("creditlog.loginname");
-		pager.appendParam("creditlog.content");
-		pager.appendParam("creditlog.ip");
+		pager.appendParam("creditlog.membername");
+		pager.appendParam("creditlog.creditruleid");
+		pager.appendParam("creditlog.type");
 		pager.appendParam("pageSize");
 		pager.appendParam("pageFuncId");
 		pager.setCurrPage(currPage);
