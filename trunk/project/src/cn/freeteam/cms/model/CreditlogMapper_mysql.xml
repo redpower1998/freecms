@@ -111,8 +111,8 @@
     </if>
   </select>
   <sql id="selectPageByExampleSql">
-  SELECT * 
-    FROM freecms_creditlog
+  SELECT  l.*,r.name as creditrule
+    FROM freecms_creditlog l left join freecms_creditrule r on l.creditruleid=r.id
     <if test="_parameter != null">
        <include refid="Example_Where_Clause" />
     </if>

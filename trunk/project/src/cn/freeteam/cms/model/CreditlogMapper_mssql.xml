@@ -110,11 +110,11 @@
   </select>
   
   <sql id="selectPageByExampleSql">
-  SELECT TOP ${pageSize} *
-    FROM freecms_creditlog
-    WHERE (ID NOT IN  
-          (SELECT TOP ${skip} id   
-         FROM freecms_creditlog   
+  SELECT TOP ${pageSize} l.*,r.name as creditrule
+    FROM freecms_creditlog l left join freecms_creditrule r on l.creditruleid=r.id
+    WHERE (l.ID NOT IN  
+          (SELECT TOP ${skip} l.id   
+         FROM freecms_creditlog  l 
 	    <if test="_parameter != null">
 	      <include refid="Example_Where_Clause" />
 	    </if>

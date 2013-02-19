@@ -102,6 +102,9 @@ public class CreditlogService extends BaseService{
 			if (Creditlog.getCredittimeGreater()!=null) {
 				criteria.andCredittimeGreaterThan(Creditlog.getCredittimeGreater());
 			}
+			if (Creditlog.getRewardtype()!=null) {
+				criteria.andSql(" l.rewardtype="+Creditlog.getRewardtype()+" ");
+			}
 		}
 	}
 
