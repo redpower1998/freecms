@@ -112,7 +112,7 @@
 											id=ctl06_ctl00_imgHelp tabIndex=-1 alt=重复输入新密码
 											src="../img/help.gif">
 									<NOBR>
-										<SPAN id=ctl06_ctl00_lblLabel>重复输入新密码：</SPAN>
+										<SPAN id=ctl06_ctl00_lblLabel>确认新密码：</SPAN>
 									</NOBR>
 								</LABEL>
 							</TD>
