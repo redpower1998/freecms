@@ -48,7 +48,7 @@ public class OperLogAction extends BaseAction{
 
 
 	/**
-	 * 用户列表
+	 * 列表
 	 * @return
 	 */
 	public String list(){

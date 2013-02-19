@@ -422,6 +422,10 @@ public class CreditlogExample extends BaseExample {
             return (Criteria) this;
         }
 
+        public Criteria andSql(String value) {
+            addCriterion( value);
+            return (Criteria) this;
+        }
         public Criteria andRewardtypeNotEqualTo(Integer value) {
             addCriterion("rewardtype <>", value, "rewardtype");
             return (Criteria) this;
