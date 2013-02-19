@@ -24,17 +24,20 @@
 					<TBODY>
 						<TR class=summary-title>
 							<TD height="30" align=left style="padding-left: 10px;">
-								编码:
-								<input name="creditlog.code" type="text" maxlength="500"
+								会员:
+								<input name="creditlog.membername" type="text" maxlength="500"
 									class="colorblur" onfocus="this.className='colorfocus';"
 									onblur="this.className='colorblur';"  />
-							名称:
+							积分规则:
 								
-								<input name="creditlog.name" type="text" maxlength="500"
-									class="colorblur" onfocus="this.className='colorfocus';"
-									onblur="this.className='colorblur';"  />
+								<select name="creditlog.creditruleid">
+									<option value="" >全部
+									<s:iterator value="creditruleList" id="bean">
+									<option value="<s:property value="id"/>" ><s:property value="name"/>
+									</s:iterator>
+								</select>
 								类型:
-							<select name="creditlog.rewardtype" >
+							<select name="creditlog.type" >
 								<option value="" >全部</option>
 								<option value="1" >奖励</option>
 								<option value="0" >惩罚</option>
@@ -87,13 +90,13 @@
 						</TD>
 						
 						<TD>
-							<fs:order colName="会员" col="memberid"/>
+							<fs:order colName="会员" col="membername"/>
 						</TD>
 						<TD>
 							<fs:order colName="积分规则" col="creditruleid"/>
 						</TD>
 						<TD>
-							<fs:order colName="类型" col="rewardtype"/>
+							<fs:order colName="类型" col="type"/>
 						</TD>
 						<TD>
 							<fs:order colName="积分" col="credit"/>
@@ -113,14 +116,14 @@
 							<INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 						
 						
-						<TD  align="left" id="memberid<s:property value="id"/>">
-							<s:property value="memberid"/>
+						<TD  align="left" id="membername<s:property value="id"/>">
+							<s:property value="membername"/>
 						</TD>
 						<TD  align="left" id="creditruleid<s:property value="id"/>">
 							<s:property value="creditrule"/>
 						</TD>
-						<TD  align="left" id="rewardtype<s:property value="id"/>">
-							<s:property value="rewardtypeStr"/>
+						<TD  align="left" id="type<s:property value="id"/>">
+							<s:property value="typeStr"/>
 						</TD>
 						<TD  align="left" id="credit<s:property value="id"/>">
 							<s:property value="credit"/>
