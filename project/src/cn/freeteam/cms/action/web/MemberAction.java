@@ -94,11 +94,12 @@ public class MemberAction extends BaseAction{
 				member.setGroupid("");
 			}
 			memberService.add(member);
+			getHttpSession().setAttribute("loginMember", member);
 		} catch (Exception e) {
 			DBProException(e);
 			write(e.toString(), "GBK");
 		}
-		return showMessage("恭喜您，注册成功了!<br>正在跳转到会员中心!", "mlogin.jsp", 5);
+		return showMessage("恭喜您，注册成功了!<br>正在跳转到会员中心!", "member/member_index.do", 3);
 	}
 
 	/**
