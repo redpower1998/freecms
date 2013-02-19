@@ -94,6 +94,9 @@ public class CreditlogService extends BaseService{
 			if (Creditlog.getMemberid()!=null && Creditlog.getMemberid().trim().length()>0) {
 				criteria.andMemberidEqualTo(Creditlog.getMemberid().trim());
 			}
+			if (Creditlog.getMembername()!=null && Creditlog.getMembername().trim().length()>0) {
+				criteria.andMembernameLike("%"+Creditlog.getMembername().trim()+"%");
+			}
 			if (Creditlog.getCredittimeToday()!=null) {
 				criteria.andCredittimeBetween(
 						DateUtil.parse(DateUtil.format(Creditlog.getCredittimeToday(), "yyyy-MM-dd")+" 00:00:00", "yyyy-MM-dd HH:mm:ss"),
@@ -102,8 +105,8 @@ public class CreditlogService extends BaseService{
 			if (Creditlog.getCredittimeGreater()!=null) {
 				criteria.andCredittimeGreaterThan(Creditlog.getCredittimeGreater());
 			}
-			if (Creditlog.getRewardtype()!=null) {
-				criteria.andSql(" l.rewardtype="+Creditlog.getRewardtype()+" ");
+			if (Creditlog.getType()!=null) {
+				criteria.andTypeEqualTo(Creditlog.getType());
 			}
 		}
 	}

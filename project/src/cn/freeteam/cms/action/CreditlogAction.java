@@ -5,7 +5,9 @@ import java.util.List;
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Comment;
 import cn.freeteam.cms.model.Creditlog;
+import cn.freeteam.cms.model.Creditrule;
 import cn.freeteam.cms.service.CreditlogService;
+import cn.freeteam.cms.service.CreditruleService;
 import cn.freeteam.model.OperlogsExample;
 import cn.freeteam.model.OperlogsExample.Criteria;
 import cn.freeteam.util.Pager;
@@ -38,11 +40,13 @@ public class CreditlogAction extends BaseAction{
 	
 	private Creditlog creditlog;
 	private CreditlogService creditlogService;
+	private CreditruleService creditruleService;
 	private List<Creditlog> creditlogList;
+	private List<Creditrule> creditruleList;
 	private String order="credittime desc";
 	
 	public CreditlogAction() {
-		init("creditlogService");
+		init("creditlogService","creditruleService");
 	}
 
 	/**
@@ -56,6 +60,7 @@ public class CreditlogAction extends BaseAction{
 		if (order.trim().length()==0) {
 			order=" credittime desc ";
 		}
+		creditruleList=creditruleService.find(null, "ordernum", true);
 		creditlogList=creditlogService.find(creditlog, order, currPage, pageSize);
 		totalCount=creditlogService.count(creditlog);
 		Pager pager=new Pager(getHttpRequest());
@@ -97,6 +102,22 @@ public class CreditlogAction extends BaseAction{
 	}
 	public void setOrder(String order) {
 		this.order = order;
+	}
+
+	public List<Creditrule> getCreditruleList() {
+		return creditruleList;
+	}
+
+	public void setCreditruleList(List<Creditrule> creditruleList) {
+		this.creditruleList = creditruleList;
+	}
+
+	public CreditruleService getCreditruleService() {
+		return creditruleService;
+	}
+
+	public void setCreditruleService(CreditruleService creditruleService) {
+		this.creditruleService = creditruleService;
 	}
 
 }

@@ -221,10 +221,11 @@ public class CreditruleService extends BaseService{
 					init("memberService");
 					memberService.update(member);
 					//添加积分记录
-					creditlog.setRewardtype(creditrule.getRewardtype());
+					creditlog.setType(creditrule.getRewardtype());
 					creditlog.setCredit(creditrule.getCredit());
 					creditlog.setExperience(creditrule.getExperience());
 					creditlog.setCredittime(new Date());
+					creditlog.setMembername(member.getLoginname());
 					creditlogService.add(creditlog);
 				}
 			}
