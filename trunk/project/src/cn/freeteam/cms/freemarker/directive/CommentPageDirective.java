@@ -28,6 +28,7 @@ import freemarker.template.TemplateModel;
  * 
  * 参数
  * num  		显示数量
+ * siteid 		站点id
  * objtype	 	评论对象
  * objid		评论对象id
  * membername	评论人
@@ -98,6 +99,7 @@ public class CommentPageDirective extends BaseDirective implements TemplateDirec
 				//排序
 				String order=getParam(params, "order","1");
 				Comment comment=new Comment();
+				comment.setSiteid(getParam(params, "siteid"));
 				comment.setObjtype(getParam(params, "objtype"));
 				comment.setObjid(getParam(params, "objid"));
 				comment.setIsanonymous(getParam(params, "isanonymous"));
