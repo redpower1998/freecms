@@ -1,5 +1,8 @@
 package cn.freeteam.util;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class HtmlCode {
 
 	public static String encode(String str){
@@ -25,5 +28,11 @@ public class HtmlCode {
         s    =    s.replaceAll("&quot;",      "\"");  
         return    s;  
 	}
-	
+	public static String replaceHtml(String html){ 
+        String regEx="<.+?>"; //表示标签 
+        Pattern p=Pattern.compile(regEx); 
+        Matcher m=p.matcher(html); 
+        String s=m.replaceAll(""); 
+        return s; 
+    }
 }

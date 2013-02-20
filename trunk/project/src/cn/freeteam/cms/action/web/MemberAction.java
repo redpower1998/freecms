@@ -148,11 +148,8 @@ public class MemberAction extends BaseAction{
 	//退出
 	public String out(){
 	    HttpSession session =getHttpSession();
-	    member=(Member)session.getAttribute("loginMember");
-	    if (member!=null) {
-			OperLogUtil.log(member.getLoginname(), "会员退出", getHttpRequest());
-		}
 	    session.removeAttribute("loginMember");
+	    session.removeAttribute("loginMembergroup");
 	    msg="<script>parent.location.href=parent.location.href;</script>";
 	    return "msg";
 	}

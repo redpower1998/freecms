@@ -111,6 +111,8 @@
 		</action>
 		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.web.MemberAction">
 		</action>
+		<action name="comment_*" method="{1}" class="cn.freeteam.cms.action.web.CommentAction">
+		</action>
 	</package>
 	<package name="cmsMember" extends="struts-default" namespace="/member">
 		<global-results>

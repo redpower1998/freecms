@@ -224,6 +224,9 @@ public class MemberService extends BaseService{
 				member=creditruleService.credit(member, "login");
 				update(member);
 				session.setAttribute("loginMember", member);
+				if (member.getGroupid()!=null && member.getGroupid().trim().length()>0) {
+					session.setAttribute("loginMembergroup", membergroupService.findById(member.getGroupid()));
+				}
 			}else{
 				msg="此用户已禁用!";
 			}

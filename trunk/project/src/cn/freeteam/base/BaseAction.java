@@ -15,6 +15,7 @@ import javax.servlet.jsp.PageContext;
 import org.apache.struts2.ServletActionContext;
 
 import cn.freeteam.cms.model.Member;
+import cn.freeteam.cms.model.Membergroup;
 import cn.freeteam.cms.model.Site;
 import cn.freeteam.model.Config;
 import cn.freeteam.model.Roles;
@@ -185,6 +186,16 @@ public class BaseAction extends BaseService{
 		return null;
 	}
 	/**
+	 * 获取session中的当前登录会员组
+	 * @return
+	 */
+	public Membergroup getLoginMembergroup(){
+		if (getHttpSession().getAttribute("loginMembergroup")!=null) {
+			return (Membergroup)getHttpSession().getAttribute("loginMembergroup");
+		}
+		return null;
+	}
+	/**
 	 * 获取session中的当前会员登录用户名
 	 * @return
 	 */
@@ -194,6 +205,7 @@ public class BaseAction extends BaseService{
 		}
 		return "";
 	}
+	
 	/**
 	 * 获取登录用户所属单位
 	 * @return
