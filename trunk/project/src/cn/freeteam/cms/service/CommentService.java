@@ -86,6 +86,9 @@ public class CommentService extends BaseService{
 	 */
 	public void proSearchParam(Comment Comment,Criteria criteria){
 		if (Comment!=null ) {
+			if (Comment.getMemberid()!=null && Comment.getMemberid().trim().length()>0) {
+				criteria.andMemberidEqualTo(Comment.getMemberid().trim());
+			}
 			if (Comment.getMembername()!=null && Comment.getMembername().trim().length()>0) {
 				criteria.andMembernameLike("%"+Comment.getMembername().trim()+"%");
 			}

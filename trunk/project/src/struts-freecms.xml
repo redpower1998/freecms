@@ -124,5 +124,8 @@
 		<action name="creditlog_*" method="{1}" class="cn.freeteam.cms.action.member.CreditlogAction">
 			<result name="list" >/member/creditlogList.jsp</result>
 		</action>
+		<action name="comment_*" method="{1}" class="cn.freeteam.cms.action.member.CommentAction">
+			<result name="list" >/member/commentList.jsp</result>
+		</action>
 	</package>
 </struts>
