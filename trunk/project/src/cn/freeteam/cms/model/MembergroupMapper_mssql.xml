@@ -17,7 +17,6 @@
     <result column="maxAttchSize" property="maxattchsize" jdbcType="INTEGER" />
     <result column="maxFriendNum" property="maxfriendnum" jdbcType="INTEGER" />
     <result column="commentNeedCheck" property="commentneedcheck" jdbcType="INTEGER" />
-    <result column="commentNeedCaptcha" property="commentneedcaptcha" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <!--
@@ -94,7 +93,7 @@
       This element was generated on Thu Jan 31 19:12:30 CST 2013.
     -->
     id, type, name, orderNum, beginexperience,  img, color, maxAttchSize, maxFriendNum, 
-    commentNeedCheck, commentNeedCaptcha
+    commentNeedCheck
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.freeteam.cms.model.MembergroupExample" >
     <!--
@@ -180,12 +179,12 @@
     insert into freecms_memberGroup (id, type, name, 
       orderNum, beginexperience, 
       img, color, maxAttchSize, 
-      maxFriendNum, commentNeedCheck, commentNeedCaptcha
+      maxFriendNum, commentNeedCheck
       )
     values (#{id,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{ordernum,jdbcType=INTEGER}, #{beginexperience,jdbcType=INTEGER}, 
       #{img,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, #{maxattchsize,jdbcType=INTEGER}, 
-      #{maxfriendnum,jdbcType=INTEGER}, #{commentneedcheck,jdbcType=INTEGER}, #{commentneedcaptcha,jdbcType=INTEGER}
+      #{maxfriendnum,jdbcType=INTEGER}, #{commentneedcheck,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.freeteam.cms.model.Membergroup" >
@@ -226,9 +225,6 @@
       <if test="commentneedcheck != null" >
         commentNeedCheck,
       </if>
-      <if test="commentneedcaptcha != null" >
-        commentNeedCaptcha,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -260,9 +256,6 @@
       </if>
       <if test="commentneedcheck != null" >
         #{commentneedcheck,jdbcType=INTEGER},
-      </if>
-      <if test="commentneedcaptcha != null" >
-        #{commentneedcaptcha,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -315,9 +308,6 @@
       <if test="record.commentneedcheck != null" >
         commentNeedCheck = #{record.commentneedcheck,jdbcType=INTEGER},
       </if>
-      <if test="record.commentneedcaptcha != null" >
-        commentNeedCaptcha = #{record.commentneedcaptcha,jdbcType=INTEGER},
-      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -339,8 +329,7 @@
       color = #{record.color,jdbcType=VARCHAR},
       maxAttchSize = #{record.maxattchsize,jdbcType=INTEGER},
       maxFriendNum = #{record.maxfriendnum,jdbcType=INTEGER},
-      commentNeedCheck = #{record.commentneedcheck,jdbcType=INTEGER},
-      commentNeedCaptcha = #{record.commentneedcaptcha,jdbcType=INTEGER}
+      commentNeedCheck = #{record.commentneedcheck,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -380,9 +369,6 @@
       <if test="commentneedcheck != null" >
         commentNeedCheck = #{commentneedcheck,jdbcType=INTEGER},
       </if>
-      <if test="commentneedcaptcha != null" >
-        commentNeedCaptcha = #{commentneedcaptcha,jdbcType=INTEGER},
-      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -401,8 +387,7 @@
       color = #{color,jdbcType=VARCHAR},
       maxAttchSize = #{maxattchsize,jdbcType=INTEGER},
       maxFriendNum = #{maxfriendnum,jdbcType=INTEGER},
-      commentNeedCheck = #{commentneedcheck,jdbcType=INTEGER},
-      commentNeedCaptcha = #{commentneedcaptcha,jdbcType=INTEGER}
+      commentNeedCheck = #{commentneedcheck,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
