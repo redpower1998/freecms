@@ -44,7 +44,7 @@ public class CommentService extends BaseService{
 	/**
 	 * 分页查询
 	 */
-	public List<Comment> find(Comment Comment,String order,int currPage,int pageSize){
+	public List<Comment> find(Comment Comment,String order,int currPage,int pageSize,boolean iscache){
 		CommentExample example=new CommentExample();
 		Criteria criteria=example.createCriteria();
 		proSearchParam(Comment, criteria);
@@ -53,6 +53,9 @@ public class CommentService extends BaseService{
 		}
 		example.setCurrPage(currPage);
 		example.setPageSize(pageSize);
+		if (iscache) {
+			return commentMapper.selectPageByExampleCache(example);
+		}
 		return commentMapper.selectPageByExample(example);
 	}
 	/**
@@ -72,10 +75,13 @@ public class CommentService extends BaseService{
 	 * @param info
 	 * @return
 	 */
-	public int count(Comment Comment){
+	public int count(Comment Comment,boolean iscache){
 		CommentExample example=new CommentExample();
 		Criteria criteria=example.createCriteria();
 		proSearchParam(Comment, criteria);
+		if (iscache) {
+			return commentMapper.countByExampleCache(example);
+		}
 		return commentMapper.countByExample(example);
 	}
 
