@@ -95,8 +95,11 @@ public class CommentService extends BaseService{
 			if (Comment.getMemberid()!=null && Comment.getMemberid().trim().length()>0) {
 				criteria.andMemberidEqualTo(Comment.getMemberid().trim());
 			}
-			if (Comment.getMembername()!=null && Comment.getMembername().trim().length()>0) {
-				criteria.andMembernameLike("%"+Comment.getMembername().trim()+"%");
+			if (Comment.getMemberid()!=null && Comment.getMemberid().trim().length()>0) {
+				criteria.andMemberidEqualTo(Comment.getMemberid().trim());
+			}
+			if (Comment.getSiteid()!=null && Comment.getSiteid().trim().length()>0) {
+				criteria.andSiteidLike("%"+Comment.getSiteid().trim()+"%");
 			}
 			if (Comment.getIsanonymous()!=null && Comment.getIsanonymous().trim().length()>0) {
 				criteria.andIsanonymousEqualTo(Comment.getIsanonymous().trim());
