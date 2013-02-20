@@ -200,7 +200,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<SPAN  id=ctl03>*</SPAN>
 							</TD>
 						</TR>
-						<TR>
+						<TR style="display:none">
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
