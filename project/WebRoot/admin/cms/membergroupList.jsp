@@ -53,9 +53,6 @@
 						<TD>
 							<fs:order colName="评论是否需要审核" col="commentneedcheck"/>
 						</TD>
-						<TD style="display:none">
-							<fs:order colName="评论是否需要验证码" col="commentneedcaptcha"/>
-						</TD>
 					</TR>
 					
 					<s:iterator value="membergroupList" id="bean">
@@ -90,9 +87,6 @@
 						</TD>
 						<TD  align="left" id="commentneedcheck<s:property value="id"/>">
 							<s:property value="commentneedcheckStr"/>
-						</TD>
-						<TD style="display:none" align="left" id="commentneedcaptcha<s:property value="id"/>">
-							<s:property value="commentneedcaptchaStr"/>
 						</TD>
 					</TR>
 					</s:if>
@@ -129,9 +123,6 @@
 						<TD>
 							<fs:order colName="评论是否需要审核" col="commentneedcheck"/>
 						</TD>
-						<TD style="display:none">
-							<fs:order colName="评论是否需要验证码" col="commentneedcaptcha"/>
-						</TD>
 					</TR>
 					
 					<s:iterator value="membergroupList" id="bean">
@@ -163,9 +154,6 @@
 						</TD>
 						<TD  align="left" id="commentneedcheck<s:property value="id"/>">
 							<s:property value="commentneedcheckStr"/>
-						</TD>
-						<TD style="display:none" align="left" id="commentneedcaptcha<s:property value="id"/>">
-							<s:property value="commentneedcaptchaStr"/>
 						</TD>
 					</TR>
 					</s:if>

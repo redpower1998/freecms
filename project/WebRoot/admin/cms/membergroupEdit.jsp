@@ -200,23 +200,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<SPAN  id=ctl03>*</SPAN>
 							</TD>
 						</TR>
-						<TR style="display:none">
-							<TD width="30%" align="left">
-								<LABEL id=ctl01_ctl00_label><IMG
-											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择评论是否需要验证码
-											src="../../img/help.gif">
-									<NOBR>
-										<SPAN id=ctl01_ctl00_lblLabel>评论是否需要验证码：</SPAN>
-									</NOBR>
-								</LABEL>
-							</TD>
-							<TD width="70%" align="left">
-								<input type="radio" id="commentneedcaptcha1"  name="membergroup.commentneedcaptcha" value="1" <s:if test="membergroup==null || membergroup.commentneedcaptcha==null || membergroup.commentneedcaptcha==1">checked="checked"</s:if>>是
-								<input type="radio" id="commentneedcaptcha0"  name="membergroup.commentneedcaptcha" value="0" <s:if test="membergroup.commentneedcaptcha==0">checked="checked"</s:if> >否
-								<SPAN  id=ctl03>*</SPAN>
-							</TD>
-						</TR>
 						<TR>
 							<TD  align="center" colspan="10">
 							<input type="button" value="保 存" onclick="save()"  class="button"  />
