@@ -22,6 +22,7 @@ public class Pager {
 	private HttpServletRequest request ;
 	private String path;
 	private String outStr;
+	private String outStrNoTable;
 	private Integer startIndex;
 	private Integer endIndex;
 	private List<String> params ;
@@ -116,6 +117,54 @@ public class Pager {
 		}
 		
 	}
+	public void setOutStrNoTable(String action) {
+		try {
+			if(totalCount%pageSize==0){
+				totalPage = totalCount/pageSize;
+			}else{
+				totalPage = totalCount/pageSize+1;
+			}
+			currPage = currPage<1?1:currPage;
+			currPage = totalPage>0&&currPage>totalPage?totalPage:currPage;
+			
+			StringBuffer sb=new StringBuffer();
+			sb.append("<form name='pageForm' method='get' action=\""+action+"\" onkeydown=\"if(event.keyCode==13){return false;}\">");
+			
+			sb.append("<input type='hidden' name='currPage' value=''>");
+			if(params!=null){
+				for(String param:params){
+					//if(request.getParameter(param)!=null)
+						sb.append("<input type='hidden' name='"+param+"' value='"+(request.getParameter(param)!=null?request.getParameter(param):"")+"'>");
+				}
+			}
+			sb.append(" 共&nbsp;<b>"+totalCount+"</b>&nbsp;条 ");
+			if(currPage-1>=1){
+				sb.append(" <a href=\"javascript:pageForm.currPage.value=1;pageForm.submit();\">首页</a> ");
+				sb.append(" <a href=\"javascript:pageForm.currPage.value="+(currPage-1)+";pageForm.submit();\">上一页</a> ");
+			}else{
+				sb.append(" 首页 ");
+				sb.append(" 上一页 ");
+			}
+			if(currPage+1<=totalPage){
+				sb.append(" <a href=\"javascript:pageForm.currPage.value="+(currPage+1)+";pageForm.submit();\">下一页</a> ");
+				sb.append(" <a href=\"javascript:pageForm.currPage.value="+(totalPage)+";pageForm.submit();\">尾页</a> ");
+			}else{
+				sb.append(" 下一页 ");
+				sb.append(" 尾页 ");
+			}
+			sb.append(" 每页&nbsp;<b>");
+			sb.append(pageSize+"</b>&nbsp;");
+			sb.append("条&nbsp;当前第&nbsp;<b>"+currPage+"</b>&nbsp;页/共&nbsp;<b>"+totalPage+"</b>&nbsp;页");
+			
+			sb.append(" 跳转到第&nbsp;<input name=\"pageNum\" type=\"text\" value=\""+currPage+"\" class=\"ts_box4\" size=\"1\" style=\"text-align:center\">&nbsp;页");
+			sb.append("<a href=\"javascript:"+(totalPage>1?"if(isNaN(pageForm.pageNum.value)==false&&pageForm.pageNum.value!="+currPage+"&&pageForm.pageNum.value>=1&&pageForm.pageNum.value<="+totalPage+"){pageForm.currPage.value=pageForm.pageNum.value;pageForm.submit();}":"void(0)")+"\"><img src=\"img/go.gif\" width=\"26\" height=\"22\" border=\"0\"></a>");
+			sb.append("</form>");
+			outStrNoTable=sb.toString();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	public int getCurrPage() {
@@ -186,5 +235,8 @@ public class Pager {
 	}
 	public void setEndIndex(Integer endIndex) {
 		this.endIndex = endIndex;
+	}
+	public String getOutStrNoTable() {
+		return outStrNoTable;
 	}
 }

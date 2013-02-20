@@ -6,6 +6,7 @@ import java.util.Map;
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Comment;
 import cn.freeteam.cms.service.CommentService;
+import cn.freeteam.cms.service.CreditruleService;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 /**
@@ -40,6 +41,7 @@ public class CommentAction extends BaseAction {
 	private String ids;
 	
 	private CommentService commentService;
+	private CreditruleService creditruleService;
 	private Comment comment;
 	private List<Comment> commentList;
 	private Map<String, String> objtypes;
@@ -77,8 +79,8 @@ public class CommentAction extends BaseAction {
 		pager.setCurrPage(currPage);
 		pager.setPageSize(pageSize);
 		pager.setTotalCount(totalCount);
-		pager.setOutStr("comment_list.do");
-		pageStr=pager.getOutStr();
+		pager.setOutStrNoTable("comment_list.do");
+		pageStr=pager.getOutStrNoTable();
 		return "list";
 	}
 	/**
@@ -90,15 +92,16 @@ public class CommentAction extends BaseAction {
 			StringBuilder sb=new StringBuilder();
 			String[] idArr=ids.split(";");
 			if (idArr!=null && idArr.length>0) {
+				init("creditruleService");
 				for (int i = 0; i < idArr.length; i++) {
 					if (idArr[i].trim().length()>0) {
 						try {
 							commentService.del(idArr[i]);
 							sb.append(idArr[i]+";");
-							logContent="删除评论("+idArr[i]+")成功!";
+							//处理积分
+							creditruleService.credit(getLoginMember(), "comment_del");
 						} catch (Exception e) {
 							DBProException(e);
-							logContent="删除评论("+idArr[i]+")失败:"+e.toString()+"!";
 						}
 						OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
 					}
@@ -168,6 +171,18 @@ public class CommentAction extends BaseAction {
 
 	public void setObjtypes(Map<String, String> objtypes) {
 		this.objtypes = objtypes;
+	}
+
+
+
+	public CreditruleService getCreditruleService() {
+		return creditruleService;
+	}
+
+
+
+	public void setCreditruleService(CreditruleService creditruleService) {
+		this.creditruleService = creditruleService;
 	}
 
 }

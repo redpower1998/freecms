@@ -73,8 +73,8 @@ public class CreditlogAction extends BaseAction{
 		pager.appendParam("order");
 		pager.setPageSize(pageSize);
 		pager.setTotalCount(totalCount);
-		pager.setOutStr("creditlog_list.do");
-		pageStr=pager.getOutStr();
+		pager.setOutStrNoTable("creditlog_list.do");
+		pageStr=pager.getOutStrNoTable();
 		return "list";
 	}
 	
