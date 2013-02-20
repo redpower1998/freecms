@@ -896,65 +896,6 @@ public class MembergroupExample extends BaseExample{
             return (Criteria) this;
         }
 
-        public Criteria andCommentneedcaptchaIsNull() {
-            addCriterion("commentNeedCaptcha is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCommentneedcaptchaIsNotNull() {
-            addCriterion("commentNeedCaptcha is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCommentneedcaptchaEqualTo(Integer value) {
-            addCriterion("commentNeedCaptcha =", value, "commentneedcaptcha");
-            return (Criteria) this;
-        }
-
-        public Criteria andCommentneedcaptchaNotEqualTo(Integer value) {
-            addCriterion("commentNeedCaptcha <>", value, "commentneedcaptcha");
-            return (Criteria) this;
-        }
-
-        public Criteria andCommentneedcaptchaGreaterThan(Integer value) {
-            addCriterion("commentNeedCaptcha >", value, "commentneedcaptcha");
-            return (Criteria) this;
-        }
-
-        public Criteria andCommentneedcaptchaGreaterThanOrEqualTo(Integer value) {
-            addCriterion("commentNeedCaptcha >=", value, "commentneedcaptcha");
-            return (Criteria) this;
-        }
-
-        public Criteria andCommentneedcaptchaLessThan(Integer value) {
-            addCriterion("commentNeedCaptcha <", value, "commentneedcaptcha");
-            return (Criteria) this;
-        }
-
-        public Criteria andCommentneedcaptchaLessThanOrEqualTo(Integer value) {
-            addCriterion("commentNeedCaptcha <=", value, "commentneedcaptcha");
-            return (Criteria) this;
-        }
-
-        public Criteria andCommentneedcaptchaIn(List<Integer> values) {
-            addCriterion("commentNeedCaptcha in", values, "commentneedcaptcha");
-            return (Criteria) this;
-        }
-
-        public Criteria andCommentneedcaptchaNotIn(List<Integer> values) {
-            addCriterion("commentNeedCaptcha not in", values, "commentneedcaptcha");
-            return (Criteria) this;
-        }
-
-        public Criteria andCommentneedcaptchaBetween(Integer value1, Integer value2) {
-            addCriterion("commentNeedCaptcha between", value1, value2, "commentneedcaptcha");
-            return (Criteria) this;
-        }
-
-        public Criteria andCommentneedcaptchaNotBetween(Integer value1, Integer value2) {
-            addCriterion("commentNeedCaptcha not between", value1, value2, "commentneedcaptcha");
-            return (Criteria) this;
-        }
     }
 
     /**
