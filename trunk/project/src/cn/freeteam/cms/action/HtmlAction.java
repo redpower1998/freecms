@@ -250,12 +250,14 @@ public class HtmlAction extends BaseAction{
 	 */
 	public String infoDo(){
 		try {
+			boolean ishtml=false;
 			site=getManageSite();
 			List<Info> infoList=null;
 			if ("channels".equals(createType)) {
 				//生成所选栏目
 				if (channels!=null && channels.length>0) {
 					info.setChannels(channels);
+					ishtml=true;
 				}
 			}else if ("all".equals(createType)) {
 				//生成所有
@@ -272,13 +274,16 @@ public class HtmlAction extends BaseAction{
 					}
 					info.setChannels(channels);
 				}
+				ishtml=true;
 			}
-			infoList=infoService.findAll(info, "");
-			if (infoList!=null && infoList.size()>0) {
-				for (int i = 0; i < infoList.size(); i++) {
-					if (infoList.get(i)!=null) {
-						//生成静态页面
-						infoService.html(infoList.get(i).getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
+			if (ishtml) {
+				infoList=infoService.findAll(info, "");
+				if (infoList!=null && infoList.size()>0) {
+					for (int i = 0; i < infoList.size(); i++) {
+						if (infoList.get(i)!=null) {
+							//生成静态页面
+							infoService.html(infoList.get(i).getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
+						}
 					}
 				}
 			}
