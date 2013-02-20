@@ -4,12 +4,12 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="fs" uri="/fs-tags" %>
 <!doctype html>
 <link href="img/sl_core.css" rel="stylesheet" type="text/css" />
 <link href="img/index.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="../js/jquery-1.5.1.min.js"></script>
 		<script language="javascript" type="text/javascript" src="../My97DatePicker/WdatePicker.js" defer="defer"></script>
-		<script type="text/javascript" src="js/profile.js"></script>
 <div class="tipcnt">
   <div class="title">
 <span class="f12 fr"></span>
@@ -67,11 +67,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </td>
 </tr>
 <tr class="tr1 tac ">
-  <td  ><b>积分规则</b></td>
-  <td  ><b>类型</b></td>
-  <td  ><b>积分</b></td>
-  <td  ><b>经验</b></td>
-  <td  ><b>时间</b></td>
+<TD>
+	<b><fs:order colName="积分规则" col="creditruleid"/></b>
+</TD>
+<TD>
+	<b><fs:order colName="类型" col="type"/></b>
+</TD>
+<TD>
+	<b><fs:order colName="积分" col="credit"/></b>
+</TD>
+<TD>
+	<b><fs:order colName="经验" col="experience"/></b>
+</TD>
+<TD>
+	<b><fs:order colName="时间" col="credittime"/></b>
+</TD>
 </tr>
 
 <s:iterator value="creditlogList" id="bean">
