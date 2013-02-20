@@ -65,8 +65,8 @@ public class CommentAction extends BaseAction {
 			order=" addtime desc ";
 		}
 		comment.setMemberid(getLoginMember().getId());
-		commentList=commentService.find(comment, order, currPage, pageSize);
-		totalCount=commentService.count(comment);
+		commentList=commentService.find(comment, order, currPage, pageSize,false);
+		totalCount=commentService.count(comment,false);
 		Pager pager=new Pager(getHttpRequest());
 		pager.appendParam("comment.isanonymous");
 		pager.appendParam("comment.objtype");
