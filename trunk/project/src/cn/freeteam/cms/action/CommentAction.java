@@ -6,6 +6,8 @@ import java.util.Map;
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Comment;
 import cn.freeteam.cms.service.CommentService;
+import cn.freeteam.cms.service.CreditruleService;
+import cn.freeteam.cms.service.MemberService;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 /**
@@ -39,6 +41,8 @@ public class CommentAction extends BaseAction {
 	private String logContent;
 	private String ids;
 	
+	private CreditruleService creditruleService;
+	private MemberService memberService;
 	private CommentService commentService;
 	private Comment comment;
 	private List<Comment> commentList;
@@ -91,12 +95,18 @@ public class CommentAction extends BaseAction {
 			StringBuilder sb=new StringBuilder();
 			String[] idArr=ids.split(";");
 			if (idArr!=null && idArr.length>0) {
+				init("creditruleService","memberService");
 				for (int i = 0; i < idArr.length; i++) {
 					if (idArr[i].trim().length()>0) {
 						try {
-							commentService.del(idArr[i]);
-							sb.append(idArr[i]+";");
-							logContent="删除评论("+idArr[i]+")成功!";
+							comment=commentService.findById(idArr[i]);
+							if (comment!=null) {
+								commentService.del(idArr[i]);
+								sb.append(idArr[i]+";");
+								//处理积分
+								creditruleService.credit(memberService.findById(comment.getMemberid()), "comment_del");
+								logContent="删除评论("+idArr[i]+")成功!";
+							}
 						} catch (Exception e) {
 							DBProException(e);
 							logContent="删除评论("+idArr[i]+")失败:"+e.toString()+"!";
@@ -194,6 +204,30 @@ public class CommentAction extends BaseAction {
 
 	public void setObjtypes(Map<String, String> objtypes) {
 		this.objtypes = objtypes;
+	}
+
+
+
+	public CreditruleService getCreditruleService() {
+		return creditruleService;
+	}
+
+
+
+	public void setCreditruleService(CreditruleService creditruleService) {
+		this.creditruleService = creditruleService;
+	}
+
+
+
+	public MemberService getMemberService() {
+		return memberService;
+	}
+
+
+
+	public void setMemberService(MemberService memberService) {
+		this.memberService = memberService;
 	}
 
 }
