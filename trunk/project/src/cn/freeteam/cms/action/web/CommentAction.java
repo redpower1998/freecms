@@ -9,6 +9,7 @@ import cn.freeteam.cms.model.Comment;
 import cn.freeteam.cms.model.Info;
 import cn.freeteam.cms.service.CommentService;
 import cn.freeteam.cms.service.InfoService;
+import cn.freeteam.cms.service.MembergroupAuthService;
 import cn.freeteam.util.HtmlCode;
 
 /**
@@ -44,6 +45,7 @@ public class CommentAction extends BaseAction{
 
 	private String ValidateCode;
 	private InfoService infoService;
+	private MembergroupAuthService membergroupAuthService;
 
 	public CommentAction() {
 		init("commentService");
@@ -68,7 +70,14 @@ public class CommentAction extends BaseAction{
 							showMessage="此信息不支持评论";
 						}else if (Info.ISCOMMENT_MEMBER.equals(info.getIscomment())) {
 							if (getLoginMember()!=null) {
-								isSubmit=true;
+								//判断会员是否有发表评论权限
+								init("membergroupAuthService");
+								if (getLoginMembergroup()!=null && 
+										membergroupAuthService.hasAuth(getLoginMembergroup().getId(), "commentPub")) {
+									isSubmit=true;
+								}else {
+									showMessage="您没有发表评论的权限";
+								}
 							}else {
 								showMessage="会员登录后才能对此信息评论";
 							}
@@ -152,5 +161,12 @@ public class CommentAction extends BaseAction{
 	}
 	public void setValidateCode(String validateCode) {
 		ValidateCode = validateCode;
+	}
+	public MembergroupAuthService getMembergroupAuthService() {
+		return membergroupAuthService;
+	}
+	public void setMembergroupAuthService(
+			MembergroupAuthService membergroupAuthService) {
+		this.membergroupAuthService = membergroupAuthService;
 	}
 }
