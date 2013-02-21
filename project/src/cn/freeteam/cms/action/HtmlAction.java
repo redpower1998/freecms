@@ -90,14 +90,12 @@ public class HtmlAction extends BaseAction{
 					}
 				}
 			}*/
-			msg="首页静态化处理成功!";
-			msg="<script>alert('"+msg.replaceAll("'", "‘")+"');</script>";
-			return "msg";
+			showMessage="首页静态化处理成功!";
 		} catch (Exception e) {
 			e.printStackTrace();
-			showMessage="首页静态化处理失败，原因:"+e.getMessage();
-			return showMessage(showMessage, "", 0);
+			showMessage="首页静态化处理失败，原因:"+e.getMessage().replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br/>");
 		}
+		return showMessage(showMessage, "", 0);
 	}
 	/**
 	 * 栏目页静态化页面
@@ -189,12 +187,12 @@ public class HtmlAction extends BaseAction{
 					}
 				}
 			}
-			msg="栏目页静态化处理成功!";
+			showMessage="栏目页静态化处理成功!";
 		} catch (Exception e) {
-			msg="栏目页静态化处理失败，原因:"+e.toString();
+			e.printStackTrace();
+			showMessage="栏目页静态化处理失败，原因:"+e.toString().replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br/>");
 		}
-		msg="<script>alert('"+msg.replaceAll("'", "‘")+"');history.back();</script>";
-		return "msg";
+		return showMessage(showMessage, "", 0);
 	}
 
 	/**
@@ -289,12 +287,11 @@ public class HtmlAction extends BaseAction{
 					}
 				}
 			}
-			msg="信息页静态化处理成功!";
+			showMessage="信息页静态化处理成功!";
 		} catch (Exception e) {
-			msg="信息页静态化处理失败，原因:"+e.toString();
+			showMessage="信息页静态化处理失败，原因:"+e.toString().replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br/>");
 		}
-		msg="<script>alert('"+msg.replaceAll("'", "‘")+"');history.back();</script>";
-		return "msg";
+		return showMessage(showMessage, "", 0);
 	}
 	public SiteService getSiteService() {
 		return siteService;
