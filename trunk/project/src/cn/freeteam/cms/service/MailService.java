@@ -146,6 +146,14 @@ public class MailService extends BaseService{
 		mailMapper.updateByPrimaryKeySelective(mail);
 		DBCommit();
 	}
+	/**
+	 * 删除 
+	 * @param id
+	 */
+	public void del(String id){
+		mailMapper.deleteByPrimaryKey(id);
+		DBCommit();
+	}
 	public MailMapper getMailMapper() {
 		return mailMapper;
 	}
