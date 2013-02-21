@@ -2,7 +2,7 @@
 <h1>${currChannel.name}</h1>
 
 					<@infoPage siteid="${site.id}" channelid="${currChannel.id}" num="1" page="${page}"
-					titleLen="48" dateFormat="yyyy-MM-dd"; infoList,pager>
+					pagenum="${pagenum!0}" titleLen="48" dateFormat="yyyy-MM-dd"; infoList,pager>
 					<ul>
 						<#list infoList as info>
 						<li>
