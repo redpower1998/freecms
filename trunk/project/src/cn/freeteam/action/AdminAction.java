@@ -45,6 +45,7 @@ public class AdminAction extends BaseAction{
 	private RoleSiteService roleSiteService;
 	
 	private String siteid;
+	private String funcid;
 	
 	public AdminAction(){
 		init("funcService","siteService","roleSiteService");
@@ -75,9 +76,27 @@ public class AdminAction extends BaseAction{
 			}
 		}
 		getHttpSession().setAttribute("manageSite", manageSite);
-		//如果是admin则显示所有一级菜单
+		if (funcid==null || funcid.trim().length()==0) {
+			//设置为第一个根菜单
+			//提取一级菜单 
+			if (isAdminLogin()) {
+				funcList=funcService.selectRoot();
+			}else {
+				funcList=funcService.selectRootAuth(getLoginAdmin().getId());
+			}
+			if (funcList!=null && funcList.size()>0) {
+				funcid=funcList.get(0).getId();
+			}
+		}
+		if (funcid!=null && funcid.trim().length()>0) {
+			//提取子菜单
+			if (isAdminLogin()) {
+				funcList=funcService.selectByParid(funcid);
+			}else {
+				funcList=funcService.selectByParidAuth(funcid,getLoginAdmin().getId());
+			}
+		}
 		if (isAdminLogin()) {
-			funcList=funcService.selectRoot();
 			getHttpSession().setAttribute("siteAdmin", true);
 		}else {
 			if (manageSite!=null) {
@@ -87,7 +106,6 @@ public class AdminAction extends BaseAction{
 					getHttpSession().setAttribute("siteAdmin", true);
 				}
 			}
-			funcList=funcService.selectRootAuth(getLoginAdmin().getId());
 		}
 		//设置是否有子数据
 		if (funcList!=null && funcList.size()>0) {
@@ -99,7 +117,22 @@ public class AdminAction extends BaseAction{
 		}
 		return "left";
 	}
-	
+	/**
+	 * 头部
+	 * @return
+	 */
+	public String top(){
+		//如果是admin则显示所有一级菜单
+		if (isAdminLogin()) {
+			funcList=funcService.selectRoot();
+		}else {
+			funcList=funcService.selectRootAuth(getLoginAdmin().getId());
+		}
+		if (funcList!=null && funcList.size()>0) {
+			funcid=funcList.get(0).getId();
+		}
+		return "top";
+	}
 	
 	
 	public List<Func> getFuncList() {
@@ -137,6 +170,12 @@ public class AdminAction extends BaseAction{
 	}
 	public void setRoleSiteService(RoleSiteService roleSiteService) {
 		this.roleSiteService = roleSiteService;
+	}
+	public String getFuncid() {
+		return funcid;
+	}
+	public void setFuncid(String funcid) {
+		this.funcid = funcid;
 	}
 	
 }
