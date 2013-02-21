@@ -47,7 +47,7 @@ public class HtmlSiteJob extends Base implements Job{
     			siteService.html(cntxt.getJobDetail().getJobDataMap().get("siteid")
     					.toString(), (ServletContext) cntxt.getJobDetail()
     					.getJobDataMap().get("servletContext"));
-    		} catch (TemplateModelException e) {
+    		} catch (Exception e) {
     			System.out.println("站点首页静态化调度任务失败");
     			e.printStackTrace();
     		}

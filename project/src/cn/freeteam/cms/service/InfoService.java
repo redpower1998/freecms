@@ -1,6 +1,7 @@
 package cn.freeteam.cms.service;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,6 +25,7 @@ import cn.freeteam.model.Users;
 import cn.freeteam.util.OperLogUtil;
 
 
+import freemarker.template.TemplateException;
 import freemarker.template.TemplateModelException;
 
 /**
@@ -64,9 +66,10 @@ public class InfoService extends BaseService{
 	/**
 	 * 生成信息页
 	 * @param id
-	 * @throws TemplateModelException 
+	 * @throws TemplateException 
+	 * @throws IOException 
 	 */
-	public void html(String id,ServletContext context,String contextPath,HttpServletRequest request,String operuser) throws TemplateModelException{
+	public void html(String id,ServletContext context,String contextPath,HttpServletRequest request,String operuser) throws IOException, TemplateException{
 		//查询信息
 		Info info=findById(id);
 		if (info!=null) {

@@ -52,7 +52,7 @@ public class HtmlChannelJob extends Base implements Job{
     					.toString(), cntxt.getJobDetail().getJobDataMap().get("channelid")
     					.toString(), (ServletContext) cntxt.getJobDetail()
     					.getJobDataMap().get("servletContext"));
-    		} catch (TemplateModelException e) {
+    		} catch (Exception e) {
     			System.out.println("站点栏目页静态化调度任务失败");
     			e.printStackTrace();
     		}

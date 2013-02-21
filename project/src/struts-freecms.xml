@@ -7,7 +7,7 @@
 	<package name="cmsAdmin" extends="struts-default" namespace="/admin/cms">
 		<global-results>
 			<result name="msg" >/msg.jsp</result>
-			<result name="showMessage" >/showMessage.jsp</result>
+			<result name="showMessage" >/admin/showMessage.jsp</result>
 		</global-results>
 		<action name="site_*" method="{1}" class="cn.freeteam.cms.action.SiteAction">
 			<result name="site" >/admin/cms/site.jsp</result>

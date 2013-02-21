@@ -91,11 +91,13 @@ public class HtmlAction extends BaseAction{
 				}
 			}*/
 			msg="首页静态化处理成功!";
+			msg="<script>alert('"+msg.replaceAll("'", "‘")+"');</script>";
+			return "msg";
 		} catch (Exception e) {
-			msg="首页静态化处理失败，原因:"+e.toString();
+			e.printStackTrace();
+			showMessage="首页静态化处理失败，原因:"+e.getMessage();
+			return showMessage(showMessage, "", 0);
 		}
-		msg="<script>alert('"+msg.replaceAll("'", "‘")+"');</script>";
-		return "msg";
 	}
 	/**
 	 * 栏目页静态化页面
