@@ -18,7 +18,7 @@ function changeDisplayMode(){
 </HEAD>
 
 <frameset id="mainframes" framespacing="0" border="false" rows="62,*" frameborder="0" scrolling="yes">
-<frame name="top" scrolling="no" src="top.jsp">
+<frame name="top" scrolling="no" src="admin_top.do">
 	
 <frameset id="bottomframes" framespacing="0" border="false" cols="180,7,*" frameborder="0" scrolling="yes">
 	<frame name="left" scrolling="auto" marginwidth="0" marginheight="0" src="admin_left.do" noresize />
