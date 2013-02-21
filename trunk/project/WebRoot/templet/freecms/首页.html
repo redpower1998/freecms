@@ -1,22 +1,5 @@
 <#include "inc/头部.html"/>
-<@infoList siteid="${site.id}" channelPagemark="动态" num="2" titleLen="15" order="2" hot="1" dateFormat="yyyy-MM-dd"; info,index>
-   <li> ${index+1} . <a href="${info.pageurl}" target="_blank">${info.showtitle}</a>[${info.addtimeStr}]</li>
-</@infoList>
-<form action="${contextPath}templet_pro.do">
-	<input type="hidden" name="siteid" value="${site.id}"/>
-	<input type="hidden" name="templetPath" value="搜索页面.html"/>
-	关键字：
-	<input name="key" type="text" class="index_xxjs_box" />
-	<input type="submit" value="搜索" />
-</form>
-<@linkClass siteid="${site.id}" type="1";linkClass>
-	<select >
-	  <option>${linkClass.name}</option>
-	  <@link classId="${linkClass.id}" ; link>
-		<option value="${link.url}">${link.name}</option>
-	  </@link>
-	</select>
-</@linkClass><H1 >FreeCMS</H1>
+<H1 >FreeCMS</H1>
 <P>FreeCMS项目是为了致力于打造更好的中国开源免费CMS而发起的。这个项目的目标是提供一个安全，实用有效和可扩展的CMS系统。</P>
 <P>FreeCMS的特点:公开源码、免费使用、代码通俗易懂、注释详细、面向二次开发友好!</P>
 <P>FreeCMS隶属于<a href="http://www.freeteam.org">FreeTeam</a>开发组织。</P>
