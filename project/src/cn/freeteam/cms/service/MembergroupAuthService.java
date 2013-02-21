@@ -75,6 +75,19 @@ public class MembergroupAuthService extends BaseService{
 		DBCommit();
 		return membergroupAuth.getId();
 	}
+	/**
+	 * 判断会员组是否有权限
+	 * @param groupid
+	 * @param authcode
+	 * @return
+	 */
+	public boolean hasAuth(String groupid,String authcode){
+		MembergroupAuthExample example=new MembergroupAuthExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andGroupidEqualTo(groupid);
+		criteria.andSql(" authid in (select id from freecms_memberauth where code='"+authcode+"')");
+		return membergroupAuthMapper.countByExample(example)>0;
+	}
 	public MembergroupAuthMapper getMembergroupAuthMapper() {
 		return membergroupAuthMapper;
 	}

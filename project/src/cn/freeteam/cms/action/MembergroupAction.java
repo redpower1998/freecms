@@ -210,10 +210,12 @@ public class MembergroupAction extends BaseAction{
 					//添加新的权限
 					if (authids!=null && authids.length>0) {
 						for (int i = 0; i < authids.length; i++) {
-							MembergroupAuth membergroupAuth=new MembergroupAuth();
-							membergroupAuth.setAuthid(authids[i]);
-							membergroupAuth.setGroupid(membergroup.getId());
-							membergroupAuthService.add(membergroupAuth);
+							if (authids[i].trim().length()>0) {
+								MembergroupAuth membergroupAuth=new MembergroupAuth();
+								membergroupAuth.setAuthid(authids[i]);
+								membergroupAuth.setGroupid(membergroup.getId());
+								membergroupAuthService.add(membergroupAuth);
+							}
 						}
 					}
 					OperLogUtil.log(getLoginName(), "会员组授权("+membergroup.getName()+" "+names+")", getHttpRequest());

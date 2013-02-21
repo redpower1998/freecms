@@ -278,6 +278,10 @@ public class MembergroupAuthExample {
             addCriterion("groupid =", value, "groupid");
             return (Criteria) this;
         }
+        public Criteria andSql(String value) {
+            addCriterion(value);
+            return (Criteria) this;
+        }
 
         public Criteria andGroupidNotEqualTo(String value) {
             addCriterion("groupid <>", value, "groupid");
