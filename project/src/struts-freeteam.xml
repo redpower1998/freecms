@@ -34,6 +34,7 @@
 		</action>
 		<action name="admin_*" method="{1}" class="cn.freeteam.action.AdminAction">
 			<result name="left" >/admin/left.jsp</result>
+			<result name="top" >/admin/top.jsp</result>
 		</action>
 		<action name="role_*" method="{1}" class="cn.freeteam.action.RoleAction">
 			<result name="edit" >/admin/roleEdit.jsp</result>
