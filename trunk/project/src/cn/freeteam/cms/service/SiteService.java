@@ -1,5 +1,6 @@
 package cn.freeteam.cms.service;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +29,7 @@ import cn.freeteam.cms.util.QuartzUtil;
 import cn.freeteam.util.OperLogUtil;
 
 
+import freemarker.template.TemplateException;
 import freemarker.template.TemplateModelException;
 
 /**
@@ -152,9 +154,10 @@ public class SiteService extends BaseService{
 	/**
 	 * 生成首页
 	 * @param id
-	 * @throws TemplateModelException 
+	 * @throws TemplateException 
+	 * @throws IOException 
 	 */
-	public void html(String id,ServletContext context,String contextPath,HttpServletRequest request,String operuser) throws TemplateModelException{
+	public void html(String id,ServletContext context,String contextPath,HttpServletRequest request,String operuser) throws IOException, TemplateException{
 		//查询站点
 		Site site=findById(id);
 		if (site!=null && site.getIndextemplet()!=null 
@@ -173,9 +176,10 @@ public class SiteService extends BaseService{
 	/**
 	 * 生成首页
 	 * @param id
-	 * @throws TemplateModelException 
+	 * @throws TemplateException 
+	 * @throws IOException 
 	 */
-	public void html(String id,ServletContext context) throws TemplateModelException{
+	public void html(String id,ServletContext context) throws IOException, TemplateException{
 		//查询站点
 		Site site=findById(id);
 		if (site!=null && site.getIndextemplet()!=null 
@@ -249,10 +253,8 @@ public class SiteService extends BaseService{
 		try {
 			delHtmlSiteJob(parId);
 		} catch (SchedulerException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//删除静态化调度数据

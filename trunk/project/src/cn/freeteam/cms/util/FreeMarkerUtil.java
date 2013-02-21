@@ -3,6 +3,7 @@ package cn.freeteam.cms.util;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Locale;
@@ -39,6 +40,7 @@ import cn.freeteam.cms.freemarker.directive.VideoDirective;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import freemarker.template.TemplateModelException;
 
 /**
@@ -73,9 +75,10 @@ public class FreeMarkerUtil {
 	  * @param data 一个Map的数据结果集     
 	  * @param templatePath ftl模版路径     
 	  * @param htmlPath 生成静态页面的路径   
-	 * @throws TemplateModelException 
+	 * @throws TemplateException 
+	 * @throws IOException 
 	  */    
-	public static void createHTML(ServletContext context,Map<String,Object> data,String templatePath,String htmlPath) throws TemplateModelException{
+	public static void createHTML(ServletContext context,Map<String,Object> data,String templatePath,String htmlPath) throws IOException, TemplateException{
 		createHTML(context, data, "UTF-8", templatePath, "UTF-8", htmlPath);
 	}
 	 /**     
@@ -86,26 +89,23 @@ public class FreeMarkerUtil {
 	  * @param templateEncode ftl模版编码     
 	  * @param htmlPath 生成静态页面的路径   
 	  * @param htmlEncode 生成静态页面的编码     
-	 * @throws TemplateModelException 
+	 * @throws IOException 
+	 * @throws TemplateException 
 	  */    
-	public static void createHTML(ServletContext context,Map<String,Object> data,String templetEncode,String templatePath,String htmlEncode,String htmlPath) throws TemplateModelException{
+	public static void createHTML(ServletContext context,Map<String,Object> data,String templetEncode,String templatePath,String htmlEncode,String htmlPath) throws IOException, TemplateException{
 		
 		Configuration freemarkerCfg=initCfg(context, templetEncode);
-		
-		try {            
-			//指定模版路径            
-			Template template = freemarkerCfg.getTemplate(templatePath,templetEncode);            
-			template.setEncoding(templetEncode);            
-			//静态页面路径                      
-			File htmlFile = new File(htmlPath);            
-			Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(htmlFile), htmlEncode));            
-			//处理模版              
-			template.process(data, writer);            
-			writer.flush();            
-			writer.close();        
-		} catch (Exception e) {            
-			e.printStackTrace();        
-		}
+		  
+		//指定模版路径            
+		Template template = freemarkerCfg.getTemplate(templatePath,templetEncode);            
+		template.setEncoding(templetEncode);            
+		//静态页面路径                      
+		File htmlFile = new File(htmlPath);            
+		Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(htmlFile), htmlEncode));            
+		//处理模版              
+		template.process(data, writer);            
+		writer.flush();            
+		writer.close();        
 	}
 	/**
 	 * 处理页面后，装处理结果放入指定Out

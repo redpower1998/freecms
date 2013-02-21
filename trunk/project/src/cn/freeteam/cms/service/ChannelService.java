@@ -1,6 +1,7 @@
 package cn.freeteam.cms.service;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +30,7 @@ import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.OperLogUtil;
 
 
+import freemarker.template.TemplateException;
 import freemarker.template.TemplateModelException;
 
 /**
@@ -286,10 +288,8 @@ public class ChannelService extends BaseService{
 		try {
 			delHtmlChannelJob(parId);
 		} catch (SchedulerException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		htmlquartzService.delByChannelid(parId);
@@ -297,9 +297,10 @@ public class ChannelService extends BaseService{
 	}
 	/**
 	 * 栏目页静态化
-	 * @throws TemplateModelException 
+	 * @throws TemplateException 
+	 * @throws IOException 
 	 */
-	public void html(Site site,Channel channel,ServletContext context,HttpServletRequest request,String operuser,int pagenum) throws TemplateModelException{
+	public void html(Site site,Channel channel,ServletContext context,HttpServletRequest request,String operuser,int pagenum) throws IOException, TemplateException{
 		if (site!=null && channel!=null
 				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
 			//生成模板位置
@@ -318,9 +319,10 @@ public class ChannelService extends BaseService{
 	}
 	/**
 	 * 栏目页静态化每一页
-	 * @throws TemplateModelException 
+	 * @throws TemplateException 
+	 * @throws IOException 
 	 */
-	public void htmlPage(Site site,Channel channel,ServletContext context,HttpServletRequest request,String templetPath,int page,String operuser,int pagenum) throws TemplateModelException{
+	public void htmlPage(Site site,Channel channel,ServletContext context,HttpServletRequest request,String templetPath,int page,String operuser,int pagenum) throws IOException, TemplateException{
 		if (site!=null && channel!=null
 				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0
 				&&(pagenum==0 || (pagenum>0 && pagenum>=page))) {
@@ -352,9 +354,10 @@ public class ChannelService extends BaseService{
 
 	/**
 	 * 栏目页静态化
-	 * @throws TemplateModelException 
+	 * @throws TemplateException 
+	 * @throws IOException 
 	 */
-	public void html(String siteid,String channelid,ServletContext context) throws TemplateModelException{
+	public void html(String siteid,String channelid,ServletContext context) throws IOException, TemplateException{
 		init("siteService");
 		Site site=siteService.findById(siteid);
 		Channel channel=findById(channelid);
@@ -376,9 +379,10 @@ public class ChannelService extends BaseService{
 	}
 	/**
 	 * 栏目页静态化每一页
-	 * @throws TemplateModelException 
+	 * @throws TemplateException 
+	 * @throws IOException 
 	 */
-	public void htmlPage(Site site,Channel channel,ServletContext context,String templetPath,int page) throws TemplateModelException{
+	public void htmlPage(Site site,Channel channel,ServletContext context,String templetPath,int page) throws IOException, TemplateException{
 		if (site!=null && channel!=null
 				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
 			//生成静态页面
