@@ -8,6 +8,7 @@ import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Comment;
 import cn.freeteam.cms.model.Info;
 import cn.freeteam.cms.service.CommentService;
+import cn.freeteam.cms.service.CreditruleService;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.MembergroupAuthService;
 import cn.freeteam.util.HtmlCode;
@@ -46,6 +47,7 @@ public class CommentAction extends BaseAction{
 	private String ValidateCode;
 	private InfoService infoService;
 	private MembergroupAuthService membergroupAuthService;
+	private CreditruleService creditruleService;
 
 	public CommentAction() {
 		init("commentService");
@@ -108,6 +110,9 @@ public class CommentAction extends BaseAction{
 					}
 					try {
 						commentService.add(comment);
+						//处理积分
+						init("creditruleService");
+						creditruleService.credit(getLoginMember(), "comment_pub");
 						showMessage="恭喜您,提交评论成功!";
 					} catch (Exception e) {
 						DBProException(e);
@@ -168,5 +173,11 @@ public class CommentAction extends BaseAction{
 	public void setMembergroupAuthService(
 			MembergroupAuthService membergroupAuthService) {
 		this.membergroupAuthService = membergroupAuthService;
+	}
+	public CreditruleService getCreditruleService() {
+		return creditruleService;
+	}
+	public void setCreditruleService(CreditruleService creditruleService) {
+		this.creditruleService = creditruleService;
 	}
 }
