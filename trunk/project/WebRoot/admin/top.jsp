@@ -11,6 +11,18 @@
 function link(url){
 	parent.right.location.href=url;
 }
+function selectFunc(id){
+	var funcas=document.getElementsByName("funca");
+	if(funcas!=null && funcas.length>0){
+		for(var i=0;i<funcas.length;i++){
+			if(funcas[i].id==id){
+				funcas[i].className="toptitleSelect";
+			}else{
+				funcas[i].className="toptitleNoselect";
+			}
+		}
+	}
+}
 </script>
 </HEAD>
 <BODY style="margin-top:0px;">
@@ -24,7 +36,13 @@ function link(url){
        </TD>
 	</TR>
 	<TR>
-	  <TD><div id="navigation" class="toptitle"></div></TD>
+	  <TD><div id="navigation" class="toptitle" >
+	<s:iterator value="funcList" status="status" id="bean">
+	<a  id="funca<s:property value="id"/>" name="funca" ${funcid == bean.id ?"class='toptitleSelect'":"" }
+	onclick="selectFunc('funca<s:property value="id"/>')" href="admin_left.do?funcid=<s:property value="id"/>" target="left">
+	<s:property value="name"/></a>|
+	</s:iterator>
+	  </div></TD>
 	  <TD align="right">
       <div class="toptitle_r"><a href="javascript:link('right.jsp')" >系统首页</a>|
       <a href="javascript:link('user_profile.jsp')" >个人资料</a>|

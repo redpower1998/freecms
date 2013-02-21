@@ -39,6 +39,12 @@ A:active {
 .toptitle, .toptitle a:link, .toptitle a:hover, .toptitle a:visited{
 	height:29px; line-height:29px; color:#FFFFFF; font-size:14px; padding:0 9px; text-decoration:none;
 }
+.toptitleNoselect, .toptitleNoselect a:link, .toptitleNoselect a:hover, .toptitleNoselect a:visited{
+	height:29px; line-height:29px; color:#FFFFFF; font-size:14px; padding:0 9px; text-decoration:none;background-image:url(bg_top.gif);
+}
+.toptitleSelect, .toptitleSelect a:link, .toptitleSelect a:hover, .toptitleSelect a:visited{
+	height:29px; line-height:29px; color:#FFFFFF; font-size:14px; padding:0 9px; text-decoration:none;background-image:url(bg_top2.gif);
+}
 
 .toptitle_r, .toptitle_r a:link, .toptitle_r a:hover, .toptitle_r a:visited{
 	height:29px; line-height:29px; color:#FFFFFF; font-size:12px; padding:0 9px; text-decoration:none;
@@ -70,12 +76,8 @@ A:active {
 	line-height:25px; background:#F5FBFF; text-align:left;
 }
 
-.toptitle, .toptitle a:link, .toptitle a:visited{
+.toptitle{
 	background-image:url(bg_top.gif);
-}
-
-.toptitle a:hover{
-	background-image:url(bg_top2.gif);
 }
 
 .toptitle_r, .toptitle_r a:link, .toptitle_r a:visited{
