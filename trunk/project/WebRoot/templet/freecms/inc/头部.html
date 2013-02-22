@@ -7,9 +7,18 @@ media=all></HEAD>
 <BODY>
 <DIV id=page-header>
 <P class=menu>&nbsp;</P>
-<P class=apache>&nbsp;</P><A href="${contextPath}"><IMG alt="" 
+<P class=apache>&nbsp;</P><A href="${contextPath}">
+<#if (site.logo!"")!="">
+<IMG alt="" width="180" height="55"
+src="${contextPath}${site.logo}" 
+>
+<#else>
+<IMG alt="" 
 src="${contextPath}site/${site.sourcepath}/resources/img/logo.png" 
-> </A></DIV><!-- LEFT SIDE NAVIGATION -->
+>
+</#if>
+
+ </A></DIV><!-- LEFT SIDE NAVIGATION -->
 <DIV id=apmenu>
 
 <@channelList siteid="${site.id}" parid="par" ;channel> 
