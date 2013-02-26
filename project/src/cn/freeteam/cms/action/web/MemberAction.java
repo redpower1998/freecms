@@ -71,6 +71,13 @@ public class MemberAction extends BaseAction{
 				write("<script>alert('验证码错误!');history.back();</script>", "UTF-8");
 				return null;
 			}
+			//判断是否是禁用会员名
+			String memberLimitName = getConfigVal("memberLimitName");
+			if (memberLimitName.indexOf(member.getLoginname()+",") >-1 
+					|| memberLimitName.indexOf(","+member.getLoginname()) >-1 ) {
+				write("<script>alert('禁止使用此会员名!');history.back();</script>", "UTF-8");
+				return null;
+			}
 			//判断用户是否存在
 			if (memberService.have(member)) {
 				write("<script>alert('此会员名已存在!');history.back();</script>", "UTF-8");

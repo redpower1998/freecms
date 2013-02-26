@@ -105,6 +105,17 @@ public class BaseAction extends BaseService{
 		}
 	}
 	/**
+	 * 获取配置值 
+	 * @return
+	 */
+	public String getConfigVal(String name){
+		Map<String, Object> config=getConfig();
+		if (config!=null && config.get(name)!=null) {
+			return config.get(name).toString();
+		}
+		return "";
+	}
+	/**
 	 * 设置配置
 	 * @return
 	 */
