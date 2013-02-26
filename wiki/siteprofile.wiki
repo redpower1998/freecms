@@ -7,7 +7,9 @@
 <p>
 	<span style="font-family: 宋体">从左侧管理菜单点击站点设置进入。</span></p>
 <p>
-	<span style="font-family: 宋体"><a href="http://static.oschina.net/uploads/space/2012/1225/132757_gsix_916014.gif" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/132757_gsix_916014.gif" style="cursor: pointer" /></a></span></p>
+	<span style="font-family: 宋体"><a href="http://static.oschina.net/uploads/space/2013/0226/190439_ZBJh_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0226/190439_ZBJh_916014.png" style="cursor: pointer" /></a></span>  </p>
+<p>
+	 </p>
 <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
 	<tbody>
 		<tr>
@@ -37,7 +39,7 @@
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">英文，用于存放站点文件，如<span>FreeCMS</span>的源文件目录名为<span>"FreeCMS",</span>则会在根目录<span>/site/FreeCMS/</span>目录下存放<span>FreeCMS</span>站点使用的文件。</span></p>
+					<span style="font-family: 宋体">英文，用于存放站点文件，如<span>FreeCMS</span>的源文件目录名为<span>&rdquo;FreeCMS&rdquo;,</span>则会在根目录<span>/site/FreeCMS/</span>目录下存放<span>FreeCMS</span>站点使用的文件。</span></p>
 			</td>
 		</tr>
 		<tr>
@@ -130,5 +132,23 @@
 					<span style="font-family: 宋体">此操作将会把页面模板里面的<span>resources</span>文件夹的内容复制并覆盖到此站点，主要用于模板里面的<span>resources</span>文件夹内容改变时使用。</span></p>
 			</td>
 		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">静态化调度</span></p>
+			</td>
+			<td>
+				<p>
+					<b><i><span style="font-family: 宋体">从<span>FreeCMS 1.2 </span>开始支持</span></i></b></p>
+				<p>
+					<span style="font-family: 宋体">支持定时生成和间隔重复生成页面两种方式。</span></p>
+				<p>
+					<span style="font-family: 宋体">定时生成会在每天指定时间生成静态页面。</span></p>
+				<p>
+					<span style="font-family: 宋体">间隔重复生成会根据指定的时间间隔生成，如指定<span>10</span>分钟或<span>2</span>小时，则每<span>10</span>分钟或每<span>2</span>小时生成一次静态页面。</span></p>
+			</td>
+		</tr>
 	</tbody>
 </table>
+<p>
+	 </p>
