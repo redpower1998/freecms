@@ -126,7 +126,7 @@
 <p>
 	<b><span style="font-family: 宋体"><span>6.<span>  </span></span></span></b><b><span style="font-family: 宋体">站点属性说明</span></b></p>
 <p>
-	<a href="http://static.oschina.net/uploads/space/2012/1224/193425_YvwU_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1224/193425_YvwU_916014.png" style="cursor: pointer" /></a></p>
+	<a href="http://static.oschina.net/uploads/space/2013/0226/131347_6Vzn_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0226/131347_6Vzn_916014.png" style="cursor: pointer" /></a></p>
 <p>
 	 </p>
 <p>
@@ -253,6 +253,18 @@
 			<td>
 				<p>
 					<span style="font-family: 宋体">此操作将会把页面模板里面的<span>resources</span>文件夹的内容复制并覆盖到此站点，主要用于模板里面的<span>resources</span>文件夹内容改变时使用。</span></p>
+			</td>
+		</tr>  <tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">静态化调度</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">从FreeCMS 1.2 开始支持 <br/>
+支持定时生成和间隔重复生成页面两种方式。	  <br/>
+定时生成会在每天指定时间生成静态页面。		<br/>
+间隔重复生成会根据指定的时间间隔生成，如指定10分钟或2小时，则每10分钟或每2小时生成一次静态页面。</span></p>
 			</td>
 		</tr>
 	</tbody>
