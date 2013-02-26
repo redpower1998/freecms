@@ -4,7 +4,7 @@
 = 系统配置 =
 
 <p>
-	<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS&nbsp;1.2&nbsp;开始支持</span></p>
+	<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.2 开始支持</span></p>
 <p>
 	<span style="font-family: '宋体'; font-size: 10.5pt">管理系统使用的配置项。</span></p>
 <p>
@@ -12,4 +12,4 @@
 <p>
 	<a href="http://static.oschina.net/uploads/space/2013/0226/164951_6Rjw_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0226/164951_6Rjw_916014.png" style="cursor: pointer" /></a></p>
 <p>
-	&nbsp;</p>
+	 </p>
