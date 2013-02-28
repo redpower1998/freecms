@@ -34,13 +34,13 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">点击"添加&rdquo;</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">点击"添加"</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<a href="http://static.oschina.net/uploads/space/2012/1225/201659_cWGK_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/201659_cWGK_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入相关属性点击"确定&rdquo;即可。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入相关属性点击"确定"即可。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">提示</span></b><span style="padding: 0px; margin: 0px; font-family: 宋体; ">：</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -58,11 +58,11 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">首页指使用此模板的站点首页，在首页静态化时系统会根据站点模板下的"首页</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">&rdquo;文件来生成站点首页。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">首页指使用此模板的站点首页，在首页静态化时系统会根据站点模板下的"首页</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">"文件来生成站点首页。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">栏目页面指使用此模板的站点栏目页面，在栏目页静态化时系统会默认根据站点模板下的"栏目页面</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">&rdquo;文件来生成栏目页面，如果您指定此目录下其它文件作为栏目页面的模板文件，则系统使用您指定的页面进行静态化。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">栏目页面指使用此模板的站点栏目页面，在栏目页静态化时系统会默认根据站点模板下的"栏目页面</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">"文件来生成栏目页面，如果您指定此目录下其它文件作为栏目页面的模板文件，则系统使用您指定的页面进行静态化。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">信息页面指使用此模板的站点信息页面，在信息页静态化时系统会默认根据站点模板下的"信息页面</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">&rdquo;文件来生成信息页面，如果您指定此目录下其它文件作为信息页面的模板文件，则系统使用您指定的页面进行静态化。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">信息页面指使用此模板的站点信息页面，在信息页静态化时系统会默认根据站点模板下的"信息页面</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">"文件来生成信息页面，如果您指定此目录下其它文件作为信息页面的模板文件，则系统使用您指定的页面进行静态化。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">3.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">编辑模板</span></b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -70,7 +70,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要编辑的模板，如"测试模板&rdquo;，点击"编辑&rdquo;按钮</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要编辑的模板，如"测试模板"，点击"编辑"按钮</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">注意</span></b><span style="padding: 0px; margin: 0px; font-family: 宋体; ">:</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">同时只能选择一个模板进行编辑操作。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -80,7 +80,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入相关属性点击"确定&rdquo;即可。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入相关属性点击"确定"即可。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">4.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">删除模板</span></b></p>
 <p>
@@ -90,7 +90,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要删除的模板，如"测试模板&rdquo;，点击"删除&rdquo;按钮。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要删除的模板，如"测试模板"，点击"删除"按钮。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">提示</span></b><span style="padding: 0px; margin: 0px; font-family: 宋体; ">:</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">同时可以选择多个模板进行删除操作。</span></p>
 <p>
@@ -112,7 +112,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要管理文件的模板，如"测试模板&rdquo;，点击"文件管理&rdquo;按钮。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要管理文件的模板，如"测试模板"，点击"文件管理"按钮。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">注意</span></b><span style="padding: 0px; margin: 0px; font-family: 宋体; ">:</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">同时只能选择一个模板进行文件管理操作。</span></p>
 <p>
