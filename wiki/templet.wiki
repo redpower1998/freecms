@@ -34,13 +34,13 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">点击&ldquo;添加&rdquo;</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">点击"添加&rdquo;</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<a href="http://static.oschina.net/uploads/space/2012/1225/201659_cWGK_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/201659_cWGK_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入相关属性点击&ldquo;确定&rdquo;即可。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入相关属性点击"确定&rdquo;即可。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">提示</span></b><span style="padding: 0px; margin: 0px; font-family: 宋体; ">：</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -58,11 +58,11 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">首页指使用此模板的站点首页，在首页静态化时系统会根据站点模板下的&ldquo;首页</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">&rdquo;文件来生成站点首页。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">首页指使用此模板的站点首页，在首页静态化时系统会根据站点模板下的"首页</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">&rdquo;文件来生成站点首页。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">栏目页面指使用此模板的站点栏目页面，在栏目页静态化时系统会默认根据站点模板下的&ldquo;栏目页面</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">&rdquo;文件来生成栏目页面，如果您指定此目录下其它文件作为栏目页面的模板文件，则系统使用您指定的页面进行静态化。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">栏目页面指使用此模板的站点栏目页面，在栏目页静态化时系统会默认根据站点模板下的"栏目页面</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">&rdquo;文件来生成栏目页面，如果您指定此目录下其它文件作为栏目页面的模板文件，则系统使用您指定的页面进行静态化。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">信息页面指使用此模板的站点信息页面，在信息页静态化时系统会默认根据站点模板下的&ldquo;信息页面</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">&rdquo;文件来生成信息页面，如果您指定此目录下其它文件作为信息页面的模板文件，则系统使用您指定的页面进行静态化。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">信息页面指使用此模板的站点信息页面，在信息页静态化时系统会默认根据站点模板下的"信息页面</span><span style="padding: 0px; margin: 0px; ">.html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">&rdquo;文件来生成信息页面，如果您指定此目录下其它文件作为信息页面的模板文件，则系统使用您指定的页面进行静态化。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">3.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">编辑模板</span></b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -70,7 +70,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要编辑的模板，如&ldquo;测试模板&rdquo;，点击&ldquo;编辑&rdquo;按钮</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要编辑的模板，如"测试模板&rdquo;，点击"编辑&rdquo;按钮</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">注意</span></b><span style="padding: 0px; margin: 0px; font-family: 宋体; ">:</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">同时只能选择一个模板进行编辑操作。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -80,7 +80,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入相关属性点击&ldquo;确定&rdquo;即可。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入相关属性点击"确定&rdquo;即可。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">4.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">删除模板</span></b></p>
 <p>
@@ -90,7 +90,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要删除的模板，如&ldquo;测试模板&rdquo;，点击&ldquo;删除&rdquo;按钮。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要删除的模板，如"测试模板&rdquo;，点击"删除&rdquo;按钮。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">提示</span></b><span style="padding: 0px; margin: 0px; font-family: 宋体; ">:</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">同时可以选择多个模板进行删除操作。</span></p>
 <p>
@@ -100,7 +100,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">为了防止误操作，系统会确认是否操作，点击&ldquo;确定&ldquo;按钮即可。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">为了防止误操作，系统会确认是否操作，点击"确定"按钮即可。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">5.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">文件管理</span></b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -112,7 +112,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要管理文件的模板，如&ldquo;测试模板&rdquo;，点击&ldquo;文件管理&rdquo;按钮。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择需要管理文件的模板，如"测试模板&rdquo;，点击"文件管理&rdquo;按钮。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">注意</span></b><span style="padding: 0px; margin: 0px; font-family: 宋体; ">:</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">同时只能选择一个模板进行文件管理操作。</span></p>
 <p>
@@ -126,7 +126,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">a.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">上传文件</span></b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以通过左侧的目录树进入到指定目录，然后点击&ldquo;上传文件&ldquo;按钮。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以通过左侧的目录树进入到指定目录，然后点击"上传文件"按钮。</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1225/202140_iIjQ_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202140_iIjQ_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -136,7 +136,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择要上传的文件，点击&ldquo;确定&ldquo;按钮</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">选择要上传的文件，点击"确定"按钮</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1225/202203_4W6U_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202203_4W6U_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a><a href="http://static.oschina.net/uploads/space/2012/1225/202248_AJHO_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202248_AJHO_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -148,7 +148,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">b.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">添加</span></b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线添加新的文件，进入指定目录然后点击&ldquo;添加&ldquo;按钮。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线添加新的文件，进入指定目录然后点击"添加"按钮。</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1225/202317_FYvf_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202317_FYvf_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -158,7 +158,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入文件名和文件内容后点击&ldquo;保存&ldquo;按钮即可。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入文件名和文件内容后点击"保存"按钮即可。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">提示</span></b><span style="padding: 0px; margin: 0px; font-family: 宋体; ">：只能添加后缀为</span><span style="padding: 0px; margin: 0px; ">html</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">、</span><span style="padding: 0px; margin: 0px; ">js</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">、</span><span style="padding: 0px; margin: 0px; ">css</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">、</span><span style="padding: 0px; margin: 0px; ">txt</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">的文件。</span></p>
 <p>
@@ -170,7 +170,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">c.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">编辑</span></b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线编辑模板文件内容</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">，进入指定目录然后选择文件点击&ldquo;编辑&ldquo;按钮。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线编辑模板文件内容</span><span style="padding: 0px; margin: 0px; font-family: 宋体; ">，进入指定目录然后选择文件点击"编辑"按钮。</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1225/202420_KgrY_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202420_KgrY_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -180,7 +180,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入文件名和文件内容后点击&ldquo;保存&ldquo;按钮即可。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入文件名和文件内容后点击"保存"按钮即可。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">提示</span></b><span style="padding: 0px; margin: 0px; font-family: 宋体; ">：</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -190,7 +190,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">d.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">删除</span></b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线删除模板文件，进入指定目录然后选择文件点击&ldquo;删除&ldquo;按钮。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线删除模板文件，进入指定目录然后选择文件点击"删除"按钮。</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1225/202442_zKRW_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202442_zKRW_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a><a href="http://static.oschina.net/uploads/space/2012/1225/202504_lavI_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202504_lavI_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -200,11 +200,11 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">为防止用户误操作，系统会提示确认操作，点击&ldquo;确定&ldquo;按钮即可。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">为防止用户误操作，系统会提示确认操作，点击"确定"按钮即可。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">e.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">创建文件夹</span></b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线创建文件夹，进入指定目录然后点击&ldquo;创建文件夹&ldquo;按钮。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线创建文件夹，进入指定目录然后点击"创建文件夹"按钮。</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1225/202527_6Gum_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202527_6Gum_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -212,7 +212,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入文件夹名称点击&ldquo;确定&ldquo;即可</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入文件夹名称点击"确定"即可</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1225/202547_VAxW_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202547_VAxW_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -222,7 +222,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">f.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">重命名文件夹</span></b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线重命名非根目录的文件夹，进入指定目录然后点击&ldquo;重命名此文件夹&ldquo;按钮。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线重命名非根目录的文件夹，进入指定目录然后点击"重命名此文件夹"按钮。</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1225/202632_OBBv_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202632_OBBv_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -232,7 +232,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入新的文件夹名称点击&ldquo;确定&ldquo;按钮即可。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">输入新的文件夹名称点击"确定"按钮即可。</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1225/202657_s6co_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202657_s6co_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
@@ -242,13 +242,13 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	<b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; "><span style="padding: 0px; margin: 0px; ">g.<span style="padding: 0px; margin: 0px; ">  </span></span></span></b><b style="padding: 0px; margin: 0px; "><span style="padding: 0px; margin: 0px; font-family: 宋体; ">删除文件夹</span></b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线删除非根目录的文件夹，进入指定目录然后点击&ldquo;删除此文件夹&ldquo;按钮。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">您可以直接在线删除非根目录的文件夹，进入指定目录然后点击"删除此文件夹"按钮。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
 	 </p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
-	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">为防止用户误操作，系统会提示确认操作，点击&ldquo;确定&ldquo;按钮即可。</span></p>
+	<span style="padding: 0px; margin: 0px; font-family: 宋体; ">为防止用户误操作，系统会提示确认操作，点击"确定"按钮即可。</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2012/1225/202725_JRjh_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px; " target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2012/1225/202725_JRjh_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer; " /></a></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; ">
