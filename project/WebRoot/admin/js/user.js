@@ -15,7 +15,7 @@
 				}
 			}
 			
-			$.post("user_authDo.do","user.id="+userid+"&roleid="+ids+"&user.loginname="+$("#loginnamevalue"+userid).val()+"&rolename="+names+"&delRoles="+$("#delRoles").val(),authComplete);
+			$.post("user_authDo.do","user.id="+userid+"&roleid="+ids+"&user.loginname="+$("#loginnamevalue"+userid).val()+"&rolename="+names+"&delRoles="+$("#delRoles").val(),authComplete,"text");
 			
 		}});
 		}else{
@@ -48,7 +48,7 @@ function del(){
 	}
 	if(checkValue!=""){
 		if(confirm("确定删除操作么?\n注意:删除后无法恢复!")){
-			$.post("user_del.do","ids="+checkValue+"&names="+names,delComplete);
+			$.post("user_del.do","ids="+checkValue+"&names="+names,delComplete,"text");
 		}
 	}else{
 		alert("请选择数据!");
@@ -106,7 +106,7 @@ function edit(){
 				//成功
 				$.post("user_ajaxEditDo.do","user.id="+getCheckOneValue()+"&user.loginname="+$("#loginname").val()+"&user.name="+$("#name").val()+"&user.sex="+sex+"&user.ismail="+mail
 				+"&user.birthday="+$("#birthday").val()+"&user.tel="+$("#tel").val()+"&user.mobilephone="+$("#mobilephone").val()+"&user.email="+$("#email").val()+"&user.defaultapp="
-				+$("#defaultapp").val()+"&user.question="+$("#question").val()+"&user.answer="+$("#answer").val()+"&unitid="+$("#unitid").val()+"&user.unitNames="+$("#unitname").val(),editComplete);
+				+$("#defaultapp").val()+"&user.question="+$("#question").val()+"&user.answer="+$("#answer").val()+"&unitid="+$("#unitid").val()+"&user.unitNames="+$("#unitname").val(),editComplete,"text");
 			}
 		});
 	}else{
@@ -142,7 +142,7 @@ function state(s){
 		}
 	}
 	if(checkValue!=""){
-		$.post("user_state.do","ids="+checkValue+"&state="+stateval+"&names="+names,stateComplete);
+		$.post("user_state.do","ids="+checkValue+"&state="+stateval+"&names="+names,stateComplete,"text");
 	}else{
 		alert("请选择数据!");
 	}
@@ -177,7 +177,7 @@ function resetPwd(){
 		}
 	}
 	if(checkValue!=""){
-		$.post("user_resetPwd.do","ids="+checkValue+"&names="+names,resetPwdComplete);
+		$.post("user_resetPwd.do","ids="+checkValue+"&names="+names,resetPwdComplete,"text");
 	}else{
 		alert("请选择数据!");
 	}

@@ -27,7 +27,7 @@ function auth(){
 				}
 			}
 			
-			$.post("membergroup_authDo.do","membergroup.id="+groupid+"&ids="+ids+"&names="+names,authComplete);
+			$.post("membergroup_authDo.do","membergroup.id="+groupid+"&ids="+ids+"&names="+names,authComplete,"text");
 			
 		}});
 	}else{
@@ -46,7 +46,7 @@ function authComplete(data){
 function del(){
 	if(isCheck()){
 		if(confirm("确定删除操作么?此操作无法回退!")){
-			$.post("membergroup_del.do","ids="+getCheckValue(),delComplete);
+			$.post("membergroup_del.do","ids="+getCheckValue(),delComplete,"text");
 		}
 	}else{
 		alert("请选择要操作的记录!");

@@ -56,7 +56,7 @@ function syncRes(){
 		return false;
 	}
 	if(confirm("此操作将把模板资源文件复制并覆盖到此站点,确认此操作么?")){
-		$.post("site_syncRes.do","site.id="+$("#siteId").val()+"&site.indextemplet="+$("#indextemplet").val(),syncResComplete);
+		$.post("site_syncRes.do","site.id="+$("#siteId").val()+"&site.indextemplet="+$("#indextemplet").val(),syncResComplete,"text");
 	}
 }
 function syncResComplete(data){

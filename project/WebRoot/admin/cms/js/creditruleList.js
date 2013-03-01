@@ -24,7 +24,7 @@ function add(){
 			+"&creditrule.rewardnum="+$("#rewardnum").val()
 			+"&creditrule.credit="+$("#credit").val()
 			+"&creditrule.experience="+$("#experience").val()
-			,addComplete);
+			,addComplete,"text");
 		}
 	});
 }
@@ -56,7 +56,7 @@ function edit(){
 				+"&creditrule.rewardnum="+$("#rewardnum").val()
 				+"&creditrule.credit="+$("#credit").val()
 				+"&creditrule.experience="+$("#experience").val()
-				,editComplete);
+				,editComplete,"text");
 			}
 		});
 	}else{
@@ -104,7 +104,7 @@ function editComplete(data){
 function del(){
 	if(isCheck()){
 		if(confirm("确定删除操作么?此操作无法回退!")){
-			$.post("creditrule_del.do","ids="+getCheckValue(),delComplete);
+			$.post("creditrule_del.do","ids="+getCheckValue(),delComplete,"text");
 		}
 	}else{
 		alert("请选择要操作的记录!");

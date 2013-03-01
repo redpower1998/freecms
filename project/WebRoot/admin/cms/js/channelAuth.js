@@ -5,10 +5,10 @@ function siteChange(){
 function check(id,name,obj){
 		if(obj.checked){
 			//选中一个
-			$.post("channel_authChecked.do","channel.id="+id+"&wasUser="+$("#wasUser").val(),channelCheckedComplete);
+			$.post("channel_authChecked.do","channel.id="+id+"&wasUser="+$("#wasUser").val(),channelCheckedComplete,"text");
 		}else{
 			//取消选中一个
-			$.post("channel_authCheckedNo.do","channel.id="+id+"&wasUser="+$("#wasUser").val(),channelCheckedNoComplete);
+			$.post("channel_authCheckedNo.do","channel.id="+id+"&wasUser="+$("#wasUser").val(),channelCheckedNoComplete,"text");
 		}
 }
 

@@ -15,7 +15,7 @@ function showOne(id,name){
 	$("#channelName").val(name);
 }
 function selectChange(){
-	$.post("site_getChannel.do","site.id="+document.getElementById("siteId").value,selectChangeComplete);
+	$.post("site_getChannel.do","site.id="+document.getElementById("siteId").value,selectChangeComplete,"text");
 }
 function selectChangeComplete(data){
 	$("#channelId").empty();

@@ -16,7 +16,7 @@ function add(){
 			$.post("memberauth_editDo.do","memberauth.name="+$("#name").val()
 			+"&memberauth.code="+$("#code").val()
 			+"&memberauth.ordernum="+$("#ordernum").val()
-			,addComplete);
+			,addComplete,"text");
 		}
 	});
 }
@@ -40,7 +40,7 @@ function edit(){
 				+"&memberauth.name="+$("#name").val()
 				+"&memberauth.code="+$("#code").val()
 				+"&memberauth.ordernum="+$("#ordernum").val()
-				,editComplete);
+				,editComplete,"text");
 			}
 		});
 	}else{
@@ -69,7 +69,7 @@ function editComplete(data){
 function del(){
 	if(isCheck()){
 		if(confirm("确定删除操作么?此操作无法回退!")){
-			$.post("memberauth_del.do","ids="+getCheckValue(),delComplete);
+			$.post("memberauth_del.do","ids="+getCheckValue(),delComplete,"text");
 		}
 	}else{
 		alert("请选择要操作的记录!");

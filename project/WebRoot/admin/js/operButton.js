@@ -11,7 +11,7 @@ function addOperbutton(funcid){
 	var data="pageContentNoFilter=1&operbutton.func="+funcid+"&operbutton.name="+$.trim(replaceAll($("#name").val(),"&","<参数>"))
 	+"&operbutton.code="+$.trim(replaceAll($("#code").val(),"&","<参数>"))
 	+"&operbutton.ordernum="+$.trim($("#order").val())+"&operbutton.isok="+isok;
-	$.post("operButton_add.do",data,saveOperbuttonComplete);
+	$.post("operButton_add.do",data,saveOperbuttonComplete,"text");
 }
 function saveOperbuttonComplete(data){
 	var msg=data.substr(1,data.length-1);
@@ -63,7 +63,7 @@ function updateOperbutton(id){
 	var data="pageContentNoFilter=1&operbutton.id="+id+"&operbutton.name="+$.trim(replaceAll($("#name"+id).val(),"&","<参数>"))
 	+"&operbutton.code="+$.trim(replaceAll($("#code"+id).val(),"&","<参数>"))
 	+"&operbutton.ordernum="+$.trim($("#order"+id).val())+"&operbutton.isok="+isok;
-	$.post("operButton_update.do",data,updateOperbuttonComplete);
+	$.post("operButton_update.do",data,updateOperbuttonComplete,"text");
 }
 
 function updateOperbuttonComplete(data){
@@ -77,7 +77,7 @@ function delOperbutton(id){
 	if(confirm("确定删除操作按钮么?")){
 		$("#state").fadeIn("slow"); 
 		var data="pageContentNoFilter=1&operbutton.id="+id+"&operbutton.name="+$.trim(replaceAll($("#name"+id).val(),"&","<参数>"));
-		$.post("operButton_del.do",data,delOperbuttonComplete);
+		$.post("operButton_del.do",data,delOperbuttonComplete,"text");
 	}
 }
 

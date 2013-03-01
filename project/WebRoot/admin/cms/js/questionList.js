@@ -13,7 +13,7 @@ function add(){
 			var selecttype="0";
 			if(document.getElementById("selecttype1").checked){selecttype="1";}
 			$.post("question_editDo.do","question.name="+$("#name").val()+"&question.isok="+isok+"&question.selecttype="+selecttype
-			,addComplete);
+			,addComplete,"text");
 		}
 	});
 }
@@ -33,7 +33,7 @@ function edit(){
 				var selecttype="0";
 				if(document.getElementById("selecttype1").checked){selecttype="1";}
 				$.post("question_editDo.do","question.id="+getCheckOneValue()+"&question.name="+$("#name").val()+"&question.isok="+isok+"&question.selecttype="+selecttype
-				,editComplete);
+				,editComplete,"text");
 			}
 		});
 	}else{
@@ -66,7 +66,7 @@ function editComplete(data){
 function del(){
 	if(isCheck()){
 		if(confirm("确定删除操作么?此操作无法回退!")){
-			$.post("question_del.do","ids="+getCheckValue(),delComplete);
+			$.post("question_del.do","ids="+getCheckValue(),delComplete,"text");
 		}
 	}else{
 		alert("请选择要操作的记录!");
