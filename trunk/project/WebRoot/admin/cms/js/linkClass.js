@@ -52,7 +52,7 @@ function add(){
 			if(document.getElementById("isok0").checked){isok="0";}
 			$.post("link_clazzEditDo.do","link.name="+$("#name_edit").val()+"&link.isok="+isok+"&link.ordernum="+$("#ordernum").val()
 			+"&link.site="+$("#siteId_edit").val()+"&link.type="+$("#type").val()+"&link.pagemark="+$("#pagemark_edit").val()
-			,addComplete);
+			,addComplete,"text");
 		}
 	});
 }
@@ -75,7 +75,7 @@ function edit(){
 				if(document.getElementById("isok0").checked){isok="0";}
 				$.post("link_clazzEditDo.do","link.id="+getCheckOneValue()+"&link.name="+$("#name_edit").val()+"&link.isok="+isok+"&link.ordernum="+$("#ordernum").val()
 				+"&link.site="+$("#siteId_edit").val()+"&link.type="+$("#type").val()+"&link.pagemark="+$("#pagemark_edit").val()
-				,editComplete);
+				,editComplete,"text");
 			}
 		});
 	}else{
@@ -134,7 +134,7 @@ function searchFormSubmit(form){
 function del(){
 	if(isCheck()){
 		if(confirm("确定删除操作么?此操作无法回退!")){
-			$.post("link_clazzDel.do","ids="+getCheckValue(),delComplete);
+			$.post("link_clazzDel.do","ids="+getCheckValue(),delComplete,"text");
 		}
 	}else{
 		alert("请选择要操作的记录!");

@@ -12,7 +12,7 @@ function add(){
 			if(document.getElementById("isok0").checked){isok="0";}
 			$.post("templet_editDo.do","templet.name="+$("#name").val()+"&templet.state="+isok+"&templet.ordernum="+$("#ordernum").val()
 			+"&templet.usesites="+$("#siteid").val()+"&templet.usesitenames="+$("#sitenames").val()
-			,addComplete);
+			,addComplete,"text");
 		}
 	});
 }
@@ -31,7 +31,7 @@ function edit(){
 				if(document.getElementById("isok0").checked){isok="0";}
 				$.post("templet_editDo.do","templet.id="+getCheckOneValue()+"&templet.name="+$("#name").val()+"&templet.state="+isok+"&templet.ordernum="+$("#ordernum").val()
 				+"&templet.usesites="+$("#siteid").val()+"&templet.usesitenames="+$("#sitenames").val()
-				,editComplete);
+				,editComplete,"text");
 			}
 		});
 	}else{
@@ -113,7 +113,7 @@ function clearSite(){
 function del(){
 	if(isCheck()){
 		if(confirm("确定删除操作么?此操作无法回退!")){
-			$.post("templet_del.do","ids="+getCheckValue(),delComplete);
+			$.post("templet_del.do","ids="+getCheckValue(),delComplete,"text");
 		}
 	}else{
 		alert("请选择要操作的记录!");

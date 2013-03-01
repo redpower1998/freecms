@@ -4,7 +4,7 @@ function showOne(){
 }
 function showDetail(id,name){
 	$("#one").fadeOut("slow"); 
-	$.post("unit_find.do","unit.id="+id,findComplete);
+	$.post("unit_find.do","unit.id="+id,findComplete,"text");
 	$("#detail").fadeIn("slow"); 
 }
 function findComplete(data){
@@ -72,7 +72,7 @@ function save(){
 	var data="pageContentNoFilter=1&unit.parid="+$("#parid").val()+"&unit.id="+$("#id").val()
 	+"&unit.name="+$.trim(replaceAll($("#unitName").val(),"&","<参数>"))
 	+"&unit.ordernum="+$.trim($("#unitOrder").val())+"&unit.isok="+isok+"&unit.ismail="+ismail;
-	$.post("unit_save.do",data,saveComplete);
+	$.post("unit_save.do",data,saveComplete,"text");
 }
 function saveComplete(data){
 	var html=$("#console").html();
@@ -124,7 +124,7 @@ function del(){
 	if(confirm("确定删除此单位么?\n注意:删除此单位将同时删除其下级单位,此操作不可恢复.")){
 		var html=$("#console").html();
 		$("#console").html(new Date().toLocaleString()+" 正在删除单位 "+$("#unitName").val()+" ...<br/>"+html);
-		$.post("unit_del.do","unit.id="+$("#id").val()+"&unit.name="+$.trim(replaceAll($("#unitName").val(),"&","<参数>")),delComplete);
+		$.post("unit_del.do","unit.id="+$("#id").val()+"&unit.name="+$.trim(replaceAll($("#unitName").val(),"&","<参数>")),delComplete,"text");
 	}
 }
 function delComplete(data){
@@ -164,7 +164,7 @@ function parButton(){
 function parButtonDo(id,name){
 	var html=$("#console").html();
 	$("#console").html(new Date().toLocaleString()+" 正在改变单位 "+$("#unitName").val()+" 的所属单位为 "+name+" ...<br/>"+html);
-	$.post("unit_par.do","unit.id="+$("#id").val()+"&unit.parid="+id+"&unit.name="+$.trim(replaceAll($("#unitName").val(),"&","<参数>"))+"&parname="+$.trim(replaceAll(name,"&","<参数>")),parComplete);
+	$.post("unit_par.do","unit.id="+$("#id").val()+"&unit.parid="+id+"&unit.name="+$.trim(replaceAll($("#unitName").val(),"&","<参数>"))+"&parname="+$.trim(replaceAll(name,"&","<参数>")),parComplete,"text");
 	$.weeboxs.close();
 }
 function parComplete(data){

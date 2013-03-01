@@ -12,7 +12,7 @@ function addAnswer(questionid){
 	if($("#isselect1").attr("checked")==true){isselect="1";}
 	var data="pageContentNoFilter=1&answer.questionid="+questionid+"&answer.name="+$.trim(replaceAll($("#name").val(),"&","<参数>"))
 	+"&answer.ordernum="+$.trim($("#order").val())+"&answer.isok="+isok+"&answer.isselect="+isselect;
-	$.post("answer_add.do",data,saveAnswerComplete);
+	$.post("answer_add.do",data,saveAnswerComplete,"text");
 }
 function saveAnswerComplete(data){
 	var msg=data.substr(1,data.length-1);
@@ -69,7 +69,7 @@ function updateAnswer(id){
 	if($("#isselect"+id+"1").attr("checked")==true){isselect="1";}
 	var data="pageContentNoFilter=1&answer.id="+id+"&answer.name="+$.trim(replaceAll($("#name"+id).val(),"&","<参数>"))
 	+"&answer.ordernum="+$.trim($("#order"+id).val())+"&answer.isok="+isok+"&answer.isselect="+isselect;
-	$.post("answer_update.do",data,updateAnswerComplete);
+	$.post("answer_update.do",data,updateAnswerComplete,"text");
 }
 
 function updateAnswerComplete(data){
@@ -83,7 +83,7 @@ function delAnswer(id){
 	if(confirm("确定删除么?")){
 		$("#state").fadeIn("slow"); 
 		var data="pageContentNoFilter=1&answer.id="+id+"&answer.name="+$.trim(replaceAll($("#name"+id).val(),"&","<参数>"));
-		$.post("answer_del.do",data,delAnswerComplete);
+		$.post("answer_del.do",data,delAnswerComplete,"text");
 	}
 }
 

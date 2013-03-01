@@ -14,7 +14,7 @@ function edit(){
 function del(){
 	if(isCheck()){
 		if(confirm("确定删除操作么?此操作无法回退!")){
-			$.post("templet_fileDel.do","filePaths="+getCheckValue(),delComplete);
+			$.post("templet_fileDel.do","filePaths="+getCheckValue(),delComplete,"text");
 		}
 	}else{
 		alert("请选择要操作的记录!");
@@ -41,7 +41,7 @@ function createFolder(){
 				$("#fileName").focus();
 				return false;
 			}
-			$.post("templet_folderEditDo.do","currFolder="+$("#root").val()+"&fileName="+$("#fileName").val(),createFolderComplete);
+			$.post("templet_folderEditDo.do","currFolder="+$("#root").val()+"&fileName="+$("#fileName").val(),createFolderComplete,"text");
 		}
 	});
 }
@@ -63,7 +63,7 @@ function renameFolder(){
 				$("#fileName").focus();
 				return false;
 			}
-			$.post("templet_folderEditDo.do","filePaths="+encodeURI($("#root").val())+"&fileName="+$("#fileName").val(),renameFolderComplete);
+			$.post("templet_folderEditDo.do","filePaths="+encodeURI($("#root").val())+"&fileName="+$("#fileName").val(),renameFolderComplete,"text");
 		}
 	});
 }
@@ -83,7 +83,7 @@ function flushFolder(){
 //删除文件夹
 function delFolder(){
 	if(confirm("确定删除操作么?此操作无法回退!")){
-		$.post("templet_folderDel.do","filePaths="+$("#root").val(),delFolderComplete);
+		$.post("templet_folderDel.do","filePaths="+$("#root").val(),delFolderComplete,"text");
 	}
 }
 function delFolderComplete(data){

@@ -24,10 +24,10 @@ function parButton(id){
 	$.weeboxs.open('channel_channel.do?channel.id='+id, {title:'改变所属栏目', contentType:'ajax',height:360,width:300,showOk:false});
 }
 function showOne(id,name){
-	$.post("channel_par.do","channel.id="+$("#channelId").val()+"&channel.parid="+id,parComplete);
+	$.post("channel_par.do","channel.id="+$("#channelId").val()+"&channel.parid="+id,parComplete,"text");
 }
 function parSite(siteid){
-	$.post("channel_par.do","channel.id="+$("#channelId").val()+"&channel.site="+siteid,parComplete);
+	$.post("channel_par.do","channel.id="+$("#channelId").val()+"&channel.site="+siteid,parComplete,"text");
 }
 function parComplete(data){
 	alert(data);

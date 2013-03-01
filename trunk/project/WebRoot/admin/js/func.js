@@ -5,7 +5,7 @@ function showOne(){
 }
 function showDetail(id,name){
 	$("#one").fadeOut("slow"); 
-	$.post("func_find.do","func.id="+id,findComplete);
+	$.post("func_find.do","func.id="+id,findComplete,"text");
 	$("#detail").fadeIn("slow"); 
 }
 function findComplete(data){
@@ -71,7 +71,7 @@ function save(){
 	var data="pageContentNoFilter=1&func.parid="+$("#parid").val()+"&func.id="+$("#id").val()
 	+"&func.name="+$.trim(replaceAll($("#menuName").val(),"&","<参数>"))+"&func.url="+$.trim(replaceAll($("#menuUrl").val(),"&","<参数>"))
 	+"&func.ordernum="+$.trim($("#menuOrder").val())+"&func.isok="+isok;
-	$.post("func_save.do",data,saveComplete);
+	$.post("func_save.do",data,saveComplete,"text");
 }
 function saveComplete(data){
 	var html=$("#console").html();
@@ -123,7 +123,7 @@ function del(){
 	if(confirm("确定删除此菜单么?\n注意:删除此菜单将同时删除其子菜单.")){
 		var html=$("#console").html();
 		$("#console").html(new Date().toLocaleString()+" 正在删除菜单 "+$("#menuName").val()+" ...<br/>"+html);
-		$.post("func_del.do","func.id="+$("#id").val()+"&func.name="+$.trim(replaceAll($("#menuName").val(),"&","<参数>")),delComplete);
+		$.post("func_del.do","func.id="+$("#id").val()+"&func.name="+$.trim(replaceAll($("#menuName").val(),"&","<参数>")),delComplete,"text");
 	}
 }
 function delComplete(data){
@@ -167,7 +167,7 @@ function parButton(){
 function parButtonDo(id,name){
 	var html=$("#console").html();
 	$("#console").html(new Date().toLocaleString()+" 正在改变菜单 "+$("#menuName").val()+" 的所属菜单为 "+name+" ...<br/>"+html);
-	$.post("func_par.do","func.id="+$("#id").val()+"&func.parid="+id+"&func.name="+$.trim(replaceAll($("#menuName").val(),"&","<参数>"))+"&parname="+$.trim(replaceAll(name,"&","<参数>")),parComplete);
+	$.post("func_par.do","func.id="+$("#id").val()+"&func.parid="+id+"&func.name="+$.trim(replaceAll($("#menuName").val(),"&","<参数>"))+"&parname="+$.trim(replaceAll(name,"&","<参数>")),parComplete,"text");
 	$.weeboxs.close();
 }
 function parComplete(data){

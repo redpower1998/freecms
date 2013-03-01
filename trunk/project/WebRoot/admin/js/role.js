@@ -11,7 +11,7 @@
 					//更新数据
 					var isok="1";
 					if(document.getElementById("isok0").checked){isok="0";}
-					$.post("role_ajaxEditDo.do","role.id="+getCheckOneValue()+"&role.name="+$("#name").val()+"&role.isok="+isok,editComplete);
+					$.post("role_ajaxEditDo.do","role.id="+getCheckOneValue()+"&role.name="+$("#name").val()+"&role.isok="+isok,editComplete,"text");
 				}
 			});
 		}else{
@@ -36,7 +36,7 @@
 	function del(){
 		if(isCheck()){
 			if(confirm("确定删除操作么?此操作无法回退!")){
-				$.post("role_del.do","ids="+getCheckValue(),delComplete);
+				$.post("role_del.do","ids="+getCheckValue(),delComplete,"text");
 			}
 		}else{
 			alert("请选择要操作的记录!");
@@ -87,11 +87,11 @@
 	function funcChecked(obj){
 		if(obj.checked){
 			//选中一个菜单 
-			//$.post("role_funcChecked.do","func.id="+obj.value+"&role.id="+getCheckOneValue()+"&dataLevel="+$("#dataLevel"+obj.value+" option:selected").val(),funcCheckedComplete);
-			$.post("role_funcChecked.do","func.id="+obj.value+"&role.id="+getCheckOneValue(),funcCheckedComplete);
+			//$.post("role_funcChecked.do","func.id="+obj.value+"&role.id="+getCheckOneValue()+"&dataLevel="+$("#dataLevel"+obj.value+" option:selected").val(),funcCheckedComplete,"text");
+			$.post("role_funcChecked.do","func.id="+obj.value+"&role.id="+getCheckOneValue(),funcCheckedComplete,"text");
 		}else{
 			//取消选中一个菜单
-			$.post("role_funcCheckedNo.do","func.id="+obj.value+"&role.id="+getCheckOneValue(),funcCheckedNoComplete);
+			$.post("role_funcCheckedNo.do","func.id="+obj.value+"&role.id="+getCheckOneValue(),funcCheckedNoComplete,"text");
 		}
 	}
 	function funcCheckedComplete(data){
@@ -137,10 +137,10 @@
 	function buttonChecked(obj){
 		if(obj.checked){
 			//选中一个按钮
-			$.post("role_buttonChecked.do","operbutton.id="+obj.value+"&role.id="+getCheckOneValue()+"&dataLevel="+$("#dataLevel"+obj.func+" option:selected").val(),buttonCheckedComplete);
+			$.post("role_buttonChecked.do","operbutton.id="+obj.value+"&role.id="+getCheckOneValue()+"&dataLevel="+$("#dataLevel"+obj.func+" option:selected").val(),buttonCheckedComplete,"text");
 		}else{
 			//取消选中一个按钮
-			$.post("role_buttonCheckedNo.do","operbutton.id="+obj.value+"&role.id="+getCheckOneValue(),funcCheckedNoComplete);
+			$.post("role_buttonCheckedNo.do","operbutton.id="+obj.value+"&role.id="+getCheckOneValue(),funcCheckedNoComplete,"text");
 		}
 	}
 	function buttonCheckedComplete(data){
@@ -184,7 +184,7 @@
 		}
 	}
 	function dataLevelChange(obj){
-			$.post("role_dataLevelChange.do","func.id="+obj.func+"&role.id="+getCheckOneValue()+"&dataLevel="+obj.value,dataLevelChangeComplete);
+			$.post("role_dataLevelChange.do","func.id="+obj.func+"&role.id="+getCheckOneValue()+"&dataLevel="+obj.value,dataLevelChangeComplete,"text");
 	}
 	function dataLevelChangeComplete(data){
 		var html=$("#console").html();
