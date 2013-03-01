@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				$("#pwd").focus();
 				return false;
 			}
-			$.post("info_signDo.do","info.id=${info.id}&user.loginname="+$("#loginname").val()+"&user.pwd="+$("#pwd").val(),infoSignComplete);
+			$.post("info_signDo.do","info.id=${info.id}&user.loginname="+$("#loginname").val()+"&user.pwd="+$("#pwd").val(),infoSignComplete,"text");
 		}
 		function infoSignComplete(data){
 			if(data.indexOf("操作成功")>-1){
