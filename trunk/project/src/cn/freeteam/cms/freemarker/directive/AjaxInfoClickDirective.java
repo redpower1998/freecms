@@ -78,7 +78,7 @@ public class AjaxInfoClickDirective extends BaseDirective implements TemplateDir
 				sb.append("<span id='ajaxInfoClickSpan"+uuid+"' "+spanAttr+"><img src='"+contextPath+"js/images/ajax-loader.gif'/></span>");
 				sb.append("<script>");
 				//执行ajax操作
-				sb.append("$.post('"+contextPath+"info_ajaxClick.do','info.id="+infoid+"',ajaxInfoClickComplete"+uuid+");");
+				sb.append("$.post('"+contextPath+"info_ajaxClick.do','info.id="+infoid+"',ajaxInfoClickComplete"+uuid+",'text');");
 				//回调函数
 				sb.append("function ajaxInfoClickComplete"+uuid+"(data){");
 				//显示点击量
