@@ -223,7 +223,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<INPUT onblur="this.className='colorblur';" id=indextempletName  onclick="selectTemplet('${site.id }')"
 									class=colorblur onfocus="this.className='colorfocus';" readonly style="cursor:hand"
 									maxLength=50 type=text name=site.indextempletName value="${site.indextempletName }">
-									<a href="#" onclick="syncRes()" title="点击后将把模板资源文件复制并覆盖到此站点">同步资源文件</a>
+									<a href="#" onclick="syncRes()" title="点击后将把模板资源文件(resources文件夹)复制并覆盖到此站点">同步资源文件</a>
 							</TD>
 						</TR>
 						<TR>
