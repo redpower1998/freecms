@@ -241,29 +241,31 @@ public class FileUtil {
      * @throws IOException
      */
     public static void copyDirectiory(String sourceDir, String targetDir) throws IOException {
-        // 新建目标目录
-    	File targetFolder=new File(targetDir);
-    	if (!targetFolder.exists()) {
-			targetFolder.mkdirs();
+    	if (new File(sourceDir).exists()) {
+            // 新建目标目录
+        	File targetFolder=new File(targetDir);
+        	if (!targetFolder.exists()) {
+    			targetFolder.mkdirs();
+    		}
+            // 获取源文件夹当前下的文件或目录
+            File[] file = (new File(sourceDir)).listFiles();
+            for (int i = 0; i < file.length; i++) {
+                if (file[i].isFile()) {
+                    // 源文件
+                    File sourceFile = file[i];
+                    // 目标文件
+                    File targetFile = new File(new File(targetDir).getAbsolutePath() + File.separator + file[i].getName());
+                    copy(sourceFile, targetFile);
+                }
+                if (file[i].isDirectory()) {
+                    // 准备复制的源文件夹
+                    String dir1 = sourceDir + "/" + file[i].getName();
+                    // 准备复制的目标文件夹
+                    String dir2 = targetDir + "/" + file[i].getName();
+                    copyDirectiory(dir1, dir2);
+                }
+            }
 		}
-        // 获取源文件夹当前下的文件或目录
-        File[] file = (new File(sourceDir)).listFiles();
-        for (int i = 0; i < file.length; i++) {
-            if (file[i].isFile()) {
-                // 源文件
-                File sourceFile = file[i];
-                // 目标文件
-                File targetFile = new File(new File(targetDir).getAbsolutePath() + File.separator + file[i].getName());
-                copy(sourceFile, targetFile);
-            }
-            if (file[i].isDirectory()) {
-                // 准备复制的源文件夹
-                String dir1 = sourceDir + "/" + file[i].getName();
-                // 准备复制的目标文件夹
-                String dir2 = targetDir + "/" + file[i].getName();
-                copyDirectiory(dir1, dir2);
-            }
-        }
     }
 
 	/**
