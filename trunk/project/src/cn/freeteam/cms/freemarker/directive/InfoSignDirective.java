@@ -42,7 +42,7 @@ import freemarker.template.TemplateModel;
 <script type="text/javascript" src="${contextPath}/js/jquery-1.5.1.min.js"></script>
 <script type="text/javascript" src="${contextPath}/js/weebox0.4/bgiframe.js"></script>
 <script type="text/javascript" src="${contextPath}/js/weebox0.4/weebox.js"></script>
-<link type="text/css" rel="stylesheet" href="${contextPath}/js/weebox0.4/weebox_css.jsp" />
+<link type="text/css" rel="stylesheet" href="${contextPath}/js/weebox0.4/weebox.css" />
  * 
  * 使用示例
 <@infoSign infoid="${currInfo.id}" ;js,html>
@@ -104,7 +104,7 @@ public class InfoSignDirective extends BaseDirective implements TemplateDirectiv
 						sb.append("<script src='"+contextPath+"js/weebox0.4/bgiframe.js'></script>");
 						sb.append("<script src='"+contextPath+"js/weebox0.4/weebox.js'></script>");
 						//导入样式
-						sb.append("<link type='text/css' rel='stylesheet' href='"+contextPath+"js/weebox0.4/weebox_css.jsp'/>");
+						sb.append("<link type='text/css' rel='stylesheet' href='"+contextPath+"js/weebox0.4/weebox.css'/>");
 					}
 					//生成唯一标识
 					String uuid=UUID.randomUUID().toString().replace("-", "");
