@@ -169,7 +169,7 @@ img {border:0}
             //检查登录名是否重复
             function checkSameLoginname(){
 				if($.trim($("#username").val())!=""){
-					$.post("member_checkLoginname.do","member.loginname="+$("#username").val(),checkSameLoginnameComplete);
+					$.post("member_checkLoginname.do","member.loginname="+$("#username").val(),checkSameLoginnameComplete,"text");
 				}        		
             }
             function checkSameLoginnameComplete(data){
