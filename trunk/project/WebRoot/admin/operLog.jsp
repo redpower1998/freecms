@@ -12,7 +12,7 @@
 		<script type="text/javascript" src="../js/checkAll.js"></script>
 		<script type="text/javascript" src="../js/weebox0.4/bgiframe.js"></script>
 		<script type="text/javascript" src="../js/weebox0.4/weebox.js"></script>
-		<link type="text/css" rel="stylesheet" href="../js/weebox0.4/weebox_css.jsp" />
+		<link type="text/css" rel="stylesheet" href="../js/weebox0.4/weebox.css" />
 		<script language="javascript" type="text/javascript" src="../My97DatePicker/WdatePicker.js" ></script>
 
 		<META content=text/html;charset=gb2312 http-equiv=content-type>

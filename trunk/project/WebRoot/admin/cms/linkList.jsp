@@ -15,7 +15,7 @@
 		<script type="text/javascript" src="../../js/checkAll.js"></script>
 		<script type="text/javascript" src="../../js/weebox0.4/bgiframe.js"></script>
 		<script type="text/javascript" src="../../js/weebox0.4/weebox.js"></script>
-		<link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox_css.jsp" />
+		<link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox.css" />
 	<link rel="stylesheet" href="../../js/jquery.treeview.css" />
 	<script src="../../js/jquery.cookie.js" type="text/javascript"></script>
 	<script src="../../js/jquery.treeview.js" type="text/javascript"></script>

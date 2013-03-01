@@ -12,7 +12,7 @@
 		<script type="text/javascript" src="../js/jquery-1.5.1.min.js"></script>
 		<script type="text/javascript" src="../js/weebox0.4/bgiframe.js"></script>
 		<script type="text/javascript" src="../js/weebox0.4/weebox.js"></script>
-		<link type="text/css" rel="stylesheet" href="../js/weebox0.4/weebox_css.jsp" />
+		<link type="text/css" rel="stylesheet" href="../js/weebox0.4/weebox.css" />
 		<script type="text/javascript" src="../js/check.js"></script>
 
 	<script type="text/javascript">
