@@ -31,6 +31,8 @@ import freemarker.template.TemplateModel;
  * 参数
  * siteid	站点id
  * parid    空字符:所有;"par":一级栏目;"parid":此id下栏目;
+ * navigation  是否导航 空字符串:所有;"1":是;"0":否;
+ * state  是否有效 空字符串:所有;"1":是;"0":否;
  * 
  * 返回值
  * channel	栏目对象
@@ -85,7 +87,7 @@ public class ChannelListDirective extends BaseDirective implements TemplateDirec
 			if (loopVars!=null && loopVars.length>0 && siteid.trim().length()>0) {
 				//查询栏目
 				List<Channel> channelList=channelService.findByPar(
-						siteid, parid,Channel.STATE_EFFECTIVE,Channel.NAVIGATION_YES);
+						siteid, parid,getParam(params, "state"),getParam(params, "navigation"));
 				if (channelList!=null && channelList.size()>0) {
 					Site site=siteService.findById(siteid);
 					for (int i = 0; i < channelList.size(); i++) {

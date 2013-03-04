@@ -55,8 +55,6 @@ public class AdminAction extends BaseAction{
 	 */
 	public String left(){
 		//先清除session变量
-		getHttpSession().removeAttribute("manageSite");
-		getHttpSession().removeAttribute("siteAdmin");
 		Site manageSite=null;
 		if (siteid!=null && siteid.trim().length()>0) {
 			//指定管理站点
