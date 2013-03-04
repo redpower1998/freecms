@@ -33,6 +33,7 @@ import freemarker.template.TemplateModel;
  * 参数
  * siteid		站点id
  * channelid	栏目id
+ * channelParid	栏目parid
  * num			显示数量
  * order		排序类型  
  * 				1 固顶有效并降序,发布时间降序(默认)
@@ -43,6 +44,7 @@ import freemarker.template.TemplateModel;
  * hot			是否按点击热度倒序，1是
  * dateFormat	日期格式
  * channelPagemark	栏目页面标识
+ * channelParPagemark	父栏目页面标识
  * img			是否只提取带图片的新闻	1是
  * 
  * 返回值
@@ -96,6 +98,7 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 		String siteid=getParam(params, "siteid");
 		//栏目id
 		String channelid=getParam(params, "channelid");
+		String channelParid=getParam(params, "channelParid");
 		//显示数量
 		int num=getParamInt(params, "num", 10);
 		//排序
@@ -108,6 +111,7 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 		String dateFormat=getParam(params, "dateFormat");
 		//栏目页面标识
 		String channelPagemark=getParam(params, "channelPagemark");
+		String channelParPagemark=getParam(params, "channelParPagemark");
 		//是否只提取带图片的信息
 		String img=getParam(params, "img");
 		
@@ -126,6 +130,12 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 				}
 				if (channelPagemark.trim().length()>0) {
 					info.setChannelPagemark(channelPagemark);
+				}
+				if (channelParid.trim().length()>0) {
+					info.setChannelParid(channelParid);
+				}
+				if (channelParPagemark.trim().length()>0) {
+					info.setChannelParPagemark(channelParPagemark);
 				}
 				if (img.trim().length()>0) {
 					info.setImg(img);
