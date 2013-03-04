@@ -170,6 +170,12 @@ public class InfoService extends BaseService{
 			if (info.getChannel()!=null && info.getChannel().trim().length()>0) {
 				criteria.andChannelEqualTo(info.getChannel());
 			}
+			if (info.getChannelParid()!=null && info.getChannelParid().trim().length()>0) {
+				criteria.andSql(" channel in (select id from freecms_channel where parid ='"+info.getChannelParid().trim()+"') ");
+			}
+			if (info.getChannelParPagemark()!=null && info.getChannelParPagemark().trim().length()>0) {
+				criteria.andSql(" channel in (select id from freecms_channel where parid in (select id from freecms_channel where site='"+info.getSite()+"' and pagemark='"+info.getChannelParPagemark().trim()+"')) ");
+			}
 			if (info.getAdduser()!=null && info.getAdduser().trim().length()>0) {
 				criteria.andAdduserEqualTo(info.getAdduser());
 			}
