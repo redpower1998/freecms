@@ -165,13 +165,11 @@ function editComplete(data){
 		if($("#siteName_edit").val()!=undefined){
 			document.getElementById("site"+id).innerHTML=$("#siteName_edit").val();
 		}
-		if("SELECT"==$("#linkSelect").attr("tagName")){
-			var opts=document.getElementById("linkSelect").options;
-			if(opts!=null && opts.length>0){
-				for(var i=0;i<opts.length;i++){
-					if(opts[i].selected){
-						document.getElementById("class"+id).innerHTML=opts[i].show;
-					}
+		var opts=document.getElementById("linkSelect").options;
+		if(opts!=null && opts.length>0){
+			for(var i=0;i<opts.length;i++){
+				if(opts[i].selected){
+					document.getElementById("class"+id).innerHTML=opts[i].show;
 				}
 			}
 		}
