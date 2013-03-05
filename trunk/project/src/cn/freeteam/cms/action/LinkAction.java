@@ -294,6 +294,7 @@ public class LinkAction extends BaseAction{
 				totalCount=linkService.count(link);
 				Pager pager=new Pager(getHttpRequest());
 				pager.appendParam("link.site");
+				pager.appendParam("link.type");
 				pager.appendParam("link.name");
 				pager.appendParam("link.pagemark");
 				pager.appendParam("order");
@@ -334,6 +335,7 @@ public class LinkAction extends BaseAction{
 				pager.appendParam("link.name");
 				pager.appendParam("link.className");
 				pager.appendParam("link.pagemark");
+				pager.appendParam("link.type");
 				pager.appendParam("order");
 				pager.appendParam("pageSize");
 				pager.appendParam("pageFuncId");
