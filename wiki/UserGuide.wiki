@@ -39,6 +39,7 @@
 ==== [memberauth 会员权限管理] ====
 ==== [membergroup 会员组管理] ====
 ==== [member 会员管理] ====
+==== [creditrule 积分规则管理] ====
 
 == [taglib 模板标签] ==
 ==== 数据对象 ====
