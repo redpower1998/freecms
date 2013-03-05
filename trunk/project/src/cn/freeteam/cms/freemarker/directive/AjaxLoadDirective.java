@@ -31,10 +31,10 @@ import freemarker.template.TemplateModel;
  * code		生成的ajax代码
  * 
  * 此标签依赖的文件
-<script type="text/javascript" src="${contextPath}/js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="${contextPath}js/jquery-1.5.1.min.js"></script>
  * 示例
  <div id="ajaxLoadDiv">
- <@ajaxLoad targetid="ajaxLoadDiv" url="${contextPath}/test.jsp" param="id:'1',name:'姓名'" method="post";code>
+ <@ajaxLoad targetid="ajaxLoadDiv" url="${contextPath}test.jsp" param="id:'1',name:'姓名'" method="post";code>
  ${code}
  </@ajaxLoad>
  </div>
