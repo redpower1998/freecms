@@ -1,0 +1,15 @@
+#summary 积分记录
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+
+= 积分记录 =
+
+<p>
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	从FreeCMS 1.2 开始支持</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	查看系统所有会员积分记录。</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	从左侧管理菜单点击积分记录进入。</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<a href="http://static.oschina.net/uploads/space/2013/0305/132910_t0gY_916014.png" style="padding: 0px; margin: 0px; color: rgb(0, 0, 170); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0305/132910_t0gY_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
