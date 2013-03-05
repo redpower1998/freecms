@@ -32,6 +32,7 @@ import freemarker.template.TemplateModel;
  * cache		是否使用缓存，默认为false
  * order		排序 1时间倒序(默认) 2时间正序
  * num			数量
+ * nameLen		名称显示长度
  * 
  * 
  * 返回值
@@ -78,6 +79,8 @@ public class QuestionListDirective extends BaseDirective implements TemplateDire
 				String id=getParam(params, "id");
 				String order=getParam(params, "order");
 				String orderSql=" addtime desc ";
+				//标题长度
+				int nameLen=getParamInt(params, "nameLen",0);
 				if ("1".equals(order)) {
 					orderSql=" addtime ";
 				}
@@ -90,6 +93,9 @@ public class QuestionListDirective extends BaseDirective implements TemplateDire
 				List<Question> questionList=questionService.find(question, orderSql, 1, getParamInt(params, "num", 1), cache);
 				if (questionList!=null && questionList.size()>0) {
 					for (int i = 0; i < questionList.size(); i++) {
+						if (nameLen>0 && questionList.get(i).getName().length()>nameLen) {
+							questionList.get(i).setName(questionList.get(i).getName().substring(0, nameLen));
+						}
 						loopVars[0]=new BeanModel(questionList.get(i),new BeansWrapper());  
 						if(loopVars.length>1){
 							loopVars[1]=new SimpleNumber(i);
