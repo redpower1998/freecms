@@ -266,7 +266,7 @@ public class SiteAction extends BaseAction{
 					}
 					stringBuilder.append("('");
 					stringBuilder.append(list.get(i).getId());
-					stringBuilder.append("','"+list.get(i).getName()+"','"+(site!=null && site.getId()!=null?site.getId():"")+"')>");
+					stringBuilder.append("','"+list.get(i).getName().replaceAll(" ", "")+"','"+(site!=null && site.getId()!=null?site.getId():"")+"')>");
 					stringBuilder.append(list.get(i).getName());
 					//判断是否有权限
 					if (role!=null && role.getId().trim().length()>0 && roleSiteService.have(list.get(i).getId(), role.getId())) {
@@ -318,7 +318,7 @@ public class SiteAction extends BaseAction{
 					}
 					stringBuilder.append("('");
 					stringBuilder.append(list.get(i).getId());
-					stringBuilder.append("','"+list.get(i).getName()+"','"+(site!=null && site.getId()!=null?site.getId():"")+"')><b>");
+					stringBuilder.append("','"+list.get(i).getName().replaceAll(" ", "")+"','"+(site!=null && site.getId()!=null?site.getId():"")+"')><b>");
 					stringBuilder.append(list.get(i).getName());
 					stringBuilder.append("\", \"hasChildren\": ");
 					if (siteService.hasChildren(list.get(i).getId())) {
