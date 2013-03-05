@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				var id=data.replace("操作成功","");
 				$("#issign"+id).html("是");
 				var date=new Date();
-				$("#signtime"+id).html(date.getYear()+"-"+(date.getMonth() + 1)+"-"+date.getDate());
+				$("#signtime"+id).html(date.getFullYear()+"-"+(date.getMonth() + 1)+"-"+date.getDate());
 				$("#ip"+id).html("<%=request.getRemoteAddr()%>");
 			}else{
 				alert(data);
