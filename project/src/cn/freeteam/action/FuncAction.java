@@ -82,7 +82,7 @@ public class FuncAction extends BaseAction{
 				}
 				stringBuilder.append("('");
 				stringBuilder.append(list.get(i).getId());
-				stringBuilder.append("','"+list.get(i).getName()+"')>");
+				stringBuilder.append("','"+list.get(i).getName().replaceAll(" ", "")+"')>");
 				stringBuilder.append(list.get(i).getName());
 				stringBuilder.append("\", \"hasChildren\": ");
 				if (funcService.haveSon(list.get(i).getId())) {

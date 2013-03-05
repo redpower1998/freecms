@@ -309,10 +309,13 @@ public class ChannelAction extends BaseAction{
 					stringBuilder.append("('");
 					stringBuilder.append(list.get(i).getId());
 					stringBuilder.append("','");
-					stringBuilder.append(list.get(i).getName());
+					stringBuilder.append(list.get(i).getName().replaceAll(" ", ""));
 					stringBuilder.append("')><b>");
 				}
 				stringBuilder.append(list.get(i).getName());
+				if (click) {
+					stringBuilder.append("</b>");
+				}
 				stringBuilder.append("\", \"hasChildren\": ");
 				if (channelService.hasChildren(list.get(i).getId())) {
 					stringBuilder.append("true");
@@ -366,7 +369,7 @@ public class ChannelAction extends BaseAction{
 					}
 					stringBuilder.append("('");
 					stringBuilder.append(list.get(i).getId());
-					stringBuilder.append("','"+list.get(i).getName()+"',this) value="+list.get(i).getId());
+					stringBuilder.append("','"+list.get(i).getName().replaceAll(" ", "")+"',this) value="+list.get(i).getId());
 					stringBuilder.append("><b>");
 				}
 				stringBuilder.append(list.get(i).getName());
