@@ -27,6 +27,8 @@ import freemarker.template.TemplateModel;
  * <p>Description: 链接分类标签
  * 参数
  * siteid		站点id
+ * classid		分类id
+ * pagemark	分类页面标识
  * type			类型
  * 				1 下拉
  * 				2 图片
@@ -82,6 +84,8 @@ public class LinkClassDirective extends BaseDirective implements TemplateDirecti
 				link.setSite(siteid);
 				link.setType(type);
 				link.setIsok("1");
+				link.setId(getParam(params, "classid"));
+				link.setPagemark(getParam(params, "pagemark"));
 				List<Link> linkList=linkService.findAll(link, " ordernum ");
 				if (linkList!=null && linkList.size()>0) {
 					for (int i = 0; i < linkList.size(); i++) {

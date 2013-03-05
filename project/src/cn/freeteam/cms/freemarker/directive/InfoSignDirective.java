@@ -39,10 +39,10 @@ import freemarker.template.TemplateModel;
  * html 生成的显示内容
  * 
  * 此标签依赖的文件
-<script type="text/javascript" src="${contextPath}/js/jquery-1.5.1.min.js"></script>
-<script type="text/javascript" src="${contextPath}/js/weebox0.4/bgiframe.js"></script>
-<script type="text/javascript" src="${contextPath}/js/weebox0.4/weebox.js"></script>
-<link type="text/css" rel="stylesheet" href="${contextPath}/js/weebox0.4/weebox.css" />
+<script type="text/javascript" src="${contextPath}js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="${contextPath}js/weebox0.4/bgiframe.js"></script>
+<script type="text/javascript" src="${contextPath}js/weebox0.4/weebox.js"></script>
+<link type="text/css" rel="stylesheet" href="${contextPath}js/weebox0.4/weebox.css" />
  * 
  * 使用示例
 <@infoSign infoid="${currInfo.id}" ;js,html>
