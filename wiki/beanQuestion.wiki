@@ -1,0 +1,118 @@
+#summary question
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+
+= question =
+
+
+<p>
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">从FreeCMS 1.2 开始支持</strong></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">在使用 网上调查相关标签时，标签会封装<span style="padding: 0px; margin: 0px;">question</span><span style="padding: 0px; margin: 0px;">供页面调用。</span></strong></p>
+<table style="padding: 0pt 5.4pt; margin: 0px;">
+	<tbody style="padding: 0px; margin: 0px;">
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">属性</span></strong></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">说明</span></strong></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">id</span></strong></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">id</span></strong></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">selectnum</span></strong></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">此网上调查下有效选项总选择次数</span></strong></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">name</span></strong></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">名称</span></strong></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">selecttype</span></strong></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">选择类型 0单选 1多选</span></strong></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">selecttypeStr</span></strong></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">选择类型对应的html标签类型 radio checkbox</span></strong></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">isok</span></strong></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">是否有效</span></strong></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">siteid</span></strong></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">所属站点</span></strong></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">adduser</span></strong></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">添加人</span></strong></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">addtime</span></strong></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<strong style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">添加时间</span></strong></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
