@@ -15,6 +15,7 @@ import cn.freeteam.cms.freemarker.directive.AjaxInfoClickDirective;
 import cn.freeteam.cms.freemarker.directive.AjaxLoadDirective;
 import cn.freeteam.cms.freemarker.directive.ChannelDirective;
 import cn.freeteam.cms.freemarker.directive.ChannelListDirective;
+import cn.freeteam.cms.freemarker.directive.ChannelPathDirective;
 import cn.freeteam.cms.freemarker.directive.CommentPageDirective;
 import cn.freeteam.cms.freemarker.directive.ConfigDirective;
 import cn.freeteam.cms.freemarker.directive.InfoAttchsDirective;
@@ -152,6 +153,7 @@ public class FreeMarkerUtil {
 			//栏目类
 			freemarkerCfg.setSharedVariable("channel", new ChannelDirective());
 			freemarkerCfg.setSharedVariable("channelList", new ChannelListDirective());
+			freemarkerCfg.setSharedVariable("channelPath", new ChannelPathDirective());
 			//信息类
 			freemarkerCfg.setSharedVariable("infoList", new InfoListDirective());
 			freemarkerCfg.setSharedVariable("infoPage", new InfoPageDirective());

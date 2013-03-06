@@ -3,6 +3,7 @@ package cn.freeteam.cms.service;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -495,6 +496,38 @@ public class ChannelService extends BaseService{
 				 QuartzUtil.getScheduler().deleteJob("HtmlChannelJob"+channelid,"HtmlChannelJob");
 			 }
 		}
+	}
+	/**
+	 * 查询栏目路径
+	 * @return
+	 */
+	public List<Channel> findPath(String id){
+		List<Channel> channelList=new ArrayList<Channel>();
+		channelList=findParPath(id, channelList);
+		if (channelList!=null && channelList.size()>0) {
+			//把对象倒序，实现栏目级别从父到子
+			List<Channel> channelListTemp=new ArrayList<Channel>();
+			for (int i =channelList.size()-1; i >=0 ; i--) {
+				channelListTemp.add(channelList.get(i));
+			}
+			channelList=channelListTemp;
+		}
+		return channelList;
+	}
+	/**
+	 * 查询栏目路径(递归方法)
+	 * @return
+	 */
+	public List<Channel> findParPath(String id,List<Channel> channelList){
+		Channel channel=findById(id);
+		if (channel!=null) {
+			channelList.add(channel);
+			//如果有父栏目则递归提取
+			if (channel.getParid()!=null && channel.getParid().trim().length()>0) {
+				findParPath(channel.getParid(), channelList);
+			}
+		}
+		return channelList;
 	}
 	public ChannelMapper getChannelMapper() {
 		return channelMapper;
