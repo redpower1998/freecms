@@ -50,6 +50,7 @@
 ===== [beanInfo info] =====
 ===== [beanLinkClass linkClass] =====
 ===== [beanLink link] =====
+===== [beanMail mail] =====
 
 ==== 静态化参数 ====
 ===== [htmlIndex 首页静态化参数] =====
