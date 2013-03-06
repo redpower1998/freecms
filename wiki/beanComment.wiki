@@ -1,0 +1,176 @@
+#summary comment
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+
+= comment =
+<p>
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	从FreeCMS 1.2 开始支持</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	在使用评论相关标签时，标签会封装<span style="padding: 0px; margin: 0px;">comment</span><span style="padding: 0px; margin: 0px;">供页面调用。</span></p>
+<table style="padding: 0pt 5.4pt; margin: 0px; font-family: Verdana, sans-serif, 宋体; color: rgb(0, 0, 0); font-size: 14px;">
+	<tbody style="padding: 0px; margin: 0px;">
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">属性</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">说明</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">id</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">id</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">site</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">id</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">站点id</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">memberid</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">会员id</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">membername</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">会员名称</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">isanonymous</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">是否匿名 1是 0否</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">isanonymousStr</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">是否匿名 是 否</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">objtype</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">评论对象类型 如info</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">objtypeStr</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">评论对象类型字符串 如信息</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">objid</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">评论对象id</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">ip</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">IP</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">content</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">信件内容</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">addtime</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">添加时间</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">addtimeStr</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">添加时间（格式 YYYY-MM-dd）</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">state</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">审核状态 0未审核 1已审核</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">state</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">Str</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">审核状态字符串 未审核 已审核</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
