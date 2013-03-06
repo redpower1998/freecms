@@ -1,0 +1,246 @@
+#summary mail
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+
+= mail =
+<p>
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	从FreeCMS 1.2 开始支持</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	在使用互动信件相关标签时，标签会封装<span style="padding: 0px; margin: 0px;">mail</span><span style="padding: 0px; margin: 0px;">供页面调用。</span></p>
+<table style="padding: 0pt 5.4pt; margin: 0px; font-family: Verdana, sans-serif, 宋体; color: rgb(0, 0, 0); font-size: 14px;">
+	<tbody style="padding: 0px; margin: 0px;">
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">属性</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">说明</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">id</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">id</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">unitid</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">收信单位id</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">unitname</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">收信单位名称</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">userid</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">收信人id</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">username</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">收信人名称</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">mailtype</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">信件类型</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">title</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">标题</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">writer</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">写信人</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">tel</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">写信人联系电话</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">address</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">写信人地址</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">email</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">写信人电子邮箱</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">isopen</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">是否公开 1是 0否</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">content</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">信件内容</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">querycode</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">查询码</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">addtime</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">添加时间</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">addtimeStr</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">添加时间（格式 YYYY-MM-dd）</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">ip</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">写信人ip</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">state</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">办理状态 0办理中 1已办结</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">recontent</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">回复内容</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">retime</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">回复时间</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">retimeStr</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">回复时间（格式 YYYY-MM-dd）</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">proflow</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">转办流程</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
