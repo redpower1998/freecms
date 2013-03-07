@@ -1,0 +1,113 @@
+#summary video
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+
+= video=
+<p>
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	从FreeCMS 1.2 开始支持</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	根据参数显示视频播放代码。</p>
+<table style="padding: 0pt 5.4pt; margin: 0px; font-family: Verdana, sans-serif, 宋体; color: rgb(0, 0, 0); font-size: 14px;">
+	<tbody style="padding: 0px; margin: 0px;">
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">参数</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">说明</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">video</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">视频地址</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">img</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">视频截图地址</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">width</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">视频播放窗口宽度</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">,</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">默认</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">300</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">height</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">视频播放窗口高度</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">,</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">默认</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">200</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	 </p>
+<table style="padding: 0pt 5.4pt; margin: 0px; font-family: Verdana, sans-serif, 宋体; color: rgb(0, 0, 0); font-size: 14px;">
+	<tbody style="padding: 0px; margin: 0px;">
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">返回值</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">说明</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">html</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">生成的视频播放代码</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	此标签依赖的文件</p>
+
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+{{{
+
+<script type="text/javascript" src="${contextPath}js/jwplayer/jwplayer.min.js"></script>
+
+}}}
+</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	示例1</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	播放指定视频。</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+{{{
+<@video video="${currInfo.video}" ;html>
+　　${html}											
+</@video>
+}}}
+</p>
