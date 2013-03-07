@@ -87,9 +87,8 @@
 					<span style="font-family: 宋体">index</span></p>
 			</td>
 			<td>
-				<p>
-					<span style="font-family: 宋体">索引 <br>
-从FreeCMS 1.2 开始支持</span></span></p>
+				<p>索引 <br>
+从FreeCMS 1.2 开始支持</p>
 			</td>
 		</tr>
 	</tbody>
