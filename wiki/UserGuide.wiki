@@ -71,6 +71,7 @@
 ===== [taglibInfoAttchs infoAttchs] =====
 ===== [taglibInfoSearch infoSearch] =====
 ===== [taglibInfoSign infoSign] =====
+===== [taglibVideo video] =====
 ===== [taglibLinkClass linkClass] =====
 ===== [taglibLink link] =====
 ===== [taglibAjaxInfoClick ajaxInfoClick] =====
