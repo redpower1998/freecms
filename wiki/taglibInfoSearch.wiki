@@ -194,8 +194,8 @@
 	<span style="font-family: 宋体">显示搜索结果</span></p>
 <p>
 {{{
-<@infoSearch siteid="${site.id}" num="25" action="${contextPath}templet_pro.ws"
-titleLen="48" dateFormat="yyyy-MM-dd" key="${key}"; infoList,pager>
+<@infoSearch siteid="${site.id}" num="25" action="${contextPath}templet_pro.do"
+titleLen="48" dateFormat="yyyy-MM-dd" key="${key}" page="${page!1}"; infoList,pager>
 <ul>
 	<#list infoList as info>
 	<li>
