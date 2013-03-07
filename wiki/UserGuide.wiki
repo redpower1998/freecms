@@ -70,6 +70,7 @@
 ===== [taglibInfoPage infoPage] =====
 ===== [taglibInfoAttchs infoAttchs] =====
 ===== [taglibInfoSearch infoSearch] =====
+===== [taglibInfoSign infoSign] =====
 ===== [taglibLinkClass linkClass] =====
 ===== [taglibLink link] =====
 ===== [taglibAjaxInfoClick ajaxInfoClick] =====
