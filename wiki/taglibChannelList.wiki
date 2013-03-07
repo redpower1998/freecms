@@ -80,6 +80,17 @@
 				<p>
 					<span style="font-family: 宋体">栏目对象，类型为数据对象<span>channel</span></span></p>
 			</td>
+		</tr> 
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: 宋体">index</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: 宋体">索引 <br>
+从FreeCMS 1.2 开始支持</span></p>
+			</td>
 		</tr>
 	</tbody>
 </table>
