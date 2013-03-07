@@ -1,0 +1,133 @@
+#summary infoSign
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+
+= infoSign =
+
+<p>
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	从FreeCMS 1.2 开始支持</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	根据参数显示信息签收代码。</p>
+<table style="padding: 0pt 5.4pt; margin: 0px; font-family: Verdana, sans-serif, 宋体; color: rgb(0, 0, 0); font-size: 14px;">
+	<tbody style="padding: 0px; margin: 0px;">
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">参数</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">说明</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">infoid</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">信息</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">id</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">show</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">显示签收内容，默认为</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">&quot;</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">签收</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">&quot;</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">aAttr</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">签收链接显示</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">a</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">标签的属性</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">loadjs</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">是否加载依赖的</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">js</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	 </p>
+<table style="padding: 0pt 5.4pt; margin: 0px; font-family: Verdana, sans-serif, 宋体; color: rgb(0, 0, 0); font-size: 14px;">
+	<tbody style="padding: 0px; margin: 0px;">
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">返回值</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">说明</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">js</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">生成的</span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">js</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">html</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">生成的显示内容</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	此标签依赖的文件</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	&lt;script type=&quot;text/javascript&quot; src=&quot;${contextPath}js/jquery-1.5.1.min.js&quot;&gt;&lt;/script&gt;</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	&lt;script type=&quot;text/javascript&quot; src=&quot;${contextPath}js/weebox0.4/bgiframe.js&quot;&gt;&lt;/script&gt;</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	&lt;script type=&quot;text/javascript&quot; src=&quot;${contextPath}js/weebox0.4/weebox.js&quot;&gt;&lt;/script&gt;</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;${contextPath}js/weebox0.4/weebox.css&quot; /&gt;</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	示例1</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	显示当前信息的签收功能代码。</p>
+	<p>
+	{{{
+	
+	　　<@infoSign infoid="${currInfo.id}" ;js,html>
+　　${js}
+　　${html}
+　　</@infoSign>
+	}}}
+	</p>
+
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<a href="http://static.oschina.net/uploads/space/2013/0307/131603_sk8I_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0307/131603_sk8I_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<a href="http://static.oschina.net/uploads/space/2013/0307/131619_XQP9_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0307/131619_XQP9_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
