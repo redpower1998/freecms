@@ -42,7 +42,7 @@ public class QuestionAction extends BaseAction{
 	private QuestionService questionService;
 	private List<Question> questionList;
 	private Question question;
-	private String order;
+	private String order=" addtime desc";
 	private String logContent;
 	private String ids;
 	
