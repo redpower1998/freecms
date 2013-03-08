@@ -8,6 +8,8 @@ import java.util.Map;
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Site;
+import cn.freeteam.cms.service.ChannelService;
+import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.cms.service.TempletService;
 import cn.freeteam.cms.util.FreeMarkerUtil;
@@ -43,6 +45,8 @@ public class TempletAction extends BaseAction{
 
 	private SiteService siteService;
 	private TempletService templetService;
+	private ChannelService channelService;
+	private InfoService infoService;
 	
 	private String siteid;
 	private String templetPath;
@@ -78,10 +82,22 @@ public class TempletAction extends BaseAction{
 						name=paramNames.nextElement();
 						if (name!=null &&
 								!name.equals("site") &&
-								!name.equals("contextPath")) {
+								!name.equals("contextPath")&&
+								!name.equals("currChannelid")&&
+								!name.equals("currInfoid")) {
 							data.put(name, getHttpRequest().getParameter(name));
 						}
 					}
+				}
+				//如果有currChannelid参数则传递currChannel对象
+				if (getHttpRequest().getParameter("currChannelid")!=null && getHttpRequest().getParameter("currChannelid").trim().length()>0) {
+					init("channelService");
+					data.put("currChannel",channelService.findById(getHttpRequest().getParameter("currChannelid")));
+				}
+				//如果有currInfoid参数则传递currInfo对象
+				if (getHttpRequest().getParameter("currInfoid")!=null && getHttpRequest().getParameter("currInfoid").trim().length()>0) {
+					init("infoService");
+					data.put("currInfo",infoService.findById(getHttpRequest().getParameter("currInfoid")));
 				}
 				//获取seesion中存放的变量
 				Enumeration<String> sessionNames=getHttpSession().getAttributeNames();
@@ -133,5 +149,21 @@ public class TempletAction extends BaseAction{
 
 	public void setTempletService(TempletService templetService) {
 		this.templetService = templetService;
+	}
+
+	public ChannelService getChannelService() {
+		return channelService;
+	}
+
+	public void setChannelService(ChannelService channelService) {
+		this.channelService = channelService;
+	}
+
+	public InfoService getInfoService() {
+		return infoService;
+	}
+
+	public void setInfoService(InfoService infoService) {
+		this.infoService = infoService;
 	}
 }
