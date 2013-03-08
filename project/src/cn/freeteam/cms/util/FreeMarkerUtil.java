@@ -101,7 +101,10 @@ public class FreeMarkerUtil {
 		Template template = freemarkerCfg.getTemplate(templatePath,templetEncode);            
 		template.setEncoding(templetEncode);            
 		//静态页面路径                      
-		File htmlFile = new File(htmlPath);            
+		File htmlFile = new File(htmlPath);  
+		if (!htmlFile.getParentFile().exists()) {
+			htmlFile.getParentFile().mkdirs();
+		}
 		Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(htmlFile), htmlEncode));            
 		//处理模版              
 		template.process(data, writer);            
