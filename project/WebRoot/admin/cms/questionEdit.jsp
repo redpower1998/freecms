@@ -63,6 +63,24 @@
 							</TD>
 						</TR>
 						
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl02_ctl00_label>
+									<IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=请输入调查说明
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl02_ctl00_lblLabel>调查说明：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD align="left">
+								<textarea onblur="this.className='colorblur';"  
+									class=colorblur onfocus="this.className='colorfocus';" 
+									maxLength=50 type=text id=detail name=question.detail cols="40" rows="6">${question.detail }</textarea>
+							</TD>
+						</TR>
 					</TBODY>
 				</TABLE>
 			</DIV>
