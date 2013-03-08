@@ -1,6 +1,6 @@
 //添加
 function add(){
-	$.weeboxs.open('question_edit.do', {title:'添加网上调查', contentType:'ajax',height:130,width:450,
+	$.weeboxs.open('question_edit.do', {title:'添加网上调查', contentType:'ajax',height:230,width:450,
 		onok:function(){
 			if($.trim($("#name").val())==""){
 				alert("请输入名称!");
@@ -12,7 +12,10 @@ function add(){
 			if(document.getElementById("isok0").checked){isok="0";}
 			var selecttype="0";
 			if(document.getElementById("selecttype1").checked){selecttype="1";}
-			$.post("question_editDo.do","question.name="+$("#name").val()+"&question.isok="+isok+"&question.selecttype="+selecttype
+			$.post("question_editDo.do","question.name="+$("#name").val()
+			+"&question.isok="+isok
+			+"&question.selecttype="+selecttype
+			+"&question.detail="+$("#detail").val()
 			,addComplete,"text");
 		}
 	});
@@ -20,7 +23,7 @@ function add(){
 //编辑
 function edit(){
 	if(isCheckOne()){
-		$.weeboxs.open('question_edit.do?question.id='+getCheckOneValue(), {title:'编辑网上调查', contentType:'ajax',height:130,width:450,
+		$.weeboxs.open('question_edit.do?question.id='+getCheckOneValue(), {title:'编辑网上调查', contentType:'ajax',height:230,width:450,
 			onok:function(){
 				if($.trim($("#name").val())==""){
 					alert("请输入名称!");
@@ -32,7 +35,11 @@ function edit(){
 				if(document.getElementById("isok0").checked){isok="0";}
 				var selecttype="0";
 				if(document.getElementById("selecttype1").checked){selecttype="1";}
-				$.post("question_editDo.do","question.id="+getCheckOneValue()+"&question.name="+$("#name").val()+"&question.isok="+isok+"&question.selecttype="+selecttype
+				$.post("question_editDo.do","question.id="+getCheckOneValue()
+				+"&question.name="+$("#name").val()
+				+"&question.isok="+isok
+				+"&question.selecttype="+selecttype
+				+"&question.detail="+$("#detail").val()
 				,editComplete,"text");
 			}
 		});
