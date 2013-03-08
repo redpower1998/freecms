@@ -101,6 +101,7 @@ public class QuestionAction extends BaseAction{
 					oldQuestion.setName(question.getName());
 					oldQuestion.setSelecttype(question.getSelecttype());
 					oldQuestion.setIsok(question.getIsok());
+					oldQuestion.setDetail(question.getDetail());
 					oper="修改";
 					questionService.update(oldQuestion);
 				}
