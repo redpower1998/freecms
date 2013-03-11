@@ -15,7 +15,7 @@ function answer(id){
 		}
 	}
 	var data="question.id="+id.replace("question","")+"&answerval="+val;
-	$.post("${contextPath}/question_answer.do",data,answerComplete,"text");
+	$.post("${contextPath}question_answer.do",data,answerComplete,"text");
 }
 function answerComplete(data){
 	alert(data);
