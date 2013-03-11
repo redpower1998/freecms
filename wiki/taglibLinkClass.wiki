@@ -2,99 +2,103 @@
 #labels free,cms,freecms,freeteam,开源,免费,内容管理系统,linkClass
 
 = linkClass=
-
-
-<p>
-	<span style="font-family: 宋体">根据参数提取链接分类对象。</span></p>
 <p>
 	 </p>
-<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
-	<tbody>
-		<tr>
-			<td>
-				<p>
-					<b><span style="font-family: 宋体">参数</span></b></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	根据参数提取链接分类对象。</p>
+<table style="padding: 0pt 5.4pt; margin: 0px; font-family: Verdana, sans-serif, 宋体; color: rgb(0, 0, 0); font-size: 14px;">
+	<tbody style="padding: 0px; margin: 0px;">
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">参数</span></p>
 			</td>
-			<td>
-				<p>
-					<b><span style="font-family: 宋体">说明</span></b></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">siteid</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">链接分类所属站点<span>id</span></span></p>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">说明</span></p>
 			</td>
 		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">type</span></p>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">siteid</span></p>
 			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">类型<span><span>  </span></span></span></p>
-				<p>
-					<span style="font-family: 宋体">1 </span><span style="font-family: 宋体">下拉</span></p>
-				<p>
-					<span style="font-family: 宋体">2 </span><span style="font-family: 宋体">图片</span></p>
-				<p>
-					<span style="font-family: 宋体">3 </span><span style="font-family: 宋体">文字</span></p>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">链接分类所属站点id</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">type</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">类型  </span></p>
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">1 </span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">下拉</span></p>
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">2 </span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">图片</span></p>
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">3 </span><span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">文字</span></p>
 			</td>
 		</tr>
 	</tbody>
 </table>
-<p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
 	 </p>
-<p>
-	 </p>
-<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
-	<tbody>
-		<tr>
-			<td>
-				<p>
-					<b><span style="font-family: 宋体">返回值</span></b></p>
+<table style="padding: 0pt 5.4pt; margin: 0px; font-family: Verdana, sans-serif, 宋体; color: rgb(0, 0, 0); font-size: 14px;">
+	<tbody style="padding: 0px; margin: 0px;">
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">返回值</span></p>
 			</td>
-			<td>
-				<p>
-					<b><span style="font-family: 宋体">说明</span></b></p>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-size: 10.5pt; font-family: 宋体;">说明</span></p>
 			</td>
 		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">linkClass</span></p>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">linkClass</span></p>
 			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">链接分类对象</span></p>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">链接分类对象</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">index</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 0.5pt solid rgb(0, 0, 0);">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-size: 10.5pt; font-family: 宋体;">索引</span></p>
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-weight: bold; font-style: italic; font-size: 10.5pt; font-family: 宋体;">从FreeCMS 1.2 开始支持</span></p>
 			</td>
 		</tr>
 	</tbody>
 </table>
-<p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
 	 </p>
-<p>
-	<b><span style="font-family: 宋体">示例<span>1</span></span></b></p>
-<p>
-	<span style="font-family: 宋体">提取下拉链接分类</span></p>
-<p>
-{{{
-<@linkClass siteid="${site.id}" type="1";linkClass>
-	<select >
-	  <option>${linkClass.name}</option>
-	</select>
-</@linkClass>
-
-}}}
-</p>
-<p>
-	<a href="http://static.oschina.net/uploads/space/2013/0104/214315_WCzg_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0104/214315_WCzg_916014.png" style="cursor: pointer" /></a></p>
-<p>
-	 </p>
-<p>
-	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	示例1</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	提取下拉链接分类</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	&lt;@linkClass siteid=&quot;${site.id}&quot; type=&quot;1&quot;;linkClass&gt;</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	&lt;select &gt;</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	  &lt;option&gt;${linkClass.name}&lt;/option&gt;</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	&lt;/select&gt;</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	&lt;/@linkClass&gt;</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<a href="http://static.oschina.net/uploads/space/2013/0311/155739_668T_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0311/155739_668T_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
