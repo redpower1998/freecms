@@ -105,7 +105,7 @@ public class ChannelService extends BaseService{
 		Criteria criteria=example.createCriteria();
 		criteria.andSiteEqualTo(siteid);
 		criteria.andSql(" pagemark='"+pagemark+"' ");
-		List<Channel> channelList=channelMapper.selectByExample(example);
+		List<Channel> channelList=channelMapper.selectByExampleWithBLOBs(example);
 		if (channelList!=null && channelList.size()>0) {
 			return channelList.get(0);
 		}
