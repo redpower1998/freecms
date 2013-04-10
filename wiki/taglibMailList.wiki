@@ -1,0 +1,170 @@
+#labels free,cms,freecms,开源,免费,内容管理系统
+#mailList
+<p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; word-spacing: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; text-transform: none; color: rgb(0,0,0); text-indent: 0px; padding-top: 0px; white-space: normal; letter-spacing: 1px; background-color: rgb(255,255,255); text-align: left; orphans: auto; widows: auto; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px"><strong style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px"><em style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">从<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">FreeCMS 1.2<span class="Apple-converted-space"> </span></span>开始支持</em></strong></p>
+<p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; word-spacing: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; text-transform: none; color: rgb(0,0,0); text-indent: 0px; padding-top: 0px; white-space: normal; letter-spacing: 1px; background-color: rgb(255,255,255); text-align: left; orphans: auto; widows: auto; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px">根据参数提取信件对象列表。</p>
+<table style="border-right: medium none; padding-right: 0px; border-top: medium none; padding-left: 0px; padding-bottom: 0px; margin: 0px; word-spacing: 0px; font: 14px Verdana, sans-serif, 宋体; text-transform: none; border-left: medium none; color: rgb(0,0,0); text-indent: 0px; padding-top: 0px; border-bottom: medium none; white-space: normal; letter-spacing: normal; background-color: rgb(255,255,255); text-align: left; orphans: auto; widows: auto; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px" cellspacing="0" cellpadding="0" border="1">
+    <tbody style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><strong style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">参数</span></strong></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><strong style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">说明</span></strong></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">querycode</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">查询码</span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">title</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">标题</span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">num</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">提取数量</span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">order</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">排序类型<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px"> </span></span></p>
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">1</span><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">发表时间降序<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">(</span>默认<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">)</span></span></p>
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">2</span><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">发表时间升序</span></p>
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">3</span><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">回复时间降序</span></p>
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">4</span><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">回复时间升序</span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">titleLen</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">标题显示长度</span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">writer</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">写信人</span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">type</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">类型</span></p>
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">unit</span><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">部门信件</span></p>
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">user</span><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">个人信件</span></p>
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">other<span class="Apple-converted-space"> </span></span><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">其他信件</span></p>
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">空字符串表示所有<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">(</span>默认<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">)</span></span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">mailtype</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">信件类型</span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">state</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">办理状态 空字符串表示所有<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">(</span>默认<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">) 1</span>已办结<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px"><span class="Apple-converted-space"> </span>0</span>办理中</span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">isopen</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">是否公开 空字符串表示所有<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">(</span>默认<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">) 1</span>公开<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px"><span class="Apple-converted-space"> </span>0</span>不公开</span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">userid</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">指定用户<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">id</span></span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">unitid</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">指定部门<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">id</span></span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">cache</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">是否使用缓存，默认为<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">false</span></span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; word-spacing: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; text-transform: none; color: rgb(0,0,0); text-indent: 0px; padding-top: 0px; white-space: normal; letter-spacing: 1px; background-color: rgb(255,255,255); text-align: left; orphans: auto; widows: auto; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px"> </p>
+<table style="border-right: medium none; padding-right: 0px; border-top: medium none; padding-left: 0px; padding-bottom: 0px; margin: 0px; word-spacing: 0px; font: 14px Verdana, sans-serif, 宋体; text-transform: none; border-left: medium none; color: rgb(0,0,0); text-indent: 0px; padding-top: 0px; border-bottom: medium none; white-space: normal; letter-spacing: normal; background-color: rgb(255,255,255); text-align: left; orphans: auto; widows: auto; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px" cellspacing="0" cellpadding="0" border="1">
+    <tbody style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><strong style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">返回值</span></strong></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><strong style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">说明</span></strong></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">mail</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">信件对象，类型为数据对象<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">mail</span></span></p>
+            </td>
+        </tr>
+        <tr style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">index</span></p>
+            </td>
+            <td style="border-right: windowtext 1pt solid; padding-right: 0px; border-top: windowtext 1pt solid; padding-left: 0px; padding-bottom: 0px; margin: 0px; border-left: windowtext 1pt solid; padding-top: 0px; border-bottom: windowtext 1pt solid">
+            <p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; line-height: 1.5; padding-top: 0px; letter-spacing: 1px"><span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; font-family: 宋体">索引</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; word-spacing: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; text-transform: none; color: rgb(0,0,0); text-indent: 0px; padding-top: 0px; white-space: normal; letter-spacing: 1px; background-color: rgb(255,255,255); text-align: left; orphans: auto; widows: auto; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px"> </p>
+<p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; word-spacing: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; text-transform: none; color: rgb(0,0,0); text-indent: 0px; padding-top: 0px; white-space: normal; letter-spacing: 1px; background-color: rgb(255,255,255); text-align: left; orphans: auto; widows: auto; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px"><strong style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">示例<span style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px">1</span></strong></p>
+<p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; word-spacing: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; text-transform: none; color: rgb(0,0,0); text-indent: 0px; padding-top: 0px; white-space: normal; letter-spacing: 1px; background-color: rgb(255,255,255); text-align: left; orphans: auto; widows: auto; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px">提取办结的并且公开的部门信件。</p>
+<p style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px 0px 15pt; word-spacing: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; text-transform: none; color: rgb(0,0,0); text-indent: 0px; padding-top: 0px; white-space: normal; letter-spacing: 1px; background-color: rgb(255,255,255); text-align: left; orphans: auto; widows: auto; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0px">
+{{{
+<@mailList type="unit" isopen="1" state="1" num="10" ;mail,index>
+
+${mail.title}
+
+</@mailList>
+
+}}}
+</p>
