@@ -74,4 +74,6 @@
 ===== [taglibVideo video] =====
 ===== [taglibLinkClass linkClass] =====
 ===== [taglibLink link] =====
+===== [taglibMailList mailList] =====
+===== [taglibMailPage mailPage] =====
 ===== [taglibAjaxInfoClick ajaxInfoClick] =====
