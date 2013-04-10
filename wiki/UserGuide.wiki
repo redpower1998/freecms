@@ -77,4 +77,5 @@
 ===== [taglibMailList mailList] =====
 ===== [taglibMailPage mailPage] =====
 ===== [taglibMailQuery mailQuery] =====
+===== [taglibMailSave mailSave] =====
 ===== [taglibAjaxInfoClick ajaxInfoClick] =====
