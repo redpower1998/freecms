@@ -70,6 +70,14 @@
 </table>
 <p>
 	 </p>
+	  <p>
+	<span style="font-family: 宋体">此标签依赖的文件</span></p>
+<p>
+{{{
+<script type="text/javascript" src="${contextPath}js/jquery-1.5.1.min.js"></script>
+
+}}}
+</p>
 <p>
 	<b><span style="font-family: 宋体">示例<span>1</span></span></b></p>
 <p>
