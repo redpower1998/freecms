@@ -1,0 +1,102 @@
+#summary ajaxLoad
+#labels free,cms,freecms,开源,免费,内容管理系统
+
+= ajaxLoad=
+<p style="text-align: left; padding-bottom: 0px; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: 1px; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">从FreeCMS 1.2 开始支持</p>
+<p style="text-align: left; padding-bottom: 0px; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: 1px; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">根据参数通过ajax加载页面。</p>
+<table style="text-align: left; padding-bottom: 0pt; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px; padding-left: 5.4pt; padding-right: 5.4pt; font: 14px Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: normal; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0pt; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">
+    <tbody style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px">
+        <tr style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px">
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; font-weight: bold; padding-top: 0px">参数</span></p>
+            </td>
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; font-weight: bold; padding-top: 0px">说明</span></p>
+            </td>
+        </tr>
+        <tr style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px">
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">targetid</span></p>
+            </td>
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">把页面加载到指定</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">id</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">元素下</span></p>
+            </td>
+        </tr>
+        <tr style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px">
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">url</span></p>
+            </td>
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">页面地址</span></p>
+            </td>
+        </tr>
+        <tr style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px">
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">param</span></p>
+            </td>
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">参数，使用</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">json</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">数据</span></p>
+            </td>
+        </tr>
+        <tr style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px">
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">method</span></p>
+            </td>
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">获取方法，</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">get(</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">默认</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">)</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">或</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">post</span></p>
+            </td>
+        </tr>
+        <tr style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px">
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">loadjs</span></p>
+            </td>
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">是否加载依赖的</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">js</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style="text-align: left; padding-bottom: 0px; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: 1px; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"> </p>
+<table style="text-align: left; padding-bottom: 0pt; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px; padding-left: 5.4pt; padding-right: 5.4pt; font: 14px Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: normal; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0pt; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">
+    <tbody style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px">
+        <tr style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px">
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; font-weight: bold; padding-top: 0px">返回值</span></p>
+            </td>
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; font-weight: bold; padding-top: 0px">说明</span></p>
+            </td>
+        </tr>
+        <tr style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px">
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">code</span></p>
+            </td>
+            <td style="border-bottom: rgb(0,0,0) 0.5pt solid; border-left: rgb(0,0,0) 0.5pt solid; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; border-top: rgb(0,0,0) 0.5pt solid; border-right: rgb(0,0,0) 0.5pt solid; padding-top: 0px">
+            <p style="padding-bottom: 0px; line-height: 1.5; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; letter-spacing: 1px; padding-top: 0px"><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">生成的</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">ajax</span><span style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; font-family: 宋体; font-size: 10.5pt; padding-top: 0px">代码</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style="text-align: left; padding-bottom: 0px; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: 1px; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"> </p>
+<p style="text-align: left; padding-bottom: 0px; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: 1px; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">此标签依赖的文件</p>
+<p style="text-align: left; padding-bottom: 0px; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: 1px; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">
+
+{{{
+<script type="text/javascript" src="${contextPath}js/jquery-1.5.1.min.js"></script>
+
+}}}
+</p>
+<p style="text-align: left; padding-bottom: 0px; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: 1px; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">示例1</p>
+<p style="text-align: left; padding-bottom: 0px; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: 1px; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px">加载指定页面并传递参数。</p>
+<p style="text-align: left; padding-bottom: 0px; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: 1px; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"><div id="ajaxLoadDiv"></p>
+<p style="text-align: left; padding-bottom: 0px; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: 1px; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"> 
+
+{{{
+　　<div id="ajaxLoadDiv">
+　　 <@ajaxLoad targetid="ajaxLoadDiv" url="${contextPath}/test.jsp" param="id:'1',name:'姓名'" method="post";code>
+　　 ${code}
+　　 </@ajaxLoad>
+ </div>
+}}}
+</p>
+<p style="text-align: left; padding-bottom: 0px; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; margin: 0px 0px 15pt; padding-left: 0px; padding-right: 0px; font: 14px/1.5 Verdana, sans-serif, 宋体; white-space: normal; letter-spacing: 1px; color: rgb(0,0,0); word-spacing: 0px; padding-top: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px"> </div></p>
