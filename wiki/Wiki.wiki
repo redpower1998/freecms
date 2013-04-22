@@ -14,6 +14,8 @@
 
 == [install 安装手册] ==
 
+== [devSite 如何开发一个网站] ==
+
 == [UserGuide 用户手册] ==
 
 == [updatelogs 更新日志] ==
