@@ -7,7 +7,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
 	<b style="padding: 0px; margin: 0px;">1.</b><b style="padding: 0px; margin: 0px;">创建站点</b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<span style="padding: 0px; margin: 0px;">在站点管理创建新的站点，如&quot;测试站点&quot;</span></p>
+	<span style="padding: 0px; margin: 0px;">在站点管理创建新的站点，如"测试站点"</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
 	<span style="padding: 0px; margin: 0px;"><a href="http://static.oschina.net/uploads/space/2013/0422/195950_CX1X_916014.jpg" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0422/195950_CX1X_916014.jpg" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
@@ -15,7 +15,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
 	<b style="padding: 0px; margin: 0px;">2.</b><b style="padding: 0px; margin: 0px;">创建模板</b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<span style="padding: 0px; margin: 0px;">在模板管理创建新的模板，如&quot;测试站点模板&quot;</span></p>
+	<span style="padding: 0px; margin: 0px;">在模板管理创建新的模板，如"测试站点模板"</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
 	<span style="padding: 0px; margin: 0px;"><a href="http://static.oschina.net/uploads/space/2013/0422/200013_FNM9_916014.jpg" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0422/200013_FNM9_916014.jpg" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
@@ -41,7 +41,7 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
 	<span style="padding: 0px; margin: 0px;">您可以根据自己的需要修改这三个模板文件，也可以添加新的模板文件供站点使用。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<span style="padding: 0px; margin: 0px;">此模板依赖的图片，js,样式等文件可以放在模板下resources文件夹（如果没有此文件夹请创建），在站点设置中使用&quot;同步资源文件&quot;可以将此模板最新的resources文件夹内容复制并覆盖到站点下的resources文件夹。</span></p>
+	<span style="padding: 0px; margin: 0px;">此模板依赖的图片，js,样式等文件可以放在模板下resources文件夹（如果没有此文件夹请创建），在站点设置中使用"同步资源文件"可以将此模板最新的resources文件夹内容复制并覆盖到站点下的resources文件夹。</span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
 	<b style="padding: 0px; margin: 0px;">5.</b><b style="padding: 0px; margin: 0px;">静态化</b></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
