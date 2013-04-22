@@ -94,5 +94,3 @@ ${index+1} ${configvalue}
 
 	}}}
 	</p>
-<p>
-	<span style="color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"></@config></span></p>
