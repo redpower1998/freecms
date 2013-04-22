@@ -86,3 +86,4 @@
 ===== [taglibUserList userList] =====
 ===== [taglibAjaxInfoClick ajaxInfoClick] =====
 ===== [taglibAjaxLoad ajaxLoad] =====
+===== [taglibConfig config] =====
