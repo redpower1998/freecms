@@ -1,0 +1,98 @@
+#summary config
+#labels free,cms,freecms,开源,免费,内容管理系统
+
+= config=
+<p>
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<b style="padding: 0px; margin: 0px;"><i style="padding: 0px; margin: 0px;">从<span style="padding: 0px; margin: 0px;">FreeCMS 1.2 </span>开始支持</i></b></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	提取系统配置。</p>
+<table border="1" cellpadding="0" cellspacing="0" style="padding: 0px; margin: 0px; font-family: Verdana, sans-serif, 宋体; color: rgb(0, 0, 0); font-size: 14px; border: none;">
+	<tbody style="padding: 0px; margin: 0px;">
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<b style="padding: 0px; margin: 0px;"><span style="padding: 0px; margin: 0px; font-family: 宋体;">参数</span></b></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<b style="padding: 0px; margin: 0px;"><span style="padding: 0px; margin: 0px; font-family: 宋体;">说明</span></b></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-family: 宋体;">code</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-family: 宋体;">系统配置编码</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-family: 宋体;">split</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-family: 宋体;">配置值分隔符，如果设置则用分隔符分隔以数组形式处理配置值</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	 </p>
+<table border="1" cellpadding="0" cellspacing="0" style="padding: 0px; margin: 0px; font-family: Verdana, sans-serif, 宋体; color: rgb(0, 0, 0); font-size: 14px; border: none;">
+	<tbody style="padding: 0px; margin: 0px;">
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<b style="padding: 0px; margin: 0px;"><span style="padding: 0px; margin: 0px; font-family: 宋体;">返回值</span></b></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<b style="padding: 0px; margin: 0px;"><span style="padding: 0px; margin: 0px; font-family: 宋体;">说明</span></b></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-family: 宋体;">value</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-family: 宋体;">配置值</span></p>
+			</td>
+		</tr>
+		<tr style="padding: 0px; margin: 0px;">
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-family: 宋体;">index</span></p>
+			</td>
+			<td style="padding: 0px; margin: 0px; border: 1pt solid windowtext;">
+				<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+					<span style="padding: 0px; margin: 0px; font-family: 宋体;">索引</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<b style="padding: 0px; margin: 0px;">示例<span style="padding: 0px; margin: 0px;">1</span></b></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	提取互动信件类型，并以<span style="padding: 0px; margin: 0px;">,</span>号分隔处理为列表。</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	
+	{{{
+	
+<@config code="mailType" split=",";configvalue,index>
+${index+1} ${configvalue}
+</@config>
+
+	}}}
+	</p>
+<p>
+	<span style="color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;"></@config></span></p>
