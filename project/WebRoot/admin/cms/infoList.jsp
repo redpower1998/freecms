@@ -102,19 +102,19 @@
 							<INPUT onClick="checkAll(this.checked)" type="checkbox" />
 						</TD>
 						
-						<TD width="70%">
+						<TD width="60%">
 							
 							<fs:order colName="信息标题" col="title"/>
 						</TD>
-						<TD width="3%">
+						<TD width="5%">
 							
 							<fs:order colName="签收" col="issign"/>
 						</TD>
-						<TD width="3%">
+						<TD width="10%">
 							
 							<fs:order colName="评论" col="iscomment"/>
 						</TD>
-						<TD width="30%">
+						<TD width="20%">
 							
 							<fs:order colName="添加时间" col="addtime"/>
 						</TD>
