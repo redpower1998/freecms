@@ -2,6 +2,7 @@ package cn.freeteam.base;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,8 @@ import org.apache.struts2.ServletActionContext;
 import cn.freeteam.cms.model.Member;
 import cn.freeteam.cms.model.Membergroup;
 import cn.freeteam.cms.model.Site;
+import cn.freeteam.cms.service.ChannelService;
+import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.model.Config;
 import cn.freeteam.model.Roles;
 import cn.freeteam.model.Unit;
@@ -37,6 +40,8 @@ public class BaseAction extends BaseService{
 	public UnitService baseUnitService;
 	public RoleService baseRoleService;
 	public ConfigService baseConfigService;
+	public ChannelService baseChannelService;
+	public InfoService baseInfoService;
 	public int pageSize=10;
 	public int currPage=1;
 	public int totalCount=0;
@@ -300,6 +305,53 @@ public class BaseAction extends BaseService{
 		this.forwardSeconds=forwardSeconds;
 		return "showMessage";
 	}
+	/**
+	 * 设置静态化参数
+	 * @param data
+	 */
+	public void setData(Map<String,Object> data,Site site){
+		//传递site参数
+		data.put("site", site);
+		data.put("contextPath", getContextPath());
+		data.put("request_remoteAddr", getHttpRequest().getRemoteAddr());
+		//获取参数并放入data
+		Enumeration<String> paramNames=getHttpRequest().getParameterNames();
+		if (paramNames!=null && paramNames.hasMoreElements()) {
+			String name;
+			while (paramNames.hasMoreElements()) {
+				name=paramNames.nextElement();
+				if (name!=null &&
+						!name.equals("site") &&
+						!name.equals("contextPath")&&
+						!name.equals("currChannelid")&&
+						!name.equals("currInfoid")) {
+					data.put(name, getHttpRequest().getParameter(name));
+				}
+			}
+		}
+		//如果有currChannelid参数则传递currChannel对象
+		if (getHttpRequest().getParameter("currChannelid")!=null && getHttpRequest().getParameter("currChannelid").trim().length()>0) {
+			init("baseChannelService");
+			data.put("currChannel",baseChannelService.findById(getHttpRequest().getParameter("currChannelid")));
+		}
+		//如果有currInfoid参数则传递currInfo对象
+		if (getHttpRequest().getParameter("currInfoid")!=null && getHttpRequest().getParameter("currInfoid").trim().length()>0) {
+			init("baseInfoService");
+			data.put("currInfo",baseInfoService.findById(getHttpRequest().getParameter("currInfoid")));
+		}
+		//获取seesion中存放的变量
+		Enumeration<String> sessionNames=getHttpSession().getAttributeNames();
+		if (sessionNames!=null && sessionNames.hasMoreElements()) {
+			String name;
+			while (sessionNames.hasMoreElements()) {
+				name=sessionNames.nextElement();
+				if (name!=null) {
+					//session变量名称改为session_变量名，避免重名
+					data.put("session_"+name, getHttpSession().getAttribute(name));
+				}
+			}
+		}
+	}
 	public String getContextPath(){
 		return getHttpRequest().getContextPath()+"/";
 	}
@@ -344,5 +396,17 @@ public class BaseAction extends BaseService{
 	}
 	public void setShowMessage(String showMessage) {
 		this.showMessage = showMessage;
+	}
+	public ChannelService getBaseChannelService() {
+		return baseChannelService;
+	}
+	public void setBaseChannelService(ChannelService baseChannelService) {
+		this.baseChannelService = baseChannelService;
+	}
+	public InfoService getBaseInfoService() {
+		return baseInfoService;
+	}
+	public void setBaseInfoService(InfoService baseInfoService) {
+		this.baseInfoService = baseInfoService;
 	}
 }

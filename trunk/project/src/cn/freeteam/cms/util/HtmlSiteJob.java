@@ -38,17 +38,18 @@ import freemarker.template.TemplateModelException;
 public class HtmlSiteJob extends Base implements Job{
 	private SiteService siteService;
 	public HtmlSiteJob() {
-		init("siteService");
 	}
     public   void  execute(JobExecutionContext cntxt)  throws  JobExecutionException   {
+		init("siteService");
     	if (cntxt.getJobDetail().getJobDataMap().get("siteid")!=null 
     			&& cntxt.getJobDetail().getJobDataMap().get("servletContext")!=null) {
     		try {
     			siteService.html(cntxt.getJobDetail().getJobDataMap().get("siteid")
     					.toString(), (ServletContext) cntxt.getJobDetail()
     					.getJobDataMap().get("servletContext"));
+    			//System.out.println("站点首页静态化调度任务成功"+cntxt.getJobDetail().getJobDataMap().get("siteid"));
     		} catch (Exception e) {
-    			System.out.println("站点首页静态化调度任务失败");
+    			System.out.println("站点首页静态化调度任务失败"+cntxt.getJobDetail().getJobDataMap().get("siteid"));
     			e.printStackTrace();
     		}
 		}

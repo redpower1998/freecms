@@ -529,6 +529,37 @@ public class ChannelService extends BaseService{
 		}
 		return channelList;
 	}
+	/**
+	 * 查询所有子栏目
+	 * @param siteid
+	 * @param parid
+	 * @param state
+	 * @param navigation
+	 * @return
+	 */
+	public List<Channel> findSon(String siteid,String parid,String state,String navigation){
+		List<Channel> list=new ArrayList<Channel>();
+		return findSonPro(list,siteid, parid, state, navigation);
+	}
+	/**
+	 * 查询所有子栏目（递归）
+	 * @param siteid
+	 * @param parid
+	 * @param state
+	 * @param navigation
+	 * @return
+	 */
+	public List<Channel> findSonPro(List<Channel> list,String siteid,String parid,String state,String navigation){
+		List<Channel> sonlist=findByPar(siteid, parid, state, navigation);
+		if (sonlist!=null && sonlist.size()>0) {
+			for (int i = 0; i < sonlist.size(); i++) {
+				list.add(sonlist.get(i));//添加到总集合中
+				//处理子栏目
+				findSonPro(list, siteid, sonlist.get(i).getId(), state, navigation);
+			}
+		}
+		return list;
+	}
 	public ChannelMapper getChannelMapper() {
 		return channelMapper;
 	}

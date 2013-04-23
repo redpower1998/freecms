@@ -15,7 +15,7 @@
 
 	<package name="admin" extends="struts-default" namespace="/admin">
 		<global-results>
-			<result name="msg" >/admin/msg.jsp</result>
+			<result name="msg" >/msg.jsp</result>
 			<result name="showMessage" >/admin/showMessage.jsp</result>
 		</global-results>
 		<action name="func_*" method="{1}" class="cn.freeteam.action.FuncAction">

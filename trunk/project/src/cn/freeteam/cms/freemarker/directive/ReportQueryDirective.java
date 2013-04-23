@@ -1,17 +1,14 @@
 package cn.freeteam.cms.freemarker.directive;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
 
 import cn.freeteam.base.BaseDirective;
-import cn.freeteam.cms.model.Mail;
-import cn.freeteam.cms.service.MailService;
+import cn.freeteam.cms.model.Report;
+import cn.freeteam.cms.service.ReportService;
 import freemarker.core.Environment;
 import freemarker.ext.beans.BeanModel;
 import freemarker.ext.beans.BeansWrapper;
-import freemarker.ext.beans.StringModel;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
@@ -22,18 +19,18 @@ import freemarker.template.TemplateModel;
  * 
  * <p>Title: MailQueryDirective.java</p>
  * 
- * <p>Description: 根据查询码查询信件处理结果</p>
+ * <p>Description: 根据查询码查询申报处理结果</p>
  * 参数
  * querycode 查询码
  * cache		是否使用缓存，默认为false
  * 
  * 返回值
- * mail	mail对象
+ * report	report对象
  * 
  * 示例
-<@mailQuery querycode="" ;mail>
-${mail.recontent}
-</@mailQuery>
+<@reportQuery querycode="" ;report>
+${report.recontent}
+</@reportQuery>
  * 
  * <p>Date: Jan 18, 2013</p>
  * 
@@ -53,12 +50,12 @@ ${mail.recontent}
  * <p>Reason: </p>
  * <p>============================================</p>
  */
-public class MailQueryDirective extends BaseDirective implements TemplateDirectiveModel{
+public class ReportQueryDirective extends BaseDirective implements TemplateDirectiveModel{
 
-	private MailService mailService;
+	private ReportService reportService;
 	
-	public MailQueryDirective() {
-		init("mailService");
+	public ReportQueryDirective() {
+		init("reportService");
 	}
 	
 	public void execute(Environment env, Map params, TemplateModel[] loopVars, 
@@ -68,11 +65,11 @@ public class MailQueryDirective extends BaseDirective implements TemplateDirecti
 			if (body!=null) {
 				//设置循环变量
 				if (loopVars!=null && loopVars.length>0) {
-					Mail mail=mailService.findByQuerycode(querycode,"true".equals(getParam(params, "cache"))?true:false);
-					if (mail!=null) {
-						loopVars[0]=new BeanModel(mail,new BeansWrapper());  
+					Report report=reportService.findByQuerycode(querycode,"true".equals(getParam(params, "cache"))?true:false);
+					if (report!=null) {
+						loopVars[0]=new BeanModel(report,new BeansWrapper());  
 					}else {
-						loopVars[0]=new BeanModel(new Mail(),new BeansWrapper());  
+						loopVars[0]=new BeanModel(new Report(),new BeansWrapper());  
 					}
 					body.render(env.getOut());  
 				}
@@ -80,11 +77,11 @@ public class MailQueryDirective extends BaseDirective implements TemplateDirecti
 		}
 	}
 
-	public MailService getMailService() {
-		return mailService;
+	public ReportService getReportService() {
+		return reportService;
 	}
 
-	public void setMailService(MailService mailService) {
-		this.mailService = mailService;
+	public void setReportService(ReportService reportService) {
+		this.reportService = reportService;
 	}
 }

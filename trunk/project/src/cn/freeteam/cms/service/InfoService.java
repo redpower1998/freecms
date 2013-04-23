@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -167,8 +168,15 @@ public class InfoService extends BaseService{
 			if (info.getSite()!=null && info.getSite().trim().length()>0) {
 				criteria.andSiteEqualTo(info.getSite());
 			}
+			if ("1".equals(info.getCheckOpenendtime())) {
+				SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				criteria.andSql(" (openendtime is null or openendtime = '' or opentimetype='1' or openendtime>='"+sdf.format(new Date())+"') ");
+			}
 			if (info.getChannel()!=null && info.getChannel().trim().length()>0) {
 				criteria.andChannelEqualTo(info.getChannel());
+			}
+			if (info.getChannelids()!=null && info.getChannelids().size()>0) {
+				criteria.andChannelIn(info.getChannelids());
 			}
 			if (info.getChannelParid()!=null && info.getChannelParid().trim().length()>0) {
 				criteria.andSql(" channel in (select id from freecms_channel where parid ='"+info.getChannelParid().trim()+"') ");

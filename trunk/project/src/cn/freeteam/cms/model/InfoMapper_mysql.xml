@@ -31,6 +31,10 @@
     <result column="issign" jdbcType="VARCHAR" property="issign" />
     <result column="iscomment" jdbcType="VARCHAR" property="iscomment" />
     <result column="video" jdbcType="VARCHAR" property="video" />
+    <result column="indexnum" jdbcType="VARCHAR" property="indexnum" />
+    <result column="opentype" jdbcType="VARCHAR" property="opentype" />
+    <result column="opentimetype" jdbcType="VARCHAR" property="opentimetype" />
+    <result column="openendtime" jdbcType="VARCHAR" property="openendtime" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.freeteam.cms.model.Info">
     <!--
@@ -115,7 +119,8 @@
       This element was generated on Wed Feb 01 16:28:18 CST 2012.
     -->
     id, site, channel, title, shortTitle, titleColor, titleBlod, source, author, description, 
-    tags, img, url, attchs, addtime, templet, isTop, topEndTime, clickNum, addUser,state,issign,iscomment,video
+    tags, img, url, attchs, addtime, templet, isTop, topEndTime, clickNum, addUser,state,issign,
+    iscomment,video,indexnum,opentype,opentimetype,openendtime
   </sql>
   <sql id="Blob_Column_List">
     <!--
@@ -237,7 +242,8 @@
       description, tags, img, 
       url, attchs, addtime, 
       templet, isTop, topEndTime, 
-      clickNum, addUser,state,issign,iscomment,video, content
+      clickNum, addUser,state,issign,iscomment,video,
+      indexnum,opentype,opentimetype,openendtime, content
       )
     values (#{id,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, 
       #{title,jdbcType=VARCHAR}, #{shorttitle,jdbcType=VARCHAR}, #{titlecolor,jdbcType=VARCHAR}, 
@@ -246,7 +252,9 @@
       #{url,jdbcType=VARCHAR}, #{attchs,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
       #{templet,jdbcType=VARCHAR}, #{istop,jdbcType=VARCHAR}, #{topendtime,jdbcType=TIMESTAMP}, 
       #{clicknum,jdbcType=INTEGER}, #{adduser,jdbcType=VARCHAR},#{state,jdbcType=VARCHAR},
-      #{issign,jdbcType=VARCHAR},#{iscomment,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR}, #{content,jdbcType=CLOB}
+      #{issign,jdbcType=VARCHAR},#{iscomment,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR},
+      #{indexnum,jdbcType=VARCHAR},#{opentype,jdbcType=VARCHAR},#{opentimetype,jdbcType=VARCHAR},
+      #{openendtime,jdbcType=VARCHAR}, #{content,jdbcType=CLOB}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.freeteam.cms.model.Info">
@@ -329,6 +337,18 @@
       <if test="video != null">
         video,
       </if>
+      <if test="indexnum != null">
+        indexnum,
+      </if>
+      <if test="opentype != null">
+        opentype,
+      </if>
+      <if test="opentimetype != null">
+        opentimetype,
+      </if>
+      <if test="openendtime!= null">
+        openendtime,
+      </if>
       <if test="content != null">
         content,
       </if>
@@ -405,6 +425,18 @@
       </if>
       <if test="video != null">
         #{video,jdbcType=VARCHAR},
+      </if>
+      <if test="indexnum != null">
+        #{indexnum,jdbcType=VARCHAR},
+      </if>
+      <if test="opentype != null">
+        #{opentype,jdbcType=VARCHAR},
+      </if>
+      <if test="opentimetype != null">
+        #{opentimetype,jdbcType=VARCHAR},
+      </if>
+      <if test="openendtime != null">
+        #{openendtime,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         #{content,jdbcType=CLOB},
@@ -502,6 +534,18 @@
       <if test="record.video != null">
         video = #{record.video,jdbcType=VARCHAR},
       </if>
+      <if test="record.indexnum != null">
+        indexnum = #{record.indexnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opentype != null">
+        opentype = #{record.opentype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opentimetype != null">
+        opentimetype = #{record.opentimetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openendtime != null">
+        openendtime = #{record.openendtime,jdbcType=VARCHAR},
+      </if>
       <if test="record.content != null">
         content = #{record.content,jdbcType=CLOB},
       </if>
@@ -541,6 +585,10 @@
       issign = #{record.issign,jdbcType=VARCHAR},
       iscomment = #{record.iscomment,jdbcType=VARCHAR},
       video = #{record.video,jdbcType=VARCHAR},
+      indexnum = #{record.indexnum,jdbcType=VARCHAR},
+      opentype = #{record.opentype,jdbcType=VARCHAR},
+      opentimetype = #{record.opentimetype,jdbcType=VARCHAR},
+      openendtime = #{record.openendtime,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=CLOB}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -576,7 +624,11 @@
       state = #{record.state,jdbcType=VARCHAR},
       issign = #{record.issign,jdbcType=VARCHAR},
       iscomment = #{record.iscomment,jdbcType=VARCHAR},
-      video = #{record.video,jdbcType=VARCHAR}
+      video = #{record.video,jdbcType=VARCHAR},
+      indexnum = #{record.indexnum,jdbcType=VARCHAR},
+      opentype = #{record.opentype,jdbcType=VARCHAR},
+      opentimetype = #{record.opentimetype,jdbcType=VARCHAR},
+      openendtime = #{record.openendtime,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -625,6 +677,10 @@
       issign = #{issign,jdbcType=VARCHAR},
       iscomment = #{iscomment,jdbcType=VARCHAR},
       video = #{video,jdbcType=VARCHAR},
+      indexnum = #{indexnum,jdbcType=VARCHAR},
+      opentype = #{opentype,jdbcType=VARCHAR},
+      opentimetype = #{opentimetype,jdbcType=VARCHAR},
+      openendtime = #{openendtime,jdbcType=VARCHAR},
       content = #{content,jdbcType=CLOB}
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -657,7 +713,11 @@
       state = #{state,jdbcType=VARCHAR},
       issign = #{issign,jdbcType=VARCHAR},
       iscomment = #{iscomment,jdbcType=VARCHAR},
-      video = #{video,jdbcType=VARCHAR}
+      video = #{video,jdbcType=VARCHAR},
+      indexnum = #{indexnum,jdbcType=VARCHAR},
+      opentype = #{opentype,jdbcType=VARCHAR},
+      opentimetype = #{opentimetype,jdbcType=VARCHAR},
+      openendtime = #{openendtime,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
