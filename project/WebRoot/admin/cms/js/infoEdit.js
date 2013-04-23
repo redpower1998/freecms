@@ -101,6 +101,13 @@ function istop(isok){
 		//$("#topendtime").fadeOut("slow"); 
 	}
 }
+function opentimetype(opentimetype){
+	if(1==opentimetype){
+		$("#openendtime").fadeOut("slow"); 
+	}else{
+		$("#openendtime").fadeIn("slow"); 
+	}
+}
 var templetFileWeeboxs;
 function selectTempletFile(inputid){
 	var siteId=$("#siteId").val();

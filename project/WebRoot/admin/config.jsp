@@ -55,7 +55,7 @@
 							<TD align="left">
 								<textarea onblur="this.className='colorblur';"  
 									class=colorblur onfocus="this.className='colorfocus';" 
-									maxLength=50 type=text id='<s:property value="code"/>' name='<s:property value="code"/>' 
+									maxLength=500 type=text id='<s:property value="code"/>' name='<s:property value="code"/>' 
 									cols="40" rows="3"><s:property value="configvalue"/></textarea>
 							</TD>
 						</TR>
