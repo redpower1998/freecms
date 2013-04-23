@@ -234,11 +234,11 @@ public class MailAction extends BaseAction{
 							if (mail!=null) {
 								mailService.del(mail.getId());
 								sb.append(idArr[i]+";");
-								logContent="删除信任("+mail.getTitle()+")成功!";
+								logContent="删除信件("+mail.getTitle()+")成功!";
 							}
 						} catch (Exception e) {
 							DBProException(e);
-							logContent="删除信任("+mail.getTitle()+")失败:"+e.toString()+"!";
+							logContent="删除信件("+mail.getTitle()+")失败:"+e.toString()+"!";
 						}
 						OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
 					}

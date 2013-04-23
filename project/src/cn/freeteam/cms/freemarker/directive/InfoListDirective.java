@@ -9,8 +9,10 @@ import java.util.Map;
 
 
 import cn.freeteam.base.BaseDirective;
+import cn.freeteam.cms.model.Channel;
 import cn.freeteam.cms.model.Info;
 import cn.freeteam.cms.model.Site;
+import cn.freeteam.cms.service.ChannelService;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.SiteService;
 
@@ -46,6 +48,7 @@ import freemarker.template.TemplateModel;
  * channelPagemark	栏目页面标识
  * channelParPagemark	父栏目页面标识
  * img			是否只提取带图片的新闻	1是
+ * checkOpenendtime	检查公开时限 默认不检查，1检查
  * 
  * 返回值
  * info			信息对象
@@ -77,6 +80,7 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 
 	private InfoService infoService;
 	private SiteService siteService;
+	private ChannelService channelService;
 	
 	public SiteService getSiteService() {
 		return siteService;
@@ -132,7 +136,16 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 					info.setChannelPagemark(channelPagemark);
 				}
 				if (channelParid.trim().length()>0) {
-					info.setChannelParid(channelParid);
+					List<String> channelids=new ArrayList<String>();
+					channelids.add(channelParid);
+					init("channelService");
+					List<Channel> sonList=channelService.findSon(siteid, channelParid, "1", "");
+					if (sonList!=null && sonList.size()>0) {
+						for (int i = 0; i < sonList.size(); i++) {
+							channelids.add(sonList.get(i).getId());
+						}
+					}
+					info.setChannelids(channelids);
 				}
 				if (channelParPagemark.trim().length()>0) {
 					info.setChannelParPagemark(channelParPagemark);
@@ -140,6 +153,7 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 				if (img.trim().length()>0) {
 					info.setImg(img);
 				}
+				info.setCheckOpenendtime(getParam(params, "checkOpenendtime"));
 				String orderSql="";
 				if ("1".equals(hot)) {
 					orderSql=" clickNum desc ";
@@ -192,5 +206,13 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 
 	public void setInfoService(InfoService infoService) {
 		this.infoService = infoService;
+	}
+
+	public ChannelService getChannelService() {
+		return channelService;
+	}
+
+	public void setChannelService(ChannelService channelService) {
+		this.channelService = channelService;
 	}
 }

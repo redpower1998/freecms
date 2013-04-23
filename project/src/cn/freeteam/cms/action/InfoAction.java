@@ -224,6 +224,10 @@ public class InfoAction extends BaseAction{
 						oldInfo.setIssign(info.getIssign());
 						oldInfo.setIscomment(info.getIscomment());
 						oldInfo.setVideo(info.getVideo());
+						oldInfo.setOpenendtime(info.getOpenendtime());
+						oldInfo.setOpentimetype(info.getOpentimetype());
+						oldInfo.setOpentype(info.getOpentype());
+						oldInfo.setIndexnum(info.getIndexnum());
 						infoService.update(oldInfo);
 						OperLogUtil.log(getLoginName(), oper+"信息("+oldInfo.getTitle()+")成功", getHttpRequest());
 					}

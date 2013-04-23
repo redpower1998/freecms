@@ -9,6 +9,7 @@ import java.util.Map;
 
 
 import cn.freeteam.base.BaseDirective;
+import cn.freeteam.cms.model.Channel;
 import cn.freeteam.cms.model.Info;
 import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.service.ChannelService;
@@ -35,6 +36,7 @@ import freemarker.template.TemplateModel;
  * 参数
  * siteid		站点id
  * channelid	栏目id
+ * channelparid	栏目父id
  * num			显示数量
  * order		排序类型  
  * 				1 固顶有效并降序,发布时间降序(默认)
@@ -48,6 +50,7 @@ import freemarker.template.TemplateModel;
  * img			是否只提取带图片的新闻	1是
  * page			当前第几页，默认1			
  * pagenum		最多显示页数
+ * checkOpenendtime	检查公开时限 默认不检查，1检查
  * 
  * 返回值
  * infoList		信息对象列表
@@ -79,6 +82,7 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 
 	private InfoService infoService;
 	private SiteService siteService;
+	private ChannelService channelService;
 	
 	public InfoPageDirective(){
 		init("infoService","siteService");
@@ -92,6 +96,8 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 		String siteid=getParam(params, "siteid");
 		//栏目id
 		String channelid=getParam(params, "channelid");
+		//栏目id
+		String channelparid=getParam(params, "channelparid");
 		//显示数量
 		int num=getParamInt(params, "num", 10);
 		//排序
@@ -124,12 +130,25 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 				if (channelid.trim().length()>0) {
 					info.setChannel(channelid);
 				}
+				if (channelparid.trim().length()>0) {
+					List<String> channelids=new ArrayList<String>();
+					channelids.add(channelparid);
+					init("channelService");
+					List<Channel> sonList=channelService.findSon(siteid, channelparid, "1", "");
+					if (sonList!=null && sonList.size()>0) {
+						for (int i = 0; i < sonList.size(); i++) {
+							channelids.add(sonList.get(i).getId());
+						}
+					}
+					info.setChannelids(channelids);
+				}
 				if (channelPagemark.trim().length()>0) {
 					info.setChannelPagemark(channelPagemark);
 				}
 				if (img.trim().length()>0) {
 					info.setImg(img);
 				}
+				info.setCheckOpenendtime(getParam(params, "checkOpenendtime"));
 				String orderSql="";
 				if ("1".equals(hot)) {
 					orderSql=" clickNum desc ";
@@ -205,5 +224,13 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 
 	public void setSiteService(SiteService siteService) {
 		this.siteService = siteService;
+	}
+
+	public ChannelService getChannelService() {
+		return channelService;
+	}
+
+	public void setChannelService(ChannelService channelService) {
+		this.channelService = channelService;
 	}
 }

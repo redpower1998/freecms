@@ -70,47 +70,7 @@ public class TempletAction extends BaseAction{
 					&& site.getIndextemplet().trim().length()>0) {
 				//生成静态页面
 				Map<String,Object> data=new HashMap<String,Object>();
-				//传递site参数
-				data.put("site", site);
-				data.put("contextPath", getContextPath());
-				data.put("request_remoteAddr", getHttpRequest().getRemoteAddr());
-				//获取参数并放入data
-				Enumeration<String> paramNames=getHttpRequest().getParameterNames();
-				if (paramNames!=null && paramNames.hasMoreElements()) {
-					String name;
-					while (paramNames.hasMoreElements()) {
-						name=paramNames.nextElement();
-						if (name!=null &&
-								!name.equals("site") &&
-								!name.equals("contextPath")&&
-								!name.equals("currChannelid")&&
-								!name.equals("currInfoid")) {
-							data.put(name, getHttpRequest().getParameter(name));
-						}
-					}
-				}
-				//如果有currChannelid参数则传递currChannel对象
-				if (getHttpRequest().getParameter("currChannelid")!=null && getHttpRequest().getParameter("currChannelid").trim().length()>0) {
-					init("channelService");
-					data.put("currChannel",channelService.findById(getHttpRequest().getParameter("currChannelid")));
-				}
-				//如果有currInfoid参数则传递currInfo对象
-				if (getHttpRequest().getParameter("currInfoid")!=null && getHttpRequest().getParameter("currInfoid").trim().length()>0) {
-					init("infoService");
-					data.put("currInfo",infoService.findById(getHttpRequest().getParameter("currInfoid")));
-				}
-				//获取seesion中存放的变量
-				Enumeration<String> sessionNames=getHttpSession().getAttributeNames();
-				if (sessionNames!=null && sessionNames.hasMoreElements()) {
-					String name;
-					while (sessionNames.hasMoreElements()) {
-						name=sessionNames.nextElement();
-						if (name!=null) {
-							//session变量名称改为session_变量名，避免重名
-							data.put("session_"+name, getHttpSession().getAttribute(name));
-						}
-					}
-				}
+				setData(data, site);
 				templetPath="templet/"+site.getIndextemplet().trim()+"/"+templetPath;
 				getHttpResponse().setCharacterEncoding("UTF-8");
 				FreeMarkerUtil.createWriter(getServletContext(), data, templetPath, getHttpResponse().getWriter());

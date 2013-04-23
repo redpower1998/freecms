@@ -39,11 +39,10 @@ public class HtmlChannelJob extends Base implements Job{
 	private ChannelService channelService;
 	
 	public HtmlChannelJob() {
-		init("channelService");
 	}
 
     public   void  execute(JobExecutionContext cntxt)  throws  JobExecutionException   {
-    	System.out.println("站点栏目页静态化调度任务");
+		init("channelService");
     	if (cntxt.getJobDetail().getJobDataMap().get("siteid")!=null 
     			&& cntxt.getJobDetail().getJobDataMap().get("channelid")!=null 
     			&& cntxt.getJobDetail().getJobDataMap().get("servletContext")!=null) {
@@ -52,8 +51,9 @@ public class HtmlChannelJob extends Base implements Job{
     					.toString(), cntxt.getJobDetail().getJobDataMap().get("channelid")
     					.toString(), (ServletContext) cntxt.getJobDetail()
     					.getJobDataMap().get("servletContext"));
+    			//System.out.println("站点栏目页静态化调度任务成功"+cntxt.getJobDetail().getJobDataMap().get("channelid"));
     		} catch (Exception e) {
-    			System.out.println("站点栏目页静态化调度任务失败");
+    			System.out.println("站点栏目页静态化调度任务失败"+cntxt.getJobDetail().getJobDataMap().get("channelid"));
     			e.printStackTrace();
     		}
 		}

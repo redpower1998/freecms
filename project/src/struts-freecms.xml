@@ -66,6 +66,16 @@
 			<result name="forward" >/admin/cms/mailForward.jsp</result>
 			<result name="pro" >/admin/cms/mailPro.jsp</result>
 		</action>
+		<action name="report_*" method="{1}" class="cn.freeteam.cms.action.ReportAction">
+			<result name="list" >/admin/cms/reportList.jsp</result>
+			<result name="forward" >/admin/cms/reportForward.jsp</result>
+			<result name="pro" >/admin/cms/reportPro.jsp</result>
+		</action>
+		<action name="applyopen_*" method="{1}" class="cn.freeteam.cms.action.ApplyopenAction">
+			<result name="list" >/admin/cms/applyopenList.jsp</result>
+			<result name="forward" >/admin/cms/applyopenForward.jsp</result>
+			<result name="pro" >/admin/cms/applyopenPro.jsp</result>
+		</action>
 		<action name="question_*" method="{1}" class="cn.freeteam.cms.action.QuestionAction">
 			<result name="list" >/admin/cms/questionList.jsp</result>
 			<result name="edit" >/admin/cms/questionEdit.jsp</result>
@@ -112,6 +122,14 @@
 		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.web.MemberAction">
 		</action>
 		<action name="comment_*" method="{1}" class="cn.freeteam.cms.action.web.CommentAction">
+		</action>
+		<action name="report_*" method="{1}" class="cn.freeteam.cms.action.web.ReportAction">
+			<interceptor-ref name="fileUpload">
+                <param name="maximumSize">2048000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+		</action>
+		<action name="applyopen_*" method="{1}" class="cn.freeteam.cms.action.web.ApplyopenAction">
 		</action>
 	</package>
 	<package name="cmsMember" extends="struts-default" namespace="/member">
