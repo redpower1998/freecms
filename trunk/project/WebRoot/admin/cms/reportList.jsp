@@ -4,6 +4,7 @@
 <%@taglib prefix="fs" uri="/fs-tags" %>
 <%@include file="../../util/loading.jsp"%>
 <%@include file="../../util/checkParentFrame.jsp"%>
+
 <HTML>
 	<HEAD>
 		<LINK rel=stylesheet type=text/css href="../../img/style.css">
@@ -14,49 +15,51 @@
 		<script type="text/javascript" src="../../js/weebox0.4/bgiframe.js"></script>
 		<script type="text/javascript" src="../../js/weebox0.4/weebox.js"></script>
 		<link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox.css" />
-	<link rel="stylesheet" href="../../js/jquery.treeview.css" />
-	<script src="../../js/jquery.cookie.js" type="text/javascript"></script>
-	<script src="../../js/jquery.treeview.js" type="text/javascript"></script>
-	<script src="../../js/jquery.treeview.edit.js" type="text/javascript"></script>
-	<script src="../../js/jquery.treeview.async.js" type="text/javascript"></script>
 
-		<script type="text/javascript" src="js/infoList.js"></script>
+		<script type="text/javascript" src="js/reportList.js"></script>
 		<META content=text/html;charset=gb2312 http-equiv=content-type>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
-		<form name="myForm" method="post" action="info_list.do" id="myForm"
+		<input type="hidden" id="pageFuncId" value="${param.pageFuncId }"/>
+		<form name="myForm" method="post" action="report_list.do?pageFuncId=${param.pageFuncId }" id="myForm"
 			style="margin: 0px">
-			<input type="hidden" name="info.channel" id="channelId" value="${info.channel }"/>
-			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					信息搜索(${channel.name })
+					申报项目搜索
 				</div>
 				<TABLE width="100%" border=0 align=center cellpadding="2"
 					cellspacing="0">
 					<TBODY>
 						<TR class=summary-title>
 							<TD height="30" align=left style="padding-left: 10px;">
-							
-								信息标题：
+							查询码:
 								
-								<input name="info.title" type="text" maxlength="500"
+								<input name="report.querycode" type="text" maxlength="50"
 									class="colorblur" onfocus="this.className='colorfocus';"
 									onblur="this.className='colorblur';"  />
-									签收:
-									<select name="info.issign">
-									<option value="">全部</option>
-									<option value="1">是</option>
-									<option value="0">否</option>
-									</select>
-									评论:
-									<select name="info.iscomment">
-									<option value="">全部</option>
-									<option value="0">否</option>
-									<option value="1">会员评论</option>
-									<option value="2">会员和匿名评论</option>
-									</select>
-								每页显示条数：
+								名称:
+								
+								<input name="report.name" type="text" maxlength="100"
+									class="colorblur" onfocus="this.className='colorfocus';"
+									onblur="this.className='colorblur';"  />
+								联系人:
+								
+								<input name="report.linkman" type="text" maxlength="50"
+									class="colorblur" onfocus="this.className='colorfocus';"
+									onblur="this.className='colorblur';"  />
+								签发人:
+								
+								<input name="report.issuer" type="text" maxlength="50"
+									class="colorblur" onfocus="this.className='colorfocus';"
+									onblur="this.className='colorblur';"  />
+								办理状态:
+								<select name="report.state">
+								<option value="">全部
+								<option value="0">办理中
+								<option value="1">已办结
+								</select>
+								</select>
+								每页显示条数:
 								<select name="pageSize"
 									id="pageSize">
 									<option selected="selected" value="10">
@@ -80,7 +83,7 @@
 
 								</select>
 								
-								<input type="button" name="Search" value="搜 索" id="Search" onclick="this.form.submit();"
+								<input type="submit" name="Search" value="搜 索" 
 									class="button" style="MARGIN-BOTTOM: 0px" />
 							</TD>
 						</TR>
@@ -91,57 +94,64 @@
 </form>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					信息列表
+					申报项目列表
 				</div>
 
 				<table id="MyDataList" cellspacing="1" cellpadding="1"
 					Align="center" border="0" border="0"
 					style="width: 100%; word-break: break-all">
 					<TR class="summary-title" style="HEIGHT: 25px" align="center">
-						<TD width="5%">
+						<TD>
 							<INPUT onClick="checkAll(this.checked)" type="checkbox" />
 						</TD>
 						
-						<TD width="70%">
-							
-							<fs:order colName="信息标题" col="title"/>
+						<TD>
+							<fs:order colName="查询码" col="querycode"/>
 						</TD>
-						<TD width="3%">
-							
-							<fs:order colName="签收" col="issign"/>
+						<TD>
+							<fs:order colName="名称" col="name"/>
 						</TD>
-						<TD width="3%">
+						<TD>
 							
-							<fs:order colName="评论" col="iscomment"/>
+							<fs:order colName="联系人" col="linkman"/>
 						</TD>
-						<TD width="30%">
+						<TD>
 							
-							<fs:order colName="添加时间" col="addtime"/>
+							<fs:order colName="签发人" col="issuer"/>
+						</TD>
+						<TD>
+							
+							<fs:order colName="申报时间" col="addtime"/>
+						</TD>
+						<TD>
+							
+							<fs:order colName="办理状态" col="state"/>
 						</TD>
 					</TR>
 					
-					<s:iterator value="infoList" id="obj" status="bean">
+					<s:iterator value="reportList" id="bean">
 					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						<TD align="center">
 							<INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 						
-						<TD  align="left" id="title<s:property value="id"/>">
-							<a title="点击打开信息页面" href="<%=basePath %>site/${manageSite.sourcepath }/<s:property value="pageurl"/>" target="_blank"><s:property value="title"/></a>
+						<TD  align="left" id="querycode<s:property value="id"/>">
+							<s:property value="querycode"/>
 						</TD>
-						<TD  align="left" id="issign<s:property value="id"/>">
-							<s:if test='%{"1" == #obj.issign }'>
-							<a href='#' onclick='infosign("${obj.id }")' title="点击查看签收统计">是</a>
-							</s:if>
-							<s:if test='%{"1" != #obj.issign }'>
-							否
-							</s:if>
+						<TD  align="left" id="name<s:property value="id"/>">
+							<s:property value="name"/>
 						</TD>
-						<TD  align="left" id="iscomment<s:property value="id"/>">
-							<s:property value="iscommentStr"/>
+						<TD  align="left" id="linkman<s:property value="id"/>">
+							<s:property value="linkman"/>
+						</TD>
+						<TD  align="left" id="issuer<s:property value="id"/>">
+							<s:property value="issuer"/>
 						</TD>
 						<TD  align="left" id="addtime<s:property value="id"/>">
-							<s:property value="addtimeStr"/>
+							<s:date name="addtime" format="yyyy-MM-dd" />
+						</TD>
+						<TD  align="left" id="state<s:property value="id"/>">
+							${"1"==bean.state?"已办结":"办理中" }
 						</TD>
 					</TR>
 					</s:iterator>

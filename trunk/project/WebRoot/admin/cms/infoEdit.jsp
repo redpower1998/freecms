@@ -309,6 +309,61 @@
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请输入索引号，政府信息公开使用
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>政府信息索引号：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								<INPUT onblur="this.className='inputblur';" id=tags size="50"
+									class=inputblur onfocus="this.className='inputfocus';" 
+									maxLength=50 type=text name=info.indexnum value="${info.indexnum }">
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择政府信息公开形式
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>政府信息公开形式：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								<input type="radio"   name="info.opentype" value="1" <s:if test="info==null || info.opentype==null || info.opentype==1">checked="checked"</s:if>>主动公开
+								<input type="radio"   name="info.opentype" value="0" <s:if test="info.opentype==0">checked="checked"</s:if> >依申请公开
+							
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择政府信息公开时限
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>政府信息公开时限：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								<input type="radio" id="opentimetype1" onclick="opentimetype(1)" name="info.opentimetype" value="1" <s:if test="info==null || info.opentimetype==null || info.opentimetype==1">checked="checked"</s:if>>常年公开
+								<input type="radio" id="opentimetype0"  onclick="opentimetype(0)" name="info.opentimetype" value="0" <s:if test="info.opentimetype==0">checked="checked"</s:if> >限时公开
+							<input name="info.openendtime" id="openendtime" style="display:${"0"==info.opentimetype?"block":"none"}"
+							 class="Wdate"  
+							title="选择公开结束时间，没有则表示常年公开!" type="text" size="24" value="${info.openendtimeStr }"  
+							onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+							
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
 											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请输入Tag标签，用,分隔
 											src="../../img/help.gif">
 									<NOBR>
@@ -448,7 +503,8 @@
 						</TR>
 						<TR>
 							<TD  align="center" colspan="10">
-							<input type="button" value="保 存" onclick="save()"  class="button"  />
+							<input type="button" value="保 存" onclick="save()"  class="button"  />&nbsp;
+							<input type="button" value="返 回" onclick="history.back(-1)"  class="button"  />
 							</TD>
 						</TR>
 					</TBODY>
