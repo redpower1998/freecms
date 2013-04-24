@@ -17,7 +17,7 @@ import freemarker.template.TemplateModel;
 
 /**
  * 
- * <p>Title: MailQueryDirective.java</p>
+ * <p>Title: ReportQueryDirective.java</p>
  * 
  * <p>Description: 根据查询码查询申报处理结果</p>
  * 参数
