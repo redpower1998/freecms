@@ -35,6 +35,52 @@ CREATE TABLE `freecms_answer` (
 
 /*Data for the table `freecms_answer` */
 
+/*Table structure for table `freecms_applyopen` */
+
+DROP TABLE IF EXISTS `freecms_applyopen`;
+
+CREATE TABLE `freecms_applyopen` (
+  `id` varchar(50) NOT NULL,
+  `type` char(1) default NULL,
+  `name` varchar(50) default NULL,
+  `unit` varchar(50) default NULL,
+  `cardtype` varchar(50) default NULL,
+  `cardid` varchar(50) default NULL,
+  `address` varchar(100) default NULL,
+  `postcode` varchar(10) default NULL,
+  `tel` varchar(50) default NULL,
+  `fax` varchar(50) default NULL,
+  `email` varchar(50) default NULL,
+  `lpname` varchar(50) default NULL,
+  `unitcode` varchar(50) default NULL,
+  `legalperson` varchar(50) default NULL,
+  `linkman` varchar(50) default NULL,
+  `linkmantel` varchar(50) default NULL,
+  `lpfax` varchar(50) default NULL,
+  `buslicense` varchar(100) default NULL,
+  `lpaddress` varchar(100) default NULL,
+  `lppostcode` varchar(10) default NULL,
+  `lpemail` varchar(50) default NULL,
+  `detail` varchar(500) default NULL,
+  `touse` varchar(500) default NULL,
+  `pubtype` char(1) default NULL,
+  `gettype` char(1) default NULL,
+  `applyfree` char(1) default NULL,
+  `othertype` char(1) default NULL,
+  `infonum` varchar(50) default NULL,
+  `querycode` varchar(20) default NULL,
+  `ip` varchar(20) default NULL,
+  `state` char(1) default NULL,
+  `recontent` varchar(1000) default NULL,
+  `retime` datetime default NULL,
+  `proflow` varchar(200) default NULL,
+  `userid` varchar(50) default NULL,
+  `addtime` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='依申请公开';
+
+/*Data for the table `freecms_applyopen` */
+
 /*Table structure for table `freecms_channel` */
 
 DROP TABLE IF EXISTS `freecms_channel`;
@@ -116,6 +162,7 @@ CREATE TABLE `freecms_config` (
 
 /*Data for the table `freecms_config` */
 
+insert  into `freecms_config`(`code`,`name`,`configValue`,`orderNum`) values ('attchType','前台上传附件类型(多个用,号分隔)','jpg,jpeg,gif,png,doc,docx,ppt,xls,pdf,flv,wmv,rm,rmvb,avi,rar,zip',10);
 insert  into `freecms_config`(`code`,`name`,`configValue`,`orderNum`) values ('mailAuth','邮件 要求身份验证(是/否)','是',5);
 insert  into `freecms_config`(`code`,`name`,`configValue`,`orderNum`) values ('mailCharset','邮件 字符编码','UTF-8',9);
 insert  into `freecms_config`(`code`,`name`,`configValue`,`orderNum`) values ('mailFrom','邮件 发信人邮件地址','test@qq.com',6);
@@ -206,6 +253,7 @@ insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values 
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('4331df96-2b8d-4dcf-9bdb-1015dfd0a759','图片链接分类','1',3,'cms/link_clazz.do?link.type=2','26622672-9a10-4e4e-93a7-7fe50a9208b3');
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('47b80631-bb6e-4abd-8e47-5b99bce8b3bd','操作日志','1',105,'operLog_list.do','a5452f4f-1a1b-4980-90a3-4a60a38ba373');
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('5257f8fd-9da2-4e83-8538-b6ffca22e45a','模板管理','1',3,'cms/templet_list.do','64f2084d-3fe7-4345-85c6-4dc835c1b939');
+insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('55480f1c-d96f-4b53-b596-fc930f488692','在线申报','1',7,'cms/report_list.do','64f2084d-3fe7-4345-85c6-4dc835c1b939');
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('58fe298f-b448-40bb-a1c0-d81134efa4af','信息页静态化','1',3,'cms/html_info.do','e63b222f-3ccb-4e22-b8ab-7cd0dece9f06');
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('5a47681c-63c3-47b1-8e1f-34d4dbba7d85','文字链接管理','1',6,'cms/link_list.do?link.type=3','26622672-9a10-4e4e-93a7-7fe50a9208b3');
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('5f3a8e01-4216-4982-b07b-ad367fe9ef96','栏目页静态化','1',2,'cms/html_channel.do','e63b222f-3ccb-4e22-b8ab-7cd0dece9f06');
@@ -213,6 +261,7 @@ insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values 
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('66ecf6f7-1911-4e7e-8089-3a01f44a6d12','单位管理','1',98,'unit.jsp','a5452f4f-1a1b-4980-90a3-4a60a38ba373');
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('67025758-eb65-40b1-a59c-edee1b3ae938','下拉链接分类','1',1,'cms/link_clazz.do?link.type=1','26622672-9a10-4e4e-93a7-7fe50a9208b3');
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('67705234-603a-47c7-8f0d-8cdd349fd7c6','互动信件','1',6,'','64f2084d-3fe7-4345-85c6-4dc835c1b939');
+insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('6ad6b178-d6af-4fc6-9962-2b1ea49e0f2f','依申请公开','1',8,'cms/applyopen_list.do','64f2084d-3fe7-4345-85c6-4dc835c1b939');
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('6c561fe7-2013-4ce5-bf9a-42874b07a99e','站点设置','1',0,'cms/site_config.do','64f2084d-3fe7-4345-85c6-4dc835c1b939');
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('6f32a2b6-a552-4a91-a10c-2962af63eca7','添加角色','1',0,'role_edit.do','3dc03dc5-56ba-46d9-b8ab-78d19c04cd86');
 insert  into `freecms_func`(`id`,`name`,`isOk`,`orderNum`,`url`,`parId`) values ('742470cc-eaf1-48c4-805c-44c9936a7622','部门信件','1',1,'cms/mail_list.do?mail.type=unit','67705234-603a-47c7-8f0d-8cdd349fd7c6');
@@ -282,6 +331,10 @@ CREATE TABLE `freecms_info` (
   `issign` varchar(1) default NULL,
   `video` varchar(500) default NULL,
   `iscomment` char(1) default NULL,
+  `indexnum` varchar(50) default NULL,
+  `opentype` varchar(1) default NULL,
+  `opentimetype` varchar(1) default NULL,
+  `openendtime` datetime default NULL,
   PRIMARY KEY  (`id`),
   KEY `FK_信息_栏目` (`channel`),
   CONSTRAINT `FK_信息_栏目` FOREIGN KEY (`channel`) REFERENCES `freecms_channel` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -289,9 +342,10 @@ CREATE TABLE `freecms_info` (
 
 /*Data for the table `freecms_info` */
 
-insert  into `freecms_info`(`id`,`site`,`channel`,`title`,`shortTitle`,`titleColor`,`titleBlod`,`source`,`author`,`description`,`content`,`tags`,`img`,`url`,`attchs`,`addtime`,`templet`,`isTop`,`topEndTime`,`clickNum`,`addUser`,`state`,`issign`,`video`,`iscomment`) values ('74ef43c9-cc3b-4eea-bacf-2703f663bf2f','7a4d22d6-762b-46e5-895b-d62da52bf9cb','6555dd8b-7acc-4e57-a19a-cc70dd4f7135','欢迎大家使用FreeCMS','','000000','0','','','','<p>\r\n	欢迎大家使用FreeCMS!</p>','','/userfiles/images/admin/logo.png','','/userfiles/files/admin/log.rar;/userfiles/images/admin/1.png;','2012-12-05 21:18:29','','0',NULL,8,'02debc9f-53cd-4bc9-887b-49ffc4e925f2',NULL,NULL,NULL,NULL);
-insert  into `freecms_info`(`id`,`site`,`channel`,`title`,`shortTitle`,`titleColor`,`titleBlod`,`source`,`author`,`description`,`content`,`tags`,`img`,`url`,`attchs`,`addtime`,`templet`,`isTop`,`topEndTime`,`clickNum`,`addUser`,`state`,`issign`,`video`,`iscomment`) values ('75085629-29f2-4c87-a938-ce32f35d0c0f','7a4d22d6-762b-46e5-895b-d62da52bf9cb','6555dd8b-7acc-4e57-a19a-cc70dd4f7135','FreeCMS 1.2 发布','','000000','0','','','','<p>\r\n	Bug修复:<br />\r\n	1.菜单管理：删除操作按钮后不能直接进行删除菜单操作。<br />\r\n	2.删除单位时操作记录不显示单位名称问题。<br />\r\n	3.站点管理：改变所属站点增加改变为一级站点功能，上传非图片logo时虽然提示但仍上传成功问题。<br />\r\n	4.模板文件管理：点击查看/下载文件时路径不对问题。<br />\r\n	5.list类标签增加index返回值:channelList,infoAttchs,linkClass,link.<br />\r\n	6.部分浏览器提示信息出现乱码问题。<br />\r\n	7.启用、禁用用户时操作记录记录用户名问题。</p>\r\n<p>\r\n	&nbsp;</p>\r\n<p>\r\n	功能新增:<br />\r\n	1.站点和栏目增加静态化调度配置。<br />\r\n	2.信息增加签收、视频、评论功能。<br />\r\n	3.栏目页静态化增加可以设置只生成前几页功能。<br />\r\n	4.增加网上调查功能。<br />\r\n	5.增加互动信件功能。<br />\r\n	6.单位可以设置是否接收互动信件。<br />\r\n	7.用户可以设置是否接收互动信件。<br />\r\n	8.增加系统配置管理功能。<br />\r\n	9.增加ajaxLoad标签，通过ajax加载页面。<br />\r\n	10.增加模板示例库。<br />\r\n	11.增加infoSign标签，显示信息签收代码。<br />\r\n	12.增加mailList标签，提取信件列表。<br />\r\n	13.增加mailPage标签，分页提取信件列表。<br />\r\n	14.增加mailQuery标签，根据查询码查询信件处理结果。<br />\r\n	15.增加mailSave标签，信件保存处理。<br />\r\n	16.增加questionList标签，提取网上调查列表。<br />\r\n	17.增加questionPage标签，分页提取网上调查列表。<br />\r\n	17.增加questionOne标签，提取指定id的网上调查。<br />\r\n	18.增加config标签，提取系统配置。<br />\r\n	19.增加unitList标签，提取单位列表。<br />\r\n	20.增加userList标签，提取用户列表。<br />\r\n	21.增加video标签，播放视频。<br />\r\n	22.增加会员权限管理功能。<br />\r\n	22.增加会员组管理功能。<br />\r\n	23.增加会员管理功能。<br />\r\n	24.增加评论管理功能。<br />\r\n	25.增加积分规则管理功能。<br />\r\n	26.增加积分记录管理功能。<br />\r\n	27.增加commentPage标签，分页提取评论列表。</p>\r\n<p>\r\n	&nbsp;</p>\r\n<p>\r\n	&nbsp;</p>\r\n<p>\r\n	<br />\r\n	&nbsp;</p>','','','','','2013-02-21 19:37:42','','0',NULL,7,'02debc9f-53cd-4bc9-887b-49ffc4e925f2',NULL,'0','','1');
-insert  into `freecms_info`(`id`,`site`,`channel`,`title`,`shortTitle`,`titleColor`,`titleBlod`,`source`,`author`,`description`,`content`,`tags`,`img`,`url`,`attchs`,`addtime`,`templet`,`isTop`,`topEndTime`,`clickNum`,`addUser`,`state`,`issign`,`video`,`iscomment`) values ('93fa57df-3a03-4715-968d-bae6cb5a0742','7a4d22d6-762b-46e5-895b-d62da52bf9cb','6555dd8b-7acc-4e57-a19a-cc70dd4f7135','FreeCMS 1.0 发布','','000000','0','','','','<p>\r\n	FreeCMS 1.0 已发布，请到<a href=\"http://code.google.com/p/freecms/downloads/list\">http://code.google.com/p/freecms/downloads/list</a>下载。</p>','','/userfiles/images/admin/logo.png','','','2012-12-05 20:57:54','','0',NULL,3,'02debc9f-53cd-4bc9-887b-49ffc4e925f2',NULL,NULL,NULL,NULL);
+insert  into `freecms_info`(`id`,`site`,`channel`,`title`,`shortTitle`,`titleColor`,`titleBlod`,`source`,`author`,`description`,`content`,`tags`,`img`,`url`,`attchs`,`addtime`,`templet`,`isTop`,`topEndTime`,`clickNum`,`addUser`,`state`,`issign`,`video`,`iscomment`,`indexnum`,`opentype`,`opentimetype`,`openendtime`) values ('0a6bd480-1c8e-46b9-9111-5ef5dc0789bd','7a4d22d6-762b-46e5-895b-d62da52bf9cb','6555dd8b-7acc-4e57-a19a-cc70dd4f7135','FreeCMS 1.3 发布','','000000','0','','','','<p>\r\n	&nbsp;</p>\r\n<div>\r\n	Bug修复:</div>\r\n<div>\r\n	1.站点同步资源文件时，如模板没有resources文件夹报错问题。</div>\r\n<div>\r\n	2.ajax相关操作对firefox的兼容性。</div>\r\n<div>\r\n	2.weebox对firefox的兼容性。</div>\r\n<div>\r\n	&nbsp;</div>\r\n<div>\r\n	&nbsp;</div>\r\n<div>\r\n	&nbsp;</div>\r\n<div>\r\n	&nbsp;</div>\r\n<div>\r\n	功能新增:</div>\r\n<div>\r\n	1.可设置禁用会员名。</div>\r\n<div>\r\n	2.channelList标签增加属性：state,navigation。</div>\r\n<div>\r\n	3.infoList标签增加属性：channelParid,channelParPagemark。</div>\r\n<div>\r\n	4.mail数据对象增加属性:stateStr.</div>\r\n<div>\r\n	5.questionList标签增加属性:nameLen.</div>\r\n<div>\r\n	6.linkClass标签增加属性:classid,pagemark.</div>\r\n<div>\r\n	7.增加channelPath标签，按上下级顺序提取指定栏目的所属栏目路径.</div>\r\n<div>\r\n	8.信息增加政务属性:索引号，公开形式，公开时限。</div>\r\n<div>\r\n	9.question 增加detail字段</div>\r\n<div>\r\n	10.增加html标签:处理html代码为字符串。</div>\r\n<div>\r\n	11.增加channelSon标签，提取所有子栏目。</div>\r\n<div>\r\n	12.infoPage标签增加参数:channelparid,checkOpenendtime。</div>\r\n<div>\r\n	13.infoList标签增加参数:checkOpenendtime。</div>\r\n<div>\r\n	14.增加在线申报功能</div>\r\n<div>\r\n	15.增加info标签:根据id提取信息。</div>\r\n<div>\r\n	16.增加依申请公开功能</div>\r\n<div>\r\n	17.增加根据不同访问域名跳转到不同站点功能。</div>\r\n<div>\r\n	18.增加reportQuery标签：根据查询码查询申报处理结果.</div>\r\n<div>\r\n	19.增加applyopenQuery标签：根据查询码查询申请公开处理结果</div>\r\n<div>\r\n	20.增加数据对象report,applyopen.</div>','','','','','2013-04-23 20:15:17','','0',NULL,5,'02debc9f-53cd-4bc9-887b-49ffc4e925f2',NULL,'0','','0','','1','1',NULL);
+insert  into `freecms_info`(`id`,`site`,`channel`,`title`,`shortTitle`,`titleColor`,`titleBlod`,`source`,`author`,`description`,`content`,`tags`,`img`,`url`,`attchs`,`addtime`,`templet`,`isTop`,`topEndTime`,`clickNum`,`addUser`,`state`,`issign`,`video`,`iscomment`,`indexnum`,`opentype`,`opentimetype`,`openendtime`) values ('74ef43c9-cc3b-4eea-bacf-2703f663bf2f','7a4d22d6-762b-46e5-895b-d62da52bf9cb','6555dd8b-7acc-4e57-a19a-cc70dd4f7135','欢迎大家使用FreeCMS','','000000','0','','','','<p>\r\n	欢迎大家使用FreeCMS!</p>','','/userfiles/images/admin/logo.png','','/userfiles/files/admin/log.rar;/userfiles/images/admin/1.png;','2012-12-05 21:18:29','','0',NULL,8,'02debc9f-53cd-4bc9-887b-49ffc4e925f2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert  into `freecms_info`(`id`,`site`,`channel`,`title`,`shortTitle`,`titleColor`,`titleBlod`,`source`,`author`,`description`,`content`,`tags`,`img`,`url`,`attchs`,`addtime`,`templet`,`isTop`,`topEndTime`,`clickNum`,`addUser`,`state`,`issign`,`video`,`iscomment`,`indexnum`,`opentype`,`opentimetype`,`openendtime`) values ('75085629-29f2-4c87-a938-ce32f35d0c0f','7a4d22d6-762b-46e5-895b-d62da52bf9cb','6555dd8b-7acc-4e57-a19a-cc70dd4f7135','FreeCMS 1.2 发布','','000000','0','','','','<p>\r\n	Bug修复:<br />\r\n	1.菜单管理：删除操作按钮后不能直接进行删除菜单操作。<br />\r\n	2.删除单位时操作记录不显示单位名称问题。<br />\r\n	3.站点管理：改变所属站点增加改变为一级站点功能，上传非图片logo时虽然提示但仍上传成功问题。<br />\r\n	4.模板文件管理：点击查看/下载文件时路径不对问题。<br />\r\n	5.list类标签增加index返回值:channelList,infoAttchs,linkClass,link.<br />\r\n	6.部分浏览器提示信息出现乱码问题。<br />\r\n	7.启用、禁用用户时操作记录记录用户名问题。</p>\r\n<p>\r\n	&nbsp;</p>\r\n<p>\r\n	功能新增:<br />\r\n	1.站点和栏目增加静态化调度配置。<br />\r\n	2.信息增加签收、视频、评论功能。<br />\r\n	3.栏目页静态化增加可以设置只生成前几页功能。<br />\r\n	4.增加网上调查功能。<br />\r\n	5.增加互动信件功能。<br />\r\n	6.单位可以设置是否接收互动信件。<br />\r\n	7.用户可以设置是否接收互动信件。<br />\r\n	8.增加系统配置管理功能。<br />\r\n	9.增加ajaxLoad标签，通过ajax加载页面。<br />\r\n	10.增加模板示例库。<br />\r\n	11.增加infoSign标签，显示信息签收代码。<br />\r\n	12.增加mailList标签，提取信件列表。<br />\r\n	13.增加mailPage标签，分页提取信件列表。<br />\r\n	14.增加mailQuery标签，根据查询码查询信件处理结果。<br />\r\n	15.增加mailSave标签，信件保存处理。<br />\r\n	16.增加questionList标签，提取网上调查列表。<br />\r\n	17.增加questionPage标签，分页提取网上调查列表。<br />\r\n	17.增加questionOne标签，提取指定id的网上调查。<br />\r\n	18.增加config标签，提取系统配置。<br />\r\n	19.增加unitList标签，提取单位列表。<br />\r\n	20.增加userList标签，提取用户列表。<br />\r\n	21.增加video标签，播放视频。<br />\r\n	22.增加会员权限管理功能。<br />\r\n	22.增加会员组管理功能。<br />\r\n	23.增加会员管理功能。<br />\r\n	24.增加评论管理功能。<br />\r\n	25.增加积分规则管理功能。<br />\r\n	26.增加积分记录管理功能。<br />\r\n	27.增加commentPage标签，分页提取评论列表。</p>\r\n<p>\r\n	&nbsp;</p>\r\n<p>\r\n	&nbsp;</p>\r\n<p>\r\n	<br />\r\n	&nbsp;</p>','','','','','2013-02-21 19:37:42','','0',NULL,8,'02debc9f-53cd-4bc9-887b-49ffc4e925f2',NULL,'0','','1',NULL,NULL,NULL,NULL);
+insert  into `freecms_info`(`id`,`site`,`channel`,`title`,`shortTitle`,`titleColor`,`titleBlod`,`source`,`author`,`description`,`content`,`tags`,`img`,`url`,`attchs`,`addtime`,`templet`,`isTop`,`topEndTime`,`clickNum`,`addUser`,`state`,`issign`,`video`,`iscomment`,`indexnum`,`opentype`,`opentimetype`,`openendtime`) values ('93fa57df-3a03-4715-968d-bae6cb5a0742','7a4d22d6-762b-46e5-895b-d62da52bf9cb','6555dd8b-7acc-4e57-a19a-cc70dd4f7135','FreeCMS 1.0 发布','','000000','0','','','','<p>\r\n	FreeCMS 1.0 已发布，请到<a href=\"http://code.google.com/p/freecms/downloads/list\">http://code.google.com/p/freecms/downloads/list</a>下载。</p>','','/userfiles/images/admin/logo.png','','','2012-12-05 20:57:54','','0',NULL,3,'02debc9f-53cd-4bc9-887b-49ffc4e925f2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `freecms_info_sign` */
 
@@ -481,6 +535,7 @@ insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) v
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('0b547a0a-c5b9-4186-920e-507d0e4268d4','425d0211-0196-4456-a24b-3e8d614dec8b','编 辑','edit()','1',1);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('0d262669-48eb-4951-84cc-356765b771d4','df4647eb-8758-451c-bdcd-54c2d180c474','禁 用','isok(\'0\')','1',4);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('0db25404-44ac-429b-8ab7-66bd1bbc176a','5f3a8e01-4216-4982-b07b-ad367fe9ef96','生成所选栏目页','createChannel()','1',1);
+insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('0e54a469-aa95-479b-9e82-20313dd4d1e6','6ad6b178-d6af-4fc6-9962-2b1ea49e0f2f','转 交','forward()','1',1);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('10e8612b-af7b-437d-b8da-1c1a550bdce5','58fe298f-b448-40bb-a1c0-d81134efa4af','生成信息页面','createHtml()','1',NULL);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('137705c8-8e68-410c-a61d-d13e0c01af6b','4331df96-2b8d-4dcf-9bdb-1015dfd0a759','添 加','add()','1',1);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('15a50d4c-4866-4533-93a8-a19887d230d1','6c561fe7-2013-4ce5-bf9a-42874b07a99e','保 存','save()','1',NULL);
@@ -506,6 +561,7 @@ insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) v
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('427b987d-b3c2-4e17-bb09-f4a6faf248bb','5a47681c-63c3-47b1-8e1f-34d4dbba7d85','添 加','add()','1',1);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('44e33169-b7b9-4995-a8f1-291b69286bcf','5a47681c-63c3-47b1-8e1f-34d4dbba7d85','删 除','del()','1',3);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('464b41df-f81e-4e54-b28d-436e9092eda2','4331df96-2b8d-4dcf-9bdb-1015dfd0a759','删 除','del()','1',3);
+insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('4b40d194-3604-4656-b0f6-6e4e546cada4','55480f1c-d96f-4b53-b596-fc930f488692','办 理','pro()','1',2);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('4de14364-517b-4c41-a60f-318ec98296a0','6f32a2b6-a552-4a91-a10c-2962af63eca7','保存','WebForm_OnSubmit()','1',0);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('4e86fdcb-4240-4bd7-96f7-1921671bf650','19eebfb0-16b5-40eb-a909-1bd37ef7d745','添加下级站点','addSon()','1',NULL);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('4ec7e50a-a272-4a12-8f69-a36366595397','0bec6b84-19be-4d99-bc44-ca1d8472148f','编 辑','edit()','1',2);
@@ -529,6 +585,7 @@ insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) v
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('7882b7f4-cb5b-4a18-b1f6-037cbf815661','5257f8fd-9da2-4e83-8538-b6ffca22e45a','添 加','add()','1',0);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('791f635b-6f69-43d7-9e2f-4a710daf3210','f0709c68-3af5-413b-8503-0f0bc2a3eb74','办 理','pro()','1',2);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('7d203eda-94be-4d56-8171-97d0b2ec28d0','df4647eb-8758-451c-bdcd-54c2d180c474','添 加','add()','1',1);
+insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('7efb9cec-f40b-4978-ad33-8f2ca3d34f12','55480f1c-d96f-4b53-b596-fc930f488692','删 除','del()','1',3);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('80f3c1df-4df6-4c4c-8fd8-20a415536a2a','6c561fe7-2013-4ce5-bf9a-42874b07a99e','预览站点','preview()','1',NULL);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('85ca4973-0e3c-4a14-be16-290850aa760c','0bec6b84-19be-4d99-bc44-ca1d8472148f','删 除','del()','1',3);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('8ce8c4c5-da00-49c6-9575-54851695f3ad','14a4e894-1a48-4145-b467-0fe0499e8758','添 加','add()','1',1);
@@ -546,14 +603,17 @@ insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) v
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('beb25f53-7325-49b9-ab95-8abeff63448c','19eebfb0-16b5-40eb-a909-1bd37ef7d745','删除','del()','1',NULL);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('c3ce9418-9dcc-4578-90b2-3f6ab08f61a7','18974989-cd85-48b2-8169-348bc3481ef8','删 除','del()','1',3);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('c3f6186b-ef24-4a51-ab83-b7162d468125','2b89c1fd-9e85-40d0-9ad8-9d401526d8fe','添 加','add()','1',1);
+insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('c6317410-cd09-4fee-abf1-e92146e6f665','6ad6b178-d6af-4fc6-9962-2b1ea49e0f2f','删 除','del()','1',3);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('ca0d70ff-0509-4d9b-b224-f0428934825b','003c47c5-7041-4cfa-8631-82c00ab3fb35','删除','del()','1',0);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('cb52abdd-9a80-46d0-9115-f4c7cdf0c8f4','88749e6a-a8ec-47ef-aa4a-f7912d0ed12c','删 除','del()','1',3);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('cdcd83fe-3cc2-4bbb-bb7e-e279c1780a77','14a4e894-1a48-4145-b467-0fe0499e8758','授 权','auth()','1',3);
+insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('cec4e057-a4e3-4126-9a3c-8bc2e4c5b0b4','55480f1c-d96f-4b53-b596-fc930f488692','转 交','forward()','1',1);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('cef54353-09d1-4ff6-bedd-370ab799913c','18974989-cd85-48b2-8169-348bc3481ef8','编 辑','edit()','1',2);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('d46540d4-03fb-4de8-a502-3cbe9e72e9bd','67025758-eb65-40b1-a59c-edee1b3ae938','添 加','add()','1',1);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('d6001817-3246-4d7b-a86e-49d771fdb082','12187d67-5ab9-4ae4-bbee-9a772cebd0de','禁 用','state(\'0\')','1',3);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('d6d1f29e-99a2-4621-b89c-b6f8ad2a4d52','425d0211-0196-4456-a24b-3e8d614dec8b','删 除','del()','1',2);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('db1df28e-ddf2-45b6-9a8c-c0f76d50a4ac','003c47c5-7041-4cfa-8631-82c00ab3fb35','添加一级菜单','addOne()','1',0);
+insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('db28584c-7dfa-4ce2-9c37-fb6f69259938','6ad6b178-d6af-4fc6-9962-2b1ea49e0f2f','办 理','pro()','1',2);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('dd6018a7-1757-44e6-823d-b782c6cf94e3','969d27f9-71f8-4cb8-a1bd-6343fe32bbb1','删 除','del()','1',2);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('dfc3a95f-db39-42b8-91b9-2682aa32c0ea','742470cc-eaf1-48c4-805c-44c9936a7622','办 理','pro()','1',2);
 insert  into `freecms_operbutton`(`id`,`func`,`name`,`code`,`isOk`,`orderNum`) values ('e234bf55-ecff-4689-b90e-f8f9f58f1c9f','0af2a5d9-26e6-4b82-a07c-062a35b3a7e5','删 除','del()','1',3);
@@ -589,6 +649,7 @@ DROP TABLE IF EXISTS `freecms_question`;
 CREATE TABLE `freecms_question` (
   `id` varchar(50) NOT NULL,
   `name` varchar(500) default NULL,
+  `detail` varchar(1000) default NULL,
   `selecttype` char(1) default NULL,
   `isok` char(1) default NULL,
   `siteid` varchar(50) default NULL,
@@ -600,6 +661,33 @@ CREATE TABLE `freecms_question` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='网上调查';
 
 /*Data for the table `freecms_question` */
+
+/*Table structure for table `freecms_report` */
+
+DROP TABLE IF EXISTS `freecms_report`;
+
+CREATE TABLE `freecms_report` (
+  `id` varchar(50) NOT NULL,
+  `name` varchar(100) default NULL,
+  `unit` varchar(100) default NULL,
+  `filename` varchar(100) default NULL,
+  `filenum` varchar(100) default NULL,
+  `linkman` varchar(100) default NULL,
+  `issuer` varchar(100) default NULL,
+  `tel` varchar(50) default NULL,
+  `addtime` datetime default NULL,
+  `attch` varchar(1000) default NULL,
+  `querycode` varchar(20) default NULL,
+  `ip` varchar(20) default NULL,
+  `state` char(1) default NULL,
+  `recontent` varchar(1000) default NULL,
+  `retime` datetime default NULL,
+  `proflow` varchar(200) default NULL,
+  `userid` varchar(50) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='在线申报';
+
+/*Data for the table `freecms_report` */
 
 /*Table structure for table `freecms_role_channel` */
 
@@ -820,7 +908,7 @@ CREATE TABLE `freecms_unit` (
 
 /*Data for the table `freecms_unit` */
 
-insert  into `freecms_unit`(`id`,`name`,`parid`,`isOk`,`ordernum`,`ismail`) values ('freeteam','freeteam','','1',0,NULL);
+insert  into `freecms_unit`(`id`,`name`,`parid`,`isOk`,`ordernum`,`ismail`) values ('freeteam','freeteam','','1',0,'0');
 
 /*Table structure for table `freecms_unit_user` */
 
@@ -870,8 +958,8 @@ CREATE TABLE `freecms_users` (
 
 /*Data for the table `freecms_users` */
 
-insert  into `freecms_users`(`id`,`loginName`,`roleNames`,`name`,`pwd`,`sex`,`birthday`,`tel`,`mobilephone`,`email`,`isOk`,`lastLoginTime`,`lastestLoginTime`,`loginFailNum`,`loginNum`,`addTime`,`unitNames`,`unitIds`,`ismail`) values ('02debc9f-53cd-4bc9-887b-49ffc4e925f2','admin','管理员;','管理员','523af537946b79c4f8369ed39ba78605','1',NULL,'','','freeteam@foxmail.com','1','2013-02-21 20:07:07','2013-02-21 20:18:24',0,0,NULL,NULL,NULL,NULL);
-insert  into `freecms_users`(`id`,`loginName`,`roleNames`,`name`,`pwd`,`sex`,`birthday`,`tel`,`mobilephone`,`email`,`isOk`,`lastLoginTime`,`lastestLoginTime`,`loginFailNum`,`loginNum`,`addTime`,`unitNames`,`unitIds`,`ismail`) values ('fdc995ef-e96f-4c00-9746-4b5a9b365caa','freecms','站点管理员;','freecms','523af537946b79c4f8369ed39ba78605','1','2012-11-06 00:00:00','','','','1','2013-02-21 13:56:37','2013-02-21 13:57:03',0,0,'2012-11-28 20:25:41','freeteam;','freeteam;',NULL);
+insert  into `freecms_users`(`id`,`loginName`,`roleNames`,`name`,`pwd`,`sex`,`birthday`,`tel`,`mobilephone`,`email`,`isOk`,`lastLoginTime`,`lastestLoginTime`,`loginFailNum`,`loginNum`,`addTime`,`unitNames`,`unitIds`,`ismail`) values ('02debc9f-53cd-4bc9-887b-49ffc4e925f2','admin','管理员;','管理员','523af537946b79c4f8369ed39ba78605','1',NULL,'','','freeteam@foxmail.com','1','2013-04-23 21:06:38','2013-04-23 21:20:32',0,0,NULL,'','','1');
+insert  into `freecms_users`(`id`,`loginName`,`roleNames`,`name`,`pwd`,`sex`,`birthday`,`tel`,`mobilephone`,`email`,`isOk`,`lastLoginTime`,`lastestLoginTime`,`loginFailNum`,`loginNum`,`addTime`,`unitNames`,`unitIds`,`ismail`) values ('fdc995ef-e96f-4c00-9746-4b5a9b365caa','freecms','站点管理员;','freecms','523af537946b79c4f8369ed39ba78605','1','2012-11-06 00:00:00','','','','1','2013-02-21 13:57:03','2013-03-05 21:26:44',0,0,'2012-11-28 20:25:41','freeteam','freeteam;',NULL);
 
 /* Procedure structure for procedure `role_del` */
 
