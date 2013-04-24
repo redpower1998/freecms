@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 				<property name="url" value="${mssql.url}" />
 				<property name="username" value="${mssql.username}" />
 				<property name="password" value="${mssql.password}" />
-				<property name="poolMaximumIdleConnections" value="10" />
+				<property name="poolMaximumIdleConnections" value="0" />
 				<property name="poolMaximumActiveConnections" value="10" />
 			</dataSource>
 		</environment>
@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 				<property name="url" value="${mysql.url}" />
 				<property name="username" value="${mysql.username}" />
 				<property name="password" value="${mysql.password}" />
-				<property name="poolMaximumIdleConnections" value="10" />
+				<property name="poolMaximumIdleConnections" value="0" />
 				<property name="poolMaximumActiveConnections" value="10" />
 			</dataSource>
 		</environment>
