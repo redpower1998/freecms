@@ -65,15 +65,4 @@ function commentSubmit(){
 </table>
 </form>
 </#if>
-<@commentPage  num='10' page='1' objtype="info" objid="${currInfo.id}" action='${contextPath}templet_pro.do?siteid=${site.id}&templetPath=comment.html';commentList,pager>
-
-<ul>
-	<#list commentList as comment>
-	<li>
-		分页:${comment.content!""}
-	</li>
-	</#list>
-</ul>
-${pager.formPageStr}
-</@commentPage>
 <#include "inc/底部.html"/>
