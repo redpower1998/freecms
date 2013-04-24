@@ -20,7 +20,7 @@ import freemarker.template.TemplateModel;
  * 
  * <p>Description: html功能标签
  * 参数
- * code		html代码码
+ * code		html代码
  * length	显示长度 
  * delHtml	删除html标签 默认删除 0不删除
  * 
