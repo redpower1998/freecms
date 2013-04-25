@@ -4,12 +4,20 @@
 = 系统配置 =
 
 <p>
-	<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.2 开始支持</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">管理系统使用的配置项。</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">从左侧管理菜单点击系统配置进入。</span></p>
-<p>
-	<a href="http://static.oschina.net/uploads/space/2013/0226/164951_6Rjw_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0226/164951_6Rjw_916014.png" style="cursor: pointer" /></a></p>
-<p>
 	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<b style="padding: 0px; margin: 0px;"><i style="padding: 0px; margin: 0px;">从<span style="padding: 0px; margin: 0px;">FreeCMS 1.2 </span>开始支持</i></b></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	管理系统使用的配置项。</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	从左侧管理菜单点击系统配置进入。</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<a href="http://static.oschina.net/uploads/space/2013/0425/181333_7cdb_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0425/181333_7cdb_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<b style="padding: 0px; margin: 0px;"><i style="padding: 0px; margin: 0px;">从<span style="padding: 0px; margin: 0px;">FreeCMS 1.3 </span>开始支持</i></b></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	会员禁用登录名</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	邮件相关配置</p>
