@@ -1,0 +1,55 @@
+#summary 在线申报
+#labels free,cms,freecms,开源,免费,内容管理系统
+
+= 在线申报 =
+<p>
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<b style="padding: 0px; margin: 0px;"><i style="padding: 0px; margin: 0px;">从<span style="padding: 0px; margin: 0px;">FreeCMS 1.3 </span>开始支持</i></b></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<b style="padding: 0px; margin: 0px;">1.  </b><b style="padding: 0px; margin: 0px;">转交申报</b></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	用户可以把申报转交给其他人办理，系统会记录此申报的转交记录。</p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<b style="padding: 0px; margin: 0px;">注意：同时只能转交一个申报。</b><a href="http://static.oschina.net/uploads/space/2013/0426/184649_BG8r_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0426/184649_BG8r_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;">选择需要转交的申报，点击"转交"按钮。</span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	 </p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	 </p>
+<br style="padding: 0px; margin: 0px;" />
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;"><a href="http://static.oschina.net/uploads/space/2013/0426/184734_8sxl_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0426/184734_8sxl_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;">选择要转交的个人，点击"转交"按钮即可。</span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;"><span style="padding: 0px; margin: 0px;"><a href="http://static.oschina.net/uploads/space/2013/0426/184836_6BX9_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0426/184836_6BX9_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></span></span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;"><b style="padding: 0px; margin: 0px;">2.  </b><b style="padding: 0px; margin: 0px;">办理申报</b></span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;"><span style="padding: 0px; margin: 0px;"><a href="http://static.oschina.net/uploads/space/2013/0426/184855_Hehq_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0426/184855_Hehq_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></span></span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;">选择需要办理的申报，然后点击"办理按钮"。</span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;"><b style="padding: 0px; margin: 0px;">注意：同时只能办理一个申报。</b></span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;"><span style="padding: 0px; margin: 0px;"><a href="http://static.oschina.net/uploads/space/2013/0426/184933_Ul9j_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0426/184933_Ul9j_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></span></span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;">输入办理结果后，点击"办结"按钮即可。</span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;"><b style="padding: 0px; margin: 0px;">3.  </b><b style="padding: 0px; margin: 0px;">删除申报</b></span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;">选择需要删除的申报，然后点击"删除"按钮。</span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;">提示<span style="padding: 0px; margin: 0px;">:</span>同时可以删除多个申报。</span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;"><span style="padding: 0px; margin: 0px;"><a href="http://static.oschina.net/uploads/space/2013/0426/184950_VSwp_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0426/184950_VSwp_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></span></span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px;">
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;"><span style="padding: 0px; margin: 0px;"><a href="http://static.oschina.net/uploads/space/2013/0426/185004_3b7d_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0426/185004_3b7d_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></span></span></p>
+<p>
+	<span style="padding: 0px; margin: 0px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px; line-height: 21px;">为了防止误操作，系统会提示用户是否删除，点击"确定"完成删除操作。</span></p>
