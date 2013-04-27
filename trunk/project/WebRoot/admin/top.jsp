@@ -4,7 +4,7 @@
 <%@include file="../util/checkParentFrame.jsp" %>
 <HTML>
 <HEAD>
-<TITLE>FreeCMS-主界面</TITLE>
+<TITLE>FreeCMS-管理中心</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
 <link rel="stylesheet" href="../img/style2.css" type="text/css" />
 <script>
