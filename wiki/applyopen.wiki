@@ -13,11 +13,11 @@
 <p>
 	<a href="http://static.oschina.net/uploads/space/2013/0427/124624_HQEE_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0427/124624_HQEE_916014.png" style="cursor: pointer" /></a></p>
 <p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">选择需要转交的申请公开，点击&ldquo;转交&rdquo;按钮。</span></p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">选择需要转交的申请公开，点击"转交"按钮。</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2013/0427/124638_RWzt_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0427/124638_RWzt_916014.png" style="cursor: pointer" /></a></p>
 <p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">选择要转交的个人，点击&ldquo;转交&rdquo;按钮即可。</span></p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">选择要转交的个人，点击"转交"按钮即可。</span></p>
 <p>
 	<a href="http://static.oschina.net/uploads/space/2013/0427/124653_0VRD_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0427/124653_0VRD_916014.png" style="cursor: pointer" /></a></p>
 <p>
@@ -25,7 +25,7 @@
 <p>
 	<a href="http://static.oschina.net/uploads/space/2013/0427/124707_ziDv_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0427/124707_ziDv_916014.png" style="cursor: pointer" /></a></p>
 <p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">选择需要办理的申请公开，然后点击&ldquo;办理按钮&rdquo;。</span></p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">选择需要办理的申请公开，然后点击"办理按钮"。</span></p>
 <p>
 	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">注意：同时只能办理一个申请公开。</span></p>
 <p>
