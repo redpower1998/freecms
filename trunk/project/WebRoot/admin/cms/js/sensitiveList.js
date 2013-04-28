@@ -1,6 +1,6 @@
 //添加
 function add(){
-	$.weeboxs.open('sensitive_edit.do', {title:'添加敏感词', contentType:'ajax',height:230,width:450,
+	$.weeboxs.open('sensitive_edit.do', {title:'添加敏感词', contentType:'ajax',height:130,width:400,
 		onok:function(){
 			if($.trim($("#sensitiveword").val())==""){
 				alert("请输入敏感词!");
@@ -22,7 +22,7 @@ function add(){
 //编辑
 function edit(){
 	if(isCheckOne()){
-		$.weeboxs.open('sensitive_edit.do?sensitive.id='+getCheckOneValue(), {title:'编辑敏感词', contentType:'ajax',height:230,width:450,
+		$.weeboxs.open('sensitive_edit.do?sensitive.id='+getCheckOneValue(), {title:'编辑敏感词', contentType:'ajax',height:130,width:400,
 			onok:function(){
 				if($.trim($("#sensitiveword").val())==""){
 					alert("请输入敏感词!");
@@ -36,7 +36,7 @@ function edit(){
 				}
 				//成功
 				$.post("sensitive_editDo.do","sensitive.sensitiveword="+$("#sensitiveword").val()
-				+"&sensitive.replaceto="+$("#replaceto").val()
+				+"&sensitive.replaceto="+$("#replaceto").val()+"&sensitive.id="+$("#id").val()
 				,editComplete,"text");
 			}
 		});
