@@ -275,6 +275,7 @@ public class InfoAction extends BaseAction{
 						try {
 							info=infoService.findById(idArr[i]);
 							if (info!=null) {
+								infoService.delhtml(idArr[i], getHttpRequest());
 								infoService.del(idArr[i]);
 								sb.append(idArr[i]+";");
 								logContent="删除信息("+info.getTitle()+")成功!";

@@ -106,6 +106,28 @@ public class InfoService extends BaseService{
 		}
 	}
 	/**
+	 * 删除信息页
+	 * @param id
+	 * @throws TemplateException 
+	 * @throws IOException 
+	 */
+	public void delhtml(String id,HttpServletRequest request) throws IOException, TemplateException{
+		//查询信息
+		Info info=findById(id);
+		if (info!=null) {
+			Site site=siteService.findById(info.getSite());
+			if (site!=null ) {
+				//删除静态文件
+				String htmlfile=request.getRealPath("/")+"/site/"+site.getSourcepath()+
+				"/"+info.getChannel()+"/info/"+(info.getAddtime().getYear()+1900)+"/"+id+".html";
+				File file=new File(htmlfile);
+				if (file.exists()) {
+					file.delete();
+				}
+			}
+		}
+	}
+	/**
 	 * 分页查询
 	 * @param info
 	 * @param order
