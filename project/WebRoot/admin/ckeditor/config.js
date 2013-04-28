@@ -17,4 +17,5 @@ CKEDITOR.editorConfig = function( config )
     config.filebrowserWindowWidth = '1000';   
     config.filebrowserWindowHeight = '700';   
     config.language =  "zh-cn" ;  
+    config.extraPlugins += (config.extraPlugins ? ',autoformat' : 'autoformat');
 };
