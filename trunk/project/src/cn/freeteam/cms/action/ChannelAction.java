@@ -179,7 +179,7 @@ public class ChannelAction extends BaseAction{
 		try {
 			if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
 				channel=channelService.findById(channel.getId());
-				channelService.del(channel.getId());
+				channelService.del(channel.getId(),getHttpRequest());
 				OperLogUtil.log(getLoginName(), "删除栏目 "+channel.getName(), getHttpRequest());
 				write("<script>alert('操作成功');parent.location.reload();</script>", "UTF-8");
 			}
