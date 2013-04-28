@@ -265,25 +265,34 @@ public class ChannelService extends BaseService{
 	/**
 	 * 删除
 	 * @param siteId
+	 * @throws TemplateException 
+	 * @throws IOException 
 	 */
-	public void del(String siteId){
+	public void del(String id,HttpServletRequest request) throws IOException, TemplateException{
 		init("htmlquartzService");
-		delPar(siteId);
-		channelMapper.deleteByPrimaryKey(siteId);
-		DBCommit();
+		Channel channel=findById(id);
+		if (channel!=null) {
+			delhtml(channel, request);
+			delPar(id,request);
+			channelMapper.deleteByPrimaryKey(id);
+			DBCommit();
+		}
 	}
 	/**
 	 * 递归删除
 	 * @param parId
+	 * @throws TemplateException 
+	 * @throws IOException 
 	 */
-	public void delPar(String parId){
+	public void delPar(String parId,HttpServletRequest request) throws IOException, TemplateException{
 		ChannelExample example=new ChannelExample();
 		Criteria criteria=example.createCriteria();
 		criteria.andParidEqualTo(parId);
 		List<Channel> channelList=channelMapper.selectByExample(example);
 		if (channelList!=null && channelList.size()>0) {
 			for (int i = 0; i < channelList.size(); i++) {
-				delPar(channelList.get(i).getId());
+				delhtml(channelList.get(i), request);
+				delPar(channelList.get(i).getId(),request);
 			}
 		}
 		try {
@@ -295,6 +304,26 @@ public class ChannelService extends BaseService{
 		}
 		htmlquartzService.delByChannelid(parId);
 		channelMapper.deleteByPrimaryKey(parId);
+	}
+
+	/**
+	 * 删除栏目静态页
+	 * @throws TemplateException 
+	 * @throws IOException 
+	 */
+	public void delhtml(Channel channel,HttpServletRequest request) throws IOException, TemplateException{
+		if (channel!=null) {
+			init("siteService");
+			Site site=siteService.findById(channel.getSite());
+			if (site!=null) {
+				String rootPath=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getId()+"/";
+				//判断栏目文件夹是否存在
+				File channelFolder=new File(rootPath);
+				if (channelFolder.exists()) {
+					FileUtil.deleteFile(channelFolder);
+				}
+			}
+		}
 	}
 	/**
 	 * 栏目页静态化
