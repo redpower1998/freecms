@@ -74,7 +74,34 @@ public class ChannelAction extends BaseAction{
 	private List<Site> siteList;
 	private String auth;
 	private String noShowSite;
-	
+
+	private String htmlChannel;
+	private String htmlChannelPar;
+	private String htmlIndex;
+	public String getHtmlChannel() {
+		return htmlChannel;
+	}
+
+	public void setHtmlChannel(String htmlChannel) {
+		this.htmlChannel = htmlChannel;
+	}
+
+	public String getHtmlChannelPar() {
+		return htmlChannelPar;
+	}
+
+	public void setHtmlChannelPar(String htmlChannelPar) {
+		this.htmlChannelPar = htmlChannelPar;
+	}
+
+	public String getHtmlIndex() {
+		return htmlIndex;
+	}
+
+	public void setHtmlIndex(String htmlIndex) {
+		this.htmlIndex = htmlIndex;
+	}
+
 	public ChannelAction(){
 		init("siteService","channelService","userService","roleChannelService");
 	}
@@ -260,7 +287,7 @@ public class ChannelAction extends BaseAction{
 				channelService.updateHtmlChannelJob(getServletContext(), site, channel, htmlquartz);
 				OperLogUtil.log(getLoginName(), "添加栏目 "+channel.getName(), getHttpRequest());
 			}
-			write("<script>alert('操作成功');location.href='channel_edit.do?channel.id="+channel.getId()+"';</script>", "GBK");
+			return "makehtml";
 		} catch (Exception e) {
 			DBProException(e);
 			write("<script>alert('"+e.toString()+"');history.back();</script>", "GBK");
@@ -426,6 +453,45 @@ public class ChannelAction extends BaseAction{
 		}
 		return null;
 	}
+	
+
+	/**
+	 * 静态化处理
+	 * @return
+	 */
+	public String makehtml(){
+		if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
+			channel=channelService.findById(channel.getId());
+			site=siteService.findById(channel.getSite());
+			try {
+				if ("1".equals(htmlChannel)) {
+					//本栏目静态化
+					channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+				}
+				if ("1".equals(htmlChannelPar)) {
+					//本栏目的父栏目静态化
+					List<Channel> channeList = channelService.findPath(channel.getId());
+					if (channeList!=null && channeList.size()>0) {
+						for (int i = 0; i < channeList.size(); i++) {
+							if (!channeList.get(i).getId().equals(channel.getId())) {
+								channelService.html(site, channeList.get(i), getServletContext(), getHttpRequest(), getLoginName(), 0);
+							}
+						}
+					}
+				}
+				if ("1".equals(htmlIndex)) {
+					//首页静态化
+					siteService.html(channel.getSite(), getServletContext(), getHttpRequest().getContextPath(), getHttpRequest(), getLoginName());
+				}
+				showMessage="静态化处理成功!";
+			} catch (Exception e) {
+				e.printStackTrace();
+				showMessage="静态化处理失败，原因:"+e.getMessage().replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br/>");
+			}
+		}
+		return showMessage(showMessage, "", 0);
+	}
+	
 	
 	public SiteService getSiteService() {
 		return siteService;

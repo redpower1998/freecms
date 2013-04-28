@@ -26,6 +26,7 @@
 			<result name="edit" >/admin/cms/channelEdit.jsp</result>
 			<result name="channelSelect" >/admin/cms/channelSelect.jsp</result>
 			<result name="auth" >/admin/cms/channelAuth.jsp</result>
+			<result name="makehtml" >/admin/cms/channelMakehtml.jsp</result>
 		</action>
 		<action name="info_*" method="{1}" class="cn.freeteam.cms.action.InfoAction">            
 			<interceptor-ref name="fileUpload">
