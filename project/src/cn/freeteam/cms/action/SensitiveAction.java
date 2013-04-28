@@ -38,7 +38,7 @@ public class SensitiveAction extends BaseAction{
 	private SensitiveService sensitiveService;
 	private String msg;
 	private String pageFuncId;
-	private String order=" ordernum ";
+	private String order="";
 	private String logContent;
 	private String ids;
 	private List<Sensitive> sensitiveList;
@@ -56,9 +56,6 @@ public class SensitiveAction extends BaseAction{
 	public String list(){
 		if (sensitive==null ){
 			sensitive=new Sensitive();
-		}
-		if (order.trim().length()==0) {
-			order=" ordernum ";
 		}
 		sensitiveList=sensitiveService.find(sensitive, order, currPage, pageSize);
 		totalCount=sensitiveService.count(sensitive);
