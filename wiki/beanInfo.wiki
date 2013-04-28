@@ -3,258 +3,307 @@
 
 = info =
 <p>
-	<span style="font-family: 宋体">在信息页静态化时<span>,</span>系统会自动向模板文件传递<span>currInfo</span>对象，此对象存储当前信息。在使用信息相关标签时，标签会封装<span>info</span>供页面调用。</span></p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">在信息页静态化时,系统会自动向模板文件传递currInfo对象，此对象存储当前信息。在使用信息相关标签时，标签会封装info供页面调用。</span></p>
 <p>
 	 </p>
-<p>
-	 </p>
-<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+<table style="border-collapse: collapse">
 	<tbody>
 		<tr>
 			<td>
 				<p>
-					<b><span style="font-family: 宋体">属性</span></b></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">属性</span></p>
 			</td>
 			<td>
 				<p>
-					<b><span style="font-family: 宋体">说明</span></b></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">id</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">id</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">说明</span></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<span style="font-family: 宋体">site</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">id</span></p>
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">所属站点<span>id</span></span></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">channel</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">所属栏目<span>id</span></span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">id</span></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<span style="font-family: 宋体">title</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">site</span></p>
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">标题</span></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">shortTitle</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">短标题</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">所属站点id</span></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<span style="font-family: 宋体">titleColor</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">channel</span></p>
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">标题颜色</span></p>
-			</td>
-		</tr><tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">showtitle</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">标签根据标题长度处理后的显示标题</span></p>
-			</td>
-		</tr><tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">sitepath</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">信息所属站点路径</span></p>
-			</td>
-		</tr><tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">pageurl</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">此信息的链接地址</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">所属栏目id</span></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<span style="font-family: 宋体">titleBlod</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">title</span></p>
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">标题是否加粗<span> 1</span>是<span> 0</span>否</span></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">source</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">来源 </span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">标题</span></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<span style="font-family: 宋体">author</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">shortTitle</span></p>
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">作者</span></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">description</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">摘要</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">短标题</span></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<span style="font-family: 宋体">tags</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">titleColor</span></p>
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">标签</span></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">templet</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">信息模板文件</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">标题颜色</span></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<span style="font-family: 宋体">img</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">showtitle</span></p>
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">图片</span></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">url</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">外部链接</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">标签根据标题长度处理后的显示标题</span></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<span style="font-family: 宋体">attchs</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">sitepath</span></p>
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">附件，多个之间用<span>;</span>分隔</span></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">addtime</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">添加时间</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">信息所属站点路径</span></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<span style="font-family: 宋体">addtimeStr</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">pageurl</span></p>
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">格式化后的添加时间</span></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">isTop</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">是否置顶</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">此信息的链接地址</span></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<span style="font-family: 宋体">clickNum</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">titleBlod</span></p>
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">点击量</span></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">addUser</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">添加用户<span>id</span></span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">标题是否加粗 1是 0否</span></p>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>
-					<span style="font-family: 宋体">content</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">source</span></p>
 			</td>
 			<td>
 				<p>
-					<span style="font-family: 宋体">内容</span></p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">来源 </span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">author</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">作者</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">description</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">摘要</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">tags</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">标签</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">templet</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">信息模板文件</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">img</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">图片</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">url</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">外部链接</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">attchs</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">附件，多个之间用;分隔</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">addtime</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">添加时间</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">addtimeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">格式化后的添加时间</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">isTop</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">是否置顶</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">clickNum</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">点击量</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">addUser</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">添加用户id</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">content</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">内容</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">opentype</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.3 开始支持</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">公开形式 1主动公开  0依申请公开</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">opentimetype</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.3 开始支持</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">公开时限类型 1常年公开 0限时公开</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">openendtime</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.3 开始支持</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">公开时限</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">openendtimeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.3 开始支持</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">公开时限，格式yyyy-MM-dd HH:mm:ss</span></p>
 			</td>
 		</tr>
 	</tbody>
