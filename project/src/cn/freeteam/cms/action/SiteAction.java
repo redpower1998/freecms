@@ -426,7 +426,7 @@ public class SiteAction extends BaseAction{
 		try {
 			if (site!=null && site.getId()!=null && site.getId().trim().length()>0) {
 				site=siteService.findById(site.getId());
-				siteService.del(site.getId());
+				siteService.del(site.getId(),getHttpRequest());
 				OperLogUtil.log(getLoginName(), "删除站点 "+site.getName(), getHttpRequest());
 				write("<script>alert('操作成功');parent.location.reload();</script>", "utf-8");
 			}

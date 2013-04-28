@@ -1,5 +1,6 @@
 package cn.freeteam.cms.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
@@ -26,6 +27,7 @@ import cn.freeteam.cms.util.FreeMarkerUtil;
 import cn.freeteam.cms.util.HtmlChannelJob;
 import cn.freeteam.cms.util.HtmlSiteJob;
 import cn.freeteam.cms.util.QuartzUtil;
+import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.OperLogUtil;
 
 
@@ -212,6 +214,25 @@ public class SiteService extends BaseService{
 		}
 	}
 	/**
+	 * 静态文件
+	 * @param id
+	 * @throws TemplateException 
+	 * @throws IOException 
+	 */
+	public void delhtml(String id,HttpServletRequest request) throws IOException, TemplateException{
+		//查询站点
+		Site site=findById(id);
+		if (site!=null ) {
+			//删除静态页面
+			String rootPath=request.getRealPath("/")+"/site/"+site.getSourcepath();
+			//判断栏目文件夹是否存在
+			File folder=new File(rootPath);
+			if (folder.exists()) {
+				FileUtil.deleteFile(folder);
+			}
+		}
+	}
+	/**
 	 * 查询是否有此目录
 	 * @param path
 	 * @return
@@ -245,10 +266,13 @@ public class SiteService extends BaseService{
 	/**
 	 * 删除
 	 * @param siteId
+	 * @throws TemplateException 
+	 * @throws IOException 
 	 */
-	public void del(String siteId){
+	public void del(String siteId,HttpServletRequest request) throws IOException, TemplateException{
 		init("htmlquartzService");
-		delPar(siteId);
+		delhtml(siteId, request);
+		delPar(siteId, request);
 		siteMapper.deleteByPrimaryKey(siteId);
 		DBCommit();
 	}
@@ -256,14 +280,14 @@ public class SiteService extends BaseService{
 	 * 递归删除
 	 * @param parId
 	 */
-	public void delPar(String parId){
+	public void delPar(String parId,HttpServletRequest request){
 		SiteExample example=new SiteExample();
 		Criteria criteria=example.createCriteria();
 		criteria.andParidEqualTo(parId);
 		List<Site> siteList=siteMapper.selectByExample(example);
 		if (siteList!=null && siteList.size()>0) {
 			for (int i = 0; i < siteList.size(); i++) {
-				delPar(siteList.get(i).getId());
+				delPar(siteList.get(i).getId(), request);
 			}
 		}
 		//删除静态化调度任务
