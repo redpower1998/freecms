@@ -3,6 +3,11 @@
 
 <%@include file="../util/loading.jsp" %>
 <%@include file="../util/checkParentFrame.jsp" %>
+		<script> 
+ if (window.parent.location.href.toLowerCase().indexOf("/admin/index.jsp") == -1 ){
+window.parent.location.href  = "<%=checkParentBasePath%>admin/right.jsp";
+}
+</script>
 <html>
 	<head>
 		<link rel="stylesheet" href="../img/style.css"
