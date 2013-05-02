@@ -1,6 +1,7 @@
 //添加
 function add(){
-	$.weeboxs.open('templet_edit.do', {title:'添加模板', contentType:'ajax',height:210,width:500,
+	location.href="templetAdd.jsp";
+	/*$.weeboxs.open('templet_edit.do', {title:'添加模板', contentType:'ajax',height:210,width:500,
 		onok:function(){
 			if($.trim($("#name").val())==""){
 				alert("请输入名称!");
@@ -14,7 +15,20 @@ function add(){
 			+"&templet.usesites="+$("#siteid").val()+"&templet.usesitenames="+$("#sitenames").val()
 			,addComplete,"text");
 		}
-	});
+	});*/
+}function addcheck(){
+	if($.trim($("#name").val())==""){
+		alert("请输入名称!");
+		$("#name").focus();
+		return false;
+	}
+	if($.trim($("#uploadFile").val())!="" && 
+		$.trim($("#uploadFile").val()).substring($.trim($("#uploadFile").val()).length-4,$.trim($("#uploadFile").val()).length)!=".zip"){
+		alert("请上传格式为zip的压缩文件");
+		$("#zip").focus();
+		return false;
+	}
+	return true;
 }
 //编辑
 function edit(){
