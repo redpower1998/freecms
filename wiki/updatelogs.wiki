@@ -64,6 +64,35 @@ Bug修复:<br/>
 27.增加commentPage标签，分页提取评论列表。<br/>
 
 
+== freecms-1.2 ==
+
+Bug修复:
+1.站点同步资源文件时，如模板没有resources文件夹报错问题。
+2.ajax相关操作对firefox的兼容性。
+2.weebox对firefox的兼容性。
 
 
+
+
+功能新增:
+1.可设置禁用会员名。
+2.channelList标签增加属性：state,navigation。
+3.infoList标签增加属性：channelParid,channelParPagemark。
+4.mail数据对象增加属性:stateStr.
+5.questionList标签增加属性:nameLen.
+6.linkClass标签增加属性:classid,pagemark.
+7.增加channelPath标签，按上下级顺序提取指定栏目的所属栏目路径.
+8.信息增加政务属性:索引号，公开形式，公开时限。
+9.question 增加detail字段
+10.增加html标签:处理html代码为字符串。
+11.增加channelSon标签，提取所有子栏目。
+12.infoPage标签增加参数:channelparid,checkOpenendtime。
+13.infoList标签增加参数:checkOpenendtime。
+14.增加在线申报功能
+15.增加info标签:根据id提取信息。
+16.增加依申请公开功能
+17.增加根据不同访问域名跳转到不同站点功能。
+18.增加reportQuery标签：根据查询码查询申报处理结果.
+19.增加applyopenQuery标签：根据查询码查询申请公开处理结果
+20.增加数据对象report,applyopen.
 
