@@ -231,6 +231,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</s:if>
 									<input type="file" name="img" id="img">
 							</TD>
+						</TR><TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl02_ctl00_label>
+									<IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl02_ctl00_imgHelp tabIndex=-1 title=请选择此栏目下信息变更(添加、编辑、删除)后需要进行的静态化处理
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl02_ctl00_lblLabel>当此栏目中的信息变更后：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD align="left"> 
+				<input type="checkbox" name="channel.htmlchannel" value="1" ${"1" == channel.htmlchannel ?" checked ":"" }/>静态化所属栏目页面<br/>
+				<input type="checkbox" name="channel.htmlparchannel" value="1"  ${"1" == channel.htmlparchannel ?" checked ":"" }/>静态化所属栏目的所有父栏目页面<br/>
+				<input type="checkbox" name="channel.htmlsite" value="1"  ${"1" == channel.htmlsite ?" checked ":"" }/>静态化站点首页<br/>
+							</TD>
 						</TR>
 						<TR>
 							<TD width="30%" align="left">
