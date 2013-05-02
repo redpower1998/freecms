@@ -251,7 +251,43 @@ public class InfoAction extends BaseAction{
 				infoSignService.infoedit(info.getId(), signusers);
 				//生成静态页面
 				infoService.html(info.getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
-				return "makehtml";
+				//检查此信息所属栏目是否设置当此栏目中的信息变更后需要进行的静态化处理
+				channel=channelService.findById(info.getChannel());
+				boolean ismakehtml=true;
+				if (channel!=null) {
+					site=siteService.findById(info.getSite());
+					if ("1".equals(channel.getHtmlchannel())) {
+						//所属栏目静态化
+						channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+						ismakehtml=false;
+					}
+					if ("1".equals(channel.getHtmlparchannel())) {
+						//所属栏目的父栏目静态化
+						List<Channel> channeList = channelService.findPath(info.getChannel());
+						if (channeList!=null && channeList.size()>0) {
+							for (int i = 0; i < channeList.size(); i++) {
+								if (!channeList.get(i).getId().equals(info.getChannel())) {
+									channelService.html(site, channeList.get(i), getServletContext(), getHttpRequest(), getLoginName(), 0);
+								}
+							}
+						}
+						ismakehtml=false;
+					}
+					if ("1".equals(channel.getHtmlsite())) {
+						//首页静态化
+						siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath(), getHttpRequest(), getLoginName());
+						ismakehtml=false;
+					}
+				}
+				if (ismakehtml) {
+					return "makehtml";
+				}else {
+					if ("channel".equals(type)) {
+						write("<script>alert('操作成功');location.href='info_list.do?info.channel="+info.getChannel()+"&pageFuncId="+pageFuncId+"';</script>", "GBK");
+					}else {
+						write("<script>alert('操作成功');location.href='info_edit.do?pageFuncId="+pageFuncId+"';</script>", "GBK");
+					}
+				}
 			} catch (Exception e) {
 				DBProException(e);
 				OperLogUtil.log(getLoginName(), oper+"信息("+info.getTitle()+")失败:"+e.toString(), getHttpRequest());
