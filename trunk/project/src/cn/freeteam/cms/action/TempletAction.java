@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
+import java.util.UUID;
 
 
 import cn.freeteam.base.BaseAction;
@@ -20,6 +21,7 @@ import cn.freeteam.util.HtmlCode;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 import cn.freeteam.util.ResponseUtil;
+import cn.freeteam.util.ZipTools;
 
 
 /**
@@ -498,16 +500,42 @@ public class TempletAction extends BaseAction{
 				templetService.add(templet);
 				//生成模板目录
 				String realPath=getHttpRequest().getRealPath("/");
-				FileUtil.copyDirectiory(realPath+"\\templet\\default", realPath+"\\templet\\"+templet.getId());
+				if (uploadFile!=null) {
+					//生成目标文件
+					String root=getHttpRequest().getRealPath("/");
+					String ext=FileUtil.getExt(uploadFileFileName).toLowerCase();
+					if (!".zip".equals(ext)) {
+						msg="<script>alert('请上传格式为zip的压缩文件!');history.back();</script>";
+						return "msg";
+					}
+					File targetFile=new File(realPath+"\\templet\\"+templet.getId()+"\\"+templet.getId()+ext);
+					File folder=new File(realPath+"\\templet\\"+templet.getId()+"\\");
+					if (!folder.exists()) {
+						folder.mkdirs();
+					}
+					if (!targetFile.exists()) {
+						targetFile.createNewFile();
+					}
+					//复制到目标文件
+					FileUtil.copy(uploadFile, targetFile);
+					//解压
+					ZipTools.unZip(realPath+"\\templet\\"+templet.getId()+"\\"+templet.getId()+ext, realPath+"\\templet\\"+templet.getId()+"\\");
+				}else {
+					FileUtil.copyDirectiory(realPath+"\\templet\\default", realPath+"\\templet\\"+templet.getId());
+				}
 			}
 			logContent=oper+"模板("+templet.getName()+")成功!";
-			write("succ", "GBK");
 		} catch (Exception e) {
 			DBProException(e);
 			logContent=oper+"模板("+templet.getName()+")失败:"+e.toString()+"!";
 		}
 		OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
-		return null;
+		if ("修改".equals(oper)) {
+			write("succ", "GBK");
+			return null;
+		}else {
+			return showMessage("添加模板成功", forwardUrl, forwardSeconds);
+		}
 	}
 
 	/**
