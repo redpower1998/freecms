@@ -39,7 +39,11 @@
 			<result name="list" >/admin/cms/infoList.jsp</result>
 			<result name="makehtml" >/admin/cms/infoMakehtml.jsp</result>
 		</action>
-		<action name="templet_*" method="{1}" class="cn.freeteam.cms.action.TempletAction">
+		<action name="templet_*" method="{1}" class="cn.freeteam.cms.action.TempletAction"> 
+			<interceptor-ref name="fileUpload">
+                <param name="maximumSize">2048000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
 			<result name="list" >/admin/cms/templetList.jsp</result>
 			<result name="edit" >/admin/cms/templetEdit.jsp</result>
 			<result name="fileManage" >/admin/cms/templetFileManage.jsp</result>
