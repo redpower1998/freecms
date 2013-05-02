@@ -306,9 +306,9 @@ public class InfoAction extends BaseAction{
 			StringBuilder sb=new StringBuilder();
 			String[] idArr=ids.split(";");
 			if (idArr!=null && idArr.length>0) {
-				for (int i = 0; i < idArr.length; i++) {
-					if (idArr[i].trim().length()>0) {
-						try {
+				try {
+					for (int i = 0; i < idArr.length; i++) {
+						if (idArr[i].trim().length()>0) {
 							info=infoService.findById(idArr[i]);
 							if (info!=null) {
 								infoService.delhtml(idArr[i], getHttpRequest());
@@ -316,12 +316,38 @@ public class InfoAction extends BaseAction{
 								sb.append(idArr[i]+";");
 								logContent="删除信息("+info.getTitle()+")成功!";
 							}
-						} catch (Exception e) {
-							DBProException(e);
-							logContent="删除信息("+info.getTitle()+")失败:"+e.toString()+"!";
+							OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
 						}
-						OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
 					}
+					if (info!=null) {
+						//检查此信息所属栏目是否设置当此栏目中的信息变更后需要进行的静态化处理
+						channel=channelService.findById(info.getChannel());
+						if (channel!=null) {
+							site=siteService.findById(info.getSite());
+							if ("1".equals(channel.getHtmlchannel())) {
+								//所属栏目静态化
+								channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+							}
+							if ("1".equals(channel.getHtmlparchannel())) {
+								//所属栏目的父栏目静态化
+								List<Channel> channeList = channelService.findPath(info.getChannel());
+								if (channeList!=null && channeList.size()>0) {
+									for (int i = 0; i < channeList.size(); i++) {
+										if (!channeList.get(i).getId().equals(info.getChannel())) {
+											channelService.html(site, channeList.get(i), getServletContext(), getHttpRequest(), getLoginName(), 0);
+										}
+									}
+								}
+							}
+							if ("1".equals(channel.getHtmlsite())) {
+								//首页静态化
+								siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath(), getHttpRequest(), getLoginName());
+							}
+						}
+					}
+				} catch (Exception e) {
+					DBProException(e);
+					logContent="删除信息("+info.getTitle()+")失败:"+e.toString()+"!";
 				}
 			}
 			write(sb.toString(), "GBK");
