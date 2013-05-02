@@ -64,7 +64,7 @@ Bug修复:<br/>
 27.增加commentPage标签，分页提取评论列表。<br/>
 
 
-== freecms-1.2 ==
+== freecms-1.3 ==
 
 Bug修复:<br/>
 1.站点同步资源文件时，如模板没有resources文件夹报错问题。<br/>
