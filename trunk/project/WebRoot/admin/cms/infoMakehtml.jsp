@@ -24,9 +24,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input type="hidden" name="pageFuncId" id="pageFuncId" value="${pageFuncId }"/>
 			<input type="hidden" name="info.id" value="${info.id }"/>
 				操作成功，请选择需要静态化的内容。<br/>
-				<input type="checkbox" name="htmlChannel" value="1" checked/>所属栏目页面静态化<br/>
-				<input type="checkbox" name="htmlChannelPar" value="1" checked/>所属栏目的所有父栏目页面静态化<br/>
-				<input type="checkbox" name="htmlIndex" value="1" checked/>站点首页静态化<br/>
+				<input type="checkbox" name="htmlChannel" value="1" />所属栏目页面静态化<br/>
+				<input type="checkbox" name="htmlChannelPar" value="1" />所属栏目的所有父栏目页面静态化<br/>
+				<input type="checkbox" name="htmlIndex" value="1" />站点首页静态化<br/>
 	
 				<input type="submit" value="立即静态化"   class="button"  />&nbsp;
 				<s:if test='%{"channel"==type}'>
