@@ -36,7 +36,7 @@ java -jar mybatis-generator-core-1.3.1.jar -configfile mybatis-generator.xml  -o
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<table tableName="freecms_applyopen"  ></table>
+		<table tableName="freecms_sensitive"  ></table>
 		<!-- 
 		<table tableName="channel"  ></table>
 		<table tableName="channel_user"  ></table>
