@@ -1,10 +1,17 @@
 package cn.freeteam.cms.action;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.jdbc.ScriptRunner;
 
 
 import cn.freeteam.base.BaseAction;
@@ -23,6 +30,7 @@ import cn.freeteam.model.Roles;
 import cn.freeteam.model.Users;
 import cn.freeteam.service.UserService;
 import cn.freeteam.util.FileUtil;
+import cn.freeteam.util.MybatisSessionFactory;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.ResponseUtil;
 
@@ -552,7 +560,7 @@ public class SiteAction extends BaseAction{
 				}
 				//创建源文件目录
 				FileUtil.mkdir(getHttpRequest().getRealPath("/")+"site/"+site.getSourcepath());
-
+				boolean isinit=false;
 				if (site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
 					templet=templetService.findById(site.getIndextemplet());
 					if (templet!=null) {
@@ -561,6 +569,9 @@ public class SiteAction extends BaseAction{
 							FileUtil.copyDirectiory(
 									getHttpRequest().getRealPath("/")+"/templet/"+templet.getId()+"/resources", 
 									getHttpRequest().getRealPath("/")+"/site/"+site.getSourcepath()+"/resources");
+							//检查所选站点模板是否有初始化脚本
+							File initFile=new File(getHttpRequest().getRealPath("/")+"/templet/"+templet.getId()+"/init.sql");
+							isinit=initFile.exists();
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
@@ -573,6 +584,9 @@ public class SiteAction extends BaseAction{
 				htmlquartzService.insert(htmlquartz);
 				siteService.updateHtmlSiteJob(getServletContext(), site, htmlquartz);
 				OperLogUtil.log(getLoginName(), "添加站点 "+site.getName(), getHttpRequest());
+				if (isinit) {
+					return "init";
+				}
 			}
 			write("<script>alert('操作成功');location.href='site_edit.do?site.id="+site.getId()+"';</script>", "GBK");
 		} catch (Exception e) {
@@ -581,6 +595,47 @@ public class SiteAction extends BaseAction{
 		}
 		
 		return null;
+	}
+	/**
+	 * 初始化站点
+	 * @return
+	 */
+	public String init(){
+		InputStreamReader isr=null;
+		try {
+			if (site.getId()!=null && site.getId().trim().length()>0 && 
+					site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
+				site=siteService.findById(site.getId());
+				templet=templetService.findById(site.getIndextemplet());
+				if (site!=null && templet!=null) {
+					String initsql=FileUtil.readFile(getHttpRequest().getRealPath("/")+"/templet/"+templet.getId()+"/init.sql");
+					if (initsql!=null && initsql.trim().length()>0) {
+						//替换siteid
+						initsql=initsql.replaceAll("#siteid#", site.getId());
+						FileUtil.writeFile(getHttpRequest().getRealPath("/")+"/site/"+site.getSourcepath()+"/init.sql", initsql);
+						Connection con = MybatisSessionFactory.getSession().getConnection();
+						ScriptRunner runner=new ScriptRunner(con);
+						//执行sql文件
+						isr=new InputStreamReader(new FileInputStream(new File(getHttpRequest().getRealPath("/")+"/site/"+site.getSourcepath()+"/init.sql")),"utf-8");
+						runner.runScript(isr);
+					}
+				}
+			}
+			showMessage="站点初始化成功";
+		} catch (IOException e) {
+			e.printStackTrace();
+			showMessage="站点初始化失败:"+e.getMessage();
+		}finally{
+			if (isr!=null) {
+				try {
+					isr.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+					showMessage="站点初始化失败:"+e.getMessage();
+				}
+			}
+			return showMessage(showMessage, forwardUrl, forwardSeconds);
+		}
 	}
 	/**
 	 * 设置页面
