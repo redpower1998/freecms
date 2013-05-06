@@ -1,0 +1,226 @@
+#summary report
+#labels free,cms,freecms,开源,免费,内容管理系统
+
+= report=
+<p>
+	<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.3 开始支持</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">在使用申报相关标签时，标签会封装<span>report</span><span>供页面调用。</span></span></p>
+<p>
+	 </p>
+<table style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">属性</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">说明</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">id</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">id</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">name</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">项目名称</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">unit</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">申报单位</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">filename</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">申报文件名称</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">filenum</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">申报文件文号</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">linkman</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">联系人</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">issuer</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">签发人</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">tel</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">联系电话</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">addtime</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">申报时间</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">addtimeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">申报时间(YYYY-MM-dd)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">attch</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">附件</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">querycode</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">查询码</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">ip</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">IP</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">state</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">处理状态 0办理中 1已办结</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">stateStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">办理状态 办理中 已办结</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">recontent</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">回复内容</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">retime</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">回复时间</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">retimeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">回复时间(YYYY-MM-dd)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">proflow</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">办理流程</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">userid</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">办理人</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
