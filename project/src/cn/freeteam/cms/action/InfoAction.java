@@ -275,7 +275,7 @@ public class InfoAction extends BaseAction{
 					}
 					if ("1".equals(channel.getHtmlsite())) {
 						//首页静态化
-						siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath(), getHttpRequest(), getLoginName());
+						siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath()+"/", getHttpRequest(), getLoginName());
 						ismakehtml=false;
 					}
 				}
@@ -341,7 +341,7 @@ public class InfoAction extends BaseAction{
 							}
 							if ("1".equals(channel.getHtmlsite())) {
 								//首页静态化
-								siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath(), getHttpRequest(), getLoginName());
+								siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath()+"/", getHttpRequest(), getLoginName());
 							}
 						}
 					}
@@ -381,7 +381,7 @@ public class InfoAction extends BaseAction{
 				}
 				if ("1".equals(htmlIndex)) {
 					//首页静态化
-					siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath(), getHttpRequest(), getLoginName());
+					siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath()+"/", getHttpRequest(), getLoginName());
 				}
 				showMessage="静态化处理成功!";
 			} catch (Exception e) {
