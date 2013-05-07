@@ -245,6 +245,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 							<TD align="left"> 
 				<input type="checkbox" name="channel.htmlchannel" value="1" ${"1" == channel.htmlchannel ?" checked ":"" }/>静态化所属栏目页面<br/>
+				<input type="checkbox" name="channel.htmlchannelold" value="1" ${"1" == channel.htmlchannelold ?" checked ":"" }/>静态化原所属栏目页面<br/>
 				<input type="checkbox" name="channel.htmlparchannel" value="1"  ${"1" == channel.htmlparchannel ?" checked ":"" }/>静态化所属栏目的所有父栏目页面<br/>
 				<input type="checkbox" name="channel.htmlsite" value="1"  ${"1" == channel.htmlsite ?" checked ":"" }/>静态化站点首页<br/>
 							</TD>
