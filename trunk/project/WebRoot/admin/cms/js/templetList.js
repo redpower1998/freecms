@@ -153,3 +153,11 @@ function fileManage(){
 		alert("请选择一条记录!");
 	}
 }
+//初始化数据
+function data(){
+	if(isCheckOne()){
+		location.href="templet_data.do?templet.id="+getCheckOneValue()+"&pageFuncId="+$("#pageFuncId").val();
+	}else{
+		alert("请选择一条记录!");
+	}
+}
