@@ -67,6 +67,7 @@ public class InfoAction extends BaseAction{
 	private Info info;
 	private Site site;
 	private Channel channel;
+	private String oldchannelid;
 	private File videoUpload;
 	private String videoUploadFileName;
 	
@@ -80,6 +81,7 @@ public class InfoAction extends BaseAction{
 	
 
 	private String htmlChannel;
+	private String htmlChannelOld;
 	private String htmlChannelPar;
 	private String htmlIndex;
 	
@@ -364,6 +366,11 @@ public class InfoAction extends BaseAction{
 			channel=channelService.findById(info.getChannel());
 			site=siteService.findById(info.getSite());
 			try {
+				if ("1".equals(htmlChannelOld)) {
+					Channel oldchannel=channelService.findById(oldchannelid);
+					//原所属栏目静态化
+					channelService.html(site, oldchannel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+				}
 				if ("1".equals(htmlChannel)) {
 					//所属栏目静态化
 					channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
@@ -556,5 +563,17 @@ public class InfoAction extends BaseAction{
 	}
 	public void setHtmlIndex(String htmlIndex) {
 		this.htmlIndex = htmlIndex;
+	}
+	public String getOldchannelid() {
+		return oldchannelid;
+	}
+	public void setOldchannelid(String oldchannelid) {
+		this.oldchannelid = oldchannelid;
+	}
+	public String getHtmlChannelOld() {
+		return htmlChannelOld;
+	}
+	public void setHtmlChannelOld(String htmlChannelOld) {
+		this.htmlChannelOld = htmlChannelOld;
 	}
 }
