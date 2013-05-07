@@ -263,6 +263,14 @@ public class InfoAction extends BaseAction{
 						channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
 						ismakehtml=false;
 					}
+					if ("1".equals(channel.getHtmlchannelold())) {
+						//原所属栏目静态化
+						if (oldchannelid!=null && oldchannelid.trim().length()>0 && !oldchannelid.equals(info.getChannel())) {
+							Channel oldchannel=channelService.findById(oldchannelid);
+							channelService.html(site, oldchannel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+							ismakehtml=false;
+						}
+					}
 					if ("1".equals(channel.getHtmlparchannel())) {
 						//所属栏目的父栏目静态化
 						List<Channel> channeList = channelService.findPath(info.getChannel());
