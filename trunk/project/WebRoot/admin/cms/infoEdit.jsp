@@ -62,6 +62,7 @@
 							</TD>
 							<TD width="70%" align="left">
 								<input type="hidden" name="info.channel" id="channelId" value="${channel.id }"/>
+								<input type="hidden" name="oldchannelid" value="${channel.id }"/>
 								<INPUT onblur="this.className='inputblur';"  readonly id="channelName" onclick="selectChannel()"
 									class=inputblur onfocus="this.className='inputfocus';"  style="cursor:hand" title="点击选择栏目"
 									maxLength=50 type=text name=channel.name value="${channel.name }"/>
