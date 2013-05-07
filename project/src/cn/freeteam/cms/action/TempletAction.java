@@ -570,6 +570,16 @@ public class TempletAction extends BaseAction{
 		return null;
 	}
 
+	/**
+	 * 初始化数据页面
+	 * @return
+	 */
+	public String data(){
+		if (templet!=null && templet.getId()!=null && templet.getId().trim().length()>0) {
+			templet=templetService.findById(templet.getId());
+		}
+		return "data";
+	}
 	//set and get
 	public TempletService getTempletService() {
 		return templetService;
