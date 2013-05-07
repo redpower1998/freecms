@@ -1,0 +1,465 @@
+#summary applyopen
+#labels free,cms,freecms,开源,免费,内容管理系统
+
+= applyopen=
+
+<p>
+	<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.3 开始支持</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">在使用申请公开相关标签时，标签会封装<span>applyopen</span><span>供页面调用。</span></span></p>
+<p>
+	 </p>
+<table style="border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">属性</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">说明</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">id</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">id</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">type</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">申请人类型 0公民 1法人/其他组织</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">typeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">申请人类型 公民  法人/其他组织</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">name</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">名称</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">unit</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">工作单位</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">cardtype</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">证件名称</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">cardid</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">证件号码</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">address</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">联系地址</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">postcode</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">邮政编码</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">tel</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">联系电话</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">fax</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">传真</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">email</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">电子邮箱</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">lpname</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">法人名称</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">unitcode</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">组织机构代码</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">legalperson</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">法人代表</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">linkman</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">联系人</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">linkmantel</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">联系人电话</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">lpfax</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">法人传真</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">buslicense</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">营业执照信息</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">lpaddress</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">法人联系地址</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">lppostcode</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">法人邮政编码</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">lpemail</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">法人电子邮箱</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">detail</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">所需信息的内容描述</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">touse</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">所需信息的用途</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">pubtype</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">所需信息的指定提供方式</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">0 </span><span style="font-family: '宋体'; font-size: 10.5pt">纸面</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">1 </span><span style="font-family: '宋体'; font-size: 10.5pt">电子邮件</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">2 </span><span style="font-family: '宋体'; font-size: 10.5pt">光盘</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">3 </span><span style="font-family: '宋体'; font-size: 10.5pt">磁盘</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">pubtypeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">所需信息的指定提供方式</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">gettype</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">获取信息的方式</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">0 </span><span style="font-family: '宋体'; font-size: 10.5pt">邮寄</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">1 </span><span style="font-family: '宋体'; font-size: 10.5pt">快递</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">2 </span><span style="font-family: '宋体'; font-size: 10.5pt">电子邮件</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">3 </span><span style="font-family: '宋体'; font-size: 10.5pt">传真</span></p>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">4 </span><span style="font-family: '宋体'; font-size: 10.5pt">自行领取</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">gettypeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">获取信息的方式</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">applyfree</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">是否申请减免费用 1是 0否</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">applyfreeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">是否申请减免费用</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">othertype</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">可接受其他方式1是 0否</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">othertypeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">可接受其他方式</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">infonum</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">所需信息的编号</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">querycode</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">查询码</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">ip</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">IP</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">state</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">处理状态 0办理中 1已办结</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">stateStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">办理状态 办理中 已办结</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">recontent</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">回复内容</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">retime</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">回复时间</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">retimeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">回复时间(YYYY-MM-dd)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">proflow</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">办理流程</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">userid</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">办理人</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	 </p>
