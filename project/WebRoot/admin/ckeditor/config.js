@@ -18,4 +18,8 @@ CKEDITOR.editorConfig = function( config )
     config.filebrowserWindowHeight = '700';   
     config.language =  "zh-cn" ;  
     config.extraPlugins += (config.extraPlugins ? ',autoformat' : 'autoformat');
+	config.pasteFromWordIgnoreFontFace = false; //默认为忽略格式
+	config.pasteFromWordRemoveFontStyles = false;
+	config.pasteFromWordRemoveStyles = false;
+
 };
