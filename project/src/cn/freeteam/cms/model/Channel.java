@@ -21,6 +21,7 @@ public class Channel implements Serializable{
     public static String NAVIGATION_NO="0";
     private String pagemark;
     private String htmlchannel;
+    private String htmlchannelold;
     private String htmlparchannel;
     private String htmlsite;
 
@@ -478,5 +479,13 @@ public class Channel implements Serializable{
 
 	public void setHtmlsite(String htmlsite) {
 		this.htmlsite = htmlsite;
+	}
+
+	public String getHtmlchannelold() {
+		return htmlchannelold;
+	}
+
+	public void setHtmlchannelold(String htmlchannelold) {
+		this.htmlchannelold = htmlchannelold;
 	}
 }
