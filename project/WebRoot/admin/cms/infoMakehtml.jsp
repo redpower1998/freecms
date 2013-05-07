@@ -25,6 +25,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input type="hidden" name="info.id" value="${info.id }"/>
 				操作成功，请选择需要静态化的内容。<br/>
 				<input type="checkbox" name="htmlChannel" value="1" />所属栏目页面静态化<br/>
+				<s:if test='%{oldchannelid !=null && oldchannelid!="" && info.channel != oldchannelid}'>
+				<input type="hidden" name="oldchannelid" value="${oldchannelid }"/>
+				<input type="checkbox" name="htmlChannelOld" value="1" />原所属栏目页面静态化<br/>
+				</s:if>
 				<input type="checkbox" name="htmlChannelPar" value="1" />所属栏目的所有父栏目页面静态化<br/>
 				<input type="checkbox" name="htmlIndex" value="1" />站点首页静态化<br/>
 	
