@@ -58,6 +58,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="cn/freeteam/cms/model/InfoSignMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/SiteMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/TempletMapper.xml"/>
+		<mapper resource="cn/freeteam/cms/model/TempletChannelMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/LinkMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/RoleSiteMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/RoleChannelMapper.xml"/>
