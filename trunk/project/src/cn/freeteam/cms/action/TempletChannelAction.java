@@ -1,15 +1,18 @@
 package cn.freeteam.cms.action;
 
 import java.io.File;
+import java.util.List;
 import java.util.UUID;
 
 import cn.freeteam.base.BaseAction;
+import cn.freeteam.cms.model.Channel;
 import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.model.TempletChannel;
 import cn.freeteam.cms.service.TempletChannelService;
 import cn.freeteam.cms.service.TempletService;
 import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.OperLogUtil;
+import cn.freeteam.util.ResponseUtil;
 
 /**
  * 
@@ -44,6 +47,8 @@ public class TempletChannelAction extends BaseAction{
 	private File img;
 	private String imgFileName;
 	private String oldImg;
+	private String root;
+	private String onclick;
 	
 	public File getImg() {
 		return img;
@@ -187,6 +192,52 @@ public class TempletChannelAction extends BaseAction{
 		return null;
 	}
 
+	/**
+	 * 树结构
+	 * @return
+	 */
+	public String son(){		
+		List<TempletChannel> list=null; 
+		list=templetChannelService.findByPar("", root);
+		//生成树
+		StringBuilder stringBuilder=new StringBuilder();
+		stringBuilder.append("[");
+		if (list!=null && list.size()>0) {
+			for (int i = 0; i <list.size() ; i++) {
+				if (templetChannel!=null && templetChannel.getId()!=null && templetChannel.getId().trim().length()>0 && templetChannel.getId().equals(list.get(i).getId())) {
+					continue;
+				}
+				if (!"[".equals(stringBuilder.toString())) {
+					stringBuilder.append(",");
+				}
+				stringBuilder.append("{ \"text\": \"");
+				stringBuilder.append("<a  onclick=");
+				if (onclick!=null && onclick.trim().length()>0) {
+					stringBuilder.append(onclick);
+				}else {
+					stringBuilder.append("showOne");
+				}
+				stringBuilder.append("('");
+				stringBuilder.append(list.get(i).getId());
+				stringBuilder.append("','");
+				stringBuilder.append(list.get(i).getName().replaceAll(" ", ""));
+				stringBuilder.append("')><b>");
+				stringBuilder.append(list.get(i).getName());
+				stringBuilder.append("\", \"hasChildren\": ");
+				if (templetChannelService.hasChildren(list.get(i).getId())) {
+					stringBuilder.append("true");
+				}else {
+					stringBuilder.append("false");
+				}
+				stringBuilder.append(",\"id\":\"");
+				stringBuilder.append(list.get(i).getId());
+				stringBuilder.append("\" }");
+			}
+		}
+		stringBuilder.append("]");
+		ResponseUtil.writeUTF(getHttpResponse(), stringBuilder.toString());
+		return null;
+	}
 	public TempletChannelService getTempletChannelService() {
 		return templetChannelService;
 	}
@@ -223,5 +274,25 @@ public class TempletChannelAction extends BaseAction{
 
 	public void setTempletChannel(TempletChannel templetChannel) {
 		this.templetChannel = templetChannel;
+	}
+
+
+	public String getRoot() {
+		return root;
+	}
+
+
+	public void setRoot(String root) {
+		this.root = root;
+	}
+
+
+	public String getOnclick() {
+		return onclick;
+	}
+
+
+	public void setOnclick(String onclick) {
+		this.onclick = onclick;
 	}
 }
