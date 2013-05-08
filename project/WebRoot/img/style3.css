@@ -61,6 +61,13 @@ A:active {
 .tab, .tab A:link, .tab A:visited, .tab A:hover, .tab A:active{
 	line-height:28px;
 }
+
+.tab100{
+	margin-top:0px; margin-bottom:0px;width:100%; text-align:left;margin-left: auto; margin-right: auto;
+}
+.tab100, .tab100 A:link, .tab100 A:visited, .tab100 A:hover, .tab100 A:active{
+	line-height:28px;
+}
 .tabOn{
 	FONT-WEIGHT: 900; width:70px; text-align:center; float:left; margin-right:1px; cursor:pointer
 }
@@ -75,6 +82,9 @@ A:active {
 }
 .column{
 	line-height:18px; margin-top:0px; width:95%; margin-bottom:15px;margin-left: auto; margin-right: auto;
+}
+.column100{
+	line-height:18px; margin-top:0px; width:100%; margin-left: auto; margin-right: auto;
 }
 .columntitle{
 	margin:0; padding:3px; line-height:24px; font-size:14px; padding-left:17px; color:#000000; text-align:left;

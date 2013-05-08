@@ -73,6 +73,9 @@ A:active {
 .column{
 	border:1px #93b9dc solid;
 }
+.column100{
+	border:1px #93b9dc solid;
+}
 .columntitle{
 	background:#bfd3e6; border-bottom:1px #93b9dc solid; color:#000000;
 }
