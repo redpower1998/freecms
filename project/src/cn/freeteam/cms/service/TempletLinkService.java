@@ -1,10 +1,10 @@
 package cn.freeteam.cms.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.TempletLinkMapper;
-import cn.freeteam.cms.model.Link;
 import cn.freeteam.cms.model.TempletLink;
 import cn.freeteam.cms.model.TempletLinkExample;
 import cn.freeteam.cms.model.TempletLinkExample.Criteria;
@@ -39,6 +39,70 @@ public class TempletLinkService extends BaseService{
 	
 	public TempletLinkService() {
 		initMapper("templetLinkMapper");
+	}
+
+	/**
+	 * 删除分类
+	 * @param id
+	 */
+	public void delClass(String id){
+		if (id!=null && id.trim().length()>0) {
+			//先删除子链接
+			TempletLinkExample example=new TempletLinkExample();
+			Criteria criteria=example.createCriteria();
+			criteria.andParidEqualTo(id);
+			templetLinkMapper.deleteByExample(example);
+			//删除此分类
+			templetLinkMapper.deleteByPrimaryKey(id);
+			DBCommit();
+		}
+	}
+	/**
+	 * 更新
+	 * @param templet
+	 */
+	public void update(TempletLink templetLink){
+		templetLinkMapper.updateByPrimaryKey(templetLink);
+		DBCommit();
+	}
+	/**
+	 * 添加
+	 * @param link
+	 * @return
+	 */
+	public String add(TempletLink templetLink){
+		templetLink.setId(UUID.randomUUID().toString());
+		templetLinkMapper.insert(templetLink);
+		DBCommit();
+		return templetLink.getId();
+	}
+	/**
+	 * 检验是否已存在页面标识
+	 * @param siteid
+	 * @param type
+	 * @param isClass
+	 * @return
+	 */
+	public boolean hasPagemark(String templet,String type,boolean isClass,String pagemark){
+		TempletLinkExample example=new TempletLinkExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andTempletEqualTo(templet);
+		criteria.andTypeEqualTo(type);
+		criteria.andPagemarkEqualTo(pagemark);
+		if (isClass) {
+			criteria.andSql(" (parid is null or parid = '') ");
+		}else {
+			criteria.andSql(" (parid is not null and parid != '') ");
+		}
+		return templetLinkMapper.countByExample(example)>0;
+	}
+	/**
+	 * 根据id查询
+	 * @param id
+	 * @return
+	 */
+	public TempletLink findById(String id){
+		return templetLinkMapper.selectByPrimaryKey(id);
 	}
 	/**
 	 * 查询
