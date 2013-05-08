@@ -62,7 +62,7 @@
 			<result name="templetChannelSelect" >/admin/cms/templetChannelSelect.jsp</result>
 		</action>
 		<action name="templetLink_*" method="{1}" class="cn.freeteam.cms.action.TempletLinkAction">
-			<result name="class" >/admin/cms/templetlinkClass.jsp</result>
+			<result name="class" >/admin/cms/templetLinkClass.jsp</result>
 			<result name="clazzEdit" >/admin/cms/templetLinkClassEdit.jsp</result>
 		</action>
 		<action name="html_*" method="{1}" class="cn.freeteam.cms.action.HtmlAction">
