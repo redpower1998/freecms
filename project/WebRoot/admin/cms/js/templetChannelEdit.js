@@ -21,13 +21,13 @@ function del(id){
 	}
 }
 function parButton(id){
-	$.weeboxs.open('templetChannel_templetChannel.do?templetChannel.id='+id, {title:'改变所属栏目', contentType:'ajax',height:360,width:300,showOk:false});
+	$.weeboxs.open('templetChannel_templetChannel.do?templet.id='+$("#templetId").val()+'&templetChannel.id='+id, {title:'改变所属栏目', contentType:'ajax',height:360,width:300,showOk:false});
 }
 function showOne(id,name){
-	$.post("templetChannel_par.do","templetChannel.id="+$("#channelId").val()+"&templetChannel.parid="+id,parComplete,"text");
+	$.post("templetChannel_par.do","templetChannel.id="+$("#templetChannelId").val()+"&templetChannel.parid="+id,parComplete,"text");
 }
 function parTemplet(templetid){
-	$.post("templetChannel_par.do","templetChannel.id="+$("#channelId").val()+"&templetChannel.templet="+templetid,parComplete,"text");
+	$.post("templetChannel_par.do","templetChannel.id="+$("#templetChannelId").val()+"&templetChannel.templetid="+templetid,parComplete,"text");
 }
 function parComplete(data){
 	alert(data);
@@ -55,30 +55,5 @@ function descOpenClose(){
 		$("#descOpenCloseV").val("0");
 		$("#descSpan").text("点击展开");
 		$("#dsecTd").fadeOut("slow"); 
-	}
-}
-
-function htmlquartzTypeChange(obj){
-	if(""==obj.value){
-		$("#exetimeTd").fadeOut("slow"); 
-		$("#intervalTd").fadeOut("slow"); 
-	}else if("0"==obj.value){
-		$("#exetimeTd").fadeIn("slow"); 
-		$("#intervalTd").fadeOut("slow"); 
-	}else if("1"==obj.value){
-		$("#exetimeTd").fadeOut("slow"); 
-		$("#intervalTd").fadeIn("slow"); 
-	}
-}
-function intervalTypeChange(obj){
-	if(""==obj.value){
-		$("#intervalhourTd").fadeOut("slow"); 
-		$("#intervalminTd").fadeOut("slow"); 
-	}else if("0"==obj.value){
-		$("#intervalhourTd").fadeIn("slow"); 
-		$("#intervalminTd").fadeOut("slow"); 
-	}else if("1"==obj.value){
-		$("#intervalhourTd").fadeOut("slow"); 
-		$("#intervalminTd").fadeIn("slow"); 
 	}
 }
