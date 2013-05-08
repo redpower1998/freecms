@@ -27,7 +27,7 @@
 			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					模板初始化化数据 (${templet.name })
+					模板初始化数据 (${templet.name })
 				</div>
 				<TABLE width="100%" border=0  cellpadding="0"
 					cellspacing="0">
