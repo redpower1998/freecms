@@ -8,6 +8,7 @@ import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.model.TempletLink;
 import cn.freeteam.cms.service.TempletLinkService;
 import cn.freeteam.cms.service.TempletService;
+import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 
 /**
@@ -42,7 +43,19 @@ public class TempletLinkAction extends BaseAction{
 	private List<TempletLink> templetLinkList;
 	private TempletService templetService;
 	private String order=" ordernum ";//默认按排序号
+	private String logContent;
+	private String ids;
 	
+	public String getIds() {
+		return ids;
+	}
+
+
+	public void setIds(String ids) {
+		this.ids = ids;
+	}
+
+
 	public Templet getTemplet() {
 		return templet;
 	}
@@ -78,6 +91,98 @@ public class TempletLinkAction extends BaseAction{
 	}
 	
 
+	/**
+	 * 分类编辑页面
+	 * @return
+	 */
+	public String clazzEdit(){
+		if (templet!=null && templet.getId()!=null && templet.getId().trim().length()>0) {
+			templet=templetService.findById(templet.getId());
+			if (templet!=null) {
+				if (templetLink!=null && templetLink.getId()!=null && templetLink.getId().trim().length()>0) {
+					templetLink=templetLinkService.findById(templetLink.getId());
+				}
+			}
+		}
+		return "clazzEdit";
+	}
+	/**
+	 * 编辑处理
+	 * @return
+	 */
+	public String clazzEditDo(){
+		String oper="添加";
+		try {
+			if (templetLink!=null && templetLink.getId()!=null) {
+				TempletLink  oldlink=templetLinkService.findById(templetLink.getId());
+				if (oldlink!=null) {
+					//如果原来有和现在的pagemark不同则判断新的pagemark是否存在
+					if (templetLink.getPagemark()!=null && templetLink.getPagemark().trim().length()>0&&
+							oldlink.getPagemark()!=null && 
+							!oldlink.getPagemark().equals(templetLink.getPagemark())) {
+						if (templetLinkService.hasPagemark(templetLink.getTemplet(), templetLink.getType(),true,templetLink.getPagemark())) {
+							write("msg此页面标识已存在", "UTF-8");
+							return null;
+						}
+					}
+					oldlink.setTemplet(templetLink.getSite());
+					oldlink.setName(templetLink.getName());
+					oldlink.setOrdernum(templetLink.getOrdernum());
+					oldlink.setIsok(templetLink.getIsok());
+					oldlink.setImg(templetLink.getImg());
+					oldlink.setPagemark(templetLink.getPagemark());
+					oper="修改";
+					templetLinkService.update(oldlink);
+				}
+			}else {
+				//添加
+				//判断页面标识是否已存在
+				if (templetLink.getPagemark()!=null && templetLink.getPagemark().trim().length()>0&&
+						templetLinkService.hasPagemark(templetLink.getTemplet(), templetLink.getType(), true,templetLink.getPagemark())) {
+					write("msg此页面标识已存在", "UTF-8");
+					return null;
+				}
+				templetLinkService.add(templetLink);
+			}
+			logContent=oper+"模板链接分类("+templetLink.getName()+")成功!";
+			write("succ"+templetLink.getSite(), "GBK");
+		} catch (Exception e) {
+			DBProException(e);
+			logContent=oper+"模板链接分类("+templetLink.getName()+")失败:"+e.toString()+"!";
+		}
+		OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+		return null;
+	}
+	/**
+	 * 删除
+	 * @return
+	 */
+	public String clazzDel(){
+		if (ids!=null && ids.trim().length()>0) {
+			StringBuilder sb=new StringBuilder();
+			String[] idArr=ids.split(";");
+			if (idArr!=null && idArr.length>0) {
+				for (int i = 0; i < idArr.length; i++) {
+					if (idArr[i].trim().length()>0) {
+						try {
+							templetLink=templetLinkService.findById(idArr[i]);
+							if (templetLink!=null) {
+								templetLinkService.delClass(idArr[i]);
+								sb.append(idArr[i]+";");
+								logContent="删除模板链接分类("+templetLink.getName()+")成功!";
+							}
+						} catch (Exception e) {
+							DBProException(e);
+							logContent="删除模板链接分类("+templetLink.getName()+")失败:"+e.toString()+"!";
+						}
+						OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+					}
+				}
+			}
+			write(sb.toString(), "GBK");
+		}
+		return null;
+	}
 	/**
 	 * 链接类别
 	 * @return
@@ -131,5 +236,15 @@ public class TempletLinkAction extends BaseAction{
 
 	public void setOrder(String order) {
 		this.order = order;
+	}
+
+
+	public String getLogContent() {
+		return logContent;
+	}
+
+
+	public void setLogContent(String logContent) {
+		this.logContent = logContent;
 	}
 }
