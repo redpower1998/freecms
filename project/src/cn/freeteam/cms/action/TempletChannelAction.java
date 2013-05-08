@@ -44,6 +44,7 @@ public class TempletChannelAction extends BaseAction{
 	private TempletService templetService;
 	private Templet templet;
 	private TempletChannel templetChannel; 
+	private List<TempletChannel> templetChannelList;
 	private File img;
 	private String imgFileName;
 	private String oldImg;
@@ -83,7 +84,87 @@ public class TempletChannelAction extends BaseAction{
 	public TempletChannelAction() {
 		init("templetChannelService","templetService");
 	}
+	
 
+	/**
+	 * 删除
+	 * @return
+	 */
+	public String del(){
+		try {
+			if (templetChannel!=null && templetChannel.getId()!=null && templetChannel.getId().trim().length()>0) {
+				templetChannelService.del(templetChannel.getId(),getHttpRequest());
+				OperLogUtil.log(getLoginName(), "删除模板栏目 "+templetChannel.getName(), getHttpRequest());
+				write("<script>alert('操作成功');parent.location.reload();</script>", "UTF-8");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			write(e.toString(), "UTF-8");
+		}
+		return null;
+	}
+	/**
+	 * 改变所属栏目
+	 * @return
+	 */
+	public String par(){
+		try {
+			if (templetChannel!=null) {
+				if (templetChannel.getId()!=null && templetChannel.getId().trim().length()>0
+					&& templetChannel.getParid()!=null && templetChannel.getParid().trim().length()>0) {
+					//改为栏目
+					TempletChannel partempletChannel=templetChannelService.findById(templetChannel.getParid());
+					if (partempletChannel!=null) {
+						templetChannel=templetChannelService.findById(templetChannel.getId());
+						if (templetChannel!=null) {
+							templetChannel.setParid(partempletChannel.getId());
+							templetChannelService.update(templetChannel);
+							OperLogUtil.log(getLoginName(), "改变模板栏目 "+templetChannel.getName()+" 的所属栏目为 "+partempletChannel.getName(), getHttpRequest());
+							write("操作成功", "UTF-8");
+						}
+					}
+				}else if (templetChannel.getTempletid()!=null && templetChannel.getTempletid().trim().length()>0) {
+					//改为模板
+					TempletChannel oldtempletChannel=templetChannelService.findById(templetChannel.getId());
+					templet=templetService.findById(templetChannel.getTempletid());
+					if (oldtempletChannel!=null && templet!=null) {
+						oldtempletChannel.setParid("");
+						templetChannelService.update(oldtempletChannel);
+						OperLogUtil.log(getLoginName(), "改变模板栏目 "+oldtempletChannel.getName()+" 的所属栏目为 "+templet.getName()+" 模板的一级栏目", getHttpRequest());
+						write("操作成功", "UTF-8");
+					}
+				}
+			}
+		} catch (Exception e) {
+			write(e.toString(), "UTF-8");
+		}
+		return null;
+	}
+
+	/**
+	 * 栏目管理页面
+	 * @return
+	 */
+	public String templetChannel(){
+		if (templet!=null && templet.getId()!=null && templet.getId().trim().length()>0) {
+			templet=templetService.findById(templet.getId());
+			//获取当前管理站点
+			if (templetChannel!=null && templetChannel.getId()!=null && templetChannel.getId().trim().length()>0) {
+				if (!templetChannel.getId().equals("select")) {
+					templetChannel=templetChannelService.findById(templetChannel.getId());
+				}
+				templetChannelList=templetChannelService.findByPar(templet.getId(), "par");
+				if (templetChannelList!=null && templetChannelList.size()>0) {
+					for (int i = 0; i < templetChannelList.size(); i++) {
+						if (templetChannelService.hasChildren(templetChannelList.get(i).getId())) {
+							templetChannelList.get(i).setHasChildren("1");
+						}
+					}
+				}
+			}
+		}
+		return "templetChannelSelect";
+	}
 
 	/**
 	 * 编辑页面
@@ -148,7 +229,7 @@ public class TempletChannelAction extends BaseAction{
 					templetChannel.setImg("/upload/"+id+ext);
 				}
 				templetChannelService.update(templetChannel);
-				OperLogUtil.log(getLoginName(), "更新栏目 "+templetChannel.getName(), getHttpRequest());
+				OperLogUtil.log(getLoginName(), "更新模板栏目 "+templetChannel.getName(), getHttpRequest());
 			}else {
 				//添加
 				//判断页面标识是否存在
@@ -180,7 +261,7 @@ public class TempletChannelAction extends BaseAction{
 					templetChannel.setImg("/upload/"+id+ext);
 				}
 				templetChannelService.insert(templetChannel);
-				OperLogUtil.log(getLoginName(), "添加栏目 "+templetChannel.getName(), getHttpRequest());
+				OperLogUtil.log(getLoginName(), "添加模板栏目 "+templetChannel.getName(), getHttpRequest());
 			}
 			write("<script>alert('操作成功!');location.href='templetChannel_edit.do?templetChannel.id="+templetChannel.getId()+"';</script>", "GBK");
 			return null;
@@ -295,4 +376,16 @@ public class TempletChannelAction extends BaseAction{
 	public void setOnclick(String onclick) {
 		this.onclick = onclick;
 	}
+
+
+	public List<TempletChannel> getTempletChannelList() {
+		return templetChannelList;
+	}
+
+
+	public void setTempletChannelList(List<TempletChannel> templetChannelList) {
+		this.templetChannelList = templetChannelList;
+	}
+
+
 }
