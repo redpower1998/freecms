@@ -243,9 +243,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<TR>
 							<TD  align="center" colspan="10">
 							<input type="button" value="保存" onclick="save(this.form)"  class="button"  />&nbsp;
-							<s:if test='%{channel!=null && templetChannel.id != null && templetChannel.id != "null" && templetChannel.id != "" }'>
+							<s:if test='%{templetChannel!=null && templetChannel.id != null && templetChannel.id != "null" && templetChannel.id != "" }'>
 							<input type="button" value="删除" onclick="del('${templetChannel.id }')"  class="button"  />&nbsp;
-							<input type="button" value="添加下级栏目" onclick="addSon('${templetChannel.id }','${site.id }')"  class="button"  />
+							<input type="button" value="添加下级栏目" onclick="addSon('${templetChannel.id }','${templet.id }')"  class="button"  />
 							<input type="button" value="改变所属栏目" onclick="parButton('${templetChannel.id }')"  class="button"  />
 							</s:if>
 							</TD>
