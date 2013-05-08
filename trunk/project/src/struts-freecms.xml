@@ -56,6 +56,10 @@
 			<result name="selectFile" >/admin/cms/templetSelectFile.jsp</result>
 			<result name="data" >/admin/cms/templetData.jsp</result>
 		</action>
+		<action name="templetChannel_*" method="{1}" class="cn.freeteam.cms.action.TempletChannelAction">
+		 	<interceptor-ref name ="fileUploadStack" /> 
+			<result name="edit" >/admin/cms/templetChannelEdit.jsp</result>
+		</action>
 		<action name="html_*" method="{1}" class="cn.freeteam.cms.action.HtmlAction">
 			<result name="index" >/admin/cms/htmlIndex.jsp</result>
 			<result name="indexConfirm" >/admin/cms/htmlIndexConfirm.jsp</result>
