@@ -20,7 +20,7 @@
 	<script src="../../js/jquery.treeview.edit.js" type="text/javascript"></script>
 	<script src="../../js/jquery.treeview.async.js" type="text/javascript"></script>
 
-		<script type="text/javascript" src="js/templetData.js"></script>
+		<script type="text/javascript" src="js/templetChannel.js"></script>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
 		
@@ -29,43 +29,79 @@
 				<div class="columntitle">
 					模板初始化化数据 (${templet.name })
 				</div>
-				<TABLE width="100%" border=0 align=center cellpadding="2"
+				<TABLE width="100%" border=0  cellpadding="0"
 					cellspacing="0">
 					<TBODY>
-						<TR class=summary-title>
-							<TD height="30" align=left style="padding-left: 10px;">
+						<TR >
+							<TD >
 							
-								模板名称：
-								
-								<input name="templet.name" type="text" maxlength="500"
-									class="colorblur" onfocus="this.className='colorfocus';"
-									onblur="this.className='colorblur';"  />
-								每页显示条数：
-								<select name="pageSize"
-									id="pageSize">
-									<option selected="selected" value="10">
-										10
-									</option>
-									<option value="30">
-										30
-									</option>
-									<option value="50">
-										50
-									</option>
-									<option value="100">
-										100
-									</option>
-									<option value="200">
-										200
-									</option>
-									<option value="300">
-										300
-									</option>
-
-								</select>
-								
-								<input type="button" name="Search" value="搜 索" id="Search" onclick="this.form.submit();"
-									class="button" style="MARGIN-BOTTOM: 0px" />
+							
+							<DIV class=tab100>
+				<DIV class=tabOn>
+					栏目数据
+				</DIV>
+				<DIV class=tabOff>
+					<A href="pwd.jsp">链接分类</A>
+				</DIV>
+				<DIV class=clearer></DIV>
+			</DIV>
+			
+			<DIV class=column100>
+			<div id="man_zone" >
+  <table width="99%" border="0" align="left"  cellpadding="3" cellspacing="1" >
+    <tr>
+      <td width="30%"  align="left" valign="top" class="treetd">
+      
+			<span><font size="2"><b>栏目管理</b></font>
+			<a href="#" onclick="location.reload();"><img src="../../img/refresh.gif" title="点击刷新栏目" /></a><br/>
+			<input type="hidden" name="templet.id" id="templetId" value="${templet.id }"/>
+			<input type="button" value="添加一级栏目" onclick="addOne()"  class="button"  />
+			</span>
+			
+		
+	<ul id="mixedchannel" >
+		
+			<s:iterator value="templetChanneList" var="bean" status="stuts">
+				<li id="<s:property value="id"/>" class="hasChildren">
+					<span><font size="2">
+					<a href="templetChannel_edit.do?templetChannel.id=<s:property value="id"/>" title="点击编辑栏目" target="channelFrame"><b><s:property value="name"/></b></a>
+					</font>
+					</span>
+					<s:if test='%{"1"==#bean.hasChildren}'>
+					<ul>
+						<li><span  >&nbsp;</span></li>
+					</ul>
+					</s:if>
+				</li>
+			</s:iterator>
+	</ul>	
+      </td>
+      <td width="70%">
+      
+      <iframe width="100%" height="500" name="channelFrame" id="channelFrame" framespacing="0" border="false"  frameborder="0"></iframe>
+      
+      
+      </td>
+    </tr>
+  </table>
+</div>
+<script type="text/javascript">
+	function initTreesPar() {
+		$("#mixedchannel").treeview({
+			url: "templetChannel_son.do",
+			ajax: {
+				data: {
+					"additional": function() {
+						return "yeah: " + new Date;
+					}
+				},
+				type: "post"
+			}
+		});
+	}
+	initTreesPar();
+	</script>
+			</DIV>
 							</TD>
 						</TR>
 						
