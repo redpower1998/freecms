@@ -1378,6 +1378,11 @@ public class TempletChannelExample {
             addCriterion("templetid =", value, "templetid");
             return (Criteria) this;
         }
+        public Criteria andSql(String value) {
+            addCriterion(value);
+            return (Criteria) this;
+        }
+
 
         public Criteria andTempletidNotEqualTo(String value) {
             addCriterion("templetid <>", value, "templetid");

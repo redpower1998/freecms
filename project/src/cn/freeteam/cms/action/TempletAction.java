@@ -13,7 +13,9 @@ import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Info;
 import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.model.Templet;
+import cn.freeteam.cms.model.TempletChannel;
 import cn.freeteam.cms.service.SiteService;
+import cn.freeteam.cms.service.TempletChannelService;
 import cn.freeteam.cms.service.TempletService;
 import cn.freeteam.model.Roles;
 import cn.freeteam.util.FileUtil;
@@ -51,9 +53,11 @@ import cn.freeteam.util.ZipTools;
 public class TempletAction extends BaseAction{
 
 	private TempletService templetService;
+	private TempletChannelService templetChannelService;
 	private SiteService siteService;
 	
 	private List<Templet> templetList;
+	private List<TempletChannel> templetChanneList;
 	private List<File> sonFiles;
 	
 	private Templet templet;
@@ -102,7 +106,6 @@ public class TempletAction extends BaseAction{
 					try {
 						targetFile.createNewFile();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}else{
@@ -577,6 +580,18 @@ public class TempletAction extends BaseAction{
 	public String data(){
 		if (templet!=null && templet.getId()!=null && templet.getId().trim().length()>0) {
 			templet=templetService.findById(templet.getId());
+			init("templetChannelService");
+			//栏目管理页面
+			//获取一级栏目 
+			templetChanneList=templetChannelService.findByPar(templet.getId(), "par");
+			//设置是否有子栏目
+			if (templetChanneList!=null && templetChanneList.size()>0) {
+				for (int i = 0; i < templetChanneList.size(); i++) {
+					if (templetChannelService.hasChildren(templetChanneList.get(i).getId())) {
+						templetChanneList.get(i).setHasChildren("1");
+					}
+				}
+			}
 		}
 		return "data";
 	}
@@ -748,5 +763,17 @@ public class TempletAction extends BaseAction{
 	}
 	public void setInputid(String inputid) {
 		this.inputid = inputid;
+	}
+	public TempletChannelService getTempletChannelService() {
+		return templetChannelService;
+	}
+	public void setTempletChannelService(TempletChannelService templetChannelService) {
+		this.templetChannelService = templetChannelService;
+	}
+	public List<TempletChannel> getTempletChanneList() {
+		return templetChanneList;
+	}
+	public void setTempletChanneList(List<TempletChannel> templetChanneList) {
+		this.templetChanneList = templetChanneList;
 	}
 }
