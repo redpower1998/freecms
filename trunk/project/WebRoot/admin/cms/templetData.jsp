@@ -24,7 +24,6 @@
 	</HEAD>
 	<BODY style="padding:0;margin:0">
 		
-			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
 					模板初始化数据 (${templet.name })
@@ -41,7 +40,7 @@
 					栏目数据
 				</DIV>
 				<DIV class=tabOff>
-					<A href="pwd.jsp">链接分类</A>
+					<A href="templetLink_clazz.do?templet.id=${templet.id }">链接分类</A>
 				</DIV>
 				<DIV class=clearer></DIV>
 			</DIV>
