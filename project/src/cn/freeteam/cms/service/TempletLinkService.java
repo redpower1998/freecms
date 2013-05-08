@@ -1,7 +1,13 @@
 package cn.freeteam.cms.service;
 
+import java.util.List;
+
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.TempletLinkMapper;
+import cn.freeteam.cms.model.Link;
+import cn.freeteam.cms.model.TempletLink;
+import cn.freeteam.cms.model.TempletLinkExample;
+import cn.freeteam.cms.model.TempletLinkExample.Criteria;
 
 /**
  * 
@@ -33,6 +39,39 @@ public class TempletLinkService extends BaseService{
 	
 	public TempletLinkService() {
 		initMapper("templetLinkMapper");
+	}
+	/**
+	 * 查询
+	 */
+	public List<TempletLink> findAll(TempletLink templetLink,String order){
+		TempletLinkExample example=new TempletLinkExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(templetLink, criteria);
+		if (order!=null && order.trim().length()>0) {
+			example.setOrderByClause(order);
+		}
+		return templetLinkMapper.selectByExample(example);
+	}
+
+	/**
+	 * 处理查询条件
+	 * @param info
+	 * @param criteria
+	 */
+	public void proSearchParam(TempletLink templetLink,Criteria criteria){
+		if (templetLink!=null ) {
+			if (templetLink.getTemplet()!=null && templetLink.getTemplet().trim().length()>0) {
+				criteria.andTempletEqualTo(templetLink.getTemplet());
+			}
+			if ("1".equals(templetLink.getIsClass())) {
+				criteria.andSql(" (parid is null or parid = '') ");
+			}else {
+				criteria.andSql(" (parid is not null and parid != '') ");
+			}
+			if (templetLink.getType()!=null && templetLink.getType().trim().length()>0) {
+				criteria.andTypeEqualTo(templetLink.getType());
+			}
+		}
 	}
 
 	public TempletLinkMapper getTempletLinkMapper() {

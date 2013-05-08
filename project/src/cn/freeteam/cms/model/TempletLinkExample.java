@@ -619,6 +619,10 @@ public class TempletLinkExample {
             return (Criteria) this;
         }
 
+        public Criteria andSql(String value) {
+            addCriterion(value);
+            return (Criteria) this;
+        }
         public Criteria andSiteNotEqualTo(String value) {
             addCriterion("site <>", value, "site");
             return (Criteria) this;
