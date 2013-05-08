@@ -97,13 +97,23 @@
 						</TD>
 					</TR>
 					</s:iterator>
-					<TR class="tdbg" 
-						style="HEIGHT: 25px" >
-						<TD  align="center" colspan="10">
-							${pageStr }
-						</TD>
-					</TR>
 				</table>
+				<table width="95%" align="center">
+				<tr>
+					<td align="right">
+						<table cellpadding="0" cellspacing="0" width="100%">
+							<tr>
+								<td align="left">
+									<input type="button" value="添 加" onclick="add()"  class="button"  />&nbsp;
+									<input type="button" value="编 辑" onclick="edit()"  class="button"  />&nbsp;
+									<input type="button" value="删 除" onclick="del()"  class="button"  />
+
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
 			</DIV>
 							</TD>
 						</TR>
