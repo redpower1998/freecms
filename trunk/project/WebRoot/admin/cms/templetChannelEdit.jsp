@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="js/templetChannelEdit.js">
 		</script>
 		<form action="templetChannel_editDo.do" method="post" enctype="multipart/form-data">
-<input type="hidden" name="templet.id" value="${templet.id }">
+<input type="hidden" name="templet.id" id="templetId" value="${templet.id }">
 <input type="hidden" name="templetChannel.templetid" value="${templet.id }">
 <input type="hidden" name="templetChannel.parid" value="${templetChannel.parid }">
 <input type="hidden" name="templetChannel.id" id="templetChannelId" value="${templetChannel.id }">
