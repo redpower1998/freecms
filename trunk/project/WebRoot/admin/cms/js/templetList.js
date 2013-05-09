@@ -1,6 +1,6 @@
 //添加
 function add(){
-	location.href="templetAdd.jsp";
+	location.href="templetAdd.jsp?pageFuncId="+$("#pageFuncId").val();
 	/*$.weeboxs.open('templet_edit.do', {title:'添加模板', contentType:'ajax',height:210,width:500,
 		onok:function(){
 			if($.trim($("#name").val())==""){
@@ -163,5 +163,10 @@ function data(){
 }
 //导出
 function exportZip(){
-	location.href="templet_export.do?templet.id="+getCheckOneValue();
+	if(isCheckOne()){
+		$("#buttontd").html("正在导出中，请稍候...");
+		location.href="templet_export.do?templet.id="+getCheckOneValue();
+	}else{
+		alert("请选择一条记录!");
+	}
 }
