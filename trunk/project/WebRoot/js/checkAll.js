@@ -58,3 +58,13 @@ function isCheck(){
 	}
 	return false;
 }
+function checkAllGroup(checked,idpre){
+	var objs=document.getElementsByName("ids");
+	if(objs!=null && objs.length>0){
+		for(var i=0;i<objs.length;i++){
+			if(objs[i].id.indexOf(idpre)>-1){
+				objs[i].checked=checked;
+			}
+		}
+	}
+}
