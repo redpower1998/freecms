@@ -52,7 +52,30 @@
 				<p>
 					<span style="font-family: 宋体">"parid":</span><span style="font-family: 宋体">查询此<span>id</span>下栏目<span>;</span></span></p>
 			</td>
-		</tr>
+		</tr><tr>
+					<td valign="top">
+						<p>
+							navigation</p>
+					</td>
+					<td valign="top">
+						<p>
+							从FreeCMS 1.3 开始支持</p>
+						<p>
+							是否导航 空字符串:所有;"1":是;"0":否;</p>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<p>
+							state</p>
+					</td>
+					<td valign="top">
+						<p>
+							从FreeCMS 1.3 开始支持</p>
+						<p>
+							是否有效 空字符串:所有;"1":是;"0":否;</p>
+					</td>
+				</tr>
 	</tbody>
 </table>
 <p>
