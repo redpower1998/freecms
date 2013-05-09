@@ -3,11 +3,20 @@ package cn.freeteam.cms.service;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.TempletLinkMapper;
+import cn.freeteam.cms.model.Templet;
+import cn.freeteam.cms.model.TempletChannel;
 import cn.freeteam.cms.model.TempletLink;
 import cn.freeteam.cms.model.TempletLinkExample;
 import cn.freeteam.cms.model.TempletLinkExample.Criteria;
+import cn.freeteam.util.XMLUtil;
 
 /**
  * 
@@ -134,6 +143,84 @@ public class TempletLinkService extends BaseService{
 			}
 			if (templetLink.getType()!=null && templetLink.getType().trim().length()>0) {
 				criteria.andTypeEqualTo(templetLink.getType());
+			}
+		}
+	}
+	/**
+	 * 生成指定模板的链接分类初始化数据xml文件
+	 * @param templetid
+	 */
+	public void createXML(Templet templet,HttpServletRequest request){
+		if (templet!=null) {
+			//查找是否有链接分类数据
+			TempletLink templetLink=new TempletLink();
+			templetLink.setTemplet(templet.getId());
+			templetLink.setIsClass("1");
+			List<TempletLink> list=findAll(templetLink, "");
+			if (list!=null && list.size()>0) {
+				//生成xml
+				Document document = DocumentHelper.createDocument();
+				//添加元素 links
+		        Element linksElement = document.addElement("links");
+		        //给links元素添加属性 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		        linksElement.addAttribute("xmlns:xs", "http://www.w3.org/2001/XMLSchema");
+		        for (int i = 0; i < list.size(); i++) {
+		        	templetLink=list.get(i);
+			        //添加元素link
+			        Element linkElement = linksElement.addElement("link");
+			        if (templetLink.getId()!=null) {
+				        //添加link子元素 id
+				        Element idElement = linkElement.addElement("id");
+				        idElement.setText(templetLink.getId());
+			        }
+			        if (templetLink.getName()!=null) {
+				        //添加link子元素 name
+				        Element nameElement = linkElement.addElement("name");
+				        nameElement.setText(templetLink.getName());
+			        }
+			        if (templetLink.getTemplet()!=null) {
+				        //添加link子元素 templet
+				        Element templetElement = linkElement.addElement("templet");
+				        templetElement.setText(templetLink.getTemplet());
+			        }
+			        if (templetLink.getImg()!=null) {
+				        //添加link子元素 img
+				        Element imgElement = linkElement.addElement("img");
+				        imgElement.setText(templetLink.getImg());
+			        }
+			        if (templetLink.getParid()!=null) {
+				        //添加link子元素 parid
+				        Element paridElement = linkElement.addElement("parid");
+				        paridElement.setText(templetLink.getParid());
+			        }
+			        if (templetLink.getUrl()!=null) {
+				        //添加link子元素 url
+				        Element urlElement = linkElement.addElement("url");
+				        urlElement.setText(templetLink.getUrl());
+			        }
+			        if (templetLink.getOrdernum()!=null) {
+				        //添加link子元素 ordernum
+				        Element ordernumElement = linkElement.addElement("ordernum");
+				        ordernumElement.setText(""+templetLink.getOrdernum());
+			        }
+			        if (templetLink.getPagemark()!=null) {
+				        //添加link子元素 pagemark
+				        Element pagemarkElement = linkElement.addElement("pagemark");
+				        pagemarkElement.setText(templetLink.getPagemark());
+			        }
+			        if (templetLink.getIsok()!=null) {
+				        //添加link子元素 isok
+				        Element isokElement = linkElement.addElement("isok");
+				        isokElement.setText(templetLink.getIsok());
+			        }
+			        if (templetLink.getType()!=null) {
+				        //添加link子元素 type
+				        Element typeElement = linkElement.addElement("type");
+				        typeElement.setText(templetLink.getType());
+			        }
+				}
+		        //生成xml文件
+		        XMLUtil.writeFile(document, request.getRealPath("/")+"/templet/"+templet.getId()+"/links.xml");
 			}
 		}
 	}

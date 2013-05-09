@@ -16,6 +16,7 @@ import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.model.TempletChannel;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.cms.service.TempletChannelService;
+import cn.freeteam.cms.service.TempletLinkService;
 import cn.freeteam.cms.service.TempletService;
 import cn.freeteam.model.Roles;
 import cn.freeteam.util.FileUtil;
@@ -54,6 +55,7 @@ public class TempletAction extends BaseAction{
 
 	private TempletService templetService;
 	private TempletChannelService templetChannelService;
+	private TempletLinkService templetLinkService;
 	private SiteService siteService;
 	
 	private List<Templet> templetList;
@@ -511,7 +513,7 @@ public class TempletAction extends BaseAction{
 						msg="<script>alert('请上传格式为zip的压缩文件!');history.back();</script>";
 						return "msg";
 					}
-					File targetFile=new File(realPath+"\\templet\\"+templet.getId()+"\\"+templet.getId()+ext);
+					File targetFile=new File(realPath+"\\templet\\"+templet.getId()+ext);
 					File folder=new File(realPath+"\\templet\\"+templet.getId()+"\\");
 					if (!folder.exists()) {
 						folder.mkdirs();
@@ -522,7 +524,7 @@ public class TempletAction extends BaseAction{
 					//复制到目标文件
 					FileUtil.copy(uploadFile, targetFile);
 					//解压
-					ZipTools.unZip(realPath+"\\templet\\"+templet.getId()+"\\"+templet.getId()+ext, realPath+"\\templet\\"+templet.getId()+"\\");
+					ZipTools.unZip(realPath+"\\templet\\"+templet.getId()+ext, realPath+"\\templet\\"+templet.getId()+"\\");
 				}else {
 					FileUtil.copyDirectiory(realPath+"\\templet\\default", realPath+"\\templet\\"+templet.getId());
 				}
@@ -537,7 +539,7 @@ public class TempletAction extends BaseAction{
 			write("succ", "GBK");
 			return null;
 		}else {
-			return showMessage("添加模板成功", forwardUrl, forwardSeconds);
+			return showMessage("添加模板成功", "templet_list.do?pageFuncId="+pageFuncId, 3);
 		}
 	}
 
@@ -603,11 +605,25 @@ public class TempletAction extends BaseAction{
 		if (templet!=null && templet.getId()!=null && templet.getId().trim().length()>0) {
 			templet=templetService.findById(templet.getId());
 			if (templet!=null) {
-				init("templetChannelService");
-				templetChannelService.createXML(templet, getHttpRequest());
+				//生成zip文件
+				try {
+					//生成模板栏目xml文件
+					init("templetChannelService");
+					templetChannelService.createXML(templet, getHttpRequest());
+					//生成模板链接xml文件
+					init("templetLinkService");
+					templetLinkService.createXML(templet, getHttpRequest());
+					ZipTools.zip(getHttpRequest().getRealPath("/")+"/templet/"+templet.getId()+"/", 
+							getHttpRequest().getRealPath("/")+"/templet/"+templet.getId()+".zip");
+					msg="<script>history.back();window.open('../../templet/"+templet.getId()+".zip');</script>";
+					return "msg";
+				} catch (Exception e) {
+					e.printStackTrace();
+					showMessage="导出失败:"+e.getMessage();
+				}
 			}
 		}
-		return null;
+		return showMessage(showMessage, forwardUrl, forwardSeconds);
 	}
 	//set and get
 	public TempletService getTempletService() {
@@ -789,5 +805,11 @@ public class TempletAction extends BaseAction{
 	}
 	public void setTempletChanneList(List<TempletChannel> templetChanneList) {
 		this.templetChanneList = templetChanneList;
+	}
+	public TempletLinkService getTempletLinkService() {
+		return templetLinkService;
+	}
+	public void setTempletLinkService(TempletLinkService templetLinkService) {
+		this.templetLinkService = templetLinkService;
 	}
 }
