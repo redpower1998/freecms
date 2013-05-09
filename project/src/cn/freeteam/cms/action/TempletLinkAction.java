@@ -96,13 +96,8 @@ public class TempletLinkAction extends BaseAction{
 	 * @return
 	 */
 	public String clazzEdit(){
-		if (templet!=null && templet.getId()!=null && templet.getId().trim().length()>0) {
-			templet=templetService.findById(templet.getId());
-			if (templet!=null) {
-				if (templetLink!=null && templetLink.getId()!=null && templetLink.getId().trim().length()>0) {
-					templetLink=templetLinkService.findById(templetLink.getId());
-				}
-			}
+		if (templetLink!=null && templetLink.getId()!=null && templetLink.getId().trim().length()>0) {
+			templetLink=templetLinkService.findById(templetLink.getId());
 		}
 		return "clazzEdit";
 	}
@@ -125,7 +120,8 @@ public class TempletLinkAction extends BaseAction{
 							return null;
 						}
 					}
-					oldlink.setTemplet(templetLink.getSite());
+					oldlink.setTemplet(templetLink.getTemplet());
+					oldlink.setType(templetLink.getType());
 					oldlink.setName(templetLink.getName());
 					oldlink.setOrdernum(templetLink.getOrdernum());
 					oldlink.setIsok(templetLink.getIsok());
@@ -145,7 +141,7 @@ public class TempletLinkAction extends BaseAction{
 				templetLinkService.add(templetLink);
 			}
 			logContent=oper+"模板链接分类("+templetLink.getName()+")成功!";
-			write("succ"+templetLink.getSite(), "GBK");
+			write("succ"+templetLink.getTemplet(), "GBK");
 		} catch (Exception e) {
 			DBProException(e);
 			logContent=oper+"模板链接分类("+templetLink.getName()+")失败:"+e.toString()+"!";
