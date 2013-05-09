@@ -141,7 +141,7 @@
 					<td align="right">
 						<table cellpadding="0" cellspacing="0" width="100%">
 							<tr>
-								<td align="left">
+								<td align="left" id="buttontd">
 									<fs:operButtons />
 								</td>
 							</tr>

@@ -30,7 +30,7 @@
 	<BODY>
 		<FORM id=MyForm onsubmit="return addcheck()"
 			method=post name=MyForm action=templet_editDo.do enctype="multipart/form-data">
-			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${pageFuncId }"/>
+			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
 			<DIV class=tab>
 				<DIV class=tabOn >
 					添加模板
