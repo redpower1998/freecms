@@ -161,3 +161,7 @@ function data(){
 		alert("请选择一条记录!");
 	}
 }
+//导出
+function exportZip(){
+	location.href="templet_export.do?templet.id="+getCheckOneValue();
+}
