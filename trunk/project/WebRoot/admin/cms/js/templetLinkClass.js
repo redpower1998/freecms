@@ -1,7 +1,7 @@
 
 //添加
 function add(){
-	$.weeboxs.open('templetLink_clazzEdit.do', {title:'添加链接分类', contentType:'ajax',height:260,width:500,
+	$.weeboxs.open('templetLink_clazzEdit.do', {title:'添加链接分类', contentType:'ajax',height:240,width:500,
 		onok:function(){
 			if($.trim($("#name_edit").val())==""){
 				alert("请输入名称!");
@@ -12,7 +12,7 @@ function add(){
 			var isok="1";
 			if(document.getElementById("isok0").checked){isok="0";}
 			$.post("templetLink_clazzEditDo.do","templetLink.name="+$("#name_edit").val()+"&templetLink.isok="+isok+"&templetLink.ordernum="+$("#ordernum").val()
-			+"&templetLink.templet="+$("#templetId").val()+"&templetLink.type="+$("#type").val()+"&templetLink.pagemark="+$("#pagemark_edit").val()
+			+"&templetLink.templet="+$("#templetId").val()+"&templetLink.type="+$("#type_edit").val()+"&templetLink.pagemark="+$("#pagemark_edit").val()
 			,addComplete,"text");
 		}
 	});
@@ -20,7 +20,7 @@ function add(){
 //编辑
 function edit(){
 	if(isCheckOne()){
-		$.weeboxs.open('templetLink_clazzEdit.do?templetLink.id='+getCheckOneValue(), {title:'编辑链接分类', contentType:'ajax',height:260,width:500,
+		$.weeboxs.open('templetLink_clazzEdit.do?templetLink.id='+getCheckOneValue(), {title:'编辑链接分类', contentType:'ajax',height:240,width:500,
 			onok:function(){
 				if($.trim($("#name_edit").val())==""){
 					alert("请输入名称!");
@@ -31,7 +31,7 @@ function edit(){
 				var isok="1";
 				if(document.getElementById("isok0").checked){isok="0";}
 				$.post("templetLink_clazzEditDo.do","templetLink.id="+getCheckOneValue()+"&templetLink.name="+$("#name_edit").val()+"&templetLink.isok="+isok+"&templetLink.ordernum="+$("#ordernum").val()
-				+"&templetLink.templet="+$("#templetId").val()+"&templetLink.type="+$("#type").val()+"&templetLink.pagemark="+$("#pagemark_edit").val()
+				+"&templetLink.templet="+$("#templetId").val()+"&templetLink.type="+$("#type_edit").val()+"&templetLink.pagemark="+$("#pagemark_edit").val()
 				,editComplete,"text");
 			}
 		});
@@ -83,6 +83,16 @@ function delComplete(data){
 				if(datas[i]!="" && document.getElementById("tr"+datas[i])!=null){
 						document.getElementById("tr"+datas[i]).parentNode.removeChild(document.getElementById("tr"+datas[i]));
 				}
+			}
+		}
+	}
+}
+function checkAllGroup(checked,idpre){
+	var objs=document.getElementsByName("ids");
+	if(objs!=null && objs.length>0){
+		for(var i=0;i<objs.length;i++){
+			if(objs[i].id.indexOf(idpre)>-1){
+				objs[i].checked=checked;
 			}
 		}
 	}
