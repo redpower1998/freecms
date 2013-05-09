@@ -595,6 +595,20 @@ public class TempletAction extends BaseAction{
 		}
 		return "data";
 	}
+	/**
+	 * 导出
+	 * @return
+	 */
+	public String export(){
+		if (templet!=null && templet.getId()!=null && templet.getId().trim().length()>0) {
+			templet=templetService.findById(templet.getId());
+			if (templet!=null) {
+				init("templetChannelService");
+				templetChannelService.createXML(templet, getHttpRequest());
+			}
+		}
+		return null;
+	}
 	//set and get
 	public TempletService getTempletService() {
 		return templetService;
