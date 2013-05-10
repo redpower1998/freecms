@@ -80,7 +80,7 @@
 								</LABEL>
 							</TD>
 							<TD align="left">
-								<input type="radio" name="templetLink.isok" value="1" <s:if test="link==null || templetLink.isok==1">checked="checked"</s:if>>是
+								<input type="radio" name="templetLink.isok" value="1" <s:if test="templetLink==null || templetLink.isok==1">checked="checked"</s:if>>是
 								<input type="radio" id="isok0" name="templetLink.isok" value="0" <s:if test="templetLink.isok==0">checked="checked"</s:if> >否
 							</TD>
 						</TR>
