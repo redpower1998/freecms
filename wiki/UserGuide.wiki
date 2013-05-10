@@ -70,6 +70,7 @@
 ==== 标签 ====
 ===== [taglibChannel channel] =====
 ===== [taglibChannelList channelList] =====
+===== [taglibChannelPath channelPath] =====
 ===== [taglibInfoList infoList] =====
 ===== [taglibInfoPage infoPage] =====
 ===== [taglibInfoAttchs infoAttchs] =====
