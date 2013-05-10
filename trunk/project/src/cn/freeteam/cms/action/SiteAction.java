@@ -25,6 +25,8 @@ import cn.freeteam.cms.service.HtmlquartzService;
 import cn.freeteam.cms.service.RoleChannelService;
 import cn.freeteam.cms.service.RoleSiteService;
 import cn.freeteam.cms.service.SiteService;
+import cn.freeteam.cms.service.TempletChannelService;
+import cn.freeteam.cms.service.TempletLinkService;
 import cn.freeteam.cms.service.TempletService;
 import cn.freeteam.model.Roles;
 import cn.freeteam.model.Users;
@@ -69,6 +71,8 @@ public class SiteAction extends BaseAction{
 	private RoleSiteService roleSiteService;
 	private RoleChannelService roleChannelService;
 	private HtmlquartzService htmlquartzService;
+	private TempletLinkService templetLinkService;
+	private TempletChannelService templetChannelService;
 	
 	private List<Site> siteList;
 	public List<Channel> channelList;
@@ -569,9 +573,16 @@ public class SiteAction extends BaseAction{
 							FileUtil.copyDirectiory(
 									getHttpRequest().getRealPath("/")+"/templet/"+templet.getId()+"/resources", 
 									getHttpRequest().getRealPath("/")+"/site/"+site.getSourcepath()+"/resources");
-							//检查所选站点模板是否有初始化脚本
-							File initFile=new File(getHttpRequest().getRealPath("/")+"/templet/"+templet.getId()+"/init.sql");
-							isinit=initFile.exists();
+							//判断模板是否有初始化数据
+							init("templetChannelService");
+							if (templetChannelService.count(templet.getId())>0) {
+								isinit=true;
+							}else {
+								init("templetLinkService");
+								if (templetLinkService.count(templet.getId())>0) {
+									isinit=true;
+								}
+							}
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
@@ -601,39 +612,23 @@ public class SiteAction extends BaseAction{
 	 * @return
 	 */
 	public String init(){
-		InputStreamReader isr=null;
 		try {
 			if (site.getId()!=null && site.getId().trim().length()>0 && 
 					site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
 				site=siteService.findById(site.getId());
 				templet=templetService.findById(site.getIndextemplet());
 				if (site!=null && templet!=null) {
-					String initsql=FileUtil.readFile(getHttpRequest().getRealPath("/")+"/templet/"+templet.getId()+"/init.sql");
-					if (initsql!=null && initsql.trim().length()>0) {
-						//替换siteid
-						initsql=initsql.replaceAll("#siteid#", site.getId());
-						FileUtil.writeFile(getHttpRequest().getRealPath("/")+"/site/"+site.getSourcepath()+"/init.sql", initsql);
-						Connection con = MybatisSessionFactory.getSession().getConnection();
-						ScriptRunner runner=new ScriptRunner(con);
-						//执行sql文件
-						isr=new InputStreamReader(new FileInputStream(new File(getHttpRequest().getRealPath("/")+"/site/"+site.getSourcepath()+"/init.sql")),"utf-8");
-						runner.runScript(isr);
-					}
+					init("templetChannelService");
+					templetChannelService.importSiteChannels(templet, site);
+					init("templetLinkService");
+					templetLinkService.importSiteLinks(templet, site);
 				}
 			}
 			showMessage="站点初始化成功";
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			showMessage="站点初始化失败:"+e.getMessage();
 		}finally{
-			if (isr!=null) {
-				try {
-					isr.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-					showMessage="站点初始化失败:"+e.getMessage();
-				}
-			}
 			return showMessage(showMessage, forwardUrl, forwardSeconds);
 		}
 	}
@@ -1021,6 +1016,18 @@ public class SiteAction extends BaseAction{
 	}
 	public void setMins(List<Integer> mins) {
 		this.mins = mins;
+	}
+	public TempletChannelService getTempletChannelService() {
+		return templetChannelService;
+	}
+	public void setTempletChannelService(TempletChannelService templetChannelService) {
+		this.templetChannelService = templetChannelService;
+	}
+	public TempletLinkService getTempletLinkService() {
+		return templetLinkService;
+	}
+	public void setTempletLinkService(TempletLinkService templetLinkService) {
+		this.templetLinkService = templetLinkService;
 	}
 
 }
