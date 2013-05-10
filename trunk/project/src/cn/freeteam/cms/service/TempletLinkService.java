@@ -1,13 +1,17 @@
 package cn.freeteam.cms.service;
 
+import java.io.File;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.dom4j.Document;
+import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
 
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.TempletLinkMapper;
@@ -224,6 +228,67 @@ public class TempletLinkService extends BaseService{
 			}
 		}
 	}
+	/**
+	 * 导入链接分类数据
+	 * @throws DocumentException 
+	 */
+	public void importLinks(Templet templet,HttpServletRequest request) throws DocumentException{
+		if (templet!=null) {
+			//判断links.xml文件是否存在
+			File file=new File(request.getRealPath("/")+"\\templet\\"+templet.getId()+"\\links.xml");
+			if (file.exists()) {
+				SAXReader saxReader = new SAXReader();
+				Document document = saxReader.read(file);
+				Element root = document.getRootElement();
+				// 遍历根结点（links）的所有孩子节点（link节点）
+				for (Iterator iter = root.elementIterator(); iter.hasNext();) {
+					Element element = (Element) iter.next();
+					TempletLink templetLink=new TempletLink();
+					//关联模板
+					templetLink.setTemplet(templet.getId());
+					// 遍历link结点的所有孩子节点，并进行处理
+					for (Iterator iterInner = element.elementIterator(); iterInner
+							.hasNext();) {
+						Element elementInner = (Element) iterInner.next();
+						//获取并设置属性
+						if (elementInner.getName().equals("id")){
+							templetLink.setId(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("name")){
+							templetLink.setName(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("isok")){
+							templetLink.setIsok(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("img")){
+							templetLink.setImg(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("type")){
+							templetLink.setType(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("parid")){
+							templetLink.setParid(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("url")){
+							templetLink.setUrl(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("ordernum")){
+							try {
+								templetLink.setOrdernum(Integer.parseInt(elementInner.getText()));
+							} catch (Exception e) {
+							}
+						}
+						if (elementInner.getName().equals("pagemark")){
+							templetLink.setPagemark(elementInner.getText());
+						}
+					}
+					//保存到数据库
+					add(templetLink);
+				}
+			}
+		}
+	}
+
 
 	public TempletLinkMapper getTempletLinkMapper() {
 		return templetLinkMapper;

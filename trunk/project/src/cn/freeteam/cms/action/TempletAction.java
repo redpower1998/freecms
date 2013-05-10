@@ -529,6 +529,9 @@ public class TempletAction extends BaseAction{
 					//栏目数据
 					init("templetChannelService");
 					templetChannelService.importChannels(templet, getHttpRequest());
+					//链接分类数据
+					init("templetLinkService");
+					templetLinkService.importLinks(templet, getHttpRequest());
 				}else {
 					FileUtil.copyDirectiory(realPath+"\\templet\\default", realPath+"\\templet\\"+templet.getId());
 				}

@@ -2,6 +2,7 @@ package cn.freeteam.cms.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -397,12 +398,12 @@ public class TempletChannelService extends BaseService{
 						if (elementInner.getName().equals("htmlsite")){
 							templetChannel.setHtmlsite(elementInner.getText());
 						}
-						channelMap.put(templetChannel.getId(), templetChannel);
 					}
-					if (!channelMap.isEmpty()) {
-						//递归导入
-						importChannel(channelMap, importedMap);
-					}
+					channelMap.put(templetChannel.getId(), templetChannel);
+				}
+				if (!channelMap.isEmpty()) {
+					//递归导入
+					importChannel(channelMap, importedMap);
 				}
 			}
 		}
@@ -413,6 +414,7 @@ public class TempletChannelService extends BaseService{
 	public void importChannel(Map<String, TempletChannel> channelMap,Map<String, String> importedMap){
 		if (!channelMap.isEmpty()) {
 			Iterator<String> iterator=channelMap.keySet().iterator();
+			List<String> deList=new ArrayList<String>();
 			while (iterator.hasNext()) {
 				TempletChannel templetChannel=channelMap.get(iterator.next());
 				if (templetChannel!=null) {
@@ -431,8 +433,13 @@ public class TempletChannelService extends BaseService{
 					if (isinsert) {
 						templetChannel.setId("");
 						importedMap.put(id, insert(templetChannel));
-						channelMap.remove(id);
+						deList.add(id);
 					}
+				}
+			}
+			if (deList.size()>0) {
+				for (int i = 0; i < deList.size(); i++) {
+					channelMap.remove(deList.get(i));
 				}
 			}
 			if (!channelMap.isEmpty()) {
