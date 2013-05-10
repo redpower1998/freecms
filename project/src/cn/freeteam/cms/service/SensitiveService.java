@@ -40,7 +40,20 @@ public class SensitiveService extends BaseService{
 		initMapper("sensitiveMapper");
 	}
 
-
+	/**
+	 * 替换处理
+	 * @param content
+	 * @return
+	 */
+	public String replace(String content){
+		List<Sensitive> list=find(null, "", true);
+		if (list!=null && list.size()>0) {
+			for (int i = 0; i < list.size(); i++) {
+				content=content.replace(list.get(i).getSensitiveword(), list.get(i).getReplaceto());
+			}
+		}
+		return content;
+	}
 	/**
 	 * 分页查询
 	 */
