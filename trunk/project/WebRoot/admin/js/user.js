@@ -202,7 +202,7 @@ function unitSelect(){
 		if(units!=null && units.length>0){
 			for(var i=0;i<units.length;i++){
 				if(units[i].checked){
-					document.getElementById("unitname").value=document.getElementById("unitname").value+units[i].unit+";";
+					document.getElementById("unitname").value=$("#unitids"+units[i].value).attr("unit")+";";
 					document.getElementById("unitid").value=document.getElementById("unitid").value+units[i].value+";";
 				}
 			}

@@ -31,7 +31,7 @@ function checkAllRole(obj){
 					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"
 						 onMouseOut="this.className='tdbg';">
 						<TD align="left" style="cursor:hand" >
-							<input type="checkbox" name="roleids" value="<s:property value="id"/>" <s:if test="bean.haveRoleUser">checked</s:if>  role="<s:property value="name"/>"/>
+							<input type="checkbox" name="roleids" id="roleids<s:property value="id"/>" value="<s:property value="id"/>" <s:if test="bean.haveRoleUser">checked</s:if>  role="<s:property value="name"/>"/>
 						</TD>
 						<TD  align="left" style="cursor:hand" >
 							<s:property value="name"/>

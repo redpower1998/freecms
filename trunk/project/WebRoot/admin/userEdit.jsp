@@ -59,7 +59,7 @@
 			if(roles!=null && roles.length>0){
 				for(var i=0;i<roles.length;i++){
 					if(roles[i].checked){
-						document.getElementById("rolename").value=document.getElementById("rolename").value+roles[i].role+";";
+						document.getElementById("rolename").value=$("#roleids"+roles[i].value).attr("role")+";";
 						document.getElementById("roleid").value=document.getElementById("roleid").value+roles[i].value+";";
 					}
 				}
@@ -84,7 +84,7 @@
 			if(units!=null && units.length>0){
 				for(var i=0;i<units.length;i++){
 					if(units[i].checked){
-						document.getElementById("unitname").value=document.getElementById("unitname").value+units[i].unit+";";
+						document.getElementById("unitname").value=$("#unitids"+units[i].value).attr("unit")+";";
 						document.getElementById("unitid").value=document.getElementById("unitid").value+units[i].value+";";
 					}
 				}
