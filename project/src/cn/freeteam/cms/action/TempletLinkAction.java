@@ -2,14 +2,14 @@ package cn.freeteam.cms.action;
 
 import java.util.List;
 
+
+
 import cn.freeteam.base.BaseAction;
-import cn.freeteam.cms.model.Link;
 import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.model.TempletLink;
 import cn.freeteam.cms.service.TempletLinkService;
 import cn.freeteam.cms.service.TempletService;
 import cn.freeteam.util.OperLogUtil;
-import cn.freeteam.util.Pager;
 
 /**
  * 
@@ -205,7 +205,6 @@ public class TempletLinkAction extends BaseAction{
 		}
 		return "class";
 	}
-
 	public TempletLinkService getTempletLinkService() {
 		return templetLinkService;
 	}
