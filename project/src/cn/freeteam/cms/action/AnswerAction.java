@@ -4,6 +4,7 @@ package cn.freeteam.cms.action;
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Answer;
 import cn.freeteam.cms.service.AnswerService;
+import cn.freeteam.cms.service.SensitiveService;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.ResponseUtil;
 
@@ -34,6 +35,7 @@ import cn.freeteam.util.ResponseUtil;
 public class AnswerAction extends BaseAction{
 
 	private AnswerService answerService;
+	private SensitiveService sensitiveService;
 	private String result;
 	private String msg;
 	private Answer answer;
@@ -48,6 +50,9 @@ public class AnswerAction extends BaseAction{
 	public String add(){
 		String id="";
 		try {
+			//敏感词处理
+			init("sensitiveService");
+			answer.setName(sensitiveService.replace(answer.getName()));
 			result="0";
 			msg="添加调查选项 "+answer.getName()+" ";
 			answer.setSelectnum(0);
@@ -70,6 +75,9 @@ public class AnswerAction extends BaseAction{
 	 */
 	public String update(){
 		try {
+			//敏感词处理
+			init("sensitiveService");
+			answer.setName(sensitiveService.replace(answer.getName()));
 			result="0";
 			msg="修改调查选项 "+answer.getName()+" ";
 			//获取老数据
@@ -152,6 +160,14 @@ public class AnswerAction extends BaseAction{
 
 	public void setAnswer(Answer answer) {
 		this.answer = answer;
+	}
+
+	public SensitiveService getSensitiveService() {
+		return sensitiveService;
+	}
+
+	public void setSensitiveService(SensitiveService sensitiveService) {
+		this.sensitiveService = sensitiveService;
 	}
 
 
