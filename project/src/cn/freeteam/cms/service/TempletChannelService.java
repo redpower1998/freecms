@@ -19,6 +19,8 @@ import org.dom4j.io.SAXReader;
 
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.TempletChannelMapper;
+import cn.freeteam.cms.model.Channel;
+import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.model.TempletChannel;
 import cn.freeteam.cms.model.TempletChannelExample;
@@ -52,13 +54,25 @@ import freemarker.template.TemplateException;
  */
 public class TempletChannelService extends BaseService{
 
+	private ChannelService channelService;
 	private TempletChannelMapper templetChannelMapper;
 	
 	public TempletChannelService() {
 		initMapper("templetChannelMapper");
 	}
-	
-
+	/**
+	 * 统计
+	 * @param templetid
+	 * @return
+	 */
+	public int count(String templetid){
+		TempletChannelExample example=new TempletChannelExample();
+		Criteria criteria=example.createCriteria();
+		if (templetid!=null && templetid.trim().length()>0) {
+			criteria.andTempletidEqualTo(templetid.trim());
+		}
+		return templetChannelMapper.countByExample(example);
+	}
 	/**
 	 * 根据站点和父id查询
 	 * @param siteid
@@ -448,11 +462,93 @@ public class TempletChannelService extends BaseService{
 		}
 		
 	}
+	/**
+	 * 导入站点栏目数据
+	 * @throws DocumentException 
+	 */
+	public void importSiteChannels(Templet templet,Site site){
+		if (templet!=null && site!=null) {
+			//查找是否有栏目数据
+			List<TempletChannel> list=findByParWithBLOBs(templet.getId(), null);
+			Map<String, TempletChannel> channelMap=new HashMap<String, TempletChannel>();
+			Map<String, String> importedMap=new HashMap<String, String>();
+			if (list!=null && list.size()>0) {
+				for (int i = 0; i < list.size(); i++) {
+					list.get(i).setSite(site.getId());
+					channelMap.put(list.get(i).getId(), list.get(i));
+				}
+				importSiteChannel(channelMap, importedMap,site);
+			}
+		}
+	}
+	/**
+	 * 递归方法导入站点栏目 
+	 */
+	public void importSiteChannel(Map<String, TempletChannel> channelMap,Map<String, String> importedMap,Site site){
+		if (!channelMap.isEmpty()) {
+			Iterator<String> iterator=channelMap.keySet().iterator();
+			List<String> deList=new ArrayList<String>();
+			while (iterator.hasNext()) {
+				TempletChannel templetChannel=channelMap.get(iterator.next());
+				if (templetChannel!=null) {
+					Channel channel=new Channel();
+					//保存栏目
+					String id=templetChannel.getId();
+					boolean isinsert=true;
+					if (templetChannel.getParid()!=null && templetChannel.getParid().trim().length()>0) {
+						//查询父栏目是否保存
+						if (importedMap.containsKey(templetChannel.getParid())) {
+							//设置parid是父栏目的新id
+							channel.setParid(importedMap.get(templetChannel.getParid()));
+						}else {
+							isinsert=false;
+						}
+					}
+					if (isinsert) {
+						init("channelService");
+						channel.setName(templetChannel.getName());
+						channel.setTemplet(templetChannel.getTemplet());
+						channel.setContenttemplet(templetChannel.getContenttemplet());
+						//处理图片
+						channel.setImg("/site/"+site.getSourcepath()+templetChannel.getImg());
+						channel.setDescription(templetChannel.getDescription());
+						channel.setUrl(templetChannel.getUrl());
+						channel.setState(templetChannel.getState());
+						channel.setOrdernum(templetChannel.getOrdernum());
+						channel.setNavigation(templetChannel.getNavigation());
+						channel.setPagemark(templetChannel.getPagemark());
+						channel.setHtmlchannel(templetChannel.getHtmlchannel());
+						channel.setHtmlchannelold(templetChannel.getHtmlchannelold());
+						channel.setHtmlparchannel(templetChannel.getHtmlparchannel());
+						channel.setHtmlsite(templetChannel.getHtmlsite());
+						channel.setSite(templetChannel.getSite());
+						importedMap.put(id, channelService.insert(channel));
+						deList.add(id);
+					}
+				}
+			}
+			if (deList.size()>0) {
+				for (int i = 0; i < deList.size(); i++) {
+					channelMap.remove(deList.get(i));
+				}
+			}
+			if (!channelMap.isEmpty()) {
+				importSiteChannel(channelMap, importedMap,site);
+			}
+		}
+		
+	}
 	public TempletChannelMapper getTempletChannelMapper() {
 		return templetChannelMapper;
 	}
 
 	public void setTempletChannelMapper(TempletChannelMapper templetChannelMapper) {
 		this.templetChannelMapper = templetChannelMapper;
+	}
+	public ChannelService getChannelService() {
+		return channelService;
+	}
+	public void setChannelService(ChannelService channelService) {
+		this.channelService = channelService;
 	}
 }

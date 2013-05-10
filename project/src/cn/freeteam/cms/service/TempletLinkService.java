@@ -15,6 +15,8 @@ import org.dom4j.io.SAXReader;
 
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.TempletLinkMapper;
+import cn.freeteam.cms.model.Link;
+import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.model.TempletChannel;
 import cn.freeteam.cms.model.TempletLink;
@@ -49,11 +51,23 @@ import cn.freeteam.util.XMLUtil;
 public class TempletLinkService extends BaseService{
 
 	private TempletLinkMapper templetLinkMapper;
+	private LinkService linkService;
 	
 	public TempletLinkService() {
 		initMapper("templetLinkMapper");
 	}
 
+	/**
+	 * 统计
+	 * @param templetid
+	 * @return
+	 */
+	public int count(String templetid){
+		TempletLinkExample example=new TempletLinkExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andTempletEqualTo(templetid);
+		return templetLinkMapper.countByExample(example);
+	}
 	/**
 	 * 删除分类
 	 * @param id
@@ -288,6 +302,37 @@ public class TempletLinkService extends BaseService{
 			}
 		}
 	}
+	/**
+	 * 导入站点链接分类数据
+	 */
+	public void importSiteLinks(Templet templet,Site site){
+		if (templet!=null && site!=null) {
+			//查找是否有链接分类数据
+			TempletLink templetLink=new TempletLink();
+			templetLink.setTemplet(templet.getId());
+			templetLink.setIsClass("1");
+			List<TempletLink> list=findAll(templetLink, "");
+			if (list!=null && list.size()>0) {
+				init("linkService");
+				for (int i = 0; i < list.size(); i++) {
+					templetLink=list.get(i);
+					if (templetLink!=null) {
+						Link link=new Link();
+						link.setSite(site.getId());
+						link.setName(templetLink.getName());
+						link.setImg(templetLink.getImg());
+						link.setParid(templetLink.getParid());
+						link.setUrl(templetLink.getUrl());
+						link.setOrdernum(templetLink.getOrdernum());
+						link.setPagemark(templetLink.getPagemark());
+						link.setIsok(templetLink.getIsok());
+						link.setType(templetLink.getType());
+						linkService.add(link);
+					}
+				}
+			}
+		}
+	}
 
 
 	public TempletLinkMapper getTempletLinkMapper() {
@@ -296,5 +341,13 @@ public class TempletLinkService extends BaseService{
 
 	public void setTempletLinkMapper(TempletLinkMapper templetLinkMapper) {
 		this.templetLinkMapper = templetLinkMapper;
+	}
+
+	public LinkService getLinkService() {
+		return linkService;
+	}
+
+	public void setLinkService(LinkService linkService) {
+		this.linkService = linkService;
 	}
 }
