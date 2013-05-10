@@ -334,7 +334,7 @@ public class TempletChannelService extends BaseService{
 				Document document = saxReader.read(file);
 				Element root = document.getRootElement();
 				Map<String, TempletChannel> channelMap=new HashMap<String, TempletChannel>();
-				Map<String, TempletChannel> importedMap=new HashMap<String, TempletChannel>();
+				Map<String, String> importedMap=new HashMap<String, String>();
 				// 遍历根结点（channels）的所有孩子节点（channel节点）
 				for (Iterator iter = root.elementIterator(); iter.hasNext();) {
 					Element element = (Element) iter.next();
@@ -397,10 +397,11 @@ public class TempletChannelService extends BaseService{
 						if (elementInner.getName().equals("htmlsite")){
 							templetChannel.setHtmlsite(elementInner.getText());
 						}
+						channelMap.put(templetChannel.getId(), templetChannel);
 					}
-					channelMap.put(templetChannel.getId(), templetChannel);
 					if (!channelMap.isEmpty()) {
-						
+						//递归导入
+						importChannel(channelMap, importedMap);
 					}
 				}
 			}
@@ -409,7 +410,35 @@ public class TempletChannelService extends BaseService{
 	/**
 	 * 递归方法导入栏目 
 	 */
-	public void importChannel(Map<String, TempletChannel> channelMap,Map<String, TempletChannel> importedMap){
+	public void importChannel(Map<String, TempletChannel> channelMap,Map<String, String> importedMap){
+		if (!channelMap.isEmpty()) {
+			Iterator<String> iterator=channelMap.keySet().iterator();
+			while (iterator.hasNext()) {
+				TempletChannel templetChannel=channelMap.get(iterator.next());
+				if (templetChannel!=null) {
+					//保存栏目
+					String id=templetChannel.getId();
+					boolean isinsert=true;
+					if (templetChannel.getParid()!=null && templetChannel.getParid().trim().length()>0) {
+						//查询父栏目是否保存
+						if (importedMap.containsKey(templetChannel.getParid())) {
+							//设置parid是父栏目的新id
+							templetChannel.setParid(importedMap.get(templetChannel.getParid()));
+						}else {
+							isinsert=false;
+						}
+					}
+					if (isinsert) {
+						templetChannel.setId("");
+						importedMap.put(id, insert(templetChannel));
+						channelMap.remove(id);
+					}
+				}
+			}
+			if (!channelMap.isEmpty()) {
+				importChannel(channelMap, importedMap);
+			}
+		}
 		
 	}
 	public TempletChannelMapper getTempletChannelMapper() {
