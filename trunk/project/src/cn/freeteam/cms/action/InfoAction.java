@@ -15,6 +15,7 @@ import cn.freeteam.cms.service.ChannelService;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.InfoSignService;
 import cn.freeteam.cms.service.RoleChannelService;
+import cn.freeteam.cms.service.SensitiveService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.model.Roles;
 import cn.freeteam.model.Users;
@@ -56,6 +57,7 @@ public class InfoAction extends BaseAction{
 	private RoleChannelService roleChannelService;
 	private UserService userService;
 	private InfoSignService infoSignService;
+	private SensitiveService sensitiveService;
 	
 	private List<Site> siteList;
 	private List<Channel> channelList;
@@ -182,6 +184,12 @@ public class InfoAction extends BaseAction{
 		if (info!=null) {
 			String oper="添加";
 			try {
+				//敏感词处理
+				init("sensitiveService");
+				info.setTitle(sensitiveService.replace(info.getTitle()));
+				info.setShorttitle(sensitiveService.replace(info.getShorttitle()));
+				info.setContent(sensitiveService.replace(info.getContent()));
+				info.setDescription(sensitiveService.replace(info.getDescription()));
 				if (videoUpload!=null) {
 					//生成目标文件
 					String root=getHttpRequest().getRealPath("/");
@@ -583,5 +591,11 @@ public class InfoAction extends BaseAction{
 	}
 	public void setHtmlChannelOld(String htmlChannelOld) {
 		this.htmlChannelOld = htmlChannelOld;
+	}
+	public SensitiveService getSensitiveService() {
+		return sensitiveService;
+	}
+	public void setSensitiveService(SensitiveService sensitiveService) {
+		this.sensitiveService = sensitiveService;
 	}
 }

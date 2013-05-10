@@ -11,6 +11,7 @@ import cn.freeteam.cms.service.CommentService;
 import cn.freeteam.cms.service.CreditruleService;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.MembergroupAuthService;
+import cn.freeteam.cms.service.SensitiveService;
 import cn.freeteam.util.HtmlCode;
 
 /**
@@ -43,6 +44,7 @@ public class CommentAction extends BaseAction{
 	private Comment comment;
 	private List<Comment> commentList;
 	private Map<String, String> objtypes;
+	private SensitiveService sensitiveService;
 
 	private String ValidateCode;
 	private InfoService infoService;
@@ -60,6 +62,9 @@ public class CommentAction extends BaseAction{
 
 		if (ValidateCode!=null && ValidateCode.equals(getHttpSession().getAttribute("rand"))) {
 			if (comment!=null && comment.getContent()!=null && comment.getContent().trim().length()>0) {
+				//敏感词处理
+				init("sensitiveService");
+				comment.setContent(sensitiveService.replace(comment.getContent()));
 				//判断评论对象是否存在
 				boolean isSubmit=false;
 				if ("info".equals(comment.getObjtype())) {
@@ -179,5 +184,11 @@ public class CommentAction extends BaseAction{
 	}
 	public void setCreditruleService(CreditruleService creditruleService) {
 		this.creditruleService = creditruleService;
+	}
+	public SensitiveService getSensitiveService() {
+		return sensitiveService;
+	}
+	public void setSensitiveService(SensitiveService sensitiveService) {
+		this.sensitiveService = sensitiveService;
 	}
 }

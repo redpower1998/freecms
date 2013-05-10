@@ -13,6 +13,7 @@ import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.service.ChannelService;
 import cn.freeteam.cms.service.HtmlquartzService;
 import cn.freeteam.cms.service.RoleChannelService;
+import cn.freeteam.cms.service.SensitiveService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.model.Users;
 import cn.freeteam.service.UserService;
@@ -52,6 +53,7 @@ public class ChannelAction extends BaseAction{
 	private UserService userService;
 	private RoleChannelService roleChannelService;
 	private HtmlquartzService htmlquartzService;
+	private SensitiveService sensitiveService;
 	
 	private Site site;
 	private Channel channel;
@@ -195,6 +197,10 @@ public class ChannelAction extends BaseAction{
 	public String editDo(){
 		try {
 			site=siteService.findById(site.getId());
+			//敏感词处理
+			init("sensitiveService");
+			channel.setName(sensitiveService.replace(channel.getName()));
+			channel.setDescription(sensitiveService.replace(channel.getDescription()));
 			if (channel.getId()!=null && channel.getId().trim().length()>0) {
 				//更新
 				Channel oldChannel=channelService.findById(channel.getId());
@@ -701,5 +707,13 @@ public class ChannelAction extends BaseAction{
 	}
 	public void setMins(List<Integer> mins) {
 		this.mins = mins;
+	}
+
+	public SensitiveService getSensitiveService() {
+		return sensitiveService;
+	}
+
+	public void setSensitiveService(SensitiveService sensitiveService) {
+		this.sensitiveService = sensitiveService;
 	}
 }

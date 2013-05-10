@@ -7,6 +7,7 @@ import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Question;
 import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.service.QuestionService;
+import cn.freeteam.cms.service.SensitiveService;
 import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
@@ -38,6 +39,7 @@ import cn.freeteam.util.Pager;
 public class QuestionAction extends BaseAction{
 	private String msg;
 	private String pageFuncId;
+	private SensitiveService sensitiveService;
 	
 	private QuestionService questionService;
 	private List<Question> questionList;
@@ -95,6 +97,10 @@ public class QuestionAction extends BaseAction{
 	public String editDo(){
 		String oper="添加";
 		try {
+			//敏感词处理
+			init("sensitiveService");
+			question.setName(sensitiveService.replace(question.getName()));
+			question.setDetail(sensitiveService.replace(question.getDetail()));
 			if (question!=null && question.getId()!=null) {
 				Question  oldQuestion=questionService.findById(question.getId(),false);
 				if (oldQuestion!=null) {
@@ -215,6 +221,14 @@ public class QuestionAction extends BaseAction{
 
 	public void setIds(String ids) {
 		this.ids = ids;
+	}
+
+	public SensitiveService getSensitiveService() {
+		return sensitiveService;
+	}
+
+	public void setSensitiveService(SensitiveService sensitiveService) {
+		this.sensitiveService = sensitiveService;
 	}
 
 }
