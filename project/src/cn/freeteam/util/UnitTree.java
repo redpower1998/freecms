@@ -50,7 +50,7 @@ public class UnitTree {
 			//生成parid为参数值的数据
 			if (unit.getParid().equals(parid)) {
 				content.append("<li><span class=\"hasChildren\">");
-				content.append("<input name=\"unitids\" type=\"checkbox\" value=\""+unit.getId()+"\" unit=\""+unit.getName()+"\"");
+				content.append("<input name=\"unitids\" id=\"unitids"+unit.getId()+"\" type=\"checkbox\" value=\""+unit.getId()+"\" unit=\""+unit.getName()+"\"");
 				if (selectUnitIds.indexOf(unit.getId())>-1) {
 					content.append(" checked ");
 				}
@@ -91,7 +91,7 @@ public class UnitTree {
 		if (list!=null && list.size()>0) {
 			if (request.getSession().getAttribute("loginAdmin")!=null) {
 				Users user= (Users)request.getSession().getAttribute("loginAdmin");
-				if (user.getLoginname().equals("WebSystem") || user.getLoginname().equals("admin")) {
+				if (user.getLoginname().equals("admin")) {
 					createTree(content,list,"",selectUnitIds);
 				}else {
 					listTree(content,list,selectUnitIds);
