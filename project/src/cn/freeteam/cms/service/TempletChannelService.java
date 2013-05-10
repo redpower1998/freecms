@@ -1,14 +1,20 @@
 package cn.freeteam.cms.service;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.dom4j.Document;
+import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
 
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.TempletChannelMapper;
@@ -314,6 +320,97 @@ public class TempletChannelService extends BaseService{
 		        XMLUtil.writeFile(document, request.getRealPath("/")+"/templet/"+templet.getId()+"/channels.xml");
 			}
 		}
+	}
+	/**
+	 * 导入栏目数据
+	 * @throws DocumentException 
+	 */
+	public void importChannels(Templet templet,HttpServletRequest request) throws DocumentException{
+		if (templet!=null) {
+			//判断channels.xml文件是否存在
+			File file=new File(request.getRealPath("/")+"\\templet\\"+templet.getId()+"\\channels.xml");
+			if (file.exists()) {
+				SAXReader saxReader = new SAXReader();
+				Document document = saxReader.read(file);
+				Element root = document.getRootElement();
+				Map<String, TempletChannel> channelMap=new HashMap<String, TempletChannel>();
+				Map<String, TempletChannel> importedMap=new HashMap<String, TempletChannel>();
+				// 遍历根结点（channels）的所有孩子节点（channel节点）
+				for (Iterator iter = root.elementIterator(); iter.hasNext();) {
+					Element element = (Element) iter.next();
+					TempletChannel templetChannel=new TempletChannel();
+					//关联模板
+					templetChannel.setTempletid(templet.getId());
+					// 遍历channel结点的所有孩子节点，并进行处理
+					for (Iterator iterInner = element.elementIterator(); iterInner
+							.hasNext();) {
+						Element elementInner = (Element) iterInner.next();
+						//获取并设置属性
+						if (elementInner.getName().equals("id")){
+							templetChannel.setId(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("name")){
+							templetChannel.setName(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("templet")){
+							templetChannel.setTemplet(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("contenttemplet")){
+							templetChannel.setContenttemplet(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("img")){
+							templetChannel.setImg(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("description")){
+							templetChannel.setDescription(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("parid")){
+							templetChannel.setParid(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("url")){
+							templetChannel.setUrl(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("state")){
+							templetChannel.setState(elementInner.getText());
+						}
+						else if (elementInner.getName().equals("ordernum")){
+							try {
+								templetChannel.setOrdernum(Integer.parseInt(elementInner.getText()));
+							} catch (Exception e) {
+							}
+						}
+						if (elementInner.getName().equals("navigation")){
+							templetChannel.setNavigation(elementInner.getText());
+						}
+						if (elementInner.getName().equals("pagemark")){
+							templetChannel.setPagemark(elementInner.getText());
+						}
+						if (elementInner.getName().equals("htmlchannel")){
+							templetChannel.setHtmlchannel(elementInner.getText());
+						}
+						if (elementInner.getName().equals("htmlchannelold")){
+							templetChannel.setHtmlchannelold(elementInner.getText());
+						}
+						if (elementInner.getName().equals("htmlparchannel")){
+							templetChannel.setHtmlparchannel(elementInner.getText());
+						}
+						if (elementInner.getName().equals("htmlsite")){
+							templetChannel.setHtmlsite(elementInner.getText());
+						}
+					}
+					channelMap.put(templetChannel.getId(), templetChannel);
+					if (!channelMap.isEmpty()) {
+						
+					}
+				}
+			}
+		}
+	}
+	/**
+	 * 递归方法导入栏目 
+	 */
+	public void importChannel(Map<String, TempletChannel> channelMap,Map<String, TempletChannel> importedMap){
+		
 	}
 	public TempletChannelMapper getTempletChannelMapper() {
 		return templetChannelMapper;
