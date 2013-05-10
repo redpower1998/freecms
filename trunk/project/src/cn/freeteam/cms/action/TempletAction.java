@@ -163,9 +163,9 @@ public class TempletAction extends BaseAction{
 				if (templet==null) {
 					templet=new Templet();
 				}
-				if (!isAdminLogin()) {
+				/*if (!isAdminLogin()) {
 					templet.setAdduser(getLoginAdmin().getId());
-				}
+				}*/
 				templet.setUsesites(site.getId());
 				templet.setNoDel("1");
 				templetList=templetService.findAll(templet, order);
@@ -175,9 +175,9 @@ public class TempletAction extends BaseAction{
 			if (templet==null) {
 				templet=new Templet();
 			}
-			if (!isAdminLogin()) {
+			/*if (!isAdminLogin()) {
 				templet.setAdduser(getLoginAdmin().getId());
-			}
+			}*/
 			templet.setUsesites("newSite");
 			templet.setNoDel("1");
 			templetList=templetService.findAll(templet, order);
