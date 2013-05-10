@@ -525,6 +525,10 @@ public class TempletAction extends BaseAction{
 					FileUtil.copy(uploadFile, targetFile);
 					//解压
 					ZipTools.unZip(realPath+"\\templet\\"+templet.getId()+ext, realPath+"\\templet\\"+templet.getId()+"\\");
+					//判断是否有初始化数据
+					//栏目数据
+					init("templetChannelService");
+					templetChannelService.importChannels(templet, getHttpRequest());
 				}else {
 					FileUtil.copyDirectiory(realPath+"\\templet\\default", realPath+"\\templet\\"+templet.getId());
 				}
