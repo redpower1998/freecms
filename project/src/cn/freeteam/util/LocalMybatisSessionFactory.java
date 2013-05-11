@@ -33,12 +33,13 @@ public class LocalMybatisSessionFactory {
     private static SqlSessionFactory sessionFactory;
     private static String configFile = CONFIG_FILE_LOCATION;
 
-    private LocalMybatisSessionFactory(ServletContext servletContext) {
+    public LocalMybatisSessionFactory(ServletContext servletContext) {
     	//判断servletContext是否已经储存sessionFactory
     	if (servletContext.getAttribute("localMybatisSessionFactory")!=null) {
 			sessionFactory=(SqlSessionFactory)servletContext.getAttribute("localMybatisSessionFactory");
 		}else {
 	    	try {
+	    		System.out.println(servletContext.getRealPath("/")+"WEB-INF/classes"+configFile);
 				reader=new FileReader(servletContext.getRealPath("/")+"WEB-INF/classes"+configFile);
 				sessionFactory = sessionFactoryBuilder.build(reader);
 				//储存到servletContext，实现单例模式
