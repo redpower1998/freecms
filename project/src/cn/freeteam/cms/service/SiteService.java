@@ -151,6 +151,7 @@ public class SiteService extends BaseService{
 	 * @return
 	 */
 	public Site findById(String id){
+		System.out.println(siteMapper);
 		return siteMapper.selectByPrimaryKey(id);
 	}
 	/**
