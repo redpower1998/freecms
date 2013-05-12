@@ -9,10 +9,7 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
 import cn.freeteam.base.Base;
-import cn.freeteam.cms.dao.SiteMapper;
 import cn.freeteam.cms.service.SiteService;
-import cn.freeteam.util.LocalMybatisSessionFactory;
-import freemarker.template.TemplateModelException;
 /**
  * 
  * <p>Title: HtmlSiteJob.java</p>
@@ -46,11 +43,6 @@ public class HtmlSiteJob extends Base implements Job{
     	if (cntxt.getJobDetail().getJobDataMap().get("siteid")!=null 
     			&& cntxt.getJobDetail().getJobDataMap().get("servletContext")!=null) {
     		try {
-    			LocalMybatisSessionFactory localMybatisSessionFactory=
-    				new LocalMybatisSessionFactory((ServletContext) cntxt.getJobDetail()
-    					.getJobDataMap().get("servletContext"));
-    			SiteMapper siteMapper=localMybatisSessionFactory.getSession().getMapper(SiteMapper.class);
-    			siteService.setSiteMapper(siteMapper);
     			siteService.html(cntxt.getJobDetail().getJobDataMap().get("siteid")
     					.toString(), (ServletContext) cntxt.getJobDetail()
     					.getJobDataMap().get("servletContext"));
