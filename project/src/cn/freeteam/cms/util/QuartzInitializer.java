@@ -1,6 +1,7 @@
 package cn.freeteam.cms.util;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -53,6 +54,8 @@ public class QuartzInitializer extends HttpServlet{
 		//查询所有调度
 		List<Htmlquartz> htmlquartzList=htmlquartzService.findAll();
 		if (htmlquartzList!=null && htmlquartzList.size()>0) {
+			//生成一个自动静态化时传递的唯一码
+			config.getServletContext().setAttribute("htmlQuartaKey", UUID.randomUUID().toString());
 			Htmlquartz htmlquartz;
 			try {
 				for (int i = 0; i < htmlquartzList.size(); i++) {
