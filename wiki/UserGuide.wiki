@@ -71,6 +71,7 @@
 ===== [taglibChannel channel] =====
 ===== [taglibChannelList channelList] =====
 ===== [taglibChannelPath channelPath] =====
+===== [taglibChannelSon channelSon] =====
 ===== [taglibInfoList infoList] =====
 ===== [taglibInfoPage infoPage] =====
 ===== [taglibInfoAttchs infoAttchs] =====
