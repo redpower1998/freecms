@@ -46,7 +46,6 @@ public class HtmlAction extends BaseAction{
 	 * @return
 	 */
 	public boolean checkKey(HttpServletRequest request){
-		System.out.println(getServletContext().getAttribute("htmlQuartaKey"));
 		if(request.getParameter("htmlQuartaKey")!=null 
 				&& request.getParameter("htmlQuartaKey").trim().length()>0
 				&& request.getParameter("htmlQuartaKey").equals(getServletContext().getAttribute("htmlQuartaKey"))){
