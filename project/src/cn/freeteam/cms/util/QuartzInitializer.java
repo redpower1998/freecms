@@ -55,7 +55,8 @@ public class QuartzInitializer extends HttpServlet{
 		List<Htmlquartz> htmlquartzList=htmlquartzService.findAll();
 		if (htmlquartzList!=null && htmlquartzList.size()>0) {
 			//生成一个自动静态化时传递的唯一码
-			config.getServletContext().setAttribute("htmlQuartaKey", UUID.randomUUID().toString());
+			String htmlQuartaKey=UUID.randomUUID().toString();
+			config.getServletContext().setAttribute("htmlQuartaKey",htmlQuartaKey);
 			Htmlquartz htmlquartz;
 			try {
 				for (int i = 0; i < htmlquartzList.size(); i++) {
@@ -77,6 +78,7 @@ public class QuartzInitializer extends HttpServlet{
 						jobDetail.getJobDataMap().put("siteid", htmlquartz.getSiteid());
 						jobDetail.getJobDataMap().put("channelid", htmlquartz.getChannelid());
 						jobDetail.getJobDataMap().put("servletContext", config.getServletContext());
+						jobDetail.getJobDataMap().put("htmlQuartaKey", htmlQuartaKey);
 						//设置触发器
 						String triggerStr=QuartzUtil.getTriggerStr(htmlquartz);
 						if (triggerStr.trim().length()>0) {

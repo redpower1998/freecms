@@ -2,6 +2,9 @@ package cn.freeteam.cms.util;
 
 import javax.servlet.ServletContext;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -36,33 +39,31 @@ import freemarker.template.TemplateModelException;
  */
 public class HtmlChannelJob extends Base implements Job{
 
-	private ChannelService channelService;
 	
 	public HtmlChannelJob() {
 	}
 
     public   void  execute(JobExecutionContext cntxt)  throws  JobExecutionException   {
-		init("channelService");
     	if (cntxt.getJobDetail().getJobDataMap().get("siteid")!=null 
     			&& cntxt.getJobDetail().getJobDataMap().get("channelid")!=null 
     			&& cntxt.getJobDetail().getJobDataMap().get("servletContext")!=null) {
     		try {
-    			channelService.html(cntxt.getJobDetail().getJobDataMap().get("siteid")
-    					.toString(), cntxt.getJobDetail().getJobDataMap().get("channelid")
-    					.toString(), (ServletContext) cntxt.getJobDetail()
-    					.getJobDataMap().get("servletContext"));
-    			//System.out.println("站点栏目页静态化调度任务成功"+cntxt.getJobDetail().getJobDataMap().get("channelid"));
+    			ServletContext servletContext=(ServletContext)cntxt.getJobDetail().getJobDataMap().get("servletContext");
+    			if (servletContext!=null && 
+    					servletContext.getAttribute("basePath")!=null && 
+    					servletContext.getAttribute("basePath").toString().trim().length()>0) {
+        			HttpClient httpClient=new DefaultHttpClient();
+        			HttpGet httpget = new HttpGet(servletContext.getAttribute("basePath")
+        					+"html_channel.do?siteid="+cntxt.getJobDetail().getJobDataMap().get("siteid")
+        					+"&channelid="+cntxt.getJobDetail().getJobDataMap().get("channelid")
+        					+"&htmlQuartaKey="+cntxt.getJobDetail().getJobDataMap().get("htmlQuartaKey"));
+                    httpClient.execute(httpget);
+        			//System.out.println("站点首页静态化调度任务成功"+cntxt.getJobDetail().getJobDataMap().get("siteid"));
+				}
     		} catch (Exception e) {
     			System.out.println("站点栏目页静态化调度任务失败"+cntxt.getJobDetail().getJobDataMap().get("channelid"));
     			e.printStackTrace();
     		}
 		}
     }
-	public ChannelService getChannelService() {
-		return channelService;
-	}
-
-	public void setChannelService(ChannelService channelService) {
-		this.channelService = channelService;
-	}
 }

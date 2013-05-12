@@ -144,6 +144,8 @@
 		</action>
 		<action name="comment_*" method="{1}" class="cn.freeteam.cms.action.web.CommentAction">
 		</action>
+		<action name="html_*" method="{1}" class="cn.freeteam.cms.action.web.HtmlAction">
+		</action>
 		<action name="report_*" method="{1}" class="cn.freeteam.cms.action.web.ReportAction">
 			<interceptor-ref name="fileUpload">
                 <param name="maximumSize">2048000</param>
