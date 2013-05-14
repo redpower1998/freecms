@@ -8,7 +8,8 @@
 	<span style="font-family:宋体;">FreeCMS</span><span style="font-family:宋体;">采用<span>J2EE</span>技术进行开发，技术架构图如下。</span> 
 </p>
 <p>
-	<span style="font-family:宋体;"><span></span><a href="http://s.click.taobao.com/t_9?p=mm_13244061_0_0&l=http%3A%2F%2Fwww.tmall.com" target="_blank"><img style="cursor:pointer;" alt="" src="http://static.oschina.net/uploads/space/2012/1219/132149_6fAa_916014.gif" /></a></span>
-</p>
+	<span style="font-family:宋体;"><span></span><a href="http://s.click.taobao.com/t_9?p=mm_13244061_0_0&l=http%3A%2F%2Fwww.tmall.com" target="_blank"><img style="cursor:pointer;" alt="" src="http://static.oschina.net/uploads/space/2012/1219/132149_6fAa_916014.gif" /></a>
 
-<A title=天猫商城 href="http://s.click.taobao.com/t_9?p=mm_13244061_0_0&amp;l=http%3A%2F%2Fwww.tmall.com" target=_blank><IMG src="http://img04.taobaocdn.com/tps/i4/T1DvTOXjpaXXX1pzZP-760-90.jpg"></A>
+
+<A title=天猫商城 href="http://s.click.taobao.com/t_9?p=mm_13244061_0_0&amp;l=http%3A%2F%2Fwww.tmall.com" target=_blank><IMG src="http://img04.taobaocdn.com/tps/i4/T1DvTOXjpaXXX1pzZP-760-90.jpg"></A></span>
+</p>
