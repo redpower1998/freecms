@@ -34,3 +34,50 @@ function infosign(infoid){
 	$.weeboxs.open('../../info_sign.do?cansign=false&info.id='+infoid+'&date='+new Date(), 
 	{title:'信息签收', contentType:'ajax',height:420,width:450});
 }
+var action="copy";
+function showOne(id,name){
+	if(confirm("确定移动操作么?此操作无法回退!")){
+		$.post("info_"+action+".do","ids="+getCheckValue()+"&tochannelid="+id+"&oldchannelid="+$("#channelId").val(),complete,"text");
+	}
+}
+function parSite(siteid){
+}
+function move(){
+	action="move";
+	if(isCheck()){
+		$.weeboxs.open('channel_channel.do?channel.id=select', 
+		{title:'移动到栏目', contentType:'ajax',height:360,width:300,showOk:false});
+	}else{
+		alert("请选择要操作的记录!");
+	}
+}
+function complete(data){
+	$.weeboxs.close();//增加事件方法后需手动关闭弹窗
+	if(data!=""){
+		if("move"==action){
+			var datas=data.split(";");
+			if(datas!=null && datas.length>0){
+				for(var i=0;i<datas.length;i++){
+					if(datas[i]!="" && document.getElementById("tr"+datas[i])!=null){
+							document.getElementById("tr"+datas[i]).parentNode.removeChild(document.getElementById("tr"+datas[i]));
+					}
+				}
+			}
+		}else if("copy"==action){
+			if(data=="succ"){
+				alert("操作成功");
+			}else{
+				alert("操作失败，请重试!");
+			}
+		}
+	}
+}
+function copy(){
+	action="copy";
+	if(isCheck()){
+		$.weeboxs.open('channel_channel.do?channel.id=select', 
+		{title:'复制到栏目', contentType:'ajax',height:360,width:300,showOk:false});
+	}else{
+		alert("请选择要操作的记录!");
+	}
+}
