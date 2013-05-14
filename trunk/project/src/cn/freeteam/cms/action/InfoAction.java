@@ -1,8 +1,12 @@
 package cn.freeteam.cms.action;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 
@@ -70,6 +74,7 @@ public class InfoAction extends BaseAction{
 	private Site site;
 	private Channel channel;
 	private String oldchannelid;
+	private String tochannelid;
 	private File videoUpload;
 	private String videoUploadFileName;
 	
@@ -366,9 +371,172 @@ public class InfoAction extends BaseAction{
 				} catch (Exception e) {
 					DBProException(e);
 					logContent="删除信息("+info.getTitle()+")失败:"+e.toString()+"!";
+					OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
 				}
 			}
 			write(sb.toString(), "GBK");
+		}
+		return null;
+	}
+
+	/**
+	 * 移动
+	 * @return
+	 */
+	public String move(){
+		if (ids!=null && ids.trim().length()>0) {
+			StringBuilder sb=new StringBuilder();
+			String[] idArr=ids.split(";");
+			if (idArr!=null && idArr.length>0 &&
+					oldchannelid!=null && tochannelid!=null && !oldchannelid.equals(tochannelid)) {
+				Channel oldChannel=channelService.findById(oldchannelid);
+				Channel toChannel=channelService.findById(tochannelid);
+					if (oldChannel!=null && toChannel!=null) {
+						try {
+							for (int i = 0; i < idArr.length; i++) {
+								if (idArr[i].trim().length()>0) {
+									info=infoService.findById(idArr[i]);
+									if (info!=null) {
+										info.setChannel(tochannelid);
+										infoService.update(info);
+										sb.append(idArr[i]+";");
+										logContent="移动信息("+oldChannel.getName()+" >> "+toChannel.getName()+" "+info.getTitle()+")成功!";
+									}
+									OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+								}
+							}
+							//处理静态化
+							site=siteService.findById(info.getSite());
+							boolean ishtmlsite=false;
+							Map<String,Channel> channelHtmled=new HashMap<String,Channel>();
+							//原栏目处理
+							if (oldChannel!=null) {
+								if ("1".equals(oldChannel.getHtmlchannel())) {
+									//所属栏目静态化
+									channelHtmled.put(oldChannel.getId(),oldChannel);
+								}
+								if ("1".equals(oldChannel.getHtmlparchannel())) {
+									//所属栏目的父栏目静态化
+									List<Channel> channeList = channelService.findPath(oldchannelid);
+									if (channeList!=null && channeList.size()>0) {
+										for (int i = 0; i < channeList.size(); i++) {
+											if (!channeList.get(i).getId().equals(oldchannelid)) {
+												channelHtmled.put(channeList.get(i).getId(),channeList.get(i));
+											}
+										}
+									}
+								}
+								if ("1".equals(oldChannel.getHtmlsite())) {
+									ishtmlsite=true;
+								}
+							}
+							//新栏目处理
+							if (toChannel!=null) {
+								if ("1".equals(toChannel.getHtmlchannel())) {
+									//所属栏目静态化
+									channelHtmled.put(toChannel.getId(),toChannel);
+								}
+								if ("1".equals(toChannel.getHtmlparchannel())) {
+									//所属栏目的父栏目静态化
+									List<Channel> channeList = channelService.findPath(tochannelid);
+									if (channeList!=null && channeList.size()>0) {
+										for (int i = 0; i < channeList.size(); i++) {
+											if (!channeList.get(i).getId().equals(tochannelid)) {
+												channelHtmled.put(channeList.get(i).getId(),channeList.get(i));
+											}
+										}
+									}
+								}
+								if ("1".equals(toChannel.getHtmlsite())) {
+									ishtmlsite=true;
+								}
+							}
+							//处理需要静态化的栏目
+							if (channelHtmled!=null && channelHtmled.size()>0) {
+								Iterator<String>  channelHtmls=channelHtmled.keySet().iterator();
+								while (channelHtmls.hasNext()) {
+									Channel channel = channelHtmled.get(channelHtmls.next());
+									if (channel!=null) {
+										channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+									}
+								}
+							}
+							if (ishtmlsite) {
+								//首页静态化
+								siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath()+"/", getHttpRequest(), getLoginName());
+								
+							}
+						} catch (Exception e) {
+							DBProException(e);
+							logContent="移动信息("+oldChannel.getName()+" >> "+toChannel.getName()+" "+info.getTitle()+")失败:"+e.toString()+"!";
+							OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+						}
+					}
+			}
+			write(sb.toString(), "GBK");
+		}
+		return null;
+	}
+	/**
+	 * 复制
+	 * @return
+	 */
+	public String copy(){
+		if (ids!=null && ids.trim().length()>0) {
+			StringBuilder sb=new StringBuilder();
+			String[] idArr=ids.split(";");
+			if (idArr!=null && idArr.length>0 &&
+					oldchannelid!=null && tochannelid!=null && !oldchannelid.equals(tochannelid)) {
+				Channel oldChannel=channelService.findById(oldchannelid);
+				Channel toChannel=channelService.findById(tochannelid);
+					if (oldChannel!=null && toChannel!=null) {
+						try {
+							for (int i = 0; i < idArr.length; i++) {
+								if (idArr[i].trim().length()>0) {
+									info=infoService.findById(idArr[i]);
+									if (info!=null) {
+										info.setChannel(tochannelid);
+										info.setId("");
+										infoService.insert(info);
+										sb.append(idArr[i]+";");
+										logContent="复制信息("+oldChannel.getName()+" >> "+toChannel.getName()+" "+info.getTitle()+")成功!";
+									}
+									OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+								}
+							}
+							//处理静态化
+							site=siteService.findById(info.getSite());
+							//新栏目处理
+							if (toChannel!=null) {
+								if ("1".equals(toChannel.getHtmlchannel())) {
+									//所属栏目静态化
+									channelService.html(site, toChannel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+								}
+								if ("1".equals(toChannel.getHtmlparchannel())) {
+									//所属栏目的父栏目静态化
+									List<Channel> channeList = channelService.findPath(tochannelid);
+									if (channeList!=null && channeList.size()>0) {
+										for (int i = 0; i < channeList.size(); i++) {
+											if (!channeList.get(i).getId().equals(tochannelid)) {
+												channelService.html(site, channeList.get(i), getServletContext(), getHttpRequest(), getLoginName(), 0);
+											}
+										}
+									}
+								}
+								if ("1".equals(toChannel.getHtmlsite())) {
+									//首页静态化
+									siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath()+"/", getHttpRequest(), getLoginName());
+								}
+							}
+							write("succ", "GBK");
+						} catch (Exception e) {
+							DBProException(e);
+							logContent="复制信息("+oldChannel.getName()+" >> "+toChannel.getName()+" "+info.getTitle()+")失败:"+e.toString()+"!";
+							OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+							write(e.getMessage(), "GBK");
+						}
+					}
+			}
 		}
 		return null;
 	}
@@ -597,5 +765,11 @@ public class InfoAction extends BaseAction{
 	}
 	public void setSensitiveService(SensitiveService sensitiveService) {
 		this.sensitiveService = sensitiveService;
+	}
+	public String getTochannelid() {
+		return tochannelid;
+	}
+	public void setTochannelid(String tochannelid) {
+		this.tochannelid = tochannelid;
 	}
 }
