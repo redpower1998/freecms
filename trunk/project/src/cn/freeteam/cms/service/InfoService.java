@@ -309,6 +309,17 @@ public class InfoService extends BaseService{
 		infoMapper.deleteByPrimaryKey(id);
 		DBCommit();
 	}
+	/**
+	 * 工作量统计 
+	 * @param info
+	 * @return
+	 */
+	public List<Info> workload(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.workload(example);
+	}
 	
 	//set and get
 
