@@ -73,10 +73,10 @@
 					Align="center" border="0" border="0"
 					style="width: 100%; word-break: break-all">
 					<TR class="summary-title" style="HEIGHT: 25px" align="center">
-						<TD width="60%">
+						<TD >
 							添加人
 						</TD>
-						<TD width="5%">
+						<TD >
 							信息量
 						</TD>
 					</TR>
