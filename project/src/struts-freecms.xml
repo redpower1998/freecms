@@ -126,6 +126,9 @@
 			<result name="list" >/admin/cms/sensitiveList.jsp</result>
 			<result name="edit" >/admin/cms/sensitiveEdit.jsp</result>
 		</action>
+		<action name="stat_*" method="{1}" class="cn.freeteam.cms.action.StatAction">
+			<result name="workload" >/admin/cms/workload.jsp</result>
+		</action>
 	</package>
 	
 	<package name="cmsWeb" extends="struts-default" namespace="/">
