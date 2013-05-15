@@ -67,37 +67,42 @@ public class CommentAction extends BaseAction{
 				comment.setContent(sensitiveService.replace(comment.getContent()));
 				//判断评论对象是否存在
 				boolean isSubmit=false;
-				if ("info".equals(comment.getObjtype())) {
-					//信息
-					init("infoService");
-					Info info=infoService.findById(comment.getObjid());
-					if (info!=null) {
-						comment.setSiteid(info.getSite());
-						if (Info.ISCOMMENT_NO.equals(info.getIscomment())) {
-							showMessage="此信息不支持评论";
-						}else if (Info.ISCOMMENT_MEMBER.equals(info.getIscomment())) {
-							if (getLoginMember()!=null) {
-								//判断会员是否有发表评论权限
-								init("membergroupAuthService");
-								if (getLoginMembergroup()!=null && 
-										membergroupAuthService.hasAuth(getLoginMembergroup().getId(), "commentPub")) {
-									isSubmit=true;
+				//判断系统是否允许评论
+				if ("是".equals(getConfigVal("iscomment").trim())) {
+					if ("info".equals(comment.getObjtype())) {
+						//信息
+						init("infoService");
+						Info info=infoService.findById(comment.getObjid());
+						if (info!=null) {
+							comment.setSiteid(info.getSite());
+							if (Info.ISCOMMENT_NO.equals(info.getIscomment())) {
+								showMessage="此信息不支持评论";
+							}else if (Info.ISCOMMENT_MEMBER.equals(info.getIscomment())) {
+								if (getLoginMember()!=null) {
+									//判断会员是否有发表评论权限
+									init("membergroupAuthService");
+									if (getLoginMembergroup()!=null && 
+											membergroupAuthService.hasAuth(getLoginMembergroup().getId(), "commentPub")) {
+										isSubmit=true;
+									}else {
+										showMessage="您没有发表评论的权限";
+									}
 								}else {
-									showMessage="您没有发表评论的权限";
+									showMessage="会员登录后才能对此信息评论";
 								}
-							}else {
-								showMessage="会员登录后才能对此信息评论";
+							}else if (Info.ISCOMMENT_ALL.equals(info.getIscomment())) {
+								if (getLoginMember()==null) {
+									//如果没有会员登录默认设置为匿名
+									comment.setIsanonymous("1");
+								}
+								isSubmit=true;
 							}
-						}else if (Info.ISCOMMENT_ALL.equals(info.getIscomment())) {
-							if (getLoginMember()==null) {
-								//如果没有会员登录默认设置为匿名
-								comment.setIsanonymous("1");
-							}
-							isSubmit=true;
+						}else {
+							showMessage="此信息不存在";
 						}
-					}else {
-						showMessage="此信息不存在";
 					}
+				}else {
+					showMessage="系统不允许评论";
 				}
 				//提交评论
 				if (isSubmit) {
