@@ -5,6 +5,7 @@ import java.util.List;
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Info;
 import cn.freeteam.cms.service.InfoService;
+import cn.freeteam.util.Pager;
 
 /**
  * 
@@ -43,7 +44,12 @@ public class StatAction extends BaseAction{
 	 * @return
 	 */
 	public String workload(){
-		infoList=infoService.workload(info);
+		if (info==null) {
+			info=new Info();
+		}
+		info.setSite(getManageSite().getId());
+		infoList=infoService.workload(info, currPage, pageSize);
+		totalCount=infoService.workloadCount(info);
 		return "workload";
 	}
 	

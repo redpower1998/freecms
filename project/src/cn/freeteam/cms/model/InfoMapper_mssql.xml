@@ -469,13 +469,20 @@
     </if>
   </select>
   <select id="workload" parameterType="cn.freeteam.cms.model.InfoExample" resultMap="BaseResultMap">
-   	SELECT COUNT(i.id) AS countnum ,adduser,u.loginname addUserLoginName,u.name addUserName 
+   	SELECT top ${pageSize} COUNT(i.id) AS countnum ,adduser,max(u.loginname) addUserLoginName,max(u.name) addUserName
 	FROM freecms_info i 
 	LEFT JOIN freecms_users u ON i.adduser=u.id 
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
  	GROUP BY adduser ORDER BY countnum desc
+  </select>
+  <select id="workloadCount" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct adduser)
+	FROM freecms_info  
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
