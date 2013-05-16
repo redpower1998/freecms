@@ -31,7 +31,7 @@
 									onblur="this.className='colorblur';"  />
 									时间范围：
 									
-								每页显示条数：
+								最多显示条数：
 								<select name="pageSize"
 									id="pageSize">
 									<option selected="selected" value="10">
@@ -96,7 +96,10 @@
 					<TR class="tdbg" 
 						style="HEIGHT: 25px" >
 						<TD  align="center" colspan="10">
-							${pageStr }
+							<b><font color="red">
+							<s:if test="%{totalCount>pageSize}">
+							总共有${totalCount }条数据，只显示前${pageSize }条，如果没有您要统计的人员，您可以尝试搜索添加人。
+							</s:if></font></b>
 						</TD>
 					</TR>
 				</table>
