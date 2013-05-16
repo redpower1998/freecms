@@ -479,7 +479,8 @@
   </select>
   <select id="workloadCount" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
    	SELECT COUNT(distinct adduser)
-	FROM freecms_info  
+	FROM freecms_info i
+	LEFT JOIN freecms_users u ON i.adduser=u.id 
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>

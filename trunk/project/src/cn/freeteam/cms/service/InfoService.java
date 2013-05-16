@@ -209,6 +209,9 @@ public class InfoService extends BaseService{
 			if (info.getAdduser()!=null && info.getAdduser().trim().length()>0) {
 				criteria.andAdduserEqualTo(info.getAdduser());
 			}
+			if (info.getAdduserLike()!=null && info.getAdduserLike().trim().length()>0) {
+				criteria.andSql(" (u.loginname like '%"+info.getAdduserLike().trim()+"%' or u.name like '%"+info.getAdduserLike().trim()+"%') ");
+			}
 			if (info.getTitle()!=null && info.getTitle().trim().length()>0) {
 				criteria.andTitleLike("%"+info.getTitle().trim()+"%");
 			}
