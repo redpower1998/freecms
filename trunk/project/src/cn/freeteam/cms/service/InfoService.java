@@ -257,6 +257,12 @@ public class InfoService extends BaseService{
 			if (info.getEndtime()!=null) {
 				criteria.andAddtimeLessThanOrEqualTo(info.getEndtime());
 			}
+			if (info.getInfostarttime()!=null) {
+				criteria.andInfoAddtimeGreaterThanOrEqualTo(info.getInfostarttime());
+			}
+			if (info.getInfoendtime()!=null) {
+				criteria.andInfoAddtimeLessThanOrEqualTo(info.getInfoendtime());
+			}
 		}
 	}
 	/**
