@@ -75,6 +75,10 @@ public class Info implements Serializable{
     private String[] channels;
     private Date starttime;
     private Date endtime;
+    private Date infostarttime;
+    private Date infoendtime;
+    private String infostarttimeStr;
+    private String infoendtimeStr;
     private String searchKey;
 
     /**
@@ -1013,6 +1017,44 @@ public class Info implements Serializable{
 
 	public void setAdduserLike(String adduserLike) {
 		this.adduserLike = adduserLike;
+	}
+
+	public Date getInfostarttime() {
+		return infostarttime;
+	}
+
+	public void setInfostarttime(Date infostarttime) {
+		this.infostarttime = infostarttime;
+	}
+
+	public Date getInfoendtime() {
+		return infoendtime;
+	}
+
+	public void setInfoendtime(Date infoendtime) {
+		this.infoendtime = infoendtime;
+	}
+
+	public String getInfostarttimeStr() {
+		if (infostarttime!=null) {
+			infostarttimeStr=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(infostarttime);
+		}
+		return infostarttimeStr;
+	}
+
+	public void setInfostarttimeStr(String infostarttimeStr) {
+		this.infostarttimeStr = infostarttimeStr;
+	}
+
+	public String getInfoendtimeStr() {
+		if (infoendtime!=null) {
+			infoendtimeStr=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(infoendtime);
+		}
+		return infoendtimeStr;
+	}
+
+	public void setInfoendtimeStr(String infoendtimeStr) {
+		this.infoendtimeStr = infoendtimeStr;
 	}
 
 }

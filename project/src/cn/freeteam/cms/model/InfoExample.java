@@ -1211,6 +1211,10 @@ public class InfoExample extends BaseExample{
             addCriterion("addtime >=", value, "addtime");
             return (Criteria) this;
         }
+        public Criteria andInfoAddtimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("i.addtime >=", value, "addtime");
+            return (Criteria) this;
+        }
 
         public Criteria andAddtimeLessThan(Date value) {
             addCriterion("addtime <", value, "addtime");
@@ -1219,6 +1223,10 @@ public class InfoExample extends BaseExample{
 
         public Criteria andAddtimeLessThanOrEqualTo(Date value) {
             addCriterion("addtime <=", value, "addtime");
+            return (Criteria) this;
+        }
+        public Criteria andInfoAddtimeLessThanOrEqualTo(Date value) {
+            addCriterion("i.addtime <=", value, "addtime");
             return (Criteria) this;
         }
 
