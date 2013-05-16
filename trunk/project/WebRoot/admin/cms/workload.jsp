@@ -2,13 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="fs" uri="/fs-tags" %>
-<%@include file="../../util/loading.jsp"%>
 <%@include file="../../util/checkParentFrame.jsp"%>
 <HTML>
 	<HEAD>
 		<LINK rel=stylesheet type=text/css href="../../img/style.css">
 		<LINK rel=stylesheet type=text/css href="../../img/style3.css">
-		<script type="text/javascript" src="../../js/jquery-1.5.1.min.js"></script>
+		<script language="javascript" type="text/javascript" src="../../My97DatePicker/WdatePicker.js" ></script>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
 		<form name="myForm" method="post" action="stat_workload.do" id="myForm"
@@ -26,10 +25,13 @@
 							
 								添加人：
 								
-								<input name="info.adduserLike" type="text" maxlength="50"
+								<input name="info.adduserLike" type="text" maxlength="50" value="${ info.adduserLike}"
 									class="colorblur" onfocus="this.className='colorfocus';"
 									onblur="this.className='colorblur';"  />
 									时间范围：
+									<input name="info.infostarttime" id="starttime"  class="Wdate"  type="text" size="24" value="${info.infostarttimeStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+									至
+									<input name="info.infoendtime" id="endtime"  class="Wdate"  type="text" size="24" value="${info.infoendtimeStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
 									
 								最多显示条数：
 								<select name="pageSize"
