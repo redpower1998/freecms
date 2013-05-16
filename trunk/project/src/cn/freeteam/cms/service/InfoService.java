@@ -314,11 +314,24 @@ public class InfoService extends BaseService{
 	 * @param info
 	 * @return
 	 */
-	public List<Info> workload(Info info){
+	public List<Info> workload(Info info,int currPage,int pageSize){
 		InfoExample example=new InfoExample();
 		Criteria criteria=example.createCriteria();
 		proSearchParam(info, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
 		return infoMapper.workload(example);
+	}
+	/**
+	 * 工作量统计 
+	 * @param info
+	 * @return
+	 */
+	public int workloadCount(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.workloadCount(example);
 	}
 	
 	//set and get
