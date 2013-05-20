@@ -36,6 +36,7 @@ public class StatAction extends BaseAction{
 	private InfoService infoService;
 	private List<Info> infoList;
 	private Info info;
+	private String export;
 	public StatAction() {
 		init("infoService");
 	}
@@ -50,7 +51,14 @@ public class StatAction extends BaseAction{
 		info.setSite(getManageSite().getId());
 		infoList=infoService.workload(info, currPage, pageSize);
 		totalCount=infoService.workloadCount(info);
-		return "workload";
+		if ("1".equals(export)) {
+			infoList=infoService.workload(info);
+			return "workloadExport";
+		}else {
+			infoList=infoService.workload(info, currPage, pageSize);
+			totalCount=infoService.workloadCount(info);
+			return "workload";
+		}
 	}
 
 	/**
@@ -61,9 +69,14 @@ public class StatAction extends BaseAction{
 		if (info==null) {
 			info=new Info();
 		}
-		infoList=infoService.workload(info, currPage, pageSize);
-		totalCount=infoService.workloadCount(info);
-		return "sysWorkload";
+		if ("1".equals(export)) {
+			infoList=infoService.workload(info);
+			return "sysWorkloadExport";
+		}else {
+			infoList=infoService.workload(info, currPage, pageSize);
+			totalCount=infoService.workloadCount(info);
+			return "sysWorkload";
+		}
 	}
 	
 	
@@ -86,5 +99,11 @@ public class StatAction extends BaseAction{
 	}
 	public void setInfo(Info info) {
 		this.info = info;
+	}
+	public String getExport() {
+		return export;
+	}
+	public void setExport(String export) {
+		this.export = export;
 	}
 }

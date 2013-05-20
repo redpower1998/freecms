@@ -55,6 +55,7 @@ public interface InfoMapper {
      * @mbggenerated Wed Feb 01 16:28:18 CST 2012
      */
     List<Info> selectByExampleWithBLOBs(InfoExample example);
+    List<Info> workloadPage(InfoExample example);
     List<Info> workload(InfoExample example);
     int workloadCount(InfoExample example);
 
