@@ -329,6 +329,17 @@ public class InfoService extends BaseService{
 		proSearchParam(info, criteria);
 		example.setCurrPage(currPage);
 		example.setPageSize(pageSize);
+		return infoMapper.workloadPage(example);
+	}
+	/**
+	 * 工作量统计 
+	 * @param info
+	 * @return
+	 */
+	public List<Info> workload(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
 		return infoMapper.workload(example);
 	}
 	/**
