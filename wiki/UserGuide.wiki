@@ -94,3 +94,4 @@
 ===== [taglibAjaxInfoClick ajaxInfoClick] =====
 ===== [taglibAjaxLoad ajaxLoad] =====
 ===== [taglibConfig config] =====
+===== [taglibHtml html] =====
