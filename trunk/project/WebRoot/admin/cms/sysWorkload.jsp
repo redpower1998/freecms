@@ -48,6 +48,7 @@
 		<form name="myForm" method="post" action="stat_sysWorkload.do" id="myForm"
 			style="margin: 0px">
 			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
+			<input type="hidden" name="export" id="export" value=""/>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
 					工作量搜索
@@ -92,7 +93,11 @@
 
 								</select>
 								
-								<input type="button" name="Search" value="搜 索" id="Search" onclick="this.form.submit();"
+								
+								<input type="button" name="Search" value="搜 索" id="Search" onclick="$('#export').val('');this.form.submit();"
+									class="button" style="MARGIN-BOTTOM: 0px" />
+								
+								<input type="button" name="Search" value="导 出" id="Search" onclick="$('#export').val('1');this.form.submit();"
 									class="button" style="MARGIN-BOTTOM: 0px" />
 							</TD>
 						</TR>
