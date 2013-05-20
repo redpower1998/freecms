@@ -8,6 +8,41 @@
 		<LINK rel=stylesheet type=text/css href="../../img/style.css">
 		<LINK rel=stylesheet type=text/css href="../../img/style3.css">
 		<script language="javascript" type="text/javascript" src="../../My97DatePicker/WdatePicker.js" ></script>
+    <link rel="stylesheet" type="text/css" href="../../js/jquery.jqChart.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/jquery.jqRangeSlider.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/smoothness/jquery-ui-1.8.21.css" />
+    <script src="../../js/jquery-1.5.1.min.js" type="text/javascript"></script>
+    <script src="../../js/jquery.jqChart.min.js" type="text/javascript"></script>
+    <script src="../../js/jquery.jqRangeSlider.min.js" type="text/javascript"></script>
+    <!--[if IE]><script lang="javascript" type="text/javascript" src="../../js/excanvas.js"></script><![endif]-->
+      <script lang="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $('#jqChart').jqChart({
+                title: { text: '工作量统计' },
+                axes: [
+                        {
+                            type: 'category',
+                            location: 'bottom',
+                            zoomEnabled: true
+                        }
+                      ],
+                series: [
+                            {
+								title:'信息量',
+                                type: 'column',
+                                data: [
+								<s:iterator value="infoList" id="obj" status="st">
+								<s:if test="%{#st.index>0}">
+								,
+								</s:if>
+								['<s:property value="addUserLoginName"/> (<s:property value="addUserName"/>)', <s:property value="countnum"/>]
+								</s:iterator>
+								]
+                            },
+                        ]
+            });
+        });
+    </script>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
 		<form name="myForm" method="post" action="stat_workload.do" id="myForm"
@@ -71,6 +106,10 @@
 					工作量列表
 				</div>
 
+    <div>
+        <div id="jqChart" style="width: 99%; height: 300px;">
+        </div>
+    </div>
 				<table id="MyDataList" cellspacing="1" cellpadding="1"
 					Align="center" border="0" border="0"
 					style="width: 100%; word-break: break-all">
