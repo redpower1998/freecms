@@ -133,6 +133,8 @@
 			<result name="sysWorkloadExport" >/admin/cms/sysWorkloadExport.jsp</result>
 			<result name="sysSiteStat" >/admin/cms/sysSiteStat.jsp</result>
 			<result name="sysSiteStatExport" >/admin/cms/sysSiteStatExport.jsp</result>
+			<result name="channelStat" >/admin/cms/channelStat.jsp</result>
+			<result name="channelStatExport" >/admin/cms/channelStatExport.jsp</result>
 		</action>
 	</package>
 	

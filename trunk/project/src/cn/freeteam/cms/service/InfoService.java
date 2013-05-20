@@ -206,6 +206,9 @@ public class InfoService extends BaseService{
 			if (info.getChannelParPagemark()!=null && info.getChannelParPagemark().trim().length()>0) {
 				criteria.andSql(" channel in (select id from freecms_channel where parid in (select id from freecms_channel where site='"+info.getSite()+"' and pagemark='"+info.getChannelParPagemark().trim()+"')) ");
 			}
+			if (info.getChannelname()!=null && info.getChannelname().trim().length()>0) {
+				criteria.andSql(" c.name like '%"+info.getChannelname().trim()+"%' ");
+			}
 			if (info.getAdduser()!=null && info.getAdduser().trim().length()>0) {
 				criteria.andAdduserEqualTo(info.getAdduser());
 			}
@@ -214,6 +217,9 @@ public class InfoService extends BaseService{
 			}
 			if (info.getSitename()!=null && info.getSitename().trim().length()>0) {
 				criteria.andSql(" (s.name like '%"+info.getSitename().trim()+"%') ");
+			}
+			if (info.getInfosite()!=null && info.getInfosite().trim().length()>0) {
+				criteria.andSql(" (i.site ='"+info.getInfosite().trim()+"') ");
 			}
 			if (info.getTitle()!=null && info.getTitle().trim().length()>0) {
 				criteria.andTitleLike("%"+info.getTitle().trim()+"%");
@@ -391,6 +397,28 @@ public class InfoService extends BaseService{
 		Criteria criteria=example.createCriteria();
 		proSearchParam(info, criteria);
 		return infoMapper.siteStatCount(example);
+	}
+	/**
+	 * 栏目信息统计 
+	 * @param info
+	 * @return
+	 */
+	public List<Info> channelStat(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.channelStat(example);
+	}
+	/**
+	 * 栏目信息统计 
+	 * @param info
+	 * @return
+	 */
+	public int channelStatCount(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.channelStatCount(example);
 	}
 	
 	//set and get
