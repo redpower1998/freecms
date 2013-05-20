@@ -128,6 +128,7 @@
 		</action>
 		<action name="stat_*" method="{1}" class="cn.freeteam.cms.action.StatAction">
 			<result name="workload" >/admin/cms/workload.jsp</result>
+			<result name="sysWorkload" >/admin/cms/sysWorkload.jsp</result>
 		</action>
 	</package>
 	

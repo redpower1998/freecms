@@ -52,6 +52,19 @@ public class StatAction extends BaseAction{
 		totalCount=infoService.workloadCount(info);
 		return "workload";
 	}
+
+	/**
+	 * 系统 工作量统计
+	 * @return
+	 */
+	public String sysWorkload(){
+		if (info==null) {
+			info=new Info();
+		}
+		infoList=infoService.workload(info, currPage, pageSize);
+		totalCount=infoService.workloadCount(info);
+		return "sysWorkload";
+	}
 	
 	
 	
