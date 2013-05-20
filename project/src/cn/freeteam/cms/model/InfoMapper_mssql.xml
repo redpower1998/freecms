@@ -505,6 +505,15 @@
     </if>
  	GROUP BY site ORDER BY countnum desc
   </select>
+  <select id="channelStat" parameterType="cn.freeteam.cms.model.InfoExample" resultMap="BaseResultMap">
+   	SELECT COUNT(i.id) countnum,max(channel) channel,max(c.name) channelname
+	FROM freecms_info i
+	LEFT JOIN freecms_channel c ON i.channel=c.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY i.channel ORDER BY countnum desc
+  </select>
   <select id="workloadCount" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
    	SELECT COUNT(distinct adduser)
 	FROM freecms_info i
@@ -517,6 +526,14 @@
    	SELECT COUNT(distinct site)
 	FROM freecms_info i
 	LEFT JOIN freecms_site s  ON i.site=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="channelStatCount" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct channel)
+	FROM freecms_info i
+	LEFT JOIN freecms_channel c ON i.channel=c.id 
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>

@@ -34,6 +34,7 @@ public class Info implements Serializable{
      * @mbggenerated Wed Feb 01 16:28:18 CST 2012
      */
     private String site;
+    private String infosite;
     private String sitename;
     private String indexnum;
     private String opentype;
@@ -49,6 +50,7 @@ public class Info implements Serializable{
      * @mbggenerated Wed Feb 01 16:28:18 CST 2012
      */
     private String channel;
+    private String channelname;
     private String channelPagemark;
     private String channelParid;
     private String channelParPagemark;
@@ -1064,6 +1066,22 @@ public class Info implements Serializable{
 
 	public void setSitename(String sitename) {
 		this.sitename = sitename;
+	}
+
+	public String getInfosite() {
+		return infosite;
+	}
+
+	public void setInfosite(String infosite) {
+		this.infosite = infosite;
+	}
+
+	public String getChannelname() {
+		return channelname;
+	}
+
+	public void setChannelname(String channelname) {
+		this.channelname = channelname;
 	}
 
 }

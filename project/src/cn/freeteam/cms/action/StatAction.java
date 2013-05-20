@@ -95,6 +95,23 @@ public class StatAction extends BaseAction{
 			return "sysSiteStat";
 		}
 	}
+	/**
+	 * 栏目信息统计 
+	 * @return
+	 */
+	public String channelStat(){
+		if (info==null) {
+			info=new Info();
+		}
+		info.setInfosite(getManageSite().getId());
+		infoList=infoService.channelStat(info);
+		if ("1".equals(export)) {
+			return "channelStatExport";
+		}else {
+			totalCount=infoService.channelStatCount(info);
+			return "channelStat";
+		}
+	}
 	
 	
 	
