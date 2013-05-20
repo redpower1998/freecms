@@ -3,13 +3,13 @@
 
 = html =
 <p>
-	从FreeCMS&nbsp;1.3&nbsp;开始支持</p>
+	从FreeCMS 1.3 开始支持</p>
 <p>
 	html功能标签。</p>
 <p>
-	&nbsp;</p>
+	 </p>
 <p>
-	&nbsp;</p>
+	 </p>
 <table>
 	<tbody>
 		<tr>
@@ -49,19 +49,19 @@
 			</td>
 			<td valign="top">
 				<p>
-					删除html标签&nbsp;默认删除&nbsp;0不删除</p>
+					删除html标签 默认删除 0不删除</p>
 			</td>
 		</tr>
 	</tbody>
 </table>
 <p>
-	&nbsp;</p>
+	 </p>
 <p>
-	&nbsp;</p>
+	 </p>
 <p>
-	&nbsp;</p>
+	 </p>
 <p>
-	&nbsp;</p>
+	 </p>
 <table>
 	<tbody>
 		<tr>
@@ -87,11 +87,12 @@
 	</tbody>
 </table>
 <p>
-	&nbsp;</p>
+	 </p>
 <p>
-	&nbsp;</p>
+	 </p>
 <p>
 	示例1</p>
+
 <p>
 {{{
 <@html code='需要处理的html代码' length='20';value>${value}</@html>
