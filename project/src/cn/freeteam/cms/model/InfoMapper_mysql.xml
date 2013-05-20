@@ -40,6 +40,7 @@
     <result column="addUserName" jdbcType="VARCHAR" property="addUserName" />
     <result column="addUserLoginName" jdbcType="VARCHAR" property="addUserLoginName" />
     <result column="countnum" property="countnum" jdbcType="INTEGER" />
+    <result column="sitename" jdbcType="VARCHAR" property="sitename" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.freeteam.cms.model.Info">
     <!--
@@ -478,10 +479,37 @@
     </if>
  	GROUP BY adduser ORDER BY countnum desc
   </select>
+  <select id="siteStatPage" parameterType="cn.freeteam.cms.model.InfoExample" resultMap="BaseResultMap">
+   	SELECT COUNT(i.id) countnum,site,s.name sitename 
+	FROM freecms_info i 
+	LEFT JOIN freecms_site s  ON i.site=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY site ORDER BY countnum desc
+    limit ${skip},${pageSize}
+  </select>
+  <select id="siteStat" parameterType="cn.freeteam.cms.model.InfoExample" resultMap="BaseResultMap">
+   	SELECT COUNT(i.id) countnum,site,s.name sitename 
+	FROM freecms_info i 
+	LEFT JOIN freecms_site s  ON i.site=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY site ORDER BY countnum desc
+  </select>
   <select id="workloadCount" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
    	SELECT COUNT(distinct adduser)
 	FROM freecms_info i
 	LEFT JOIN freecms_users u ON i.adduser=u.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="siteStatCount" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct site)
+	FROM freecms_info i
+	LEFT JOIN freecms_site s  ON i.site=s.id 
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
