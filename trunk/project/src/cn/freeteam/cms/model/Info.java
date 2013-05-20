@@ -34,6 +34,7 @@ public class Info implements Serializable{
      * @mbggenerated Wed Feb 01 16:28:18 CST 2012
      */
     private String site;
+    private String sitename;
     private String indexnum;
     private String opentype;
     private String opentimetype;
@@ -1055,6 +1056,14 @@ public class Info implements Serializable{
 
 	public void setInfoendtimeStr(String infoendtimeStr) {
 		this.infoendtimeStr = infoendtimeStr;
+	}
+
+	public String getSitename() {
+		return sitename;
+	}
+
+	public void setSitename(String sitename) {
+		this.sitename = sitename;
 	}
 
 }

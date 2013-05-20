@@ -212,6 +212,9 @@ public class InfoService extends BaseService{
 			if (info.getAdduserLike()!=null && info.getAdduserLike().trim().length()>0) {
 				criteria.andSql(" (u.loginname like '%"+info.getAdduserLike().trim()+"%' or u.name like '%"+info.getAdduserLike().trim()+"%') ");
 			}
+			if (info.getSitename()!=null && info.getSitename().trim().length()>0) {
+				criteria.andSql(" (s.name like '%"+info.getSitename().trim()+"%') ");
+			}
 			if (info.getTitle()!=null && info.getTitle().trim().length()>0) {
 				criteria.andTitleLike("%"+info.getTitle().trim()+"%");
 			}
@@ -352,6 +355,42 @@ public class InfoService extends BaseService{
 		Criteria criteria=example.createCriteria();
 		proSearchParam(info, criteria);
 		return infoMapper.workloadCount(example);
+	}
+	
+	/**
+	 * 站点内容统计 
+	 * @param info
+	 * @return
+	 */
+	public List<Info> siteStat(Info info,int currPage,int pageSize){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return infoMapper.siteStatPage(example);
+	}
+	/**
+	 * 站点内容统计 
+	 * @param info
+	 * @return
+	 */
+	public List<Info> siteStat(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.siteStat(example);
+	}
+	/**
+	 * 站点内容统计 
+	 * @param info
+	 * @return
+	 */
+	public int siteStatCount(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.siteStatCount(example);
 	}
 	
 	//set and get

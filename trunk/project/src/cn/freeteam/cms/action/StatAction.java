@@ -78,6 +78,23 @@ public class StatAction extends BaseAction{
 			return "sysWorkload";
 		}
 	}
+	/**
+	 * 系统 站点内容统计 
+	 * @return
+	 */
+	public String sysSiteStat(){
+		if (info==null) {
+			info=new Info();
+		}
+		if ("1".equals(export)) {
+			infoList=infoService.siteStat(info);
+			return "sysSiteStatExport";
+		}else {
+			infoList=infoService.siteStat(info, currPage, pageSize);
+			totalCount=infoService.siteStatCount(info);
+			return "sysSiteStat";
+		}
+	}
 	
 	
 	
