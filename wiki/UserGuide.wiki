@@ -95,3 +95,4 @@
 ===== [taglibAjaxLoad ajaxLoad] =====
 ===== [taglibConfig config] =====
 ===== [taglibHtml html] =====
+===== [taglibReportQuery reportQuery] =====
