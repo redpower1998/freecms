@@ -167,6 +167,59 @@ public class StatAction extends BaseAction{
 		}
 		return "infoUpdate";
 	}
+
+	/**
+	 * 系统信息更新统计 
+	 * @return
+	 */
+	public String sysInfoUpdate(){
+		if (info==null) {
+			info=new Info();
+		}
+		if ("year".equals(statType)) {
+			//按年统计
+			if ("1".equals(export)) {
+				infoList=infoService.infoUpdateYear(info);
+				return "sysInfoUpdateExport";
+			}else {
+				infoList=infoService.infoUpdateYear(info, currPage, pageSize);
+				totalCount=infoService.infoUpdateYearCount(info);
+				return "sysInfoUpdate";
+			}
+		}
+		else if ("month".equals(statType)) {
+			//按月统计
+			if ("1".equals(export)) {
+				infoList=infoService.infoUpdateMonth(info);
+				return "sysInfoUpdateExport";
+			}else {
+				infoList=infoService.infoUpdateMonth(info, currPage, pageSize);
+				totalCount=infoService.infoUpdateMonthCount(info);
+				return "sysInfoUpdate";
+			}
+		}
+		else if ("day".equals(statType)) {
+			//按日统计
+			if ("1".equals(export)) {
+				infoList=infoService.infoUpdateDay(info);
+				return "sysInfoUpdateExport";
+			}else {
+				infoList=infoService.infoUpdateDay(info, currPage, pageSize);
+				totalCount=infoService.infoUpdateDayCount(info);
+				return "sysInfoUpdate";
+			}
+		}
+		else if ("week".equals(statType)) {
+			//按周统计
+			infoList=infoService.infoUpdateWeek(info);
+			if ("1".equals(export)) {
+				return "sysInfoUpdateExport";
+			}else {
+				return "sysInfoUpdate";
+			}
+		}
+		return "sysInfoUpdate";
+	}
 	
 	
 	//set and get
