@@ -37,6 +37,7 @@ public class StatAction extends BaseAction{
 	private List<Info> infoList;
 	private Info info;
 	private String export;
+	private String statType;
 	public StatAction() {
 		init("infoService");
 	}
@@ -112,7 +113,60 @@ public class StatAction extends BaseAction{
 			return "channelStat";
 		}
 	}
-	
+
+	/**
+	 * 信息更新统计 
+	 * @return
+	 */
+	public String infoUpdate(){
+		if (info==null) {
+			info=new Info();
+		}
+		info.setInfosite(getManageSite().getId());
+		if ("year".equals(statType)) {
+			//按年统计
+			if ("1".equals(export)) {
+				infoList=infoService.infoUpdateYear(info);
+				return "infoUpdateExport";
+			}else {
+				infoList=infoService.infoUpdateYear(info, currPage, pageSize);
+				totalCount=infoService.infoUpdateYearCount(info);
+				return "infoUpdate";
+			}
+		}
+		else if ("month".equals(statType)) {
+			//按月统计
+			if ("1".equals(export)) {
+				infoList=infoService.infoUpdateMonth(info);
+				return "infoUpdateExport";
+			}else {
+				infoList=infoService.infoUpdateMonth(info, currPage, pageSize);
+				totalCount=infoService.infoUpdateMonthCount(info);
+				return "infoUpdate";
+			}
+		}
+		else if ("day".equals(statType)) {
+			//按日统计
+			if ("1".equals(export)) {
+				infoList=infoService.infoUpdateDay(info);
+				return "infoUpdateExport";
+			}else {
+				infoList=infoService.infoUpdateDay(info, currPage, pageSize);
+				totalCount=infoService.infoUpdateDayCount(info);
+				return "infoUpdate";
+			}
+		}
+		else if ("week".equals(statType)) {
+			//按周统计
+			infoList=infoService.infoUpdateWeek(info);
+			if ("1".equals(export)) {
+				return "infoUpdateExport";
+			}else {
+				return "infoUpdate";
+			}
+		}
+		return "infoUpdate";
+	}
 	
 	
 	//set and get
@@ -139,5 +193,11 @@ public class StatAction extends BaseAction{
 	}
 	public void setExport(String export) {
 		this.export = export;
+	}
+	public String getStatType() {
+		return statType;
+	}
+	public void setStatType(String statType) {
+		this.statType = statType;
 	}
 }
