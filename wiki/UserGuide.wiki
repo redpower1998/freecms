@@ -96,6 +96,7 @@
 ===== [taglibConfig config] =====
 ===== [taglibHtml html] =====
 ===== [taglibReportQuery reportQuery] =====
+===== [taglibApplyopenQuery applyopenQuery] =====
 
 
 
