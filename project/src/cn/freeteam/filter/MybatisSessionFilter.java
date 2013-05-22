@@ -25,6 +25,10 @@ public class MybatisSessionFilter implements Filter {
 	public void doFilter(final ServletRequest req, final ServletResponse res,
 			FilterChain chain) throws IOException, ServletException {
 		chain.doFilter(req, res);
+		//关闭链接前的数据库操作
+		//访问记录
+		VisitFilter visitFilter=new VisitFilter();
+		visitFilter.doFilter(req, res, chain);
 		//关闭链接
 		MybatisSessionFactory.closeSession();
 	}

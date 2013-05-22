@@ -3,22 +3,20 @@ package cn.freeteam.filter;
 import java.io.IOException;
 import java.util.Date;
 
-import javax.servlet.Filter;
 import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import cn.freeteam.base.Base;
+
+import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.model.Visit;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.cms.service.VisitService;
 
-public class VisitFilter extends Base implements Filter{
-	protected FilterConfig filterConfig;
+public class VisitFilter extends BaseService {
 	
 	private SiteService siteService;
 	private VisitService visitService;
@@ -30,11 +28,9 @@ public class VisitFilter extends Base implements Filter{
 		HttpServletRequest hreq = (HttpServletRequest) req;
 		String uri=hreq.getRequestURI().replaceFirst(hreq.getContextPath(), "");
 		String queryString=hreq.getQueryString();
-		System.out.println(hreq.getRequestURI().replaceFirst(hreq.getContextPath(), ""));
-		System.out.println(hreq.getQueryString());
 		try {
 			Visit visit=null;
-			if (uri.startsWith("/site/")) {
+			if (uri.startsWith("/site/") && uri.endsWith(".html")) {
 				//访问静态页面
 				//提取站点源文件夹 
 				String uri1=uri.replaceFirst("/site/", "");
@@ -46,7 +42,7 @@ public class VisitFilter extends Base implements Filter{
 					visit=new Visit();
 					visit.setSiteid(site.getId());
 					//提取栏目id
-					String uri2=uri.replaceFirst(siteFloder+"/", "");
+					String uri2=uri1.replaceFirst(siteFloder+"/", "");
 					String channelid=uri2.substring(0, uri2.indexOf("/"));
 					if (channelid!=null && channelid.length()>0) {
 						visit.setChannelid(channelid);
@@ -64,33 +60,14 @@ public class VisitFilter extends Base implements Filter{
 				//添加访问记录
 				visit.setAddtime(new Date());
 				visit.setUrl(uri+(queryString!=null?"?"+queryString:""));
+				visit.setIp(hreq.getRemoteAddr());
 				init("visitService");
 				visitService.add(visit);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		chain.doFilter(req, res);
 	}
-
-	public void setFilterConfig(final FilterConfig filterConfig) {
-		this.filterConfig = filterConfig;
-	}
-
-	/**
-	 * 销毁过滤器
-	 */
-	public void destroy() {
-		this.filterConfig = null;
-	}
-
-	/**
-	 * 初始化过滤器,和一般的Servlet一样，它也可以获得初始参数。
-	 */
-	public void init(FilterConfig config) throws ServletException {
-		this.filterConfig = config;
-	}
-
 	public SiteService getSiteService() {
 		return siteService;
 	}
@@ -106,5 +83,6 @@ public class VisitFilter extends Base implements Filter{
 	public void setVisitService(VisitService visitService) {
 		this.visitService = visitService;
 	}
+
 
 }
