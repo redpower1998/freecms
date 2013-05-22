@@ -37,20 +37,6 @@ public class OperButtonsTag extends BaseTag{
 				String pageFuncId=request.getParameter("pageFuncId").trim();
 				//先查找session中是否已存在
 				List<Operbutton> buttons=OperButtonUtil.getButtons(pageFuncId, request);
-				if (buttons==null) {
-					buttons=new ArrayList<Operbutton>();
-					//未存在则重新读取
-					OperbuttonService service=new OperbuttonService();
-					List<Operbutton> buttonList=null;
-					//if (isWebSysteLogin()) {
-						buttons=service.findByFuncOk(pageFuncId);
-					//}else {
-					//	buttons=service.findByAuth(pageFuncId, getLoginAdmin().getId());
-					//}
-					//设置到session
-					OperButtonUtil.setButtons(pageFuncId, buttons, request);
-				}
-
 				if (buttons!=null && buttons.size()>0) {
 					StringBuilder sBuilder=new StringBuilder();
 					Operbutton operbutton;
@@ -71,6 +57,18 @@ public class OperButtonsTag extends BaseTag{
 						}
 					}
 					pageContext.getOut().println(sBuilder.toString());
+				}else {
+					buttons=new ArrayList<Operbutton>();
+					//未存在则重新读取
+					OperbuttonService service=new OperbuttonService();
+					List<Operbutton> buttonList=null;
+					//if (isWebSysteLogin()) {
+						buttons=service.findByFuncOk(pageFuncId);
+					//}else {
+					//	buttons=service.findByAuth(pageFuncId, getLoginAdmin().getId());
+					//}
+					//设置到session
+					OperButtonUtil.setButtons(pageFuncId, buttons, request);
 				}
 			}
 		} catch (IOException e) {
