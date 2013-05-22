@@ -171,6 +171,23 @@ public class SiteService extends BaseService{
 		return null;
 	}
 	/**
+	 * 根据sourcepath查询
+	 * @param id
+	 * @return
+	 */
+	public Site findBySourcepath(String sourcepath){
+		SiteExample example=new SiteExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andSourcepathEqualTo(sourcepath);
+		example.setCurrPage(1);
+		example.setPageSize(1);
+		List<Site> list = siteMapper.selectPageByExample(example);
+		if (list!=null && list.size()>0) {
+			return list.get(0);
+		}
+		return null;
+	}
+	/**
 	 * 生成首页
 	 * @param id
 	 * @throws TemplateException 
