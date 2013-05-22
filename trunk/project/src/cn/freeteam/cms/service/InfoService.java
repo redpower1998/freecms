@@ -420,6 +420,128 @@ public class InfoService extends BaseService{
 		proSearchParam(info, criteria);
 		return infoMapper.channelStatCount(example);
 	}
+	/**
+	 * 信息更新统计 年 
+	 * @param info
+	 * @return
+	 */
+	public List<Info> infoUpdateYear(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.infoUpdateYear(example);
+	}
+	/**
+	 * 信息更新统计 年 
+	 * @param info
+	 * @return
+	 */
+	public List<Info> infoUpdateYear(Info info,int currPage,int pageSize){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return infoMapper.infoUpdateYearPage(example);
+	}
+	/**
+	 * 信息更新统计 年
+	 * @param info
+	 * @return
+	 */
+	public int infoUpdateYearCount(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.infoUpdateYearCount(example);
+	}
+	
+	
+
+	/**
+	 * 信息更新统计 月
+	 * @param info
+	 * @return
+	 */
+	public List<Info> infoUpdateMonth(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.infoUpdateMonth(example);
+	}
+	/**
+	 * 信息更新统计 月 
+	 * @param info
+	 * @return
+	 */
+	public List<Info> infoUpdateMonth(Info info,int currPage,int pageSize){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return infoMapper.infoUpdateMonthPage(example);
+	}
+	/**
+	 * 信息更新统计 月
+	 * @param info
+	 * @return
+	 */
+	public int infoUpdateMonthCount(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.infoUpdateMonthCount(example);
+	}
+	
+
+	/**
+	 * 信息更新统计 日
+	 * @param info
+	 * @return
+	 */
+	public List<Info> infoUpdateDay(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.infoUpdateDay(example);
+	}
+	/**
+	 * 信息更新统计 日 
+	 * @param info
+	 * @return
+	 */
+	public List<Info> infoUpdateDay(Info info,int currPage,int pageSize){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return infoMapper.infoUpdateDayPage(example);
+	}
+	/**
+	 * 信息更新统计 日
+	 * @param info
+	 * @return
+	 */
+	public int infoUpdateDayCount(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.infoUpdateDayCount(example);
+	}
+
+	/**
+	 * 信息更新统计 周
+	 * @param info
+	 * @return
+	 */
+	public List<Info> infoUpdateWeek(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.infoUpdateWeek(example);
+	}
 	
 	//set and get
 

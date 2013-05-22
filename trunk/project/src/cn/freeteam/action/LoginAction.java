@@ -64,7 +64,7 @@ public class LoginAction extends BaseAction{
 				OperLogUtil.log(user.getLoginname(), "登录系统", getHttpRequest());
 				return "admin";
 			}else {
-				ResponseUtil.writeUTF(getHttpResponse(), "<script>alert('"+msg+"');history.back();</script>");
+				ResponseUtil.writeGBK(getHttpResponse(), "<script>alert('"+msg+"');history.back();</script>");
 				return null;
 			}
 		} catch (Exception e) {
@@ -75,7 +75,7 @@ public class LoginAction extends BaseAction{
 			}
 			e.printStackTrace();
 			OperLogUtil.log(user.getLoginname(), "登录系统失败:"+e.toString(), getHttpRequest());
-			ResponseUtil.writeUTF(getHttpResponse(), "<script>alert('出现错误:"+e.toString()+"');history.back();</script>");
+			ResponseUtil.writeGBK(getHttpResponse(), "<script>alert('出现错误:"+e.toString()+"');history.back();</script>");
 			return null;
 		}
 	}
