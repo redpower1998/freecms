@@ -14,6 +14,13 @@
     <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
     <result column="ip" property="ip" jdbcType="VARCHAR" />
+    
+    
+    <!-- 存放查询结果的属性，不保存到数据库 -->
+    <result column="sitename" jdbcType="VARCHAR" property="sitename" />
+    <result column="channelname" jdbcType="VARCHAR" property="channelname" />
+    <result column="infoname" jdbcType="VARCHAR" property="infoname" />
+    <result column="countnum" property="countnum" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <!--
@@ -108,6 +115,37 @@
     </if>
     <if test="orderByClause != null" >
       order by ${orderByClause}
+    </if>
+  </select>
+  <select id="channelVisit" resultMap="BaseResultMap" parameterType="cn.freeteam.cms.model.VisitExample" >
+    select  count(v.id) countnum, channelid ,max(c.name) channelname 
+    from freecms_visit v left join freecms_channel c on v.channelid=c.id 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    group by channelid
+  </select>
+  <select id="channelVisitPage" resultMap="BaseResultMap" parameterType="cn.freeteam.cms.model.VisitExample" >
+    select  count(v.id) countnum, channelid ,max(c.name) channelname 
+    from freecms_visit v left join freecms_channel c on v.channelid=c.id 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    group by channelid
+    limit ${skip},${pageSize}
+  </select>
+  <select id="channelVisitCount" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct channelid)
+    from freecms_visit v left join freecms_channel c on v.channelid=c.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="channelVisitSum" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(v.id)
+    from freecms_visit v left join freecms_channel c on v.channelid=c.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >

@@ -4,7 +4,9 @@ import java.util.List;
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Info;
+import cn.freeteam.cms.model.Visit;
 import cn.freeteam.cms.service.InfoService;
+import cn.freeteam.cms.service.VisitService;
 import cn.freeteam.util.Pager;
 
 /**
@@ -34,8 +36,11 @@ import cn.freeteam.util.Pager;
 public class StatAction extends BaseAction{
 
 	private InfoService infoService;
+	private VisitService visitService;
 	private List<Info> infoList;
+	private List<Visit> visitList;
 	private Info info;
+	private Visit visit;
 	private String export;
 	private String statType;
 	private int sum;
@@ -231,6 +236,25 @@ public class StatAction extends BaseAction{
 		}
 		return "sysInfoUpdate";
 	}
+	/**
+	 * 栏目访问统计
+	 * @return
+	 */
+	public String channelVisit(){
+		if (visit==null) {
+			visit=new Visit();
+		}
+		visit.setSiteid(getManageSite().getId());
+		sum=visitService.channelVisitSum(visit);
+		if ("1".equals(export)) {
+			visitList=visitService.channelVisit(visit);
+			return "channelVisitExport";
+		}else {
+			visitList=visitService.channelVisit(visit, currPage, pageSize);
+			totalCount=visitService.channelVisitCount(visit);
+			return "channelVisit";
+		}
+	}
 	
 	
 	//set and get
@@ -269,5 +293,23 @@ public class StatAction extends BaseAction{
 	}
 	public void setSum(int sum) {
 		this.sum = sum;
+	}
+	public VisitService getVisitService() {
+		return visitService;
+	}
+	public void setVisitService(VisitService visitService) {
+		this.visitService = visitService;
+	}
+	public List<Visit> getVisitList() {
+		return visitList;
+	}
+	public void setVisitList(List<Visit> visitList) {
+		this.visitList = visitList;
+	}
+	public Visit getVisit() {
+		return visit;
+	}
+	public void setVisit(Visit visit) {
+		this.visit = visit;
 	}
 }
