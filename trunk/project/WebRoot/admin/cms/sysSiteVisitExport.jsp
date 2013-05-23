@@ -2,7 +2,7 @@
 <% 
 response.setCharacterEncoding("GBK"); 
    response.setContentType("application/download");
-response.setHeader("Content-Disposition", "attachment;filename=channelVisit.xls");
+response.setHeader("Content-Disposition", "attachment;filename=siteVisit.xls");
   %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -12,14 +12,14 @@ response.setHeader("Content-Disposition", "attachment;filename=channelVisit.xls"
 		
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					<b>栏目访问量列表(访问总量:${sum })</b>
+					<b>站点访问量列表(访问总量:${sum })</b>
 				</div>
 				<table id="MyDataList" cellspacing="1" cellpadding="1"
 					Align="center" border="0" border="0"
 					style="width: 100%; word-break: break-all">
 					<TR class="summary-title" style="HEIGHT: 25px" align="center">
 						<TD >
-							<b>栏目</b>
+							<b>站点</b>
 						</TD>
 						<TD >
 							<b>访问量</b>
@@ -30,8 +30,8 @@ response.setHeader("Content-Disposition", "attachment;filename=channelVisit.xls"
 					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						
-						<TD  align="left" >
-							<s:property value="channelname"/>
+						<TD  align="left" id="adduser<s:property value="id"/>">
+							<s:property value="sitename"/>
 						</TD>
 						<TD  align="left" id="countnum<s:property value="id"/>">
 							<s:property value="countnum"/>

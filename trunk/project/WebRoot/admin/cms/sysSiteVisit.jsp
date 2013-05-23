@@ -18,7 +18,7 @@
       <script lang="javascript" type="text/javascript">
         $(document).ready(function () {
             $('#jqChart').jqChart({
-                title: { text: '栏目访问统计' },
+                title: { text: '站点访问统计' },
                 axes: [
                         {
                             type: 'category',
@@ -35,7 +35,7 @@
 								<s:if test="%{#st.index>0}">
 								,
 								</s:if>
-								['<s:property value="channelname"/>', <s:property value="countnum"/>]
+								['<s:property value="sitename"/>', <s:property value="countnum"/>]
 								</s:iterator>
 								]
                             },
@@ -45,13 +45,13 @@
     </script>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
-		<form name="myForm" method="post" action="stat_channelVisit.do" id="myForm"
+		<form name="myForm" method="post" action="stat_sysSiteVisit.do" id="myForm"
 			style="margin: 0px">
 			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
 			<input type="hidden" name="export" id="export" value=""/>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					栏目访问量搜索
+					站点访问量搜索
 				</div>
 				<TABLE width="100%" border=0 align=center cellpadding="2"
 					cellspacing="0">
@@ -59,9 +59,9 @@
 						<TR class=summary-title>
 							<TD height="30" align=left style="padding-left: 10px;">
 							
-								栏目名称：
+								站点名称：
 								
-								<input name="visit.channelname" type="text" maxlength="50" value="${ visit.channelname}"
+								<input name="visit.sitename" type="text" maxlength="50" value="${ visit.sitename}"
 									class="colorblur" onfocus="this.className='colorfocus';"
 									onblur="this.className='colorblur';"  />
 									时间范围：
@@ -69,6 +69,29 @@
 									至
 									<input name="visit.endtime" id="endtime"  class="Wdate"  type="text" size="24" value="${visit.endtimeStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
 									
+								最多显示条数：
+								<select name="pageSize"
+									id="pageSize">
+									<option selected="selected" value="10">
+										10
+									</option>
+									<option value="30">
+										30
+									</option>
+									<option value="50">
+										50
+									</option>
+									<option value="100">
+										100
+									</option>
+									<option value="200">
+										200
+									</option>
+									<option value="300">
+										300
+									</option>
+
+								</select>
 								
 								
 								<input type="button" name="Search" value="搜 索" id="Search" onclick="$('#export').val('');this.form.submit();"
@@ -85,7 +108,7 @@
 </form>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					栏目访问量列表(访问总量:${sum })
+					站点访问量列表(访问总量:${sum })
 				</div>
 
     <div>
@@ -97,7 +120,7 @@
 					style="width: 100%; word-break: break-all">
 					<TR class="summary-title" style="HEIGHT: 25px" align="center">
 						<TD >
-							栏目
+							站点
 						</TD>
 						<TD >
 							访问量
@@ -109,14 +132,22 @@
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						
 						<TD  align="left" id="adduser<s:property value="id"/>">
-							<s:property value="channelname"/>
+							<s:property value="sitename"/>
 						</TD>
 						<TD  align="left" id="countnum<s:property value="id"/>">
 							<s:property value="countnum"/>
 						</TD>
 					</TR>
 					</s:iterator>
-					
+					<TR class="tdbg" 
+						style="HEIGHT: 25px" >
+						<TD  align="center" colspan="10">
+							<b><font color="red">
+							<s:if test="%{totalCount>pageSize}">
+							总共有${totalCount }条数据，只显示前${pageSize }条，如果没有您要统计的站点，您可以尝试搜索站点。
+							</s:if></font></b>
+						</TD>
+					</TR>
 				</table>
 
 			</DIV>
