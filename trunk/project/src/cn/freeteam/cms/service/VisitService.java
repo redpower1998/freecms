@@ -144,6 +144,8 @@ public class VisitService extends BaseService{
 				criteria.andChannelidIsNotNull();
 			}else if ("site".equals(visit.getStatType())) {
 				criteria.andSiteidIsNotNull();
+			}else if ("info".equals(visit.getStatType())) {
+				criteria.andInfoidIsNotNull();
 			}
 		}
 	}
