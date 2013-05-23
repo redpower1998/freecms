@@ -82,7 +82,15 @@ public class VisitService extends BaseService{
 	 */
 	public void proSearchParam(Visit visit,Criteria criteria){
 		if (visit!=null ) {
-			
+			if (visit.getChannelname()!=null && visit.getChannelname().trim().length()>0) {
+				criteria.andSql(" c.name like '%"+visit.getChannelname().trim()+"%'");
+			}
+			if (visit.getStarttime()!=null) {
+				criteria.andVisitAddtimeGreaterThanOrEqualTo(visit.getStarttime());
+			}
+			if (visit.getEndtime()!=null) {
+				criteria.andVisitAddtimeLessThanOrEqualTo(visit.getEndtime());
+			}
 		}
 	}
 	public VisitMapper getVisitMapper() {

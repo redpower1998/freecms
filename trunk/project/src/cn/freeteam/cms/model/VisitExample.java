@@ -281,6 +281,11 @@ public class VisitExample extends BaseExample{
             addCriterion("siteid =", value, "siteid");
             return (Criteria) this;
         }
+        public Criteria andSql(String value) {
+            addCriterion(value);
+            return (Criteria) this;
+        }
+
 
         public Criteria andSiteidNotEqualTo(String value) {
             addCriterion("siteid <>", value, "siteid");
@@ -576,6 +581,10 @@ public class VisitExample extends BaseExample{
             addCriterion("addtime >=", value, "addtime");
             return (Criteria) this;
         }
+        public Criteria andVisitAddtimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("v.addtime >=", value, "addtime");
+            return (Criteria) this;
+        }
 
         public Criteria andAddtimeLessThan(Date value) {
             addCriterion("addtime <", value, "addtime");
@@ -584,6 +593,10 @@ public class VisitExample extends BaseExample{
 
         public Criteria andAddtimeLessThanOrEqualTo(Date value) {
             addCriterion("addtime <=", value, "addtime");
+            return (Criteria) this;
+        }
+        public Criteria andVisitAddtimeLessThanOrEqualTo(Date value) {
+            addCriterion("v.addtime <=", value, "addtime");
             return (Criteria) this;
         }
 
