@@ -45,7 +45,7 @@ public class StatAction extends BaseAction{
 	private String statType;
 	private int sum;
 	public StatAction() {
-		init("infoService");
+		init("infoService","visitService");
 	}
 	/**
 	 * 工作量统计
