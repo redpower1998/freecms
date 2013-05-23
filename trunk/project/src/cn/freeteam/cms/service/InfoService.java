@@ -362,6 +362,17 @@ public class InfoService extends BaseService{
 		proSearchParam(info, criteria);
 		return infoMapper.workloadCount(example);
 	}
+	/**
+	 * 工作量合计 
+	 * @param info
+	 * @return
+	 */
+	public int workloadSum(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.workloadSum(example);
+	}
 	
 	/**
 	 * 站点内容统计 
@@ -399,6 +410,17 @@ public class InfoService extends BaseService{
 		return infoMapper.siteStatCount(example);
 	}
 	/**
+	 * 站点内容合计 
+	 * @param info
+	 * @return
+	 */
+	public int siteStatSum(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.siteStatSum(example);
+	}
+	/**
 	 * 栏目信息统计 
 	 * @param info
 	 * @return
@@ -419,6 +441,17 @@ public class InfoService extends BaseService{
 		Criteria criteria=example.createCriteria();
 		proSearchParam(info, criteria);
 		return infoMapper.channelStatCount(example);
+	}
+	/**
+	 * 栏目信息合计 
+	 * @param info
+	 * @return
+	 */
+	public int channelStatSum(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.channelStatSum(example);
 	}
 	/**
 	 * 信息更新统计 年 
@@ -454,6 +487,18 @@ public class InfoService extends BaseService{
 		Criteria criteria=example.createCriteria();
 		proSearchParam(info, criteria);
 		return infoMapper.infoUpdateYearCount(example);
+	}
+
+	/**
+	 * 信息更新合计 年
+	 * @param info
+	 * @return
+	 */
+	public int infoUpdateYearSum(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.infoUpdateYearSum(example);
 	}
 	
 	
@@ -493,6 +538,17 @@ public class InfoService extends BaseService{
 		proSearchParam(info, criteria);
 		return infoMapper.infoUpdateMonthCount(example);
 	}
+	/**
+	 * 信息更新合计 月
+	 * @param info
+	 * @return
+	 */
+	public int infoUpdateMonthSum(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.infoUpdateMonthSum(example);
+	}
 	
 
 	/**
@@ -529,6 +585,29 @@ public class InfoService extends BaseService{
 		Criteria criteria=example.createCriteria();
 		proSearchParam(info, criteria);
 		return infoMapper.infoUpdateDayCount(example);
+	}
+	/**
+	 * 信息更新合计 日
+	 * @param info
+	 * @return
+	 */
+	public int infoUpdateDaySum(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.infoUpdateDaySum(example);
+	}
+
+	/**
+	 * 信息更新合计 周
+	 * @param info
+	 * @return
+	 */
+	public int infoUpdateWeekSum(Info info){
+		InfoExample example=new InfoExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(info, criteria);
+		return infoMapper.infoUpdateWeekSum(example);
 	}
 
 	/**

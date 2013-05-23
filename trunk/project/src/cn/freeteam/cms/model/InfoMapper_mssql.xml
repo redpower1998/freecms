@@ -524,6 +524,14 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select id="workloadSum" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
+   	SELECT COUNT(i.id) 
+	FROM freecms_info i
+	LEFT JOIN freecms_users u ON i.adduser=u.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
   <select id="siteStatCount" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
    	SELECT COUNT(distinct site)
 	FROM freecms_info i
@@ -532,8 +540,24 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select id="siteStatSum" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
+   	SELECT COUNT(i.id)
+	FROM freecms_info i
+	LEFT JOIN freecms_site s  ON i.site=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
   <select id="channelStatCount" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
    	SELECT COUNT(distinct channel)
+	FROM freecms_info i
+	LEFT JOIN freecms_channel c ON i.channel=c.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="channelStatSum" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
+   	SELECT COUNT(i.id)
 	FROM freecms_info i
 	LEFT JOIN freecms_channel c ON i.channel=c.id 
     <if test="_parameter != null">
@@ -564,6 +588,13 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select id="infoUpdateYearSum" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
+   	SELECT COUNT(i.id)
+	FROM freecms_info i
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
   
   
   <select id="infoUpdateMonthPage" parameterType="cn.freeteam.cms.model.InfoExample" resultMap="BaseResultMap">
@@ -584,6 +615,13 @@
   </select>
   <select id="infoUpdateMonthCount" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
    	SELECT COUNT(distinct (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))))
+	FROM freecms_info i
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="infoUpdateMonthSum" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
+   	SELECT COUNT(i.id)
 	FROM freecms_info i
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -610,6 +648,20 @@
   </select>
   <select id="infoUpdateDayCount" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
    	SELECT COUNT(distinct (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))+'-'+cast(day(ADDTIME) as varchar(2))))
+	FROM freecms_info i
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="infoUpdateDaySum" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
+   	SELECT COUNT(i.id)
+	FROM freecms_info i
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="infoUpdateWeekSum" parameterType="cn.freeteam.cms.model.InfoExample" resultType="java.lang.Integer">
+   	SELECT COUNT(i.id)
 	FROM freecms_info i
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

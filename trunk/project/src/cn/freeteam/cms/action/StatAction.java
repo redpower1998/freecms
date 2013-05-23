@@ -38,6 +38,7 @@ public class StatAction extends BaseAction{
 	private Info info;
 	private String export;
 	private String statType;
+	private int sum;
 	public StatAction() {
 		init("infoService");
 	}
@@ -50,8 +51,7 @@ public class StatAction extends BaseAction{
 			info=new Info();
 		}
 		info.setSite(getManageSite().getId());
-		infoList=infoService.workload(info, currPage, pageSize);
-		totalCount=infoService.workloadCount(info);
+		sum=infoService.workloadSum(info);
 		if ("1".equals(export)) {
 			infoList=infoService.workload(info);
 			return "workloadExport";
@@ -70,6 +70,7 @@ public class StatAction extends BaseAction{
 		if (info==null) {
 			info=new Info();
 		}
+		sum=infoService.workloadSum(info);
 		if ("1".equals(export)) {
 			infoList=infoService.workload(info);
 			return "sysWorkloadExport";
@@ -87,6 +88,7 @@ public class StatAction extends BaseAction{
 		if (info==null) {
 			info=new Info();
 		}
+		sum=infoService.siteStatSum(info);
 		if ("1".equals(export)) {
 			infoList=infoService.siteStat(info);
 			return "sysSiteStatExport";
@@ -106,6 +108,7 @@ public class StatAction extends BaseAction{
 		}
 		info.setInfosite(getManageSite().getId());
 		infoList=infoService.channelStat(info);
+		sum=infoService.channelStatSum(info);
 		if ("1".equals(export)) {
 			return "channelStatExport";
 		}else {
@@ -125,6 +128,7 @@ public class StatAction extends BaseAction{
 		info.setInfosite(getManageSite().getId());
 		if ("year".equals(statType)) {
 			//按年统计
+			sum=infoService.infoUpdateYearSum(info);
 			if ("1".equals(export)) {
 				infoList=infoService.infoUpdateYear(info);
 				return "infoUpdateExport";
@@ -136,6 +140,7 @@ public class StatAction extends BaseAction{
 		}
 		else if ("month".equals(statType)) {
 			//按月统计
+			sum=infoService.infoUpdateMonthSum(info);
 			if ("1".equals(export)) {
 				infoList=infoService.infoUpdateMonth(info);
 				return "infoUpdateExport";
@@ -147,6 +152,7 @@ public class StatAction extends BaseAction{
 		}
 		else if ("day".equals(statType)) {
 			//按日统计
+			sum=infoService.infoUpdateDaySum(info);
 			if ("1".equals(export)) {
 				infoList=infoService.infoUpdateDay(info);
 				return "infoUpdateExport";
@@ -158,6 +164,7 @@ public class StatAction extends BaseAction{
 		}
 		else if ("week".equals(statType)) {
 			//按周统计
+			sum=infoService.infoUpdateWeekSum(info);
 			infoList=infoService.infoUpdateWeek(info);
 			if ("1".equals(export)) {
 				return "infoUpdateExport";
@@ -178,6 +185,7 @@ public class StatAction extends BaseAction{
 		}
 		if ("year".equals(statType)) {
 			//按年统计
+			sum=infoService.infoUpdateYearSum(info);
 			if ("1".equals(export)) {
 				infoList=infoService.infoUpdateYear(info);
 				return "sysInfoUpdateExport";
@@ -189,6 +197,7 @@ public class StatAction extends BaseAction{
 		}
 		else if ("month".equals(statType)) {
 			//按月统计
+			sum=infoService.infoUpdateMonthSum(info);
 			if ("1".equals(export)) {
 				infoList=infoService.infoUpdateMonth(info);
 				return "sysInfoUpdateExport";
@@ -200,6 +209,7 @@ public class StatAction extends BaseAction{
 		}
 		else if ("day".equals(statType)) {
 			//按日统计
+			sum=infoService.infoUpdateDaySum(info);
 			if ("1".equals(export)) {
 				infoList=infoService.infoUpdateDay(info);
 				return "sysInfoUpdateExport";
@@ -211,6 +221,7 @@ public class StatAction extends BaseAction{
 		}
 		else if ("week".equals(statType)) {
 			//按周统计
+			sum=infoService.infoUpdateWeekSum(info);
 			infoList=infoService.infoUpdateWeek(info);
 			if ("1".equals(export)) {
 				return "sysInfoUpdateExport";
@@ -252,5 +263,11 @@ public class StatAction extends BaseAction{
 	}
 	public void setStatType(String statType) {
 		this.statType = statType;
+	}
+	public int getSum() {
+		return sum;
+	}
+	public void setSum(int sum) {
+		this.sum = sum;
 	}
 }
