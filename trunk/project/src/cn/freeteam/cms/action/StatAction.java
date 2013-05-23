@@ -244,6 +244,7 @@ public class StatAction extends BaseAction{
 		if (visit==null) {
 			visit=new Visit();
 		}
+		visit.setStatType("channel");
 		visit.setSiteid(getManageSite().getId());
 		sum=visitService.channelVisitSum(visit);
 		if ("1".equals(export)) {
@@ -253,6 +254,25 @@ public class StatAction extends BaseAction{
 			visitList=visitService.channelVisit(visit, currPage, pageSize);
 			totalCount=visitService.channelVisitCount(visit);
 			return "channelVisit";
+		}
+	}
+	/**
+	 * 系统 站点访问统计 
+	 * @return
+	 */
+	public String sysSiteVisit(){
+		if (visit==null) {
+			visit=new Visit();
+		}
+		visit.setStatType("site");
+		sum=visitService.siteVisitSum(visit);
+		if ("1".equals(export)) {
+			visitList=visitService.siteVisit(visit);
+			return "sysSiteVisitExport";
+		}else {
+			visitList=visitService.siteVisit(visit, currPage, pageSize);
+			totalCount=visitService.siteVisitCount(visit);
+			return "sysSiteVisit";
 		}
 	}
 	

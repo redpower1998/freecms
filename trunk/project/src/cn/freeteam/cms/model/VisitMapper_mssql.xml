@@ -125,6 +125,7 @@
       <include refid="Example_Where_Clause" />
     </if>
     group by channelid
+    order by countnum desc
   </select>
   <select id="channelVisitPage" resultMap="BaseResultMap" parameterType="cn.freeteam.cms.model.VisitExample" >
     select  top ${pageSize}  count(v.id) countnum, channelid ,max(c.name) channelname 
@@ -133,6 +134,7 @@
       <include refid="Example_Where_Clause" />
     </if>
     group by channelid
+    order by countnum desc
   </select>
   <select id="channelVisitCount" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
    	SELECT COUNT(distinct channelid)
@@ -148,6 +150,41 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  
+  <select id="siteVisit" resultMap="BaseResultMap" parameterType="cn.freeteam.cms.model.VisitExample" >
+    select  count(v.id) countnum, siteid ,max(s.name) sitename 
+    from freecms_visit v left join freecms_site s on v.siteid=s.id 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    group by siteid
+    order by countnum desc
+  </select>
+  <select id="siteVisitPage" resultMap="BaseResultMap" parameterType="cn.freeteam.cms.model.VisitExample" >
+    select  top ${pageSize}  count(v.id) countnum, siteid ,max(s.name) sitename 
+    from freecms_visit v left join freecms_site s on v.siteid=s.id 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    group by siteid
+    order by countnum desc
+  </select>
+  <select id="siteVisitCount" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct siteid)
+    from freecms_visit v left join freecms_site s on v.siteid=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="siteVisitSum" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(v.id)
+    from freecms_visit v left join freecms_site s on v.siteid=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     <!--
       WARNING - @mbggenerated

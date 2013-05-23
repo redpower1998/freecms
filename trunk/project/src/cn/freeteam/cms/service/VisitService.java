@@ -76,6 +76,52 @@ public class VisitService extends BaseService{
 		return visitMapper.channelVisitSum(example);
 	}
 	/**
+	 * 站点访问合计
+	 * @param info
+	 * @return
+	 */
+	public int siteVisitSum(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.siteVisitSum(example);
+	}
+	/**
+	 * 站点访问统计 
+	 * @param info
+	 * @return
+	 */
+	public List<Visit> siteVisit(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.siteVisit(example);
+	}
+	/**
+	 * 站点访问统计 
+	 * @param info
+	 * @return
+	 */
+	public List<Visit> siteVisit(Visit visit,int currPage,int pageSize){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return visitMapper.siteVisitPage(example);
+	}
+	/**
+	 * 站点访问统计
+	 * @param info
+	 * @return
+	 */
+	public int siteVisitCount(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.siteVisitCount(example);
+	}
+	/**
 	 * 处理查询条件
 	 * @param info
 	 * @param criteria
@@ -85,11 +131,19 @@ public class VisitService extends BaseService{
 			if (visit.getChannelname()!=null && visit.getChannelname().trim().length()>0) {
 				criteria.andSql(" c.name like '%"+visit.getChannelname().trim()+"%'");
 			}
+			if (visit.getSitename()!=null && visit.getSitename().trim().length()>0) {
+				criteria.andSql(" s.name like '%"+visit.getSitename().trim()+"%'");
+			}
 			if (visit.getStarttime()!=null) {
 				criteria.andVisitAddtimeGreaterThanOrEqualTo(visit.getStarttime());
 			}
 			if (visit.getEndtime()!=null) {
 				criteria.andVisitAddtimeLessThanOrEqualTo(visit.getEndtime());
+			}
+			if ("channel".equals(visit.getStatType())) {
+				criteria.andChannelidIsNotNull();
+			}else if ("site".equals(visit.getStatType())) {
+				criteria.andSiteidIsNotNull();
 			}
 		}
 	}
