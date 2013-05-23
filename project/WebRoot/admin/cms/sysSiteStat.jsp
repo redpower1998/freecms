@@ -108,7 +108,7 @@
 </form>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					站点信息量列表
+					站点信息量列表(信息总量:${sum })
 				</div>
 
     <div>

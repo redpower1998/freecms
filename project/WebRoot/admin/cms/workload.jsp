@@ -107,7 +107,7 @@
 </form>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					工作量列表
+					工作量列表(信息总量:${sum })
 				</div>
 
     <div>
