@@ -29,7 +29,7 @@
                 series: [
                             {
 								title:'访问量',
-                                type: 'column',
+                                type: 'line',
                                 data: [
 								<s:iterator value="visitList" id="obj" status="st">
 								<s:if test="%{#st.index>0}">
