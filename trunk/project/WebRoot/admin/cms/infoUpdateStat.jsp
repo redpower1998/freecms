@@ -111,7 +111,7 @@
 <s:if test="%{infoList!=null && infoList.size>0}">
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					信息更新列表
+					信息更新列表(信息总量:${sum })
 				</div>
 
     <div>

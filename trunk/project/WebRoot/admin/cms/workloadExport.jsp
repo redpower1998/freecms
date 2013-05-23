@@ -12,7 +12,7 @@ response.setHeader("Content-Disposition", "attachment;filename=workload.xls");
 		
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					<b>工作量列表</b>
+					<b>工作量列表(信息总量:${sum })</b>
 				</div>
 				<table id="MyDataList" cellspacing="1" cellpadding="1"
 					Align="center" border="0" border="0"
