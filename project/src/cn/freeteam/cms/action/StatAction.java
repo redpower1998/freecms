@@ -275,7 +275,27 @@ public class StatAction extends BaseAction{
 			return "sysSiteVisit";
 		}
 	}
-	
+
+	/**
+	 * 信息访问统计
+	 * @return
+	 */
+	public String infoVisit(){
+		if (visit==null) {
+			visit=new Visit();
+		}
+		visit.setStatType("info");
+		visit.setSiteid(getManageSite().getId());
+		sum=visitService.infoVisitSum(visit);
+		if ("1".equals(export)) {
+			visitList=visitService.infoVisit(visit);
+			return "infoVisitExport";
+		}else {
+			visitList=visitService.infoVisit(visit, currPage, pageSize);
+			totalCount=visitService.infoVisitCount(visit);
+			return "infoVisit";
+		}
+	}
 	
 	//set and get
 	public InfoService getInfoService() {

@@ -121,6 +121,53 @@ public class VisitService extends BaseService{
 		proSearchParam(visit, criteria);
 		return visitMapper.siteVisitCount(example);
 	}
+
+	/**
+	 * 信息访问统计 
+	 * @param info
+	 * @return
+	 */
+	public List<Visit> infoVisit(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.infoVisit(example);
+	}
+	/**
+	 * 信息访问统计 
+	 * @param info
+	 * @return
+	 */
+	public List<Visit> infoVisit(Visit visit,int currPage,int pageSize){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return visitMapper.infoVisitPage(example);
+	}
+	/**
+	 * 信息访问统计
+	 * @param info
+	 * @return
+	 */
+	public int infoVisitCount(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.infoVisitCount(example);
+	}
+	/**
+	 * 信息访问合计
+	 * @param info
+	 * @return
+	 */
+	public int infoVisitSum(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.infoVisitSum(example);
+	}
 	/**
 	 * 处理查询条件
 	 * @param info
@@ -133,6 +180,9 @@ public class VisitService extends BaseService{
 			}
 			if (visit.getSitename()!=null && visit.getSitename().trim().length()>0) {
 				criteria.andSql(" s.name like '%"+visit.getSitename().trim()+"%'");
+			}
+			if (visit.getInfoname()!=null && visit.getInfoname().trim().length()>0) {
+				criteria.andSql(" i.title like '%"+visit.getInfoname().trim()+"%'");
 			}
 			if (visit.getStarttime()!=null) {
 				criteria.andVisitAddtimeGreaterThanOrEqualTo(visit.getStarttime());

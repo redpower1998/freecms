@@ -185,6 +185,39 @@
   </select>
   
   
+  <select id="infoVisit" resultMap="BaseResultMap" parameterType="cn.freeteam.cms.model.VisitExample" >
+    select  count(v.id) countnum, infoid ,max(i.title) infoname 
+    from freecms_visit v left join freecms_info i on v.infoid=i.id 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    group by infoid
+    order by countnum desc
+  </select>
+  <select id="infoVisitPage" resultMap="BaseResultMap" parameterType="cn.freeteam.cms.model.VisitExample" >
+    select  top ${pageSize}  count(v.id) countnum, infoid ,max(i.title) infoname 
+    from freecms_visit v left join freecms_info i on v.infoid=i.id 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    group by infoid
+    order by countnum desc
+  </select>
+  <select id="infoVisitCount" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct infoid)
+    from freecms_visit v left join freecms_info i on v.infoid=i.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="infoVisitSum" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(v.id)
+    from freecms_visit v left join freecms_info i on v.infoid=i.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     <!--
       WARNING - @mbggenerated

@@ -143,6 +143,8 @@
 			<result name="channelVisitExport" >/admin/cms/channelVisitExport.jsp</result>
 			<result name="sysSiteVisit" >/admin/cms/sysSiteVisit.jsp</result>
 			<result name="sysSiteVisitExport" >/admin/cms/sysSiteVisitExport.jsp</result>
+			<result name="infoVisit" >/admin/cms/infoVisit.jsp</result>
+			<result name="infoVisitExport" >/admin/cms/infoVisitExport.jsp</result>
 		</action>
 	</package>
 	
