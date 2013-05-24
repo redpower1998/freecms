@@ -225,6 +225,104 @@
   
   
   
+  <select id="visitYearPage" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+  	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y') AS datename FROM freecms_visit v 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y')
+    limit ${skip},${pageSize}
+  </select>
+  <select id="visitYear" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+  	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y') AS datename FROM freecms_visit v 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y')
+  </select>
+  <select id="visitYearCount" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct DATE_FORMAT(ADDTIME, '%Y'))
+	FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="visitSum" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(id)
+	FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  <select id="visitMonthPage" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y-%m') AS datename FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y-%m')
+    limit ${skip},${pageSize}
+  </select>
+  <select id="visitMonth" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y-%m') AS datename FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y-%m')
+  </select>
+  <select id="visitMonthCount" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct DATE_FORMAT(ADDTIME, '%Y-%m'))
+	FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  <select id="visitDayPage" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y-%m-%d') AS datename FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y-%m-%d')
+    limit ${skip},${pageSize}
+  </select>
+  <select id="visitDay" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y-%m-%d') AS datename FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y-%m-%d')
+  </select>
+  <select id="visitDayCount" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct DATE_FORMAT(ADDTIME, '%Y-%m-%d'))
+	FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  
+  <select id="visitWeek" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,
+	(CASE 
+	WHEN WEEKDAY(ADDTIME)=0 THEN '星期一' 
+	WHEN WEEKDAY(ADDTIME)=1 THEN '星期二' 
+	WHEN WEEKDAY(ADDTIME)=2 THEN '星期三' 
+	WHEN WEEKDAY(ADDTIME)=3 THEN '星期四' 
+	WHEN WEEKDAY(ADDTIME)=4 THEN '星期五' 
+	WHEN WEEKDAY(ADDTIME)=5 THEN '星期六' 
+	WHEN WEEKDAY(ADDTIME)=6 THEN '星期七' 
+	END
+	) AS datename FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY WEEKDAY(ADDTIME)
+  </select>
+  
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     <!--
