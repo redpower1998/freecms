@@ -31,7 +31,7 @@ public class VisitService extends BaseService{
 	}
 	/**
 	 * 栏目访问统计 
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public List<Visit> channelVisit(Visit visit){
@@ -42,7 +42,7 @@ public class VisitService extends BaseService{
 	}
 	/**
 	 * 栏目访问统计 
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public List<Visit> channelVisit(Visit visit,int currPage,int pageSize){
@@ -55,7 +55,7 @@ public class VisitService extends BaseService{
 	}
 	/**
 	 * 栏目访问统计
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public int channelVisitCount(Visit visit){
@@ -66,7 +66,7 @@ public class VisitService extends BaseService{
 	}
 	/**
 	 * 栏目访问合计
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public int channelVisitSum(Visit visit){
@@ -77,7 +77,7 @@ public class VisitService extends BaseService{
 	}
 	/**
 	 * 站点访问合计
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public int siteVisitSum(Visit visit){
@@ -88,7 +88,7 @@ public class VisitService extends BaseService{
 	}
 	/**
 	 * 站点访问统计 
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public List<Visit> siteVisit(Visit visit){
@@ -99,7 +99,7 @@ public class VisitService extends BaseService{
 	}
 	/**
 	 * 站点访问统计 
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public List<Visit> siteVisit(Visit visit,int currPage,int pageSize){
@@ -112,7 +112,7 @@ public class VisitService extends BaseService{
 	}
 	/**
 	 * 站点访问统计
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public int siteVisitCount(Visit visit){
@@ -124,7 +124,7 @@ public class VisitService extends BaseService{
 
 	/**
 	 * 信息访问统计 
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public List<Visit> infoVisit(Visit visit){
@@ -135,7 +135,7 @@ public class VisitService extends BaseService{
 	}
 	/**
 	 * 信息访问统计 
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public List<Visit> infoVisit(Visit visit,int currPage,int pageSize){
@@ -148,7 +148,7 @@ public class VisitService extends BaseService{
 	}
 	/**
 	 * 信息访问统计
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public int infoVisitCount(Visit visit){
@@ -159,7 +159,7 @@ public class VisitService extends BaseService{
 	}
 	/**
 	 * 信息访问合计
-	 * @param info
+	 * @param visit
 	 * @return
 	 */
 	public int infoVisitSum(Visit visit){
@@ -169,8 +169,137 @@ public class VisitService extends BaseService{
 		return visitMapper.infoVisitSum(example);
 	}
 	/**
+	 * 访问频率统计 年 
+	 * @param visit
+	 * @return
+	 */
+	public List<Visit> visitYear(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.visitYear(example);
+	}
+	/**
+	 * 访问频率统计 年 
+	 * @param visit
+	 * @return
+	 */
+	public List<Visit> visitYear(Visit visit,int currPage,int pageSize){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return visitMapper.visitYearPage(example);
+	}
+	/**
+	 * 访问频率统计 年 
+	 * @param visit
+	 * @return
+	 */
+	public int visitYearCount(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.visitYearCount(example);
+	}
+
+	/**
+	 * 访问频率统计 月 
+	 * @param visit
+	 * @return
+	 */
+	public List<Visit> visitMonth(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.visitMonth(example);
+	}
+	/**
+	 * 访问频率统计 月 
+	 * @param visit
+	 * @return
+	 */
+	public List<Visit> visitMonth(Visit visit,int currPage,int pageSize){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return visitMapper.visitMonthPage(example);
+	}
+	/**
+	 * 访问频率统计 月 
+	 * @param visit
+	 * @return
+	 */
+	public int visitMonthCount(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.visitMonthCount(example);
+	}
+
+	/**
+	 * 访问频率统计 日 
+	 * @param visit
+	 * @return
+	 */
+	public List<Visit> visitDay(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.visitDay(example);
+	}
+	/**
+	 * 访问频率统计 日 
+	 * @param visit
+	 * @return
+	 */
+	public List<Visit> visitDay(Visit visit,int currPage,int pageSize){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return visitMapper.visitDayPage(example);
+	}
+	/**
+	 * 访问频率统计 日 
+	 * @param visit
+	 * @return
+	 */
+	public int visitDayCount(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.visitDayCount(example);
+	}
+	/**
+	 * 访问频率统计 周
+	 * @param visit
+	 * @return
+	 */
+	public List<Visit> visitWeek(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.visitWeek(example);
+	}
+	/**
+	 * 访问合计
+	 * @param visit
+	 * @return
+	 */
+	public int visitSum(Visit visit){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		return visitMapper.visitSum(example);
+	}
+	/**
 	 * 处理查询条件
-	 * @param info
+	 * @param visit
 	 * @param criteria
 	 */
 	public void proSearchParam(Visit visit,Criteria criteria){

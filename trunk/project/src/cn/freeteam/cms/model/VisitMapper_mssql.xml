@@ -21,6 +21,7 @@
     <result column="channelname" jdbcType="VARCHAR" property="channelname" />
     <result column="infoname" jdbcType="VARCHAR" property="infoname" />
     <result column="countnum" property="countnum" jdbcType="INTEGER" />
+    <result column="datename" jdbcType="VARCHAR" property="datename" />
     
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -216,6 +217,102 @@
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
+  </select>
+  
+  
+  
+  
+  <select id="visitYearPage" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+   	SELECT top ${pageSize} COUNT(id) countnum,year(ADDTIME) AS datename FROM freecms_visit v 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY year(ADDTIME)
+  </select>
+  <select id="visitYear" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+   	SELECT  COUNT(id) countnum,year(ADDTIME) AS datename FROM freecms_visit v 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY year(ADDTIME)
+  </select>
+  <select id="visitYearCount" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct year(addtime))
+	FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="visitSum" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(id)
+	FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  
+  <select id="visitMonthPage" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+  	SELECT top ${pageSize} COUNT(id) countnum,(cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))) AS datename 
+	FROM freecms_visit v 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2)))
+  </select>
+  <select id="visitMonth" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+  	SELECT COUNT(id) countnum,(cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))) AS datename 
+	FROM freecms_visit v 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2)))
+  </select>
+  <select id="visitMonthCount" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))))
+	FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  
+  
+  <select id="visitDayPage" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+  	SELECT top ${pageSize} COUNT(id) countnum,(cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))+'-'+cast(day(ADDTIME) as varchar(2))) AS datename 
+	FROM freecms_visit v 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))+'-'+cast(day(ADDTIME) as varchar(2)))
+  </select>
+  <select id="visitDay" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+  	SELECT COUNT(id) countnum,(cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))+'-'+cast(day(ADDTIME) as varchar(2))) AS datename 
+	FROM freecms_visit v 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))+'-'+cast(day(ADDTIME) as varchar(2)))
+  </select>
+  <select id="visitDayCount" parameterType="cn.freeteam.cms.model.VisitExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))+'-'+cast(day(ADDTIME) as varchar(2))))
+	FROM freecms_visit v
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  
+  <select id="visitWeek" parameterType="cn.freeteam.cms.model.VisitExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,datename(weekday, ADDTIME) AS datename 
+	FROM freecms_visit v 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY datename(weekday, ADDTIME)
   </select>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >

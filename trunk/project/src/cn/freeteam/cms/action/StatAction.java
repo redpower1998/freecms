@@ -296,6 +296,64 @@ public class StatAction extends BaseAction{
 			return "infoVisit";
 		}
 	}
+
+	/**
+	 * 访问趋势统计 
+	 * @return
+	 */
+	public String visit(){
+		if (visit==null) {
+			visit=new Visit();
+		}
+		visit.setSiteid(getManageSite().getId());
+		if ("year".equals(statType)) {
+			//按年统计
+			sum=visitService.visitSum(visit);
+			if ("1".equals(export)) {
+				visitList=visitService.visitYear(visit);
+				return "visitStatExport";
+			}else {
+				visitList=visitService.visitYear(visit, currPage, pageSize);
+				totalCount=visitService.visitYearCount(visit);
+				return "visitStat";
+			}
+		}
+		else if ("month".equals(statType)) {
+			//按月统计
+			sum=visitService.visitSum(visit);
+			if ("1".equals(export)) {
+				visitList=visitService.visitMonth(visit);
+				return "visitStatExport";
+			}else {
+				visitList=visitService.visitMonth(visit, currPage, pageSize);
+				totalCount=visitService.visitMonthCount(visit);
+				return "visitStat";
+			}
+		}
+		else if ("day".equals(statType)) {
+			//按日统计
+			sum=visitService.visitSum(visit);
+			if ("1".equals(export)) {
+				visitList=visitService.visitDay(visit);
+				return "visitStatExport";
+			}else {
+				visitList=visitService.visitDay(visit, currPage, pageSize);
+				totalCount=visitService.visitDayCount(visit);
+				return "visitStat";
+			}
+		}
+		else if ("week".equals(statType)) {
+			//按周统计
+			sum=visitService.visitSum(visit);
+			visitList=visitService.visitWeek(visit);
+			if ("1".equals(export)) {
+				return "visitStatExport";
+			}else {
+				return "visitStat";
+			}
+		}
+		return "visitStat";
+	}
 	
 	//set and get
 	public InfoService getInfoService() {
