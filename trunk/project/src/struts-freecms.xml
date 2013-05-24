@@ -147,6 +147,8 @@
 			<result name="infoVisitExport" >/admin/cms/infoVisitExport.jsp</result>
 			<result name="visitStat" >/admin/cms/visitStat.jsp</result>
 			<result name="visitStatExport" >/admin/cms/visitStatExport.jsp</result>
+			<result name="sysVisitStat" >/admin/cms/sysVisitStat.jsp</result>
+			<result name="sysVisitStatExport" >/admin/cms/sysVisitStatExport.jsp</result>
 		</action>
 	</package>
 	
