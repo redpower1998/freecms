@@ -128,13 +128,13 @@
 					</TR>
 					
 					<s:iterator value="infoList" id="obj" status="bean">
-					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
+					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						
-						<TD  align="left" id="adduser<s:property value="id"/>">
-							<s:property value="sitename"/>
+						<TD  align="left" >
+							<a href='../../visit_site.do?siteid=<s:property value="site"/>' target='_blank'><s:property value="sitename"/></a>
 						</TD>
-						<TD  align="left" id="countnum<s:property value="id"/>">
+						<TD  align="left" >
 							<s:property value="countnum"/>
 						</TD>
 					</TR>
