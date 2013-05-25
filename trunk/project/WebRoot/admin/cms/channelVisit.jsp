@@ -105,13 +105,13 @@
 					</TR>
 					
 					<s:iterator value="visitList" id="obj" status="bean">
-					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
+					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						
-						<TD  align="left" id="adduser<s:property value="id"/>">
-							<s:property value="channelname"/>
+						<TD  align="left" >
+							<a href='../../visit_channel.do?channelid=<s:property value="channelid"/>' target='_blank'><s:property value="channelname"/></a>
 						</TD>
-						<TD  align="left" id="countnum<s:property value="id"/>">
+						<TD  align="left" >
 							<s:property value="countnum"/>
 						</TD>
 					</TR>
