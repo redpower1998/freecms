@@ -36,7 +36,7 @@ function infosign(infoid){
 }
 var action="copy";
 function showOne(id,name){
-	if(confirm("确定移动操作么?此操作无法回退!")){
+	if(confirm("确定操作么?此操作无法回退!")){
 		$.post("info_"+action+".do","ids="+getCheckValue()+"&tochannelid="+id+"&oldchannelid="+$("#channelId").val(),complete,"text");
 	}
 }
