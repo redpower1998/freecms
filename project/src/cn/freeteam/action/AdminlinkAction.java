@@ -35,7 +35,7 @@ import cn.freeteam.util.Pager;
 public class AdminlinkAction extends BaseAction{
 	private String msg;
 	private String pageFuncId;
-	private String order="";
+	private String order="ordernum";
 	private String logContent;
 	private String ids;
 	private AdminlinkService adminlinkService;
@@ -53,6 +53,10 @@ public class AdminlinkAction extends BaseAction{
 	public String list(){
 		if (adminlink==null ){
 			adminlink=new Adminlink();
+		}
+		if (Adminlink.TYPE_USER.equals(adminlink.getType())) {
+			//个人链接，添加用户条件
+			adminlink.setUserid(getLoginAdmin().getId());
 		}
 		adminlinkList=adminlinkService.find(adminlink, order,false);
 		return "list";
@@ -75,6 +79,10 @@ public class AdminlinkAction extends BaseAction{
 	public String editDo(){
 		String oper="添加";
 		try {
+			if (Adminlink.TYPE_USER.equals(adminlink.getType())) {
+				//个人链接，添加用户条件
+				adminlink.setUserid(getLoginAdmin().getId());
+			}
 			if (adminlink!=null && adminlink.getId()!=null) {
 				oper="修改";
 				adminlinkService.update(adminlink);

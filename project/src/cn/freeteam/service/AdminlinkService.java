@@ -96,6 +96,9 @@ public class AdminlinkService extends BaseService{
 			if (adminlink.getType()!=null && adminlink.getType().trim().length()>0) {
 				criteria.andTypeEqualTo(adminlink.getType().trim());
 			}
+			if (adminlink.getUserid()!=null && adminlink.getUserid().trim().length()>0) {
+				criteria.andUseridEqualTo(adminlink.getUserid().trim());
+			}
 		}
 	}
 
