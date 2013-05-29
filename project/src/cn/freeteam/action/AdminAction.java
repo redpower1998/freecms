@@ -9,7 +9,9 @@ import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.service.RoleSiteService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.dao.FuncMapper;
+import cn.freeteam.model.Adminlink;
 import cn.freeteam.model.Func;
+import cn.freeteam.service.AdminlinkService;
 import cn.freeteam.service.FuncService;
 
 
@@ -43,6 +45,10 @@ public class AdminAction extends BaseAction{
 	private FuncService funcService;
 	private SiteService siteService;
 	private RoleSiteService roleSiteService;
+	private AdminlinkService adminlinkService;
+	
+	private List<Adminlink> syslink;
+	private List<Adminlink> userlink;
 	
 	private String siteid;
 	private String funcid;
@@ -131,7 +137,22 @@ public class AdminAction extends BaseAction{
 		}
 		return "top";
 	}
-	
+	/**
+	 * 右侧
+	 * @return
+	 */
+	public String  right(){
+		init("adminlinkService");
+		//系统链接
+		Adminlink adminlink=new Adminlink();
+		adminlink.setType(Adminlink.TYPE_SYS);
+		syslink=adminlinkService.find(adminlink, "ordernum", true);
+		//个人链接
+		adminlink.setType(Adminlink.TYPE_USER);
+		adminlink.setUserid(getLoginAdmin().getId());
+		userlink=adminlinkService.find(adminlink, "ordernum", true);
+		return "right";
+	}
 	
 	public List<Func> getFuncList() {
 		return funcList;
@@ -174,6 +195,24 @@ public class AdminAction extends BaseAction{
 	}
 	public void setFuncid(String funcid) {
 		this.funcid = funcid;
+	}
+	public AdminlinkService getAdminlinkService() {
+		return adminlinkService;
+	}
+	public void setAdminlinkService(AdminlinkService adminlinkService) {
+		this.adminlinkService = adminlinkService;
+	}
+	public List<Adminlink> getSyslink() {
+		return syslink;
+	}
+	public void setSyslink(List<Adminlink> syslink) {
+		this.syslink = syslink;
+	}
+	public List<Adminlink> getUserlink() {
+		return userlink;
+	}
+	public void setUserlink(List<Adminlink> userlink) {
+		this.userlink = userlink;
 	}
 	
 }
