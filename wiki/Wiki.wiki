@@ -28,8 +28,6 @@
 
 == [Donation 捐赠] ==
 
-== [customer 我们的客户] ==
+== [customer 谁在使用FreeCMS] ==
 
 == [http://www.zzbfsoft.com 合作伙伴] ==
-
-
