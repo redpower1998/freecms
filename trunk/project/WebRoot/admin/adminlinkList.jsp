@@ -27,10 +27,28 @@
 		<input type="hidden" id="type" value="${adminlink.type }"/>
 		<input type="hidden" id="ckfinderCurrentFolder" value="${currentFolder }"/>
 		<input type="hidden" id="ckfinderBasePath" value="<%=checkParentPath %>"/>
+		
+			<s:if test='%{"1"==adminlink.type}'>
+			<DIV class=tab>
+				<DIV class=tabOff>
+					<A href="user_profile.jsp">个人资料</A>
+				</DIV>
+				<DIV class=tabOff>
+					<A href="pwd.jsp">更改密码</A>
+				</DIV>
+				<DIV class=tabOn>
+					个人链接
+				</DIV>
+				<DIV class=clearer></DIV>
+			</DIV>
+			<DIV class="column" >
+			</s:if>
+			<s:if test='%{"0"==adminlink.type}'>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
 					${"0" == adminlink.type ?"系统":"个人" }链接列表
 				</div>
+			</s:if>
 
 				<table id="MyDataList" cellspacing="1" cellpadding="1"
 					Align="center" border="0" border="0"
