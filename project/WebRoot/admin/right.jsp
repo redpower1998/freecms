@@ -3,6 +3,9 @@
 
 <%@include file="../util/loading.jsp" %>
 <%@include file="../util/checkParentFrame.jsp" %>
+		<LINK rel=stylesheet type=text/css href="../img/style.css">
+		<LINK rel=stylesheet type=text/css
+			href="../img/style3.css">
 		<script> 
  if (window.parent.location.href.toLowerCase().indexOf("/admin/index.jsp") == -1 ){
 window.parent.location.href  = "<%=checkParentBasePath%>admin/right.jsp";
@@ -119,7 +122,7 @@ ul.tipbook li {
 </style>
 	</head>
 	<body class="todaybody">
-
+<div style="text-align:left,padding-left:50px">
 		<ul class="leftpanel" style="margin-bottom: 0; border: none;">
 			<li style="padding-right: 200px; height: auto" id="TodayWelcome"
 				class="welcomeinfo t_left1">
@@ -159,38 +162,30 @@ ul.tipbook li {
 					id="accountType"></span>
 				<div class="oneheight"></div>
 				<div class="level level_no" style="">
-					欢迎使用FreeCMS系统 
+					欢迎使用FreeCMS系统 <br/>
+			<jsp:include page="../util/sysInfo.jsp"></jsp:include>
 				</div>
 			</li>
 		</ul>
 
-		<div style="width: 100%; margin: 5px;" id="TodayPartNotice"
-			class="bd column">
-			<div class="tipstitle_title bd settingtable bold columntitle"
-				style="border-width: 0 0 1px 0; padding-top: 4px; * padding-top: 4px; height: 20px; * height: 25px">
-				<span class="nounderline cur_default">系统信息&nbsp;</span>
-			</div>
-			<div id="contentBulletin_">
-				<div style="height: 75px; margin: 11px 16px 0 10px;">
-					<div>
-						<div style="margin: 2px 14px 0 3px;" class="left">
-							</a>
-						</div>
-						<div class="left b_size" style="margin: 14px 0 0 0">
-							<div class="addrtitle f_size">
-			<jsp:include page="../util/sysInfo.jsp"></jsp:include>
-
-							</div>
-						</div>
-					</div>
-				</div>
-
-				
-			</div>
-		</div>
+		
 
 
 		</div>
 
+			<DIV class=tab>
+				<DIV class=tabOff>
+					<A href="user_profile.jsp">个人资料</A>
+				</DIV>
+				<DIV class=tabOn>
+					更改密码
+				</DIV>
+				<DIV class=tabOff>
+					<A href="adminlink_list.do?adminlink.type=1&pageFuncId=d301815a-1583-4eb9-b1a2-44f1b819cc9d">个人链接</A>
+				</DIV>
+				<DIV class=clearer></DIV>
+			</DIV>
+			<DIV class=column>
+			</div>
 	</body>
 </html>
