@@ -23,7 +23,7 @@ function changeDisplayMode(){
 <frameset id="bottomframes" framespacing="0" border="false" cols="180,7,*" frameborder="0" scrolling="yes">
 	<frame name="left" scrolling="auto" marginwidth="0" marginheight="0" src="admin_left.do" noresize />
 	<frame id="separator" name="separator" src="separator.html" noresize scrolling="no" />
-	<frame name="right" scrolling="auto" src="<%=(request.getParameter("url")!=null && request.getParameter("url").trim().length()>0)?request.getParameter("url"):"right.jsp" %>">
+	<frame name="right" scrolling="auto" src="<%=(request.getParameter("url")!=null && request.getParameter("url").trim().length()>0)?request.getParameter("url"):"admin_right.do" %>">
 </frameset>
 </frameset>
  

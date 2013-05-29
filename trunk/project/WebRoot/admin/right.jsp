@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
 
 <%@include file="../util/loading.jsp" %>
@@ -8,7 +9,7 @@
 			href="../img/style3.css">
 		<script> 
  if (window.parent.location.href.toLowerCase().indexOf("/admin/index.jsp") == -1 ){
-window.parent.location.href  = "<%=checkParentBasePath%>admin/right.jsp";
+window.parent.location.href  = "<%=checkParentBasePath%>admin/admin_right.do";
 }
 </script>
 <html>
@@ -119,11 +120,33 @@ ul.tipbook li {
 	background: url(../pic/icon/bbs.gif) no-repeat;
 	margin: 0 6px 1px 0
 }
+.pic {border: 3px double #bfbfbf;}
+
 </style>
+<script type="text/javascript">
+function show(type){
+	if("syslink"==type){
+		document.getElementById("syslink").style.display="block";
+		document.getElementById("userlink").style.display="none";
+		document.getElementById("sysdiv").className="tabOn";
+		document.getElementById("userdiv").className="tabOff";
+	}else{
+		document.getElementById("syslink").style.display="none";
+		document.getElementById("userlink").style.display="block";
+		document.getElementById("sysdiv").className="tabOff";
+		document.getElementById("userdiv").className="tabOn";
+	}
+}
+</script>
 	</head>
 	<body class="todaybody">
-<div style="text-align:left,padding-left:50px">
-		<ul class="leftpanel" style="margin-bottom: 0; border: none;">
+<DIV class="column">
+				<div class="columntitle">
+					欢迎使用FreeCMS
+				</div>
+				<br/>
+				<div style="text-align:left">
+				<ul class="leftpanel" style="margin-bottom: 0; border: none;">
 			<li style="padding-right: 200px; height: auto" id="TodayWelcome"
 				class="welcomeinfo t_left1">
 				<script>
@@ -166,26 +189,53 @@ ul.tipbook li {
 			<jsp:include page="../util/sysInfo.jsp"></jsp:include>
 				</div>
 			</li>
-		</ul>
-
-		
-
-
-		</div>
-
+		</ul></div>
+			</DIV>
 			<DIV class=tab>
-				<DIV class=tabOff>
-					<A href="user_profile.jsp">个人资料</A>
+				<DIV class=tabOn id="sysdiv" onmouseover="show('syslink')">
+					系统链接
 				</DIV>
-				<DIV class=tabOn>
-					更改密码
-				</DIV>
-				<DIV class=tabOff>
-					<A href="adminlink_list.do?adminlink.type=1&pageFuncId=d301815a-1583-4eb9-b1a2-44f1b819cc9d">个人链接</A>
+				<DIV class=tabOff id="userdiv" onmouseover="show('userlink')">
+					个人链接
 				</DIV>
 				<DIV class=clearer></DIV>
 			</DIV>
 			<DIV class=column>
+				<center>
+				<table id="syslink">
+				<tr>
+				<s:iterator value="syslink" id="bean" status="st">
+				<td style="padding-left:15px;padding-right:15px;padding-top:10px;">
+				<a href='<s:property value="url"/>' target="_blank">
+				<img src='<s:property value="img"/>' class='pic' alt='<s:property value="name"/>' title='<s:property value="name"/>' width='190' height='150'/>
+				</a>
+				</td>
+				<s:if test='%{(#st.index+1)%4==0}'>
+				</tr><tr>
+				</s:if>
+				</s:iterator>
+				</tr>
+				</table>
+				<table id="userlink" style="display:none">
+				<tr>
+				<s:iterator value="userlink" id="bean" status="st">
+				<td style="padding-left:15px;padding-right:15px;padding-top:10px;">
+				<a href='<s:property value="url"/>' target="_blank">
+				<img src='<s:property value="img"/>' class='pic' alt='<s:property value="name"/>' title='<s:property value="name"/>' width='190' height='150'/>
+				</a>
+				</td>
+				<s:if test='%{(#st.index+1)%4==0}'>
+				</tr><tr>
+				</s:if>
+				</s:iterator>
+				<td style="padding-left:15px;padding-right:15px;padding-top:10px;">
+				<a href='adminlink_list.do?adminlink.type=1&pageFuncId=d301815a-1583-4eb9-b1a2-44f1b819cc9d' >
+				<img src='../img/addimg.jpg' class='pic' alt='点击添加个人链接' title='点击添加个人链接' width='190' height='150'/>
+				</a>
+				</td>
+				</tr>
+				</table>
+				</center>
 			</div>
 	</body>
 </html>
