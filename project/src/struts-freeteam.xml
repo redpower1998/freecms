@@ -51,5 +51,9 @@
 		<action name="config_*" method="{1}" class="cn.freeteam.action.ConfigAction">
 			<result name="config" >/admin/config.jsp</result>
 		</action>
+		<action name="adminlink_*" method="{1}" class="cn.freeteam.action.AdminlinkAction">
+			<result name="list" >/admin/adminlinkList.jsp</result>
+			<result name="edit" >/admin/adminlinkEdit.jsp</result>
+		</action>
 	</package>
 </struts>
