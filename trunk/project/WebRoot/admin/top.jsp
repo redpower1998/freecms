@@ -45,7 +45,7 @@ function selectFunc(id){
 	  </div></TD>
 	  <TD align="right">
       <div class="toptitle_r"><a href="javascript:link('right.jsp')" >系统首页</a>|
-      <a href="javascript:link('user_profile.jsp')" >个人资料</a>|
+      <a href="javascript:link('user_profile.jsp')" >个人设置</a>|
       <a href="javascript:link('pwd.jsp')" >更改密码</a>|
       <A href="../login_out.do" target="_top">退出</a>     </div>
       </TD>
