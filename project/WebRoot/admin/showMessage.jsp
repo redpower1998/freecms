@@ -28,7 +28,7 @@ ${showMessage }
 <a href="${forwardUrl}">页面跳转中...</a>
 </s:if>
 <br/>
-<a href="javascript:history.go(-1);">返回上一页</a> | <a href="<%=basePath %>admin/right.jsp">返回首页</a>
+<a href="javascript:history.go(-1);">返回上一页</a> | <a href="<%=basePath %>admin/admin_right.do">返回首页</a>
 				</div>
 
 			</DIV>

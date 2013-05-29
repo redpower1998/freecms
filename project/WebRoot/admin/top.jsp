@@ -31,7 +31,7 @@ function selectFunc(id){
   <TBODY>
 	<TR>
 	  <TD rowspan="2" align="center" style="HEIGHT: 57px; width:200px;">&nbsp;&nbsp;&nbsp;<img width="180" src="../img/logo.png" />&nbsp;</TD>
-	  <TD colspan="2" style="PADDING-RIGHT: 10px; MARGIN-TOP: 0px; line-height:28px; height:28px; text-align:right;">&nbsp;您好:${loginAdmin.name }，欢迎使用 FreeCMS 1.3 &nbsp;&nbsp;&nbsp;
+	  <TD colspan="2" style="PADDING-RIGHT: 10px; MARGIN-TOP: 0px; line-height:28px; height:28px; text-align:right;">&nbsp;您好:${loginAdmin.name }，欢迎使用 FreeCMS 1.4 &nbsp;&nbsp;&nbsp;
       
        </TD>
 	</TR>
@@ -44,7 +44,7 @@ function selectFunc(id){
 	</s:iterator>
 	  </div></TD>
 	  <TD align="right">
-      <div class="toptitle_r"><a href="javascript:link('right.jsp')" >系统首页</a>|
+      <div class="toptitle_r"><a href="javascript:link('admin_right.do')" >系统首页</a>|
       <a href="javascript:link('user_profile.jsp')" >个人设置</a>|
       <a href="javascript:link('pwd.jsp')" >更改密码</a>|
       <A href="../login_out.do" target="_top">退出</a>     </div>
