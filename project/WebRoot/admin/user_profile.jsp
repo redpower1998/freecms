@@ -45,6 +45,9 @@
 				<DIV class=tabOff>
 					<A href="pwd.jsp">更改密码</A>
 				</DIV>
+				<DIV class=tabOff>
+					<A href="adminlink_list.do?adminlink.type=1&pageFuncId=d301815a-1583-4eb9-b1a2-44f1b819cc9d">个人链接</A>
+				</DIV>
 				<DIV class=clearer></DIV>
 			</DIV>
 			<DIV class=column>
