@@ -1,7 +1,7 @@
-#summary 我们的客户
+#summary 谁在使用FreeCMS
 #labels free,cms,freecms,开源,免费,内容管理系统
 
-= 我们的客户 =
+= 谁在使用FreeCMS =
 
 
 == 政府门户 ==
