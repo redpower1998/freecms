@@ -33,6 +33,7 @@ import freemarker.template.TemplateModel;
  * order		排序 1时间倒序(默认) 2时间正序
  * num			数量
  * nameLen		名称显示长度
+ * siteid		站点id
  * 
  * 
  * 返回值
@@ -77,6 +78,7 @@ public class QuestionListDirective extends BaseDirective implements TemplateDire
 			if (loopVars!=null && loopVars.length>0) {
 				//查询网上调查
 				String id=getParam(params, "id");
+				String siteid=getParam(params, "siteid");
 				String order=getParam(params, "order");
 				String orderSql=" addtime desc ";
 				//标题长度
@@ -87,6 +89,7 @@ public class QuestionListDirective extends BaseDirective implements TemplateDire
 				boolean cache="true".equals(getParam(params, "cache"))?true:false;
 				Question question=new Question();
 				question.setId(id);
+				question.setSiteid(siteid);
 				question.setName(getParam(params, "name"));
 				question.setSelecttype(getParam(params, "selecttype"));
 				question.setIsok(getParam(params, "isok"));
