@@ -32,6 +32,7 @@ import freemarker.template.TemplateModel;
  * num			数量
  * page			当前第几页，默认1		
  * action		分页跳转页面
+ * siteid		站点id
  * 
  * 
  * 返回值
@@ -87,6 +88,7 @@ public class QuestionPageDirective extends BaseDirective implements TemplateDire
 				//当前第几页
 				int page=getParamInt(params, "page", 1);
 				String id=getParam(params, "id");
+				String siteid=getParam(params, "siteid");
 				String order=getParam(params, "order");
 				String orderSql=" addtime desc ";
 				if ("1".equals(order)) {
@@ -95,6 +97,7 @@ public class QuestionPageDirective extends BaseDirective implements TemplateDire
 				boolean cache="true".equals(getParam(params, "cache"))?true:false;
 				Question question=new Question();
 				question.setId(id);
+				question.setSiteid(siteid);
 				question.setName(getParam(params, "name"));
 				question.setSelecttype(getParam(params, "selecttype"));
 				question.setIsok(getParam(params, "isok"));
