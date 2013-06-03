@@ -486,7 +486,7 @@ public class ChannelAction extends BaseAction{
 				}
 				if ("1".equals(htmlIndex)) {
 					//首页静态化
-					siteService.html(channel.getSite(), getServletContext(), getHttpRequest().getContextPath(), getHttpRequest(), getLoginName());
+					siteService.html(channel.getSite(), getServletContext(), getBasePath(), getHttpRequest(), getLoginName());
 				}
 				showMessage="静态化处理成功!";
 			} catch (Exception e) {
