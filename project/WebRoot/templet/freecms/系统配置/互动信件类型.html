@@ -1,0 +1,9 @@
+<#include "../inc/头部.html"/>
+<h1>${currChannel.name}</h1>
+<ul>
+<@config code="mailType" split=",";configvalue,index>
+<li>${configvalue}</li>
+</@config>
+</ul>
+<#include "../inc/底部.html"/>
+
