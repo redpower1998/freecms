@@ -1,0 +1,9 @@
+<#include "../inc/头部.html"/>
+<h1>${currChannel.name}</h1>
+<ul>
+<@userList filter="mail";user,index>
+<li>${user.name}</li>
+</@userList>
+</ul>
+<#include "../inc/底部.html"/>
+
