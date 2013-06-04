@@ -54,6 +54,7 @@
 			<span><font size="2"><b>栏目管理</b></font>
 			<a href="#" onclick="location.reload();"><img src="../../img/refresh.gif" title="点击刷新栏目" /></a><br/>
 			<input type="hidden" name="templet.id" id="templetId" value="${templet.id }"/>
+			<input type="button" value="从站点导入" onclick="importSite()"  class="button"  /><br/>
 			<input type="button" value="添加一级栏目" onclick="addOne()"  class="button"  />
 			</span>
 			
