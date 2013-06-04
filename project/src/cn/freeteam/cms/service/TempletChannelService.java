@@ -25,6 +25,7 @@ import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.model.TempletChannel;
 import cn.freeteam.cms.model.TempletChannelExample;
 import cn.freeteam.cms.model.TempletChannelExample.Criteria;
+import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.XMLUtil;
 import freemarker.template.TemplateException;
 
@@ -534,6 +535,99 @@ public class TempletChannelService extends BaseService{
 			}
 			if (!channelMap.isEmpty()) {
 				importSiteChannel(channelMap, importedMap,site);
+			}
+		}
+		
+	}
+
+	/**
+	 * 从站点导入栏目数据
+	 * @throws DocumentException 
+	 */
+	public void importSite(Templet templet,Site site,HttpServletRequest request){
+		if (templet!=null && site!=null) {
+			//查找是否有栏目数据
+			init("channelService");
+			List<Channel> list=channelService.findBySite(site.getId(), null, null);
+			Map<String, Channel> channelMap=new HashMap<String, Channel>();
+			Map<String, String> importedMap=new HashMap<String, String>();
+			if (list!=null && list.size()>0) {
+				for (int i = 0; i < list.size(); i++) {
+					channelMap.put(list.get(i).getId(), list.get(i));
+				}
+				importSite(channelMap, importedMap,templet,request);
+			}
+		}
+	}
+	/**
+	 * 递归方法导入站点栏目 
+	 */
+	public void importSite(Map<String, Channel> channelMap,Map<String, String> importedMap,Templet templet,HttpServletRequest request){
+		if (!channelMap.isEmpty()) {
+			Iterator<String> iterator=channelMap.keySet().iterator();
+			List<String> deList=new ArrayList<String>();
+			while (iterator.hasNext()) {
+				Channel channel=channelMap.get(iterator.next());
+				if (channel!=null) {
+					TempletChannel templetChannel=new TempletChannel();
+					//保存栏目
+					String id=channel.getId();
+					boolean isinsert=true;
+					if (channel.getParid()!=null && channel.getParid().trim().length()>0) {
+						//查询父栏目是否保存
+						if (importedMap.containsKey(channel.getParid())) {
+							//设置parid是父栏目的新id
+							templetChannel.setParid(importedMap.get(channel.getParid()));
+						}else {
+							isinsert=false;
+						}
+					}
+					if (isinsert) {
+						templetChannel.setTempletid(templet.getId());
+						templetChannel.setName(channel.getName());
+						templetChannel.setTemplet(channel.getTemplet());
+						templetChannel.setContenttemplet(channel.getContenttemplet());
+						//处理图片
+						if (channel.getImg()!=null && channel.getImg().trim().length()>0) {
+							//判断文件是否存在
+							File file=new File(request.getRealPath("/")+channel.getImg());
+							if (file.exists()) {
+								//复制到模板资源文件夹
+								File folder=new File(request.getRealPath("/")+"templet/"+templet.getId()+"/resources/upload");
+								if (!folder.exists()) {
+									folder.mkdirs();
+								}
+								String uuid=UUID.randomUUID().toString();
+								FileUtil.copy(file, new File(request.getRealPath("/")
+										+"templet/"+templet.getId()+"/resources/upload/"
+										+uuid+channel.getImg().substring(channel.getImg().lastIndexOf("."))));
+								templetChannel.setImg("/resources/upload/"
+										+uuid+channel.getImg().substring(channel.getImg().lastIndexOf(".")));
+							}
+						}
+						templetChannel.setDescription(channel.getDescription());
+						templetChannel.setUrl(channel.getUrl());
+						templetChannel.setState(channel.getState());
+						templetChannel.setOrdernum(channel.getOrdernum());
+						templetChannel.setNavigation(channel.getNavigation());
+						templetChannel.setPagemark(channel.getPagemark());
+						templetChannel.setHtmlchannel(channel.getHtmlchannel());
+						templetChannel.setHtmlchannelold(channel.getHtmlchannelold());
+						templetChannel.setHtmlparchannel(channel.getHtmlparchannel());
+						templetChannel.setHtmlsite(channel.getHtmlsite());
+						templetChannel.setSite(channel.getSite());
+						importedMap.put(id, insert(templetChannel));
+						deList.add(id);
+					}
+				}
+			}
+			if (deList.size()>0) {
+				for (int i = 0; i < deList.size(); i++) {
+					channelMap.remove(deList.get(i));
+				}
+			}
+			if (!channelMap.isEmpty()) {
+				importSite(channelMap, importedMap,templet,request);
 			}
 		}
 		

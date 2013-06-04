@@ -6,8 +6,10 @@ import java.util.UUID;
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Channel;
+import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.model.TempletChannel;
+import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.cms.service.TempletChannelService;
 import cn.freeteam.cms.service.TempletService;
 import cn.freeteam.util.FileUtil;
@@ -45,11 +47,13 @@ public class TempletChannelAction extends BaseAction{
 	private Templet templet;
 	private TempletChannel templetChannel; 
 	private List<TempletChannel> templetChannelList;
+	private SiteService siteService;
 	private File img;
 	private String imgFileName;
 	private String oldImg;
 	private String root;
 	private String onclick;
+	private Site site;
 	
 	public File getImg() {
 		return img;
@@ -319,6 +323,25 @@ public class TempletChannelAction extends BaseAction{
 		ResponseUtil.writeUTF(getHttpResponse(), stringBuilder.toString());
 		return null;
 	}
+	/**
+	 * 从站点导入
+	 * @return
+	 */
+	public String importSite(){
+		if (site!=null && site.getId()!=null && site.getId().trim().length()>0
+				&& templet!=null && templet.getId()!=null && templet.getId().trim().length()>0) {
+			try {
+				init("siteService");
+				site=siteService.findById(site.getId());
+				templet=templetService.findById(templet.getId());
+				templetChannelService.importSite(templet, site,getHttpRequest());
+				showMessage="导入成功";
+			} catch (Exception e) {
+				showMessage="导入失败:"+e.getMessage();
+			}
+		}
+		return showMessage(showMessage, "templet_data.do?templet.id="+templet.getId(), 3);
+	}
 	public TempletChannelService getTempletChannelService() {
 		return templetChannelService;
 	}
@@ -385,6 +408,26 @@ public class TempletChannelAction extends BaseAction{
 
 	public void setTempletChannelList(List<TempletChannel> templetChannelList) {
 		this.templetChannelList = templetChannelList;
+	}
+
+
+	public Site getSite() {
+		return site;
+	}
+
+
+	public void setSite(Site site) {
+		this.site = site;
+	}
+
+
+	public SiteService getSiteService() {
+		return siteService;
+	}
+
+
+	public void setSiteService(SiteService siteService) {
+		this.siteService = siteService;
 	}
 
 
