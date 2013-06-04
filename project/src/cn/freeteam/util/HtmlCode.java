@@ -28,6 +28,9 @@ public class HtmlCode {
         s    =    s.replaceAll("&quot;",      "\"");  
         return    s;  
 	}
+	public static String url(String str){
+		return str.replace("$param$", "?").replace("$and$", "&");
+	}
 	public static String replaceHtml(String html){ 
         String regEx="<.+?>"; //表示标签 
         Pattern p=Pattern.compile(regEx); 

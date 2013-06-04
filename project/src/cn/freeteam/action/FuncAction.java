@@ -11,6 +11,7 @@ import cn.freeteam.model.Roles;
 import cn.freeteam.model.Users;
 import cn.freeteam.service.FuncService;
 import cn.freeteam.service.RoleFuncService;
+import cn.freeteam.util.HtmlCode;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.ResponseUtil;
 
@@ -234,6 +235,7 @@ public class FuncAction extends BaseAction{
 		String result="0";
 		String idname="";
 		try {
+			func.setUrl(HtmlCode.url(func.getUrl()));
 			if (func.getId()!=null&&func.getId().trim().length()>0) {
 				msg="修改";
 				funcService.update(func);

@@ -6,6 +6,7 @@ import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Sensitive;
 import cn.freeteam.model.Adminlink;
 import cn.freeteam.service.AdminlinkService;
+import cn.freeteam.util.HtmlCode;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 /**
@@ -79,6 +80,7 @@ public class AdminlinkAction extends BaseAction{
 	public String editDo(){
 		String oper="添加";
 		try {
+			adminlink.setUrl(HtmlCode.url(adminlink.getUrl()));
 			if (Adminlink.TYPE_USER.equals(adminlink.getType())) {
 				//个人链接，添加用户条件
 				adminlink.setUserid(getLoginAdmin().getId());

@@ -10,6 +10,7 @@ import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.service.LinkService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.util.FileUtil;
+import cn.freeteam.util.HtmlCode;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 
@@ -85,6 +86,7 @@ public class LinkAction extends BaseAction{
 	public String editDo(){
 		String oper="添加";
 		try {
+			link.setUrl(HtmlCode.url(link.getUrl()));
 			if (link!=null && link.getId()!=null) {
 				Link  oldlink=linkService.findById(link.getId());
 				if (oldlink!=null) {
