@@ -90,7 +90,7 @@ function add(){
 			var isok="1";
 			if(document.getElementById("isok0").checked){isok="0";}
 			$.post("link_editDo.do","link.name="+$("#name_edit").val()+"&link.isok="+isok+"&link.ordernum="+$("#ordernum").val()
-			+"&link.site="+$("#siteId_edit").val()+"&link.parid="+$("#linkSelect").val()+"&link.url="+$("#url").val()
+			+"&link.site="+$("#siteId_edit").val()+"&link.parid="+$("#linkSelect").val()+"&link.url="+url($("#url").val())
 			+"&link.type="+$("#type").val()+"&link.pagemark="+$("#pagemark_edit").val()+"&link.img="+$("#img").val()
 			,addComplete,"text");
 		}
@@ -128,7 +128,7 @@ function edit(){
 				var isok="1";
 				if(document.getElementById("isok0").checked){isok="0";}
 				$.post("link_editDo.do","link.id="+getCheckOneValue()+"&link.name="+$("#name_edit").val()+"&link.isok="+isok+"&link.ordernum="+$("#ordernum").val()
-				+"&link.site="+$("#siteId_edit").val()+"&link.parid="+$("#linkSelect").val()+"&link.url="+$("#url").val()
+				+"&link.site="+$("#siteId_edit").val()+"&link.parid="+$("#linkSelect").val()+"&link.url="+url($("#url").val())
 				+"&link.type="+$("#type").val()+"&link.pagemark="+$("#pagemark_edit").val()+"&link.img="+$("#img").val()
 				,editComplete,"text");
 			}

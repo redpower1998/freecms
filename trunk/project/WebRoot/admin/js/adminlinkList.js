@@ -30,7 +30,7 @@ function add(){
 			var isok="1";
 			if(document.getElementById("isok0").checked){isok="0";}
 			$.post("adminlink_editDo.do","adminlink.name="+$("#name_edit").val()+"&adminlink.isok="+isok+"&adminlink.ordernum="+$("#ordernum").val()
-			+"&adminlink.url="+$("#url").val()
+			+"&adminlink.url="+url($("#url").val())
 			+"&adminlink.type="+$("#type").val()+"&adminlink.img="+$("#img").val()
 			,addComplete,"text");
 		}
@@ -60,7 +60,7 @@ function edit(){
 				var isok="1";
 				if(document.getElementById("isok0").checked){isok="0";}
 				$.post("adminlink_editDo.do","adminlink.id="+getCheckOneValue()+"&adminlink.name="+$("#name_edit").val()+"&adminlink.isok="+isok+"&adminlink.ordernum="+$("#ordernum").val()
-				+"&adminlink.url="+$("#url").val()
+				+"&adminlink.url="+url($("#url").val())
 				+"&adminlink.type="+$("#type").val()+"&adminlink.img="+$("#img").val()
 				,editComplete,"text");
 			}
