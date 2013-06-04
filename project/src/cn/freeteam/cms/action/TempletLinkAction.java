@@ -5,8 +5,10 @@ import java.util.List;
 
 
 import cn.freeteam.base.BaseAction;
+import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.model.Templet;
 import cn.freeteam.cms.model.TempletLink;
+import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.cms.service.TempletLinkService;
 import cn.freeteam.cms.service.TempletService;
 import cn.freeteam.util.OperLogUtil;
@@ -45,7 +47,29 @@ public class TempletLinkAction extends BaseAction{
 	private String order=" ordernum ";//默认按排序号
 	private String logContent;
 	private String ids;
+	private Site site;
+	private SiteService siteService;
 	
+	public Site getSite() {
+		return site;
+	}
+
+
+	public void setSite(Site site) {
+		this.site = site;
+	}
+
+
+	public SiteService getSiteService() {
+		return siteService;
+	}
+
+
+	public void setSiteService(SiteService siteService) {
+		this.siteService = siteService;
+	}
+
+
 	public String getIds() {
 		return ids;
 	}
@@ -204,6 +228,25 @@ public class TempletLinkAction extends BaseAction{
 			}
 		}
 		return "class";
+	}
+	/**
+	 * 从站点导入
+	 * @return
+	 */
+	public String importSite(){
+		if (site!=null && site.getId()!=null && site.getId().trim().length()>0
+				&& templet!=null && templet.getId()!=null && templet.getId().trim().length()>0) {
+			try {
+				init("siteService");
+				site=siteService.findById(site.getId());
+				templet=templetService.findById(templet.getId());
+				templetLinkService.importSite(templet, site);
+				showMessage="导入成功";
+			} catch (Exception e) {
+				showMessage="导入失败:"+e.getMessage();
+			}
+		}
+		return showMessage(showMessage, "templetLink_clazz.do?templet.id="+templet.getId(), 3);
 	}
 	public TempletLinkService getTempletLinkService() {
 		return templetLinkService;

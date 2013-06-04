@@ -334,6 +334,37 @@ public class TempletLinkService extends BaseService{
 		}
 	}
 
+	/**
+	 * 导入站点链接分类数据
+	 */
+	public void importSite(Templet templet,Site site){
+		if (templet!=null && site!=null) {
+			//查找是否有链接分类数据
+			Link link=new Link();
+			link.setSite(site.getId());
+			link.setIsClass("1");
+			init("linkService");
+			List<Link> list=linkService.findAll(link, "");
+			if (list!=null && list.size()>0) {
+				for (int i = 0; i < list.size(); i++) {
+					link=list.get(i);
+					if (link!=null) {
+						TempletLink templetLink=new TempletLink();
+						templetLink.setTemplet(templet.getId());
+						templetLink.setName(link.getName());
+						templetLink.setImg(link.getImg());
+						templetLink.setParid(link.getParid());
+						templetLink.setUrl(link.getUrl());
+						templetLink.setOrdernum(link.getOrdernum());
+						templetLink.setPagemark(link.getPagemark());
+						templetLink.setIsok(link.getIsok());
+						templetLink.setType(link.getType());
+						add(templetLink);
+					}
+				}
+			}
+		}
+	}
 
 	public TempletLinkMapper getTempletLinkMapper() {
 		return templetLinkMapper;
