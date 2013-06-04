@@ -220,7 +220,8 @@
 								<td align="left">
 									<input type="button" value="添 加" onclick="add()"  class="button"  />&nbsp;
 									<input type="button" value="编 辑" onclick="edit()"  class="button"  />&nbsp;
-									<input type="button" value="删 除" onclick="del()"  class="button"  />
+									<input type="button" value="删 除" onclick="del()"  class="button"  />&nbsp;
+									<input type="button" value="从站点导入" onclick="importSite()"  class="button"  />
 
 								</td>
 							</tr>
