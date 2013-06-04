@@ -69,7 +69,7 @@ function save(){
 	//顺序不填写则设置为0
 	if($.trim($("#menuOrder").val())==""){$("#menuOrder").val("0");}
 	var data="pageContentNoFilter=1&func.parid="+$("#parid").val()+"&func.id="+$("#id").val()
-	+"&func.name="+$.trim(replaceAll($("#menuName").val(),"&","<参数>"))+"&func.url="+$.trim(replaceAll($("#menuUrl").val(),"&","<参数>"))
+	+"&func.name="+$.trim(replaceAll($("#menuName").val(),"&","<参数>"))+"&func.url="+$.trim(replaceAll(url($("#menuUrl").val()),"&","<参数>"))
 	+"&func.ordernum="+$.trim($("#menuOrder").val())+"&func.isok="+isok;
 	$.post("func_save.do",data,saveComplete,"text");
 }
