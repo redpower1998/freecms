@@ -308,6 +308,13 @@ function isTel(str,bEmpty)
          var d= new Date(r[1], r[3]-1, r[4]); 
          return (d.getFullYear()==r[1]&&(d.getMonth()+1)==r[3]&&d.getDate()==r[4]); 
       } 
+
 function replaceAll(str,replaceStr,toStr){
-	return str.replace(new RegExp(replaceStr,"gm"),toStr);   
+ 	var raRegExp = new RegExp(replaceStr.replace(/([\(\)\[\]\{\}\^\$\+\-\*\?\.\"\'\|\/\\])/g,"\\$1"),"ig"); 
+	return str.replace(raRegExp,toStr); 
+}
+function url(str){
+	str=replaceAll(str,"?","$param$");
+	str=replaceAll(str,"&","$and$");
+	return str;
 }
