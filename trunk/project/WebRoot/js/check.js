@@ -316,5 +316,6 @@ function replaceAll(str,replaceStr,toStr){
 function url(str){
 	str=replaceAll(str,"?","$param$");
 	str=replaceAll(str,"&","$and$");
+	str=replaceAll(str,"%","$percent$");
 	return str;
 }
