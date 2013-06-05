@@ -127,7 +127,7 @@
 							<INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 						
 						<TD  align="left" id="title<s:property value="id"/>">
-							<a title="点击打开信息页面" href="<%=basePath %>site/${manageSite.sourcepath }/<s:property value="pageurl"/>" target="_blank"><s:property value="title"/></a>
+							<a title="点击打开信息页面" href="<s:property value="pageurl"/>" target="_blank"><s:property value="title"/></a>
 						</TD>
 						<TD  align="left" id="issign<s:property value="id"/>">
 							<s:if test='%{"1" == #obj.issign }'>
