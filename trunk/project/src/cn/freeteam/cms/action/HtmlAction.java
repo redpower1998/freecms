@@ -277,6 +277,7 @@ public class HtmlAction extends BaseAction{
 				ishtml=true;
 			}
 			if (ishtml) {
+				info.setSite(site.getId());
 				infoList=infoService.findAll(info, "");
 				if (infoList!=null && infoList.size()>0) {
 					for (int i = 0; i < infoList.size(); i++) {
