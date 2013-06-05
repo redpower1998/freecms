@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 				<input type="submit" value="立即静态化"   class="button"  />&nbsp;
 				<s:if test='%{"channel"==type}'>
-				<input type="button" value="不，我要继续添加信息" onclick="location.href='info_list.do?info.channel=${info.channel }&pageFuncId=${pageFuncId }'"  class="button"  />
+				<input type="button" value="不，我要继续添加信息" onclick="location.href='info_edit.do?channel.id=${info.channel }&pageFuncId=${pageFuncId }'"  class="button"  />
 				</s:if>
 				<s:if test='%{"channel"!=type}'>
 				<input type="button" value="不，我要继续添加信息" onclick="location.href='info_edit.do?pageFuncId=${pageFuncId }'"  class="button"  />
