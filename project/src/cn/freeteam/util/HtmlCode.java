@@ -29,7 +29,7 @@ public class HtmlCode {
         return    s;  
 	}
 	public static String url(String str){
-		return str.replace("$param$", "?").replace("$and$", "&");
+		return str.replace("$param$", "?").replace("$and$", "&").replace("$percent$", "%");
 	}
 	public static String replaceHtml(String html){ 
         String regEx="<.+?>"; //表示标签 
