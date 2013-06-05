@@ -34,6 +34,7 @@ import freemarker.template.TemplateModel;
  * 				1 下拉
  * 				2 图片
  * 				3 文字
+ * num			数量
  * 
  * 返回值
  * link			链接对象
@@ -76,6 +77,7 @@ private LinkService linkService;
 		String pagemark=getParam(params, "pagemark");
 		String siteid=getParam(params, "siteid");
 		String type=getParam(params, "type");
+		int num=getParamInt(params, "num", 1000);
 		
 		
 		Writer out =env.getOut();
@@ -90,7 +92,7 @@ private LinkService linkService;
 				link.setSite(siteid);
 				link.setType(type);
 				link.setIsok("1");
-				List<Link> linkList=linkService.findAll(link, " ordernum ");
+				List<Link> linkList=linkService.find(link, " ordernum ", 1, num);
 				if (linkList!=null && linkList.size()>0) {
 					for (int i = 0; i < linkList.size(); i++) {
 						loopVars[0]=new BeanModel(linkList.get(i),new BeansWrapper());   
