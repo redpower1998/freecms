@@ -314,7 +314,8 @@ public class InfoAction extends BaseAction{
 			} catch (Exception e) {
 				DBProException(e);
 				OperLogUtil.log(getLoginName(), oper+"信息("+info.getTitle()+")失败:"+e.toString(), getHttpRequest());
-				write("<script>alert('操作失败:"+e.toString()+"');history.back();</script>", "GBK");
+				showMessage="操作失败:"+e.toString();
+				return showMessage(showMessage, forwardUrl, forwardSeconds);
 			}
 		}
 		return null;
