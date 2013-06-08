@@ -56,5 +56,9 @@
 			<result name="list" >/admin/adminlinkList.jsp</result>
 			<result name="edit" >/admin/adminlinkEdit.jsp</result>
 		</action>
+		<action name="demo_*" method="{1}" class="cn.freeteam.action.DemoAction">
+			<result name="list" >/admin/demoList.jsp</result>
+			<result name="edit" >/admin/demoEdit.jsp</result>
+		</action>
 	</package>
 </struts>
