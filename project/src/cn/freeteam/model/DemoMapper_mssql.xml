@@ -146,6 +146,29 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectPageByExample" resultMap="BaseResultMap" parameterType="cn.freeteam.model.DemoExample" >
+  
+  SELECT TOP ${pageSize} *
+    FROM freecms_demo
+    WHERE (ID NOT IN  
+          (SELECT TOP ${skip} id   
+         FROM freecms_demo   
+	    <if test="_parameter != null">
+	      <include refid="Example_Where_Clause" />
+	    </if>
+         
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>))   
+         
+	    <if test="_parameter != null">
+	       <include refid="Example_Clause" />
+	    </if>
+    
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if> 
+  </select>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
     <!--
       WARNING - @mbggenerated

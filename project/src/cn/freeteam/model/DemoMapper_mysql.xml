@@ -145,6 +145,17 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+  </select><select id="selectPageByExample" resultMap="BaseResultMap" parameterType="cn.freeteam.model.DemoExample" >
+  SELECT * 
+    FROM freecms_demo
+    <if test="_parameter != null">
+       <include refid="Example_Where_Clause" />
+    </if>
+    
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if> 
+    limit ${skip},${pageSize}
   </select>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
     <!--
