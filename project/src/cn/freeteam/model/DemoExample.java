@@ -546,75 +546,7 @@ public class DemoExample extends BaseExample{
             return (Criteria) this;
         }
 
-        public Criteria andFiledemoIsNull() {
-            addCriterion("filedemo is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoIsNotNull() {
-            addCriterion("filedemo is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoEqualTo(String value) {
-            addCriterion("filedemo =", value, "filedemo");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoNotEqualTo(String value) {
-            addCriterion("filedemo <>", value, "filedemo");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoGreaterThan(String value) {
-            addCriterion("filedemo >", value, "filedemo");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoGreaterThanOrEqualTo(String value) {
-            addCriterion("filedemo >=", value, "filedemo");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoLessThan(String value) {
-            addCriterion("filedemo <", value, "filedemo");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoLessThanOrEqualTo(String value) {
-            addCriterion("filedemo <=", value, "filedemo");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoLike(String value) {
-            addCriterion("filedemo like", value, "filedemo");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoNotLike(String value) {
-            addCriterion("filedemo not like", value, "filedemo");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoIn(List<String> values) {
-            addCriterion("filedemo in", values, "filedemo");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoNotIn(List<String> values) {
-            addCriterion("filedemo not in", values, "filedemo");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoBetween(String value1, String value2) {
-            addCriterion("filedemo between", value1, value2, "filedemo");
-            return (Criteria) this;
-        }
-
-        public Criteria andFiledemoNotBetween(String value1, String value2) {
-            addCriterion("filedemo not between", value1, value2, "filedemo");
-            return (Criteria) this;
-        }
+        
     }
 
     /**
