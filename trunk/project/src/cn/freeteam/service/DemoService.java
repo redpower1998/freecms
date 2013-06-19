@@ -8,7 +8,30 @@ import cn.freeteam.dao.DemoMapper;
 import cn.freeteam.model.Demo;
 import cn.freeteam.model.DemoExample;
 import cn.freeteam.model.DemoExample.Criteria;
-
+/**
+ * 
+ * <p>Title: DemoService.java</p>
+ * 
+ * <p>Description: 演示功能服务</p>
+ * 
+ * <p>Date: Jun 19, 2013</p>
+ * 
+ * <p>Time: 1:42:25 PM</p>
+ * 
+ * <p>Copyright: 2013</p>
+ * 
+ * <p>Company: freeteam</p>
+ * 
+ * @author freeteam
+ * @version 1.0
+ * 
+ * <p>============================================</p>
+ * <p>Modification History
+ * <p>Mender: </p>
+ * <p>Date: </p>
+ * <p>Reason: </p>
+ * <p>============================================</p>
+ */
 public class DemoService extends BaseService{
 
 	private DemoMapper demoMapper;

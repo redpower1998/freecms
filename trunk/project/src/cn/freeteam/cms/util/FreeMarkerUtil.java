@@ -20,6 +20,7 @@ import cn.freeteam.cms.freemarker.directive.ChannelPathDirective;
 import cn.freeteam.cms.freemarker.directive.ChannelSonDirective;
 import cn.freeteam.cms.freemarker.directive.CommentPageDirective;
 import cn.freeteam.cms.freemarker.directive.ConfigDirective;
+import cn.freeteam.cms.freemarker.directive.DemoDirective;
 import cn.freeteam.cms.freemarker.directive.HtmlDirective;
 import cn.freeteam.cms.freemarker.directive.InfoAttchsDirective;
 import cn.freeteam.cms.freemarker.directive.InfoDirective;
@@ -202,6 +203,8 @@ public class FreeMarkerUtil {
 			freemarkerCfg.setSharedVariable("URLEncoder", new URLEncoderDirective());
 			freemarkerCfg.setSharedVariable("URLDecoder", new URLDecoderDirective());
 			freemarkerCfg.setSharedVariable("html", new HtmlDirective());
+			
+			freemarkerCfg.setSharedVariable("demo", new DemoDirective());
 		}
 		return freemarkerCfg;
 	}

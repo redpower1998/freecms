@@ -7,7 +7,30 @@ import cn.freeteam.model.Demo;
 import cn.freeteam.service.DemoService;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
-
+/**
+ * 
+ * <p>Title: DemoAction.java</p>
+ * 
+ * <p>Description:演示功能相关操作 </p>
+ * 
+ * <p>Date: Jun 19, 2013</p>
+ * 
+ * <p>Time: 1:41:57 PM</p>
+ * 
+ * <p>Copyright: 2013</p>
+ * 
+ * <p>Company: freeteam</p>
+ * 
+ * @author freeteam
+ * @version 1.0
+ * 
+ * <p>============================================</p>
+ * <p>Modification History
+ * <p>Mender: </p>
+ * <p>Date: </p>
+ * <p>Reason: </p>
+ * <p>============================================</p>
+ */
 public class DemoAction extends BaseAction{
 
 	private DemoService demoService;
