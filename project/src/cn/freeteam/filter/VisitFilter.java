@@ -110,7 +110,7 @@ public class VisitFilter extends BaseService {
 				visitService.add(visit);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 	public SiteService getSiteService() {
