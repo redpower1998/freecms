@@ -158,13 +158,18 @@ public class SiteService extends BaseService{
 	 * @param id
 	 * @return
 	 */
-	public Site findByDomain(String domain){
+	public Site findByDomain(String domain,boolean cache){
 		SiteExample example=new SiteExample();
 		Criteria criteria=example.createCriteria();
 		criteria.andSitedomainEqualTo(domain);
 		example.setCurrPage(1);
 		example.setPageSize(1);
-		List<Site> list = siteMapper.selectPageByExample(example);
+		List<Site> list=null;
+		if (cache) {
+			list = siteMapper.selectPageByExampleCache(example);
+		}else {
+			list = siteMapper.selectPageByExample(example);
+		}
 		if (list!=null && list.size()>0) {
 			return list.get(0);
 		}
