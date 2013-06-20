@@ -272,6 +272,9 @@ public class InfoService extends BaseService{
 			if (info.getInfoendtime()!=null) {
 				criteria.andInfoAddtimeLessThanOrEqualTo(info.getInfoendtime());
 			}
+			if (info.getHtmlIndexnum()>0) {
+				criteria.andHtmlIndexnumEqualTo(info.getHtmlIndexnum());
+			}
 		}
 	}
 	/**
