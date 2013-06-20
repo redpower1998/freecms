@@ -93,14 +93,14 @@ public class InfoService extends BaseService{
 				data.put("currInfo", info);
 				data.put("contextPath", contextPath);
 				//生成目录
-				String rootFolder=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+info.getChannel()+"/info/"+(info.getAddtime().getYear()+1900)+"/";
+				String rootFolder=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+info.getChannelFolder()+"/info/"+(info.getAddtime().getYear()+1900)+"/";
 				File folder=new File(rootFolder);
 				if (!folder.exists()) {
 					folder.mkdirs();
 				}
 				FreeMarkerUtil.createHTML(context, data, 
 						"templet/"+site.getIndextemplet().trim()+"/"+templet, 
-						rootFolder+info.getId()+".html");
+						rootFolder+info.getHtmlFileName()+".html");
 				OperLogUtil.log(operuser, "信息页静态化:"+info.getTitle(), request);
 			}
 		}
@@ -119,7 +119,7 @@ public class InfoService extends BaseService{
 			if (site!=null ) {
 				//删除静态文件
 				String htmlfile=request.getRealPath("/")+"/site/"+site.getSourcepath()+
-				"/"+info.getChannel()+"/info/"+(info.getAddtime().getYear()+1900)+"/"+id+".html";
+				"/"+info.getChannelFolder()+"/info/"+(info.getAddtime().getYear()+1900)+"/"+info.getHtmlFileName()+".html";
 				File file=new File(htmlfile);
 				if (file.exists()) {
 					file.delete();
@@ -188,7 +188,7 @@ public class InfoService extends BaseService{
 						+"%' )");
 			}
 			if (info.getSite()!=null && info.getSite().trim().length()>0) {
-				criteria.andSiteEqualTo(info.getSite());
+				criteria.andInfoSiteEqualTo(info.getSite());
 			}
 			if ("1".equals(info.getCheckOpenendtime())) {
 				SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -258,7 +258,7 @@ public class InfoService extends BaseService{
 				criteria.andSql(" (channel in (select id from freecms_channel where site='"+info.getSite()+"' and pagemark='"+info.getChannelPagemark()+"')) ");
 			}
 			if (info.getImg()!=null && info.getImg().trim().length()>0) {
-				criteria.andSql(" (img is not null and img !='') ");
+				criteria.andSql(" (i.img is not null and i.img !='') ");
 			}
 			if (info.getStarttime()!=null) {
 				criteria.andAddtimeGreaterThanOrEqualTo(info.getStarttime());
