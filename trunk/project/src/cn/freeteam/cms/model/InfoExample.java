@@ -287,6 +287,10 @@ public class InfoExample extends BaseExample{
             addCriterion("site =", value, "site");
             return (Criteria) this;
         }
+        public Criteria andInfoSiteEqualTo(String value) {
+            addCriterion("i.site =", value, "site");
+            return (Criteria) this;
+        }
 
         public Criteria andSiteNotEqualTo(String value) {
             addCriterion("site <>", value, "site");
