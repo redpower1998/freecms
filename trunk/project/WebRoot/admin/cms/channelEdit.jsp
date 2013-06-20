@@ -117,7 +117,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<INPUT onblur="this.className='colorblur';" id=pagemark
+								<INPUT onblur="this.className='colorblur';" id=pagemark oninput="checkLoginName(this)"
 									class=colorblur onfocus="this.className='colorfocus';" onpropertychange="checkLoginName(this)"
 									maxLength=50 type=text name=channel.pagemark value="${channel.pagemark }">
 							</TD>

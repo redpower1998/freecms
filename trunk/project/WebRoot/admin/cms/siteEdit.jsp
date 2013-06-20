@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<INPUT onblur="this.className='colorblur';" id=sourcepath onpropertychange="checkLoginName(this)"
+								<INPUT onblur="this.className='colorblur';" id=sourcepath  oninput="checkLoginName(this)" onpropertychange="checkLoginName(this)"
 									class=colorblur onfocus="this.className='colorfocus';" ${site!=null && site.id!=null && site.id !=""?"readonly":"" }
 									maxLength=50 type=text name=site.sourcepath value="${site.sourcepath }">
 								<SPAN  id=ctl03>*</SPAN>

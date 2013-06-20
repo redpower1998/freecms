@@ -92,7 +92,7 @@ img {border:0}
 			<div  id="msg">
 			</div>
 			<div class="input_pwd">会&nbsp;员&nbsp;名&nbsp;:
-						<input id="username" name="member.loginname" onblur="checkSameLoginname()" onpropertychange="checkLoginName(this)" class="colorblur" tabindex="1" accesskey="n" type="text" value="" size="23" autocomplete="false"/>
+						<input id="username" name="member.loginname" onblur="checkSameLoginname()"  oninput="checkLoginName(this)" onpropertychange="checkLoginName(this)" class="colorblur" tabindex="1" accesskey="n" type="text" value="" size="23" autocomplete="false"/>
 						
 			<span id="RequiredFieldValidator1" style="color:Red;">*</span>
 			<span id="ctl01" style="color:Red;display:none;">*</span></div>

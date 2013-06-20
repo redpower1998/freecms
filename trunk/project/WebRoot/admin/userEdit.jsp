@@ -150,7 +150,7 @@
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='colorblur';" id=loginname
-									class=colorblur onfocus="this.className='colorfocus';" 
+									class=colorblur onfocus="this.className='colorfocus';" 			oninput="checkLoginName(this)"
 									maxLength=50 type=text name=user.loginname value="" onpropertychange="checkLoginName(this)">
 								<SPAN  id=ctl03>*</SPAN>
 							</TD>
