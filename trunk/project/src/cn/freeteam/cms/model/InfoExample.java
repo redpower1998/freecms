@@ -203,6 +203,11 @@ public class InfoExample extends BaseExample{
             return (Criteria) this;
         }
 
+        public Criteria andHtmlIndexnumEqualTo(Integer value) {
+            addCriterion("htmlIndexnum =", value, "htmlIndexnum");
+            return (Criteria) this;
+        }
+
         public Criteria andIdIsNotNull() {
             addCriterion("id is not null");
             return (Criteria) this;
