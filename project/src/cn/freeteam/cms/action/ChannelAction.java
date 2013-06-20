@@ -211,6 +211,9 @@ public class ChannelAction extends BaseAction{
 					if (channelService.hasPagemark(channel.getSite(), channel.getPagemark())) {
 						write("<script>alert('此页面标识已存在!');history.back();</script>", "GBK");
 						return null;
+					}else {
+						//检查是否有静态文件目录
+						
 					}
 				}
 				//如果原来有和现在的logo不同则删除原来的logo文件 
