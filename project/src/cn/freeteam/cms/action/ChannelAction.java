@@ -206,14 +206,53 @@ public class ChannelAction extends BaseAction{
 				Channel oldChannel=channelService.findById(channel.getId());
 				//如果原来有和现在的pagemark不同则判断新的pagemark是否存在
 				if (channel.getPagemark()!=null && channel.getPagemark().trim().length()>0 && 
-						oldChannel.getPagemark()!=null && 
-						!oldChannel.getPagemark().equals(channel.getPagemark())) {
+						!channel.getPagemark().equals(oldChannel.getPagemark())) {
 					if (channelService.hasPagemark(channel.getSite(), channel.getPagemark())) {
 						write("<script>alert('此页面标识已存在!');history.back();</script>", "GBK");
 						return null;
-					}else {
-						//检查是否有静态文件目录
-						
+					}
+					//修改栏目静态文件目录
+					String folder="";
+					File folderFile=null;
+					if (oldChannel.getPagemark()!=null && oldChannel.getPagemark().trim().length()>0) {
+						folder=oldChannel.getPagemark().trim();
+						folderFile=new File(getHttpRequest().getRealPath("/")+"\\site\\"+site.getSourcepath()+"\\"+folder);
+					}
+					if ((folderFile==null || !folderFile.exists()) && oldChannel.getIndexnum()>0) {
+						folder=String.valueOf(oldChannel.getIndexnum());
+						folderFile=new File(getHttpRequest().getRealPath("/")+"\\site\\"+site.getSourcepath()+"\\"+folder);
+					}
+					if (folderFile==null || !folderFile.exists()) {
+						folder=oldChannel.getId();
+						folderFile=new File(getHttpRequest().getRealPath("/")+"\\site\\"+site.getSourcepath()+"\\"+folder);
+					}
+					//判断目录是否存在
+					if (folderFile.exists()) {
+						//修改目录名
+						folderFile.renameTo(new File(getHttpRequest().getRealPath("/")
+								+"\\site\\"+site.getSourcepath()+"\\"+channel.getPagemark().trim()));
+					}
+				}
+				//如果原来有pagemark，现在删除了
+				if (oldChannel.getPagemark()!=null && oldChannel.getPagemark().trim().length()>0
+						&& (channel.getPagemark()==null || channel.getPagemark().trim().length()==0)) {
+
+					//修改栏目静态文件目录
+					String folder="";
+					File folderFile=null;
+					folder=oldChannel.getPagemark().trim();
+					folderFile=new File(getHttpRequest().getRealPath("/")+"\\site\\"+site.getSourcepath()+"\\"+folder);
+					//判断目录是否存在
+					if (folderFile.exists()) {
+						//修改目录名
+						String rename="";
+						if (oldChannel.getIndexnum()>0) {
+							rename=String.valueOf(oldChannel.getIndexnum());
+						}else {
+							rename=oldChannel.getId();
+						}
+						folderFile.renameTo(new File(getHttpRequest().getRealPath("/")
+								+"\\site\\"+site.getSourcepath()+"\\"+rename));
 					}
 				}
 				//如果原来有和现在的logo不同则删除原来的logo文件 
