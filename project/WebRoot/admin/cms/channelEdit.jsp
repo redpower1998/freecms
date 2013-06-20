@@ -68,6 +68,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 						</TR>
 						</s:if>
+						<s:if test="%{channel.indexnum!=null}">
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 title=栏目的唯一索引号
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>索引号：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								<INPUT onblur="this.className='colorblur';"  readonly
+									class=colorblur onfocus="this.className='colorfocus';" 
+									maxLength=50 type=text value="${channel.indexnum }" >
+							</TD>
+						</TR>
+						</s:if>
 						<TR>
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG
