@@ -316,7 +316,7 @@ public class ChannelService extends BaseService{
 			init("siteService");
 			Site site=siteService.findById(channel.getSite());
 			if (site!=null) {
-				String rootPath=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getId()+"/";
+				String rootPath=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getFolder()+"/";
 				//判断栏目文件夹是否存在
 				File channelFolder=new File(rootPath);
 				if (channelFolder.exists()) {
@@ -364,7 +364,7 @@ public class ChannelService extends BaseService{
 			data.put("page", page);
 			data.put("pagenum", pagenum);
 			data.put("contextPath", request.getContextPath()+"/");
-			String rootPath=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getId()+"/";
+			String rootPath=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getFolder()+"/";
 			//判断栏目文件夹是否存在
 			File channelFolder=new File(rootPath);
 			if (!channelFolder.exists()) {
@@ -422,7 +422,7 @@ public class ChannelService extends BaseService{
 			data.put("currChannel", channel);
 			data.put("page", page);
 			data.put("contextPath", context.getContextPath()+"/");
-			String rootPath=context.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getId()+"/";
+			String rootPath=context.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getFolder()+"/";
 			//判断栏目文件夹是否存在
 			File channelFolder=new File(rootPath);
 			if (!channelFolder.exists()) {

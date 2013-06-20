@@ -35,6 +35,7 @@
     <result column="opentype" jdbcType="VARCHAR" property="opentype" />
     <result column="opentimetype" jdbcType="VARCHAR" property="opentimetype" />
     <result column="openendtime" jdbcType="VARCHAR" property="openendtime" />
+    <result column="htmlIndexnum" property="htmlIndexnum" jdbcType="INTEGER" />
     
     
     
@@ -131,7 +132,7 @@
     -->
     id, site, channel, title, shortTitle, titleColor, titleBlod, source, author, description, 
     tags, img, url, attchs, addtime, templet, isTop, topEndTime, clickNum, addUser,state,issign,
-    iscomment,video,indexnum,opentype,opentimetype,openendtime
+    iscomment,video,indexnum,opentype,opentimetype,openendtime,htmlIndexnum
   </sql>
   <sql id="Blob_Column_List">
     <!--
