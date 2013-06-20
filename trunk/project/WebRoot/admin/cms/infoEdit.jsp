@@ -48,7 +48,25 @@
 						
 						
 								<input type="hidden" name="info.site" id="siteId" value="${site.id }"/>
-						
+						<s:if test="%{info.htmlIndexnum!=null}">
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 title=信息的唯一索引号，生成静态页面时使用
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>html索引号：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								<INPUT onblur="this.className='inputblur';" readonly
+									class=inputblur onfocus="this.className='inputfocus';" 
+									maxLength=250 type=text  value="${info.htmlIndexnum }">
+							</TD>
+						</TR>
+						</s:if>
 						<TR>
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG

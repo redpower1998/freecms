@@ -38,6 +38,11 @@
 						<TR class=summary-title>
 							<TD height="30" align=left style="padding-left: 10px;">
 							
+								html索引号：
+								
+								<input name="info.htmlIndexnum" type="text" maxlength="500"
+									class="colorblur" onfocus="this.className='colorfocus';"
+									onblur="this.className='colorblur';"  />
 								信息标题：
 								
 								<input name="info.title" type="text" maxlength="500"
@@ -102,7 +107,11 @@
 							<INPUT onClick="checkAll(this.checked)" type="checkbox" />
 						</TD>
 						
-						<TD width="60%">
+						<TD width="8%">
+							
+							<fs:order colName="html索引号" col="htmlIndexnum"/>
+						</TD>
+						<TD width="50%">
 							
 							<fs:order colName="信息标题" col="title"/>
 						</TD>
@@ -110,7 +119,7 @@
 							
 							<fs:order colName="签收" col="issign"/>
 						</TD>
-						<TD width="10%">
+						<TD width="12%">
 							
 							<fs:order colName="评论" col="iscomment"/>
 						</TD>
@@ -126,6 +135,9 @@
 						<TD align="center">
 							<INPUT name="ids" type="checkbox" value="<s:property value="id"/>"/></TD>
 						
+						<TD  align="left" id="htmlIndexnum<s:property value="id"/>">
+							<s:property value="htmlIndexnum"/>
+						</TD>
 						<TD  align="left" id="title<s:property value="id"/>">
 							<a title="点击打开信息页面" href="<s:property value="pageurl"/>" target="_blank"><s:property value="title"/></a>
 						</TD>
