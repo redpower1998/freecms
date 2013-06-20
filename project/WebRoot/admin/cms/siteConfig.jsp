@@ -71,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<INPUT onblur="this.className='colorblur';" id=sourcepath onpropertychange="checkLoginName(this)"
+								<INPUT onblur="this.className='colorblur';" id=sourcepath  oninput="checkLoginName(this)" onpropertychange="checkLoginName(this)"
 									class=colorblur onfocus="this.className='colorfocus';" ${site!=null && site.id!=null && site.id !=""?"readonly":"" }
 									maxLength=50 type=text name=site.sourcepath value="${site.sourcepath }">
 								<SPAN  id=ctl03>*</SPAN>
@@ -106,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<INPUT onblur="this.className='colorblur';" id=ordernum onpropertychange="checkLoginName(this)"
+								<INPUT onblur="this.className='colorblur';" id=ordernum  oninput="checkLoginName(this)" onpropertychange="checkLoginName(this)"
 									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
 									maxLength=50 type=text name=site.ordernum value="${site.ordernum }">
 							</TD>

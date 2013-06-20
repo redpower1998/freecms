@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<INPUT onblur="this.className='colorblur';" id=loginname
+								<INPUT onblur="this.className='colorblur';" id=loginname oninput="checkLoginName(this)"
 									class=colorblur onfocus="this.className='colorfocus';" ${not empty member.id ?"readonly='readonly'":"" }
 									maxLength=50 type=text name=member.loginname value="${member.loginname }" onpropertychange="checkLoginName(this)">
 								<SPAN  id=ctl03>*</SPAN>
