@@ -354,30 +354,35 @@ public class ChannelService extends BaseService{
 	 */
 	public void htmlPage(Site site,Channel channel,ServletContext context,HttpServletRequest request,String templetPath,int page,String operuser,int pagenum) throws IOException, TemplateException{
 		if (site!=null && channel!=null
-				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0
-				&&(pagenum==0 || (pagenum>0 && pagenum>=page))) {
-			//生成静态页面
-			Map<String,Object> data=new HashMap<String,Object>();
-			//传递site参数
-			data.put("site", site);
-			data.put("currChannel", channel);
-			data.put("page", page);
-			data.put("pagenum", pagenum);
-			data.put("contextPath", request.getContextPath()+"/");
-			String rootPath=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getFolder()+"/";
-			//判断栏目文件夹是否存在
-			File channelFolder=new File(rootPath);
-			if (!channelFolder.exists()) {
-				channelFolder.mkdirs();
+				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
+			//如果设置了最大生成页数
+			if (channel.getMaxpage()>0) {
+				pagenum=channel.getMaxpage();
 			}
-			FreeMarkerUtil.createHTML(context, data, 
-					templetPath, 
-					rootPath+"index"+(page>1?"_"+(page-1):"")+".html");
-			OperLogUtil.log(operuser, "栏目静态化:"+channel.getName()+" 第"+page+"页", request);
-			String content = FileUtil.readFile(rootPath+"index"+(page>1?"_"+(page-1):"")+".html");
-			//如果内容里有<!--hasNextPage-->字符串则需要生成下一页
-			if (content.indexOf(hasNextPage)>-1) {
-				htmlPage(site, channel, context, request, templetPath, page+1, operuser,pagenum);
+			if (pagenum==0 || (pagenum>0 && pagenum>=page)) {
+				//生成静态页面
+				Map<String,Object> data=new HashMap<String,Object>();
+				//传递site参数
+				data.put("site", site);
+				data.put("currChannel", channel);
+				data.put("page", page);
+				data.put("pagenum", pagenum);
+				data.put("contextPath", request.getContextPath()+"/");
+				String rootPath=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getFolder()+"/";
+				//判断栏目文件夹是否存在
+				File channelFolder=new File(rootPath);
+				if (!channelFolder.exists()) {
+					channelFolder.mkdirs();
+				}
+				FreeMarkerUtil.createHTML(context, data, 
+						templetPath, 
+						rootPath+"index"+(page>1?"_"+(page-1):"")+".html");
+				OperLogUtil.log(operuser, "栏目静态化:"+channel.getName()+" 第"+page+"页", request);
+				String content = FileUtil.readFile(rootPath+"index"+(page>1?"_"+(page-1):"")+".html");
+				//如果内容里有<!--hasNextPage-->字符串则需要生成下一页
+				if (content.indexOf(hasNextPage)>-1) {
+					htmlPage(site, channel, context, request, templetPath, page+1, operuser,pagenum);
+				}
 			}
 		}
 	}
@@ -415,26 +420,31 @@ public class ChannelService extends BaseService{
 	public void htmlPage(Site site,Channel channel,ServletContext context,String templetPath,int page) throws IOException, TemplateException{
 		if (site!=null && channel!=null
 				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
-			//生成静态页面
-			Map<String,Object> data=new HashMap<String,Object>();
-			//传递site参数
-			data.put("site", site);
-			data.put("currChannel", channel);
-			data.put("page", page);
-			data.put("contextPath", context.getContextPath()+"/");
-			String rootPath=context.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getFolder()+"/";
-			//判断栏目文件夹是否存在
-			File channelFolder=new File(rootPath);
-			if (!channelFolder.exists()) {
-				channelFolder.mkdirs();
-			}
-			FreeMarkerUtil.createHTML(context, data, 
-					templetPath, 
-					rootPath+"index"+(page>1?"_"+(page-1):"")+".html");
-			String content = FileUtil.readFile(rootPath+"index"+(page>1?"_"+(page-1):"")+".html");
-			//如果内容里有<!--hasNextPage-->字符串则需要生成下一页
-			if (content.indexOf(hasNextPage)>-1) {
-				htmlPage(site, channel, context, templetPath, page+1);
+			if (channel.getMaxpage()==0 || (channel.getMaxpage()>0 && channel.getMaxpage()>=page)) {
+				//生成静态页面
+				Map<String,Object> data=new HashMap<String,Object>();
+				//传递site参数
+				data.put("site", site);
+				data.put("currChannel", channel);
+				data.put("page", page);
+				if (channel.getMaxpage()>0) {
+					data.put("pagenum", channel.getMaxpage());
+				}
+				data.put("contextPath", context.getContextPath()+"/");
+				String rootPath=context.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getFolder()+"/";
+				//判断栏目文件夹是否存在
+				File channelFolder=new File(rootPath);
+				if (!channelFolder.exists()) {
+					channelFolder.mkdirs();
+				}
+				FreeMarkerUtil.createHTML(context, data, 
+						templetPath, 
+						rootPath+"index"+(page>1?"_"+(page-1):"")+".html");
+				String content = FileUtil.readFile(rootPath+"index"+(page>1?"_"+(page-1):"")+".html");
+				//如果内容里有<!--hasNextPage-->字符串则需要生成下一页
+				if (content.indexOf(hasNextPage)>-1) {
+					htmlPage(site, channel, context, templetPath, page+1);
+				}
 			}
 		}
 	}
