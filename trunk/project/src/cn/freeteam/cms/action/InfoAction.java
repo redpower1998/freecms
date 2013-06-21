@@ -85,6 +85,8 @@ public class InfoAction extends BaseAction{
 	private String type;
 	private String[] signusers;
 	private String msg;
+	private String channelname;
+	private String sitename;
 	
 
 	private String htmlChannel;
@@ -157,8 +159,69 @@ public class InfoAction extends BaseAction{
 	 * @return
 	 */
 	public String extract(){
-		siteList=siteService.selectByParId( "");
+		if (info==null) {
+			info=new Info();
+		}
+		if (order.trim().length()==0) {
+			order=" addtime desc ";
+		}
+		infoList=infoService.find(info, order, currPage, pageSize);
+		totalCount=infoService.count(info);
+		Pager pager=new Pager(getHttpRequest());
+		pager.appendParam("info.channel");
+		pager.appendParam("info.site");
+		pager.appendParam("channelname");
+		pager.appendParam("sitename");
+		pager.appendParam("info.searchKey");
+		pager.appendParam("order");
+		pager.appendParam("pageSize");
+		pager.appendParam("pageFuncId");
+		pager.setCurrPage(currPage);
+		pager.setPageSize(pageSize);
+		pager.setTotalCount(totalCount);
+		pager.setOutStr("info_extract.do");
+		pageStr=pager.getOutStr();
 		return "extract";
+	}
+	/**
+	 * 信息提取处理
+	 * @return
+	 */
+	public String extractDo(){
+		if (info!=null && info.getChannel()!=null && info.getChannel().trim().length()>0
+				&& ids!=null && ids.trim().length()>0) {
+			channel=channelService.findById(info.getChannel().trim());
+			if (channel!=null) {
+				try {
+					String[] idArr=ids.split(";");
+					if (idArr!=null && idArr.length>0) {
+						for (int i = 0; i < idArr.length; i++) {
+							if (idArr[i].trim().length()>0) {
+								info=infoService.findById(idArr[i].trim());
+								if (info!=null) {
+									//复制到新栏目
+									if (info!=null) {
+										info.setChannel(channel.getId());
+										info.setId("");
+										infoService.insert(info);
+										logContent="提取信息 "+info.getTitle()+" 到 "+channel.getName()+" "+info.getTitle()+")成功!";
+									}
+								}
+							}
+						}
+					}
+					showMessage="提取成功";
+				} catch (Exception e) {
+					e.printStackTrace();
+					showMessage="操作失败:"+e.getMessage();
+					logContent="提取信息失败:"+e.getMessage();
+				}
+			}else {
+				showMessage="没有找到要提取到的栏目";
+			}
+		}
+		OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+		return showMessage(showMessage, forwardUrl, forwardSeconds);
 	}
 	/**
 	 * 编辑页面
@@ -780,5 +843,17 @@ public class InfoAction extends BaseAction{
 	}
 	public void setTochannelid(String tochannelid) {
 		this.tochannelid = tochannelid;
+	}
+	public String getChannelname() {
+		return channelname;
+	}
+	public void setChannelname(String channelname) {
+		this.channelname = channelname;
+	}
+	public String getSitename() {
+		return sitename;
+	}
+	public void setSitename(String sitename) {
+		this.sitename = sitename;
 	}
 }
