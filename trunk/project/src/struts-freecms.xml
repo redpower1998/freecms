@@ -39,6 +39,7 @@
 			<result name="info" >/admin/cms/info.jsp</result>
 			<result name="list" >/admin/cms/infoList.jsp</result>
 			<result name="makehtml" >/admin/cms/infoMakehtml.jsp</result>
+			<result name="extract" >/admin/cms/infoExtract.jsp</result>
 		</action>
 		<action name="templet_*" method="{1}" class="cn.freeteam.cms.action.TempletAction"> 
 			<interceptor-ref name="fileUpload">

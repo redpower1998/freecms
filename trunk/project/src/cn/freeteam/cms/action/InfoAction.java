@@ -153,6 +153,14 @@ public class InfoAction extends BaseAction{
 		return "info";
 	}
 	/**
+	 * 信息提取
+	 * @return
+	 */
+	public String extract(){
+		siteList=siteService.selectByParId( "");
+		return "extract";
+	}
+	/**
 	 * 编辑页面
 	 * @return
 	 */
