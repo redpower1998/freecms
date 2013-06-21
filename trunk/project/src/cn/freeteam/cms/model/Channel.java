@@ -25,6 +25,7 @@ public class Channel implements Serializable{
     private String htmlparchannel;
     private String htmlsite;
     private int indexnum;
+    private int maxpage;
     private String folder;//静态页面目录
 
     /**
@@ -512,5 +513,13 @@ public class Channel implements Serializable{
 
 	public void setFolder(String folder) {
 		this.folder = folder;
+	}
+
+	public int getMaxpage() {
+		return maxpage;
+	}
+
+	public void setMaxpage(int maxpage) {
+		this.maxpage = maxpage;
 	}
 }

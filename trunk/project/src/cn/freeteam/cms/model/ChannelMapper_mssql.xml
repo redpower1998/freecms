@@ -25,6 +25,7 @@
     <result column="orderNum" jdbcType="INTEGER" property="ordernum" />
     <result column="clickNum" jdbcType="INTEGER" property="clicknum" />
     <result column="indexnum" jdbcType="INTEGER" property="indexnum" />
+    <result column="maxpage" jdbcType="INTEGER" property="maxpage" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.freeteam.cms.model.Channel">
     <!--
@@ -109,7 +110,7 @@
       This element was generated on Mon Jan 23 20:25:00 CST 2012.
     -->
     id, name, templet, contentTemplet, img, parId, site, url, state,navigation,pagemark,htmlchannel,
-    htmlchannelold,htmlparchannel,htmlsite, orderNum, clickNum,indexnum
+    htmlchannelold,htmlparchannel,htmlsite, orderNum, clickNum,indexnum,maxpage
   </sql>
   <sql id="Blob_Column_List">
     <!--
@@ -201,12 +202,12 @@
     insert into freecms_channel (id, name, templet, 
       contentTemplet, img, parId, 
       site, url, state, navigation,pagemark,htmlchannel,htmlchannelold,htmlparchannel,htmlsite,orderNum, 
-      clickNum, description)
+      clickNum, maxpage,description)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{templet,jdbcType=VARCHAR}, 
       #{contenttemplet,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{parid,jdbcType=VARCHAR}, 
       #{site,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR},#{navigation,jdbcType=VARCHAR},
       #{pagemark,jdbcType=VARCHAR},#{htmlchannel,jdbcType=VARCHAR},#{htmlchannelold,jdbcType=VARCHAR},#{htmlparchannel,jdbcType=VARCHAR},#{htmlsite,jdbcType=VARCHAR}, #{ordernum,jdbcType=INTEGER}, 
-      #{clicknum,jdbcType=INTEGER}, #{description,jdbcType=CLOB})
+      #{clicknum,jdbcType=INTEGER},#{maxpage,jdbcType=INTEGER}, #{description,jdbcType=CLOB})
   </insert>
   <insert id="insertSelective" parameterType="cn.freeteam.cms.model.Channel">
     <!--
@@ -267,6 +268,9 @@
       <if test="clicknum != null">
         clickNum,
       </if>
+      <if test="maxpage != null">
+        maxpage,
+      </if>
       <if test="description != null">
         description,
       </if>
@@ -322,6 +326,9 @@
       </if>
       <if test="clicknum != null">
         #{clicknum,jdbcType=INTEGER},
+      </if>
+      <if test="maxpage != null">
+        #{maxpage,jdbcType=INTEGER},
       </if>
       <if test="description != null">
         #{description,jdbcType=CLOB},
@@ -398,6 +405,9 @@
       <if test="record.clicknum != null">
         clickNum = #{record.clicknum,jdbcType=INTEGER},
       </if>
+      <if test="record.maxpage != null">
+        maxpage = #{record.maxpage,jdbcType=INTEGER},
+      </if>
       <if test="record.description != null">
         description = #{record.description,jdbcType=CLOB},
       </if>
@@ -430,6 +440,7 @@
       htmlsite = #{record.htmlsite,jdbcType=VARCHAR},
       orderNum = #{record.ordernum,jdbcType=INTEGER},
       clickNum = #{record.clicknum,jdbcType=INTEGER},
+      maxpage = #{record.maxpage,jdbcType=INTEGER},
       description = #{record.description,jdbcType=CLOB}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -458,7 +469,8 @@
       htmlparchannel = #{record.htmlparchannel,jdbcType=VARCHAR},
       htmlsite = #{record.htmlsite,jdbcType=VARCHAR},
       orderNum = #{record.ordernum,jdbcType=INTEGER},
-      clickNum = #{record.clicknum,jdbcType=INTEGER}
+      clickNum = #{record.clicknum,jdbcType=INTEGER},
+      maxpage = #{record.maxpage,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -519,6 +531,9 @@
       <if test="clicknum != null">
         clickNum = #{clicknum,jdbcType=INTEGER},
       </if>
+      <if test="maxpage != null">
+        maxpage = #{maxpage,jdbcType=INTEGER},
+      </if>
       <if test="description != null">
         description = #{description,jdbcType=CLOB},
       </if>
@@ -548,6 +563,7 @@
       htmlsite = #{htmlsite,jdbcType=VARCHAR},
       orderNum = #{ordernum,jdbcType=INTEGER},
       clickNum = #{clicknum,jdbcType=INTEGER},
+      maxpage = #{maxpage,jdbcType=INTEGER},
       description = #{description,jdbcType=CLOB}
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -573,7 +589,8 @@
       htmlparchannel = #{htmlparchannel,jdbcType=VARCHAR},
       htmlsite = #{htmlsite,jdbcType=VARCHAR},
       orderNum = #{ordernum,jdbcType=INTEGER},
-      clickNum = #{clicknum,jdbcType=INTEGER}
+      clickNum = #{clicknum,jdbcType=INTEGER},
+      maxpage = #{maxpage,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
