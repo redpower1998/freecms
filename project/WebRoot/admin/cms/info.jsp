@@ -9,6 +9,7 @@
 	<head>
 		<link rel="stylesheet" href="../../img/common.css" type="text/css" />
 		<link rel="stylesheet" href="../../img/style.css" type="text/css" />
+		<link rel="stylesheet" href="../../img/style3.css" type="text/css" />
 
 	<link rel="stylesheet" href="../../js/jquery.treeview.css" />
 	
@@ -26,6 +27,13 @@
 	</head>
 	<body >
 	<input type="hidden" id="pageFuncId" value="${param.pageFuncId }"/>
+	<DIV class=tab>
+				<DIV class=tabOn >
+					信息管理
+				</DIV>
+				<DIV class=clearer></DIV>
+			</DIV>
+			<DIV class=column>
 <div id="man_zone" >
   <table width="99%" border="0" align="left"  cellpadding="3" cellspacing="1" >
     <tr>
@@ -60,7 +68,7 @@
       </td>
     </tr>
   </table>
-</div>
+</div></DIV>
 	<script type="text/javascript">
 	function initTrees() {
 		$("#mixed").treeview({
