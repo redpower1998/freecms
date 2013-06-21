@@ -16,12 +16,12 @@
   <table width="99%" border="0" align="left"  cellpadding="3" cellspacing="1" >
     <tr>
       <td width="30%"  align="left" valign="top" class="treetd">
+				<a href="#" onclick="parSite('root')"><b>站点管理</b></a>
 	<ul id="mixedpar" >
 		
 		<s:if test="%{#session.loginAdmin.loginname == 'admin'}">
 			<s:iterator value="siteList" status="bean" id="currSite">
 				<s:if test="%{#currSite.id != #request.site.id}">
-				<a href="#" onclick="parSite('root')"><b>站点管理</b></a>
 				<li id="<s:property value="id"/>" class="hasChildren">
 					<span><font size="2">
 					<a href="#" onclick="parSite('<s:property value="id"/>')"><b><s:property value="name"/></b></a></font>
