@@ -10,6 +10,7 @@
 	<head>
 		<link rel="stylesheet" href="../../img/common.css" type="text/css" />
 		<link rel="stylesheet" href="../../img/style.css" type="text/css" />
+		<link rel="stylesheet" href="../../img/style3.css" type="text/css" />
 
 	<link rel="stylesheet" href="../../js/jquery.treeview.css" />
 	
@@ -25,7 +26,13 @@
 <script type="text/javascript" src="js/templetFileManage.js">
 </script>
 	</head>
-	<body >
+	<body ><DIV class=tab>
+				<DIV class=tabOn >
+					模板文件
+				</DIV>
+				<DIV class=clearer></DIV>
+			</DIV>
+			<DIV class=column>
 <div id="man_zone" >
   <table width="99%" border="0" align="left"  cellpadding="3" cellspacing="1" >
     <tr>
@@ -51,8 +58,9 @@
       </td>
     </tr>
   </table>
-</div>
+</div></DIV>
 	<script type="text/javascript">
+	$("#fileFrame").height($(document).height()-80);
 	function initTrees() {
 		$("#mixed").treeview({
 			url: "templet_folderSon.do",

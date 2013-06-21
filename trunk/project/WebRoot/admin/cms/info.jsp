@@ -70,6 +70,7 @@
   </table>
 </div></DIV>
 	<script type="text/javascript">
+	$("#infoFrame").height($(document).height()-80);
 	function initTrees() {
 		$("#mixed").treeview({
 			url: "channel_son.do?auth=1",

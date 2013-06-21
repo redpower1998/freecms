@@ -86,6 +86,7 @@
   </table>
 </div>
 <script type="text/javascript">
+	$("#channelFrame").height($(document).height()-80);
 	function initTreesPar() {
 		$("#mixedchannel").treeview({
 			url: "templetChannel_son.do",
