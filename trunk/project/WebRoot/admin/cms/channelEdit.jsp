@@ -250,7 +250,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</s:if>
 									<input type="file" name="img" id="img">
 							</TD>
-						</TR><TR>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请输入栏目的生成静态页面最大页数,0表示不限制。
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>生成静态页面最大页数：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								<INPUT onblur="this.className='colorblur';" id=maxpage onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=colorblur onfocus="this.className='colorfocus';" 
+									maxLength=50 type=text name=channel.maxpage value="${channel.maxpage }">
+							</TD>
+						</TR>
+						<TR>
 							<TD width="30%" align="left">
 								<LABEL id=ctl02_ctl00_label>
 									<IMG
