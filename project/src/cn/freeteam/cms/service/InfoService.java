@@ -183,7 +183,7 @@ public class InfoService extends BaseService{
 			if (info.getSearchKey()!=null && info.getSearchKey().trim().length()>0) {
 				criteria.andSql("(title like '%"+info.getSearchKey().trim()
 						+"%' or shortTitle like '%"+info.getSearchKey().trim()
-						+"%' or description like '%"+info.getSearchKey().trim()
+						+"%' or i.description like '%"+info.getSearchKey().trim()
 						+"%' or tags like '%"+info.getSearchKey().trim()
 						+"%' )");
 			}

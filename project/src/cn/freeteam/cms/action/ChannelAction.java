@@ -113,7 +113,11 @@ public class ChannelAction extends BaseAction{
 	 * @return
 	 */
 	public String channel(){
-		site=getManageSite();
+		if (channel!=null && channel.getSite()!=null && channel.getSite().trim().length()>0) {
+			site=siteService.findById(channel.getSite().trim());
+		}else {
+			site=getManageSite();
+		}
 		if (site!=null) {
 			//获取当前管理站点
 			if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
