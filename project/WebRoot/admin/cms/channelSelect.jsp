@@ -18,7 +18,12 @@
 			<li id="<s:property value="id"/>" class="hasChildren">
 				<span><font size="2">
 				<s:if test='%{#session.siteAdmin || "1" == #bean.haveChannelRole }'>
-					<a onclick="showOne('<s:property value="id"/>','<s:property value="name"/>')" ><b><s:property value="name"/></b></a>
+					<s:if test='%{onclick!=null && onclick!="" }'>
+						<a onclick="${onclick }('<s:property value="id"/>','<s:property value="name"/>')" ><b><s:property value="name"/></b></a>
+					</s:if>
+					<s:if test='%{onclick==null || onclick=="" }'>
+						<a onclick="showOne('<s:property value="id"/>','<s:property value="name"/>')" ><b><s:property value="name"/></b></a>
+					</s:if>
 				</s:if>
 				<s:if test='%{!#session.siteAdmin && "1"!=#bean.haveChannelRole}'>
 				<s:property value="name"></s:property>
@@ -43,7 +48,12 @@
 	<script type="text/javascript">
 	function initTreesPar() {
 		$("#mixedpar").treeview({
+			<s:if test='%{onclick!=null && onclick!="" }'>
+			url: "channel_son.do?auth=1&channel.id=${channel.id}&onclick=${onclick}",
+			</s:if>
+			<s:if test='%{onclick==null || onclick=="" }'>
 			url: "channel_son.do?auth=1&channel.id=${channel.id}",
+			</s:if>
 			ajax: {
 				data: {
 					"additional": function() {
