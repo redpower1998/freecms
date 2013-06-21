@@ -88,6 +88,7 @@
 </DIV>
 
 	<script type="text/javascript">
+	$("#siteFrame").height($(document).height()-80);
 	function initTreesPar() {
 		$("#mixedpar").treeview({
 			url: "site_son.do",

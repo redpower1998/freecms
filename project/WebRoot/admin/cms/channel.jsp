@@ -73,7 +73,6 @@
       
       <iframe width="100%" height="500" name="channelFrame" id="channelFrame" framespacing="0" border="false"  frameborder="0"></iframe>
       
-      
       </td>
     </tr>
   </table>
@@ -81,6 +80,7 @@
 </DIV>
 
 	<script type="text/javascript">
+	$("#channelFrame").height($(document).height()-80);
 	function initTreesPar() {
 		$("#mixedchannel").treeview({
 			url: "channel_son.do?auth=1",
