@@ -8,6 +8,8 @@
             	<@channelPath siteid="${site.id}" id="${currChannel.id}" ;channel>
             	-> <a href="${channel.pageurl}">${channel.name}</a>
 			  	</@channelPath>
+			  	
+			  	<#if currInfo??>-${currInfo.title!""}</#if>
 			  	</div>
              <div class="loaction_title_right"></div>
                                 
