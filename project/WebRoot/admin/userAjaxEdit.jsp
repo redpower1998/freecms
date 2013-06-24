@@ -6,7 +6,6 @@
 <HTML>
 	<HEAD>
 
-		<META content=text/html;charset=gb2312 http-equiv=content-type>
 	</HEAD>
 	<BODY>
 		<FORM id=MyForm onsubmit="javascript:return WebForm_OnSubmit();"

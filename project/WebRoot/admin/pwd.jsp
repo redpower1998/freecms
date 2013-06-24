@@ -6,7 +6,6 @@
 		<LINK rel=stylesheet type=text/css href="../img/style.css">
 		<LINK rel=stylesheet type=text/css
 			href="../img/style3.css">
-		<META content=text/html;charset=gb2312 http-equiv=content-type>
 		<script type="text/javascript" src="../js/jquery-1.5.1.min.js"></script>
 	</HEAD>
 	<BODY>

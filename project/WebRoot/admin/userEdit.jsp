@@ -99,7 +99,6 @@
 	}
 	</script>
 	
-		<META content=text/html;charset=gb2312 http-equiv=content-type>
 	</HEAD>
 	<BODY>
 <%@include file="../util/checkParentFrame.jsp" %>
