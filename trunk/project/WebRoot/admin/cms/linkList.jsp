@@ -25,7 +25,6 @@
 		<script type="text/javascript" src="js/linkList.js"></script>
 		<script type="text/javascript" src="../ckfinder/ckfinder.js"></script>
 <script type="text/javascript" src="../../js/ckfinderUtil.jsp"></script>
-		<META content=text/html;charset=gb2312 http-equiv=content-type>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
 		<input type="hidden" id="type" value="${link.type }"/>

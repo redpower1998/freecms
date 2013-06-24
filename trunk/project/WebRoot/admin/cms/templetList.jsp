@@ -21,7 +21,6 @@
 	<script src="../../js/jquery.treeview.async.js" type="text/javascript"></script>
 
 		<script type="text/javascript" src="js/templetList.js"></script>
-		<META content=text/html;charset=gb2312 http-equiv=content-type>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
 		<form name="myForm" method="post" action="templet_list.do" id="myForm"
