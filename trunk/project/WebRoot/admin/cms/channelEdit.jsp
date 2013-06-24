@@ -362,12 +362,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<TR>
 							<TD width="70%" align="left"  colspan="10" id="dsecTd" style="display:none">
     							<textarea   cols = "80"   id = "editor1"   name = "channel.description"   rows = "10" >${channel.description }</textarea >
-								<script type="text/javascript" src="<%=checkParentPath %>/admin/ckeditor/ckeditor.js?t=B37D54V"></script>
+								<script type="text/javascript" src="<%=checkParentBasePath %>/admin/ckeditor/ckeditor.js?t=B37D54V"></script>
 								<script type="text/javascript">//<![CDATA[
-								CKEDITOR.replace('editor1', {"filebrowserImageBrowseUrl":"\<%=checkParentPath %>\/admin\/ckfinder\/ckfinder.html?type=Images","filebrowserBrowseUrl":"\<%=checkParentPath %>\/admin\/ckfinder\/ckfinder.html","filebrowserFlashBrowseUrl":"\<%=checkParentPath %>\/admin\/ckfinder\/ckfinder.html?type=Flash","filebrowserUploadUrl":"\<%=checkParentPath %>\/ckfinder\/core\/connector\/java\/connector.java?command=QuickUpload&type=Files","filebrowserImageUploadUrl":"\<%=checkParentPath %>\/ckfinder\/core\/connector\/java\/connector.java?command=QuickUpload&type=Images","filebrowserFlashUploadUrl":"\<%=checkParentPath %>\/ckfinder\/core\/connector\/java\/connector.java?command=QuickUpload&type=Flash"});
+								CKEDITOR.replace('editor1', {"filebrowserImageBrowseUrl":"\<%=checkParentBasePath %>admin\/ckfinder\/ckfinder.html?type=Images","filebrowserBrowseUrl":"\<%=checkParentBasePath %>admin\/ckfinder\/ckfinder.html","filebrowserFlashBrowseUrl":"\<%=checkParentBasePath %>admin\/ckfinder\/ckfinder.html?type=Flash","filebrowserUploadUrl":"\<%=checkParentBasePath %>ckfinder\/core\/connector\/java\/connector.java?command=QuickUpload&type=Files","filebrowserImageUploadUrl":"\<%=checkParentBasePath %>ckfinder\/core\/connector\/java\/connector.java?command=QuickUpload&type=Images","filebrowserFlashUploadUrl":"\<%=checkParentBasePath %>ckfinder\/core\/connector\/java\/connector.java?command=QuickUpload&type=Flash"});
 								//]]></script>
 								<input type="hidden" id="ckfinderCurrentFolder" value="${currentFolder }"/>
-								<input type="hidden" id="ckfinderBasePath" value="<%=checkParentPath %>"/>
+								<input type="hidden" id="ckfinderBasePath" value="<%=checkParentBasePath %>"/>
 							</TD>
 						</TR>
 						<TR>
