@@ -9,6 +9,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.htmlparser.Node;
+import org.htmlparser.NodeFilter;
+import org.htmlparser.Parser;
+import org.htmlparser.filters.TagNameFilter;
+import org.htmlparser.tags.ImageTag;
+import org.htmlparser.util.NodeList;
+import org.htmlparser.util.ParserException;
+
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Channel;
@@ -288,6 +296,36 @@ public class InfoAction extends BaseAction{
 
 					//生成访问地址
 					info.setVideo("/upload/"+site.getId()+"/"+id+ext);
+				}
+				if (info.getImg()==null || info.getImg().trim().length()==0) {
+					//如果没有选择信息图片，则检查信息内容中是否有图片
+					try {
+						Parser parser=new Parser(info.getContent());
+						NodeFilter filter = new TagNameFilter ("img");
+			            NodeList nodes = parser.extractAllNodesThatMatch(filter);
+			            Node eachNode = null;
+			            ImageTag imageTag = null;
+			            if (nodes != null && nodes.size()>0)
+			            {
+			            	//遍历所有的img节点
+			                for (int i = 0; i < nodes.size(); i++) 
+			                {
+			    				if (info.getImg()==null || info.getImg().trim().length()==0) {
+				                    eachNode = (Node)nodes.elementAt(i);
+				                    if (eachNode instanceof ImageTag) 
+				                    {
+				                        imageTag = (ImageTag)eachNode;
+				                        info.setImg(imageTag.getAttribute("src"));
+				                    }
+			    				}else {
+									break;
+								}
+			                }
+			            }
+					} catch (ParserException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				if (info.getId()!=null && info.getId().trim().length()>0) {
 					//更新
