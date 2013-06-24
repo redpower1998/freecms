@@ -20,7 +20,6 @@
 <script type="text/javascript" src="../js/ckfinderUtil.jsp"></script>
 
 		<script type="text/javascript" src="js/adminlinkList.js"></script>
-		<META content=text/html;charset=gb2312 http-equiv=content-type>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
 		<input type="hidden" id="pageFuncId" value="${param.pageFuncId }"/>

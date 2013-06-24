@@ -16,7 +16,6 @@
 	<script src="../js/jquery.treeview.js" type="text/javascript"></script>
 	<script src="../js/jquery.treeview.edit.js" type="text/javascript"></script>
 	<script src="../js/jquery.treeview.async.js" type="text/javascript"></script>
-<meta http-equiv="content-type" content="text/html;charset=gb2312"/>
 <style type="text/css"> 
 
 .lefttab{

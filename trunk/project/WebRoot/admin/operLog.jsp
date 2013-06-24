@@ -15,7 +15,6 @@
 		<link type="text/css" rel="stylesheet" href="../js/weebox0.4/weebox.css" />
 		<script language="javascript" type="text/javascript" src="../My97DatePicker/WdatePicker.js" ></script>
 
-		<META content=text/html;charset=gb2312 http-equiv=content-type>
 	</HEAD>
 	<BODY>
 		<form name="myForm" method="post" action="operLog_list.do"

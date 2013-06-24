@@ -16,7 +16,6 @@
 		<script language="javascript" type="text/javascript" src="../My97DatePicker/WdatePicker.js" ></script>
 
 		<script type="text/javascript" src="js/user.js"></script>
-		<META content=text/html;charset=gb2312 http-equiv=content-type>
 	</HEAD>
 	<BODY>
 		<form name="myForm" method="post" action="user_list.do"
