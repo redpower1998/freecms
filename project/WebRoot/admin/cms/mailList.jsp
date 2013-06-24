@@ -17,7 +17,6 @@
 		<link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox.css" />
 
 		<script type="text/javascript" src="js/mailList.js"></script>
-		<META content=text/html;charset=gb2312 http-equiv=content-type>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
 		<input type="hidden" id="type" value="${mail.type }"/>
