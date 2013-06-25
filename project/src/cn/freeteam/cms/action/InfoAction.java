@@ -340,6 +340,7 @@ public class InfoAction extends BaseAction{
 						oldInfo.setDescription(info.getDescription());
 						oldInfo.setImg(info.getImg());
 						oldInfo.setIstop(info.getIstop());
+						oldInfo.setIshot(info.getIshot());
 						oldInfo.setShorttitle(info.getShorttitle());
 						oldInfo.setSite(info.getSite());
 						oldInfo.setSource(info.getSource());

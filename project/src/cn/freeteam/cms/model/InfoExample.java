@@ -1344,6 +1344,21 @@ public class InfoExample extends BaseExample{
             return (Criteria) this;
         }
 
+        public Criteria andIshotIsNull() {
+            addCriterion("isHot is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIshotIsNotNull() {
+            addCriterion("isHot is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIshotEqualTo(String value) {
+            addCriterion("isHot =", value, "ishot");
+            return (Criteria) this;
+        }
+
         public Criteria andIssignEqualTo(String value) {
             addCriterion("issign =", value, "issign");
             return (Criteria) this;
