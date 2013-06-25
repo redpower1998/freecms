@@ -24,6 +24,7 @@
     <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
     <result column="templet" jdbcType="VARCHAR" property="templet" />
     <result column="isTop" jdbcType="VARCHAR" property="istop" />
+    <result column="ishot" jdbcType="VARCHAR" property="ishot" />
     <result column="topEndTime" jdbcType="TIMESTAMP" property="topendtime" />
     <result column="clickNum" jdbcType="INTEGER" property="clicknum" />
     <result column="addUser" jdbcType="VARCHAR" property="adduser" />
@@ -130,7 +131,7 @@
       This element was generated on Wed Feb 01 16:28:18 CST 2012.
     -->
     id, site, channel, title, shortTitle, titleColor, titleBlod, source, author, description, 
-    tags, img, url, attchs, addtime, templet, isTop, topEndTime, clickNum, addUser,state,issign,
+    tags, img, url, attchs, addtime, templet, isTop, ishot,topEndTime, clickNum, addUser,state,issign,
     iscomment,video,indexnum,opentype,opentimetype,openendtime,htmlIndexnum
   </sql>
   <sql id="Base_Column_List_Pre">
@@ -140,7 +141,7 @@
       This element was generated on Wed Feb 01 16:28:18 CST 2012.
     -->
     i.id, i.site, i.channel, i.title, i.shortTitle, i.titleColor, i.titleBlod, i.source, i.author, i.description, 
-    i.tags, i.img, i.url, i.attchs, i.addtime, i.templet, i.isTop, i.topEndTime, i.clickNum, i.addUser,i.state,i.issign,
+    i.tags, i.img, i.url, i.attchs, i.addtime, i.templet, i.isTop,i.ishot, i.topEndTime, i.clickNum, i.addUser,i.state,i.issign,
     i.iscomment,i.video,i.indexnum,i.opentype,i.opentimetype,i.openendtime,i.htmlIndexnum
   </sql>
   <sql id="Blob_Column_List">
@@ -262,7 +263,7 @@
       titleBlod, source, author, 
       description, tags, img, 
       url, attchs, addtime, 
-      templet, isTop, topEndTime, 
+      templet, isTop, ishot,topEndTime, 
       clickNum, addUser,state,issign,iscomment,video,
       indexnum,opentype,opentimetype,openendtime, content
       )
@@ -271,7 +272,7 @@
       #{titleblod,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
       #{description,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
       #{url,jdbcType=VARCHAR}, #{attchs,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
-      #{templet,jdbcType=VARCHAR}, #{istop,jdbcType=VARCHAR}, #{topendtime,jdbcType=TIMESTAMP}, 
+      #{templet,jdbcType=VARCHAR}, #{istop,jdbcType=VARCHAR},#{ishot,jdbcType=VARCHAR}, #{topendtime,jdbcType=TIMESTAMP}, 
       #{clicknum,jdbcType=INTEGER}, #{adduser,jdbcType=VARCHAR},#{state,jdbcType=VARCHAR},
       #{issign,jdbcType=VARCHAR},#{iscomment,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR},
       #{indexnum,jdbcType=VARCHAR},#{opentype,jdbcType=VARCHAR},#{opentimetype,jdbcType=VARCHAR},
@@ -336,6 +337,9 @@
       </if>
       <if test="istop != null">
         isTop,
+      </if>
+      <if test="ishot != null">
+        ishot,
       </if>
       <if test="topendtime != null">
         topEndTime,
@@ -425,6 +429,9 @@
       </if>
       <if test="istop != null">
         #{istop,jdbcType=VARCHAR},
+      </if>
+      <if test="ishot != null">
+        #{ishot,jdbcType=VARCHAR},
       </if>
       <if test="topendtime != null">
         #{topendtime,jdbcType=TIMESTAMP},
@@ -750,6 +757,9 @@
       <if test="record.istop != null">
         isTop = #{record.istop,jdbcType=VARCHAR},
       </if>
+      <if test="record.ishot != null">
+        ishot = #{record.ishot,jdbcType=VARCHAR},
+      </if>
       <if test="record.topendtime != null">
         topEndTime = #{record.topendtime,jdbcType=TIMESTAMP},
       </if>
@@ -815,6 +825,7 @@
       addtime = #{record.addtime,jdbcType=TIMESTAMP},
       templet = #{record.templet,jdbcType=VARCHAR},
       isTop = #{record.istop,jdbcType=VARCHAR},
+      ishot = #{record.ishot,jdbcType=VARCHAR},
       topEndTime = #{record.topendtime,jdbcType=TIMESTAMP},
       clickNum = #{record.clicknum,jdbcType=INTEGER},
       addUser = #{record.adduser,jdbcType=VARCHAR},
@@ -855,6 +866,7 @@
       addtime = #{record.addtime,jdbcType=TIMESTAMP},
       templet = #{record.templet,jdbcType=VARCHAR},
       isTop = #{record.istop,jdbcType=VARCHAR},
+      ishot = #{record.ishot,jdbcType=VARCHAR},
       topEndTime = #{record.topendtime,jdbcType=TIMESTAMP},
       clickNum = #{record.clicknum,jdbcType=INTEGER},
       addUser = #{record.adduser,jdbcType=VARCHAR},
@@ -907,6 +919,7 @@
       addtime = #{addtime,jdbcType=TIMESTAMP},
       templet = #{templet,jdbcType=VARCHAR},
       isTop = #{istop,jdbcType=VARCHAR},
+      ishot = #{ishot,jdbcType=VARCHAR},
       topEndTime = #{topendtime,jdbcType=TIMESTAMP},
       clickNum = #{clicknum,jdbcType=INTEGER},
       addUser = #{adduser,jdbcType=VARCHAR},
@@ -944,6 +957,7 @@
       addtime = #{addtime,jdbcType=TIMESTAMP},
       templet = #{templet,jdbcType=VARCHAR},
       isTop = #{istop,jdbcType=VARCHAR},
+      ishot = #{ishot,jdbcType=VARCHAR},
       topEndTime = #{topendtime,jdbcType=TIMESTAMP},
       clickNum = #{clicknum,jdbcType=INTEGER},
       addUser = #{adduser,jdbcType=VARCHAR},
