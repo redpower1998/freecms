@@ -250,6 +250,23 @@
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择是否热点
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl01_ctl00_lblLabel>是否热点：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD width="70%" align="left">
+								<input type="radio" id="ishot1" name="info.ishot" value="1" <s:if test="info.ishot==1">checked="checked"</s:if>>是
+								<input type="radio" id="ishot0"  name="info.ishot" value="0" <s:if test="info==null || info.ishot==null || info.ishot==0">checked="checked"</s:if> >否
+							
+							</TD>
+						</TR>
+						<TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl01_ctl00_label><IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
 											id=ctl01_ctl00_imgHelp tabIndex=-1 alt=请选择是否固顶
 											src="../../img/help.gif">
 									<NOBR>
