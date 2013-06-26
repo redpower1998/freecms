@@ -102,6 +102,8 @@ public class GuestbookAction extends BaseAction{
 			updateguestbook.setRecontent(guestbook.getRecontent());
 			updateguestbook.setRetime(new Date());
 			updateguestbook.setState(guestbook.getState());
+			updateguestbook.setReuserid(getLoginAdmin().getId());
+			updateguestbook.setReusername(getLoginName());
 			Guestbook oldguestbook=guestbookService.findById(guestbook.getId());
 			try {
 				guestbookService.update(updateguestbook);

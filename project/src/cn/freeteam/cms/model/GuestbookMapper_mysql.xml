@@ -25,6 +25,7 @@
     <result column="retime" property="retime" jdbcType="TIMESTAMP" />
     <result column="reuserid" property="reuserid" jdbcType="VARCHAR" />
     <result column="reusername" property="reusername" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <!--
@@ -101,7 +102,7 @@
       This element was generated on Wed Jun 26 15:08:45 CST 2013.
     -->
     id, siteid, memberid, membername, name, sex, email, qq, tel, title, content, addtime, 
-    state, recontent, retime, reuserid, reusername
+    state, recontent, retime, reuserid, reusername,ip
   </sql>
   <select useCache="false" id="selectByExample" resultMap="BaseResultMap" parameterType="cn.freeteam.cms.model.GuestbookExample" >
     <!--
@@ -182,13 +183,13 @@
       email, qq, tel, title, 
       content, addtime, state, 
       recontent, retime, reuserid, 
-      reusername)
+      reusername,ip)
     values (#{id,jdbcType=VARCHAR}, #{siteid,jdbcType=VARCHAR}, #{memberid,jdbcType=VARCHAR}, 
       #{membername,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
       #{email,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
       #{content,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{state,jdbcType=VARCHAR}, 
       #{recontent,jdbcType=VARCHAR}, #{retime,jdbcType=TIMESTAMP}, #{reuserid,jdbcType=VARCHAR}, 
-      #{reusername,jdbcType=VARCHAR})
+      #{reusername,jdbcType=VARCHAR},#{ip,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.freeteam.cms.model.Guestbook" >
     <!--
@@ -249,6 +250,9 @@
       <if test="reusername != null" >
         reusername,
       </if>
+      <if test="ip != null" >
+        ip,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -301,6 +305,9 @@
       </if>
       <if test="reusername != null" >
         #{reusername,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -380,6 +387,9 @@
       <if test="record.reusername != null" >
         reusername = #{record.reusername,jdbcType=VARCHAR},
       </if>
+      <if test="record.ip != null" >
+        ip = #{record.ip,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -408,7 +418,8 @@
       recontent = #{record.recontent,jdbcType=VARCHAR},
       retime = #{record.retime,jdbcType=TIMESTAMP},
       reuserid = #{record.reuserid,jdbcType=VARCHAR},
-      reusername = #{record.reusername,jdbcType=VARCHAR}
+      reusername = #{record.reusername,jdbcType=VARCHAR},
+      ip = #{record.ip,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -469,6 +480,9 @@
       <if test="reusername != null" >
         reusername = #{reusername,jdbcType=VARCHAR},
       </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -494,7 +508,8 @@
       recontent = #{recontent,jdbcType=VARCHAR},
       retime = #{retime,jdbcType=TIMESTAMP},
       reuserid = #{reuserid,jdbcType=VARCHAR},
-      reusername = #{reusername,jdbcType=VARCHAR}
+      reusername = #{reusername,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
