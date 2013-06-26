@@ -94,6 +94,10 @@
 			<result name="forward" >/admin/cms/applyopenForward.jsp</result>
 			<result name="pro" >/admin/cms/applyopenPro.jsp</result>
 		</action>
+		<action name="guestbook_*" method="{1}" class="cn.freeteam.cms.action.GuestbookAction">
+			<result name="list" >/admin/cms/guestbookList.jsp</result>
+			<result name="pro" >/admin/cms/guestbookPro.jsp</result>
+		</action>
 		<action name="question_*" method="{1}" class="cn.freeteam.cms.action.QuestionAction">
 			<result name="list" >/admin/cms/questionList.jsp</result>
 			<result name="edit" >/admin/cms/questionEdit.jsp</result>
