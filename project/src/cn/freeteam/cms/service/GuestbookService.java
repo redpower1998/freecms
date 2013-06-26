@@ -3,6 +3,8 @@ package cn.freeteam.cms.service;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringUtils;
+
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.GuestbookMapper;
 import cn.freeteam.cms.model.Guestbook;
@@ -78,6 +80,24 @@ public class GuestbookService extends BaseService{
 	 */
 	public void proSearchParam(Guestbook guestbook,Criteria criteria){
 		if (guestbook!=null ) {
+			if (StringUtils.isNotEmpty(guestbook.getSiteid())) {
+				criteria.andSiteidEqualTo(guestbook.getSiteid());
+			}
+			if (StringUtils.isNotEmpty(guestbook.getTitle())) {
+				criteria.andTitleLike("%"+guestbook.getTitle()+"%");
+			}
+			if (StringUtils.isNotEmpty(guestbook.getMembername())) {
+				criteria.andMembernameLike("%"+guestbook.getMembername()+"%");
+			}
+			if (StringUtils.isNotEmpty(guestbook.getReusername())) {
+				criteria.andReusernameLike("%"+guestbook.getReusername()+"%");
+			}
+			if (StringUtils.isNotEmpty(guestbook.getName())) {
+				criteria.andNameLike("%"+guestbook.getName()+"%");
+			}
+			if (StringUtils.isNotEmpty(guestbook.getState())) {
+				criteria.andStateEqualTo(guestbook.getState());
+			}
 		}
 	}
 

@@ -46,12 +46,11 @@ public class GuestbookAction extends BaseAction{
 	private String logContent;
 	private String ids;
 	
-	
+	public GuestbookAction() {
+		init("guestbookService");
+	}
 	
 
-	public GuestbookService getGuestbookService() {
-		return guestbookService;
-	}
 	
 	/**
 	 * 列表
@@ -65,12 +64,11 @@ public class GuestbookAction extends BaseAction{
 		guestbookList=guestbookService.find(guestbook, order, currPage, pageSize,false);
 		totalCount=guestbookService.count(guestbook,false);
 		Pager pager=new Pager(getHttpRequest());
-		pager.appendParam("guestbook.querycode");
+		pager.appendParam("guestbook.title");
 		pager.appendParam("guestbook.name");
-		pager.appendParam("guestbook.issuer");
-		pager.appendParam("guestbook.linkman");
+		pager.appendParam("guestbook.membername");
+		pager.appendParam("guestbook.reusername");
 		pager.appendParam("guestbook.state");
-		pager.appendParam("guestbook.userid");
 		pager.appendParam("order");
 		pager.appendParam("pageSize");
 		pager.appendParam("pageFuncId");
@@ -151,6 +149,9 @@ public class GuestbookAction extends BaseAction{
 		return null;
 	}
 
+	public GuestbookService getGuestbookService() {
+		return guestbookService;
+	}
 	public void setGuestbookService(GuestbookService guestbookService) {
 		this.guestbookService = guestbookService;
 	}
