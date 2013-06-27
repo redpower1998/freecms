@@ -55,7 +55,6 @@
 								<option value="1">已审核
 								<option value="2">审核不通过
 								</select>
-								</select>
 								每页显示条数:
 								<select name="pageSize"
 									id="pageSize">
