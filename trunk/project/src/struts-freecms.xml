@@ -177,6 +177,8 @@
 		</action>
 		<action name="visit_*" method="{1}" class="cn.freeteam.cms.action.web.VisitAction">
 		</action>
+		<action name="guestbook_*" method="{1}" class="cn.freeteam.cms.action.web.GuestbookAction">
+		</action>
 		<action name="report_*" method="{1}" class="cn.freeteam.cms.action.web.ReportAction">
 			<interceptor-ref name="fileUpload">
                 <param name="maximumSize">2048000</param>
