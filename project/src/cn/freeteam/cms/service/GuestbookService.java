@@ -101,6 +101,18 @@ public class GuestbookService extends BaseService{
 			if (StringUtils.isNotEmpty(guestbook.getMemberid())) {
 				criteria.andMemberidEqualTo(guestbook.getMemberid());
 			}
+			if (guestbook.getStarttime()!=null) {
+				criteria.andAddtimeGreaterThanOrEqualTo(guestbook.getStarttime());
+			}
+			if (guestbook.getEndtime()!=null) {
+				criteria.andAddtimeLessThanOrEqualTo(guestbook.getEndtime());
+			}
+			if (StringUtils.isNotEmpty(guestbook.getSitename())) {
+				criteria.andSitenameLike("%"+guestbook.getSitename()+"%");
+			}
+			if (StringUtils.isNotEmpty(guestbook.getGuestbookstate())) {
+				criteria.andGuestbookstateEqualTo(guestbook.getGuestbookstate());
+			}
 		}
 	}
 
@@ -143,7 +155,7 @@ public class GuestbookService extends BaseService{
 	
 
 	/**
-	 * 信息更新统计 年 
+	 * 留言频率统计 年 
 	 * @param guestbook
 	 * @return
 	 */
@@ -154,7 +166,7 @@ public class GuestbookService extends BaseService{
 		return guestbookMapper.guestbookUpdateYear(example);
 	}
 	/**
-	 * 信息更新统计 年 
+	 * 留言频率统计 年 
 	 * @param guestbook
 	 * @return
 	 */
@@ -167,7 +179,7 @@ public class GuestbookService extends BaseService{
 		return guestbookMapper.guestbookUpdateYearPage(example);
 	}
 	/**
-	 * 信息更新统计 年
+	 * 留言频率统计 年
 	 * @param guestbook
 	 * @return
 	 */
@@ -179,7 +191,7 @@ public class GuestbookService extends BaseService{
 	}
 
 	/**
-	 * 信息更新合计 年
+	 * 留言频率合计 年
 	 * @param guestbook
 	 * @return
 	 */
@@ -193,7 +205,7 @@ public class GuestbookService extends BaseService{
 	
 
 	/**
-	 * 信息更新统计 月
+	 * 留言频率统计 月
 	 * @param guestbook
 	 * @return
 	 */
@@ -204,7 +216,7 @@ public class GuestbookService extends BaseService{
 		return guestbookMapper.guestbookUpdateMonth(example);
 	}
 	/**
-	 * 信息更新统计 月 
+	 * 留言频率统计 月 
 	 * @param guestbook
 	 * @return
 	 */
@@ -217,7 +229,7 @@ public class GuestbookService extends BaseService{
 		return guestbookMapper.guestbookUpdateMonthPage(example);
 	}
 	/**
-	 * 信息更新统计 月
+	 * 留言频率统计 月
 	 * @param guestbook
 	 * @return
 	 */
@@ -228,7 +240,7 @@ public class GuestbookService extends BaseService{
 		return guestbookMapper.guestbookUpdateMonthCount(example);
 	}
 	/**
-	 * 信息更新合计 月
+	 * 留言频率合计 月
 	 * @param guestbook
 	 * @return
 	 */
@@ -241,7 +253,7 @@ public class GuestbookService extends BaseService{
 	
 
 	/**
-	 * 信息更新统计 日
+	 * 留言频率统计 日
 	 * @param guestbook
 	 * @return
 	 */
@@ -252,7 +264,7 @@ public class GuestbookService extends BaseService{
 		return guestbookMapper.guestbookUpdateDay(example);
 	}
 	/**
-	 * 信息更新统计 日 
+	 * 留言频率统计 日 
 	 * @param guestbook
 	 * @return
 	 */
@@ -265,7 +277,7 @@ public class GuestbookService extends BaseService{
 		return guestbookMapper.guestbookUpdateDayPage(example);
 	}
 	/**
-	 * 信息更新统计 日
+	 * 留言频率统计 日
 	 * @param guestbook
 	 * @return
 	 */
@@ -276,7 +288,7 @@ public class GuestbookService extends BaseService{
 		return guestbookMapper.guestbookUpdateDayCount(example);
 	}
 	/**
-	 * 信息更新合计 日
+	 * 留言频率合计 日
 	 * @param guestbook
 	 * @return
 	 */
@@ -288,7 +300,7 @@ public class GuestbookService extends BaseService{
 	}
 
 	/**
-	 * 信息更新合计 周
+	 * 留言频率合计 周
 	 * @param guestbook
 	 * @return
 	 */
@@ -300,7 +312,7 @@ public class GuestbookService extends BaseService{
 	}
 
 	/**
-	 * 信息更新统计 周
+	 * 留言频率统计 周
 	 * @param guestbook
 	 * @return
 	 */
@@ -310,6 +322,54 @@ public class GuestbookService extends BaseService{
 		proSearchParam(guestbook, criteria);
 		return guestbookMapper.guestbookUpdateWeek(example);
 	}
+
+	/**
+	 * 站点留言统计 
+	 * @param info
+	 * @return
+	 */
+	public List<Guestbook> sysSiteGuestbook(Guestbook guestbook,int currPage,int pageSize){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return guestbookMapper.sysSiteGuestbookPage(example);
+	}
+	/**
+	 * 站点留言统计 
+	 * @param Guestbook
+	 * @return
+	 */
+	public List<Guestbook> sysSiteGuestbook(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.sysSiteGuestbook(example);
+	}
+	/**
+	 * 站点留言统计 
+	 * @param Guestbook
+	 * @return
+	 */
+	public int sysSiteGuestbookCount(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.sysSiteGuestbookCount(example);
+	}
+	/**
+	 * 站点留言合计 
+	 * @param Guestbook
+	 * @return
+	 */
+	public int sysSiteGuestbookSum(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.sysSiteGuestbookSum(example);
+	}
+	
 
 	public GuestbookMapper getGuestbookMapper() {
 		return guestbookMapper;

@@ -136,6 +136,8 @@
 			<result name="workloadExport" >/admin/cms/workloadExport.jsp</result>
 			<result name="sysWorkload" >/admin/cms/sysWorkload.jsp</result>
 			<result name="sysWorkloadExport" >/admin/cms/sysWorkloadExport.jsp</result>
+			<result name="sysSiteGuestbook" >/admin/cms/sysSiteGuestbook.jsp</result>
+			<result name="sysSiteGuestbookExport" >/admin/cms/sysSiteGuestbookExport.jsp</result>
 			<result name="sysSiteStat" >/admin/cms/sysSiteStat.jsp</result>
 			<result name="sysSiteStatExport" >/admin/cms/sysSiteStatExport.jsp</result>
 			<result name="channelStat" >/admin/cms/channelStat.jsp</result>
