@@ -3,8 +3,10 @@ package cn.freeteam.cms.action;
 import java.util.List;
 
 import cn.freeteam.base.BaseAction;
+import cn.freeteam.cms.model.Guestbook;
 import cn.freeteam.cms.model.Info;
 import cn.freeteam.cms.model.Visit;
+import cn.freeteam.cms.service.GuestbookService;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.VisitService;
 import cn.freeteam.util.Pager;
@@ -37,10 +39,13 @@ public class StatAction extends BaseAction{
 
 	private InfoService infoService;
 	private VisitService visitService;
+	private GuestbookService guestbookService;
 	private List<Info> infoList;
 	private List<Visit> visitList;
+	private List<Guestbook> guestbookList;
 	private Info info;
 	private Visit visit;
+	private Guestbook guestbook;
 	private String export;
 	private String statType;
 	private int sum;
@@ -412,7 +417,122 @@ public class StatAction extends BaseAction{
 		}
 		return "sysVisitStat";
 	}
-	
+
+	/**
+	 * 留言频率统计 
+	 * @return
+	 */
+	public String guestbookUpdate(){
+		init("guestbookService");
+		if (guestbook==null) {
+			guestbook=new Guestbook();
+		}
+		guestbook.setSiteid(getManageSite().getId());
+		if ("year".equals(statType)) {
+			//按年统计
+			sum=guestbookService.guestbookUpdateYearSum(guestbook);
+			if ("1".equals(export)) {
+				guestbookList=guestbookService.guestbookUpdateYear(guestbook);
+				return "guestbookUpdateExport";
+			}else {
+				guestbookList=guestbookService.guestbookUpdateYear(guestbook, currPage, pageSize);
+				totalCount=guestbookService.guestbookUpdateYearCount(guestbook);
+				return "guestbookUpdate";
+			}
+		}
+		else if ("month".equals(statType)) {
+			//按月统计
+			sum=guestbookService.guestbookUpdateMonthSum(guestbook);
+			if ("1".equals(export)) {
+				guestbookList=guestbookService.guestbookUpdateMonth(guestbook);
+				return "guestbookUpdateExport";
+			}else {
+				guestbookList=guestbookService.guestbookUpdateMonth(guestbook, currPage, pageSize);
+				totalCount=guestbookService.guestbookUpdateMonthCount(guestbook);
+				return "guestbookUpdate";
+			}
+		}
+		else if ("day".equals(statType)) {
+			//按日统计
+			sum=guestbookService.guestbookUpdateDaySum(guestbook);
+			if ("1".equals(export)) {
+				guestbookList=guestbookService.guestbookUpdateDay(guestbook);
+				return "guestbookUpdateExport";
+			}else {
+				guestbookList=guestbookService.guestbookUpdateDay(guestbook, currPage, pageSize);
+				totalCount=guestbookService.guestbookUpdateDayCount(guestbook);
+				return "guestbookUpdate";
+			}
+		}
+		else if ("week".equals(statType)) {
+			//按周统计
+			sum=guestbookService.guestbookUpdateWeekSum(guestbook);
+			guestbookList=guestbookService.guestbookUpdateWeek(guestbook);
+			if ("1".equals(export)) {
+				return "guestbookUpdateExport";
+			}else {
+				return "guestbookUpdate";
+			}
+		}
+		return "guestbookUpdate";
+	}
+	/**
+	 * 留言频率统计 系统
+	 * @return
+	 */
+	public String sysGuestbookUpdate(){
+		init("guestbookService");
+		if (guestbook==null) {
+			guestbook=new Guestbook();
+		}
+		if ("year".equals(statType)) {
+			//按年统计
+			sum=guestbookService.guestbookUpdateYearSum(guestbook);
+			if ("1".equals(export)) {
+				guestbookList=guestbookService.guestbookUpdateYear(guestbook);
+				return "sysGuestbookUpdateExport";
+			}else {
+				guestbookList=guestbookService.guestbookUpdateYear(guestbook, currPage, pageSize);
+				totalCount=guestbookService.guestbookUpdateYearCount(guestbook);
+				return "sysGuestbookUpdate";
+			}
+		}
+		else if ("month".equals(statType)) {
+			//按月统计
+			sum=guestbookService.guestbookUpdateMonthSum(guestbook);
+			if ("1".equals(export)) {
+				guestbookList=guestbookService.guestbookUpdateMonth(guestbook);
+				return "sysGuestbookUpdateExport";
+			}else {
+				guestbookList=guestbookService.guestbookUpdateMonth(guestbook, currPage, pageSize);
+				totalCount=guestbookService.guestbookUpdateMonthCount(guestbook);
+				return "sysGuestbookUpdate";
+			}
+		}
+		else if ("day".equals(statType)) {
+			//按日统计
+			sum=guestbookService.guestbookUpdateDaySum(guestbook);
+			if ("1".equals(export)) {
+				guestbookList=guestbookService.guestbookUpdateDay(guestbook);
+				return "sysGuestbookUpdateExport";
+			}else {
+				guestbookList=guestbookService.guestbookUpdateDay(guestbook, currPage, pageSize);
+				totalCount=guestbookService.guestbookUpdateDayCount(guestbook);
+				return "sysGuestbookUpdate";
+			}
+		}
+		else if ("week".equals(statType)) {
+			//按周统计
+			sum=guestbookService.guestbookUpdateWeekSum(guestbook);
+			guestbookList=guestbookService.guestbookUpdateWeek(guestbook);
+			if ("1".equals(export)) {
+				return "sysGuestbookUpdateExport";
+			}else {
+				return "sysGuestbookUpdate";
+			}
+		}
+		return "sysGuestbookUpdate";
+	}
 	//set and get
 	public InfoService getInfoService() {
 		return infoService;
@@ -467,5 +587,23 @@ public class StatAction extends BaseAction{
 	}
 	public void setVisit(Visit visit) {
 		this.visit = visit;
+	}
+	public Guestbook getGuestbook() {
+		return guestbook;
+	}
+	public void setGuestbook(Guestbook guestbook) {
+		this.guestbook = guestbook;
+	}
+	public GuestbookService getGuestbookService() {
+		return guestbookService;
+	}
+	public void setGuestbookService(GuestbookService guestbookService) {
+		this.guestbookService = guestbookService;
+	}
+	public List<Guestbook> getGuestbookList() {
+		return guestbookList;
+	}
+	public void setGuestbookList(List<Guestbook> guestbookList) {
+		this.guestbookList = guestbookList;
 	}
 }

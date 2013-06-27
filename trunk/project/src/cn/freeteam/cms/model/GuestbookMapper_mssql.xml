@@ -26,6 +26,10 @@
     <result column="reuserid" property="reuserid" jdbcType="VARCHAR" />
     <result column="reusername" property="reusername" jdbcType="VARCHAR" />
     <result column="ip" property="ip" jdbcType="VARCHAR" />
+    
+    
+    <result column="datename" jdbcType="VARCHAR" property="datename" />
+    <result column="countnum" property="countnum" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <!--
@@ -523,4 +527,118 @@
       ip = #{ip,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  
+  
+  
+  
+  <select id="guestbookUpdateYearPage" parameterType="cn.freeteam.cms.model.GuestbookExample" resultMap="BaseResultMap">
+   	SELECT top ${pageSize} COUNT(id) countnum,year(ADDTIME) AS datename FROM freecms_guestbook  
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY year(ADDTIME)
+  </select>
+  <select id="guestbookUpdateYear" parameterType="cn.freeteam.cms.model.GuestbookExample" resultMap="BaseResultMap">
+   	SELECT  COUNT(id) countnum,year(ADDTIME) AS datename FROM freecms_guestbook  
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY year(ADDTIME)
+  </select>
+  <select id="guestbookUpdateYearCount" parameterType="cn.freeteam.cms.model.GuestbookExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct year(addtime))
+	FROM freecms_guestbook 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="guestbookUpdateYearSum" parameterType="cn.freeteam.cms.model.GuestbookExample" resultType="java.lang.Integer">
+   	SELECT COUNT(id)
+	FROM freecms_guestbook 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  <select id="guestbookUpdateMonthPage" parameterType="cn.freeteam.cms.model.GuestbookExample" resultMap="BaseResultMap">
+  	SELECT top ${pageSize} COUNT(id) countnum,(cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))) AS datename 
+	FROM freecms_guestbook  
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2)))
+  </select>
+  <select id="guestbookUpdateMonth" parameterType="cn.freeteam.cms.model.GuestbookExample" resultMap="BaseResultMap">
+  	SELECT COUNT(id) countnum,(cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))) AS datename 
+	FROM freecms_guestbook  
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2)))
+  </select>
+  <select id="guestbookUpdateMonthCount" parameterType="cn.freeteam.cms.model.GuestbookExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))))
+	FROM freecms_guestbook 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="guestbookUpdateMonthSum" parameterType="cn.freeteam.cms.model.GuestbookExample" resultType="java.lang.Integer">
+   	SELECT COUNT(id)
+	FROM freecms_guestbook 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  
+  <select id="guestbookUpdateDayPage" parameterType="cn.freeteam.cms.model.GuestbookExample" resultMap="BaseResultMap">
+  	SELECT top ${pageSize} COUNT(id) countnum,(cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))+'-'+cast(day(ADDTIME) as varchar(2))) AS datename 
+	FROM freecms_guestbook  
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))+'-'+cast(day(ADDTIME) as varchar(2)))
+  </select>
+  <select id="guestbookUpdateDay" parameterType="cn.freeteam.cms.model.GuestbookExample" resultMap="BaseResultMap">
+  	SELECT COUNT(id) countnum,(cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))+'-'+cast(day(ADDTIME) as varchar(2))) AS datename 
+	FROM freecms_guestbook  
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))+'-'+cast(day(ADDTIME) as varchar(2)))
+  </select>
+  <select id="guestbookUpdateDayCount" parameterType="cn.freeteam.cms.model.GuestbookExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct (cast(year(ADDTIME) as varchar(4))+'-'+cast(month(ADDTIME) as varchar(2))+'-'+cast(day(ADDTIME) as varchar(2))))
+	FROM freecms_guestbook 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="guestbookUpdateDaySum" parameterType="cn.freeteam.cms.model.GuestbookExample" resultType="java.lang.Integer">
+   	SELECT COUNT(id)
+	FROM freecms_guestbook 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="guestbookUpdateWeekSum" parameterType="cn.freeteam.cms.model.GuestbookExample" resultType="java.lang.Integer">
+   	SELECT COUNT(id)
+	FROM freecms_guestbook 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  <select id="guestbookUpdateWeek" parameterType="cn.freeteam.cms.model.GuestbookExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,datename(weekday, ADDTIME) AS datename 
+	FROM freecms_guestbook  i 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY datename(weekday, ADDTIME)
+  </select>
 </mapper>

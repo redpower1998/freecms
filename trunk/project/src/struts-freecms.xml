@@ -142,6 +142,10 @@
 			<result name="channelStatExport" >/admin/cms/channelStatExport.jsp</result>
 			<result name="infoUpdate" >/admin/cms/infoUpdateStat.jsp</result>
 			<result name="infoUpdateExport" >/admin/cms/infoUpdateStatExport.jsp</result>
+			<result name="guestbookUpdate" >/admin/cms/guestbookUpdateStat.jsp</result>
+			<result name="guestbookUpdateExport" >/admin/cms/guestbookUpdateStatExport.jsp</result>
+			<result name="sysGuestbookUpdate" >/admin/cms/sysGuestbookUpdateStat.jsp</result>
+			<result name="sysGuestbookUpdateExport" >/admin/cms/sysGuestbookUpdateStatExport.jsp</result>
 			<result name="sysInfoUpdate" >/admin/cms/sysInfoUpdateStat.jsp</result>
 			<result name="sysInfoUpdateExport" >/admin/cms/sysInfoUpdateStatExport.jsp</result>
 			<result name="channelVisit" >/admin/cms/channelVisit.jsp</result>
