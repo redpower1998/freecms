@@ -38,6 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <tr class="tr1"><td><a href="pwd.jsp" target="right">密码设置</a></td></tr>
 <tr class="tr1"><td><a href="creditlog_list.do" target="right">积分记录</a></td></tr>
 <tr class="tr1"><td><a href="comment_list.do" target="right">我的评论</a></td></tr>
+<tr class="tr1"><td><a href="guestbook_list.do" target="right">我的留言</a></td></tr>
   </table>
 </div>
 </td>

@@ -19,11 +19,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			method=post name=MyForm action="member_pwd.do">
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr class="tr1 tac s3">
-  <td  align="left"  align="left">登录名</td>
+  <td  align="left"  align="left"><b>登录名</b></td>
   <td  align="left"  align="left">${loginMember.loginname }</td>
 </tr>
 <TR class="tr1 tac s3">
-	<td  align="left" >当前密码
+	<td  align="left" ><b>当前密码</b>
 	</TD>
 	<td  align="left">
 		<INPUT onblur="this.className='colorblur';" id=CurrentPassword
@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</TD>
 </TR>
 <TR class="tr1 tac s3">
-	<td  align="left" >新密码
+	<td  align="left" ><b>新密码</b>
 	</TD>
 	<td  align="left">
 		<INPUT onblur="this.className='colorblur';" id=NewPassword
@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</TD>
 </TR>
 <TR class="tr1 tac s3">
-	<td  align="left" >确认新密码
+	<td  align="left" ><b>确认新密码</b>
 	</TD>
 	<td  align="left">
 		<INPUT onblur="this.className='colorblur';"
