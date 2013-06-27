@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 						</TR>
 						</s:if>
-						<s:if test="%{channel.indexnum!=null}">
+						<s:if test="%{channel.indexnum!=null && channel.indexnum > 0}">
 						<TR>
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG
