@@ -21,6 +21,9 @@ import cn.freeteam.cms.freemarker.directive.ChannelSonDirective;
 import cn.freeteam.cms.freemarker.directive.CommentPageDirective;
 import cn.freeteam.cms.freemarker.directive.ConfigDirective;
 import cn.freeteam.cms.freemarker.directive.DemoDirective;
+import cn.freeteam.cms.freemarker.directive.GuestbookDirective;
+import cn.freeteam.cms.freemarker.directive.GuestbookListDirective;
+import cn.freeteam.cms.freemarker.directive.GuestbookPageDirective;
 import cn.freeteam.cms.freemarker.directive.HtmlDirective;
 import cn.freeteam.cms.freemarker.directive.InfoAttchsDirective;
 import cn.freeteam.cms.freemarker.directive.InfoDirective;
@@ -198,6 +201,10 @@ public class FreeMarkerUtil {
 			freemarkerCfg.setSharedVariable("questionPage", new QuestionPageDirective());
 			//评论
 			freemarkerCfg.setSharedVariable("commentPage", new CommentPageDirective());
+			//留言
+			freemarkerCfg.setSharedVariable("guestbookList", new GuestbookListDirective());
+			freemarkerCfg.setSharedVariable("guestbookPage", new GuestbookPageDirective());
+			freemarkerCfg.setSharedVariable("guestbook", new GuestbookDirective());
 			//其它
 			freemarkerCfg.setSharedVariable("video", new VideoDirective());
 			freemarkerCfg.setSharedVariable("URLEncoder", new URLEncoderDirective());
