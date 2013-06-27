@@ -63,7 +63,7 @@ public class GuestbookService extends BaseService{
 	}
 	/**
 	 * 统计
-	 * @param info
+	 * @param guestbook
 	 * @return
 	 */
 	public int count(Guestbook Guestbook,boolean cache){
@@ -75,7 +75,7 @@ public class GuestbookService extends BaseService{
 
 	/**
 	 * 处理查询条件
-	 * @param info
+	 * @param guestbook
 	 * @param criteria
 	 */
 	public void proSearchParam(Guestbook guestbook,Criteria criteria){
@@ -139,6 +139,176 @@ public class GuestbookService extends BaseService{
 	public void del(String id){
 		guestbookMapper.deleteByPrimaryKey(id);
 		DBCommit();
+	}
+	
+
+	/**
+	 * 信息更新统计 年 
+	 * @param guestbook
+	 * @return
+	 */
+	public List<Guestbook> guestbookUpdateYear(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.guestbookUpdateYear(example);
+	}
+	/**
+	 * 信息更新统计 年 
+	 * @param guestbook
+	 * @return
+	 */
+	public List<Guestbook> guestbookUpdateYear(Guestbook guestbook,int currPage,int pageSize){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return guestbookMapper.guestbookUpdateYearPage(example);
+	}
+	/**
+	 * 信息更新统计 年
+	 * @param guestbook
+	 * @return
+	 */
+	public int guestbookUpdateYearCount(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.guestbookUpdateYearCount(example);
+	}
+
+	/**
+	 * 信息更新合计 年
+	 * @param guestbook
+	 * @return
+	 */
+	public int guestbookUpdateYearSum(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.guestbookUpdateYearSum(example);
+	}
+	
+	
+
+	/**
+	 * 信息更新统计 月
+	 * @param guestbook
+	 * @return
+	 */
+	public List<Guestbook> guestbookUpdateMonth(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.guestbookUpdateMonth(example);
+	}
+	/**
+	 * 信息更新统计 月 
+	 * @param guestbook
+	 * @return
+	 */
+	public List<Guestbook> guestbookUpdateMonth(Guestbook guestbook,int currPage,int pageSize){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return guestbookMapper.guestbookUpdateMonthPage(example);
+	}
+	/**
+	 * 信息更新统计 月
+	 * @param guestbook
+	 * @return
+	 */
+	public int guestbookUpdateMonthCount(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.guestbookUpdateMonthCount(example);
+	}
+	/**
+	 * 信息更新合计 月
+	 * @param guestbook
+	 * @return
+	 */
+	public int guestbookUpdateMonthSum(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.guestbookUpdateMonthSum(example);
+	}
+	
+
+	/**
+	 * 信息更新统计 日
+	 * @param guestbook
+	 * @return
+	 */
+	public List<Guestbook> guestbookUpdateDay(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.guestbookUpdateDay(example);
+	}
+	/**
+	 * 信息更新统计 日 
+	 * @param guestbook
+	 * @return
+	 */
+	public List<Guestbook> guestbookUpdateDay(Guestbook guestbook,int currPage,int pageSize){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return guestbookMapper.guestbookUpdateDayPage(example);
+	}
+	/**
+	 * 信息更新统计 日
+	 * @param guestbook
+	 * @return
+	 */
+	public int guestbookUpdateDayCount(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.guestbookUpdateDayCount(example);
+	}
+	/**
+	 * 信息更新合计 日
+	 * @param guestbook
+	 * @return
+	 */
+	public int guestbookUpdateDaySum(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.guestbookUpdateDaySum(example);
+	}
+
+	/**
+	 * 信息更新合计 周
+	 * @param guestbook
+	 * @return
+	 */
+	public int guestbookUpdateWeekSum(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.guestbookUpdateWeekSum(example);
+	}
+
+	/**
+	 * 信息更新统计 周
+	 * @param guestbook
+	 * @return
+	 */
+	public List<Guestbook> guestbookUpdateWeek(Guestbook guestbook){
+		GuestbookExample example=new GuestbookExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		return guestbookMapper.guestbookUpdateWeek(example);
 	}
 
 	public GuestbookMapper getGuestbookMapper() {
