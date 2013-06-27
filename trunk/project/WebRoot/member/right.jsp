@@ -49,27 +49,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <span class="b">您的账户信息</span></div>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr class="tr1 tac s3">
-  <td width="100" align="left">登录名</td>
+  <td width="100" align="left"><b>登录名</b></td>
   <td width="*" align="left">${loginMember.loginname }</td>
 </tr>
 <tr class="tr1 tac s3">
-  <td width="100" align="left">真实姓名</td>
+  <td width="100" align="left"><b>真实姓名</b></td>
   <td width="*" align="left">${loginMember.name }</td>
 </tr>
 <tr class="tr1 tac s3">
-  <td width="100" align="left">等级</td>
+  <td width="100" align="left"><b>等级</b></td>
   <td width="*" align="left"><font color="${loginMember.groupcolor }">${loginMember.groupname }</font></td>
 </tr>
 <tr class="tr1 tac s3">
-  <td width="100" align="left">经验</td>
+  <td width="100" align="left"><b>经验</b></td>
   <td width="*" align="left">${loginMember.experience }</td>
 </tr>
 <tr class="tr1 tac s3">
-  <td width="100" align="left">积分</td>
+  <td width="100" align="left"><b>积分</b></td>
   <td width="*" align="left">${loginMember.credit }</td>
 </tr>
 <tr class="tr1 tac s3">
-  <td width="100" align="left">上次登录时间</td>
+  <td width="100" align="left"><b>上次登录时间</b></td>
   <td width="*" align="left">${loginMember.lastlogintimeStr }</td>
 </tr>
   </table>

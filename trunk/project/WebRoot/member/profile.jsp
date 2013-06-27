@@ -18,18 +18,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			method=post name=MyForm action=member_profile.do enctype="multipart/form-data" onsubmit="return checkform()">
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr class="tr1 tac s3">
-  <td  align="left">登录名</td>
+  <td  align="left"><b>登录名</b></td>
   <td  align="left">${loginMember.loginname }</td>
 </tr>
 <tr class="tr1 tac s3">
-  <td align="left">真实姓名</td>
+  <td align="left"><b>真实姓名</b></td>
   <td  align="left">
 	<INPUT onblur="this.className='colorblur';" id="name"
 	class=colorblur onfocus="this.className='colorfocus';" 
 	maxLength=50 type=text name=member.name value="${loginMember.name }"> *</td>
 </tr>
 <TR class="tr1 tac s3">
-			<TD  align="left">性别
+			<TD  align="left"><b>性别</b>
 			</TD>
 			<TD align="left">
 				<input type="radio" name="member.sex" value="1" checked="checked">男
@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</TD>
 		</TR>
 		<TR class="tr1 tac s3">
-			<TD  align="left">出生日期
+			<TD  align="left"><b>出生日期</b>
 			</TD>
 			<TD align="left">
 <input name="member.birthday" id="birthday" class="Wdate"  type="text" size="14" value="${loginMember.birthdayStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d'})"/>
@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</TR>
 	<TR class="tr1 tac s3">
 		<TD  align="left">
-			<LABEL id=ctl02_ctl00_label>联系电话
+			<LABEL id=ctl02_ctl00_label><b>联系电话</b>
 		</TD>
 		<TD align="left">
 			<INPUT onblur="this.className='colorblur';" 
@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				maxLength=50 type=text name=member.tel value="${loginMember.tel }">
 		</TD>
 	</TR><TR class="tr1 tac s3">
-		<TD  align="left">手机
+		<TD  align="left"><b>手机</b>
 		</TD>
 		<TD align="left">
 			<INPUT onblur="this.className='colorblur';" 
@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</TD>
 	</TR>
 	<TR class="tr1 tac s3">
-		<TD  align="left">电子邮箱
+		<TD  align="left"><b>电子邮箱</b>
 		</TD>
 		<TD align="left">
 			<INPUT onblur="this.className='colorblur';" id="email"
@@ -71,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</TD>
 	</TR>
 	<TR class="tr1 tac s3">
-		<TD  align="left">头像
+		<TD  align="left"><b>头像</b>
 		</TD>
 		<TD align="left"> 
 		<input type="hidden" id="oldImg" name="oldImg" value="${loginMember.img }"/>
@@ -90,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	
 	<TR class="tr1 tac s3">
-		<TD  align="left">简介
+		<TD  align="left"><b>简介</b>
 		</TD>
 		<TD align="left">
 			<textarea onblur="this.className='colorblur';"   
