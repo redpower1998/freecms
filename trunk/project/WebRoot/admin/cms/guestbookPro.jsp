@@ -19,6 +19,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				alert("请输入回复内容");
 				$("#recontent").focus();
 				return false;
+			}else if($.trim($("#recontent").val()).length>500){
+				alert("回复内容不能超过500个字符");
+				$("#recontent").focus();
+				return false;
 			}
 			return true;
 		}
