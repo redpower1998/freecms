@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Guestbook;
 import cn.freeteam.cms.model.Site;
+import cn.freeteam.cms.service.CreditruleService;
 import cn.freeteam.cms.service.GuestbookService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.cms.util.FreeMarkerUtil;
@@ -48,6 +49,7 @@ public class GuestbookAction extends BaseAction{
 	private String msg;
 	private String siteid;
 	private String templetPath;
+	private CreditruleService creditruleService;
 	
 	public GuestbookAction() {
 		init("guestbookService","siteService");
@@ -72,6 +74,9 @@ public class GuestbookAction extends BaseAction{
 					}
 					guestbookService.add(guestbook);
 					msg="感谢您的留言，我们会尽快回复并联系您！";
+					//处理积分
+					init("creditruleService");
+					creditruleService.credit(getLoginMember(), "guestbook_pub");
 				}
 				//生成静态页面
 				Map<String,Object> data=new HashMap<String,Object>();
@@ -163,5 +168,15 @@ public class GuestbookAction extends BaseAction{
 
 	public void setSiteService(SiteService siteService) {
 		this.siteService = siteService;
+	}
+
+
+	public CreditruleService getCreditruleService() {
+		return creditruleService;
+	}
+
+
+	public void setCreditruleService(CreditruleService creditruleService) {
+		this.creditruleService = creditruleService;
 	}
 }

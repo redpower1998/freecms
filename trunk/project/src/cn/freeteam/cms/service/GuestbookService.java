@@ -98,6 +98,9 @@ public class GuestbookService extends BaseService{
 			if (StringUtils.isNotEmpty(guestbook.getState())) {
 				criteria.andStateEqualTo(guestbook.getState());
 			}
+			if (StringUtils.isNotEmpty(guestbook.getMemberid())) {
+				criteria.andMemberidEqualTo(guestbook.getMemberid());
+			}
 		}
 	}
 

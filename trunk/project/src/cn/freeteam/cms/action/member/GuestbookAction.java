@@ -1,19 +1,22 @@
 package cn.freeteam.cms.action.member;
 
 import java.util.List;
-import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Comment;
-import cn.freeteam.cms.service.CommentService;
+import cn.freeteam.cms.model.Guestbook;
 import cn.freeteam.cms.service.CreditruleService;
+import cn.freeteam.cms.service.GuestbookService;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
+
 /**
  * 
- * <p>Title: CommentAction.java</p>
+ * <p>Title: GuestbookAction.java</p>
  * 
- * <p>Description: 评论相关操作</p>
+ * <p>Description: 留言相关操作</p>
  * 
  * <p>Date: Feb 6, 2013</p>
  * 
@@ -33,52 +36,40 @@ import cn.freeteam.util.Pager;
  * <p>Reason: </p>
  * <p>============================================</p>
  */
-public class CommentAction extends BaseAction {
-	private String msg;
-	private String pageFuncId;
+public class GuestbookAction extends BaseAction {
+
+	private GuestbookService guestbookService;
+	private Guestbook guestbook;
+	private List<Guestbook> guestbookList;
 	private String order=" addtime desc ";
 	private String ids;
-	
-	private CommentService commentService;
 	private CreditruleService creditruleService;
-	private Comment comment;
-	private List<Comment> commentList;
-	private Map<String, String> objtypes;
 	
-	public CommentAction() {
-		init("commentService");
-	}
-	
-
 
 	/**
 	 * 列表
 	 * @return
 	 */
 	public String list(){
-		if (comment==null ){
-			comment=new Comment();
+		if (guestbook==null ){
+			guestbook=new Guestbook();
 		}
-		objtypes=comment.getObjtypes();
 		if (order.trim().length()==0) {
 			order=" addtime desc ";
 		}
-		comment.setMemberid(getLoginMember().getId());
-		commentList=commentService.find(comment, order, currPage, pageSize,false);
-		totalCount=commentService.count(comment,false);
+		guestbook.setMemberid(getLoginMember().getId());
+		guestbookList=guestbookService.find(guestbook, order, currPage, pageSize,false);
+		totalCount=guestbookService.count(guestbook,false);
 		Pager pager=new Pager(getHttpRequest());
-		pager.appendParam("comment.isanonymous");
-		pager.appendParam("comment.objtype");
-		pager.appendParam("comment.objid");
-		pager.appendParam("comment.content");
-		pager.appendParam("comment.state");
+		pager.appendParam("guestbook.title");
+		pager.appendParam("guestbook.state");
 		pager.appendParam("order");
 		pager.appendParam("pageSize");
 		pager.appendParam("pageFuncId");
 		pager.setCurrPage(currPage);
 		pager.setPageSize(pageSize);
 		pager.setTotalCount(totalCount);
-		pager.setOutStrNoTable("comment_list.do");
+		pager.setOutStrNoTable("guestbook_list.do");
 		pageStr=pager.getOutStrNoTable();
 		return "list";
 	}
@@ -95,10 +86,10 @@ public class CommentAction extends BaseAction {
 				for (int i = 0; i < idArr.length; i++) {
 					if (idArr[i].trim().length()>0) {
 						try {
-							commentService.del(idArr[i]);
-							sb.append(idArr[i]+";");
+							guestbookService.del(idArr[i]);
 							//处理积分
-							creditruleService.credit(getLoginMember(), "comment_del");
+							creditruleService.credit(getLoginMember(), "guestbook_del");
+							sb.append(idArr[i]+";");
 						} catch (Exception e) {
 							DBProException(e);
 						}
@@ -109,72 +100,63 @@ public class CommentAction extends BaseAction {
 		}
 		return null;
 	}
+	/**
+	 * 留言详细信息
+	 * @return
+	 */
+	public String info(){
+		if (guestbook!=null && StringUtils.isNotEmpty(guestbook.getId())) {
+			guestbook=guestbookService.findById(guestbook.getId());
+		}
+		return "info";
+	}
 
-	public String getMsg() {
-		return msg;
+	
+	public List<Guestbook> getGuestbookList() {
+		return guestbookList;
 	}
-	public void setMsg(String msg) {
-		this.msg = msg;
+
+	public void setGuestbookList(List<Guestbook> guestbookList) {
+		this.guestbookList = guestbookList;
 	}
-	public String getPageFuncId() {
-		return pageFuncId;
-	}
-	public void setPageFuncId(String pageFuncId) {
-		this.pageFuncId = pageFuncId;
-	}
+
 	public String getOrder() {
 		return order;
 	}
+
 	public void setOrder(String order) {
 		this.order = order;
 	}
+
 	public String getIds() {
 		return ids;
 	}
+
 	public void setIds(String ids) {
 		this.ids = ids;
 	}
-	public CommentService getCommentService() {
-		return commentService;
+
+	public GuestbookAction() {
+		init("guestbookService");
 	}
-	public void setCommentService(CommentService commentService) {
-		this.commentService = commentService;
+	
+	public GuestbookService getGuestbookService() {
+		return guestbookService;
 	}
-	public Comment getComment() {
-		return comment;
+	public void setGuestbookService(GuestbookService guestbookService) {
+		this.guestbookService = guestbookService;
 	}
-	public void setComment(Comment comment) {
-		this.comment = comment;
+	public Guestbook getGuestbook() {
+		return guestbook;
 	}
-	public List<Comment> getCommentList() {
-		return commentList;
+	public void setGuestbook(Guestbook guestbook) {
+		this.guestbook = guestbook;
 	}
-	public void setCommentList(List<Comment> commentList) {
-		this.commentList = commentList;
-	}
-
-
-
-	public Map<String, String> getObjtypes() {
-		return objtypes;
-	}
-
-
-
-	public void setObjtypes(Map<String, String> objtypes) {
-		this.objtypes = objtypes;
-	}
-
-
-
 	public CreditruleService getCreditruleService() {
 		return creditruleService;
 	}
-
-
-
 	public void setCreditruleService(CreditruleService creditruleService) {
 		this.creditruleService = creditruleService;
 	}
-
+	
 }
