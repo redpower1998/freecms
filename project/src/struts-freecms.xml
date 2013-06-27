@@ -203,5 +203,9 @@
 		<action name="comment_*" method="{1}" class="cn.freeteam.cms.action.member.CommentAction">
 			<result name="list" >/member/commentList.jsp</result>
 		</action>
+		<action name="guestbook_*" method="{1}" class="cn.freeteam.cms.action.member.GuestbookAction">
+			<result name="list" >/member/guestbookList.jsp</result>
+			<result name="info" >/member/guestbookInfo.jsp</result>
+		</action>
 	</package>
 </struts>
