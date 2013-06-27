@@ -351,6 +351,10 @@ public class GuestbookExample extends BaseExample{
             addCriterion("memberid =", value, "memberid");
             return (Criteria) this;
         }
+        public Criteria andGuestbookstateEqualTo(String value) {
+            addCriterion("g.state =", value, "state");
+            return (Criteria) this;
+        }
 
         public Criteria andMemberidNotEqualTo(String value) {
             addCriterion("memberid <>", value, "memberid");
@@ -452,6 +456,10 @@ public class GuestbookExample extends BaseExample{
             return (Criteria) this;
         }
 
+        public Criteria andSitenameLike(String value) {
+            addCriterion("s.name like", value, "sitename");
+            return (Criteria) this;
+        }
         public Criteria andMembernameNotLike(String value) {
             addCriterion("membername not like", value, "membername");
             return (Criteria) this;

@@ -533,6 +533,26 @@ public class StatAction extends BaseAction{
 		}
 		return "sysGuestbookUpdate";
 	}
+
+	/**
+	 * 系统 站点留言统计
+	 * @return
+	 */
+	public String sysSiteGuestbook(){
+		init("guestbookService");
+		if (guestbook==null) {
+			guestbook=new Guestbook();
+		}
+		sum=guestbookService.sysSiteGuestbookSum(guestbook);
+		if ("1".equals(export)) {
+			guestbookList=guestbookService.sysSiteGuestbook(guestbook);
+			return "sysSiteGuestbookExport";
+		}else {
+			guestbookList=guestbookService.sysSiteGuestbook(guestbook, currPage, pageSize);
+			totalCount=guestbookService.sysSiteGuestbookCount(guestbook);
+			return "sysSiteGuestbook";
+		}
+	}
 	//set and get
 	public InfoService getInfoService() {
 		return infoService;

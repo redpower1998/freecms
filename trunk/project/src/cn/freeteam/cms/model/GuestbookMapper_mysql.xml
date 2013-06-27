@@ -30,6 +30,7 @@
     
     
     <result column="datename" jdbcType="VARCHAR" property="datename" />
+    <result column="sitename" jdbcType="VARCHAR" property="sitename" />
     <result column="countnum" property="countnum" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -640,5 +641,42 @@
       <include refid="Example_Where_Clause" />
     </if>
  	GROUP BY WEEKDAY(ADDTIME)
+  </select>
+  
+  
+  <select id="sysSiteGuestbookPage" parameterType="cn.freeteam.cms.model.GuestbookExample" resultMap="BaseResultMap">
+   	SELECT COUNT(g.id) AS countnum ,siteid,max(s.name) sitename
+	FROM freecms_guestbook  g
+	LEFT JOIN freecms_site s ON siteid=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY siteid ORDER BY countnum desc
+    limit ${skip},${pageSize}
+  </select>
+  <select id="sysSiteGuestbook" parameterType="cn.freeteam.cms.model.GuestbookExample" resultMap="BaseResultMap">
+   	SELECT top ${pageSize} COUNT(g.id) AS countnum ,siteid,max(s.name) sitename
+	FROM freecms_guestbook  g
+	LEFT JOIN freecms_site s ON siteid=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY siteid ORDER BY countnum desc
+  </select>
+  <select id="sysSiteGuestbookCount" parameterType="cn.freeteam.cms.model.GuestbookExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct siteid)
+	FROM freecms_guestbook  g
+	LEFT JOIN freecms_site s ON siteid=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="sysSiteGuestbookSum" parameterType="cn.freeteam.cms.model.GuestbookExample" resultType="java.lang.Integer">
+   	SELECT COUNT(g.id) 
+	FROM freecms_guestbook g
+	LEFT JOIN freecms_site s ON siteid=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
   </select>
 </mapper>
