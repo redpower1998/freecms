@@ -16,6 +16,9 @@
 	<script src="../js/jquery.treeview.js" type="text/javascript"></script>
 	<script src="../js/jquery.treeview.edit.js" type="text/javascript"></script>
 	<script src="../js/jquery.treeview.async.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="../img/menu.css" />
+<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="../js/menu.js"></script>
 <style type="text/css"> 
 
 .lefttab{
@@ -48,42 +51,37 @@ a:link, a:visited ,a: hover, a:active{
 </div>
 </div>
 <div class="columncontent" style="text-align:left">
+<ul class="container">
 
-<table width="99%" border="0" align="left"  cellpadding="3" cellspacing="1" >
-    <tr>
-      <td width="30%"  align="left" class="treetd">
-<ul id="mixed" >
-	<s:iterator value="funcList" status="bean">
-		<li id="<s:property value="id"/>" class="hasChildren">
-			<span><font size="2"><a <s:if test="%{url!=''}">href="<s:property value="url"/><s:if test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property value="id"/></s:if><s:else>?pageFuncId=<s:property value="id"/></s:else>"</s:if> target="right"><b><s:property value="name"/></b></a></font>
-			</span>
-			<s:if test="%{hasChildren !=null }">
-			<ul>
-				<li><span  >&nbsp;</span></li>
-			</ul>
+	<s:iterator value="#session.funcs" id="bean">
+	<s:if test="%{#bean.parid==funcid}">
+      <li class="menu">
+          <ul>
+		    <li class="button">
+		    <a <s:if test="%{url!=''}">href="<s:property value="url"/><s:if test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property value="id"/></s:if><s:else>?pageFuncId=<s:property value="id"/></s:else>"</s:if> class="blue"><b><s:property value="name"/></b> <span></span></a>
+		    </li>
+			
+			<s:if test='%{"1" == #bean.hasChildren}'>
+            <li class="dropdown">
+                <ul>
+					<s:iterator value="#session.funcs" id="sonbean">
+					<s:if test="%{#sonbean.parid==#bean.id}">
+                    	<li><a target="right" <s:if test="%{url!=''}">href="<s:property value="url"/><s:if test="%{url.indexOf('?')>-1}">&pageFuncId=<s:property value="id"/></s:if><s:else>?pageFuncId=<s:property value="id"/></s:else>"</s:if> ><s:property value="name"/></a></li>
+                    </s:if>
+                    </s:iterator>
+                </ul>
+			</li>
 			</s:if>
-		</li>
+          </ul>
+      </li>
+      </s:if>
 	</s:iterator>
-</ul>
-</td></tr></table>
+  </ul>
+
  
 </div>
  
-	<script type="text/javascript">
-	function initTrees() {
-		$("#mixed").treeview({
-			url: "func_sonUrl.do",
-			ajax: {
-				data: {
-					"additional": function() {
-						return "yeah: " + new Date;
-					}
-				},
-				type: "post"
-			}
-		});
-	}
-	initTrees();
-	</script>
+	
+	
 </body>
 </html>

@@ -4,11 +4,11 @@
 <TITLE>FreeCMS-管理中心</TITLE>
 <script> 
 function changeDisplayMode(){
-	if(document.getElementById("bottomframes").cols=="180,7,*"){
+	if(document.getElementById("bottomframes").cols=="170,7,*"){
 		document.getElementById("bottomframes").cols="0,7,*"; 
 		document.getElementById("separator").contentWindow.document.getElementById('ImgArrow').src="../img/separator2.gif"
 	}else{
-		document.getElementById("bottomframes").cols="180,7,*"
+		document.getElementById("bottomframes").cols="170,7,*"
 		document.getElementById("separator").contentWindow.document.getElementById('ImgArrow').src="../img/separator1.gif"
 	}
 }
@@ -20,10 +20,10 @@ function changeDisplayMode(){
 <frameset id="mainframes" framespacing="0" border="false" rows="62,*" frameborder="0" scrolling="yes">
 <frame name="top" scrolling="no" src="admin_top.do">
 	
-<frameset id="bottomframes" framespacing="0" border="false" cols="180,7,*" frameborder="0" scrolling="yes">
+<frameset id="bottomframes" framespacing="0" border="false" cols="170,7,*" frameborder="0" scrolling="yes">
 	<frame name="left" scrolling="auto" marginwidth="0" marginheight="0" src="admin_left.do" noresize />
 	<frame id="separator" name="separator" src="separator.html" noresize scrolling="no" />
-	<frame name="right" scrolling="auto" src="<%=(request.getParameter("url")!=null && request.getParameter("url").trim().length()>0)?request.getParameter("url"):"admin_right.do" %>">
+	<frame name="right" id="right" scrolling="auto" src="<%=(request.getParameter("url")!=null && request.getParameter("url").trim().length()>0)?request.getParameter("url"):"admin_right.do" %>">
 </frameset>
 </frameset>
  
