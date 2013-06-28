@@ -59,6 +59,7 @@ public interface FuncMapper {
     List<Func> selectByExample(FuncExample example);
     List<Func> selectRoot();
     List<Func> selectRootAuth(String userid);
+    List<Func> selectAllAuth(String userid);
     List<Func> selectByParid(String id);
     List<Func> selectByParidAuth(FuncExample example);
 

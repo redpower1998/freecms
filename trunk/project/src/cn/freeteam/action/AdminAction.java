@@ -92,14 +92,6 @@ public class AdminAction extends BaseAction{
 				funcid=funcList.get(0).getId();
 			}
 		}
-		if (funcid!=null && funcid.trim().length()>0) {
-			//提取子菜单
-			if (isAdminLogin()) {
-				funcList=funcService.selectByParid(funcid);
-			}else {
-				funcList=funcService.selectByParidAuth(funcid,getLoginAdmin().getId());
-			}
-		}
 		if (isAdminLogin()) {
 			getHttpSession().setAttribute("siteAdmin", true);
 		}else {
@@ -111,13 +103,21 @@ public class AdminAction extends BaseAction{
 				}
 			}
 		}
-		//设置是否有子数据
-		if (funcList!=null && funcList.size()>0) {
-			for (int i = 0; i < funcList.size(); i++) {
-				if (funcService.haveSon(funcList.get(i).getId())) {
-					funcList.get(i).setHasChildren("1");
+		//提取权限并放到session中
+		if (getHttpSession().getAttribute("funcs")==null) {
+			if (isAdminLogin()) {
+				funcList=funcService.selectAll();
+			}else {
+				funcList=funcService.selectAllAuth(getLoginAdmin().getId());
+			}
+			if (funcList!=null && funcList.size()>0) {
+				for (int i = 0; i < funcList.size(); i++) {
+					if (funcService.haveSon(funcList.get(i).getId())) {
+						funcList.get(i).setHasChildren("1");
+					}
 				}
 			}
+			getHttpSession().setAttribute("funcs", funcList);
 		}
 		return "left";
 	}
