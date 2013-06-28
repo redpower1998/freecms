@@ -16,7 +16,7 @@ $(document).ready(function(){
 		
 		/* Preventing the default event (which would be to navigate the browser to the link's address) */
 		e.preventDefault();
-		if($(this).attr("href")!=undefined){
+		if($(this).attr("href")!=undefined && $(this).attr("href")!=""){
 			$('#right',window.parent.document).attr("src",$(this).attr("href"));
 		}
 	})
