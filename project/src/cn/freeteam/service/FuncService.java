@@ -66,7 +66,16 @@ public class FuncService extends BaseService{
 	 * @return
 	 */
 	public List<Func> selectAll(){
-		return funcMapper.selectByExample(null);
+		FuncExample example=new FuncExample();
+		example.setOrderByClause(" ordernum ");
+		return funcMapper.selectByExample(example);
+	}
+	/**
+	 * 查询所有有权限的
+	 * @return
+	 */
+	public List<Func> selectAllAuth(String userid){
+		return funcMapper.selectAllAuth(userid);
 	}
 	/**
 	 * 根据用户查询根菜单

@@ -91,6 +91,7 @@ public class LoginAction extends BaseAction{
 	    session.removeAttribute("siteAdmin");
 	    session.removeAttribute("loginUnits");
 	    session.removeAttribute("loginRoles");
+	    session.removeAttribute("funcs");
 		return "login";
 	}
 	public Users getUser() {

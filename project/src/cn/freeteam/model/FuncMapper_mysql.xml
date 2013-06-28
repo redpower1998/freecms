@@ -131,6 +131,12 @@
 	(select id from freecms_roles where isOk='1' and id in (select roles from freecms_role_user where users=#{userid,jdbcType=VARCHAR}))) 
 	order by orderNum 
   </select>
+  <select id="selectAllAuth" parameterType="java.lang.String" resultMap="BaseResultMap">
+	select freecms_func.id,freecms_func.name,url,parid from freecms_func  where isok='1'  and id in( 
+	select funcId from freecms_role_func where roleId in 
+	(select id from freecms_roles where isOk='1' and id in (select roles from freecms_role_user where users=#{userid,jdbcType=VARCHAR}))) 
+	order by orderNum 
+  </select>
   <select id="selectByParid" parameterType="java.lang.String" resultMap="BaseResultMap">
     select id,name,url
     from freecms_func
