@@ -15,11 +15,10 @@
     <script src="../../js/jquery.jqChart.min.js" type="text/javascript"></script>
     <script src="../../js/jquery.jqRangeSlider.min.js" type="text/javascript"></script>
     <!--[if IE]><script lang="javascript" type="text/javascript" src="../../js/excanvas.js"></script><![endif]-->
-<s:if test="%{guestbookList!=null && guestbookList.size>0}">
       <script lang="javascript" type="text/javascript">
         $(document).ready(function () {
             $('#jqChart').jqChart({
-                title: { text: '留言频率统计' },
+                title: { text: '站点评论统计' },
                 axes: [
                         {
                             type: 'category',
@@ -29,14 +28,14 @@
                       ],
                 series: [
                             {
-								title:'留言量',
-                                type: 'line',
+								title:'信息量',
+                                type: 'column',
                                 data: [
-								<s:iterator value="guestbookList" id="obj" status="st">
+								<s:iterator value="commentList" id="obj" status="st">
 								<s:if test="%{#st.index>0}">
 								,
 								</s:if>
-								['<s:property value="datename"/>', <s:property value="countnum"/>]
+								['<s:property value="sitename"/>', <s:property value="countnum"/>]
 								</s:iterator>
 								]
                             },
@@ -44,16 +43,15 @@
             });
         });
     </script>
-    </s:if>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
-		<form name="myForm" method="post" action="stat_guestbookUpdate.do" id="myForm"
+		<form name="myForm" method="post" action="stat_sysSiteComment.do" id="myForm"
 			style="margin: 0px">
 			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
 			<input type="hidden" name="export" id="export" value=""/>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					留言频率搜索
+					站点评论搜索
 				</div>
 				<TABLE width="100%" border=0 align=center cellpadding="2"
 					cellspacing="0">
@@ -61,22 +59,28 @@
 						<TR class=summary-title>
 							<TD height="30" align=left style="padding-left: 10px;">
 							
-								 更新周期:
-								 <input type="radio" name="statType" value="year" ${(statType==null || statType=="" || statType=="year")?"checked":"" }/>年
-								 <input type="radio" name="statType" value="month" ${(statType=="month")?"checked":"" }/>月
-								 <input type="radio" name="statType" value="day" ${(statType=="day")?"checked":"" }/>日
-								 <input type="radio" name="statType" value="week" ${(statType=="week")?"checked":"" }/>星期
+								站点：
+								
+								<input name="comment.sitename" type="text" maxlength="50" value="${ comment.sitename}"
+									class="colorblur" onfocus="this.className='colorfocus';"
+									onblur="this.className='colorblur';"  />
 								审核状态:
-								<select name="guestbook.state">
+								<select name="comment.commentstate">
 								<option value="">全部
-								<option value="0" ${"0"==guestbook.state?"selected":"" }>未审核
-								<option value="1" ${"1"==guestbook.state?"selected":"" }>已审核
-								<option value="2" ${"2"==guestbook.state?"selected":"" }>审核不通过
+								<option value="0" ${"0"==comment.commentstate?"selected":"" }>未审核
+								<option value="1" ${"1"==comment.commentstate?"selected":"" }>已审核
+								</select>
+								对象:
+								<select name="comment.objtype">
+									<option value="" >全部
+									<s:iterator value="objtypes" id="bean">
+									<option value="<s:property value="key"/>" ${comment.objtype==bean.key ?"selected":"" }><s:property value="value"/>
+									</s:iterator>
 								</select>
 									时间范围：
-									<input name="guestbook.starttime" id="starttime"  class="Wdate"  type="text" size="24" value="${guestbook.starttimeStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+									<input name="comment.starttime" id="starttime"  class="Wdate"  type="text" size="24" value="${comment.starttimeStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
 									至
-									<input name="guestbook.endtime" id="endtime"  class="Wdate"  type="text" size="24" value="${guestbook.endtimeStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+									<input name="comment.endtime" id="endtime"  class="Wdate"  type="text" size="24" value="${comment.endtimeStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
 									
 								最多显示条数：
 								<select name="pageSize"
@@ -115,10 +119,9 @@
 				</TABLE>
 			</DIV>
 </form>
-<s:if test="%{guestbookList!=null && guestbookList.size>0}">
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					留言频率列表(留言总量:${sum })
+					站点评论列表(信息总量:${sum })
 				</div>
 
     <div>
@@ -130,19 +133,19 @@
 					style="width: 100%; word-break: break-all">
 					<TR class="summary-title" style="HEIGHT: 25px" align="center">
 						<TD >
-							日期
+							站点
 						</TD>
 						<TD >
-							留言量
+							信息量
 						</TD>
 					</TR>
 					
-					<s:iterator value="guestbookList" id="obj" status="bean">
+					<s:iterator value="commentList" id="obj" status="bean">
 					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						
-						<TD  align="left" >
-							<s:property value="datename"/>
+						<TD  align="left" id="sitename<s:property value="id"/>">
+							<s:property value="sitename"/>
 						</TD>
 						<TD  align="left" id="countnum<s:property value="id"/>">
 							<s:property value="countnum"/>
@@ -154,14 +157,14 @@
 						<TD  align="center" colspan="10">
 							<b><font color="red">
 							<s:if test="%{totalCount>pageSize}">
-							总共有${totalCount }条数据，只显示前${pageSize }条，如果没有您要统计的数据，您可以尝试缩小统计范围。
+							总共有${totalCount }条数据，只显示前${pageSize }条，如果没有您要统计的数据，您可以尝试缩小搜索范围。
 							</s:if></font></b>
 						</TD>
 					</TR>
 				</table>
 
 			</DIV>
-</s:if>
+
 			<table width="95%" align="center">
 				<tr>
 					<td align="right">
