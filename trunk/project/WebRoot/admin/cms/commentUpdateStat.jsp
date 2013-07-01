@@ -15,11 +15,11 @@
     <script src="../../js/jquery.jqChart.min.js" type="text/javascript"></script>
     <script src="../../js/jquery.jqRangeSlider.min.js" type="text/javascript"></script>
     <!--[if IE]><script lang="javascript" type="text/javascript" src="../../js/excanvas.js"></script><![endif]-->
-<s:if test="%{guestbookList!=null && guestbookList.size>0}">
+<s:if test="%{commentList!=null && commentList.size>0}">
       <script lang="javascript" type="text/javascript">
         $(document).ready(function () {
             $('#jqChart').jqChart({
-                title: { text: '留言频率统计' },
+                title: { text: '评论频率统计' },
                 axes: [
                         {
                             type: 'category',
@@ -29,10 +29,10 @@
                       ],
                 series: [
                             {
-								title:'留言量',
+								title:'评论量',
                                 type: 'line',
                                 data: [
-								<s:iterator value="guestbookList" id="obj" status="st">
+								<s:iterator value="commentList" id="obj" status="st">
 								<s:if test="%{#st.index>0}">
 								,
 								</s:if>
@@ -47,13 +47,13 @@
     </s:if>
 	</HEAD>
 	<BODY style="padding:0;margin:0">
-		<form name="myForm" method="post" action="stat_guestbookUpdate.do" id="myForm"
+		<form name="myForm" method="post" action="stat_commentUpdate.do" id="myForm"
 			style="margin: 0px">
 			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${param.pageFuncId }"/>
 			<input type="hidden" name="export" id="export" value=""/>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					留言频率搜索
+					评论频率搜索
 				</div>
 				<TABLE width="100%" border=0 align=center cellpadding="2"
 					cellspacing="0">
@@ -67,16 +67,22 @@
 								 <input type="radio" name="statType" value="day" ${(statType=="day")?"checked":"" }/>日
 								 <input type="radio" name="statType" value="week" ${(statType=="week")?"checked":"" }/>星期
 								审核状态:
-								<select name="guestbook.state">
+								<select name="comment.state">
 								<option value="">全部
-								<option value="0" ${"0"==guestbook.state?"selected":"" }>未审核
-								<option value="1" ${"1"==guestbook.state?"selected":"" }>已审核
-								<option value="2" ${"2"==guestbook.state?"selected":"" }>审核不通过
+								<option value="0" ${"0"==comment.state?"selected":"" }>未审核
+								<option value="1" ${"1"==comment.state?"selected":"" }>已审核
+								</select>
+								对象:
+								<select name="comment.objtype">
+									<option value="" >全部
+									<s:iterator value="objtypes" id="bean">
+									<option value="<s:property value="key"/>" ${comment.objtype==bean.key ?"selected":"" }><s:property value="value"/>
+									</s:iterator>
 								</select>
 									时间范围：
-									<input name="guestbook.starttime" id="starttime"  class="Wdate"  type="text" size="24" value="${guestbook.starttimeStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+									<input name="comment.starttime" id="starttime"  class="Wdate"  type="text" size="24" value="${comment.starttimeStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
 									至
-									<input name="guestbook.endtime" id="endtime"  class="Wdate"  type="text" size="24" value="${guestbook.endtimeStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+									<input name="comment.endtime" id="endtime"  class="Wdate"  type="text" size="24" value="${comment.endtimeStr }"  onClick="WdatePicker({skin:'default',dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
 									
 								最多显示条数：
 								<select name="pageSize"
@@ -115,10 +121,10 @@
 				</TABLE>
 			</DIV>
 </form>
-<s:if test="%{guestbookList!=null && guestbookList.size>0}">
+<s:if test="%{commentList!=null && commentList.size>0}">
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					留言频率列表(留言总量:${sum })
+					评论频率列表(评论总量:${sum })
 				</div>
 
     <div>
@@ -133,11 +139,11 @@
 							日期
 						</TD>
 						<TD >
-							留言量
+							评论量
 						</TD>
 					</TR>
 					
-					<s:iterator value="guestbookList" id="obj" status="bean">
+					<s:iterator value="commentList" id="obj" status="bean">
 					<TR class="tdbg" onMouseOver="this.className='tdbg-dark';"  id="tr<s:property value="id"/>"
 						style="HEIGHT: 25px" onMouseOut="this.className='tdbg';">
 						

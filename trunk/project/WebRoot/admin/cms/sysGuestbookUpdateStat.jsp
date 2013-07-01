@@ -118,7 +118,7 @@
 <s:if test="%{guestbookList!=null && guestbookList.size>0}">
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					留言更新列表(留言总量:${sum })
+					留言频率列表(留言总量:${sum })
 				</div>
 
     <div>
