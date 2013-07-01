@@ -1,11 +1,14 @@
 package cn.freeteam.cms.action;
 
 import java.util.List;
+import java.util.Map;
 
 import cn.freeteam.base.BaseAction;
+import cn.freeteam.cms.model.Comment;
 import cn.freeteam.cms.model.Guestbook;
 import cn.freeteam.cms.model.Info;
 import cn.freeteam.cms.model.Visit;
+import cn.freeteam.cms.service.CommentService;
 import cn.freeteam.cms.service.GuestbookService;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.VisitService;
@@ -40,14 +43,18 @@ public class StatAction extends BaseAction{
 	private InfoService infoService;
 	private VisitService visitService;
 	private GuestbookService guestbookService;
+	private CommentService commentService;
 	private List<Info> infoList;
 	private List<Visit> visitList;
 	private List<Guestbook> guestbookList;
+	private List<Comment> commentList;
+	private Comment comment;
 	private Info info;
 	private Visit visit;
 	private Guestbook guestbook;
 	private String export;
 	private String statType;
+	private Map<String, String> objtypes;
 	private int sum;
 	public StatAction() {
 		init("infoService","visitService");
@@ -553,6 +560,146 @@ public class StatAction extends BaseAction{
 			return "sysSiteGuestbook";
 		}
 	}
+	
+
+	/**
+	 * 评论频率统计 
+	 * @return
+	 */
+	public String commentUpdate(){
+		init("commentService");
+		if (comment==null) {
+			comment=new Comment();
+		}
+		objtypes=comment.getObjtypes();
+		comment.setSiteid(getManageSite().getId());
+		if ("year".equals(statType)) {
+			//按年统计
+			sum=commentService.commentUpdateYearSum(comment);
+			if ("1".equals(export)) {
+				commentList=commentService.commentUpdateYear(comment);
+				return "commentUpdateExport";
+			}else {
+				commentList=commentService.commentUpdateYear(comment, currPage, pageSize);
+				totalCount=commentService.commentUpdateYearCount(comment);
+				return "commentUpdate";
+			}
+		}
+		else if ("month".equals(statType)) {
+			//按月统计
+			sum=commentService.commentUpdateMonthSum(comment);
+			if ("1".equals(export)) {
+				commentList=commentService.commentUpdateMonth(comment);
+				return "commentUpdateExport";
+			}else {
+				commentList=commentService.commentUpdateMonth(comment, currPage, pageSize);
+				totalCount=commentService.commentUpdateMonthCount(comment);
+				return "commentUpdate";
+			}
+		}
+		else if ("day".equals(statType)) {
+			//按日统计
+			sum=commentService.commentUpdateDaySum(comment);
+			if ("1".equals(export)) {
+				commentList=commentService.commentUpdateDay(comment);
+				return "commentUpdateExport";
+			}else {
+				commentList=commentService.commentUpdateDay(comment, currPage, pageSize);
+				totalCount=commentService.commentUpdateDayCount(comment);
+				return "commentUpdate";
+			}
+		}
+		else if ("week".equals(statType)) {
+			//按周统计
+			sum=commentService.commentUpdateWeekSum(comment);
+			commentList=commentService.commentUpdateWeek(comment);
+			if ("1".equals(export)) {
+				return "commentUpdateExport";
+			}else {
+				return "commentUpdate";
+			}
+		}
+		return "commentUpdate";
+	}
+	/**
+	 * 评论频率统计 系统
+	 * @return
+	 */
+	public String sysCommentUpdate(){
+		init("commentService");
+		if (comment==null) {
+			comment=new Comment();
+		}
+		objtypes=comment.getObjtypes();
+		if ("year".equals(statType)) {
+			//按年统计
+			sum=commentService.commentUpdateYearSum(comment);
+			if ("1".equals(export)) {
+				commentList=commentService.commentUpdateYear(comment);
+				return "sysCommentUpdateExport";
+			}else {
+				commentList=commentService.commentUpdateYear(comment, currPage, pageSize);
+				totalCount=commentService.commentUpdateYearCount(comment);
+				return "sysCommentUpdate";
+			}
+		}
+		else if ("month".equals(statType)) {
+			//按月统计
+			sum=commentService.commentUpdateMonthSum(comment);
+			if ("1".equals(export)) {
+				commentList=commentService.commentUpdateMonth(comment);
+				return "sysCommentUpdateExport";
+			}else {
+				commentList=commentService.commentUpdateMonth(comment, currPage, pageSize);
+				totalCount=commentService.commentUpdateMonthCount(comment);
+				return "sysCommentUpdate";
+			}
+		}
+		else if ("day".equals(statType)) {
+			//按日统计
+			sum=commentService.commentUpdateDaySum(comment);
+			if ("1".equals(export)) {
+				commentList=commentService.commentUpdateDay(comment);
+				return "sysCommentUpdateExport";
+			}else {
+				commentList=commentService.commentUpdateDay(comment, currPage, pageSize);
+				totalCount=commentService.commentUpdateDayCount(comment);
+				return "sysCommentUpdate";
+			}
+		}
+		else if ("week".equals(statType)) {
+			//按周统计
+			sum=commentService.commentUpdateWeekSum(comment);
+			commentList=commentService.commentUpdateWeek(comment);
+			if ("1".equals(export)) {
+				return "sysCommentUpdateExport";
+			}else {
+				return "sysCommentUpdate";
+			}
+		}
+		return "sysCommentUpdate";
+	}
+
+	/**
+	 * 系统 站点评论统计
+	 * @return
+	 */
+	public String sysSiteComment(){
+		init("commentService");
+		if (comment==null) {
+			comment=new Comment();
+		}
+		objtypes=comment.getObjtypes();
+		sum=commentService.sysSiteCommentSum(comment);
+		if ("1".equals(export)) {
+			commentList=commentService.sysSiteComment(comment);
+			return "sysSiteCommentExport";
+		}else {
+			commentList=commentService.sysSiteComment(comment, currPage, pageSize);
+			totalCount=commentService.sysSiteCommentCount(comment);
+			return "sysSiteComment";
+		}
+	}
 	//set and get
 	public InfoService getInfoService() {
 		return infoService;
@@ -625,5 +772,29 @@ public class StatAction extends BaseAction{
 	}
 	public void setGuestbookList(List<Guestbook> guestbookList) {
 		this.guestbookList = guestbookList;
+	}
+	public CommentService getCommentService() {
+		return commentService;
+	}
+	public void setCommentService(CommentService commentService) {
+		this.commentService = commentService;
+	}
+	public List<Comment> getCommentList() {
+		return commentList;
+	}
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
+	}
+	public Comment getComment() {
+		return comment;
+	}
+	public void setComment(Comment comment) {
+		this.comment = comment;
+	}
+	public Map<String, String> getObjtypes() {
+		return objtypes;
+	}
+	public void setObjtypes(Map<String, String> objtypes) {
+		this.objtypes = objtypes;
 	}
 }

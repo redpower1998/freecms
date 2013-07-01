@@ -3,6 +3,8 @@ package cn.freeteam.cms.service;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringUtils;
+
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.CommentMapper;
 import cn.freeteam.cms.model.Comment;
@@ -116,6 +118,19 @@ public class CommentService extends BaseService{
 			if (Comment.getContent()!=null && Comment.getContent().trim().length()>0) {
 				criteria.andContentLike("%"+Comment.getContent().trim()+"%");
 			}
+
+			if (Comment.getStarttime()!=null) {
+				criteria.andAddtimeGreaterThanOrEqualTo(Comment.getStarttime());
+			}
+			if (Comment.getEndtime()!=null) {
+				criteria.andAddtimeLessThanOrEqualTo(Comment.getEndtime());
+			}
+			if (StringUtils.isNotEmpty(Comment.getSitename())) {
+				criteria.andSitenameLike("%"+Comment.getSitename()+"%");
+			}
+			if (StringUtils.isNotEmpty(Comment.getCommentstate())) {
+				criteria.andCommentstateEqualTo(Comment.getCommentstate());
+			}
 		}
 	}
 
@@ -155,6 +170,10 @@ public class CommentService extends BaseService{
 		commentMapper.deleteByPrimaryKey(id);
 		DBCommit();
 	}
+	
+	
+	
+	
 
 	public void state(String id){
 		Comment comment=new Comment();
@@ -163,6 +182,228 @@ public class CommentService extends BaseService{
 		commentMapper.updateByPrimaryKeySelective(comment);
 		DBCommit();
 	}
+	
+	
+	
+	
+
+
+	/**
+	 * 评论频率统计 年 
+	 * @param comment
+	 * @return
+	 */
+	public List<Comment> commentUpdateYear(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.commentUpdateYear(example);
+	}
+	/**
+	 * 评论频率统计 年 
+	 * @param comment
+	 * @return
+	 */
+	public List<Comment> commentUpdateYear(Comment comment,int currPage,int pageSize){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return commentMapper.commentUpdateYearPage(example);
+	}
+	/**
+	 * 评论频率统计 年
+	 * @param comment
+	 * @return
+	 */
+	public int commentUpdateYearCount(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.commentUpdateYearCount(example);
+	}
+
+	/**
+	 * 评论频率合计 年
+	 * @param comment
+	 * @return
+	 */
+	public int commentUpdateYearSum(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.commentUpdateYearSum(example);
+	}
+	
+	
+
+	/**
+	 * 评论频率统计 月
+	 * @param comment
+	 * @return
+	 */
+	public List<Comment> commentUpdateMonth(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.commentUpdateMonth(example);
+	}
+	/**
+	 * 评论频率统计 月 
+	 * @param comment
+	 * @return
+	 */
+	public List<Comment> commentUpdateMonth(Comment comment,int currPage,int pageSize){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return commentMapper.commentUpdateMonthPage(example);
+	}
+	/**
+	 * 评论频率统计 月
+	 * @param comment
+	 * @return
+	 */
+	public int commentUpdateMonthCount(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.commentUpdateMonthCount(example);
+	}
+	/**
+	 * 评论频率合计 月
+	 * @param comment
+	 * @return
+	 */
+	public int commentUpdateMonthSum(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.commentUpdateMonthSum(example);
+	}
+	
+
+	/**
+	 * 评论频率统计 日
+	 * @param comment
+	 * @return
+	 */
+	public List<Comment> commentUpdateDay(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.commentUpdateDay(example);
+	}
+	/**
+	 * 评论频率统计 日 
+	 * @param comment
+	 * @return
+	 */
+	public List<Comment> commentUpdateDay(Comment comment,int currPage,int pageSize){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return commentMapper.commentUpdateDayPage(example);
+	}
+	/**
+	 * 评论频率统计 日
+	 * @param comment
+	 * @return
+	 */
+	public int commentUpdateDayCount(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.commentUpdateDayCount(example);
+	}
+	/**
+	 * 评论频率合计 日
+	 * @param comment
+	 * @return
+	 */
+	public int commentUpdateDaySum(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.commentUpdateDaySum(example);
+	}
+
+	/**
+	 * 评论频率合计 周
+	 * @param comment
+	 * @return
+	 */
+	public int commentUpdateWeekSum(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.commentUpdateWeekSum(example);
+	}
+
+	/**
+	 * 评论频率统计 周
+	 * @param comment
+	 * @return
+	 */
+	public List<Comment> commentUpdateWeek(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.commentUpdateWeek(example);
+	}
+
+	/**
+	 * 站点评论统计 
+	 * @param info
+	 * @return
+	 */
+	public List<Comment> sysSiteComment(Comment comment,int currPage,int pageSize){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return commentMapper.sysSiteCommentPage(example);
+	}
+	/**
+	 * 站点评论统计 
+	 * @param comment
+	 * @return
+	 */
+	public List<Comment> sysSiteComment(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.sysSiteComment(example);
+	}
+	/**
+	 * 站点评论统计 
+	 * @param comment
+	 * @return
+	 */
+	public int sysSiteCommentCount(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.sysSiteCommentCount(example);
+	}
+	/**
+	 * 站点评论合计 
+	 * @param comment
+	 * @return
+	 */
+	public int sysSiteCommentSum(Comment comment){
+		CommentExample example=new CommentExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(comment, criteria);
+		return commentMapper.sysSiteCommentSum(example);
+	}
+	
 	public CommentMapper getCommentMapper() {
 		return commentMapper;
 	}
