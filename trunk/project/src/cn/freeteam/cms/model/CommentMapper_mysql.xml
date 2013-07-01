@@ -19,6 +19,12 @@
     <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
     <result column="state" property="state" jdbcType="CHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
+    
+    
+    
+    <result column="datename" jdbcType="VARCHAR" property="datename" />
+    <result column="sitename" jdbcType="VARCHAR" property="sitename" />
+    <result column="countnum" property="countnum" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <!--
@@ -402,4 +408,170 @@
       content = #{content,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  
+  
+  
+  
+  
+  
+  <select useCache="false" id="commentUpdateYearPage" parameterType="cn.freeteam.cms.model.CommentExample" resultMap="BaseResultMap">
+  	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y') AS datename FROM freecms_comment  
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y')
+    limit ${skip},${pageSize}
+  </select>
+  <select useCache="false" id="commentUpdateYear" parameterType="cn.freeteam.cms.model.CommentExample" resultMap="BaseResultMap">
+  	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y') AS datename FROM freecms_comment  
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y')
+  </select>
+  <select useCache="false" id="commentUpdateYearCount" parameterType="cn.freeteam.cms.model.CommentExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct DATE_FORMAT(ADDTIME, '%Y'))
+	FROM freecms_comment 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select useCache="false" id="commentUpdateYearSum" parameterType="cn.freeteam.cms.model.CommentExample" resultType="java.lang.Integer">
+   	SELECT COUNT(id)
+	FROM freecms_comment 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  <select useCache="false" id="commentUpdateMonthPage" parameterType="cn.freeteam.cms.model.CommentExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y-%m') AS datename FROM freecms_comment 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y-%m')
+    limit ${skip},${pageSize}
+  </select>
+  <select useCache="false" id="commentUpdateMonth" parameterType="cn.freeteam.cms.model.CommentExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y-%m') AS datename FROM freecms_comment 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y-%m')
+  </select>
+  <select useCache="false" id="commentUpdateMonthCount" parameterType="cn.freeteam.cms.model.CommentExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct DATE_FORMAT(ADDTIME, '%Y-%m'))
+	FROM freecms_comment 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select useCache="false" id="commentUpdateMonthSum" parameterType="cn.freeteam.cms.model.CommentExample" resultType="java.lang.Integer">
+   	SELECT COUNT(id)
+	FROM freecms_comment 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  <select useCache="false" id="commentUpdateDayPage" parameterType="cn.freeteam.cms.model.CommentExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y-%m-%d') AS datename FROM freecms_comment 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y-%m-%d')
+    limit ${skip},${pageSize}
+  </select>
+  <select useCache="false" id="commentUpdateDay" parameterType="cn.freeteam.cms.model.CommentExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,DATE_FORMAT(ADDTIME, '%Y-%m-%d') AS datename FROM freecms_comment 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+	GROUP BY DATE_FORMAT(ADDTIME, '%Y-%m-%d')
+  </select>
+  <select useCache="false" id="commentUpdateDayCount" parameterType="cn.freeteam.cms.model.CommentExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct DATE_FORMAT(ADDTIME, '%Y-%m-%d'))
+	FROM freecms_comment 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select useCache="false" id="commentUpdateDaySum" parameterType="cn.freeteam.cms.model.CommentExample" resultType="java.lang.Integer">
+   	SELECT COUNT(id)
+	FROM freecms_comment 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select useCache="false" id="commentUpdateWeekSum" parameterType="cn.freeteam.cms.model.CommentExample" resultType="java.lang.Integer">
+   	SELECT COUNT(id)
+	FROM freecms_comment 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  <select useCache="false" id="commentUpdateWeek" parameterType="cn.freeteam.cms.model.CommentExample" resultMap="BaseResultMap">
+	SELECT COUNT(id) countnum,
+	(CASE 
+	WHEN WEEKDAY(ADDTIME)=0 THEN '星期一' 
+	WHEN WEEKDAY(ADDTIME)=1 THEN '星期二' 
+	WHEN WEEKDAY(ADDTIME)=2 THEN '星期三' 
+	WHEN WEEKDAY(ADDTIME)=3 THEN '星期四' 
+	WHEN WEEKDAY(ADDTIME)=4 THEN '星期五' 
+	WHEN WEEKDAY(ADDTIME)=5 THEN '星期六' 
+	WHEN WEEKDAY(ADDTIME)=6 THEN '星期七' 
+	END
+	) AS datename FROM freecms_comment  
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY WEEKDAY(ADDTIME)
+  </select>
+  
+  
+  <select useCache="false" id="sysSiteCommentPage" parameterType="cn.freeteam.cms.model.CommentExample" resultMap="BaseResultMap">
+   	SELECT COUNT(c.id) AS countnum ,siteid,max(s.name) sitename
+	FROM freecms_comment  c
+	LEFT JOIN freecms_site s ON siteid=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY siteid ORDER BY countnum desc
+    limit ${skip},${pageSize}
+  </select>
+  <select useCache="false" id="sysSiteComment" parameterType="cn.freeteam.cms.model.CommentExample" resultMap="BaseResultMap">
+   	SELECT  COUNT(c.id) AS countnum ,siteid,max(s.name) sitename
+	FROM freecms_comment  c
+	LEFT JOIN freecms_site s ON siteid=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+ 	GROUP BY siteid ORDER BY countnum desc
+  </select>
+  <select useCache="false" id="sysSiteCommentCount" parameterType="cn.freeteam.cms.model.CommentExample" resultType="java.lang.Integer">
+   	SELECT COUNT(distinct siteid)
+	FROM freecms_comment  c
+	LEFT JOIN freecms_site s ON siteid=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select useCache="false" id="sysSiteCommentSum" parameterType="cn.freeteam.cms.model.CommentExample" resultType="java.lang.Integer">
+   	SELECT COUNT(c.id) 
+	FROM freecms_comment c
+	LEFT JOIN freecms_site s ON siteid=s.id 
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  
+  
+  
+  
+  
 </mapper>

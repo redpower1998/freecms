@@ -831,6 +831,11 @@ public class CommentExample extends BaseExample{
             addCriterion("state =", value, "state");
             return (Criteria) this;
         }
+        public Criteria andCommentstateEqualTo(String value) {
+            addCriterion("c.state =", value, "commentstate");
+            return (Criteria) this;
+        }
+
 
         public Criteria andStateNotEqualTo(String value) {
             addCriterion("state <>", value, "state");
@@ -929,6 +934,10 @@ public class CommentExample extends BaseExample{
 
         public Criteria andContentLike(String value) {
             addCriterion("content like", value, "content");
+            return (Criteria) this;
+        }
+        public Criteria andSitenameLike(String value) {
+            addCriterion("s.name like", value, "sitename");
             return (Criteria) this;
         }
 
