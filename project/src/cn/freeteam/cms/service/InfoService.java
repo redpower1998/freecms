@@ -187,6 +187,9 @@ public class InfoService extends BaseService{
 						+"%' or tags like '%"+info.getSearchKey().trim()
 						+"%' )");
 			}
+			if (info.getId()!=null && info.getId().trim().length()>0) {
+				criteria.andInfoIdEqualTo(info.getId());
+			}
 			if (info.getSite()!=null && info.getSite().trim().length()>0) {
 				criteria.andInfoSiteEqualTo(info.getSite());
 			}
