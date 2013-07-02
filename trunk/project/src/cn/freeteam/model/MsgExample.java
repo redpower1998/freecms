@@ -281,6 +281,10 @@ public class MsgExample extends BaseExample{
             addCriterion("memberid =", value, "memberid");
             return (Criteria) this;
         }
+        public Criteria andIsreadEqualTo(String value) {
+            addCriterion("isread =", value, "isread");
+            return (Criteria) this;
+        }
 
         public Criteria andMemberidNotEqualTo(String value) {
             addCriterion("memberid <>", value, "memberid");

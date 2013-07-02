@@ -73,6 +73,9 @@
 		</global-results>
 		<action name="msg_*" method="{1}" class="cn.freeteam.cms.action.member.MsgAction">
 			<result name="send" >/member/msg.jsp</result>
+			<result name="tolist" >/member/msgTolist.jsp</result>
+			<result name="sendlist" >/member/msgSendlist.jsp</result>
+			<result name="info" >/member/msgInfo.jsp</result>
 		</action>
 	</package>
 </struts>

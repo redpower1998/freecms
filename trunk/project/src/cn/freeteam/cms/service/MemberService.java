@@ -174,6 +174,21 @@ public class MemberService extends BaseService{
 		return null;
 	}
 	/**
+	 * 按登录名查询
+	 * @param member
+	 * @return
+	 */
+	public Member findByLoginname(String loginname){
+		MemberExample example=new MemberExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andLoginnameEqualTo(loginname.trim());
+		List<Member> list = memberMapper.selectByExample(example);
+		if (list!=null && list.size()>0) {
+			return list.get(0);
+		}
+		return null;
+	}
+	/**
 	 * 启用/禁用
 	 * @param id
 	 * @param isok
