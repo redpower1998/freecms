@@ -1,5 +1,6 @@
 package cn.freeteam.cms.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
@@ -33,6 +34,28 @@ public class StoreService extends BaseService{
 		return "";
 	}
 	/**
+	 * 删除 
+	 * @param id
+	 */
+	public void del(String id){
+		storeMapper.deleteByPrimaryKey(id);
+		DBCommit();
+	}
+	/**
+	 * 分页查询
+	 */
+	public List<Store> find(Store guestbook,String order,int currPage,int pageSize){
+		StoreExample example=new StoreExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(guestbook, criteria);
+		if (order!=null && order.trim().length()>0) {
+			example.setOrderByClause(order);
+		}
+		example.setCurrPage(currPage);
+		example.setPageSize(pageSize);
+		return storeMapper.selectPageByExample(example);
+	}
+	/**
 	 * 统计
 	 * @param info
 	 * @return
@@ -64,6 +87,15 @@ public class StoreService extends BaseService{
 			}
 			if (StringUtils.isNotEmpty(store.getChannelid())) {
 				criteria.andChannelidEqualTo(store.getChannelid());
+			}
+			if (StringUtils.isNotEmpty(store.getObjtitle())) {
+				criteria.andObjtitleLike("%"+store.getObjtitle()+"%");
+			}
+			if (StringUtils.isNotEmpty(store.getSitename())) {
+				criteria.andSitenameLike("%"+store.getSitename()+"%");
+			}
+			if (StringUtils.isNotEmpty(store.getChannelname())) {
+				criteria.andChannelnameLike("%"+store.getChannelname()+"%");
 			}
 		}
 	}

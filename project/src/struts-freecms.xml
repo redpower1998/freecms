@@ -221,5 +221,8 @@
 			<result name="list" >/member/guestbookList.jsp</result>
 			<result name="info" >/member/guestbookInfo.jsp</result>
 		</action>
+		<action name="store_*" method="{1}" class="cn.freeteam.cms.action.member.StoreAction">
+			<result name="list" >/member/storeList.jsp</result>
+		</action>
 	</package>
 </struts>
