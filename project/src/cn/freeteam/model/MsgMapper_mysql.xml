@@ -410,4 +410,18 @@
       addtime = #{addtime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  
+  
+  <select id="selectPageByExample" resultMap="BaseResultMap" parameterType="cn.freeteam.model.MsgExample" >
+  SELECT * 
+    FROM freecms_msg
+    <if test="_parameter != null">
+       <include refid="Example_Where_Clause" />
+    </if>
+    
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if> 
+    limit ${skip},${pageSize}
+  </select>
 </mapper>
