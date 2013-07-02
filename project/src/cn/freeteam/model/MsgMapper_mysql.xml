@@ -19,6 +19,7 @@
     <result column="issys" property="issys" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="isread" property="isread" jdbcType="VARCHAR" />
     <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -96,7 +97,7 @@
       This element was generated on Tue Jul 02 15:43:30 CST 2013.
     -->
     id, memberid, membername, tomemberid, tomembername, userid, username, touserid, tousername, 
-    issys, title, content, addtime
+    issys, title, content,isread, addtime
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.freeteam.model.MsgExample" >
     <!--
@@ -157,12 +158,12 @@
     insert into freecms_msg (id, memberid, membername, 
       tomemberid, tomembername, userid, 
       username, touserid, tousername, 
-      issys, title, content, 
+      issys, title, content,isread, 
       addtime)
     values (#{id,jdbcType=VARCHAR}, #{memberid,jdbcType=VARCHAR}, #{membername,jdbcType=VARCHAR}, 
       #{tomemberid,jdbcType=VARCHAR}, #{tomembername,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
       #{username,jdbcType=VARCHAR}, #{touserid,jdbcType=VARCHAR}, #{tousername,jdbcType=VARCHAR}, 
-      #{issys,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{issys,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{isread,jdbcType=VARCHAR}, 
       #{addtime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.freeteam.model.Msg" >
@@ -209,6 +210,9 @@
       <if test="content != null" >
         content,
       </if>
+      <if test="isread != null" >
+        isread,
+      </if>
       <if test="addtime != null" >
         addtime,
       </if>
@@ -249,6 +253,9 @@
       </if>
       <if test="content != null" >
         #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="isread != null" >
+        #{isread,jdbcType=VARCHAR},
       </if>
       <if test="addtime != null" >
         #{addtime,jdbcType=TIMESTAMP},
@@ -310,6 +317,9 @@
       <if test="record.content != null" >
         content = #{record.content,jdbcType=VARCHAR},
       </if>
+      <if test="record.isread != null" >
+        isread = #{record.isread,jdbcType=VARCHAR},
+      </if>
       <if test="record.addtime != null" >
         addtime = #{record.addtime,jdbcType=TIMESTAMP},
       </if>
@@ -337,6 +347,7 @@
       issys = #{record.issys,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
+      isread = #{record.isread,jdbcType=VARCHAR},
       addtime = #{record.addtime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -383,6 +394,9 @@
       <if test="content != null" >
         content = #{content,jdbcType=VARCHAR},
       </if>
+      <if test="isread != null" >
+        isread = #{isread,jdbcType=VARCHAR},
+      </if>
       <if test="addtime != null" >
         addtime = #{addtime,jdbcType=TIMESTAMP},
       </if>
@@ -407,6 +421,7 @@
       issys = #{issys,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
+      isread = #{isread,jdbcType=VARCHAR},
       addtime = #{addtime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>

@@ -3,6 +3,8 @@ package cn.freeteam.service;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringUtils;
+
 import cn.freeteam.base.BaseService;
 import cn.freeteam.dao.MsgMapper;
 import cn.freeteam.model.Msg;
@@ -51,6 +53,30 @@ public class MsgService extends BaseService{
 	 */
 	public void proSearchParam(Msg msg,Criteria criteria){
 		if (msg!=null ) {
+			if (StringUtils.isNotEmpty(msg.getMemberid())) {
+				criteria.andMemberidEqualTo(msg.getMemberid());
+			}
+			if (StringUtils.isNotEmpty(msg.getMembername())) {
+				criteria.andMembernameLike("%"+msg.getMembername().trim()+"%");
+			}
+			if (StringUtils.isNotEmpty(msg.getTomemberid())) {
+				criteria.andTomemberidEqualTo(msg.getTomemberid());
+			}
+			if (StringUtils.isNotEmpty(msg.getTomembername())) {
+				criteria.andMembernameLike("%"+msg.getTomembername().trim()+"%");
+			}
+			if (StringUtils.isNotEmpty(msg.getTitle())) {
+				criteria.andTitleLike("%"+msg.getTitle()+"%");
+			}
+			if (StringUtils.isNotEmpty(msg.getContent())) {
+				criteria.andContentLike("%"+msg.getContent()+"%");
+			}
+			if (StringUtils.isNotEmpty(msg.getIsread())) {
+				criteria.andIsreadEqualTo(msg.getIsread());
+			}
+			if (StringUtils.isNotEmpty(msg.getIssys())) {
+				criteria.andIssysEqualTo(msg.getIssys());
+			}
 		}
 	}
 
