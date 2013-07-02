@@ -292,6 +292,10 @@ public class InfoExample extends BaseExample{
             return (Criteria) this;
         }
 
+        public Criteria andInfoIdEqualTo(String value) {
+            addCriterion("i.id =", value, "id");
+            return (Criteria) this;
+        }
         public Criteria andSiteNotEqualTo(String value) {
             addCriterion("site <>", value, "site");
             return (Criteria) this;

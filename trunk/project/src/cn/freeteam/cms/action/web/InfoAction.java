@@ -1,6 +1,7 @@
 package cn.freeteam.cms.action.web;
 
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -10,8 +11,10 @@ import javax.servlet.http.HttpSession;
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Info;
 import cn.freeteam.cms.model.InfoSign;
+import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.InfoSignService;
+import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.model.Users;
 import cn.freeteam.service.UserService;
 import cn.freeteam.util.EscapeUnescape;
@@ -45,11 +48,14 @@ public class InfoAction extends BaseAction{
 	private InfoService infoService;
 	private InfoSignService infoSignService;
 	private UserService userService;
+	private SiteService siteService;
 	
 	private Info info;
+	private Site site;
 	private Users user;
 	private String cansign;
 	private List<InfoSign> infosignList;
+	private List<Info> infoList;
 	
 	public InfoAction(){
 		init("infoService");
@@ -130,6 +136,28 @@ public class InfoAction extends BaseAction{
 		}
 		return null;
 	}
+	/**
+	 * 根据id访问信息 
+	 * @return
+	 * @throws IOException 
+	 */
+	public String visit() throws IOException{
+		if (info!=null && info.getId()!=null && info.getId().trim().length()>0) {
+			infoList=infoService.find(info, "", 1, 1);
+			if (infoList!=null && infoList.size()>0) {
+				info=infoList.get(0);
+				if (info!=null) {
+					init("siteService");
+					site=siteService.findById(info.getSite());
+					if (site!=null) {
+						info.setSitepath(getHttpRequest().getContextPath()+"/site/"+site.getSourcepath()+"/");
+						getHttpResponse().sendRedirect(info.getPageurl());
+					}
+				}
+			}
+		}
+		return null;
+	}
 	public InfoService getInfoService() {
 		return infoService;
 	}
@@ -185,5 +213,29 @@ public class InfoAction extends BaseAction{
 
 	public void setCansign(String cansign) {
 		this.cansign = cansign;
+	}
+
+	public List<Info> getInfoList() {
+		return infoList;
+	}
+
+	public void setInfoList(List<Info> infoList) {
+		this.infoList = infoList;
+	}
+
+	public SiteService getSiteService() {
+		return siteService;
+	}
+
+	public void setSiteService(SiteService siteService) {
+		this.siteService = siteService;
+	}
+
+	public Site getSite() {
+		return site;
+	}
+
+	public void setSite(Site site) {
+		this.site = site;
 	}
 }
