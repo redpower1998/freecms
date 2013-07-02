@@ -101,7 +101,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<INPUT name="ids" type="checkbox" value="<s:property value="id"/>" /></TD>
 	
 	<TD   >
-		<a href="store_info.do?store.id=<s:property value="id"/>"><s:property value="objtitle"/></a>
+		<s:if test='%{"info" == #bean.objtype}'>
+		<a href="<%=path %>/info_visit.do?info.id=<s:property value="objid"/>" target="_blank">
+		</s:if>
+		<s:property value="objtitle"/></a>
 	</TD>
 	<TD   id="objtype<s:property value="id"/>">
 		<s:property value="objtypeStr"/>
