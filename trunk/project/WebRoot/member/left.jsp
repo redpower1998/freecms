@@ -34,12 +34,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="tipcnt mr10">
   <div class="title b">会员服务导航</div>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr class="tr1"><td><a href="profile.jsp" target="right">个人资料</a></td></tr>
-<tr class="tr1"><td><a href="pwd.jsp" target="right">密码设置</a></td></tr>
-<tr class="tr1"><td><a href="creditlog_list.do" target="right">积分记录</a></td></tr>
-<tr class="tr1"><td><a href="comment_list.do" target="right">我的评论</a></td></tr>
-<tr class="tr1"><td><a href="guestbook_list.do" target="right">我的留言</a></td></tr>
-<tr class="tr1"><td><a href="store_list.do" target="right">我的收藏</a></td></tr>
+<tr class="tr1"><td><a href="profile.jsp" target="right"><b>个人资料</b></a></td></tr>
+<tr class="tr1"><td><a href="pwd.jsp" target="right"><b>密码设置</b></a></td></tr>
+<tr class="tr1"><td><a href="creditlog_list.do" target="right"><b>积分记录</b></a></td></tr>
+<tr class="tr1"><td><a href="comment_list.do" target="right"><b>我的评论</b></a></td></tr>
+<tr class="tr1"><td><a href="guestbook_list.do" target="right"><b>我的留言</b></a></td></tr>
+<tr class="tr1"><td><a href="store_list.do" target="right"><b>我的收藏</b></a></td></tr>
+<tr class="tr1"><td><b>站点信</b></td></tr>
+<tr class="tr1"><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="msg_send.do" target="right">写信</a></td></tr>
+<tr class="tr1"><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="msg_tolist.do" target="right">收件箱</a></td></tr>
+<tr class="tr1"><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="msg_sendlist.do" target="right">发件箱</a></td></tr>
   </table>
 </div>
 </td>
