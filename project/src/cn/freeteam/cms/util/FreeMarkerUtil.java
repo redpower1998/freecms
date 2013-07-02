@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 
 import cn.freeteam.cms.freemarker.directive.AjaxInfoClickDirective;
 import cn.freeteam.cms.freemarker.directive.AjaxLoadDirective;
+import cn.freeteam.cms.freemarker.directive.AjaxStoreDirective;
 import cn.freeteam.cms.freemarker.directive.ApplyopenQueryDirective;
 import cn.freeteam.cms.freemarker.directive.ChannelDirective;
 import cn.freeteam.cms.freemarker.directive.ChannelListDirective;
@@ -180,6 +181,7 @@ public class FreeMarkerUtil {
 			//Ajax类
 			freemarkerCfg.setSharedVariable("ajaxInfoClick", new AjaxInfoClickDirective());
 			freemarkerCfg.setSharedVariable("ajaxLoad", new AjaxLoadDirective());
+			freemarkerCfg.setSharedVariable("ajaxStore", new AjaxStoreDirective());
 			//单位类
 			freemarkerCfg.setSharedVariable("unitList", new UnitListDirective());
 			//用户类

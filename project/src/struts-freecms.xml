@@ -199,6 +199,8 @@
 		</action>
 		<action name="applyopen_*" method="{1}" class="cn.freeteam.cms.action.web.ApplyopenAction">
 		</action>
+		<action name="store_*" method="{1}" class="cn.freeteam.cms.action.web.StoreAction">
+		</action>
 	</package>
 	<package name="cmsMember" extends="struts-default" namespace="/member">
 		<global-results>
