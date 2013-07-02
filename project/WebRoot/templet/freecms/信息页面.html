@@ -6,7 +6,7 @@
 <link type="text/css" rel="stylesheet" href="${contextPath}js/weebox0.4/weebox.css" />
 <h1>${currChannel.name}</h1>
 <h2>${currInfo.title}</h2>
-【<a href='#' onclick="window.external.AddFavorite(location.href,document.title);">收藏此页</a>】&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;【<a href='#' onclick="window.print();">打印</a>】&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;【<a href='#' onclick="window.close();">关闭</a>】
+【<a href='#' onclick="window.external.AddFavorite(location.href,document.title);">加入收藏夹</a>】&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;【<a href='#' onclick="window.print();">打印</a>】&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;【<a href='#' onclick="window.close();">关闭</a>】
 			<@infoSign infoid="${currInfo.id}" ;js,html>
 											${js}								${html}
 											</@infoSign>
@@ -14,6 +14,10 @@
 											<@ajaxInfoClick infoid="${currInfo.id}" spanAttr="class='hongsz1'";ajaxInfoClickHtml>
 											${ajaxInfoClickHtml}
 											</@ajaxInfoClick>
+											
+											<@ajaxStore objid="${currInfo.id}" objtype='info' siteid='${site.id}' channelid='${currChannel.id}' ;ajaxStoreHtml>
+											${ajaxStoreHtml}
+											</@ajaxStore>
 	${currInfo.content}
 <script type="text/javascript" src="${contextPath}/js/jwplayer/jwplayer.min.js"></script>
 <div id="jsplayerdiv">
