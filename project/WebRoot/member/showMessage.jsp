@@ -4,6 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <!doctype html>
+<%@ taglib prefix="s" uri="/struts-tags"%> 
 <link href="img/sl_core.css" rel="stylesheet" type="text/css" />
 <link href="img/index.css" rel="stylesheet" type="text/css" />
 <div class="tipcnt mb10">
