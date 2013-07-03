@@ -70,7 +70,11 @@ public class GuestbookService extends BaseService{
 		GuestbookExample example=new GuestbookExample();
 		Criteria criteria=example.createCriteria();
 		proSearchParam(Guestbook, criteria);
-		return guestbookMapper.countByExample(example);
+		if (cache) {
+			return guestbookMapper.countByExampleCache(example);
+		}else {
+			return guestbookMapper.countByExample(example);
+		}
 	}
 
 	/**
