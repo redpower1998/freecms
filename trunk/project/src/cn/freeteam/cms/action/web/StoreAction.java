@@ -61,6 +61,7 @@ public class StoreAction extends BaseAction {
 			if (store!=null && StringUtils.isNotEmpty(store.getObjid()) && StringUtils.isNotEmpty(store.getObjtype())) {
 				try {
 					//查询是否已收藏
+					store.setMemberid(getLoginMember().getId());
 					if (storeService.count(store)>0) {
 						msg="您已收藏";
 					}else {
@@ -90,7 +91,6 @@ public class StoreAction extends BaseAction {
 									store.setChannelname(channel.getName());
 								}
 							}
-							store.setMemberid(getLoginMember().getId());
 							store.setStoretime(new Date());
 							storeService.insert(store);
 							msg="收藏成功";
