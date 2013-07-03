@@ -59,6 +59,7 @@
 		<action name="msg_*" method="{1}" class="cn.freeteam.action.MsgAction">
 			<result name="list" >/admin/msgList.jsp</result>
 			<result name="info" >/admin/msgInfo.jsp</result>
+			<result name="send" >/admin/msgSend.jsp</result>
 		</action>
 		<action name="demo_*" method="{1}" class="cn.freeteam.action.DemoAction">
 			<result name="list" >/admin/demoList.jsp</result>

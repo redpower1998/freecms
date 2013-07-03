@@ -63,7 +63,7 @@ public class MsgService extends BaseService{
 				criteria.andTomemberidEqualTo(msg.getTomemberid());
 			}
 			if (StringUtils.isNotEmpty(msg.getTomembername())) {
-				criteria.andMembernameLike("%"+msg.getTomembername().trim()+"%");
+				criteria.andTomembernameLike("%"+msg.getTomembername().trim()+"%");
 			}
 			if (StringUtils.isNotEmpty(msg.getTitle())) {
 				criteria.andTitleLike("%"+msg.getTitle()+"%");
