@@ -100,8 +100,10 @@ public class UnitService extends BaseService{
 			cstmt.setString(1, unitId);
 			cstmt.execute();
 		} catch (Exception e) {
-			System.out.println("调用unit_del存储过程时出错");
-			e.printStackTrace();
+			if (e.getMessage().indexOf("No data")<0) {
+				System.out.println("调用unit_del存储过程时出错");
+				e.printStackTrace();
+			}
 		}
 	}
 	/**
@@ -115,8 +117,10 @@ public class UnitService extends BaseService{
 			cstmt.setString(1, unitId);
 			cstmt.execute();
 		} catch (Exception e) {
-			System.out.println("调用unit_update存储过程时出错");
-			e.printStackTrace();
+			if (e.getMessage().indexOf("No data")<0) {
+				System.out.println("调用unit_update存储过程时出错");
+				e.printStackTrace();
+			}
 		}
 	}
 	/**
