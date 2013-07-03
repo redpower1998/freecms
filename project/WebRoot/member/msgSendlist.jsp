@@ -106,12 +106,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<INPUT name="ids" type="checkbox" value="<s:property value="id"/>" /></TD>
 	
 	<TD   >
-		<s:if test='%{"1"!=#bean.issys}'>
-		<s:property value="tomembername"/>
-		</s:if>
-		<s:if test='%{"1"==#bean.issys}'>
-		<font color='red'>管理员</font> <s:property value="tousername"/>
-		</s:if>
+							<s:if test='%{#bean.tomembername!=null && ""!=#bean.tomembername}'>
+							<s:property value="tomembername"/>
+							</s:if>
+							<s:if test='%{#bean.tomembername==null || ""==#bean.tomembername}'>
+							<font color='red'>管理员</font> <s:property value="tousername"/>
+							</s:if>
 	</TD>
 	<TD   >
 		<a href="msg_info.do?msg.id=<s:property value="id"/>"><s:property value="title"/></a>

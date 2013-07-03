@@ -17,23 +17,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <tr class="tr1 tac s3">
   <td  align="left"  align="left"><b>发信人</b></td>
   <td  align="left"  align="left">
-		<s:if test='%{"1"!=msg.issys}'>
-		${msg.membername}
-		</s:if>
-		<s:if test='%{"1"==msg.issys}'>
-		<font color='red'>管理员</font> ${msg.username}
-		</s:if>
+							<s:if test='%{msg.membername!=null && ""!=msg.membername}'>
+							${msg.membername }
+							</s:if>
+							<s:if test='%{msg.membername==null || ""==msg.membername}'>
+							<font color='red'>管理员</font> ${msg.username }
+							</s:if>
   </td>
 </tr>
 <tr class="tr1 tac s3">
   <td  align="left"  align="left"><b>收信人</b></td>
   <td  align="left"  align="left">
-		<s:if test='%{"1"!=msg.issys}'>
-		${msg.tomembername}
-		</s:if>
-		<s:if test='%{"1"==msg.issys}'>
-		<font color='red'>管理员</font> ${msg.tousername}
-		</s:if>
+								<s:if test='%{msg.tomembername!=null && ""!=msg.tomembername}'>
+							${msg.tomembername}
+							</s:if>
+							<s:if test='%{msg.tomembername==null || ""==msg.tomembername}'>
+							<font color='red'>管理员</font> ${msg.tousername}
+							</s:if>
   </td>
 </tr>
 <TR class="tr1 tac s3">
