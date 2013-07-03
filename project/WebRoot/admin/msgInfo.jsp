@@ -16,7 +16,7 @@
 			<input type="hidden" name="pageFuncId" id="pageFuncId" value="${pageFuncId }"/>
 			<DIV class=tab>
 				<DIV class=tabOn >
-					发送站内信
+					站内信详细
 				</DIV>
 				<DIV class=clearer></DIV>
 			</DIV>
