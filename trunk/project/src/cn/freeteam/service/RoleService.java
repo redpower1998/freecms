@@ -175,9 +175,10 @@ public class RoleService extends BaseService{
 			cstmt.setString(1, roleId);
 			cstmt.execute();
 		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("调用role_del存储过程时出错");
-			e.printStackTrace();
+			if (e.getMessage().indexOf("No data")<0) {
+				System.out.println("调用role_del存储过程时出错");
+				e.printStackTrace();
+			}
 		}
 	}
 	/**
@@ -191,8 +192,10 @@ public class RoleService extends BaseService{
 			cstmt.setString(1, roleId);
 			cstmt.execute();
 		} catch (Exception e) {
-			System.out.println("调用role_update存储过程时出错");
-			e.printStackTrace();
+			if (e.getMessage().indexOf("No data")<0) {
+				System.out.println("调用role_update存储过程时出错");
+				e.printStackTrace();
+			}
 		}
 	}
 	/**
