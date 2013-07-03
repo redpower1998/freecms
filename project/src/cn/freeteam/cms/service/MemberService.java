@@ -104,6 +104,9 @@ public class MemberService extends BaseService{
 			if (member.getGroupid()!=null && member.getGroupid().trim().length()>0) {
 				criteria.andGroupidEqualTo(member.getGroupid().trim());
 			}
+			if (member.getGroupids()!=null && member.getGroupids().size()>0) {
+				criteria.andGroupidIn(member.getGroupids());
+			}
 			if (member.getIsok()!=null && member.getIsok().trim().length()>0) {
 				criteria.andIsokEqualTo(member.getIsok().trim());
 			}
