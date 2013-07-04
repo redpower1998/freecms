@@ -757,3 +757,37 @@ P.figure IMG {
 P.figure DFN {
 	FONT-WEIGHT: bold
 }
+
+img,a img{border:0;margin:0;padding:0;}
+ul,li{list-style:none}
+.clear{clear:both;}
+
+a:link{color:#000;}
+a:visited{color:#000;}
+a:hover{color:#d00000; text-decoration:underline;}
+.allCon{width:960px; margin:0px auto;}
+.topImgCon2{background:url(../img/rightBg.jpg) no-repeat right bottom;overflow:hidden;}
+.topImgCon{overflow:hidden; background:url(../img/leftBg.jpg) no-repeat left bottom; position:relative;zoom:1;}
+.topImg{margin:0px 9px 0px 12px;border:1px solid #ccc; border-bottom:none;padding:15px 0px 18px 9px; border-bottom:1px solid #ccc;}
+.topImg img{display:block;}
+
+.leftIcon{ position:absolute; left:50px; top:280px;}
+.rightIcon{ position:absolute; right:50px; top:280px;}
+.wenziCon{height:auto; line-height:20px;padding:10px 49px 10px; border:1px solid #ccc;font-size:14px; border-top:none; background:#e6e6e6;}
+
+.imgListCon{width:898px; height:102px; border:1px solid #ccc;background:#e6e6e6;margin:40px auto 0px; position:relative;}
+
+.imgList{padding:7px 0px 0px 29px;}
+.imgList li{width:106px;height:78px; text-align:center;padding-top:7px;float:left;margin:0px 0px 0px 1px;}
+.imgList li img{ width:100px;height:75px;}
+.imgList .liBg{ background:url(../img/btn_cur_bg.gif) no-repeat;}
+
+.imgListIcon1{position:absolute;top:41px;left:9px;}
+.imgListIcon2{position:absolute;top:41px;right:9px;}
+
+ 
+#thumbs2{width:1140px;}
+#thumbs2 ul{PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px}	  
+#thumbs2 img{BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; VERTICAL-ALIGN: top; BORDER-LEFT-WIDTH: 0px}
+#thumbs3{width:835px;float:left;padding:0px 0px 0px 0px;TEXT-ALIGN: left; OVERFLOW: hidden}
+

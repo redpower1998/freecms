@@ -18,6 +18,106 @@
 											<@ajaxStore objid="${currInfo.id}" objtype='info' siteid='${site.id}' channelid='${currChannel.id}' ;ajaxStoreHtml>
 											${ajaxStoreHtml}
 											</@ajaxStore>
+											<br/>
+<@infoImg infoid='${currInfo.id!""}' ;infoImgList>
+	<div class="allCon">
+    	<div class="topImgCon2">
+    	<div class="topImgCon">
+        	<div class="leftIcon"><a href="#" onclick="left()"><img src="${contextPath}site/${site.sourcepath}/resources/img/left_0201.png" height="40" width="40" ></a></div>
+            <div class="rightIcon"><a href="#" onclick="right()"><img src="${contextPath}site/${site.sourcepath}/resources/img/right_0201.png" height="40" width="40"></a></div>
+        
+        
+		<div class="topImg">
+			<#list infoImgList as infoImg>
+			<span id="bigpic${infoImg_index}" 
+			<#if (infoImg_index>0)>
+			style="display:none"
+			</#if>
+			>
+			<img src="${infoImg.img}" alt="${infoImg.title}" title="${infoImg.title}" width="920"></span>  
+			</#list>
+        </div>
+    	</div>
+        </div>
+        
+        <div class="wenziCon">		
+			<#list infoImgList as infoImg>
+			<span id="desc${infoImg_index}" 
+			<#if (infoImg_index>0)>
+			style="display:none"
+			</#if>
+			>
+			${infoImg.content}</span>  
+			</#list>  
+        </div>
+        <div class="imgListCon">
+        	<div class="imgListIcon1"><a href="#" onclick="left()"><img src="${contextPath}site/${site.sourcepath}/resources/img/leftPre.jpg" height="16" width="12"></a></div>
+            <div class="imgListIcon2"><a href="#" onclick="right()"><img src="${contextPath}site/${site.sourcepath}/resources/img/rightPre.jpg" height="16" width="12"></a></div>
+        	<div class="imgList">	
+<div id="thumbs3">
+<div id="thumbs2">
+        		<ul>
+					<#list infoImgList as infoImg>
+					<li <#if (infoImg_index==0)>
+					class="liBg"
+					</#if>
+					 id="thumb${infoImg_index}">
+					<a href="#" onclick="slideDesc(${infoImg_index})">
+					<img src="${infoImg.img}" height="75" width="100">
+					</a>
+					</li>
+					</#list>  
+                </ul>
+				</div>
+				</div>
+            </div>
+        </div>
+    </div>
+	<script>
+	var picnum=${infoImgList?size};
+	var index=0;
+	//描述交替轮换
+function slideDesc(i){
+	index=i;
+    for(var i1=0;i1<picnum;i1++){
+    	if(i!=i1){
+    		$('#'+ 'desc'+ i1).fadeOut("fast");	
+    		$('#'+ 'bigpic'+ i1).hide(); 
+    		$('#'+ 'thumb'+ i1).removeClass('liBg');
+    	}
+    }
+    var id = 'desc'+ i;
+    var picid = 'bigpic'+ i;
+    $('#'+ id).fadeIn("fast");	 
+    $('#'+ picid).fadeIn("fast");
+		
+	$('#'+ 'thumb'+ i).addClass('liBg');
+	
+	var maxloop=6;
+	if(index>maxloop){
+		document.getElementById("thumbs3").scrollLeft=(100*(index-maxloop));
+	}else{
+		document.getElementById("thumbs3").scrollLeft=0;
+	}
+}
+function left(){
+	if(index>0){
+		index=index-1;
+	}
+	slideDesc(index);
+}
+function right(){
+	if(index<picnum-1){
+		index=index+1;
+	}else{
+		index=0;
+	}
+	slideDesc(index);
+}
+slideDesc(0);
+	</script>
+</@infoImg>
+<br/>
 	${currInfo.content}
 <script type="text/javascript" src="${contextPath}/js/jwplayer/jwplayer.min.js"></script>
 <div id="jsplayerdiv">
