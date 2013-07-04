@@ -3,12 +3,14 @@ package cn.freeteam.cms.action;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringUtils;
 import org.htmlparser.Node;
 import org.htmlparser.NodeFilter;
 import org.htmlparser.Parser;
@@ -21,9 +23,11 @@ import org.htmlparser.util.ParserException;
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Channel;
 import cn.freeteam.cms.model.Info;
+import cn.freeteam.cms.model.InfoImg;
 import cn.freeteam.cms.model.InfoSign;
 import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.service.ChannelService;
+import cn.freeteam.cms.service.InfoImgService;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.InfoSignService;
 import cn.freeteam.cms.service.RoleChannelService;
@@ -70,12 +74,14 @@ public class InfoAction extends BaseAction{
 	private UserService userService;
 	private InfoSignService infoSignService;
 	private SensitiveService sensitiveService;
+	private InfoImgService infoImgService;
 	
 	private List<Site> siteList;
 	private List<Channel> channelList;
 	private List<Info> infoList;
 	private List<Users> userList;
 	private List<InfoSign> infosignList;
+	private List<InfoImg> infoImgList;
 	
 	
 	private Info info;
@@ -85,6 +91,7 @@ public class InfoAction extends BaseAction{
 	private String tochannelid;
 	private File videoUpload;
 	private String videoUploadFileName;
+	private String delOldimgs;
 	
 	private String order=" addtime desc ";
 	private String listPageFuncId;
@@ -249,6 +256,11 @@ public class InfoAction extends BaseAction{
 				init("infoSignService");
 				//查询签收用户
 				infosignList=infoSignService.findByInfo(info.getId());
+				//查询图片集
+				init("infoImgService");
+				InfoImg infoImg=new InfoImg();
+				infoImg.setInfoid(info.getId());
+				infoImgList=infoImgService.find(infoImg, " ordernum ");
 			}
 			//添加,传递参数channel.id
 			if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
@@ -323,8 +335,30 @@ public class InfoAction extends BaseAction{
 			                }
 			            }
 					} catch (ParserException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
+					}
+				}
+				//处理图片集
+				Enumeration<String> paramNames = getHttpRequest().getParameterNames();
+				String paramName,imgsid;
+				List<InfoImg> infoImgList=new ArrayList<InfoImg>();
+				while (paramNames.hasMoreElements()) {
+					paramName=paramNames.nextElement();
+					if (paramName.startsWith("imgsurl")) {
+						imgsid=paramName.replace("imgsurl", "");
+						InfoImg infoImg=new InfoImg();
+						infoImg.setImg(getHttpRequest().getParameter("imgsurl"+imgsid));
+						infoImg.setContent(getHttpRequest().getParameter("imgscontent"+imgsid));
+						try {
+							infoImg.setOrdernum(Integer.parseInt(getHttpRequest().getParameter("imgsordernum"+imgsid)));
+						} catch (Exception e) {
+						}
+						infoImg.setTitle(getHttpRequest().getParameter("imgstitle"+imgsid));
+						infoImgList.add(infoImg);
+						//如果没有选择信息图片，使用图片集中的第一张图片
+	    				if (info.getImg()==null || info.getImg().trim().length()==0) {
+	    					info.setImg(infoImg.getImg());
+	    				}
 					}
 				}
 				if (info.getId()!=null && info.getId().trim().length()>0) {
@@ -360,6 +394,18 @@ public class InfoAction extends BaseAction{
 						oldInfo.setIndexnum(info.getIndexnum());
 						infoService.update(oldInfo);
 						OperLogUtil.log(getLoginName(), oper+"信息("+oldInfo.getTitle()+")成功", getHttpRequest());
+						//删除图片集
+						if (StringUtils.isNotEmpty(delOldimgs)) {
+							String dels[]=delOldimgs.split(";");
+							if (dels!=null && dels.length>0) {
+								init("infoImgService");
+								for (int i = 0; i < dels.length; i++) {
+									if (dels[i].trim().length()>0) {
+										infoImgService.del(dels[i]);
+									}
+								}
+							}
+						}
 					}
 				}else{
 					//添加
@@ -374,6 +420,14 @@ public class InfoAction extends BaseAction{
 				//处理签收用户
 				init("infoSignService");
 				infoSignService.infoedit(info.getId(), signusers);
+				//处理图片集
+				if (infoImgList.size()>0) {
+					init("infoImgService");
+					for (int i = 0; i < infoImgList.size(); i++) {
+						infoImgList.get(i).setInfoid(info.getId());
+						infoImgService.add(infoImgList.get(i));
+					}
+				}
 				//生成静态页面
 				infoService.html(info.getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
 				//检查此信息所属栏目是否设置当此栏目中的信息变更后需要进行的静态化处理
@@ -894,5 +948,23 @@ public class InfoAction extends BaseAction{
 	}
 	public void setSitename(String sitename) {
 		this.sitename = sitename;
+	}
+	public InfoImgService getInfoImgService() {
+		return infoImgService;
+	}
+	public void setInfoImgService(InfoImgService infoImgService) {
+		this.infoImgService = infoImgService;
+	}
+	public List<InfoImg> getInfoImgList() {
+		return infoImgList;
+	}
+	public void setInfoImgList(List<InfoImg> infoImgList) {
+		this.infoImgList = infoImgList;
+	}
+	public String getDelOldimgs() {
+		return delOldimgs;
+	}
+	public void setDelOldimgs(String delOldimgs) {
+		this.delOldimgs = delOldimgs;
 	}
 }
