@@ -456,6 +456,42 @@
 								<LABEL id=ctl02_ctl00_label>
 									<IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
+											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=请上传信息图片集
+											src="../../img/help.gif">
+									<NOBR>
+										<SPAN id=ctl02_ctl00_lblLabel>图片集：</SPAN>
+									</NOBR>
+								</LABEL>
+							</TD>
+							<TD align="left"> 
+							<input type="hidden" name="delOldimgs" id="delOldimgs"/>
+							<div id="imgs">
+								<s:iterator value="infoImgList" id="bean">
+								<table id='oldimgtable<s:property value="id"/>'><tr>
+					    		<td rowspan='4'><input type='hidden' name='oldimgsurl<s:property value="id"/>' value='<s:property value="img"/>'><a href='<s:property value="img"/>' target='_blank'>
+								<img src='<s:property value="img"/>' width='150' height='120' title='点击查看大图'/></a></td>
+					    		<td>标题:</td>
+					    		<td><INPUT onblur="this.className='inputblur';" class=inputblur onfocus="this.className='inputfocus';"   maxLength=250 size=40 type=text name=oldimgstitle<s:property value="id"/> value='<s:property value="title"/>'/></td>
+					  			</tr><tr>
+					    		<td>顺序:</td>
+					    		<td><INPUT onblur="this.className='inputblur';" class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') .
+					    		  maxLength=10 size=4 type=text name=oldimgsordernum<s:property value="id"/> value='<s:property value="ordernum"/>'/></td>
+					  			</tr><tr>
+					    		<td>描述:</td>
+					    		<td><textarea  class=inputblur onfocus="this.className='inputfocus';" onblur="this.className='inputblur';if(this.value.length>500){alert('最多500个字符');this.focus()}" name=oldimgscontent<s:property value="id"/> cols=40 rows=3><s:property value="content"/></textarea></td>
+					  			</tr><tr>
+					    		<td><input type='button'  class='button' value='删 除' onclick="delOldImgs('<s:property value="id"/>');"/></td>
+					    		<td></td>
+					  			</tr></table>
+								</s:iterator>
+							</div>
+									<input type="button"  class="button" value="添加图片" onclick="selectImgs()"/>
+							</TD>
+						</TR><TR>
+							<TD width="30%" align="left">
+								<LABEL id=ctl02_ctl00_label>
+									<IMG
+											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
 											id=ctl02_ctl00_imgHelp tabIndex=-1 alt=请上传信息图片
 											src="../../img/help.gif">
 									<NOBR>

@@ -137,3 +137,43 @@ function checkallsign(checked){
 		}
 	}
 }
+
+//选择图片集
+function selectImgs(){
+	var finder = new CKFinder();
+	finder.basePath = '../../';	
+	finder.selectActionFunction = selectImgsDo;
+	finder.popup();
+}
+//选择图片集处理
+function selectImgsDo( fileUrl )
+{
+	fileUrl=ckfinderUrl(fileUrl,$("#ckfinderCurrentFolder").val());
+	var id=new Date().getMilliseconds();
+	var html="<table id='imgtable"+id+"'><tr>"+
+    		"<td rowspan='4'><input type='hidden' name='imgsurl"+id+"' value='"+fileUrl+"'><a href='"+fileUrl+"' target='_blank'>"+
+							"<img src='"+fileUrl+"' width='150' height='120' title='点击查看大图'/>"+
+							"</a></td>"+
+    		"<td>标题:</td>"+
+    		"<td><INPUT onblur=\"this.className='inputblur';\" class=inputblur onfocus=\"this.className='inputfocus';\"   maxLength=250 size=40 type=text name=imgstitle"+id+" /></td>"+
+  			"</tr><tr>"+
+    		"<td>顺序:</td>"+
+    		"<td><INPUT onblur=\"this.className='inputblur';\" class=inputblur onfocus=\"this.className='inputfocus';\" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')   maxLength=10 size=4 type=text name=imgsordernum"+id+" /></td>"+
+  			"</tr><tr>"+
+    		"<td>描述:</td>"+
+    		"<td><textarea  class=inputblur onfocus=\"this.className='inputfocus';\" onblur=\"this.className='inputblur';if(this.value.length>500){alert('最多500个字符');this.focus()}\" name=imgscontent"+id+" cols=40 rows=3></textarea></td>"+
+  			"</tr><tr>"+
+    		"<td><input type='button'  class='button' value='删 除' onclick=\"delImgs('"+id+"');\"/></td>"+
+    		"<td></td>"+
+  			"</tr></table>";
+  	$("#imgs").append(html);
+}
+//删除图片集
+function delImgs(id){
+	$("#imgtable"+id).remove();
+}
+//删除图片集
+function delOldImgs(id){
+	$("#oldimgtable"+id).remove();
+	$("#delOldimgs").val($("#delOldimgs").val()+id+";");
+}
