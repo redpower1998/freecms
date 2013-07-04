@@ -28,6 +28,7 @@ import cn.freeteam.cms.freemarker.directive.GuestbookPageDirective;
 import cn.freeteam.cms.freemarker.directive.HtmlDirective;
 import cn.freeteam.cms.freemarker.directive.InfoAttchsDirective;
 import cn.freeteam.cms.freemarker.directive.InfoDirective;
+import cn.freeteam.cms.freemarker.directive.InfoImgDirective;
 import cn.freeteam.cms.freemarker.directive.InfoListDirective;
 import cn.freeteam.cms.freemarker.directive.InfoPageDirective;
 import cn.freeteam.cms.freemarker.directive.InfoSearchDirective;
@@ -174,6 +175,7 @@ public class FreeMarkerUtil {
 			freemarkerCfg.setSharedVariable("infoAttchs", new InfoAttchsDirective());
 			freemarkerCfg.setSharedVariable("infoSearch", new InfoSearchDirective());
 			freemarkerCfg.setSharedVariable("infoSign", new InfoSignDirective());
+			freemarkerCfg.setSharedVariable("infoImg", new InfoImgDirective());
 			freemarkerCfg.setSharedVariable("info", new InfoDirective());
 			//链接类
 			freemarkerCfg.setSharedVariable("linkClass", new LinkClassDirective());
