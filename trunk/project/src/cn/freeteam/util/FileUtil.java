@@ -213,19 +213,18 @@ public class FileUtil {
 	 * @param src
 	 * @param dst
 	 */
-	public  static void copy(File src, File dst) {
+	public static void copy(File src, File dst) {
 		try {
-			int BUFFER_SIZE=16 * 1024 ;
+			int BUFFER_SIZE = 32 * 1024;
 			InputStream in = null;
 			OutputStream out = null;
 			try {
-				in = new BufferedInputStream(new FileInputStream(src),
-						BUFFER_SIZE);
-				out = new BufferedOutputStream(new FileOutputStream(dst),
-						BUFFER_SIZE);
+				in = new FileInputStream(src);
+				out = new FileOutputStream(dst);
 				byte[] buffer = new byte[BUFFER_SIZE];
-				while (in.read(buffer) > 0) {
-					out.write(buffer);
+				int count;
+				while ((count = in.read(buffer)) != -1) {
+					out.write(buffer, 0, count);
 				}
 			} finally {
 				if (null != in) {
