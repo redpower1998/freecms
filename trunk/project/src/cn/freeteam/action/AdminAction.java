@@ -2,6 +2,8 @@ package cn.freeteam.action;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.RoleSite;
@@ -81,17 +83,22 @@ public class AdminAction extends BaseAction{
 		}
 		getHttpSession().setAttribute("manageSite", manageSite);
 		if (funcid==null || funcid.trim().length()==0) {
-			//设置为第一个根菜单
-			//提取一级菜单 
-			if (isAdminLogin()) {
-				funcList=funcService.selectRoot();
+			if (getHttpSession().getAttribute("funcid")!=null && StringUtils.isNotEmpty(getHttpSession().getAttribute("funcid").toString())) {
+				funcid=getHttpSession().getAttribute("funcid").toString();
 			}else {
-				funcList=funcService.selectRootAuth(getLoginAdmin().getId());
-			}
-			if (funcList!=null && funcList.size()>0) {
-				funcid=funcList.get(0).getId();
+				//设置为第一个根菜单
+				//提取一级菜单 
+				if (isAdminLogin()) {
+					funcList=funcService.selectRoot();
+				}else {
+					funcList=funcService.selectRootAuth(getLoginAdmin().getId());
+				}
+				if (funcList!=null && funcList.size()>0) {
+					funcid=funcList.get(0).getId();
+				}
 			}
 		}
+		getHttpSession().setAttribute("funcid", funcid);
 		if (isAdminLogin()) {
 			getHttpSession().setAttribute("siteAdmin", true);
 		}else {
