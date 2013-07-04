@@ -169,11 +169,11 @@ function copyToClipBoard(){
 var clipBoardContent="";
 clipBoardContent+="给您推荐一个好网址---淘宝皇冠店---本站所有上榜网店是由数万名热心网友推荐整理而成，真实可信赖！";
 clipBoardContent+="\n";
-clipBoardContent+="网址：http://www.360taotao.com";
+clipBoardContent+="网址：https://code.google.com/p/freecms/";
 window.clipboardData.setData("Text",clipBoardContent);
 alert("文字已经成功复制到粘贴板，您可以使用 Ctrl+V 贴到需要的地方去了哦！");
 }
 function clect()
 {
-window.open('http://shuqian.qq.com/post?from=3&title='+encodeURIComponent(document.title)+'&uri='+encodeURIComponent(document.location.href)+'&jumpback=2&noui=1','favit','width=930,height=470,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)
+window.open('https://code.google.com/p/freecms/','favit','width=930,height=470,left=50,top=50,toolbar=no,menubar=no,location=no,scrollbars=yes,status=yes,resizable=yes');void(0)
 }
