@@ -478,7 +478,7 @@
 					    		  maxLength=10 size=4 type=text name=oldimgsordernum<s:property value="id"/> value='<s:property value="ordernum"/>'/></td>
 					  			</tr><tr>
 					    		<td>描述:</td>
-					    		<td><textarea  class=inputblur onfocus="this.className='inputfocus';" onblur="this.className='inputblur';if(this.value.length>500){alert('最多500个字符');this.focus()}" name=oldimgscontent<s:property value="id"/> cols=40 rows=3><s:property value="content"/></textarea></td>
+					    		<td><textarea  class=inputblur onfocus="this.className='inputfocus';" onblur="this.className='inputblur';if(this.value.length>500){alert('最多500个字符');this.focus()}" name=oldimgscontent<s:property value="id"/> cols=40 rows=3><s:property value="content"/></textarea>(最多500个字符)</td>
 					  			</tr><tr>
 					    		<td><input type='button'  class='button' value='删 除' onclick="delOldImgs('<s:property value="id"/>');"/></td>
 					    		<td></td>

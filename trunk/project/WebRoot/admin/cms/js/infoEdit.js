@@ -161,7 +161,7 @@ function selectImgsDo( fileUrl )
     		"<td><INPUT onblur=\"this.className='inputblur';\" class=inputblur onfocus=\"this.className='inputfocus';\" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')   maxLength=10 size=4 type=text name=imgsordernum"+id+" /></td>"+
   			"</tr><tr>"+
     		"<td>描述:</td>"+
-    		"<td><textarea  class=inputblur onfocus=\"this.className='inputfocus';\" onblur=\"this.className='inputblur';if(this.value.length>500){alert('最多500个字符');this.focus()}\" name=imgscontent"+id+" cols=40 rows=3></textarea></td>"+
+    		"<td><textarea  class=inputblur onfocus=\"this.className='inputfocus';\" onblur=\"this.className='inputblur';if(this.value.length>500){alert('最多500个字符');this.focus()}\" name=imgscontent"+id+" cols=40 rows=3></textarea>(最多500个字符)</td>"+
   			"</tr><tr>"+
     		"<td><input type='button'  class='button' value='删 除' onclick=\"delImgs('"+id+"');\"/></td>"+
     		"<td></td>"+
