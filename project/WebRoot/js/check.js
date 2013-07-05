@@ -67,6 +67,35 @@ function isInt(str,bEmpty)
 	}
 	return true;
 }
+function isInt(str)
+{
+	if(str==null||trim(str)=="")
+	{
+		return true;
+	}	
+
+	 if(trim(str) == "0")
+	 {
+	  return true;
+	 }
+  
+	var ch = str.substring(0,1);
+	
+	if (ch == "0" && trim(str) != "0")
+	{
+		return false;
+	}
+	
+	for (var i=0; i<str.length ; i++)
+	{
+		var s = str.substring(i, i+1);
+		if (!(s >= "0" && s <="9"))
+		{
+			return false;
+		}
+	}
+	return true;
+}
 /*
 	3、裁减字符串空格	
 	@param Str:要裁减的字符串
