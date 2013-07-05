@@ -170,4 +170,11 @@ function commentSubmit(){
 </form>
 <a href="${contextPath}templet_pro.do?siteid=${site.id}&currInfoid=${currInfo.id}&currChannelid=${currChannel.id}&templetPath=comment.html" target="_blank">查看全部评论</a>
 </#if>
+<br/>
+<b>相关新闻</b><br/>
+<ul>
+<@infoRelate infoid="${currInfo.id}"  num="10" titleLen="23" ; info,index>
+<li><a href="${info.pageurl}">${info.showtitle}</a></li>
+</@infoRelate>
+</ul>
 <#include "inc/底部.html"/>
