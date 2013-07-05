@@ -262,6 +262,10 @@ public class InfoExample extends BaseExample{
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
+        public Criteria andInfoIdNotIn(List<String> values) {
+            addCriterion("i.id not in", values, "id");
+            return (Criteria) this;
+        }
 
         public Criteria andIdBetween(String value1, String value2) {
             addCriterion("id between", value1, value2, "id");

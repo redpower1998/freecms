@@ -13,6 +13,8 @@ import java.util.UUID;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
+
 
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.InfoMapper;
@@ -24,6 +26,7 @@ import cn.freeteam.cms.model.InfoExample.Criteria;
 import cn.freeteam.cms.util.FreeMarkerUtil;
 import cn.freeteam.model.Users;
 import cn.freeteam.util.OperLogUtil;
+import cn.freeteam.util.SqlUtil;
 
 
 import freemarker.template.TemplateException;
@@ -180,12 +183,33 @@ public class InfoService extends BaseService{
 	 */
 	public void proSearchParam(Info info,Criteria criteria){
 		if (info!=null ) {
+			info.setSearchKey(SqlUtil.replace(info.getSearchKey()));
 			if (info.getSearchKey()!=null && info.getSearchKey().trim().length()>0) {
 				criteria.andSql("(title like '%"+info.getSearchKey().trim()
 						+"%' or shortTitle like '%"+info.getSearchKey().trim()
 						+"%' or i.description like '%"+info.getSearchKey().trim()
 						+"%' or tags like '%"+info.getSearchKey().trim()
 						+"%' )");
+			}
+			info.setTags(SqlUtil.replace(info.getTags()));
+			if (StringUtils.isNotEmpty(info.getTags())) {
+				String[] tags=info.getTags().split(",");
+				if (tags!=null && tags.length>0) {
+					StringBuilder sb=new StringBuilder();
+					for (int i = 0; i < tags.length; i++) {
+						if (tags[i].trim().length()>0) {
+							if (sb.toString().length()>0) {
+								sb.append(" or ");
+							}
+							sb.append(" title like '%"+tags[i].trim()
+									+"%' or shortTitle like '%"+tags[i].trim()
+									+"%' or i.description like '%"+tags[i].trim()
+									+"%' or tags like '%"+tags[i].trim()
+									+"%' ");
+						}
+					}
+					criteria.andSql("("+sb.toString()+")");
+				}
 			}
 			if (info.getId()!=null && info.getId().trim().length()>0) {
 				criteria.andInfoIdEqualTo(info.getId());
@@ -203,27 +227,34 @@ public class InfoService extends BaseService{
 			if (info.getChannelids()!=null && info.getChannelids().size()>0) {
 				criteria.andChannelIn(info.getChannelids());
 			}
+			info.setChannelParid(SqlUtil.replace(info.getChannelParid()));
 			if (info.getChannelParid()!=null && info.getChannelParid().trim().length()>0) {
 				criteria.andSql(" channel in (select id from freecms_channel where parid ='"+info.getChannelParid().trim()+"') ");
 			}
+			info.setChannelParPagemark(SqlUtil.replace(info.getChannelParPagemark()));
 			if (info.getChannelParPagemark()!=null && info.getChannelParPagemark().trim().length()>0) {
 				criteria.andSql(" channel in (select id from freecms_channel where parid in (select id from freecms_channel where site='"+info.getSite()+"' and pagemark='"+info.getChannelParPagemark().trim()+"')) ");
 			}
+			info.setChannelname(SqlUtil.replace(info.getChannelname()));
 			if (info.getChannelname()!=null && info.getChannelname().trim().length()>0) {
 				criteria.andSql(" c.name like '%"+info.getChannelname().trim()+"%' ");
 			}
 			if (info.getAdduser()!=null && info.getAdduser().trim().length()>0) {
 				criteria.andAdduserEqualTo(info.getAdduser());
 			}
+			info.setAdduserLike(SqlUtil.replace(info.getAdduserLike()));
 			if (info.getAdduserLike()!=null && info.getAdduserLike().trim().length()>0) {
 				criteria.andSql(" (u.loginname like '%"+info.getAdduserLike().trim()+"%' or u.name like '%"+info.getAdduserLike().trim()+"%') ");
 			}
+			info.setSitename(SqlUtil.replace(info.getSitename()));
 			if (info.getSitename()!=null && info.getSitename().trim().length()>0) {
 				criteria.andSql(" (s.name like '%"+info.getSitename().trim()+"%') ");
 			}
+			info.setInfosite(SqlUtil.replace(info.getInfosite()));
 			if (info.getInfosite()!=null && info.getInfosite().trim().length()>0) {
 				criteria.andSql(" (i.site ='"+info.getInfosite().trim()+"') ");
 			}
+			info.setTitle(SqlUtil.replace(info.getTitle()));
 			if (info.getTitle()!=null && info.getTitle().trim().length()>0) {
 				criteria.andTitleLike("%"+info.getTitle().trim()+"%");
 			}
@@ -248,7 +279,7 @@ public class InfoService extends BaseService{
 						idList.add(ids[i]);
 					}
 				}
-				criteria.andIdNotIn(idList);
+				criteria.andInfoIdNotIn(idList);
 			}
 			if (info.getChannels()!=null && info.getChannels().length>0) {
 				List<String> idList=new ArrayList<String>();
@@ -257,6 +288,7 @@ public class InfoService extends BaseService{
 				}
 				criteria.andChannelIn(idList);
 			}
+			info.setChannelPagemark(SqlUtil.replace(info.getChannelPagemark()));
 			if (info.getChannelPagemark()!=null && info.getChannelPagemark().trim().length()>0) {
 				criteria.andSql(" (channel in (select id from freecms_channel where site='"+info.getSite()+"' and pagemark='"+info.getChannelPagemark()+"')) ");
 			}
