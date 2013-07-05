@@ -353,7 +353,7 @@
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<INPUT onblur="this.className='inputblur';" id=tags size="50"
+								<INPUT onblur="this.className='inputblur';" id=indexnum size="50"
 									class=inputblur onfocus="this.className='inputfocus';" 
 									maxLength=50 type=text name=info.indexnum value="${info.indexnum }">
 							</TD>
