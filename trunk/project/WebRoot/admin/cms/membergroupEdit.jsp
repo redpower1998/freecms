@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" href="../../img/style.css" type="text/css" />
 		<link rel="stylesheet" href="../../img/style3.css" type="text/css" />
 		<script type="text/javascript" src="../../js/jquery-1.5.1.min.js"></script>
+		<script type="text/javascript" src="../../js/check.js"></script>
 		<script type="text/javascript" src="../../js/jscolor/jscolor.js"></script>
 		<script type="text/javascript" src="js/membergroupEdit.js"></script>
 
@@ -81,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='inputblur';" id=ordernum
-									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text  name=membergroup.ordernum value="${membergroup.ordernum }">
 							</TD>
 						</TR>
@@ -98,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='inputblur';" id=beginexperience
-									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text  name=membergroup.beginexperience value="${membergroup.beginexperience }">
 									<SPAN  id=ctl03>*</SPAN>
 							</TD>
@@ -160,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='inputblur';" id=maxattchsize
-									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text  name=membergroup.maxattchsize value="${membergroup.maxattchsize }">
 									(MB)
 							</TD>
@@ -178,7 +179,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='inputblur';" id=maxfriendnum
-									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text  name=membergroup.maxfriendnum value="${membergroup.maxfriendnum }">
 									
 							</TD>

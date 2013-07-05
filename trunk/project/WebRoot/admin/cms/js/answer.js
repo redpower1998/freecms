@@ -33,7 +33,7 @@ function saveAnswerComplete(data){
 		     +"<input type=\"radio\" id=\"isselect"+attr[1]+"0\" name=\"isselect"+attr[1]+"\" value=\"0\" "+($("#isselect0").attr("checked")==true?"checked":"")+"/>否"
 		    +"  </td>"
 		    +"  <td >"
-		   +"<input type=\"text\" size=\"1\" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')  value=\""+$.trim($("#order").val())+"\" id=\"order"+attr[1]+"\" name=\"order"+attr[1]+"\" MAXLENGTH=\"4\" size=\"2\" class=\"colorblur\" onfocus=\"this.className='colorfocus';\" onblur=\"this.className='colorblur';\">"
+		   +"<input type=\"text\" size=\"1\" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo')  value=\""+$.trim($("#order").val())+"\" id=\"order"+attr[1]+"\" name=\"order"+attr[1]+"\" MAXLENGTH=\"4\" size=\"2\" class=\"colorblur\" onfocus=\"this.className='colorfocus';\" onblur=\"this.className='colorblur';\">"
 		    +"  </td>"
 		   +"   <td >"
 		   +" 0 "

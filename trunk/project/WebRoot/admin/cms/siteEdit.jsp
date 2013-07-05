@@ -16,6 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="../../js/jquery.treeview.css" />
 	
 	<script src="../../js/jquery-1.5.1.min.js" type="text/javascript"></script>
+	<script src="../../js/check.js" type="text/javascript"></script>
 	<script src="../../js/jquery.cookie.js" type="text/javascript"></script>
 	<script src="../../js/jquery.treeview.js" type="text/javascript"></script>
 	<script src="../../js/jquery.treeview.edit.js" type="text/javascript"></script>
@@ -98,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='colorblur';" id=ordernum 
-									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text name=site.ordernum value="${site.ordernum }">
 							</TD>
 						</TR>

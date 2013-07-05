@@ -148,7 +148,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</LABEL>
 							</TD>
 							<TD align="left">
-          		<input type="text" id="ordernum" value="${link.ordernum }" name="link.ordernum" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
+          		<input type="text" id="ordernum" value="${link.ordernum }" name="link.ordernum" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
 							</TD>
 						</TR>
 					</TBODY>
