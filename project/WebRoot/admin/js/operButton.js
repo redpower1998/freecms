@@ -28,7 +28,7 @@ function saveOperbuttonComplete(data){
 		     +"<input type=\"radio\" id=\"isok"+attr[1]+"0\" name=\"isok"+attr[1]+"\" value=\"1\" "+($("#isok0").attr("checked")==true?"checked":"")+"/>否"
 		    +"  </td>"
 		    +"  <td >"
-		   +"<input type=\"text\" size=\"1\" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')  value=\""+$.trim($("#order").val())+"\" id=\"order"+attr[1]+"\" name=\"order"+attr[1]+"\" MAXLENGTH=\"4\" size=\"2\" class=\"colorblur\" onfocus=\"this.className='colorfocus';\" onblur=\"this.className='colorblur';\">"
+		   +"<input type=\"text\" size=\"1\" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo')  value=\""+$.trim($("#order").val())+"\" id=\"order"+attr[1]+"\" name=\"order"+attr[1]+"\" MAXLENGTH=\"4\" size=\"2\" class=\"colorblur\" onfocus=\"this.className='colorfocus';\" onblur=\"this.className='colorblur';\">"
 		    +"  </td>"
 		   +"   <td >"
 		   +" <input type=\"text\" size=\"40\" value=\""+$("#code").val()+"\" id=\"code"+attr[1]+"\" name=\"code"+attr[1]+"\" MAXLENGTH=\"500\" class=\"colorblur\" onfocus=\"this.className='colorfocus';\" onblur=\"this.className='colorblur';\">"

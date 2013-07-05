@@ -63,7 +63,7 @@ if(id!=null && id.trim().length()>0){
       
       <td >
      
-    <input type="text"  id="order"  onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')  name="order" MAXLENGTH="4" size="1" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
+    <input type="text"  id="order"  onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo')  name="order" MAXLENGTH="4" size="1" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
       </td>
       <td >
     <input type="text" size="40" id="code" name="code" MAXLENGTH="500" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
@@ -90,7 +90,7 @@ if(id!=null && id.trim().length()>0){
       </td>
       <td >
      
-    <input type="text" size="1" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')  value="<%=operbutton.getOrdernum()!=null?operbutton.getOrdernum():"" %>" id="order<%=operbutton.getId() %>" name="order<%=operbutton.getId() %>" MAXLENGTH="4" size="1" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
+    <input type="text" size="1" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo')  value="<%=operbutton.getOrdernum()!=null?operbutton.getOrdernum():"" %>" id="order<%=operbutton.getId() %>" name="order<%=operbutton.getId() %>" MAXLENGTH="4" size="1" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
       </td>
       <td >
     <input type="text" size="40" value="<%=operbutton.getCode()!=null?operbutton.getCode():"" %>" id="code<%=operbutton.getId() %>" name="code<%=operbutton.getId() %>" MAXLENGTH="500" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">

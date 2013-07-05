@@ -282,7 +282,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='inputblur';" id=experience
-									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text  name=member.experience value="${member.experience }">
 							</TD>
 						</TR>
@@ -299,7 +299,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='inputblur';" id=credit
-									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text  name=member.credit value="${member.credit }">
 							</TD>
 						</TR>

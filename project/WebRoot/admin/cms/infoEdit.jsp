@@ -16,6 +16,7 @@
 		<link rel="stylesheet" href="../../img/style3.css" type="text/css" />
 	<link rel="stylesheet" href="../../js/jquery.treeview.css" />
 		<script type="text/javascript" src="../../js/jquery-1.5.1.min.js"></script>
+		<script type="text/javascript" src="../../js/check.js"></script>
 	<script src="../../js/jquery.cookie.js" type="text/javascript"></script>
 	<script src="../../js/jquery.treeview.js" type="text/javascript"></script>
 	<script src="../../js/jquery.treeview.edit.js" type="text/javascript"></script>
@@ -474,7 +475,7 @@
 					    		<td><INPUT onblur="this.className='inputblur';" class=inputblur onfocus="this.className='inputfocus';"   maxLength=250 size=40 type=text name=oldimgstitle<s:property value="id"/> value='<s:property value="title"/>'/></td>
 					  			</tr><tr>
 					    		<td>顺序:</td>
-					    		<td><INPUT onblur="this.className='inputblur';" class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') .
+					    		<td><INPUT onblur="this.className='inputblur';" class=inputblur onfocus="this.className='inputfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') .
 					    		  maxLength=10 size=4 type=text name=oldimgsordernum<s:property value="id"/> value='<s:property value="ordernum"/>'/></td>
 					  			</tr><tr>
 					    		<td>描述:</td>

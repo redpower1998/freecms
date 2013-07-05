@@ -59,7 +59,7 @@
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='colorblur';" id=ordernum
-									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text name=memberauth.ordernum value="${memberauth.ordernum }">
 							</TD>
 						</TR>

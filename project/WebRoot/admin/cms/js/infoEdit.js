@@ -158,7 +158,7 @@ function selectImgsDo( fileUrl )
     		"<td><INPUT onblur=\"this.className='inputblur';\" class=inputblur onfocus=\"this.className='inputfocus';\"   maxLength=250 size=40 type=text name=imgstitle"+id+" /></td>"+
   			"</tr><tr>"+
     		"<td>顺序:</td>"+
-    		"<td><INPUT onblur=\"this.className='inputblur';\" class=inputblur onfocus=\"this.className='inputfocus';\" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')   maxLength=10 size=4 type=text name=imgsordernum"+id+" /></td>"+
+    		"<td><INPUT onblur=\"this.className='inputblur';\" class=inputblur onfocus=\"this.className='inputfocus';\" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo')   maxLength=10 size=4 type=text name=imgsordernum"+id+" /></td>"+
   			"</tr><tr>"+
     		"<td>描述:</td>"+
     		"<td><textarea  class=inputblur onfocus=\"this.className='inputfocus';\" onblur=\"this.className='inputblur';if(this.value.length>500){alert('最多500个字符');this.focus()}\" name=imgscontent"+id+" cols=40 rows=3></textarea>(最多500个字符)</td>"+

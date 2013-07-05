@@ -60,7 +60,7 @@
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='colorblur';" id=ordernum
-									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text name=creditrule.ordernum value="${creditrule.ordernum }">
 							</TD>
 						</TR>
@@ -116,7 +116,7 @@
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='colorblur';" id=cycletime
-									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text name=creditrule.cycletime value="${creditrule.cycletime }">
 							</TD>
 						</TR>
@@ -133,7 +133,7 @@
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='colorblur';" id=rewardnum
-									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text name=creditrule.rewardnum value="${creditrule.rewardnum }">
 							</TD>
 						</TR>
@@ -150,7 +150,7 @@
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='colorblur';" id=credit
-									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text name=creditrule.credit value="${creditrule.credit }">
 							</TD>
 						</TR>
@@ -167,7 +167,7 @@
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='colorblur';" id=experience
-									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text name=creditrule.experience value="${creditrule.experience }">
 							</TD>
 						</TR>

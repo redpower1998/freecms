@@ -23,6 +23,7 @@
 		<script type="text/javascript" src="../../js/weebox0.4/bgiframe.js"></script>
 		<script type="text/javascript" src="../../js/weebox0.4/weebox.js"></script>
 		<link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox.css" />
+	<script src="../../js/check.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/htmlChannel.js">
 </script>
 	</head>
@@ -72,7 +73,7 @@
     <tr>
     <td align="left" valign="top" id="buttonTable">
     	生成前<INPUT onblur="this.className='colorblur';" id=pagenum size="4"
-									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text name=pagenum value="">页(不填生成所有)
     </td>
     </tr>

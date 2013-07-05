@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="../../js/weebox0.4/weebox.js"></script>
 		<link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox.css" />
 		<script type="text/javascript" src="../../js/checkLoginName.js"></script>
+		<script type="text/javascript" src="../../js/check.js"></script>
 		<script type="text/javascript" src="js/channelEdit.js">
 		</script>
 		<form action="channel_editDo.do" method="post" enctype="multipart/form-data">
@@ -170,7 +171,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</TD>
 							<TD width="70%" align="left">
 								<INPUT onblur="this.className='colorblur';" id=ordernum
-									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+									class=colorblur onfocus="this.className='colorfocus';" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									maxLength=50 type=text name=channel.ordernum value="${channel.ordernum }">
 							</TD>
 						</TR>
@@ -263,7 +264,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</LABEL>
 							</TD>
 							<TD width="70%" align="left">
-								<INPUT onblur="this.className='colorblur';" id=maxpage onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') 
+								<INPUT onblur="this.className='colorblur';" id=maxpage onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') 
 									class=colorblur onfocus="this.className='colorfocus';" 
 									maxLength=50 type=text name=channel.maxpage value="${channel.maxpage }">
 							</TD>

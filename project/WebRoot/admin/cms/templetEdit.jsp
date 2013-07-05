@@ -57,7 +57,7 @@
 								</LABEL>
 							</TD>
 							<TD align="left">
-          		<input type="text" id="ordernum" value="${templet.ordernum }" name="templet.ordernum" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo') class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
+          		<input type="text" id="ordernum" value="${templet.ordernum }" name="templet.ordernum" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo') class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
 							</TD>
 						</TR>
 						<TR>

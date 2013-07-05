@@ -70,7 +70,7 @@ if(id!=null && id.trim().length()>0){
       </td>
       <td >
      
-    <input type="text"  id="order"  onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')  name="order" MAXLENGTH="4" size="1" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
+    <input type="text"  id="order"  onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo')  name="order" MAXLENGTH="4" size="1" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
       </td>
       <td >
     
@@ -100,7 +100,7 @@ if(id!=null && id.trim().length()>0){
       </td>
       <td >
      
-    <input type="text" size="1" onkeyup=if(isNaN(value))execCommand('undo') onafterpaste=if(isNaN(value))execCommand('undo')  value="<%=answer.getOrdernum()!=null?answer.getOrdernum():"" %>" id="order<%=answer.getId() %>" name="order<%=answer.getId() %>" MAXLENGTH="4" size="1" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
+    <input type="text" size="1" onkeyup=if(!isInt(value))execCommand('undo') onafterpaste=if(!isInt(value))execCommand('undo')  value="<%=answer.getOrdernum()!=null?answer.getOrdernum():"" %>" id="order<%=answer.getId() %>" name="order<%=answer.getId() %>" MAXLENGTH="4" size="1" class="colorblur" onfocus="this.className='colorfocus';" onblur="this.className='colorblur';">
       </td>
       <td >
     <%=answer.getSelectnum()!=null?answer.getSelectnum():"" %>
