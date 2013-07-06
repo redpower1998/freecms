@@ -51,6 +51,10 @@ public class JobAction extends BaseAction{
 	 * @return
 	 */
 	public String list(){
+		if (job==null) {
+			job=new Job();
+		}
+		job.setSiteid(getManageSite().getId());
 		jobList=jobService.find(job, order, currPage, pageSize);
 		totalCount=jobService.count(job);
 		Pager pager=new Pager(getHttpRequest());
