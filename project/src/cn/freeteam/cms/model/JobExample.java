@@ -211,6 +211,11 @@ public class JobExample extends BaseExample{
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
+        public Criteria andSiteidEqualTo(String value) {
+            addCriterion("siteid =", value, "siteid");
+            return (Criteria) this;
+        }
+
 
         public Criteria andIdNotEqualTo(String value) {
             addCriterion("id <>", value, "id");

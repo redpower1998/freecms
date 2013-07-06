@@ -3,6 +3,8 @@ package cn.freeteam.cms.service;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringUtils;
+
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.JobMapper;
 import cn.freeteam.cms.model.Job;
@@ -51,6 +53,9 @@ public class JobService extends BaseService{
 	 */
 	public void proSearchParam(Job job,Criteria criteria){
 		if (job!=null ) {
+			if (StringUtils.isNotEmpty(job.getSiteid())) {
+				criteria.andSiteidEqualTo(job.getSiteid());
+			}
 		}
 	}
 
