@@ -167,6 +167,10 @@
 			<result name="sysSiteComment" >/admin/cms/sysSiteComment.jsp</result>
 			<result name="sysSiteCommentExport" >/admin/cms/sysSiteCommentExport.jsp</result>
 		</action>
+		<action name="job_*" method="{1}" class="cn.freeteam.cms.action.JobAction">
+			<result name="list" >/admin/cms/jobList.jsp</result>
+			<result name="edit" >/admin/cms/jobEdit.jsp</result>
+		</action>
 	</package>
 	
 	<package name="cmsWeb" extends="struts-default" namespace="/">
