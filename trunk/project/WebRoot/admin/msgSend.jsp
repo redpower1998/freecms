@@ -15,7 +15,7 @@
 
 	<script type="text/javascript">
 	function WebForm_OnSubmit(){
-		if($("#tomembernames").val()=="" && !isCheck("membergroups")){
+		if($("#tomembernames").val()=="" && !isCheckName("membergroups")){
 			alert("请输入收信人或选择收信会员组!");
 			$("#tomembernames").focus();
 			return false;
