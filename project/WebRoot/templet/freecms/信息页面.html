@@ -170,6 +170,21 @@ function commentSubmit(){
 </form>
 <a href="${contextPath}templet_pro.do?siteid=${site.id}&currInfoid=${currInfo.id}&currChannelid=${currChannel.id}&templetPath=comment.html" target="_blank">查看全部评论</a>
 </#if>
+
+<br/>
+<b>上一条</b><br/>
+<ul>
+<@infoPreList infoid="${currInfo.id}"  channelid="${currChannel.id}" titleLen="23" ; info,index>
+<li><a href="${info.pageurl}">${info.showtitle}</a></li>
+</@infoPreList>
+</ul>
+<br/>
+<b>下一条</b><br/>
+<ul>
+<@infoNextList infoid="${currInfo.id}"  channelid="${currChannel.id}" titleLen="23" ; info,index>
+<li><a href="${info.pageurl}">${info.showtitle}</a></li>
+</@infoNextList>
+</ul>
 <br/>
 <b>相关新闻</b><br/>
 <ul>
