@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+
 
 import cn.freeteam.base.BaseDirective;
 import cn.freeteam.cms.model.Channel;
@@ -29,13 +31,14 @@ import freemarker.template.TemplateModel;
 
 /**
  * 
- * <p>Title: InfoListDirective.java</p>
+ * <p>Title: InfoNextListDirective.java</p>
  * 
- * <p>Description: 信息列表标签
+ * <p>Description: 下几条 信息列表标签
  * 参数
  * siteid		站点id
  * channelid	栏目id
  * channelParid	栏目parid
+ * infoid		信息id
  * num			显示数量
  * order		排序类型  
  * 				1 固顶有效并降序,发布时间降序(默认)
@@ -76,7 +79,7 @@ import freemarker.template.TemplateModel;
  * <p>Reason: </p>
  * <p>============================================</p>
  */
-public class InfoListDirective extends BaseDirective implements TemplateDirectiveModel{
+public class InfoNextListDirective extends BaseDirective implements TemplateDirectiveModel{
 
 	private InfoService infoService;
 	private SiteService siteService;
@@ -90,7 +93,7 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 		this.siteService = siteService;
 	}
 
-	public InfoListDirective(){
+	public InfoNextListDirective(){
 		init("infoService","siteService");
 	}
 
@@ -103,12 +106,13 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 		//栏目id
 		String channelid=getParam(params, "channelid");
 		String channelParid=getParam(params, "channelParid");
+		String infoid=getParam(params, "infoid");
 		//显示数量
-		int num=getParamInt(params, "num", 10);
+		int num=getParamInt(params, "num", 1);
 		//排序
 		String order=getParam(params, "order","1");
 		//标题长度
-		int titleLen=getParamInt(params, "titleLen",0);
+		int titleLen=getParamInt(params, "titleLen",10);
 		//是否按点击热度查询
 		String hot=getParam(params, "hot");
 		//日期格式
@@ -124,6 +128,13 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 		if (body!=null) {
 			//设置循环变量
 			if (loopVars!=null && loopVars.length>0 ) {
+				Info currInfo=null;
+				if (StringUtils.isNotEmpty(infoid)) {
+					currInfo=infoService.findById(infoid);
+					if (StringUtils.isEmpty(siteid)) {
+						siteid=currInfo.getSite();
+					}
+				}
 				//查询信息
 				Info info=new Info();
 				if (siteid.trim().length()>0) {
@@ -157,22 +168,38 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 				String orderSql="";
 				if ("1".equals(hot)) {
 					orderSql=" clickNum desc,addtime desc ";
+					if (currInfo!=null) {
+						info.setInfoEndClicknum(currInfo.getClicknum());
+						info.setInfoendtimeNoeq(currInfo.getAddtime());
+					}
 				}else {
 					if ("1".equals(order)) {
 						//固顶有效并降序,发布时间降序(默认)
 						orderSql=" isTop desc,addtime desc";
+						if (currInfo!=null) {
+							info.setInfoendtimeNoeq(currInfo.getAddtime());
+						}
 					}
 					else if ("2".equals(order)) {
 						//固顶有效并降序,发布时间升序
 						orderSql=" isTop desc,addtime";
+						if (currInfo!=null) {
+							info.setInfostarttimeNoeq(currInfo.getAddtime());
+						}
 					}
 					else if ("3".equals(order)) {
 						//发布时间倒序
 						orderSql=" addtime desc";
+						if (currInfo!=null) {
+							info.setInfoendtimeNoeq(currInfo.getAddtime());
+						}
 					}
 					else if ("4".equals(order)) {
 						//发布时间升序
 						orderSql=" addtime";
+						if (currInfo!=null) {
+							info.setInfostarttimeNoeq(currInfo.getAddtime());
+						}
 					}
 				}
 				List<Info> infoList=infoService.find(info, orderSql, 1, num);

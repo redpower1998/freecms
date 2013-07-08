@@ -151,7 +151,7 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 				info.setCheckOpenendtime(getParam(params, "checkOpenendtime"));
 				String orderSql="";
 				if ("1".equals(hot)) {
-					orderSql=" clickNum desc ";
+					orderSql=" clickNum desc,addtime desc ";
 				}else {
 					if ("1".equals(order)) {
 						//固顶有效并降序,发布时间降序(默认)
