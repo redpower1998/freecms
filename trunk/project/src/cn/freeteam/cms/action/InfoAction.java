@@ -37,6 +37,7 @@ import cn.freeteam.model.Roles;
 import cn.freeteam.model.Users;
 import cn.freeteam.service.UserService;
 import cn.freeteam.util.FileUtil;
+import cn.freeteam.util.HtmlCode;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.Pager;
 
@@ -359,6 +360,13 @@ public class InfoAction extends BaseAction{
 	    				if (info.getImg()==null || info.getImg().trim().length()==0) {
 	    					info.setImg(infoImg.getImg());
 	    				}
+					}
+				}
+				//如果没有摘要，则自动生成
+				if (StringUtils.isEmpty(info.getDescription())) {
+					info.setDescription(HtmlCode.replaceHtml(info.getContent()));
+					if (info.getDescription().length()>500) {
+						info.setDescription(info.getDescription().substring(0,500));
 					}
 				}
 				if (info.getId()!=null && info.getId().trim().length()>0) {
