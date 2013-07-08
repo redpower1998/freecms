@@ -1,6 +1,9 @@
 package cn.freeteam.cms.action;
 
+import java.util.Date;
 import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Job;
@@ -87,11 +90,14 @@ public class JobAction extends BaseAction{
 	public String editDo(){
 		String oper="添加";
 		try {
-			if (job!=null && job.getId()!=null) {
+			if (job!=null && StringUtils.isNotEmpty(job.getId())) {
 				oper="修改";
 				jobService.update(job);
 			}else {
 				//添加
+				if (job.getAddtime()==null) {
+					job.setAddtime(new Date());
+				}
 				jobService.add(job);
 			}
 			logContent=oper+"职位("+job.getName()+")成功!";
