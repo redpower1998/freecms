@@ -48,7 +48,7 @@
 			$("#email").focus();
 			return false;
 		}
-		MyForm.submit();
+		return true;
 	}
 	function roleSelect(){
 		var para="";
