@@ -30,7 +30,9 @@ import cn.freeteam.cms.freemarker.directive.InfoAttchsDirective;
 import cn.freeteam.cms.freemarker.directive.InfoDirective;
 import cn.freeteam.cms.freemarker.directive.InfoImgDirective;
 import cn.freeteam.cms.freemarker.directive.InfoListDirective;
+import cn.freeteam.cms.freemarker.directive.InfoNextListDirective;
 import cn.freeteam.cms.freemarker.directive.InfoPageDirective;
+import cn.freeteam.cms.freemarker.directive.InfoPreListDirective;
 import cn.freeteam.cms.freemarker.directive.InfoRelateDirective;
 import cn.freeteam.cms.freemarker.directive.InfoSearchDirective;
 import cn.freeteam.cms.freemarker.directive.InfoSignDirective;
@@ -172,6 +174,8 @@ public class FreeMarkerUtil {
 			freemarkerCfg.setSharedVariable("channelPath", new ChannelPathDirective());
 			//信息类
 			freemarkerCfg.setSharedVariable("infoList", new InfoListDirective());
+			freemarkerCfg.setSharedVariable("infoPreList", new InfoPreListDirective());
+			freemarkerCfg.setSharedVariable("infoNextList", new InfoNextListDirective());
 			freemarkerCfg.setSharedVariable("infoPage", new InfoPageDirective());
 			freemarkerCfg.setSharedVariable("infoAttchs", new InfoAttchsDirective());
 			freemarkerCfg.setSharedVariable("infoSearch", new InfoSearchDirective());

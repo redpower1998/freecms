@@ -87,6 +87,14 @@ public class Info implements Serializable{
     private Date infoendtime;
     private String infostarttimeStr;
     private String infoendtimeStr;
+
+    private Date infostarttimeNoeq;
+    private Date infoendtimeNoeq;
+    private String infostarttimeNoeqStr;
+    private String infoendtimeNoeqStr;
+    
+    private int infoStartClicknum;
+    private int infoEndClicknum;
     private String searchKey;
     private String ishot;//是否热点
 
@@ -1148,6 +1156,60 @@ public class Info implements Serializable{
 
 	public void setIshot(String ishot) {
 		this.ishot = ishot;
+	}
+
+	public int getInfoStartClicknum() {
+		return infoStartClicknum;
+	}
+
+	public void setInfoStartClicknum(int infoStartClicknum) {
+		this.infoStartClicknum = infoStartClicknum;
+	}
+
+	public int getInfoEndClicknum() {
+		return infoEndClicknum;
+	}
+
+	public void setInfoEndClicknum(int infoEndClicknum) {
+		this.infoEndClicknum = infoEndClicknum;
+	}
+
+	public Date getInfostarttimeNoeq() {
+		return infostarttimeNoeq;
+	}
+
+	public void setInfostarttimeNoeq(Date infostarttimeNoeq) {
+		this.infostarttimeNoeq = infostarttimeNoeq;
+	}
+
+	public Date getInfoendtimeNoeq() {
+		return infoendtimeNoeq;
+	}
+
+	public void setInfoendtimeNoeq(Date infoendtimeNoeq) {
+		this.infoendtimeNoeq = infoendtimeNoeq;
+	}
+
+	public String getInfostarttimeNoeqStr() {
+		if (infostarttimeNoeq!=null) {
+			infostarttimeNoeqStr=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(infostarttimeNoeq);
+		}
+		return infostarttimeNoeqStr;
+	}
+
+	public void setInfostarttimeNoeqStr(String infostarttimeNoeqStr) {
+		this.infostarttimeNoeqStr = infostarttimeNoeqStr;
+	}
+
+	public String getInfoendtimeNoeqStr() {
+		if (infoendtimeNoeq!=null) {
+			infoendtimeNoeqStr=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(infoendtimeNoeq);
+		}
+		return infoendtimeNoeqStr;
+	}
+
+	public void setInfoendtimeNoeqStr(String infoendtimeNoeqStr) {
+		this.infoendtimeNoeqStr = infoendtimeNoeqStr;
 	}
 
 }
