@@ -68,7 +68,7 @@ function checkAllGroup(checked,idpre){
 		}
 	}
 }
-function isCheck(name){
+function isCheckName(name){
 	var objs=document.getElementsByName(name);
 	if(objs!=null && objs.length>0){
 		for(var i=0;i<objs.length;i++){
