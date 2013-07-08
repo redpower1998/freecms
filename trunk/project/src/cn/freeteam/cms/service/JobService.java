@@ -56,6 +56,15 @@ public class JobService extends BaseService{
 			if (StringUtils.isNotEmpty(job.getSiteid())) {
 				criteria.andSiteidEqualTo(job.getSiteid());
 			}
+			if (StringUtils.isNotEmpty(job.getName())) {
+				criteria.andNameLike("%"+job.getName().trim()+"%");
+			}
+			if (StringUtils.isNotEmpty(job.getUnitname())) {
+				criteria.andUnitnameLike("%"+job.getUnitname().trim()+"%");
+			}
+			if (StringUtils.isNotEmpty(job.getAddress())) {
+				criteria.andAddressLike("%"+job.getAddress().trim()+"%");
+			}
 		}
 	}
 
