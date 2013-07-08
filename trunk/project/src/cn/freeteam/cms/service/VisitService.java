@@ -328,6 +328,20 @@ public class VisitService extends BaseService{
 			}
 		}
 	}
+	/**
+	 * 统计
+	 * @param visit
+	 * @return
+	 */
+	public int count(Visit visit,boolean cache){
+		VisitExample example=new VisitExample();
+		Criteria criteria=example.createCriteria();
+		proSearchParam(visit, criteria);
+		if (cache) {
+			return visitMapper.countByExampleCache(example);
+		}
+		return visitMapper.countByExample(example);
+	}
 	public VisitMapper getVisitMapper() {
 		return visitMapper;
 	}
