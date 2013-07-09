@@ -369,6 +369,7 @@ public class InfoAction extends BaseAction{
 						info.setDescription(info.getDescription().substring(0,500));
 					}
 				}
+				info.setIsimgs("0");
 				if (info.getId()!=null && info.getId().trim().length()>0) {
 					//更新
 					oper="更新";
@@ -429,12 +430,21 @@ public class InfoAction extends BaseAction{
 				init("infoSignService");
 				infoSignService.infoedit(info.getId(), signusers);
 				//处理图片集
+				init("infoImgService");
 				if (infoImgList.size()>0) {
-					init("infoImgService");
 					for (int i = 0; i < infoImgList.size(); i++) {
 						infoImgList.get(i).setInfoid(info.getId());
 						infoImgService.add(infoImgList.get(i));
 					}
+				}
+				
+				//查询图片集
+				InfoImg infoImg=new InfoImg();
+				infoImg.setInfoid(info.getId());
+				if (infoImgService.count(infoImg)>0) {
+					info=infoService.findById(info.getId());
+					info.setIsimgs("1");
+					infoService.update(info);
 				}
 				//生成静态页面
 				infoService.html(info.getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
