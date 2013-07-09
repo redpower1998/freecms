@@ -15,6 +15,7 @@ import cn.freeteam.cms.model.Site;
 import cn.freeteam.cms.service.ChannelService;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.SiteService;
+import cn.freeteam.util.DateUtil;
 
 
 import freemarker.core.Environment;
@@ -49,6 +50,7 @@ import freemarker.template.TemplateModel;
  * channelParPagemark	父栏目页面标识
  * img			是否只提取带图片的新闻	1是
  * checkOpenendtime	检查公开时限 默认不检查，1检查
+ * newdays		几天内为最新
  * 
  * 返回值
  * info			信息对象
@@ -109,6 +111,8 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 		String order=getParam(params, "order","1");
 		//标题长度
 		int titleLen=getParamInt(params, "titleLen",0);
+		//几天内为最新
+		int newdays=getParamInt(params, "newdays",0);
 		//是否按点击热度查询
 		String hot=getParam(params, "hot");
 		//日期格式
@@ -184,6 +188,11 @@ public class InfoListDirective extends BaseDirective implements TemplateDirectiv
 						}
 						if (dateFormat.trim().length()>0) {
 							infoList.get(i).setDateFormat(dateFormat);
+						}
+						if (newdays>0 && 
+								(DateUtil.differ(infoList.get(i).getAddtime(), new Date())/(1000*60*60*24))<newdays) {
+							//判断是否为最新新闻
+							infoList.get(i).setIsnew("1");
 						}
 						//设置sitepath
 						if (site!=null) {
