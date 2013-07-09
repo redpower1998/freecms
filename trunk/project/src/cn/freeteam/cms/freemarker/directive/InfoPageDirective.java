@@ -16,6 +16,7 @@ import cn.freeteam.cms.service.ChannelService;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.cms.util.FreemarkerPager;
+import cn.freeteam.util.DateUtil;
 
 
 import freemarker.core.Environment;
@@ -51,6 +52,7 @@ import freemarker.template.TemplateModel;
  * page			当前第几页，默认1			
  * pagenum		最多显示页数
  * checkOpenendtime	检查公开时限 默认不检查，1检查
+ * newdays		几天内为最新
  * 
  * 返回值
  * infoList		信息对象列表
@@ -116,6 +118,8 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 		int page=getParamInt(params, "page", 1);
 		//最多显示页数
 		int pagenum=getParamInt(params, "pagenum", 0);
+		//几天内为最新
+		int newdays=getParamInt(params, "newdays",0);
 		
 		
 		Writer out =env.getOut();
@@ -190,6 +194,11 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 						}
 						if (dateFormat.trim().length()>0) {
 							infoList.get(i).setDateFormat(dateFormat);
+						}
+						if (newdays>0 && 
+								(DateUtil.differ(infoList.get(i).getAddtime(), new Date())/(1000*60*60*24))<newdays) {
+							//判断是否为最新新闻
+							infoList.get(i).setIsnew("1");
 						}
 						//设置sitepath
 						if (site!=null) {

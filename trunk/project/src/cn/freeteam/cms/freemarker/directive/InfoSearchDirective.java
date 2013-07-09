@@ -16,6 +16,7 @@ import cn.freeteam.cms.service.ChannelService;
 import cn.freeteam.cms.service.InfoService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.cms.util.FreemarkerPager;
+import cn.freeteam.util.DateUtil;
 
 
 import freemarker.core.Environment;
@@ -48,6 +49,7 @@ import freemarker.template.TemplateModel;
  * page			当前第几页，默认1	
  * action		提交页面地址		
  * key			搜索关键词
+ * newdays		几天内为最新
  * 
  * 返回值
  * infoList		信息对象列表
@@ -108,6 +110,8 @@ public class InfoSearchDirective extends BaseDirective implements TemplateDirect
 		String action=getParam(params, "action");
 		//获取关键字
 		String key=getParam(params, "key");
+		//几天内为最新
+		int newdays=getParamInt(params, "newdays",0);
 		
 		
 		Writer out =env.getOut();
@@ -171,6 +175,11 @@ public class InfoSearchDirective extends BaseDirective implements TemplateDirect
 						}
 						if (dateFormat.trim().length()>0) {
 							infoList.get(i).setDateFormat(dateFormat);
+						}
+						if (newdays>0 && 
+								(DateUtil.differ(infoList.get(i).getAddtime(), new Date())/(1000*60*60*24))<newdays) {
+							//判断是否为最新新闻
+							infoList.get(i).setIsnew("1");
 						}
 						//设置sitepath
 						if (site!=null) {
