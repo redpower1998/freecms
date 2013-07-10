@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ResponseUtil {
 
 	public static void  writeGBK(HttpServletResponse response,String content) {
-		response.setCharacterEncoding("GBK");
+		response.setContentType("text/html;charset=GBK");
 		try {
 			response.getWriter().print(content);
 		} catch (IOException e) {
@@ -16,7 +16,7 @@ public class ResponseUtil {
 		}
 	}
 	public static void  writeUTF(HttpServletResponse response,String content) {
-		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		try {
 			response.getWriter().print(content);
 		} catch (IOException e) {
