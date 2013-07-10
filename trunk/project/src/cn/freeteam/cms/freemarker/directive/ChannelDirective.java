@@ -30,6 +30,7 @@ import freemarker.template.TemplateModel;
  * id		栏目id
  * siteid	站点id
  * pagemark	栏目页面标识
+ * checkHasSon 是否检查有子栏目 1是
  * 
  * 返回值
  * channel 栏目对象
@@ -93,6 +94,10 @@ public class ChannelDirective extends BaseDirective implements TemplateDirective
 					if (site!=null) {
 						channel.setSitepath(env.getDataModel().get("contextPath").toString()
 								+"site/"+site.getSourcepath()+"/");
+					}
+					if ("1".equals(getParam(params, "checkHasSon"))) {
+						//检查是否有子栏目
+						channel.setHasChildren(channelService.hasChildren(channel.getId())?"1":"0");
 					}
 					loopVars[0]=new BeanModel(channel,new BeansWrapper());  
 					body.render(env.getOut());  
