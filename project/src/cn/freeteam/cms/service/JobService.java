@@ -43,10 +43,13 @@ public class JobService extends BaseService{
 	 * @param info
 	 * @return
 	 */
-	public int count(Job job){
+	public int count(Job job,boolean cache){
 		JobExample example=new JobExample();
 		Criteria criteria=example.createCriteria();
 		proSearchParam(job, criteria);
+		if (cache) {
+			return jobMapper.countByExampleCache(example);
+		}
 		return jobMapper.countByExample(example);
 	}
 
@@ -84,7 +87,10 @@ public class JobService extends BaseService{
 	 * @param cache
 	 * @return
 	 */
-	public Job findById(String id){
+	public Job findById(String id,boolean cache){
+		if (cache) {
+			return jobMapper.selectByPrimaryKeyCache(id);
+		}
 		return jobMapper.selectByPrimaryKey(id);
 	}
 	/**
