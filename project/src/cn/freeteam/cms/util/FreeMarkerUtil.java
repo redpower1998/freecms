@@ -36,6 +36,7 @@ import cn.freeteam.cms.freemarker.directive.InfoPreListDirective;
 import cn.freeteam.cms.freemarker.directive.InfoRelateDirective;
 import cn.freeteam.cms.freemarker.directive.InfoSearchDirective;
 import cn.freeteam.cms.freemarker.directive.InfoSignDirective;
+import cn.freeteam.cms.freemarker.directive.JobListDirective;
 import cn.freeteam.cms.freemarker.directive.LinkClassDirective;
 import cn.freeteam.cms.freemarker.directive.LinkDirective;
 import cn.freeteam.cms.freemarker.directive.MailListDirective;
@@ -218,6 +219,8 @@ public class FreeMarkerUtil {
 			freemarkerCfg.setSharedVariable("guestbookList", new GuestbookListDirective());
 			freemarkerCfg.setSharedVariable("guestbookPage", new GuestbookPageDirective());
 			freemarkerCfg.setSharedVariable("guestbook", new GuestbookDirective());
+			//职位
+			freemarkerCfg.setSharedVariable("jobList", new JobListDirective());
 			//其它
 			freemarkerCfg.setSharedVariable("video", new VideoDirective());
 			freemarkerCfg.setSharedVariable("URLEncoder", new URLEncoderDirective());

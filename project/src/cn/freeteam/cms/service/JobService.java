@@ -1,5 +1,6 @@
 package cn.freeteam.cms.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,7 +24,7 @@ public class JobService extends BaseService{
 	/**
 	 * 分页查询
 	 */
-	public List<Job> find(Job job,String order,int currPage,int pageSize){
+	public List<Job> find(Job job,String order,int currPage,int pageSize,boolean cache){
 		JobExample example=new JobExample();
 		Criteria criteria=example.createCriteria();
 		proSearchParam(job, criteria);
@@ -32,6 +33,9 @@ public class JobService extends BaseService{
 		}
 		example.setCurrPage(currPage);
 		example.setPageSize(pageSize);
+		if (cache) {
+			return jobMapper.selectPageByExampleCache(example);
+		}
 		return jobMapper.selectPageByExample(example);
 	}
 	/**
@@ -64,6 +68,12 @@ public class JobService extends BaseService{
 			}
 			if (StringUtils.isNotEmpty(job.getAddress())) {
 				criteria.andAddressLike("%"+job.getAddress().trim()+"%");
+			}
+			if ("1".equals(job.getIsend())) {
+				criteria.andEndtimeLessThan(new Date());
+			}
+			if ("0".equals(job.getIsend())) {
+				criteria.andEndtimeGreaterThanOrEqualTo(new Date());
 			}
 		}
 	}

@@ -91,7 +91,7 @@ public class QuestionPageDirective extends BaseDirective implements TemplateDire
 				String siteid=getParam(params, "siteid");
 				String order=getParam(params, "order");
 				String orderSql=" addtime desc ";
-				if ("1".equals(order)) {
+				if ("2".equals(order)) {
 					orderSql=" addtime ";
 				}
 				boolean cache="true".equals(getParam(params, "cache"))?true:false;
