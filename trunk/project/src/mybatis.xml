@@ -85,5 +85,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="cn/freeteam/cms/model/GuestbookMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/StoreMapper.xml"/>
 		<mapper resource="cn/freeteam/cms/model/JobMapper.xml"/>
+		<mapper resource="cn/freeteam/cms/model/ResumeMapper.xml"/>
 	</mappers>	
 </configuration>
