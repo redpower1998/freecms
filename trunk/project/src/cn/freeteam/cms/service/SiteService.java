@@ -208,6 +208,7 @@ public class SiteService extends BaseService{
 			//传递site参数
 			data.put("site", site);
 			data.put("contextPath", contextPath);
+			data.put("contextPathNo", request.getContextPath());
 			FreeMarkerUtil.createHTML(context, data, 
 					"templet/"+site.getIndextemplet().trim()+"/首页.html", 
 					request.getRealPath("/")+"/site/"+site.getSourcepath()+"/index.html");
