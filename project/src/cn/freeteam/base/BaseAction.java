@@ -313,6 +313,7 @@ public class BaseAction extends BaseService{
 		//传递site参数
 		data.put("site", site);
 		data.put("contextPath", getContextPath());
+		data.put("contextPathNo", getContextPathNo());
 		data.put("request_remoteAddr", getHttpRequest().getRemoteAddr());
 		//获取参数并放入data
 		Enumeration<String> paramNames=getHttpRequest().getParameterNames();
@@ -353,6 +354,9 @@ public class BaseAction extends BaseService{
 		}
 	}
 	public String getContextPath(){
+		return getHttpRequest().getContextPath()+"/";
+	}
+	public String getContextPathNo(){
 		return getHttpRequest().getContextPath()+"/";
 	}
 	public String getPageStr() {

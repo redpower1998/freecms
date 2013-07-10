@@ -95,6 +95,7 @@ public class InfoService extends BaseService{
 				data.put("currChannel", channel);
 				data.put("currInfo", info);
 				data.put("contextPath", contextPath);
+				data.put("contextPathNo", request.getContextPath());
 				//生成目录
 				String rootFolder=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+info.getChannelFolder()+"/info/"+(info.getAddtime().getYear()+1900)+"/";
 				File folder=new File(rootFolder);

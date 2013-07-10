@@ -368,6 +368,7 @@ public class ChannelService extends BaseService{
 				data.put("page", page);
 				data.put("pagenum", pagenum);
 				data.put("contextPath", request.getContextPath()+"/");
+				data.put("contextPathNo", request.getContextPath());
 				String rootPath=request.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getFolder()+"/";
 				//判断栏目文件夹是否存在
 				File channelFolder=new File(rootPath);
@@ -431,6 +432,7 @@ public class ChannelService extends BaseService{
 					data.put("pagenum", channel.getMaxpage());
 				}
 				data.put("contextPath", context.getContextPath()+"/");
+				data.put("contextPathNo", context.getContextPath());
 				String rootPath=context.getRealPath("/")+"/site/"+site.getSourcepath()+"/"+channel.getFolder()+"/";
 				//判断栏目文件夹是否存在
 				File channelFolder=new File(rootPath);
