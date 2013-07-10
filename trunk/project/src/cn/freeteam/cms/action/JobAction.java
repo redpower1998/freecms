@@ -59,7 +59,7 @@ public class JobAction extends BaseAction{
 		}
 		job.setSiteid(getManageSite().getId());
 		jobList=jobService.find(job, order, currPage, pageSize,false);
-		totalCount=jobService.count(job);
+		totalCount=jobService.count(job,false);
 		Pager pager=new Pager(getHttpRequest());
 		pager.appendParam("job.name");
 		pager.appendParam("order");
@@ -79,7 +79,7 @@ public class JobAction extends BaseAction{
 	 */
 	public String edit(){
 		if (job!=null && job.getId()!=null && job.getId().trim().length()>0) {
-			job=jobService.findById(job.getId());
+			job=jobService.findById(job.getId(),false);
 		}
 		return "edit";
 	}
@@ -123,7 +123,7 @@ public class JobAction extends BaseAction{
 				for (int i = 0; i < idArr.length; i++) {
 					if (idArr[i].trim().length()>0) {
 						try {
-							job=jobService.findById(idArr[i]);
+							job=jobService.findById(idArr[i],false);
 							if (job!=null) {
 								jobService.del(job.getId());
 								sb.append(idArr[i]+";");

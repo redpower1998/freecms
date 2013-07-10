@@ -57,9 +57,9 @@ ${pager.formPageStr}
  * 
  * <p>Copyright: 2013</p>
  * 
- * <p>Company: bfsoft</p>
+ * <p>Company: freeteam</p>
  * 
- * @author 王浩强
+ * @author freeteam
  * @version 1.0
  * 
  * <p>============================================</p>
