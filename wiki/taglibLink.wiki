@@ -135,8 +135,9 @@
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
 	提取下拉链接</p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	{{{
-	<@linkClass siteid="${site.id}" type="1";linkClass>
+
+{{{
+<@linkClass siteid="${site.id}" type="1";linkClass>
 
 <select  onchange="if(this.value!=''){window.open(this.value);}" >
 
@@ -151,8 +152,8 @@
 </select>
 
 </@linkClass> 
-	
-	
-	}}}</p>
+}}}
+
+</p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
 	<a href="http://static.oschina.net/uploads/space/2013/0312/144437_HwWk_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0312/144437_HwWk_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
