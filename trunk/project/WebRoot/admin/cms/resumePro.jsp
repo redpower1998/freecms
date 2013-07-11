@@ -65,7 +65,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<b>照片</b>
 							</TD>
 							<TD  align="left" colspan="3">
-							${resume.img }
+							<s:if test='%{resume.img!=null && resume.img!=""}'>
+							<a href="<%=path %>${resume.img }" target="_blank" title="点击查看原图"><img src="<%=path %>${resume.img }" width="80" height="100"/></a>
+							</s:if>
 							</TD>
 						</TR>
 						
@@ -131,7 +133,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<b>附件</b>
 							</TD>
 							<TD  align="left" colspan="3">
-							${resume.attch }
+							<s:if test='%{resume.attch!=null && resume.attch!=""}'>
+							<a href="<%=basePath %>${resume.attch }" target="_blank">附件下载</a>
+							</s:if>
 							</TD>
 						</TR>
 						<TR>
