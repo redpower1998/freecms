@@ -171,6 +171,10 @@
 			<result name="list" >/admin/cms/jobList.jsp</result>
 			<result name="edit" >/admin/cms/jobEdit.jsp</result>
 		</action>
+		<action name="resume_*" method="{1}" class="cn.freeteam.cms.action.ResumeAction">
+			<result name="list" >/admin/cms/resumeList.jsp</result>
+			<result name="pro" >/admin/cms/resumePro.jsp</result>
+		</action>
 	</package>
 	
 	<package name="cmsWeb" extends="struts-default" namespace="/">
