@@ -94,6 +94,9 @@ public class ResumeService extends BaseService{
 			if (StringUtils.isNotEmpty(resume.getMemberid())) {
 				criteria.andMemberidEqualTo(resume.getMemberid());
 			}
+			if (StringUtils.isNotEmpty(resume.getState())) {
+				criteria.andStateEqualTo(resume.getState());
+			}
 		}
 	}
 

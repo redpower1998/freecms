@@ -205,6 +205,12 @@
             </interceptor-ref>
             <interceptor-ref name="defaultStack" />
 		</action>
+		<action name="resume_*" method="{1}" class="cn.freeteam.cms.action.web.ResumeAction">
+			<interceptor-ref name="fileUpload">
+                <param name="maximumSize">2048000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+		</action>
 		<action name="applyopen_*" method="{1}" class="cn.freeteam.cms.action.web.ApplyopenAction">
 		</action>
 		<action name="store_*" method="{1}" class="cn.freeteam.cms.action.web.StoreAction">
@@ -231,6 +237,10 @@
 		</action>
 		<action name="store_*" method="{1}" class="cn.freeteam.cms.action.member.StoreAction">
 			<result name="list" >/member/storeList.jsp</result>
+		</action>
+		<action name="resume_*" method="{1}" class="cn.freeteam.cms.action.member.ResumeAction">
+			<result name="list" >/member/resumeList.jsp</result>
+			<result name="info" >/member/resumeInfo.jsp</result>
 		</action>
 	</package>
 </struts>
