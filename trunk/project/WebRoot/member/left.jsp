@@ -40,6 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <tr class="tr1"><td><a href="comment_list.do" target="right"><b>我的评论</b></a></td></tr>
 <tr class="tr1"><td><a href="guestbook_list.do" target="right"><b>我的留言</b></a></td></tr>
 <tr class="tr1"><td><a href="store_list.do" target="right"><b>我的收藏</b></a></td></tr>
+<tr class="tr1"><td><a href="resume_list.do" target="right"><b>我的简历</b></a></td></tr>
 <tr class="tr1"><td><b>站点信</b></td></tr>
 <tr class="tr1"><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="msg_send.do" target="right">写信</a></td></tr>
 <tr class="tr1"><td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="msg_tolist.do" target="right">收件箱</a></td></tr>
