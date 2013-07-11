@@ -352,6 +352,11 @@ public class ResumeExample extends BaseExample{
             return (Criteria) this;
         }
 
+        public Criteria andStateEqualTo(String value) {
+            addCriterion("state =", value, "state");
+            return (Criteria) this;
+        }
+
         public Criteria andMemberidNotEqualTo(String value) {
             addCriterion("memberid <>", value, "memberid");
             return (Criteria) this;

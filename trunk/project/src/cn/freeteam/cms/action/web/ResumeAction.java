@@ -11,19 +11,18 @@ import java.util.UUID;
 import javax.servlet.http.HttpSession;
 
 import cn.freeteam.base.BaseAction;
-import cn.freeteam.cms.model.Report;
+import cn.freeteam.cms.model.Resume;
 import cn.freeteam.cms.model.Site;
-import cn.freeteam.cms.service.ReportService;
+import cn.freeteam.cms.service.ResumeService;
 import cn.freeteam.cms.service.SiteService;
 import cn.freeteam.cms.util.FreeMarkerUtil;
 import cn.freeteam.util.FileUtil;
 import freemarker.template.TemplateModelException;
-
 /**
  * 
- * <p>Title: ReportAction.java</p>
+ * <p>Title: ResumeAction.java</p>
  * 
- * <p>Description:在线申报相关操作 </p>
+ * <p>Description:简历相关操作 </p>
  * 
  * <p>Date: Mar 17, 2013</p>
  * 
@@ -43,35 +42,28 @@ import freemarker.template.TemplateModelException;
  * <p>Reason: </p>
  * <p>============================================</p>
  */
-public class ReportAction extends BaseAction{
+public class ResumeAction extends BaseAction{
 
-	private ReportService reportService;
+	private ResumeService resumeService;
 	private SiteService siteService;
-	private Report report;
+	private Resume resume;
 	private String validatecode;
 	private String msg;
 	private String siteid;
 	private String templetPath;
 	private File attch;
 	private String attchFileName;
+	private File img;
+	private String imgFileName;
 	
-	public String getSiteid() {
-		return siteid;
+	public ResumeAction() {
+		init("resumeService","siteService");
 	}
-	public void setSiteid(String siteid) {
-		this.siteid = siteid;
-	}
-	public String getTempletPath() {
-		return templetPath;
-	}
-	public void setTempletPath(String templetPath) {
-		this.templetPath = templetPath;
-	}
-	public ReportAction() {
-		init("reportService","siteService");
-	}
+	
+	
+
 	public String save() throws TemplateModelException, IOException{
-		if (report!=null) {
+		if (resume!=null) {
 			Site site=siteService.findById(siteid);
 			if (site!=null && site.getIndextemplet()!=null 
 					&& site.getIndextemplet().trim().length()>0) {
@@ -80,11 +72,37 @@ public class ReportAction extends BaseAction{
 					msg="验证码错误!";
 				}else {
 					boolean issave=true;
-					report.setAddtime(new Date());
-					report.setIp(getHttpRequest().getRemoteAddr());
-					SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmss");
-					report.setQuerycode(sdf.format(new Date())+(int)(Math.random()*1000));
-					report.setState("0");
+					resume.setAddtime(new Date());
+					resume.setIp(getHttpRequest().getRemoteAddr());
+					resume.setState("0");
+					if (getLoginMember()!=null) {
+						resume.setMemberid(getLoginMember().getId());
+						resume.setMembername(getLoginMemberName());
+					}
+					if (img!=null) {
+						//生成目标文件
+						String root=getHttpRequest().getRealPath("/");
+						String ext=FileUtil.getExt(imgFileName).toLowerCase();
+						if (getConfigVal("imgType").indexOf(ext.replace(".", ""))<0) {
+							msg="<script>alert('只能上传"+getConfigVal("imgType")+"格式的图片!');history.back();</script>";
+							issave=false;
+						}else {
+							String id=UUID.randomUUID().toString();
+							File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
+							File folder=new File(root+"\\upload\\"+site.getId()+"\\");
+							if (!folder.exists()) {
+								folder.mkdirs();
+							}
+							if (!targetFile.exists()) {
+								targetFile.createNewFile();
+							}
+							//复制到目标文件
+							FileUtil.copy(img, targetFile);
+
+							//生成访问地址
+							resume.setImg("/upload/"+site.getId()+"/"+id+ext);
+						}
+					}
 					if (attch!=null) {
 						//生成目标文件
 						String root=getHttpRequest().getRealPath("/");
@@ -106,12 +124,12 @@ public class ReportAction extends BaseAction{
 							FileUtil.copy(attch, targetFile);
 
 							//生成访问地址
-							report.setAttch("/upload/"+site.getId()+"/"+id+ext);
+							resume.setAttch("/upload/"+site.getId()+"/"+id+ext);
 						}
 					}
 					if (issave) {
-						reportService.insert(report);
-						msg="感谢您的申报，我们会尽快回复，您可以通过查询码"+report.getQuerycode()+"查询申报信息！";
+						resumeService.add(resume);
+						msg="感谢您的投递，我们会尽快回复！";
 					}
 				}
 				//生成静态页面
@@ -126,47 +144,111 @@ public class ReportAction extends BaseAction{
 		return null;
 	}
 
-	public ReportService getReportService() {
-		return reportService;
+	public ResumeService getResumeService() {
+		return resumeService;
 	}
 
-	public void setReportService(ReportService reportService) {
-		this.reportService = reportService;
+	public void setResumeService(ResumeService resumeService) {
+		this.resumeService = resumeService;
 	}
-	public Report getReport() {
-		return report;
+
+	public Resume getResume() {
+		return resume;
 	}
-	public void setReport(Report report) {
-		this.report = report;
+
+	public void setResume(Resume resume) {
+		this.resume = resume;
 	}
+
 	public String getValidatecode() {
 		return validatecode;
 	}
+
 	public void setValidatecode(String validatecode) {
 		this.validatecode = validatecode;
 	}
+
 	public String getMsg() {
 		return msg;
 	}
+
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
+
+	public String getSiteid() {
+		return siteid;
+	}
+
+	public void setSiteid(String siteid) {
+		this.siteid = siteid;
+	}
+
+	public String getTempletPath() {
+		return templetPath;
+	}
+
+	public void setTempletPath(String templetPath) {
+		this.templetPath = templetPath;
+	}
+
+
+
 	public SiteService getSiteService() {
 		return siteService;
 	}
+
+
+
 	public void setSiteService(SiteService siteService) {
 		this.siteService = siteService;
 	}
+
+
+
 	public File getAttch() {
 		return attch;
 	}
+
+
+
 	public void setAttch(File attch) {
 		this.attch = attch;
 	}
+
+
+
 	public String getAttchFileName() {
 		return attchFileName;
 	}
+
+
+
 	public void setAttchFileName(String attchFileName) {
 		this.attchFileName = attchFileName;
+	}
+
+
+
+	public File getImg() {
+		return img;
+	}
+
+
+
+	public void setImg(File img) {
+		this.img = img;
+	}
+
+
+
+	public String getImgFileName() {
+		return imgFileName;
+	}
+
+
+
+	public void setImgFileName(String imgFileName) {
+		this.imgFileName = imgFileName;
 	}
 }
