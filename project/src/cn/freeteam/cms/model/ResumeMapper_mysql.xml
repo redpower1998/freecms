@@ -28,6 +28,7 @@
     <result column="reuserid" property="reuserid" jdbcType="VARCHAR" />
     <result column="reusername" property="reusername" jdbcType="VARCHAR" />
     <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <!--
@@ -104,7 +105,7 @@
       This element was generated on Wed Jul 10 17:35:22 CST 2013.
     -->
     id, siteid, memberid, membername, name, sex, birthday, email, qq, tel, address, img, 
-    attch, job, content, addtime, recontent, retime, reuserid, reusername, ip
+    attch, job, content, addtime, recontent, retime, reuserid, reusername, ip,state
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.freeteam.cms.model.ResumeExample" >
     <!--
@@ -124,6 +125,18 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+  </select>
+  <select id="selectPageByExample" resultMap="BaseResultMap" parameterType="cn.freeteam.cms.model.ResumeExample" >
+     SELECT * 
+    FROM freecms_resume
+    <if test="_parameter != null">
+       <include refid="Example_Where_Clause" />
+    </if>
+    
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if> 
+    limit ${skip},${pageSize}
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     <!--
@@ -168,7 +181,7 @@
       tel, address, img, 
       attch, job, content, 
       addtime, recontent, retime, 
-      reuserid, reusername, ip
+      reuserid, reusername, ip,state
       )
     values (#{id,jdbcType=VARCHAR}, #{siteid,jdbcType=VARCHAR}, #{memberid,jdbcType=VARCHAR}, 
       #{membername,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
@@ -176,7 +189,7 @@
       #{tel,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
       #{attch,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
       #{addtime,jdbcType=TIMESTAMP}, #{recontent,jdbcType=VARCHAR}, #{retime,jdbcType=TIMESTAMP}, 
-      #{reuserid,jdbcType=VARCHAR}, #{reusername,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}
+      #{reuserid,jdbcType=VARCHAR}, #{reusername,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.freeteam.cms.model.Resume" >
@@ -250,6 +263,9 @@
       <if test="ip != null" >
         ip,
       </if>
+      <if test="state != null" >
+        state,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -314,6 +330,9 @@
       </if>
       <if test="ip != null" >
         #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -399,6 +418,9 @@
       <if test="record.ip != null" >
         ip = #{record.ip,jdbcType=VARCHAR},
       </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -431,7 +453,8 @@
       retime = #{record.retime,jdbcType=TIMESTAMP},
       reuserid = #{record.reuserid,jdbcType=VARCHAR},
       reusername = #{record.reusername,jdbcType=VARCHAR},
-      ip = #{record.ip,jdbcType=VARCHAR}
+      ip = #{record.ip,jdbcType=VARCHAR},
+      state = #{record.state,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -504,6 +527,9 @@
       <if test="ip != null" >
         ip = #{ip,jdbcType=VARCHAR},
       </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -533,7 +559,8 @@
       retime = #{retime,jdbcType=TIMESTAMP},
       reuserid = #{reuserid,jdbcType=VARCHAR},
       reusername = #{reusername,jdbcType=VARCHAR},
-      ip = #{ip,jdbcType=VARCHAR}
+      ip = #{ip,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
