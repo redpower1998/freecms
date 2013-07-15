@@ -51,12 +51,26 @@ public class VisitFilter extends BaseService {
 					String uri2=uri1.replaceFirst(siteFloder+"/", "");
 					String channelid=uri2.substring(0, uri2.indexOf("/"));
 					if (channelid!=null && channelid.length()>0) {
-						visit.setChannelid(channelid);
-						//提取信息id
-						if (uri2.indexOf("/info/")>-1) {
-							String infoid=uri2.substring(uri2.lastIndexOf("/")+1, uri2.lastIndexOf("."));
-							if (infoid!=null && infoid.length()>0) {
-								visit.setInfoid(infoid);
+						init("channelService");
+						//查询栏目
+						Channel channel=channelService.findBySitePagemark(site.getId(), channelid);
+						if (channel==null) {
+							channel=channelService.findById(channelid);
+						}
+						if (channel==null) {
+							try {
+								channel=channelService.findBySiteIndexnum(site.getId(), Integer.parseInt(channelid));
+							} catch (Exception e) {
+							}
+						}
+						if (channel!=null) {
+							visit.setChannelid(channel.getId());
+							//提取信息id
+							if (uri2.indexOf("/info/")>-1) {
+								String infoid=uri2.substring(uri2.lastIndexOf("/")+1, uri2.lastIndexOf("."));
+								if (infoid!=null && infoid.length()>0) {
+									visit.setInfoid(infoid);
+								}
 							}
 						}
 					}
