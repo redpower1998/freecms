@@ -112,6 +112,23 @@ public class ChannelService extends BaseService{
 		return null;
 	}
 	/**
+	 * 根据站点id,索引号查询
+	 * @param siteid
+	 * @param pagemark
+	 * @return
+	 */
+	public Channel findBySiteIndexnum(String siteid,Integer indexnum){
+		ChannelExample example=new ChannelExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andSiteEqualTo(siteid);
+		criteria.andSql(" index="+indexnum+" ");
+		List<Channel> channelList=channelMapper.selectByExampleWithBLOBs(example);
+		if (channelList!=null && channelList.size()>0) {
+			return channelList.get(0);
+		}
+		return null;
+	}
+	/**
 	 * 根据站点和父id查询
 	 * @param siteid
 	 * @param parid
