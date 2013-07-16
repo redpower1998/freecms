@@ -8,6 +8,8 @@ import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
+
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Info;
 import cn.freeteam.cms.model.InfoSign;
@@ -71,6 +73,15 @@ public class InfoAction extends BaseAction{
 			info=infoService.findClickById(info.getId());
 			if (info!=null) {
 				info.setClicknum((info.getClicknum()!=null?info.getClicknum():0)+1);
+				if (!"1".equals(info.getIshot()) && StringUtils.isNotEmpty(getConfigVal("infoHotNum")) ) {
+					try {
+						//如果点击大于信息热点配置则设置为热点
+						if (info.getClicknum()>Integer.parseInt(getConfigVal("infoHotNum").trim())) {
+							info.setIshot("1");
+						}
+					} catch (Exception e) {
+					}
+				}
 				infoService.click(info);
 				clicknum=info.getClicknum();
 			}
