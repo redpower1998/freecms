@@ -51,7 +51,7 @@ public class LoginAction extends BaseAction{
 			//记住用户名
 			if("on".equals(RememberMe)){
 				Cookie cookie=new Cookie("FreeCMS_loginName",EscapeUnescape.escape(user.getLoginname()));
-				cookie.setMaxAge(1000*60*60*24*365);//有效时间为一年
+				cookie.setMaxAge(60*60*24*365);//有效时间为一年
 				getHttpResponse().addCookie(cookie);
 			}
 		    HttpSession session =getHttpSession();
