@@ -905,6 +905,9 @@
       <if test="clicknum != null">
         clickNum = #{clicknum,jdbcType=INTEGER},
       </if>
+      <if test="ishot != null">
+        ishot = #{ishot,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
