@@ -588,6 +588,22 @@ public class ChannelService extends BaseService{
 		return channelList;
 	}
 	/**
+	 * 查询所有子栏目(pagemark)
+	 * @param siteid
+	 * @param parid
+	 * @param state
+	 * @param navigation
+	 * @return
+	 */
+	public List<Channel> findSonByPagemark(String siteid,String pagemark,String state,String navigation){
+		List<Channel> list=new ArrayList<Channel>();
+		Channel channel=findBySitePagemark(siteid, pagemark);
+		if (channel!=null) {
+			return findSonPro(list,siteid, channel.getId(), state, navigation);
+		}
+		return list;
+	}
+	/**
 	 * 查询所有子栏目
 	 * @param siteid
 	 * @param parid

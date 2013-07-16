@@ -230,11 +230,11 @@ public class InfoService extends BaseService{
 			}
 			info.setChannelParid(SqlUtil.replace(info.getChannelParid()));
 			if (info.getChannelParid()!=null && info.getChannelParid().trim().length()>0) {
-				criteria.andSql(" channel in (select id from freecms_channel where parid ='"+info.getChannelParid().trim()+"') ");
+				criteria.andSql(" i.channel in (select id from freecms_channel where parid ='"+info.getChannelParid().trim()+"') ");
 			}
 			info.setChannelParPagemark(SqlUtil.replace(info.getChannelParPagemark()));
 			if (info.getChannelParPagemark()!=null && info.getChannelParPagemark().trim().length()>0) {
-				criteria.andSql(" channel in (select id from freecms_channel where parid in (select id from freecms_channel where site='"+info.getSite()+"' and pagemark='"+info.getChannelParPagemark().trim()+"')) ");
+				criteria.andSql(" i.channel in (select id from freecms_channel where parid in (select id from freecms_channel where site='"+info.getSite()+"' and pagemark='"+info.getChannelParPagemark().trim()+"')) ");
 			}
 			info.setChannelname(SqlUtil.replace(info.getChannelname()));
 			if (info.getChannelname()!=null && info.getChannelname().trim().length()>0) {

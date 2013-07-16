@@ -48,6 +48,7 @@ import freemarker.template.TemplateModel;
  * hot			是否按点击热度倒序，1是
  * dateFormat	日期格式
  * channelPagemark	栏目页面标识
+ * channelParPagemark	父栏目页面标识
  * img			是否只提取带图片的新闻	1是
  * page			当前第几页，默认1			
  * pagenum		最多显示页数
@@ -112,6 +113,7 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 		String dateFormat=getParam(params, "dateFormat");
 		//栏目页面标识
 		String channelPagemark=getParam(params, "channelPagemark");
+		String channelParPagemark=getParam(params, "channelParPagemark");
 		//是否只提取带图片的信息
 		String img=getParam(params, "img");
 		//当前第几页
@@ -145,6 +147,21 @@ public class InfoPageDirective extends BaseDirective implements TemplateDirectiv
 						}
 					}
 					info.setChannelids(channelids);
+				}
+				if (channelParPagemark.trim().length()>0) {
+					List<String> channelids=new ArrayList<String>();
+					init("channelService");
+					Channel channel=channelService.findBySitePagemark(siteid, channelParPagemark);
+					if (channel!=null) {
+						channelids.add(channel.getId());
+						List<Channel> sonList=channelService.findSon(siteid, channel.getId(), "1", "");
+						if (sonList!=null && sonList.size()>0) {
+							for (int i = 0; i < sonList.size(); i++) {
+								channelids.add(sonList.get(i).getId());
+							}
+						}
+						info.setChannelids(channelids);
+					}
 				}
 				if (channelPagemark.trim().length()>0) {
 					info.setChannelPagemark(channelPagemark);
