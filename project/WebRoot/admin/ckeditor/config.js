@@ -16,9 +16,10 @@ CKEDITOR.editorConfig = function( config )
     config.filebrowserFlashUploadUrl =  '/admin/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash' ;   
     config.filebrowserWindowWidth = '1000';   
     config.filebrowserWindowHeight = '700';   
+	config.removeDialogTabs = 'link:upload;image:Upload;flash:Upload;';
     config.language =  "zh-cn" ;  
     config.extraPlugins += (config.extraPlugins ? ',autoformat' : 'autoformat');
-	config.pasteFromWordIgnoreFontFace = false; //默认为忽略格式
+	config.pasteFromWordIgnoreFontFace = false; 
 	config.pasteFromWordRemoveFontStyles = false;
 	config.pasteFromWordRemoveStyles = false;
 
