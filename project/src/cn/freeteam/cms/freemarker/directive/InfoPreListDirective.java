@@ -159,7 +159,19 @@ public class InfoPreListDirective extends BaseDirective implements TemplateDirec
 					info.setChannelids(channelids);
 				}
 				if (channelParPagemark.trim().length()>0) {
-					info.setChannelParPagemark(channelParPagemark);
+					List<String> channelids=new ArrayList<String>();
+					init("channelService");
+					Channel channel=channelService.findBySitePagemark(siteid, channelParPagemark);
+					if (channel!=null) {
+						channelids.add(channel.getId());
+						List<Channel> sonList=channelService.findSon(siteid, channel.getId(), "1", "");
+						if (sonList!=null && sonList.size()>0) {
+							for (int i = 0; i < sonList.size(); i++) {
+								channelids.add(sonList.get(i).getId());
+							}
+						}
+						info.setChannelids(channelids);
+					}
 				}
 				if (img.trim().length()>0) {
 					info.setImg(img);
