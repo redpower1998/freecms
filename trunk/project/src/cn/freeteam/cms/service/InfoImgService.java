@@ -18,7 +18,18 @@ public class InfoImgService extends BaseService {
 	public InfoImgService() {
 		initMapper("infoImgMapper");
 	}
-	
+
+	/**
+	 * 查询
+	 */
+	public List<InfoImg> findByInfoid(String infoid){
+		InfoImgExample example=new InfoImgExample();
+		Criteria criteria=example.createCriteria();
+		InfoImg infoImg=new InfoImg();
+		infoImg.setInfoid(infoid);
+		proSearchParam(infoImg, criteria);
+		return infoImgMapper.selectByExample(example);
+	}
 
 	/**
 	 * 查询

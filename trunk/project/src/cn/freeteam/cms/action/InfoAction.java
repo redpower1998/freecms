@@ -211,6 +211,7 @@ public class InfoAction extends BaseAction{
 				try {
 					String[] idArr=ids.split(";");
 					if (idArr!=null && idArr.length>0) {
+						init("infoImgService","infoSignService");
 						for (int i = 0; i < idArr.length; i++) {
 							if (idArr[i].trim().length()>0) {
 								info=infoService.findById(idArr[i].trim());
@@ -219,7 +220,27 @@ public class InfoAction extends BaseAction{
 									if (info!=null) {
 										info.setChannel(channel.getId());
 										info.setId("");
+										info.setSite(channel.getSite());
 										infoService.insert(info);
+
+										//处理图片集
+										List<InfoImg> infoImgList = infoImgService.findByInfoid(idArr[i]);
+										if (infoImgList!=null && infoImgList.size()>0) {
+											for (int j = 0; j < infoImgList.size(); j++) {
+												infoImgList.get(j).setId("");
+												infoImgList.get(j).setInfoid(info.getId());
+												infoImgService.add(infoImgList.get(j));
+											}
+										}
+										//处理签收
+										List<InfoSign> infoSignList = infoSignService.findByInfo(idArr[i]);
+										if (infoSignList!=null && infoSignList.size()>0) {
+											for (int j = 0; j < infoSignList.size(); j++) {
+												infoSignList.get(j).setId("");
+												infoSignList.get(j).setInfoid(info.getId());
+												infoSignService.save(infoSignList.get(j));
+											}
+										}
 										logContent="提取信息 "+info.getTitle()+" 到 "+channel.getName()+" "+info.getTitle()+")成功!";
 									}
 								}
@@ -696,6 +717,7 @@ public class InfoAction extends BaseAction{
 				Channel toChannel=channelService.findById(tochannelid);
 					if (oldChannel!=null && toChannel!=null) {
 						try {
+							init("infoImgService","infoSignService");
 							for (int i = 0; i < idArr.length; i++) {
 								if (idArr[i].trim().length()>0) {
 									info=infoService.findById(idArr[i]);
@@ -703,6 +725,24 @@ public class InfoAction extends BaseAction{
 										info.setChannel(tochannelid);
 										info.setId("");
 										infoService.insert(info);
+										//处理图片集
+										List<InfoImg> infoImgList = infoImgService.findByInfoid(idArr[i]);
+										if (infoImgList!=null && infoImgList.size()>0) {
+											for (int j = 0; j < infoImgList.size(); j++) {
+												infoImgList.get(j).setId("");
+												infoImgList.get(j).setInfoid(info.getId());
+												infoImgService.add(infoImgList.get(j));
+											}
+										}
+										//处理签收
+										List<InfoSign> infoSignList = infoSignService.findByInfo(idArr[i]);
+										if (infoSignList!=null && infoSignList.size()>0) {
+											for (int j = 0; j < infoSignList.size(); j++) {
+												infoSignList.get(j).setId("");
+												infoSignList.get(j).setInfoid(info.getId());
+												infoSignService.save(infoSignList.get(j));
+											}
+										}
 										sb.append(idArr[i]+";");
 										logContent="复制信息("+oldChannel.getName()+" >> "+toChannel.getName()+" "+info.getTitle()+")成功!";
 									}
@@ -786,6 +826,33 @@ public class InfoAction extends BaseAction{
 			}
 		}
 		return showMessage(showMessage, "", 0);
+	}
+	
+
+	/**
+	 * 静态化选择的信息
+	 * @return
+	 */
+	public String html(){
+		if (ids!=null && ids.trim().length()>0) {
+			StringBuilder sb=new StringBuilder();
+			String[] idArr=ids.split(";");
+			if (idArr!=null && idArr.length>0) {
+				try {
+					for (int i = 0; i < idArr.length; i++) {
+						if (idArr[i].trim().length()>0) {
+							infoService.html(idArr[i].trim(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
+						}
+					}
+					showMessage="静态化成功";
+					forwardSeconds=3;
+				} catch (Exception e) {
+					DBProException(e);
+					showMessage="静态化失败:"+e.toString()+"!";
+				}
+			}
+		}
+		return showMessage(showMessage, forwardUrl, forwardSeconds);
 	}
 	
 	//set and get
