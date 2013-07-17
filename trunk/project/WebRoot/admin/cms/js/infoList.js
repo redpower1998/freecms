@@ -81,3 +81,10 @@ function copy(){
 		alert("请选择要操作的记录!");
 	}
 }
+function html(){
+	if(isCheck()){
+		location.href="info_html.do?ids="+getCheckValue();
+	}else{
+		alert("请选择要操作的记录!");
+	}
+}
