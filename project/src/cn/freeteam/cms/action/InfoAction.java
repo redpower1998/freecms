@@ -343,6 +343,7 @@ public class InfoAction extends BaseAction{
 				Enumeration<String> paramNames = getHttpRequest().getParameterNames();
 				String paramName,imgsid;
 				List<InfoImg> infoImgList=new ArrayList<InfoImg>();
+				List<InfoImg> oldInfoImgList=new ArrayList<InfoImg>();
 				while (paramNames.hasMoreElements()) {
 					paramName=paramNames.nextElement();
 					if (paramName.startsWith("imgsurl")) {
@@ -360,6 +361,21 @@ public class InfoAction extends BaseAction{
 	    				if (info.getImg()==null || info.getImg().trim().length()==0) {
 	    					info.setImg(infoImg.getImg());
 	    				}
+					}
+					if (paramName.startsWith("oldimgsid")) {
+						//需要更新的图片
+						imgsid=paramName.replace("oldimgsid", "");
+						InfoImg infoImg=new InfoImg();
+						infoImg.setId(imgsid);
+						infoImg.setInfoid(info.getId());
+						infoImg.setImg(getHttpRequest().getParameter("oldimgsurl"+imgsid));
+						infoImg.setContent(getHttpRequest().getParameter("oldimgscontent"+imgsid));
+						try {
+							infoImg.setOrdernum(Integer.parseInt(getHttpRequest().getParameter("oldimgsordernum"+imgsid)));
+						} catch (Exception e) {
+						}
+						infoImg.setTitle(getHttpRequest().getParameter("oldimgstitle"+imgsid));
+						oldInfoImgList.add(infoImg);
 					}
 				}
 				//如果没有摘要，则自动生成
@@ -403,11 +419,11 @@ public class InfoAction extends BaseAction{
 						oldInfo.setIndexnum(info.getIndexnum());
 						infoService.update(oldInfo);
 						OperLogUtil.log(getLoginName(), oper+"信息("+oldInfo.getTitle()+")成功", getHttpRequest());
+						init("infoImgService");
 						//删除图片集
 						if (StringUtils.isNotEmpty(delOldimgs)) {
 							String dels[]=delOldimgs.split(";");
 							if (dels!=null && dels.length>0) {
-								init("infoImgService");
 								for (int i = 0; i < dels.length; i++) {
 									if (dels[i].trim().length()>0) {
 										infoImgService.del(dels[i]);
@@ -415,6 +431,12 @@ public class InfoAction extends BaseAction{
 								}
 							}
 						}
+						if (oldInfoImgList.size()>0) {
+							for (int i = 0; i < oldInfoImgList.size(); i++) {
+								infoImgService.update(oldInfoImgList.get(i));
+							}
+						}
+						//更新图片集
 					}
 				}else{
 					//添加
