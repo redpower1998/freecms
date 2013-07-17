@@ -469,7 +469,9 @@
 							<div id="imgs">
 								<s:iterator value="infoImgList" id="bean">
 								<table id='oldimgtable<s:property value="id"/>'><tr>
-					    		<td rowspan='4'><input type='hidden' name='oldimgsurl<s:property value="id"/>' value='<s:property value="img"/>'><a href='<s:property value="img"/>' target='_blank'>
+					    		<td rowspan='4'>
+					    		<input type='hidden' name='oldimgsid<s:property value="id"/>' value='<s:property value="id"/>'>
+					    		<input type='hidden' name='oldimgsurl<s:property value="id"/>' value='<s:property value="img"/>'><a href='<s:property value="img"/>' target='_blank'>
 								<img src='<s:property value="img"/>' width='150' height='120' title='点击查看大图'/></a></td>
 					    		<td>标题:</td>
 					    		<td><INPUT onblur="this.className='inputblur';" class=inputblur onfocus="this.className='inputfocus';"   maxLength=250 size=40 type=text name=oldimgstitle<s:property value="id"/> value='<s:property value="title"/>'/></td>
