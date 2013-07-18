@@ -241,6 +241,7 @@ public class InfoAction extends BaseAction{
 												infoSignService.save(infoSignList.get(j));
 											}
 										}
+										infoService.html(info.getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
 										logContent="提取信息 "+info.getTitle()+" 到 "+channel.getName()+" "+info.getTitle()+")成功!";
 									}
 								}
@@ -625,6 +626,7 @@ public class InfoAction extends BaseAction{
 									if (info!=null) {
 										info.setChannel(tochannelid);
 										infoService.update(info);
+										infoService.html(info.getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
 										sb.append(idArr[i]+";");
 										logContent="移动信息("+oldChannel.getName()+" >> "+toChannel.getName()+" "+info.getTitle()+")成功!";
 									}
@@ -743,6 +745,7 @@ public class InfoAction extends BaseAction{
 												infoSignService.save(infoSignList.get(j));
 											}
 										}
+										infoService.html(info.getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
 										sb.append(idArr[i]+";");
 										logContent="复制信息("+oldChannel.getName()+" >> "+toChannel.getName()+" "+info.getTitle()+")成功!";
 									}
