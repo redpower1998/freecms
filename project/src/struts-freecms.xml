@@ -40,6 +40,9 @@
 			<result name="list" >/admin/cms/infoList.jsp</result>
 			<result name="makehtml" >/admin/cms/infoMakehtml.jsp</result>
 			<result name="extract" >/admin/cms/infoExtract.jsp</result>
+			<result name="extractMakehtml" >/admin/cms/infoExtractMakehtml.jsp</result>
+			<result name="copyMakehtml" >/admin/cms/infoCopyMakehtml.jsp</result>
+			<result name="moveMakehtml" >/admin/cms/infoMoveMakehtml.jsp</result>
 		</action>
 		<action name="templet_*" method="{1}" class="cn.freeteam.cms.action.TempletAction"> 
 			<interceptor-ref name="fileUpload">
