@@ -248,7 +248,45 @@ public class InfoAction extends BaseAction{
 							}
 						}
 					}
-					showMessage="提取成功";
+					boolean ismakehtml=true;
+					if (channel!=null) {
+						site=siteService.findById(channel.getSite());
+						if ("1".equals(channel.getHtmlchannel())) {
+							//所属栏目静态化
+							channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+							ismakehtml=false;
+						}
+						if ("1".equals(channel.getHtmlchannelold())) {
+							//原所属栏目静态化
+							if (oldchannelid!=null && oldchannelid.trim().length()>0 && !oldchannelid.equals(info.getChannel())) {
+								Channel oldchannel=channelService.findById(oldchannelid);
+								channelService.html(site, oldchannel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+								ismakehtml=false;
+							}
+						}
+						if ("1".equals(channel.getHtmlparchannel())) {
+							//所属栏目的父栏目静态化
+							List<Channel> channeList = channelService.findPath(info.getChannel());
+							if (channeList!=null && channeList.size()>0) {
+								for (int i = 0; i < channeList.size(); i++) {
+									if (!channeList.get(i).getId().equals(info.getChannel())) {
+										channelService.html(site, channeList.get(i), getServletContext(), getHttpRequest(), getLoginName(), 0);
+									}
+								}
+							}
+							ismakehtml=false;
+						}
+						if ("1".equals(channel.getHtmlsite())) {
+							//首页静态化
+							siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath()+"/", getHttpRequest(), getLoginName());
+							ismakehtml=false;
+						}
+					}
+					if (ismakehtml) {
+						return "extractMakehtml";
+					}else {
+						showMessage="提取成功";
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 					showMessage="操作失败:"+e.getMessage();
@@ -634,6 +672,7 @@ public class InfoAction extends BaseAction{
 								}
 							}
 							//处理静态化
+							boolean ismakehtml=true;
 							site=siteService.findById(info.getSite());
 							boolean ishtmlsite=false;
 							Map<String,Channel> channelHtmled=new HashMap<String,Channel>();
@@ -688,22 +727,28 @@ public class InfoAction extends BaseAction{
 										channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
 									}
 								}
+								ismakehtml=false;
 							}
 							if (ishtmlsite) {
 								//首页静态化
 								siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath()+"/", getHttpRequest(), getLoginName());
-								
+								ismakehtml=false;
+							}
+							if (ismakehtml) {
+								return "moveMakehtml";
+							}else {
+								showMessage="移动信息成功!";
 							}
 						} catch (Exception e) {
 							DBProException(e);
 							logContent="移动信息("+oldChannel.getName()+" >> "+toChannel.getName()+" "+info.getTitle()+")失败:"+e.toString()+"!";
 							OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
+							showMessage="移动信息失败:"+e.getMessage();
 						}
 					}
 			}
-			write(sb.toString(), "GBK");
 		}
-		return null;
+		return showMessage(showMessage, forwardUrl, forwardSeconds);
 	}
 	/**
 	 * 复制
@@ -717,6 +762,7 @@ public class InfoAction extends BaseAction{
 					oldchannelid!=null && tochannelid!=null && !oldchannelid.equals(tochannelid)) {
 				Channel oldChannel=channelService.findById(oldchannelid);
 				Channel toChannel=channelService.findById(tochannelid);
+				channel=toChannel;
 					if (oldChannel!=null && toChannel!=null) {
 						try {
 							init("infoImgService","infoSignService");
@@ -753,12 +799,14 @@ public class InfoAction extends BaseAction{
 								}
 							}
 							//处理静态化
+							boolean ismakehtml=true;
 							site=siteService.findById(info.getSite());
 							//新栏目处理
 							if (toChannel!=null) {
 								if ("1".equals(toChannel.getHtmlchannel())) {
 									//所属栏目静态化
 									channelService.html(site, toChannel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+									ismakehtml=false;
 								}
 								if ("1".equals(toChannel.getHtmlparchannel())) {
 									//所属栏目的父栏目静态化
@@ -770,23 +818,29 @@ public class InfoAction extends BaseAction{
 											}
 										}
 									}
+									ismakehtml=false;
 								}
 								if ("1".equals(toChannel.getHtmlsite())) {
 									//首页静态化
 									siteService.html(info.getSite(), getServletContext(), getHttpRequest().getContextPath()+"/", getHttpRequest(), getLoginName());
+									ismakehtml=false;
 								}
 							}
-							write("succ", "GBK");
+							if (ismakehtml) {
+								return "copyMakehtml";
+							}else {
+								showMessage="复制信息成功!";
+							}
 						} catch (Exception e) {
 							DBProException(e);
 							logContent="复制信息("+oldChannel.getName()+" >> "+toChannel.getName()+" "+info.getTitle()+")失败:"+e.toString()+"!";
 							OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
-							write(e.getMessage(), "GBK");
+							showMessage="复制信息失败:"+e.getMessage();
 						}
 					}
 			}
 		}
-		return null;
+		return showMessage(showMessage, forwardUrl, forwardSeconds);
 	}
 	/**
 	 * 静态化处理
@@ -830,7 +884,80 @@ public class InfoAction extends BaseAction{
 		}
 		return showMessage(showMessage, "", 0);
 	}
-	
+
+	/**
+	 * 提取信息后静态化处理
+	 * @return
+	 */
+	public String extractMakehtml(){
+		if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
+			channel=channelService.findById(channel.getId());
+			site=siteService.findById(channel.getSite());
+			try {
+				if ("1".equals(htmlChannel)) {
+					//所属栏目静态化
+					channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+				}
+				if ("1".equals(htmlChannelPar)) {
+					//所属栏目的父栏目静态化
+					List<Channel> channeList = channelService.findPath(channel.getId());
+					if (channeList!=null && channeList.size()>0) {
+						for (int i = 0; i < channeList.size(); i++) {
+							if (!channeList.get(i).getId().equals(channel.getId())) {
+								channelService.html(site, channeList.get(i), getServletContext(), getHttpRequest(), getLoginName(), 0);
+							}
+						}
+					}
+				}
+				if ("1".equals(htmlIndex)) {
+					//首页静态化
+					siteService.html(channel.getSite(), getServletContext(), getHttpRequest().getContextPath()+"/", getHttpRequest(), getLoginName());
+				}
+				showMessage="静态化处理成功!";
+			} catch (Exception e) {
+				e.printStackTrace();
+				showMessage="静态化处理失败，原因:"+e.getMessage().replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br/>");
+			}
+		}
+		return showMessage(showMessage, "", 0);
+	}
+
+	/**
+	 * 复制信息后静态化处理
+	 * @return
+	 */
+	public String copyMakehtml(){
+		if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
+			channel=channelService.findById(channel.getId());
+			site=siteService.findById(channel.getSite());
+			try {
+				if ("1".equals(htmlChannel)) {
+					//所属栏目静态化
+					channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+				}
+				if ("1".equals(htmlChannelPar)) {
+					//所属栏目的父栏目静态化
+					List<Channel> channeList = channelService.findPath(channel.getId());
+					if (channeList!=null && channeList.size()>0) {
+						for (int i = 0; i < channeList.size(); i++) {
+							if (!channeList.get(i).getId().equals(channel.getId())) {
+								channelService.html(site, channeList.get(i), getServletContext(), getHttpRequest(), getLoginName(), 0);
+							}
+						}
+					}
+				}
+				if ("1".equals(htmlIndex)) {
+					//首页静态化
+					siteService.html(channel.getSite(), getServletContext(), getHttpRequest().getContextPath()+"/", getHttpRequest(), getLoginName());
+				}
+				showMessage="静态化处理成功!";
+			} catch (Exception e) {
+				e.printStackTrace();
+				showMessage="静态化处理失败，原因:"+e.getMessage().replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br/>");
+			}
+		}
+		return showMessage(showMessage, "", 0);
+	}
 
 	/**
 	 * 静态化选择的信息
