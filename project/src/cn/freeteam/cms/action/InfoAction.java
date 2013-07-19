@@ -656,6 +656,7 @@ public class InfoAction extends BaseAction{
 					oldchannelid!=null && tochannelid!=null && !oldchannelid.equals(tochannelid)) {
 				Channel oldChannel=channelService.findById(oldchannelid);
 				Channel toChannel=channelService.findById(tochannelid);
+				channel=toChannel;
 					if (oldChannel!=null && toChannel!=null) {
 						try {
 							for (int i = 0; i < idArr.length; i++) {
@@ -931,6 +932,48 @@ public class InfoAction extends BaseAction{
 			channel=channelService.findById(channel.getId());
 			site=siteService.findById(channel.getSite());
 			try {
+				if ("1".equals(htmlChannel)) {
+					//所属栏目静态化
+					channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+				}
+				if ("1".equals(htmlChannelPar)) {
+					//所属栏目的父栏目静态化
+					List<Channel> channeList = channelService.findPath(channel.getId());
+					if (channeList!=null && channeList.size()>0) {
+						for (int i = 0; i < channeList.size(); i++) {
+							if (!channeList.get(i).getId().equals(channel.getId())) {
+								channelService.html(site, channeList.get(i), getServletContext(), getHttpRequest(), getLoginName(), 0);
+							}
+						}
+					}
+				}
+				if ("1".equals(htmlIndex)) {
+					//首页静态化
+					siteService.html(channel.getSite(), getServletContext(), getHttpRequest().getContextPath()+"/", getHttpRequest(), getLoginName());
+				}
+				showMessage="静态化处理成功!";
+			} catch (Exception e) {
+				e.printStackTrace();
+				showMessage="静态化处理失败，原因:"+e.getMessage().replace("<", "&lt;").replace(">", "&gt;").replace("\n", "<br/>");
+			}
+		}
+		return showMessage(showMessage, "", 0);
+	}
+
+	/**
+	 * 移动信息后静态化处理
+	 * @return
+	 */
+	public String moveMakehtml(){
+		if (channel!=null && channel.getId()!=null && channel.getId().trim().length()>0) {
+			channel=channelService.findById(channel.getId());
+			site=siteService.findById(channel.getSite());
+			try {
+				if ("1".equals(htmlChannelOld)) {
+					Channel oldchannel=channelService.findById(oldchannelid);
+					//原所属栏目静态化
+					channelService.html(site, oldchannel, getServletContext(), getHttpRequest(), getLoginName(), 0);
+				}
 				if ("1".equals(htmlChannel)) {
 					//所属栏目静态化
 					channelService.html(site, channel, getServletContext(), getHttpRequest(), getLoginName(), 0);
