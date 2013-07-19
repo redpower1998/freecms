@@ -24,21 +24,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input type="hidden" name="pageFuncId" id="pageFuncId" value="${pageFuncId }"/>
 			<input type="hidden" name="channel.id" value="${channel.id }"/>
 				操作成功，请选择需要静态化的内容。<br/>
-				<input type="checkbox" name="htmlChannel" value="1" checked/>所属栏目页面静态化<br/>
-				<s:if test='%{oldchannelid !=null && oldchannelid!="" && info.channel != oldchannelid}'>
+				<input type="checkbox" name="htmlChannel" value="1" checked/>目标栏目页面静态化<br/>
+				<s:if test='%{oldchannelid !=null && oldchannelid!="" && channel.id != oldchannelid}'>
 				<input type="hidden" name="oldchannelid" value="${oldchannelid }"/>
-				<input type="checkbox" name="htmlChannelOld" value="1"  checked/>原所属栏目页面静态化<br/>
+				<input type="checkbox" name="htmlChannelOld" value="1"  checked/>原栏目页面静态化<br/>
 				</s:if>
-				<input type="checkbox" name="htmlChannelPar" value="1"  checked/>所属栏目的所有父栏目页面静态化<br/>
+				<input type="checkbox" name="htmlChannelPar" value="1"  checked/>目标栏目的所有父栏目页面静态化<br/>
 				<input type="checkbox" name="htmlIndex" value="1"  checked/>站点首页静态化<br/>
 	
 				<input type="submit" value="立即静态化"   class="button"  />&nbsp;
-				<s:if test='%{"channel"==type}'>
-				<input type="button" value="不，我要继续添加信息" onclick="location.href='info_edit.do?channel.id=${info.channel }&pageFuncId=${pageFuncId }'"  class="button"  />
-				</s:if>
-				<s:if test='%{"channel"!=type}'>
-				<input type="button" value="不，我要继续添加信息" onclick="location.href='info_edit.do?pageFuncId=${pageFuncId }'"  class="button"  />
-				</s:if>
+				<input type="button" value="不，我要继续移动信息" onclick="location.href='info_list.do?pageFuncId=${pageFuncId }&info.channel=${oldchannelid }'"  class="button"  />
+				
 				</form>
 				</div>
 
