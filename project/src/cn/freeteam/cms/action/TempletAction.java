@@ -8,6 +8,8 @@ import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringUtils;
+
 
 import cn.freeteam.base.BaseAction;
 import cn.freeteam.cms.model.Info;
@@ -64,7 +66,7 @@ public class TempletAction extends BaseAction{
 	
 	private Templet templet;
 	
-	private String order;
+	private String order="ordernum";
 	private String logContent;
 	private String ids;
 	private String root;
@@ -456,6 +458,9 @@ public class TempletAction extends BaseAction{
 		//普通用户只查看自己添加的
 		if (!isAdminLogin()) {
 			templet.setAdduser(getLoginAdmin().getId());
+		}
+		if (StringUtils.isEmpty(order)) {
+			order="ordernum";
 		}
 		templetList=templetService.find(templet, order, currPage, pageSize);
 		totalCount=templetService.count(templet);
