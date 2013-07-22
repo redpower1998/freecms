@@ -42,7 +42,7 @@ a:link, a:visited ,a: hover, a:active{
 <div class="lefttab">
 <div style='padding-top:6px;' >
 <s:if test="%{#session.manageSite != null}">
-<span style="cursor:hand" title="点击选择管理站点" onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'"><fs:string len="11" str="${manageSite.name }"></fs:string> </span>
+<span style="cursor:hand" title="点击选择管理站点" onclick="parent.right.location.href='cms/site_site.do?type=siteSelectPage'"><fs:string len="8" str="${manageSite.name }"></fs:string> </span>
 <img style="cursor:hand" onclick="window.open('<%=basePath %>site/${manageSite.sourcepath }/index.html');" title="点击预览站点" src="../img/www.gif">
 </s:if>
 <s:if test="%{#session.manageSite == null}">
