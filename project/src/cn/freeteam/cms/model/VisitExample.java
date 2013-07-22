@@ -281,6 +281,10 @@ public class VisitExample extends BaseExample{
             addCriterion("siteid =", value, "siteid");
             return (Criteria) this;
         }
+        public Criteria andVisitSiteidEqualTo(String value) {
+            addCriterion("v.siteid =", value, "siteid");
+            return (Criteria) this;
+        }
         public Criteria andSql(String value) {
             addCriterion(value);
             return (Criteria) this;

@@ -3,6 +3,8 @@ package cn.freeteam.cms.service;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringUtils;
+
 import cn.freeteam.base.BaseService;
 import cn.freeteam.cms.dao.VisitMapper;
 import cn.freeteam.cms.model.Info;
@@ -312,6 +314,9 @@ public class VisitService extends BaseService{
 			}
 			if (visit.getInfoname()!=null && visit.getInfoname().trim().length()>0) {
 				criteria.andSql(" i.title like '%"+visit.getInfoname().trim()+"%'");
+			}
+			if (StringUtils.isNotEmpty(visit.getSiteid())) {
+				criteria.andVisitSiteidEqualTo(visit.getSiteid());
 			}
 			if (visit.getStarttime()!=null) {
 				criteria.andVisitAddtimeGreaterThanOrEqualTo(visit.getStarttime());
