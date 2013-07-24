@@ -173,6 +173,9 @@ public class InfoSearchDirective extends BaseDirective implements TemplateDirect
 						if (titleLen>0) {
 							infoList.get(i).setShowtitleLen(titleLen);
 						}
+						//关键字变红
+						infoList.get(i).setShowtitle(infoList.get(i).getShowtitle().replace(key, "<font color='red'>"+key+"</font>"));
+						infoList.get(i).setDescription(infoList.get(i).getDescription().replace(key, "<font color='red'>"+key+"</font>"));
 						if (dateFormat.trim().length()>0) {
 							infoList.get(i).setDateFormat(dateFormat);
 						}
