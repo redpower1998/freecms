@@ -780,23 +780,25 @@ public class Info implements Serializable{
 	}
 
 	public String getShowtitle() {
-		//默认为标题
-		String title=this.title;
-		//判断是否有短标题
-		if (shorttitle!=null && shorttitle.trim().length()>0) {
-			title=shorttitle;
+		if (StringUtils.isEmpty(showtitle)) {
+			//默认为标题
+			showtitle=this.title;
+			//判断是否有短标题
+			if (shorttitle!=null && shorttitle.trim().length()>0) {
+				showtitle=shorttitle;
+			}
+			//判断标题长度
+			if (showtitleLen>0 && showtitle.length()>showtitleLen) {
+				showtitle=showtitle.substring(0, showtitleLen);
+			}
+			//添加标题颜色
+			showtitle="<font color='"+titlecolor+"'>"+showtitle+"</font>";
+			//判断是否粗体
+			if ("1".equals(titleblod)) {
+				showtitle="<b>"+showtitle+"</b>";
+			}
 		}
-		//判断标题长度
-		if (showtitleLen>0 && title.length()>showtitleLen) {
-			title=title.substring(0, showtitleLen);
-		}
-		//添加标题颜色
-		title="<font color='"+titlecolor+"'>"+title+"</font>";
-		//判断是否粗体
-		if ("1".equals(titleblod)) {
-			title="<b>"+title+"</b>";
-		}
-		return title;
+		return showtitle;
 	}
 
 	public void setShowtitle(String showtitle) {
