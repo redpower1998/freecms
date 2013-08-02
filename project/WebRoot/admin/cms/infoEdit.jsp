@@ -221,7 +221,7 @@
 							<TD width="70%" align="left">
 								<textarea onblur="this.className='inputblur';"  
 									class=inputblur onfocus="this.className='inputfocus';" 
-									maxLength=50 type=text id=description name=info.description cols="40" rows="3">${info.description }</textarea>
+									maxLength=500 type=text id=description name=info.description cols="40" rows="3">${info.description }</textarea>
 							</TD>
 						</TR>
 						<TR>
