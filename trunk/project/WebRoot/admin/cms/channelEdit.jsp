@@ -196,7 +196,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请选择此栏目的页面模板，默认为站点所选模板中的栏目页面.html
+											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请选择此栏目的页面模板，默认为站点所选模板中的channel.html
 											src="../../img/help.gif">
 									<NOBR>
 										<SPAN id=ctl01_ctl00_lblLabel>栏目模板：</SPAN>
@@ -213,7 +213,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<TD width="30%" align="left">
 								<LABEL id=ctl01_ctl00_label><IMG
 											style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px"
-											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请选择此栏目的信息模板，默认为站点所选模板中的信息页面.html
+											id=ctl01_ctl00_imgHelp tabIndex=-1 title=请选择此栏目的信息模板，默认为站点所选模板中的info.html
 											src="../../img/help.gif">
 									<NOBR>
 										<SPAN id=ctl01_ctl00_lblLabel>信息模板：</SPAN>
