@@ -43,8 +43,8 @@
       <input type="button" value="返回模板列表" onclick="location.href='templet_list.do?pageFuncId=${param.pageFuncId }';"  class="button"  />
       <br/>
 	<ul id="mixed" >
-		<li id="<%=URLEncoder.encode(request.getRealPath("/")+"templet\\","utf-8")%>${templet.id }" class="hasChildren">
-			<span><font size="2"><b><a href="#" onclick="showOne('<%=URLEncoder.encode(request.getRealPath("/")+"templet\\","utf-8")%>${templet.id }')">根目录</a></b></font>
+		<li id="<%=URLEncoder.encode(request.getRealPath("/").replace("\\", "/")+"templet/","utf-8")%>${templet.id }" class="hasChildren">
+			<span><font size="2"><b><a href="#" onclick="showOne('<%=URLEncoder.encode(request.getRealPath("/").replace("\\", "/")+"templet/","utf-8")%>${templet.id }')">根目录</a></b></font>
 			</span>
 			${rootHasSon =='1'?'<ul><li><span  >&nbsp;</span></li></ul>':''}
 		</li>

@@ -83,7 +83,7 @@
 						<TR>
 							<TD  align="center" colspan="10">
 							      <input type="button" value="保 存" onclick="save();"  class="button"  />&nbsp;
-							      <input type="button" value="返 回" onclick="history.back();"  class="button"  />
+							      <input type="button" value="返 回" onclick="history.back(-1);"  class="button"  />
 							</TD>
 						</TR>
 					</TBODY>
