@@ -210,7 +210,7 @@ public class SiteService extends BaseService{
 			data.put("contextPath", contextPath);
 			data.put("contextPathNo", request.getContextPath());
 			FreeMarkerUtil.createHTML(context, data, 
-					"templet/"+site.getIndextemplet().trim()+"/首页.html", 
+					"templet/"+site.getIndextemplet().trim()+"/index.html", 
 					request.getRealPath("/")+"/site/"+site.getSourcepath()+"/index.html");
 			OperLogUtil.log(operuser, "首页静态化:"+site.getName(), request);
 		}
@@ -232,7 +232,7 @@ public class SiteService extends BaseService{
 			data.put("site", site);
 			data.put("contextPath", context.getContextPath()+"/");
 			FreeMarkerUtil.createHTML(context, data, 
-					"templet/"+site.getIndextemplet().trim()+"/首页.html", 
+					"templet/"+site.getIndextemplet().trim()+"/index.html", 
 					context.getRealPath("/")+"/site/"+site.getSourcepath()+"/index.html");
 		}
 	}

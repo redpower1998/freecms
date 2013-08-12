@@ -78,7 +78,7 @@ public class InfoService extends BaseService{
 		Info info=findById(id);
 		if (info!=null) {
 			Channel channel=channelService.findById(info.getChannel());
-			String templet="信息页面.html";
+			String templet="info.html";
 			//判断info是否有信息页模板
 			if (info.getTemplet()!=null && info.getTemplet().trim().length()>0) {
 				templet=info.getTemplet();
