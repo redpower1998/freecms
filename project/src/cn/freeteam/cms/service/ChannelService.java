@@ -351,7 +351,7 @@ public class ChannelService extends BaseService{
 		if (site!=null && channel!=null
 				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
 			//生成模板位置
-			String templetPath="templet/"+site.getIndextemplet().trim()+"/栏目页面.html";
+			String templetPath="templet/"+site.getIndextemplet().trim()+"/channel.html";
 			if (channel.getTemplet()!=null && channel.getTemplet().trim().length()>0) {
 				templetPath="templet/"+site.getIndextemplet().trim()+"/"+channel.getTemplet().trim();
 			}
@@ -417,7 +417,7 @@ public class ChannelService extends BaseService{
 		if (site!=null && channel!=null
 				&& site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
 			//生成模板位置
-			String templetPath="templet/"+site.getIndextemplet().trim()+"/栏目页面.html";
+			String templetPath="templet/"+site.getIndextemplet().trim()+"/channel.html";
 			if (channel.getTemplet()!=null && channel.getTemplet().trim().length()>0) {
 				templetPath="templet/"+site.getIndextemplet().trim()+"/"+channel.getTemplet().trim();
 			}

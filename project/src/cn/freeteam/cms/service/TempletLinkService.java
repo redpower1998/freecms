@@ -249,7 +249,7 @@ public class TempletLinkService extends BaseService{
 	public void importLinks(Templet templet,HttpServletRequest request) throws DocumentException{
 		if (templet!=null) {
 			//判断links.xml文件是否存在
-			File file=new File(request.getRealPath("/")+"\\templet\\"+templet.getId()+"\\links.xml");
+			File file=new File(request.getRealPath("/")+"/templet/"+templet.getId()+"/links.xml");
 			if (file.exists()) {
 				SAXReader saxReader = new SAXReader();
 				Document document = saxReader.read(file);

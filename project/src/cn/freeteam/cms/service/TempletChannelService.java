@@ -344,7 +344,7 @@ public class TempletChannelService extends BaseService{
 	public void importChannels(Templet templet,HttpServletRequest request) throws DocumentException{
 		if (templet!=null) {
 			//判断channels.xml文件是否存在
-			File file=new File(request.getRealPath("/")+"\\templet\\"+templet.getId()+"\\channels.xml");
+			File file=new File(request.getRealPath("/")+"/templet/"+templet.getId()+"/channels.xml");
 			if (file.exists()) {
 				SAXReader saxReader = new SAXReader();
 				Document document = saxReader.read(file);
