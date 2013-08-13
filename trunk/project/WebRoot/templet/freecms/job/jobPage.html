@@ -1,4 +1,4 @@
-<#include "../inc/头部.html"/>
+<#include "../inc/head.html"/>
 <h1>${currChannel.name}</h1>
 <@jobPage  num='1' page='${page!1}' siteid='${site.id}' action='${contextPath}templet_pro.do?siteid=${site.id}&currChannelid=${currChannel.id}&templetPath=job/jobPage.html';jobList,pager>
 
@@ -11,4 +11,4 @@
 </ul>
 ${pager.formPageStr}
 </@jobPage>
-<#include "../inc/底部.html"/>
+<#include "../inc/foot.html"/>
