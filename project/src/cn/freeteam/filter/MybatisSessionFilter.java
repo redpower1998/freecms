@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import javax.servlet.FilterConfig;
 import javax.servlet.http.HttpSession;
+import org.apache.ibatis.session.MybatisSessionFactory;
 
-import cn.freeteam.util.MybatisSessionFactory;
 
 
 
@@ -30,7 +30,7 @@ public class MybatisSessionFilter implements Filter {
 		VisitFilter visitFilter=new VisitFilter();
 		visitFilter.doFilter(req, res, chain);
 		//关闭链接
-		MybatisSessionFactory.closeSession();
+		MybatisSessionFactory.closeSession(req);
 	}
 
 	public void setFilterConfig(final FilterConfig filterConfig) {

@@ -2,6 +2,8 @@ package cn.freeteam.util;
 
 import java.io.Reader;
 
+import javax.servlet.ServletRequest;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -85,7 +87,7 @@ public class MybatisSessionFactory {
      *
      *  @throws HibernateException
      */
-    public static void closeSession() {
+    public static void closeSession(ServletRequest req) {
     	SqlSession session = (SqlSession) threadLocal.get();
         threadLocal.set(null);
         
