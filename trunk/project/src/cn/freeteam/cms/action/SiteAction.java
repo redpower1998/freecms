@@ -117,6 +117,14 @@ public class SiteAction extends BaseAction{
 	}
 	
 	/**
+	 * 建站向导
+	 * @return
+	 */
+	public String guide(){
+		return "guide";
+	}
+	
+	/**
 	 * 多项选择站点
 	 * @return
 	 */
@@ -481,22 +489,22 @@ public class SiteAction extends BaseAction{
 				//如果原来有和现在的logo不同则删除原来的logo文件 
 				if (!oldLogo.equals(oldSite.getLogo())) {
 					if(oldSite.getLogo()!=null &&  oldSite.getLogo().trim().length()>0){
-						FileUtil.del(getHttpRequest().getRealPath("/")+oldSite.getLogo().trim().replaceAll("/", "\\\\"));
+						FileUtil.del(getHttpRequest().getRealPath("/").replace("\\", "/")+oldSite.getLogo().trim());
 					}
 				}else {
 					site.setLogo(oldLogo);
 				}
 				if (logo!=null) {
 					//生成目标文件
-					String root=getHttpRequest().getRealPath("/");
+					String root=getHttpRequest().getRealPath("/").replace("\\", "/");
 					String ext=FileUtil.getExt(logoFileName).toLowerCase();
 					if (!".jpg".equals(ext) && !".jpeg".equals(ext) && !".gif".equals(ext) && !".png".equals(ext)) {
 						write("<script>alert('logo只能上传jpg,jpeg,gif,png格式的图片!');history.back();</script>", "GBK");
 						return null;
 					}
 					String id=UUID.randomUUID().toString();
-					File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
-					File folder=new File(root+"\\upload\\"+site.getId()+"\\");
+					File targetFile=new File(root+"/upload/"+site.getId()+"/"+id+ext);
+					File folder=new File(root+"/upload/"+site.getId()+"/");
 					if (!folder.exists()) {
 						folder.mkdirs();
 					}
@@ -542,15 +550,15 @@ public class SiteAction extends BaseAction{
 				}
 				if (logo!=null) {
 					//生成目标文件
-					String root=getHttpRequest().getRealPath("/");
+					String root=getHttpRequest().getRealPath("/").replace("\\", "/");
 					String ext=FileUtil.getExt(logoFileName).toLowerCase();
 					if (!".jpg".equals(ext) && !".jpeg".equals(ext) && !".gif".equals(ext) && !".png".equals(ext)) {
 						write("<script>alert('logo只能上传jpg,jpeg,gif,png格式的图片!');history.back();</script>", "GBK");
 						return null;
 					}
 					String id=UUID.randomUUID().toString();
-					File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
-					File folder=new File(root+"\\upload\\"+site.getId()+"\\");
+					File targetFile=new File(root+"/upload/"+site.getId()+"/"+id+ext);
+					File folder=new File(root+"/upload/"+site.getId()+"/");
 					if (!folder.exists()) {
 						folder.mkdirs();
 					}
@@ -666,7 +674,7 @@ public class SiteAction extends BaseAction{
 				//如果原来有和现在的logo不同则删除原来的logo文件 
 				if (!oldLogo.equals(oldSite.getLogo())) {
 					if(oldSite.getLogo()!=null &&  oldSite.getLogo().trim().length()>0){
-						FileUtil.del(getHttpRequest().getRealPath("/")+oldSite.getLogo().trim().replaceAll("/", "\\\\"));
+						FileUtil.del(getHttpRequest().getRealPath("/")+oldSite.getLogo().trim());
 					}
 				}else {
 					site.setLogo(oldLogo);
@@ -680,8 +688,8 @@ public class SiteAction extends BaseAction{
 						return null;
 					}
 					String id=UUID.randomUUID().toString();
-					File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
-					File folder=new File(root+"\\upload\\"+site.getId()+"\\");
+					File targetFile=new File(root+"/upload/"+site.getId()+"/"+id+ext);
+					File folder=new File(root+"/upload/"+site.getId()+"/");
 					if (!folder.exists()) {
 						folder.mkdirs();
 					}

@@ -220,21 +220,21 @@ public class ChannelAction extends BaseAction{
 					File folderFile=null;
 					if (oldChannel.getPagemark()!=null && oldChannel.getPagemark().trim().length()>0) {
 						folder=oldChannel.getPagemark().trim();
-						folderFile=new File(getHttpRequest().getRealPath("/")+"\\site\\"+site.getSourcepath()+"\\"+folder);
+						folderFile=new File(getHttpRequest().getRealPath("/")+"/site/"+site.getSourcepath()+"/"+folder);
 					}
 					if ((folderFile==null || !folderFile.exists()) && oldChannel.getIndexnum()>0) {
 						folder=String.valueOf(oldChannel.getIndexnum());
-						folderFile=new File(getHttpRequest().getRealPath("/")+"\\site\\"+site.getSourcepath()+"\\"+folder);
+						folderFile=new File(getHttpRequest().getRealPath("/")+"/site/"+site.getSourcepath()+"/"+folder);
 					}
 					if (folderFile==null || !folderFile.exists()) {
 						folder=oldChannel.getId();
-						folderFile=new File(getHttpRequest().getRealPath("/")+"\\site\\"+site.getSourcepath()+"\\"+folder);
+						folderFile=new File(getHttpRequest().getRealPath("/")+"/site/"+site.getSourcepath()+"/"+folder);
 					}
 					//判断目录是否存在
 					if (folderFile.exists()) {
 						//修改目录名
 						folderFile.renameTo(new File(getHttpRequest().getRealPath("/")
-								+"\\site\\"+site.getSourcepath()+"\\"+channel.getPagemark().trim()));
+								+"/site/"+site.getSourcepath()+"/"+channel.getPagemark().trim()));
 					}
 				}
 				//如果原来有pagemark，现在删除了
@@ -245,7 +245,7 @@ public class ChannelAction extends BaseAction{
 					String folder="";
 					File folderFile=null;
 					folder=oldChannel.getPagemark().trim();
-					folderFile=new File(getHttpRequest().getRealPath("/")+"\\site\\"+site.getSourcepath()+"\\"+folder);
+					folderFile=new File(getHttpRequest().getRealPath("/")+"/site/"+site.getSourcepath()+"/"+folder);
 					//判断目录是否存在
 					if (folderFile.exists()) {
 						//修改目录名
@@ -256,12 +256,12 @@ public class ChannelAction extends BaseAction{
 							rename=oldChannel.getId();
 						}
 						folderFile.renameTo(new File(getHttpRequest().getRealPath("/")
-								+"\\site\\"+site.getSourcepath()+"\\"+rename));
+								+"/site/"+site.getSourcepath()+"/"+rename));
 					}
 				}
 				//如果原来有和现在的logo不同则删除原来的logo文件 
 				if (!oldImg.equals(oldChannel.getImg()) && oldChannel.getImg()!=null && oldChannel.getImg().trim().length()>0) {
-					FileUtil.del(getHttpRequest().getRealPath("/")+oldChannel.getImg().trim().replaceAll("/", "\\\\"));
+					FileUtil.del(getHttpRequest().getRealPath("/")+oldChannel.getImg().trim());
 				}else {
 					channel.setImg(oldImg);
 				}
@@ -274,8 +274,8 @@ public class ChannelAction extends BaseAction{
 						return null;
 					}
 					String id=UUID.randomUUID().toString();
-					File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
-					File folder=new File(root+"\\upload\\"+site.getId()+"\\");
+					File targetFile=new File(root+"/upload/"+site.getId()+"/"+id+ext);
+					File folder=new File(root+"/upload/"+site.getId()+"/");
 					if (!folder.exists()) {
 						folder.mkdir();
 					}
@@ -316,8 +316,8 @@ public class ChannelAction extends BaseAction{
 						return null;
 					}
 					String id=UUID.randomUUID().toString();
-					File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
-					File folder=new File(root+"\\upload\\"+site.getId()+"\\");
+					File targetFile=new File(root+"/upload/"+site.getId()+"/"+id+ext);
+					File folder=new File(root+"/upload/"+site.getId()+"/");
 					if (!folder.exists()) {
 						folder.mkdir();
 					}

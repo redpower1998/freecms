@@ -88,8 +88,8 @@ public class ResumeAction extends BaseAction{
 							issave=false;
 						}else {
 							String id=UUID.randomUUID().toString();
-							File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
-							File folder=new File(root+"\\upload\\"+site.getId()+"\\");
+							File targetFile=new File(root+"/upload/"+site.getId()+"/"+id+ext);
+							File folder=new File(root+"/upload/"+site.getId()+"/");
 							if (!folder.exists()) {
 								folder.mkdirs();
 							}
@@ -112,8 +112,8 @@ public class ResumeAction extends BaseAction{
 							issave=false;
 						}else {
 							String id=UUID.randomUUID().toString();
-							File targetFile=new File(root+"\\upload\\"+site.getId()+"\\"+id+ext);
-							File folder=new File(root+"\\upload\\"+site.getId()+"\\");
+							File targetFile=new File(root+"/upload/"+site.getId()+"/"+id+ext);
+							File folder=new File(root+"/upload/"+site.getId()+"/");
 							if (!folder.exists()) {
 								folder.mkdirs();
 							}
