@@ -123,6 +123,23 @@ public class SiteAction extends BaseAction{
 	public String guide(){
 		return "guide";
 	}
+	/**
+	 * 建站向导 保存站点
+	 * @return
+	 */
+	public String guideSite(){
+		//添加
+		if (siteService.haveSourcePath( site.getSourcepath())) {
+			write("<script>alert('此源文件目录已存在');history.back();</script>", "GBK");
+			return null;
+		}
+		//创建源文件目录
+		FileUtil.mkdir(getHttpRequest().getRealPath("/")+"site/"+site.getSourcepath());
+		siteService.insert(site);
+		OperLogUtil.log(getLoginName(), "添加站点 "+site.getName(), getHttpRequest());
+		return "guideTemplet";
+	}
+	
 	
 	/**
 	 * 多项选择站点
