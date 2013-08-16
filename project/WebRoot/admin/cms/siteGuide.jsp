@@ -19,6 +19,7 @@
 		<script type="text/javascript" src="../../js/weebox0.4/bgiframe.js"></script>
 		<script type="text/javascript" src="../../js/weebox0.4/weebox.js"></script>
 		<link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox.css" />
+	<script src="../../js/check.js" type="text/javascript"></script>
 		<script type="text/javascript" src="../../js/checkLoginName.js"></script>
 		<script type="text/javascript" src="js/siteGuide.js"></script>
 	</HEAD>
