@@ -9,6 +9,7 @@
 	<head>
 		<link rel="stylesheet" href="../img/common.css" type="text/css" />
 		<link rel="stylesheet" href="../img/style.css" type="text/css" />
+		<LINK rel=stylesheet type=text/css href="../img/style3.css"/>
 
 	<link rel="stylesheet" href="../js/jquery.treeview.css" />
 	
@@ -25,6 +26,14 @@
 </script>
 	</head>
 	<body >
+	
+			<DIV class=tab>
+				<DIV class=tabOn >
+					菜单管理
+				</DIV>
+				<DIV class=clearer></DIV>
+			</DIV>
+			<DIV class=column>
 <div id="man_zone" >
   <table width="99%" border="0" align="left"  cellpadding="3" cellspacing="1" >
     <tr>
@@ -117,5 +126,6 @@
 	}
 	initTrees();
 	</script>
+	</DIV>
 	</body>
 </html>
