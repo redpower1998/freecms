@@ -105,7 +105,7 @@ public class TempletAction extends BaseAction{
 					write("{error:'只能上传"+allowExts+"格式的文件!',msg:''}", "GBK");
 					return null;
 				}
-				File targetFile=new File(root+"\\"+uploadFileFileName);
+				File targetFile=new File(root+"/"+uploadFileFileName);
 				if (!targetFile.exists()) {
 					try {
 						targetFile.createNewFile();
@@ -147,7 +147,7 @@ public class TempletAction extends BaseAction{
 		if (templet!=null && templet.getId()!=null && templet.getId().trim().length()>0) {
 			templet=templetService.findById(templet.getId());
 			//判断根目录有无子文件夹
-			if (FileUtil.hasSonFolder(getHttpRequest().getRealPath("/")+"\\templet\\"+templet.getId())) {
+			if (FileUtil.hasSonFolder(getHttpRequest().getRealPath("/")+"/templet/"+templet.getId())) {
 				rootHasSon="1";
 			}
 		}
@@ -222,8 +222,8 @@ public class TempletAction extends BaseAction{
 					//判断是否重命名
 					if (!currFile.getName().equals(fileName)) {
 						//判断文件是否存在，如存在则不能保存
-						String string=currFile.getPath().substring(0,currFile.getPath().lastIndexOf("\\")+1);
-						File newFile=new File(currFile.getPath().substring(0,currFile.getPath().lastIndexOf("\\")+1)+"\\"+fileName);
+						String string=currFile.getPath().replace("\\", "/").substring(0,currFile.getPath().replace("\\", "/").lastIndexOf("/")+1);
+						File newFile=new File(currFile.getPath().replace("\\", "/").substring(0,currFile.getPath().replace("\\", "/").lastIndexOf("/")+1)+"/"+fileName);
 						if (newFile.exists()) {
 							write("此文件夹名已存在", "UTF-8");
 							return null;
@@ -237,7 +237,7 @@ public class TempletAction extends BaseAction{
 				if (currFolder!=null && currFolder.trim().length()>0 
 						&& fileName!=null && fileName.trim().length()>0) {
 					//判断文件是否存在，如存在则不能保存
-					currFile=new File(URLDecoder.decode(currFolder)+"\\"+fileName);
+					currFile=new File(URLDecoder.decode(currFolder)+"/"+fileName);
 					if (currFile.exists()) {
 						write("此文件夹名已存在", "UTF-8");
 						return null;
@@ -245,12 +245,12 @@ public class TempletAction extends BaseAction{
 					currFile.mkdir();
 				}
 			}
-			logContent=oper+"模板文件夹("+(currFile!=null?currFile.getPath().replace(getHttpRequest().getRealPath("/"), ""):"")+")成功!";
+			logContent=oper+"模板文件夹("+(currFile!=null?currFile.getPath().replace("\\", "/").replace(getHttpRequest().getRealPath("/").replace("\\", "/"), ""):"")+")成功!";
 			write("succ", "GBK");
 		} catch (Exception e) {
 			DBProException(e);
 			write("操作失败", "UTF-8");
-			logContent=oper+"模板文件夹("+(currFile!=null?currFile.getPath().replace(getHttpRequest().getRealPath("/"), ""):"")+")失败:"+e.toString()+"!";
+			logContent=oper+"模板文件夹("+(currFile!=null?currFile.getPath().replace("\\", "/").replace(getHttpRequest().getRealPath("/").replace("\\", "/"), ""):"")+")失败:"+e.toString()+"!";
 		}
 		OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
 		return null;
@@ -300,7 +300,7 @@ public class TempletAction extends BaseAction{
 					//判断是否重命名
 					if (!currFile.getName().equals(fileName+fileExt)) {
 						//判断文件是否存在，如存在则不能保存
-						File newFile=new File(URLDecoder.decode(currFolder)+"\\"+fileName+fileExt);
+						File newFile=new File(URLDecoder.decode(currFolder)+"/"+fileName+fileExt);
 						if (newFile.exists()) {
 							write("<script>alert('此文件名已存在');history.back();</script>", "GBK");
 							return null;
@@ -309,7 +309,7 @@ public class TempletAction extends BaseAction{
 						//FileUtil.deleteFile(currFile);
 						
 						currFile.renameTo(newFile);
-						currFile=new File(URLDecoder.decode(currFolder)+"\\"+fileName+fileExt);
+						currFile=new File(URLDecoder.decode(currFolder)+"/"+fileName+fileExt);
 					}
 				}
 				FileUtil.writeFile(currFile, fileContent);
@@ -318,7 +318,7 @@ public class TempletAction extends BaseAction{
 				if (currFolder!=null && currFolder.trim().length()>0 
 						&& fileName!=null && fileName.trim().length()>0) {
 					//判断文件是否存在，如存在则不能保存
-					currFile=new File(URLDecoder.decode(currFolder)+"\\"+fileName+fileExt);
+					currFile=new File(URLDecoder.decode(currFolder)+"/"+fileName+fileExt);
 					if (currFile.exists()) {
 						write("<script>alert('此文件名已存在');history.back();</script>", "GBK");
 						return null;
@@ -327,12 +327,12 @@ public class TempletAction extends BaseAction{
 					FileUtil.writeFile(currFile, fileContent);
 				}
 			}
-			logContent=oper+"模板文件("+(currFile!=null?currFile.getPath().replace(getHttpRequest().getRealPath("/"), ""):"")+")成功!";
-			write("<script>alert('操作成功');location.href='templet_fileSon.do?root="+URLEncoder.encode((currFile!=null?currFile.getPath().substring(0, currFile.getPath().lastIndexOf("\\")):""),"utf-8")+"';</script>", "GBK");
+			logContent=oper+"模板文件("+(currFile!=null?currFile.getPath().replace("\\", "/").replace(getHttpRequest().getRealPath("/").replace("\\", "/"), ""):"")+")成功!";
+			write("<script>alert('操作成功');location.href='templet_fileSon.do?root="+URLEncoder.encode((currFile!=null?currFile.getPath().replace("\\", "/").substring(0, currFile.getPath().replace("\\", "/").lastIndexOf("/")):""),"utf-8")+"';</script>", "GBK");
 		} catch (Exception e) {
 			DBProException(e);
 			write("<script>alert('操作失败');history.back();</script>", "GBK");
-			logContent=oper+"模板文件("+(currFile!=null?currFile.getPath().replace(getHttpRequest().getRealPath("/"), ""):"")+")失败:"+e.toString()+"!";
+			logContent=oper+"模板文件("+(currFile!=null?currFile.getPath().replace("\\", "/").replace(getHttpRequest().getRealPath("/").replace("\\", "/"), ""):"")+")失败:"+e.toString()+"!";
 		}
 		OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
 		return null;
@@ -345,7 +345,7 @@ public class TempletAction extends BaseAction{
 		if (templet!=null && templet.getId()!=null && templet.getId().trim().length()>0) {
 			templet=templetService.findById(templet.getId());
 			//判断根目录有无子文件夹
-			if (FileUtil.hasSonFolder(getHttpRequest().getRealPath("/")+"\\templet\\"+templet.getId())) {
+			if (FileUtil.hasSonFolder(getHttpRequest().getRealPath("/")+"/templet/"+templet.getId())) {
 				rootHasSon="1";
 			}
 		}
@@ -376,7 +376,7 @@ public class TempletAction extends BaseAction{
 							stringBuilder.append("showOne");
 						}
 						stringBuilder.append("('");
-						stringBuilder.append(URLEncoder.encode(sonFiles.get(i).getPath(), "UTF-8"));
+						stringBuilder.append(URLEncoder.encode(sonFiles.get(i).getPath().replace("\\", "/"), "UTF-8"));
 						stringBuilder.append("')>");
 						stringBuilder.append(sonFiles.get(i).getName());
 						stringBuilder.append("</a>\", \"hasChildren\": ");
@@ -386,7 +386,7 @@ public class TempletAction extends BaseAction{
 							stringBuilder.append("false");
 						}
 						stringBuilder.append(",\"id\":\"");
-						stringBuilder.append(URLEncoder.encode(sonFiles.get(i).getPath(), "UTF-8"));
+						stringBuilder.append(URLEncoder.encode(sonFiles.get(i).getPath().replace("\\", "/"), "UTF-8"));
 						stringBuilder.append("\" }");
 					}
 				}
@@ -404,10 +404,10 @@ public class TempletAction extends BaseAction{
 	public String fileSon() throws UnsupportedEncodingException{
 		if (root!=null && root.trim().length()>0) {
 			root=URLDecoder.decode(root,"utf-8");
-			String realPath=getHttpRequest().getRealPath("/");
-			currFolder=root.replace(realPath+"templet\\", "");
-			if (currFolder.indexOf("\\")>-1) {
-				currFolder=currFolder.substring(currFolder.indexOf("\\"));
+			String realPath=getHttpRequest().getRealPath("/").replace("\\", "/");
+			currFolder=root.replace(realPath+"templet/", "");
+			if (currFolder.indexOf("/")>-1) {
+				currFolder=currFolder.substring(currFolder.indexOf("/"));
 			}else {
 				currFolder="根目录";
 			}
@@ -432,10 +432,10 @@ public class TempletAction extends BaseAction{
 						try {
 							FileUtil.del(URLDecoder.decode(filePathArr[i],"utf-8"));
 							sb.append(URLEncoder.encode(filePathArr[i],"utf-8")+";");
-							logContent="删除模板文件("+URLDecoder.decode(filePathArr[i],"utf-8").replace(getHttpRequest().getRealPath("/"), "")+")成功!";
+							logContent="删除模板文件("+URLDecoder.decode(filePathArr[i],"utf-8").replace(getHttpRequest().getRealPath("/").replace("\\", "/"), "")+")成功!";
 						} catch (Exception e) {
 							DBProException(e);
-							logContent="删除模板文件("+URLDecoder.decode(filePathArr[i],"utf-8").replace(getHttpRequest().getRealPath("/"), "")+")失败:"+e.toString()+"!";
+							logContent="删除模板文件("+URLDecoder.decode(filePathArr[i],"utf-8").replace(getHttpRequest().getRealPath("/").replace("\\", "/"), "")+")失败:"+e.toString()+"!";
 						}
 						OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
 					}
@@ -518,8 +518,8 @@ public class TempletAction extends BaseAction{
 						msg="<script>alert('请上传格式为zip的压缩文件!');history.back();</script>";
 						return "msg";
 					}
-					File targetFile=new File(realPath+"\\templet\\"+templet.getId()+ext);
-					File folder=new File(realPath+"\\templet\\"+templet.getId()+"\\");
+					File targetFile=new File(realPath+"/templet/"+templet.getId()+ext);
+					File folder=new File(realPath+"/templet/"+templet.getId()+"/");
 					if (!folder.exists()) {
 						folder.mkdirs();
 					}
@@ -529,7 +529,7 @@ public class TempletAction extends BaseAction{
 					//复制到目标文件
 					FileUtil.copy(uploadFile, targetFile);
 					//解压
-					ZipTools.unZip(realPath+"\\templet\\"+templet.getId()+ext, realPath+"\\templet\\"+templet.getId()+"\\");
+					ZipTools.unZip(realPath+"/templet/"+templet.getId()+ext, realPath+"/templet/"+templet.getId()+"/");
 					//判断是否有初始化数据
 					//栏目数据
 					init("templetChannelService");
@@ -538,7 +538,7 @@ public class TempletAction extends BaseAction{
 					init("templetLinkService");
 					templetLinkService.importLinks(templet, getHttpRequest());
 				}else {
-					FileUtil.copyDirectiory(realPath+"\\templet\\default", realPath+"\\templet\\"+templet.getId());
+					FileUtil.copyDirectiory(realPath+"/templet/default", realPath+"/templet/"+templet.getId());
 				}
 			}
 			logContent=oper+"模板("+templet.getName()+")成功!";

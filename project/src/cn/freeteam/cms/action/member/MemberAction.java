@@ -80,7 +80,7 @@ public class MemberAction extends BaseAction{
 				//如果原来有和现在的logo不同则删除原来的logo文件 
 				if (!oldImg.equals(oldmember.getImg())) {
 					if(oldmember.getImg()!=null &&  oldmember.getImg().trim().length()>0){
-						FileUtil.del(getHttpRequest().getRealPath("/")+oldmember.getImg().trim().replaceAll("/", "\\\\"));
+						FileUtil.del(getHttpRequest().getRealPath("/")+oldmember.getImg().trim());
 						member.setImg("");
 					}
 				}else {
@@ -95,8 +95,8 @@ public class MemberAction extends BaseAction{
 						return null;
 					}
 					String id=UUID.randomUUID().toString();
-					File targetFile=new File(root+"\\upload\\member\\"+id+ext);
-					File folder=new File(root+"\\upload\\member\\");
+					File targetFile=new File(root+"/upload/member/"+id+ext);
+					File folder=new File(root+"/upload/member/");
 					if (!folder.exists()) {
 						folder.mkdirs();
 					}

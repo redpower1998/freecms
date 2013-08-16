@@ -206,7 +206,7 @@ public class TempletChannelAction extends BaseAction{
 				}
 				//如果原来有和现在的logo不同则删除原来的logo文件 
 				if (!oldImg.equals(oldtempletChannel.getImg()) && oldtempletChannel.getImg()!=null && oldtempletChannel.getImg().trim().length()>0) {
-					FileUtil.del(getHttpRequest().getRealPath("/")+"/templet/"+templet.getId()+"/resources/upload/"+oldtempletChannel.getImg().trim().replaceAll("/", "\\\\"));
+					FileUtil.del(getHttpRequest().getRealPath("/")+"/templet/"+templet.getId()+"/resources/upload/"+oldtempletChannel.getImg());
 				}else {
 					templetChannel.setImg(oldImg);
 				}
@@ -219,8 +219,8 @@ public class TempletChannelAction extends BaseAction{
 						return null;
 					}
 					String id=UUID.randomUUID().toString();
-					File targetFile=new File(root+"\\resources\\upload\\"+id+ext);
-					File folder=new File(root+"\\resources\\upload\\");
+					File targetFile=new File(root+"/resources/upload/"+id+ext);
+					File folder=new File(root+"/resources/upload/");
 					if (!folder.exists()) {
 						folder.mkdir();
 					}
@@ -251,8 +251,8 @@ public class TempletChannelAction extends BaseAction{
 						return null;
 					}
 					String id=UUID.randomUUID().toString();
-					File targetFile=new File(root+"\\resources\\upload\\"+id+ext);
-					File folder=new File(root+"\\resources\\upload\\");
+					File targetFile=new File(root+"/resources/upload/"+id+ext);
+					File folder=new File(root+"/resources/upload/");
 					if (!folder.exists()) {
 						folder.mkdir();
 					}
