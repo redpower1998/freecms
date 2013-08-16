@@ -10,7 +10,12 @@
 	<HEAD>
 		<LINK rel=stylesheet type=text/css href="../../img/style.css">
 		<LINK rel=stylesheet type=text/css href="../../img/style3.css">
+	<link rel="stylesheet" href="../../js/jquery.treeview.css" />
 		<script type="text/javascript" src="../../js/jquery-1.5.1.min.js"></script>
+	<script src="../../js/jquery.cookie.js" type="text/javascript"></script>
+	<script src="../../js/jquery.treeview.js" type="text/javascript"></script>
+	<script src="../../js/jquery.treeview.edit.js" type="text/javascript"></script>
+	<script src="../../js/jquery.treeview.async.js" type="text/javascript"></script>
 		<script type="text/javascript" src="../../js/weebox0.4/bgiframe.js"></script>
 		<script type="text/javascript" src="../../js/weebox0.4/weebox.js"></script>
 		<link type="text/css" rel="stylesheet" href="../../js/weebox0.4/weebox.css" />
@@ -39,9 +44,9 @@
 							</TD>
 							<TD width="70%" align="left">
 							<input type="hidden" name="site.parid" id="parid"/>
-								<INPUT onblur="this.className='colorblur';" id=parname
-									class=colorblur onfocus="this.className='colorfocus';" 
-									maxLength=50 type=text value="" readonly/>
+								<INPUT onblur="this.className='colorblur';" id=parname title="点击选择父站点"
+									class=colorblur onfocus="this.className='colorfocus';"  style="cursor:hand"
+									maxLength=50 type=text value="" readonly onClick="parButton()"/>
 							</TD>
 						</TR>
 						<TR>

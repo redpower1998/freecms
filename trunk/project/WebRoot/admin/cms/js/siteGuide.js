@@ -11,3 +11,13 @@ function save(form){
 	}
 	form.submit();
 }
+function parButton(){
+	$.weeboxs.open('site_site.do?type=select', {title:'选择父站点', contentType:'ajax',height:320,width:280
+	});
+}
+//选择一个站点时触发的事件
+function showDetail(id,name,siteid){
+	$("#parid").val(id);
+	$("#parname").val(name);
+	$.weeboxs.close();
+}
