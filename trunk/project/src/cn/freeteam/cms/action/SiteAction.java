@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.jdbc.ScriptRunner;
 
@@ -138,6 +139,35 @@ public class SiteAction extends BaseAction{
 		siteService.insert(site);
 		OperLogUtil.log(getLoginName(), "添加站点 "+site.getName(), getHttpRequest());
 		return "guideTemplet";
+	}
+	/**
+	 * 建站向导 选择模板
+	 * @return
+	 */
+	public String guideTemplet(){
+		if (site!=null && StringUtils.isNotEmpty(site.getId())) {
+			site=siteService.findById(site.getId());
+			if (site!=null) {
+				if ("0".equals(type)) {
+					//选择模板
+					site.setIndextemplet(templet.getId());
+				}else {
+					//创建新模板
+					init("templetService");
+					templet.setState("1");
+					templet.setAdduser(getLoginAdmin().getId());
+					site.setIndextemplet(templetService.add(templet));
+				}
+				siteService.update(site);
+				return "guideChannel";
+			}else {
+				showMessage="没有找到此站点";
+				return showMessage(showMessage, forwardUrl, forwardSeconds);
+			}
+		}else {
+			showMessage="没有传递站点id参数";
+			return showMessage(showMessage, forwardUrl, forwardSeconds);
+		}
 	}
 	
 	
