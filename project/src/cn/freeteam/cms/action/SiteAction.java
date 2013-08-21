@@ -36,6 +36,7 @@ import cn.freeteam.util.FileUtil;
 import cn.freeteam.util.MybatisSessionFactory;
 import cn.freeteam.util.OperLogUtil;
 import cn.freeteam.util.ResponseUtil;
+import freemarker.template.TemplateException;
 
 
 
@@ -157,9 +158,47 @@ public class SiteAction extends BaseAction{
 					templet.setState("1");
 					templet.setAdduser(getLoginAdmin().getId());
 					site.setIndextemplet(templetService.add(templet));
+					String realPath=getHttpRequest().getRealPath("/");
+					try {
+						FileUtil.copyDirectiory(realPath+"/templet/default", realPath+"/templet/"+templet.getId());
+					} catch (IOException e) {
+						e.printStackTrace();
+						showMessage=e.getMessage();
+						return showMessage(showMessage, forwardUrl, forwardSeconds);
+					}
+				}
+				//创建源文件目录
+				FileUtil.mkdir(getHttpRequest().getRealPath("/")+"site/"+site.getSourcepath());
+				boolean isinit=false;
+				if (site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
+					templet=templetService.findById(site.getIndextemplet());
+					if (templet!=null) {
+						//复制模板文件夹下resources文件夹到此站点
+						try {
+							FileUtil.copyDirectiory(
+									getHttpRequest().getRealPath("/")+"/templet/"+templet.getId()+"/resources", 
+									getHttpRequest().getRealPath("/")+"/site/"+site.getSourcepath()+"/resources");
+							//判断模板是否有初始化数据
+							init("templetChannelService");
+							if (templetChannelService.count(templet.getId())>0) {
+								isinit=true;
+							}else {
+								init("templetLinkService");
+								if (templetLinkService.count(templet.getId())>0) {
+									isinit=true;
+								}
+							}
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
 				}
 				siteService.update(site);
-				return "guideChannel";
+				OperLogUtil.log(getLoginName(), "添加站点 "+site.getName(), getHttpRequest());
+				if (isinit) {
+					return "guideInit";
+				}
+				return guideCompleted();
 			}else {
 				showMessage="没有找到此站点";
 				return showMessage(showMessage, forwardUrl, forwardSeconds);
@@ -169,8 +208,41 @@ public class SiteAction extends BaseAction{
 			return showMessage(showMessage, forwardUrl, forwardSeconds);
 		}
 	}
-	
-	
+
+	/**
+	 * 建站向导 初始化站点
+	 * @return
+	 */
+	public String guideInit(){
+		try {
+			if (site.getId()!=null && site.getId().trim().length()>0 && 
+					site.getIndextemplet()!=null && site.getIndextemplet().trim().length()>0) {
+				site=siteService.findById(site.getId());
+				templet=templetService.findById(site.getIndextemplet());
+				if (site!=null && templet!=null) {
+					init("templetChannelService");
+					templetChannelService.importSiteChannels(templet, site);
+					init("templetLinkService");
+					templetLinkService.importSiteLinks(templet, site);
+				}
+			}
+			return guideCompleted();
+		} catch (Exception e) {
+			e.printStackTrace();
+			showMessage="站点初始化失败:"+e.getMessage();
+			return showMessage(showMessage, forwardUrl, forwardSeconds);
+		}
+	}
+	/**
+	 * 建站向导 创建栏目
+	 * @return
+	 */
+	public String guideCompleted(){
+		if (site.getId()!=null && site.getId().trim().length()>0){
+			site=siteService.findById(site.getId());
+		}
+		return "guideCompleted";
+	}
 	/**
 	 * 多项选择站点
 	 * @return

@@ -22,6 +22,8 @@
 			<result name="init" >/admin/cms/siteInit.jsp</result>
 			<result name="guide" >/admin/cms/siteGuide.jsp</result>
 			<result name="guideTemplet" >/admin/cms/siteGuideTemplet.jsp</result>
+			<result name="guideInit" >/admin/cms/siteGuideInit.jsp</result>
+			<result name="guideCompleted" >/admin/cms/siteGuideCompleted.jsp</result>
 		</action>
 		<action name="channel_*" method="{1}" class="cn.freeteam.cms.action.ChannelAction">
 		 	<interceptor-ref name ="fileUploadStack" /> 
@@ -189,6 +191,8 @@
 		</global-results>
 		<action name="info_*" method="{1}" class="cn.freeteam.cms.action.web.InfoAction">
 			<result name="sign" >/cms/infoSign.jsp</result>
+		</action>
+		<action name="site_*" method="{1}" class="cn.freeteam.cms.action.web.SiteAction">
 		</action>
 		<action name="templet_*" method="{1}" class="cn.freeteam.cms.action.web.TempletAction">
 		</action>
