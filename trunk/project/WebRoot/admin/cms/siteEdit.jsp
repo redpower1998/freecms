@@ -281,7 +281,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<input type="button" value="删除" onclick="del('${site.id }')"  class="button"  />&nbsp;
 							<input type="button" value="添加下级站点" onclick="addSon('${site.id }')"  class="button"  <s:if test="%{#session.loginAdmin.loginname != 'admin'}">style="display:none"</s:if>/>
 							<input type="button" value="改变所属站点" onclick="parButton('${site.id }')"  class="button"  <s:if test="%{#session.loginAdmin.loginname != 'admin'}">style="display:none"</s:if>/>
-							<input type="button" value="预览站点" onclick="preview('<%=basePath %>','${site.sourcepath }')"  class="button"  />
+							<input type="button" value="预览站点" onclick="preview('${site.id }')"  class="button"  />
 							</s:if>
 							</TD>
 						</TR>

@@ -15,12 +15,9 @@ function delLogo(){
 	$("#oldLogoSpan").fadeOut("slow"); 
 	$("#oldLogo").val("");
 }
-function preview(basePath,sourepath){
-	window.open(basePath+"/site/"+sourepath+"/index.html");
-}
 //选择模板
 function selectTemplet(id){
-	$.weeboxs.open('templet_select.do?site.id='+id, {title:'选择模板', contentType:'ajax',height:370,width:280
+	$.weeboxs.open('../../templet_select.do?site.id='+id, {title:'选择模板', contentType:'ajax',height:370,width:280
 	});
 }
 function selectTempletDo(id,name){
@@ -30,7 +27,7 @@ function selectTempletDo(id,name){
 }
 //预览站点
 function preview(){
-	window.open($("#siteIndex").val());
+	window.open("../../site_preview.do?site.id="+$("#siteId").val());
 }
 //同步资源
 function syncRes(){
