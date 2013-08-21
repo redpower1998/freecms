@@ -29,7 +29,7 @@
 			<input type="hidden" name="site.id" value="${site.id }"/>
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					建站向导:创建站点 &gt; <b>选择模板</b> &gt; 创建栏目
+					建站向导:创建站点 &gt; <b>选择模板</b> &gt; 完成
 				</div>
 				<TABLE cellSpacing=4 cellPadding=4 width="95%" align=center>
 					<TBODY>

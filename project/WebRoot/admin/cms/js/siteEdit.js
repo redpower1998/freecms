@@ -23,8 +23,8 @@ function del(id){
 		location.href="site_del.do?site.id="+id;
 	}
 }
-function preview(basePath,sourepath){
-	window.open(basePath+"/site/"+sourepath+"/index.html");
+function preview(siteid){
+	window.open("../../site_preview.do?site.id="+siteid);
 }
 function parButton(id){
 	$.weeboxs.open('site_site.do?type=selectPar&site.id='+id, {title:'改变所属站点', contentType:'ajax',height:320,width:280

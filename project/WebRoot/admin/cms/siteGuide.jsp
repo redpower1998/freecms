@@ -28,7 +28,7 @@
 			style="margin: 0px">
 			<DIV class="column" style="width:99%">
 				<div class="columntitle">
-					建站向导:<b>创建站点</b> &gt; 选择模板 &gt; 创建栏目
+					建站向导:<b>创建站点</b> &gt; 选择模板 &gt; 完成
 				</div>
 				<TABLE cellSpacing=4 cellPadding=4 width="95%" align=center>
 					<TBODY>
