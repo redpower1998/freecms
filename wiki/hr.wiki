@@ -12,7 +12,7 @@
 <p style="text-indent:28.0pt;">
 	<span style="font-family:宋体;"><span style="font-size:14.0pt;">开发</span></span><span style="font-size:14.0pt;">FreeCMS</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">商业版的第一个任务就是把原有功能移植到新的技术架构中，在移植的过程中将检查并优化原有代码，所以加入这次移植开发对于深入了解</span></span><span style="font-size:14.0pt;">FreeCMS</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">有很大的帮助，如果有兴趣加入</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">，这也是一次难得的好机会。</span></span></p>
 <p style="text-indent:28.0pt;">
-	<span style="font-family:宋体;"><span style="font-size:14.0pt;">乔布斯说过：&ldquo;一个出色人才能顶</span></span><span style="font-size:14.0pt;">50</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">个平庸员工&rdquo;。只有一流的人才才能创造出一流的产品。所以这次招募，</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">对加入成员的要求会更高。</span></span></p>
+	<span style="font-family:宋体;"><span style="font-size:14.0pt;">乔布斯说过：一个出色人才能顶</span></span><span style="font-size:14.0pt;">50</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">个平庸员工。只有一流的人才才能创造出一流的产品。所以这次招募，</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">对加入成员的要求会更高。</span></span></p>
 <p style="text-indent:28.0pt;">
 	<span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">对加入成员主要有以下要求：</span></span></p>
 <p style="margin-left:0cm;text-indent:28.1pt;">
