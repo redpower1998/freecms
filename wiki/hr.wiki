@@ -2,17 +2,32 @@
 
 = FreeCMS商业版开发招募计划=
 
-为了更好的吸引更多有能力的有志之士加入FreeTeam，FreeTeam决定帮助FreeTeam成员通过自己的努力获取一定的收益，让自己的兴趣为自己创造利益。
-为了尽快完成以上目标，FreeTeam决定开发FreeCMS商业版。
-FreeCMS商业版将使用全新的技术架构，加入Spring框架，原来使用的Struts2框架也会改成Spring MVC框架。
-开发FreeCMS商业版的第一个任务就是把原有功能移植到新的技术架构中，在移植的过程中将检查并优化原有代码，所以加入这次移植开发对于深入了解FreeCMS有很大的帮助，如果有兴趣加入FreeTeam，这也是一次难得的好机会。
-乔布斯说过：“一个出色人才能顶50个平庸员工”。只有一流的人才才能创造出一流的产品。所以这次招募，FreeTeam对加入成员的要求会更高。
-FreeTeam对加入成员主要有以下要求：
-1.java开发工程师：熟悉J2EE开发，有相关工作经验两年以上，至少熟悉Spring相关技术、MyBatis、FreeMarker，有大型CMS开发或应用经验的可酌情考虑。
-2.网页设计工程师：熟练使用photoshop、dreamweaver等相关制作软件，熟悉div+css，有扎实的美术功底，色彩感较强。
-3.业务代理：有cms相关业务的软件公司、业务员。
-4.其它要求：FreeTeam分析以往加入成员的情况，发现很多只是一时兴趣，就盲目加入FreeTeam，加入后并没有真正参与FreeCMS的开发中，所以这次请想加入的成员先认真思考一下，自己有没有足够的空余时间？自己能否胜任FreeCMS的开发工作？自己能否坚持积极参与开发？对于加入后的成员，FreeTeam会定期清除活跃度极低的成员，以保证FreeTeam的健康高效发展。
-作为FreeTeam成员，我怎么才能为自己创造收益呢？
-如果您是FreeTeam成员，您可以以一定的折扣价格获取到FreeCMS商业版授权，然后再出售给您的客户。为了公平原则和更好的激励效果，FreeTeam会根据您的贡献度决定您可以拿到的折扣率，贡献度越高，折扣率越高。贡献度既包括技术贡献，也包括销售贡献。技术贡献包含代码、界面、问题解决思路等，销售贡献包含购买的授权数量等。为了防止各FreeTeam成员恶性竞争，各成员出售给客户的价格不能低于官方价格，如果发现有出售给客户的价格低于官方价格的，则直接取消FreeTeam成员资格，希望大家共同维护一个良好的营销环境。
-如果您仔细阅读了以上内容，并决定加入FreeTeam，请将自己的简历发送至freeteam@foxmail.com，FreeTeam会第一时间处理您的申请。 
-本计划最终解释权归FreeTeam所有。
+
+<p style="text-indent:28.0pt;">
+	<span style="font-family:宋体;"><span style="font-size:14.0pt;">为了更好的吸引更多有能力的有志之士加入</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">，</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">决定帮助</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">成员通过自己的努力获取一定的收益，让自己的兴趣为自己创造利益。</span></span></p>
+<p style="text-indent:28.0pt;">
+	<span style="font-family:宋体;"><span style="font-size:14.0pt;">为了尽快完成以上目标，</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">决定开发</span></span><span style="font-size:14.0pt;">FreeCMS</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">商业版。</span></span></p>
+<p style="text-indent:28.0pt;">
+	<span style="font-size:14.0pt;">FreeCMS</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">商业版将使用全新的技术架构，加入</span></span><span style="font-size:14.0pt;">Spring</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">框架，原来使用的</span></span><span style="font-size:14.0pt;">Struts2</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">框架也会改成</span></span><span style="font-size:14.0pt;">Spring MVC</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">框架。</span></span></p>
+<p style="text-indent:28.0pt;">
+	<span style="font-family:宋体;"><span style="font-size:14.0pt;">开发</span></span><span style="font-size:14.0pt;">FreeCMS</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">商业版的第一个任务就是把原有功能移植到新的技术架构中，在移植的过程中将检查并优化原有代码，所以加入这次移植开发对于深入了解</span></span><span style="font-size:14.0pt;">FreeCMS</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">有很大的帮助，如果有兴趣加入</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">，这也是一次难得的好机会。</span></span></p>
+<p style="text-indent:28.0pt;">
+	<span style="font-family:宋体;"><span style="font-size:14.0pt;">乔布斯说过：&ldquo;一个出色人才能顶</span></span><span style="font-size:14.0pt;">50</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">个平庸员工&rdquo;。只有一流的人才才能创造出一流的产品。所以这次招募，</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">对加入成员的要求会更高。</span></span></p>
+<p style="text-indent:28.0pt;">
+	<span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">对加入成员主要有以下要求：</span></span></p>
+<p style="margin-left:0cm;text-indent:28.1pt;">
+	<span style="font-size:14.0pt;">1.</span><strong><span style="font-size:14.0pt;">java</span></strong><strong><span style="font-family:宋体;"><span style="font-size:14.0pt;">开发工程师</span></span></strong><span style="font-family:宋体;"><span style="font-size:14.0pt;">：熟悉</span></span><span style="font-size:14.0pt;">J2EE</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">开发，有相关工作经验两年以上，至少熟悉</span></span><span style="font-size:14.0pt;">Spring</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">相关技术、</span></span><span style="font-size:14.0pt;">MyBatis</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">、</span></span><span style="font-size:14.0pt;">FreeMarker</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">，有大型</span></span><span style="font-size:14.0pt;">CMS</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">开发或应用经验的可酌情考虑。</span></span></p>
+<p style="margin-left:0cm;text-indent:28.1pt;">
+	<span style="font-size:14.0pt;">2.</span><strong><span style="font-family:宋体;"><span style="font-size:14.0pt;">网页设计工程师</span></span></strong><span style="font-family:宋体;"><span style="font-size:14.0pt;">：熟练使用</span></span><span style="font-size:14.0pt;">photoshop</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">、</span></span><span style="font-size:14.0pt;">dreamweaver</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">等相关制作软件，熟悉</span></span><span style="font-size:14.0pt;">div+css</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">，有扎实的美术功底，色彩感较强。</span></span></p>
+<p style="margin-left:0cm;text-indent:28.1pt;">
+	<span style="font-size:14.0pt;">3.</span><strong><span style="font-family:宋体;"><span style="font-size:14.0pt;">业务代理</span></span></strong><span style="font-family:宋体;"><span style="font-size:14.0pt;">：有</span></span><span style="font-size:14.0pt;">cms</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">相关业务的软件公司、业务员。</span></span></p>
+<p style="margin-left:0cm;text-indent:28.1pt;">
+	<span style="font-size:14.0pt;">4.</span><strong><span style="font-family:宋体;"><span style="font-size:14.0pt;">其它要求</span></span></strong><span style="font-family:宋体;"><span style="font-size:14.0pt;">：</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">分析以往加入成员的情况，发现很多只是一时兴趣，就盲目加入</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">，加入后并没有真正参与</span></span><span style="font-size:14.0pt;">FreeCMS</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">的开发中，所以这次请想加入的成员先认真思考一下，自己有没有足够的空余时间？自己能否胜任</span></span><span style="font-size:14.0pt;">FreeCMS</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">的开发工作？自己能否坚持积极参与开发？对于加入后的成员，</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">会定期清除活跃度极低的成员，以保证</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">的健康高效发展。</span></span></p>
+<p style="text-indent:28.0pt;">
+	<span style="font-family:宋体;"><span style="font-size:14.0pt;">作为</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">成员，我怎么才能为自己创造收益呢？</span></span></p>
+<p style="text-indent:28.0pt;">
+	<span style="font-family:宋体;"><span style="font-size:14.0pt;">如果您是</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">成员，您可以以一定的折扣价格获取到</span></span><span style="font-size:14.0pt;">FreeCMS</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">商业版授权，然后再出售给您的客户。为了公平原则和更好的激励效果，</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">会根据您的贡献度决定您可以拿到的折扣率，贡献度越高，折扣率越高。贡献度既包括技术贡献，也包括销售贡献。技术贡献包含代码、界面、问题解决思路等，销售贡献包含购买的授权数量等。为了防止各</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">成员恶性竞争，各成员出售给客户的价格不能低于官方价格，如果发现有出售给客户的价格低于官方价格的，则直接取消</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">成员资格，希望大家共同维护一个良好的营销环境。</span></span></p>
+<p style="text-indent:28.0pt;">
+	<span style="font-family:宋体;"><span style="font-size:14.0pt;">如果您仔细阅读了以上内容，并决定加入</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">，请将自己的简历发送至</span></span><span style="font-size:14.0pt;">freeteam@foxmail.com</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">，</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">会第一时间处理您的申请。</span></span></p>
+<p style="text-indent:28.0pt;">
+	<span style="font-family:宋体;"><span style="font-size:14.0pt;">本计划最终解释权归</span></span><span style="font-size:14.0pt;">FreeTeam</span><span style="font-family:宋体;"><span style="font-size:14.0pt;">所有。</span></span></p>
