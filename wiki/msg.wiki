@@ -1,0 +1,45 @@
+#summary 站内信
+#labels 开源,免费,内容管理系统,java,cms,free,freecms
+= 站内信=
+<p>
+	<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.5开始支持</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">管理站内信数据。</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">1. </span><span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">站内信</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">从左侧管理菜单点击站内信进入。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0925/080218_JCan_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0925/080218_JCan_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">2. </span><span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">发送</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">系统管理员可以直接发送站内信给会员。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0925/080240_vKfQ_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0925/080240_vKfQ_916014.png" style="cursor: pointer" /></a><span style="font-family: '宋体'; font-size: 10.5pt"> </span><span style="font-family: '宋体'; font-size: 10.5pt">点击"发送"按钮</span><span style="font-family: '宋体'; font-size: 10.5pt">。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0925/080300_YjhV_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0925/080300_YjhV_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">选择需要发送的会员，输入标题内容后点击"发送"按钮。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0925/080318_RIp9_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0925/080318_RIp9_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">3. </span><span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">查看</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">在站内信列表中直接点击标题可以查看站内信的详细信息。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0925/080338_Xs5L_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0925/080338_Xs5L_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0925/080359_UJmK_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0925/080359_UJmK_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">4. </span><span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">删除</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">选择需要删除的站内信，然后点击"删除"按钮。</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">提示:同时可以删除多个站内信。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0925/080418_WdSZ_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0925/080418_WdSZ_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0925/080437_H6UV_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0925/080437_H6UV_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">为了防止误操作，系统会提示用户是否删除，点击"确定"完成删除操作。</span></p>
