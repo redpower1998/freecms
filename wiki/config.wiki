@@ -22,3 +22,13 @@
 	<span style="padding: 0px; margin: 0px; line-height: 1.5;"><strong style="padding: 0px; margin: 0px;">从FreeCMS 1.4开始支持</strong></span></p>
 <p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
 	<span style="padding: 0px; margin: 0px; line-height: 1.5;">默认站点(源文件目录名)：设置访问系统首页默认转向的站点首页。</span></p>
+
+
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<span style="padding: 0px; margin: 0px; line-height: 1.5;"><strong style="padding: 0px; margin: 0px;">从FreeCMS 1.5开始支持</strong></span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<span style="padding: 0px; margin: 0px; line-height: 1.5;">前台上传图片类型(多个用,号分隔)。</span></p>
+<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+	<span style="padding: 0px; margin: 0px; line-height: 1.5;">信息点击量超过多少自动设置为热点。 
+
+</span></p>
