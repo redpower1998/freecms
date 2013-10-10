@@ -1,76 +1,154 @@
 #labels free,cms,freecms,java,开源,免费,内容管理系统
 
-
 = 统计分析=
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<strong style="padding: 0px; margin: 0px;">从FreeCMS 1.4开始支持</strong></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<strong>从FreeCMS 1.4开始支持</strong></p>
+<p>
 	系统级统计分析，用于统计系统所有数据。</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
 	1.  工作量统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
 	统计所有用户的工作量。从左侧管理菜单点击工作量统计进入。</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085039_ISSK_916014.jpg" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085039_ISSK_916014.jpg" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085039_ISSK_916014.jpg" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085039_ISSK_916014.jpg" style="cursor: pointer" /></a></p>
+<p>
 	您可以根据添加人，时间条件进行筛选。并可导出结果为excel文件。</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
 	2. 站点信息统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
 	统计所有站点的信息量。从左侧管理菜单点击站点信息统计进入。</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085056_jyIH_916014.jpg" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085056_jyIH_916014.jpg" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085056_jyIH_916014.jpg" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085056_jyIH_916014.jpg" style="cursor: pointer" /></a></p>
+<p>
 	您可以根据站点名称，时间条件进行筛选。并可导出结果为excel文件。</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
 	3. 信息更新统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
 	可按年、月、日、星期统计全部信息的更新频率。从左侧管理菜单点击信息更新统计进入。</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085110_Lf5z_916014.jpg" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085110_Lf5z_916014.jpg" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085110_Lf5z_916014.jpg" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085110_Lf5z_916014.jpg" style="cursor: pointer" /></a></p>
+<p>
 	默认打开时并不做数据统计，需要您选择更新周期。</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
 	按年统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085123_QB4G_916014.jpg" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085123_QB4G_916014.jpg" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085123_QB4G_916014.jpg" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085123_QB4G_916014.jpg" style="cursor: pointer" /></a></p>
+<p>
 	按月统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085136_DT9k_916014.jpg" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085136_DT9k_916014.jpg" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085136_DT9k_916014.jpg" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085136_DT9k_916014.jpg" style="cursor: pointer" /></a></p>
+<p>
 	按日统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085148_dsJz_916014.jpg" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085148_dsJz_916014.jpg" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085148_dsJz_916014.jpg" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085148_dsJz_916014.jpg" style="cursor: pointer" /></a></p>
+<p>
 	按星期统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085200_um0c_916014.jpg" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085200_um0c_916014.jpg" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085200_um0c_916014.jpg" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085200_um0c_916014.jpg" style="cursor: pointer" /></a></p>
+<p>
 	您可以根据时间条件进行筛选。并可导出结果为excel文件。</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
 	4. 访问频率统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
 	可按年、月、日、星期统计全部网站的访问频率。从左侧管理菜单点击访问频率统计进入。</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085220_CBCC_916014.jpg" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085220_CBCC_916014.jpg" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085220_CBCC_916014.jpg" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085220_CBCC_916014.jpg" style="cursor: pointer" /></a></p>
+<p>
 	默认打开时并不做数据统计，需要您选择更新周期。</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
 	按年统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085241_weTE_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085241_weTE_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085241_weTE_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085241_weTE_916014.png" style="cursor: pointer" /></a></p>
+<p>
 	按月统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085256_Yftb_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085256_Yftb_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085256_Yftb_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085256_Yftb_916014.png" style="cursor: pointer" /></a></p>
+<p>
 	按日统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085312_WnYn_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085312_WnYn_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085312_WnYn_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085312_WnYn_916014.png" style="cursor: pointer" /></a></p>
+<p>
 	按星期统计</p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
-	<a href="http://static.oschina.net/uploads/space/2013/0702/085325_JHWM_916014.png" style="padding: 0px; margin: 0px; color: rgb(68, 102, 187); outline: 0px;" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085325_JHWM_916014.png" style="padding: 0px; margin: 0px; border: 0px; max-width: 640px; cursor: pointer;" /></a></p>
-<p style="padding: 0px; margin: 0px 0px 15pt; line-height: 1.5; letter-spacing: 1px; color: rgb(0, 0, 0); font-family: Verdana, sans-serif, 宋体; font-size: 14px;">
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/0702/085325_JHWM_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/0702/085325_JHWM_916014.png" style="cursor: pointer" /></a></p>
+<p>
 	您可以根据时间条件进行筛选。并可导出结果为excel文件。</p>
+<p>
+	<br />
+	 </p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">5. </span><span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">留言频率统计</span></p>
+<p>
+	<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.5开始支持</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">可按年、月、日、星期统计全部网站的留言频率。从左侧管理菜单点击留言频率统计进入。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080527_PHar_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080527_PHar_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">默认打开时并不做数据统计，需要您选择更新周期。</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">按年统计</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080544_xuJg_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080544_xuJg_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">按月统计</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080604_g14L_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080604_g14L_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">按日统计</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080621_QOhR_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080621_QOhR_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">按星期统计</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080636_bAJu_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080636_bAJu_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">您可以根据查询条件进行筛选。并可导出结果为excel文件。</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">6. </span><span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">站点留言统计</span></p>
+<p>
+	<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.5开始支持</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">统计所有站点的留言量。从左侧管理菜单点击站点留言统计进入。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080655_D1mS_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080655_D1mS_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">您可以根据查询条件进行筛选。并可导出结果为excel文件。</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">7. </span><span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">评论频率统计</span></p>
+<p>
+	<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.5开始支持</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">可按年、月、日、星期统计全部网站的评论频率。从左侧管理菜单点击评论频率统计进入。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080711_VmaX_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080711_VmaX_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">默认打开时并不做数据统计，需要您选择更新周期。</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">按年统计</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080729_BSMO_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080729_BSMO_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">按月统计</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080744_Divs_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080744_Divs_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">按日统计</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080800_3822_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080800_3822_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">按星期统计</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080814_wTO2_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080814_wTO2_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">您可以根据查询条件进行筛选。并可导出结果为excel文件。</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">8. </span><span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">站点评论统计</span></p>
+<p>
+	<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS 1.5开始支持</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">统计所有站点的评论量。从左侧管理菜单点击站点评论统计进入。</span></p>
+<p>
+	<a href="http://static.oschina.net/uploads/space/2013/1010/080831_aoyc_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1010/080831_aoyc_916014.png" style="cursor: pointer" /></a></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">您可以根据查询条件进行筛选。并可导出结果为excel文件。</span></p>
