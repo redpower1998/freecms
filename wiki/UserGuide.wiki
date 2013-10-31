@@ -70,6 +70,8 @@
 ===== [beanUser user] =====
 ===== [beanReport report] =====
 ===== [beanApplyopen applyopen] =====
+===== [beanGuestbook guestbook] =====
+
 
 ==== 静态化参数 ====
 ===== [htmlIndex 首页静态化参数] =====
