@@ -1,0 +1,146 @@
+#summary job
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+
+= job=
+<p>
+	<span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">从FreeCMS&nbsp;1.</span><span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">5</span><span style="font-style: italic; font-family: '宋体'; font-size: 10.5pt; font-weight: bold">&nbsp;开始支持</span></p>
+<p>
+	<span style="font-family: '宋体'; font-size: 10.5pt">在使用职位相关标签时，标签会封装</span><span style="font-family: 'Arial'; font-size: 10.5pt">job</span><span style="font-family: '宋体'; font-size: 10.5pt">供页面调用。</span></p>
+<p>
+	&nbsp;</p>
+<table style="width: 402.7pt; border-collapse: collapse">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">属性</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">说明</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">id</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">id</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">siteid</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">所属站点</span><span style="font-family: '宋体'; font-size: 10.5pt">id</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">name</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">职位名称</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">unitname</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">所属部门</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">address</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">工作地点</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">num</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">招聘人数</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">duty</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">工作职责</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">jobrequire</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">职位要求</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">addtime</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">添加时间</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">addtimeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">添加时间(YYYY-MM-dd)</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">endtime</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">结束时间</span></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">endtimeStr</span></p>
+			</td>
+			<td>
+				<p>
+					<span style="font-family: '宋体'; font-size: 10.5pt">结束时间(YYYY-MM-dd)</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
