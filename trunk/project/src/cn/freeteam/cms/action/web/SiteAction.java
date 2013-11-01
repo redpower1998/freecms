@@ -52,7 +52,7 @@ public class SiteAction extends BaseAction{
 				site=siteService.findById(site.getId());
 				//生成首页
 				siteService.html(site.getId(), getServletContext(), getContextPath(), getHttpRequest(), getLoginName());
-				getHttpResponse().sendRedirect("/site/"+site.getSourcepath()+"/index.html");
+				getHttpResponse().sendRedirect(getContextPathNo()+"/site/"+site.getSourcepath()+"/index.html");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
