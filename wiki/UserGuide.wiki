@@ -71,6 +71,8 @@
 ===== [beanReport report] =====
 ===== [beanApplyopen applyopen] =====
 ===== [beanGuestbook guestbook] =====
+===== [beanJob job] =====
+
 
 
 ==== 静态化参数 ====
