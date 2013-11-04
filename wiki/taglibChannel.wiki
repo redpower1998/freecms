@@ -2,101 +2,135 @@
 #labels free,cms,freecms,freeteam,开源,免费,内容管理系统,channel
 
 = channel=
+
 <p>
-	<span style="font-family: 宋体">根据参数提取栏目对象。</span></p>
-<p>
-	 </p>
-<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
-	<tbody>
-		<tr>
-			<td>
-				<p>
-					<b><span style="font-family: 宋体">参数</span></b></p>
-			</td>
-			<td>
-				<p>
-					<b><span style="font-family: 宋体">说明</span></b></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">id</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">栏目<span>id</span></span></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">siteid</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">栏目所属站点<span>id</span></span></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">pagemark</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">栏目页面标识</span></p>
-			</td>
-		</tr>
-	</tbody>
+    <span style="font-family:&#39;宋体&#39;;font-size:14px">根据参数提取栏目对象。</span>
+</p>
+<table style="width:537px;border-collapse:collapse">
+    <tbody>
+        <tr>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">参数</span>
+                </p>
+            </td>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">说明</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">id</span>
+                </p>
+            </td>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">栏目id</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">siteid</span>
+                </p>
+            </td>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">栏目所属站点id</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">pagemark</span>
+                </p>
+            </td>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">栏目页面标识</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">checkHasSon</span>
+                </p>
+            </td>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">从FreeCMS 1.</span><span style="font-family:&#39;宋体&#39;;font-size:14px">5</span><span style="font-family:&#39;宋体&#39;;font-size:14px">开始支持</span>
+                </p>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">是否检查有子栏目 1是</span>
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table style="width:537px;border-collapse:collapse">
+    <tbody>
+        <tr>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">返回值</span>
+                </p>
+            </td>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">说明</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">channel</span>
+                </p>
+            </td>
+            <td>
+                <p>
+                    <span style="font-family:&#39;宋体&#39;;font-size:14px">栏目对象，类型为数据对象channel</span>
+                </p>
+            </td>
+        </tr>
+    </tbody>
 </table>
 <p>
-	 </p>
+    <span style="font-family:&#39;宋体&#39;;font-size:14px">示例1</span>
+</p>
 <p>
-	 </p>
-<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
-	<tbody>
-		<tr>
-			<td>
-				<p>
-					<b><span style="font-family: 宋体">返回值</span></b></p>
-			</td>
-			<td>
-				<p>
-					<b><span style="font-family: 宋体">说明</span></b></p>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<p>
-					<span style="font-family: 宋体">channel</span></p>
-			</td>
-			<td>
-				<p>
-					<span style="font-family: 宋体">栏目对象，类型为数据对象<span>channel</span></span></p>
-			</td>
-		</tr>
-	</tbody>
-</table>
+    <span style="font-family:&#39;宋体&#39;;font-size:14px">根据栏目id提取栏目。</span>
+</p>
 <p>
-	 </p>
+    <span style="font-family:&#39;宋体&#39;;font-size:14px">&lt;@channel id=&quot;d8aa15d1-710c-4931-8c3b-b0b2d3db3d56&quot; ;channel&gt;</span>
+</p>
 <p>
-	<b><span style="font-family: 宋体">示例<span>1</span></span></b></p>
+    <span style="font-family:&#39;宋体&#39;;font-size:14px">${channel.name}</span>
+</p>
 <p>
-	<span style="font-family: 宋体">根据栏目<span>id</span>提取栏目。</span></p>
+    <span style="font-family:&#39;宋体&#39;;font-size:14px">&lt;/@channel&gt;</span>
+</p>
 <p>
-	<span style="font-family: 宋体"><@channel id="d8aa15d1-710c-4931-8c3b-b0b2d3db3d56" ;channel></span></p>
+    <span style="font-family:&#39;宋体&#39;;font-size:14px">示例2</span>
+</p>
 <p>
-	<span style="font-family: 宋体">${channel.name}</span></p>
+    <span style="font-family:&#39;宋体&#39;;font-size:14px">根据站点id和栏目页面标识提取栏目。</span>
+</p>
 <p>
-	<span style="font-family: 宋体"></@channel></span></p>
+    <span style="font-family:&#39;宋体&#39;;font-size:14px">&lt;@channel siteid=&quot;${site.id}&quot; pagemark=&quot;bug&quot; ;channel&gt;</span>
+</p>
 <p>
-	<b><span style="font-family: 宋体">示例</span></b><b><span>2</span></b></p>
+    <span style="font-family:&#39;宋体&#39;;font-size:14px">${channel.name}</span>
+</p>
 <p>
-	<span style="font-family: 宋体">根据站点<span>id</span>和栏目页面标识提取栏目。</span></p>
+    <span style="font-family:&#39;宋体&#39;;font-size:14px">&lt;/@channel&gt;</span>
+</p>
 <p>
-	<span style="font-family: 宋体"><@channel siteid="${site.id}" pagemark="bug" ;channel></span></p>
-<p>
-	<span style="font-family: 宋体">${channel.name}</span></p>
-<p>
-	<span style="font-family: 宋体"></@channel></span></p>
+     
+</p>
