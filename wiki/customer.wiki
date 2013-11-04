@@ -19,7 +19,7 @@
 [http://www.wealthtg.com 理财团购网]<br/>
 [http://wl.fjcyl.org:8090 福建省青年企业家商会]<br/>
 [http://www.cnesap.com 贵州省中小企业信息安全公共服务平台]<br/>
-[http://tengricom.eicp.net:58081/FreeCMS/ 昌吉州中小企业公共服务平台]
+[http://tengricom.eicp.net:58081/FreeCMS/ 昌吉州中小企业公共服务平台]<br/>
 [http://183.129.157.66:8080/hsccms/ 浙江省机动车后市场服务体系平台]
 
 
