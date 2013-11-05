@@ -210,12 +210,11 @@
 	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">示例1</span></p>
 <p>
 	<span style="font-family: '宋体'; font-size: 10.5pt">根据站点id和栏目id提取信息。</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">&lt;@infoList siteid=&quot;${site.id}&quot; channelid=&quot;6555dd8b-7acc-4e57-a19a-cc70dd4f7135&quot; num=&quot;2&quot; titleLen=&quot;15&quot;; info&gt;</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">   &lt;H1 &gt; &lt;a href=&quot;${info.pageurl}&quot; target=&quot;_blank&quot;&gt;${info.showtitle}&lt;/a&gt;&lt;/H1&gt;</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">&lt;/@infoList&gt;</span></p>
+{{{
+<@infoList siteid="${site.id}" channelid="6555dd8b-7acc-4e57-a19a-cc70dd4f7135" num="2" titleLen="15"; info>
+ <H1 > <a href="${info.pageurl}" target="_blank">${info.showtitle}</a></H1>
+</@infoList>
+}}}
 <p>
 	<a href="http://static.oschina.net/uploads/space/2013/1105/081948_DODa_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1105/081948_DODa_916014.png" style="cursor: pointer" /></a></p>
 <p>
@@ -224,12 +223,11 @@
 	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">示例2</span></p>
 <p>
 	<span style="font-family: '宋体'; font-size: 10.5pt">根据站点id和栏目页面标识提取信息。</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">&lt;@infoList siteid=&quot;${site.id}&quot; channelPagemark=&quot;</span><span style="font-family: '宋体'; font-size: 10.5pt">动态</span><span style="font-family: '宋体'; font-size: 10.5pt">&quot; num=&quot;2&quot; titleLen=&quot;15&quot;; info,index&gt;</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">   &lt;H1 &gt; ${index+1} . &lt;a href=&quot;${info.pageurl}&quot; target=&quot;_blank&quot;&gt;${info.showtitle}&lt;/a&gt;&lt;/H1&gt;</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">&lt;/@infoList&gt;</span></p>
+{{{
+<@infoList siteid="${site.id}" channelPagemark="动态" num="2" titleLen="15"; info,index>
+  <H1 > ${index+1} . <a href="${info.pageurl}" target="_blank">${info.showtitle}</a></H1>
+</@infoList>
+}}}
 <p>
 	<a href="http://static.oschina.net/uploads/space/2013/1105/082007_EUEt_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1105/082007_EUEt_916014.png" style="cursor: pointer" /></a></p>
 <p>
@@ -238,12 +236,11 @@
 	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">示例3</span></p>
 <p>
 	<span style="font-family: '宋体'; font-size: 10.5pt">根据站点id和栏目页面标识提取图片信息。</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">&lt;@infoList siteid=&quot;${site.id}&quot; channelPagemark=&quot;</span><span style="font-family: '宋体'; font-size: 10.5pt">动态</span><span style="font-family: '宋体'; font-size: 10.5pt">&quot; num=&quot;2&quot; titleLen=&quot;15&quot; img=&quot;1&quot;; info,index&gt;</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">   &lt;li &gt; &lt;a href=&quot;${info.pageurl}&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;${info.img}&quot;&gt;${info.showtitle}&lt;/a&gt;&lt;/li&gt;</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">&lt;/@infoList&gt;</span></p>
+{{{
+<@infoList siteid="${site.id}" channelPagemark="动态" num="2" titleLen="15" img="1"; info,index>
+ <li > <a href="${info.pageurl}" target="_blank"><img src="${info.img}">${info.showtitle}</a></li>
+</@infoList>
+}}}
 <p>
 	<a href="http://static.oschina.net/uploads/space/2013/1105/082024_1gwj_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1105/082024_1gwj_916014.png" style="cursor: pointer" /></a></p>
 <p>
@@ -252,11 +249,10 @@
 	<span style="font-family: '宋体'; font-size: 10.5pt; font-weight: bold">示例4</span></p>
 <p>
 	<span style="font-family: '宋体'; font-size: 10.5pt">根据站点id和栏目页面标识提取信息，并设置其它参数。</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">&lt;@infoList siteid=&quot;${site.id}&quot; channelPagemark=&quot;</span><span style="font-family: '宋体'; font-size: 10.5pt">动态</span><span style="font-family: '宋体'; font-size: 10.5pt">&quot; num=&quot;2&quot; titleLen=&quot;15&quot; order=&quot;2&quot; hot=&quot;1&quot; dateFormat=&quot;yyyy-MM-dd&quot;; info,index&gt;</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">   &lt;li&gt; ${index+1} . &lt;a href=&quot;${info.pageurl}&quot; target=&quot;_blank&quot;&gt;${info.showtitle}&lt;/a&gt;[${info.addtimeStr}]&lt;/li&gt;</span></p>
-<p>
-	<span style="font-family: '宋体'; font-size: 10.5pt">&lt;/@infoList&gt;</span></p>
+{{{
+<@infoList siteid="${site.id}" channelPagemark="动态" num="2" titleLen="15" order="2" hot="1" dateFormat="yyyy-MM-dd"; info,index>
+  <li> ${index+1} . <a href="${info.pageurl}" target="_blank">${info.showtitle}</a>[${info.addtimeStr}]</li>
+</@infoList>
+}}}
 <p>
 	<a href="http://static.oschina.net/uploads/space/2013/1105/082045_RhmW_916014.png" target="_blank"><img alt="" src="http://static.oschina.net/uploads/space/2013/1105/082045_RhmW_916014.png" style="cursor: pointer" /></a></p>
