@@ -29,6 +29,18 @@ public class RoleChannelService extends BaseService{
 		DBCommit();
 	}
 	/**
+	 * 根据角色删除
+	 * @param roleid
+	 */
+	public void delByRole(String roleid,String siteid){
+		RoleChannelExample example=new RoleChannelExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andRoleidEqualTo(roleid);
+		criteria.andSql(" channelid in (select id from freecms_channel where site='"+siteid+"') ");
+		roleChannelMapper.deleteByExample(example);
+		DBCommit();
+	}
+	/**
 	 * 保存
 	 * @param roleid
 	 * @param channelid
