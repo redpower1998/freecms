@@ -1,0 +1,82 @@
+#summary infoImg
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+= infoImg=
+
+<p>
+<span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;">从FreeCMS 1.</span><span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;">5</span><span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;"> 开始支持</span><span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">根据信息id查询图片集。</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<table style="width:402.7pt;border-collapse:collapse;">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">参数</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">说明</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">infoid</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">信息</span><span style="font-family:'宋体';font-size:10.5pt;">id</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;"></span>
+</p>
+<table style="width:402.7pt;border-collapse:collapse;">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">返回值</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">说明</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">infoImgList</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">信息图片集对象列表</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">示例1</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+{{{
+　　<@infoImg infoid='${currInfo.id!""}' ;infoImgList>
+　　	<#list infoImgList as infoImg>
+　　	<img src="${infoImg.img}" alt="${infoImg.title}" title="${infoImg.title}" width="920">
+　　	</#list>
+　　</@infoImg>
+}}}
+<p>
+ 
+</p>
