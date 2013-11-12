@@ -96,6 +96,8 @@
 ===== [taglibInfoSearch infoSearch] =====
 ===== [taglibInfoSign infoSign] =====
 ===== [taglibInfoImg infoImg] =====
+===== [taglibInfoRelate infoRelate] =====
+
 
 ===== [taglibVideo video] =====
 ===== [taglibLinkClass linkClass] =====
