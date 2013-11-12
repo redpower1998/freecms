@@ -1,0 +1,194 @@
+#summary infoRelate
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+= infoRelate=
+
+<p>
+<span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;">从FreeCMS 1.</span><span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;">5</span><span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;"> 开始支持</span><span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">根据信息id查询相关信息。</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<table style="width:402.7pt;border-collapse:collapse;">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">参数</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">说明</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">info</span><span style="font-family:'宋体';font-size:10.5pt;">id</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">信息id</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">num</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">每页显示数量</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">order</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">排序类型  </span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">1 固顶有效并降序,发布时间降序(默认)</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">2 固顶有效并降序,发布时间升序</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">3 发布时间降序</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">4 发布时间升序</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">titleLen</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">标题显示长度</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">hot</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">是否按点击热度倒序，1是</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">dateFormat</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">日期格式</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">img</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">是否只提取带图片的新闻</span><span style="font-family:'宋体';font-size:10.5pt;"> </span><span style="font-family:'宋体';font-size:10.5pt;">1是</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">checkOpenendtime</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">检查公开时限</span><span style="font-family:'宋体';font-size:10.5pt;"> </span><span style="font-family:'宋体';font-size:10.5pt;">默认不检查，</span><span style="font-family:'宋体';font-size:10.5pt;">1</span><span style="font-family:'宋体';font-size:10.5pt;">检查</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;"></span>
+</p>
+<table style="width:402.7pt;border-collapse:collapse;">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">返回值</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">说明</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">info</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">信息对象，类型为数据对象info</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">index</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">索引</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;"></span>
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">示例1</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+{{{
+　　<ul>
+　　<@infoRelate infoid="${currInfo.id}"  num="10" titleLen="23" ; info,index>
+　　<li><a href="${info.pageurl}">${info.showtitle}</a></li>
+　　</@infoRelate>
+　　</ul>
+
+}}}
+<p>
+ 
+</p>
