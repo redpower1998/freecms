@@ -113,6 +113,8 @@
 ===== [taglibUnitList unitList] =====
 ===== [taglibUserList userList] =====
 ===== [taglibAjaxInfoClick ajaxInfoClick] =====
+===== [taglibAjaxStore ajaxStore] =====
+
 ===== [taglibAjaxLoad ajaxLoad] =====
 ===== [taglibConfig config] =====
 ===== [taglibHtml html] =====
