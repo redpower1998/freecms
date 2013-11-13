@@ -1,0 +1,155 @@
+#summary ajaxStore
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+= ajaxStore=
+
+<p>
+<span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;">从FreeCMS 1.5 开始支持</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">根据参数通过ajax收藏数据。</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<table style="width:402.7pt;border-collapse:collapse;">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">参数</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">说明</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">obj</span><span style="font-family:'宋体';font-size:10.5pt;">id</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">对象id</span><span style="font-family:'宋体';font-size:10.5pt;"> </span><span style="font-family:'宋体';font-size:10.5pt;">必填</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">objtype</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">对象类型  必填 </span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">info:</span><span style="font-family:'宋体';font-size:10.5pt;">信息</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">siteid</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">站点id</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">channelid</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">栏目id</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">show</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">显示内容，默认为收藏</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">spanArr</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">此标签会生成span标签，此属性用于设置span标签的属性</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;"></span>
+</p>
+<table style="width:402.7pt;border-collapse:collapse;">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">返回值</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">说明</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">ajaxStoreHtml</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">生成的内容</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;"></span>
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">此标签依赖的文件</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">&lt;script type="text/javascript" src="${contextPath}js/jquery-1.5.1.min.js"&gt;&lt;/script&gt;</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;"></span>
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">示例1</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">收藏信息。</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+{{{
+　　<@ajaxStore objid="${currInfo.id}" objtype='info' siteid='${site.id}' channelid='${currChannel.id}' ;ajaxStoreHtml>
+　　${ajaxStoreHtml}
+</@ajaxStore>
+}}}
