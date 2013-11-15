@@ -430,6 +430,8 @@ public class UserAction extends BaseAction{
 					obj.setUnitIds(unitid);
 					obj.setUnitNames(user.getUnitNames());
 					usersMapper.updateByPrimaryKey(obj);
+					
+					unitUserService.delByUser(obj.getId());
 					//如果设置有单位则添加单位人员关联
 					if (unitid!=null && unitid.trim().length()>0) {
 						String unitids[]=unitid.split(";");
