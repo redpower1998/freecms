@@ -1,0 +1,164 @@
+#summary guestbookList
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+= guestbookList=
+
+<p>
+<span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;">从FreeCMS 1.5 开始支持</span><span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">根据参数提取留言列表。</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<table style="width:402.7pt;border-collapse:collapse;">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">参数</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">说明</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">num</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">显示数量</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">siteid</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">站点id</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">state</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">审核状态 空字符串表示所有(默认) 0未审核 1已审核 2审核不通过</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">order</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">显示顺序</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">1.发表时间降序(默认)</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">2.发表时间升序</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">3.回复时间降序</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">4.回复时间升序</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">cache</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">是否使用缓存，默认为false</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">titleLen</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">标题显示长度</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;"></span>
+</p>
+<table style="width:402.7pt;border-collapse:collapse;">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">返回值</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">说明</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">guestbook</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">留言对象</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">index</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">索引</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;"></span>
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">示例1</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+{{{
+　　<@guestbookList siteid="${site.id}" state="1" num="10" ;guestbook,index>
+　　${guestbook.title}
+</@guestbookList>
+}}}
