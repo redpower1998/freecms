@@ -60,4 +60,14 @@ public class UnitUserService extends BaseService{
 		unitUser.setId(UUID.randomUUID().toString());
 		return unitUserMapper.insert(unitUser);
 	}
+	/**
+	 * 按用户删除
+	 * @param user
+	 */
+	public void delByUser(String user){
+		UnitUserExample example=new UnitUserExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andUsersEqualTo(user);
+		unitUserMapper.deleteByExample(example);
+	}
 }

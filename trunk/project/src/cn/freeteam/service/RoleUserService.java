@@ -59,6 +59,19 @@ public class RoleUserService extends BaseService{
 		roleUserMapper.deleteByExample(example);
 		DBCommit();
 	}
+	/**
+	 * 删除关联
+	 * @param role
+	 * @param user
+	 * @return
+	 */
+	public void delByUser(String user){
+		RoleUserExample example=new RoleUserExample();
+		Criteria criteria=example.createCriteria();
+		criteria.andUsersEqualTo(user);
+		roleUserMapper.deleteByExample(example);
+		DBCommit();
+	}
 	public RoleUserMapper getRoleUserMapper() {
 		return roleUserMapper;
 	}
