@@ -121,6 +121,7 @@
 ===== [taglibReportQuery reportQuery] =====
 ===== [taglibApplyopenQuery applyopenQuery] =====
 ===== [taglibGuestbook guestbook] =====
+===== [taglibGuestbookList guestbookList] =====
 
 
 
