@@ -55,6 +55,7 @@ import cn.freeteam.cms.freemarker.directive.UnitListDirective;
 import cn.freeteam.cms.freemarker.directive.UserListDirective;
 import cn.freeteam.cms.freemarker.directive.VideoDirective;
 import cn.freeteam.cms.freemarker.directive.VisitDirective;
+import cn.freeteam.cms.freemarker.directive.WorkloadDirective;
 
 
 import freemarker.template.Configuration;
@@ -187,6 +188,7 @@ public class FreeMarkerUtil {
 			freemarkerCfg.setSharedVariable("infoImg", new InfoImgDirective());
 			freemarkerCfg.setSharedVariable("infoRelate", new InfoRelateDirective());
 			freemarkerCfg.setSharedVariable("info", new InfoDirective());
+			freemarkerCfg.setSharedVariable("workload", new WorkloadDirective());
 			//访问
 			freemarkerCfg.setSharedVariable("visit", new VisitDirective());
 			//链接类
