@@ -1,0 +1,205 @@
+#summary guestbookPage
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+
+= guestbookPage=
+
+<p>
+<b><i><span style="font-family:宋体;">从<span>FreeCMS 1.5 </span>开始支持<span></span></span></i></b> 
+</p>
+<p>
+<span style="font-family:宋体;">根据参数分页提取留言列表。<span></span></span> 
+</p>
+<table style="border-collapse:collapse;" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<p>
+<b><span style="font-family:宋体;">参数<span></span></span></b> 
+</p>
+</td>
+<td>
+<p>
+<b><span style="font-family:宋体;">说明<span></span></span></b> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:宋体;">num</span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:宋体;">每页显示数量<span></span></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:宋体;">siteid</span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:宋体;">站点<span>id</span></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:宋体;">state</span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:宋体;">审核状态 空字符串表示所有<span>(</span>默认<span>) 0</span>未审核<span> 1</span>已审核<span> 2</span>审核不通过<span></span></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:宋体;">order</span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:宋体;">显示顺序<span></span></span> 
+</p>
+<p>
+<span style="font-family:宋体;">1.</span><span style="font-family:宋体;">发表时间降序<span>(</span>默认<span>)</span></span> 
+</p>
+<p>
+<span style="font-family:宋体;">2.</span><span style="font-family:宋体;">发表时间升序<span></span></span> 
+</p>
+<p>
+<span style="font-family:宋体;">3.</span><span style="font-family:宋体;">回复时间降序<span></span></span> 
+</p>
+<p>
+<span style="font-family:宋体;">4.</span><span style="font-family:宋体;">回复时间升序<span></span></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:宋体;">cache</span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:宋体;">是否使用缓存，默认为<span>false</span></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:宋体;">titleLen</span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:宋体;">标题显示长度<span></span></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:宋体;">action</span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:宋体;">分页跳转页面<span></span></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:宋体;">page</span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:宋体;">当前第几页，默认<span>1</span></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:宋体;"></span>
+</p>
+<table style="border-collapse:collapse;" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td>
+<p>
+<b><span style="font-family:宋体;">返回值<span></span></span></b> 
+</p>
+</td>
+<td>
+<p>
+<b><span style="font-family:宋体;">说明<span></span></span></b> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:宋体;">guestbookList</span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:宋体;">留言对象列表<span></span></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:宋体;">pager</span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:宋体;">分页对象<span></span></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:宋体;"></span>
+</p>
+<p>
+<b><span style="font-family:宋体;">示例<span>1</span></span></b><span style="font-family:宋体;"></span> 
+</p>{{{
+<@guestbookPage  num='1' page='${page}' siteid='${site.id}' action='${contextPath}templet_pro.do?siteid=${site.id}&currChannelid=${currChannel.id}&templetPath=guestbook.html';guestbookList,pager> 
+
+
+<ul> 
+
+       <#list guestbookList as guestbook> 
+
+       <li> 
+
+              分页:${guestbook.title} 
+
+       </li> 
+
+       </#list> 
+
+</ul> 
+
+${pager.formPageStr} 
+
+</@guestbookPage> 
+}}}
