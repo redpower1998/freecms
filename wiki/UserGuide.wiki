@@ -123,6 +123,7 @@
 ===== [taglibGuestbook guestbook] =====
 ===== [taglibGuestbookList guestbookList] =====
 ===== [taglibGuestbookPage guestbookPage] =====
+===== [taglibVist visit] =====
 
 
 
