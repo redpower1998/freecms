@@ -4,7 +4,7 @@
 = visit=
 
 <p>
-<span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;">从FreeCMS&nbsp;1.5&nbsp;开始支持</span><span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+<span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;">从FreeCMS 1.5 开始支持</span><span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
 </p>
 <p>
 <span style="font-family:'宋体';font-size:10.5pt;">提取访问统计数据。</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
