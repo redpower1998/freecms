@@ -26,6 +26,8 @@ import freemarker.template.TemplateModel;
  * 参数
  * id		
  * 
+ * dateFormat	日期格式
+ * 
  * 返回值
  * info			信息对象
  * 
@@ -68,6 +70,8 @@ public class InfoDirective extends BaseDirective implements TemplateDirectiveMod
 		//获取参数
 		//id
 		String id=getParam(params, "id");
+		//日期格式
+		String dateFormat=getParam(params, "dateFormat");
 		
 		
 		Writer out =env.getOut();
@@ -76,6 +80,9 @@ public class InfoDirective extends BaseDirective implements TemplateDirectiveMod
 			if (loopVars!=null && loopVars.length>0 ) {
 				//查询信息
 				Info info=infoService.findById(id);
+				if (dateFormat.trim().length()>0) {
+					info.setDateFormat(dateFormat);
+				}
 				loopVars[0]=new BeanModel(info,new BeansWrapper());  
 				body.render(env.getOut()); 
 			}
