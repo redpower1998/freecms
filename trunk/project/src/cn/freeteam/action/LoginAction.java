@@ -79,6 +79,35 @@ public class LoginAction extends BaseAction{
 			return null;
 		}
 	}
+	public String weblogin(){
+		try {
+			//记住用户名
+			if("on".equals(RememberMe)){
+				Cookie cookie=new Cookie("FreeCMS_loginName",EscapeUnescape.escape(user.getLoginname()));
+				cookie.setMaxAge(60*60*24*365);//有效时间为一年
+				getHttpResponse().addCookie(cookie);
+			}
+		    HttpSession session =getHttpSession();
+			msg=userService.checkLogin(getHttpSession(), user);
+			if (msg==null || "".equals(msg)) {
+				OperLogUtil.log(user.getLoginname(), "登录系统", getHttpRequest());
+				return "admin";
+			}else {
+				ResponseUtil.writeGBK(getHttpResponse(), "<script>alert('"+msg+"');history.back();</script>");
+				return null;
+			}
+		} catch (Exception e) {
+			try {
+				MybatisSessionFactory.getSession().rollback();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+			OperLogUtil.log(user.getLoginname(), "登录系统失败:"+e.toString(), getHttpRequest());
+			ResponseUtil.writeGBK(getHttpResponse(), "<script>alert('出现错误:"+e.toString()+"');history.back();</script>");
+			return null;
+		}
+	}
 	//退出
 	public String out(){
 	    HttpSession session =getHttpSession();
