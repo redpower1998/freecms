@@ -1,0 +1,182 @@
+#summary jobList
+#labels free,cms,freecms,java,开源,免费,内容管理系统
+= jobList=
+
+<p>
+<span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;">从FreeCMS 1.5 开始支持</span><span style="font-style:italic;font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">根据参数提取职位列表。</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<table style="width:402.7pt;border-collapse:collapse;">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">参数</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">说明</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">num</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">显示数量</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">siteid</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">站点id</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">id</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">职位</span><span style="font-family:'宋体';font-size:10.5pt;">id</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">order</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">显示顺序</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">1.</span><span style="font-family:'宋体';font-size:10.5pt;">添加</span><span style="font-family:'宋体';font-size:10.5pt;">时间降序(默认)</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">2.</span><span style="font-family:'宋体';font-size:10.5pt;">添加</span><span style="font-family:'宋体';font-size:10.5pt;">时间升序</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">cache</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">是否使用缓存，默认为false</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">name</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">职位名称，模糊查询条件</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">name</span><span style="font-family:'宋体';font-size:10.5pt;">Len</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">职位名称</span><span style="font-family:'宋体';font-size:10.5pt;">显示长度</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">isend</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">是否结束，1:是,0:否,空字符串：所有。</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;"></span>
+</p>
+<table style="width:402.7pt;border-collapse:collapse;">
+<tbody>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">返回值</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">说明</span><span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">job</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">职位对象</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">index</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+<td>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;">索引</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;"></span>
+</p>
+<p>
+<span style="font-family:'宋体';font-size:10.5pt;font-weight:bold;">示例1</span><span style="font-family:'宋体';font-size:10.5pt;"></span> 
+</p>
+{{{
+　　<@jobList  num='10'  siteid='${site.id}' ;job,index>
+　　${job.name}
+</@jobList>
+}}}
