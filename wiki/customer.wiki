@@ -29,7 +29,8 @@
 [http://tengricom.eicp.net:58081/FreeCMS/ 昌吉州中小企业公共服务平台]<br/>
 [http://183.129.157.66:8080/hsccms/ 浙江省机动车后市场服务体系平台]<br/>
 [http://pt.zjcww.cn/ 湛江坡头招商网]<br/>
-[http://daifacz78.cn3.0623.com.cn/ 78代发]
+[http://daifacz78.cn3.0623.com.cn/ 78代发]<br/>
+[http://219.153.49.135:8080/cms/ 重庆市南川区诚信计量信息平台]
 
 
 
