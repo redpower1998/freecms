@@ -90,7 +90,7 @@ public class AjaxLoadDirective extends BaseDirective implements TemplateDirectiv
 				sb.append("<img src='"+contextPath+"js/images/ajax-loader.gif'/>");
 				sb.append("<script>");
 				//执行ajax操作
-				sb.append("$."+method+"('"+url+"',{"+param.replaceAll("'", "\"")+"},ajaxLoadComplete"+uuid+");");
+				sb.append("$."+method+"('"+url+"',{"+param.replaceAll("'", "\"")+"},ajaxLoadComplete"+uuid+",'text');");
 				//回调函数
 				sb.append("function ajaxLoadComplete"+uuid+"(data){");
 				//显示点击量
