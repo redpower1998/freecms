@@ -11,6 +11,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
@@ -511,7 +512,9 @@ public class TempletChannelService extends BaseService{
 						channel.setTemplet(templetChannel.getTemplet());
 						channel.setContenttemplet(templetChannel.getContenttemplet());
 						//处理图片
-						channel.setImg("/site/"+site.getSourcepath()+templetChannel.getImg());
+						if (StringUtils.isNotEmpty(templetChannel.getImg())) {
+							channel.setImg("/site/"+site.getSourcepath()+templetChannel.getImg());
+						}
 						channel.setDescription(templetChannel.getDescription());
 						channel.setUrl(templetChannel.getUrl());
 						channel.setState(templetChannel.getState());
