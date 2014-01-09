@@ -16,7 +16,7 @@
 [http://www.10333.com/ 大太阳建筑网]<br/>
 
 == 学校网站 ==
-[http://www.incityeyes.cn/cdmcweb/ 承德医学院医学信息工程系]<br/>
+[http://www.incityeyes.cn/cdmcweb/ 承德医学院医学信息工程系](FreeTeam团队制作)<br/>
 
 == 企业网站 ==
 [http://www.pzxfd.com 北京新发地（平庄）农副产品批发市场]<br/>
@@ -35,7 +35,8 @@
 [http://183.129.157.66:8080/hsccms/ 浙江省机动车后市场服务体系平台]<br/>
 [http://pt.zjcww.cn/ 湛江坡头招商网]<br/>
 [http://daifacz78.cn3.0623.com.cn/ 78代发]<br/>
-[http://219.153.49.135:8080/cms/ 重庆市南川区诚信计量信息平台]
+[http://219.153.49.135:8080/cms/ 重庆市南川区诚信计量信息平台]<br/>
+[http://42.96.148.251:8080/ 国家油茶工程技术研究中心网站](FreeTeam团队制作)
 
 
 
