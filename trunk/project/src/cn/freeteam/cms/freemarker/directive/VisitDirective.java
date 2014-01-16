@@ -74,6 +74,9 @@ public class VisitDirective extends BaseDirective implements TemplateDirectiveMo
 			    calendar.roll(java.util.Calendar.DAY_OF_YEAR,-1);
 			    String yesterday=df.format(calendar.getTime());
 			    calendar.roll(java.util.Calendar.DAY_OF_YEAR,1);
+			    if (calendar.get(java.util.Calendar.MONTH)==0) {
+				    calendar.roll(java.util.Calendar.YEAR,-1);
+				}
 			    calendar.roll(java.util.Calendar.MONTH,-1);
 			    String month=df.format(calendar.getTime());
 			    
