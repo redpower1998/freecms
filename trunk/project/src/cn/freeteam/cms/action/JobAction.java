@@ -62,6 +62,8 @@ public class JobAction extends BaseAction{
 		totalCount=jobService.count(job,false);
 		Pager pager=new Pager(getHttpRequest());
 		pager.appendParam("job.name");
+		pager.appendParam("job.unitname");
+		pager.appendParam("job.address");
 		pager.appendParam("order");
 		pager.appendParam("pageSize");
 		pager.appendParam("pageFuncId");
@@ -127,11 +129,11 @@ public class JobAction extends BaseAction{
 							if (job!=null) {
 								jobService.del(job.getId());
 								sb.append(idArr[i]+";");
-								logContent="职位("+job.getName()+")成功!";
+								logContent="删除职位("+job.getName()+")成功!";
 							}
 						} catch (Exception e) {
 							DBProException(e);
-							logContent="职位("+job.getName()+")失败:"+e.toString()+"!";
+							logContent="删除职位("+job.getName()+")失败:"+e.toString()+"!";
 						}
 						OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
 					}
