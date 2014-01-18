@@ -136,11 +136,11 @@ public class GuestbookAction extends BaseAction{
 							if (guestbook!=null) {
 								guestbookService.del(guestbook.getId());
 								sb.append(idArr[i]+";");
-								logContent="回复留言("+guestbook.getTitle()+")成功!";
+								logContent="删除留言("+guestbook.getTitle()+")成功!";
 							}
 						} catch (Exception e) {
 							DBProException(e);
-							logContent="回复留言("+guestbook.getTitle()+")失败:"+e.toString()+"!";
+							logContent="删除留言("+guestbook.getTitle()+")失败:"+e.toString()+"!";
 						}
 						OperLogUtil.log(getLoginName(), logContent, getHttpRequest());
 					}
