@@ -57,7 +57,6 @@
 								<option value="0">办理中
 								<option value="1">已办结
 								</select>
-								</select>
 								每页显示条数:
 								<select name="pageSize"
 									id="pageSize">
