@@ -67,14 +67,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</TR>
 						<TR>
 							<TD  align="left">
-								<b>申报文件名称</b>
-							</TD>
-							<TD  align="left" colspan="3">
-							${report.filename }
-							</TD>
-						</TR>
-						<TR>
-							<TD  align="left">
 								<b>申报文件文号</b>
 							</TD>
 							<TD  align="left" colspan="3">
