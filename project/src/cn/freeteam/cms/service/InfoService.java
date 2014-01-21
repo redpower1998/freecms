@@ -369,6 +369,20 @@ public class InfoService extends BaseService{
 	}
 
 	/**
+	 * 根据indexnum查询
+	 * @param id
+	 * @return
+	 */
+	public Info findByIndexnum(int indexnum){
+		Info info=new Info();
+		info.setHtmlIndexnum(indexnum);
+		List<Info> infoList=findAll(info, "");
+		if (infoList!=null && infoList.size()>0) {
+			return infoList.get(0);
+		}
+		return null;
+	}
+	/**
 	 * 根据id查询
 	 * @param id
 	 * @return
