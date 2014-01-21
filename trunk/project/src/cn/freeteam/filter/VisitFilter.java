@@ -68,8 +68,15 @@ public class VisitFilter extends BaseService {
 							//提取信息id
 							if (uri2.indexOf("/info/")>-1) {
 								String infoid=uri2.substring(uri2.lastIndexOf("/")+1, uri2.lastIndexOf("."));
-								if (infoid!=null && infoid.length()>0) {
-									visit.setInfoid(infoid);
+								Info info=infoService.findById(infoid);
+								if (info==null) {
+									try {
+										info=infoService.findByIndexnum(Integer.parseInt(infoid));
+									} catch (Exception e) {
+									}
+								}
+								if (info!=null) {
+									visit.setInfoid(info.getId());
 								}
 							}
 						}
