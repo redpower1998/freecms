@@ -34,7 +34,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<option value="1" >奖励</option>
 								<option value="0" >惩罚</option>
 							</select>
-							</select>
 								每页显示条数:
 								<select name="pageSize"
 									id="pageSize">
