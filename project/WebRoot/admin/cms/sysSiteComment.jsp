@@ -28,7 +28,7 @@
                       ],
                 series: [
                             {
-								title:'信息量',
+								title:'评论量',
                                 type: 'column',
                                 data: [
 								<s:iterator value="commentList" id="obj" status="st">
@@ -136,7 +136,7 @@
 							站点
 						</TD>
 						<TD >
-							信息量
+							评论量
 						</TD>
 					</TR>
 					
