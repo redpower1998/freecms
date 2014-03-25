@@ -13,6 +13,7 @@
 
 [http://119.48.73.22:8085/ 榆树市信息中心]
 <br/>[http://tdj.bjpost.com.cn/postws/ 中国邮政商务投递局]
+<br/>[http://www.sssnews.cn/ 新疆生产建设兵团第十三师新闻门户网]
 == 行业门户 ==
 [http://www.10333.com/ 大太阳建筑网]<br/>
 [http://www.digitalnet.com.cn:8080/360CMS/ 互联网安全]
