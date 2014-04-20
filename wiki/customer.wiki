@@ -11,7 +11,7 @@
 [http://gdyc.gov.cn/qzlx/ 源城区委深入开展党的群众路线教育实践活动主题网站]
 <br/>
 
-[http://119.48.73.22:8085/ 榆树市信息中心]
+[http://it.yushu.gov.cn:8085/ 榆树市信息中心]
 <br/>[http://tdj.bjpost.com.cn/postws/ 中国邮政商务投递局]
 <br/>[http://www.sssnews.cn/ 新疆生产建设兵团第十三师新闻门户网]
 == 行业门户 ==
@@ -45,6 +45,7 @@
 [http://www.hinewsoft.com.cn/ 海南新软软件有限公司]<br/>
 [http://112.124.108.131 渲染空间装饰设计公司](FreeTeam团队制作)<br/>
 [http://www.sytong.com.cn/ 湖北思远通科技发展有限公司]<br/>
+[http://3v.130400.cn:8086/ 三威科技]<br/>
 
 
 
