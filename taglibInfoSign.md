@@ -1,0 +1,127 @@
+<p>
+<blockquote></p>
+<p>
+</blockquote><blockquote>从FreeCMS 1.2 开始支持</p>
+<p>
+根据参数显示信息签收代码。</p>
+<table>
+<tbody>
+<blockquote><tr>
+<blockquote><td>
+<blockquote><p>
+<blockquote><span>参数</span></p>
+</blockquote></blockquote></td>
+<td>
+<blockquote><p>
+<blockquote><span>说明</span></p>
+</blockquote></blockquote></td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<blockquote><p>
+<blockquote><span>infoid</span></p>
+</blockquote></blockquote></td>
+<td>
+<blockquote><p>
+<blockquote><span>信息</span><span>id</span></p>
+</blockquote></blockquote></td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<blockquote><p>
+<blockquote><span>show</span></p>
+</blockquote></blockquote></td>
+<td>
+<blockquote><p>
+<blockquote><span>显示签收内容，默认为</span><span>&quot;</span><span>签收</span><span>&quot;</span></p>
+</blockquote></blockquote></td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<blockquote><p>
+<blockquote><span>aAttr</span></p>
+</blockquote></blockquote></td>
+<td>
+<blockquote><p>
+<blockquote><span>签收链接显示</span><span>a</span><span>标签的属性</span></p>
+</blockquote></blockquote></td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<blockquote><p>
+<blockquote><span>loadjs</span></p>
+</blockquote></blockquote></td>
+<td>
+<blockquote><p>
+<blockquote><span>是否加载依赖的</span><span>js</span></p>
+</blockquote></blockquote></td>
+</blockquote></tr>
+</blockquote></tbody>
+</table>
+<p>
+<blockquote></p>
+<table>
+</blockquote><tbody>
+<blockquote><tr>
+<blockquote><td>
+<blockquote><p>
+<blockquote><span>返回值</span></p>
+</blockquote></blockquote></td>
+<td>
+<blockquote><p>
+<blockquote><span>说明</span></p>
+</blockquote></blockquote></td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<blockquote><p>
+<blockquote><span>js</span></p>
+</blockquote></blockquote></td>
+<td>
+<blockquote><p>
+<blockquote><span>生成的</span><span>js</span></p>
+</blockquote></blockquote></td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<blockquote><p>
+<blockquote><span>html</span></p>
+</blockquote></blockquote></td>
+<td>
+<blockquote><p>
+<blockquote><span>生成的显示内容</span></p>
+</blockquote></blockquote></td>
+</blockquote></tr>
+</blockquote></tbody>
+</table>
+<p>
+<blockquote></p>
+<p>
+</blockquote>此标签依赖的文件</p>
+<p>
+<pre><code>　　&lt;script type="text/javascript" src="${contextPath}js/jquery-1.5.1.min.js"&gt;&lt;/script&gt;<br>
+　　&lt;script type="text/javascript" src="${contextPath}js/weebox0.4/bgiframe.js"&gt;&lt;/script&gt;<br>
+　　&lt;script type="text/javascript" src="${contextPath}js/weebox0.4/weebox.js"&gt;&lt;/script&gt;<br>
+	&lt;link type="text/css" rel="stylesheet" href="${contextPath}js/weebox0.4/weebox.css" /&gt;<br>
+	<br>
+</code></pre>
+</p></blockquote>
+
+<p>
+<blockquote></p>
+<p>
+</blockquote><blockquote>示例1</p>
+<p>
+显示当前信息的签收功能代码。</p>
+<p>
+<pre><code>	&lt;@infoSign infoid="${currInfo.id}" ;js,html&gt;<br>
+　　${js}<br>
+　　${html}<br>
+　　&lt;/@infoSign&gt;<br>
+</code></pre>
+</p></blockquote>
+
+<p>
+<blockquote><a href='http://static.oschina.net/uploads/space/2013/0307/131603_sk8I_916014.png'><img src='http://static.oschina.net/uploads/space/2013/0307/131603_sk8I_916014.png' alt='' /></a></p>
+<p>
+<a href='http://static.oschina.net/uploads/space/2013/0307/131619_XQP9_916014.png'><img src='http://static.oschina.net/uploads/space/2013/0307/131619_XQP9_916014.png' alt='' /></a></p>

@@ -1,0 +1,161 @@
+# commentPage #
+<p><strong><em>从<span>FreeCMS 1.2<span> </span></span>开始支持</em></strong></p>
+<p>根据参数提取评论对象。</p>
+<p>
+<table cellpadding='0' cellspacing='0' border='1'>
+<blockquote><tbody>
+<blockquote><tr>
+<blockquote><td>
+<p><strong><span>参数</span></strong></p>
+</td>
+<td>
+<p><strong><span>说明</span></strong></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>siteid</span></p>
+</td>
+<td>
+<p><span>站点<span>id</span></span></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>objtype</span></p>
+</td>
+<td>
+<p><span>评论对象类型</span></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>objid</span></p>
+</td>
+<td>
+<p><span>评论对象<span>id</span></span></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>membername</span></p>
+</td>
+<td>
+<p><span>会员名称</span></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>isanonymous</span></p>
+</td>
+<td>
+<p><span>是否匿名<span><span> </span>1</span>是<span><span> </span>0</span>否</span></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>order</span></p>
+</td>
+<td>
+<p><span>排序类型<span> </span></span></p>
+<p><span>1</span><span>发表时间降序<span>(</span>默认<span>)</span></span></p>
+<p><span>2</span><span>发表时间升序</span></p>
+<p><span> </span></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>state</span></p>
+</td>
+<td>
+<p><span>审核状态 空字符串表示所有<span>(</span>默认<span>) 1</span>已审核<span><span> </span>0</span>未审核</span></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>cache</span></p>
+</td>
+<td>
+<p><span>是否使用缓存，默认为<span>false</span></span></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>page</span></p>
+</td>
+<td>
+<p><span>当前第几页，默认<span>1</span></span></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>action</span></p>
+</td>
+<td>
+<p><span>分页跳转页面</span></p>
+</td>
+</blockquote></tr>
+</blockquote></tbody>
+</table>
+</p>
+<p> </p>
+<p> </p>
+<p>
+<table cellpadding='0' cellspacing='0' border='1'>
+<tbody>
+<blockquote><tr>
+<blockquote><td>
+<p><strong><span>返回值</span></strong></p>
+</td>
+<td>
+<p><strong><span>说明</span></strong></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>commentList</span></p>
+</td>
+<td>
+<p><span>评论对象列表，类型为<span>List<</span>数据对象<span>comment></span></span></p>
+</td>
+</blockquote></tr>
+<tr>
+<blockquote><td>
+<p><span>pager</span></p>
+</td>
+<td>
+<p><span>分页对象</span></p>
+</td>
+</blockquote></tr>
+</blockquote></tbody>
+</table>
+</p>
+<p> </p>
+<p><strong>示例<span>1</span></strong></p>
+<p>分页提取评论，每页显示<span>10</span>条。</p>
+<p></blockquote>
+
+<pre><code>&lt;@commentPage  num='10' page='1' objtype="info" objid="${currInfo.id}" action='${contextPath}templet_pro.do?siteid=${site.id}&amp;templetPath=comment.html';commentList,pager&gt;<br>
+<br>
+ <br>
+<br>
+&lt;ul&gt;<br>
+<br>
+    &lt;#list commentList as comment&gt;<br>
+<br>
+    &lt;li&gt;<br>
+<br>
+        分页:${comment.content!""}<br>
+<br>
+    &lt;/li&gt;<br>
+<br>
+    &lt;/#list&gt;<br>
+<br>
+&lt;/ul&gt;<br>
+<br>
+${pager.formPageStr}<br>
+<br>
+&lt;/@commentPage&gt;<br>
+<br>
+</code></pre>
+</p>
